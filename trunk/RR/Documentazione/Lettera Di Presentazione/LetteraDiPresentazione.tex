@@ -1,0 +1,109 @@
+\documentclass[11pt,titlepage,a4paper]{report}
+
+%INCLUSIONE PACCHETTI
+%---------------------------------------------
+\usepackage[italian]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\graphicspath{{./pics/}}	% cartella di salvataggio immagini
+
+% STILE DI PAGINA
+%---------------------------------------------
+\pagestyle{plain}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\lhead{\nouppercase{\rightmark}}
+\rhead{\nouppercase{\leftmark}}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+%Ridefinisco lo stile plain della pagina
+\fancypagestyle{plain}{%
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	%\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+%---------------------------------------------
+
+
+%INIZIO DOCUMENTO
+
+
+%---------------------------------------------
+% PRIMA PAGINA
+%---------------------------------------------
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{0.5in}
+\includegraphics{logo.eps}
+\vspace*{0.2in}
+
+{\Large \textbf{BR-jsys}}
+
+{\Large \emph{Business Rules} per sistemi gestionali in architettura J2EE } 
+\vspace{1.3in}
+\par\rule{10cm}{.4pt} \par
+\par\rule{12cm}{1pt} \par
+\vspace*{0.5in}
+\LARGE \textbf {LETTERA DI PRESENTAZIONE}
+\vspace*{0.5in}
+\par\rule{12cm}{1pt} \par
+\par\rule{10cm}{.4pt} \par
+
+\end{center}
+\end{titlepage}
+\vspace*{0.5in}
+
+%---------------------------------------------
+% SECONDA PAGINA
+%---------------------------------------------
+\thispagestyle{plain}
+\begin{flushright}
+Alla cortese attenzione dei docenti\\
+prof. Tullio Vardanega e prof. Renato Conte,\\
+rappresentanti del committente\\
+Zucchetti S.r.l.
+\end{flushright}
+Padova, 05 Dicembre 2007\\
+
+
+La HappyCodeInc si offre di realizzare il prodotto software,
+descritto nel capitolato d'appalto C04 denominato ``BR-jsys''.
+Di seguito vengono riportati i nomi dei suoi componenti:
+\begin{itemize}
+\item{}Alessia Trivellato
+\item{}Elena Trivellato
+\item{}Filppo Carraro
+\item{}Luca Appon
+\item{}Marco Tessarotto
+\item{}Mattia Meroi
+\item{}Michele Bortolato
+\end{itemize}
+La data ultima di consegna del prodotto completo \`e stimata per la fine del
+secondo trimestre accademico. Alla presente viene allegata, secondo le modalit\`a da Voi dettate, la relativa
+documentazione richiesta, ovvero:
+\begin{itemize}
+\item{}Analisi dei Requisiti (AnalisiDeiRequisiti\_1\_3.pdf)
+\item{}Piano di Qualifica (PianoDiQualifica\_0\_2.pdf)
+\item{}Piano di Progetto (PianoDiProgetto\_0\_5.pdf)
+\end{itemize}
+Per una maggiore completezza e chiarezza dell'offerta, vengono allegati
+anche i documenti:
+\begin{itemize}
+\item{}Glossario (Glossario\_0\_4.pdf)
+\item{}Norme di Progetto (NormeDiProgetto\_0\_3.pdf)
+\item{}Verbale incontro con l'Azienda Zucchetti (Incontro2007\_11\_22.pdf)
+\end{itemize}
+Cordiali saluti.
+\begin{flushright}
+HappyCodeInc
+\end{flushright}
+
+
+\end{document}
+

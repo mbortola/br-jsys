@@ -1,0 +1,247 @@
+\documentclass[11pt,titlepage,a4paper]{report}
+
+%INCLUSIONE PACCHETTI
+%---------------------------------------------
+\usepackage[italian]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\graphicspath{{./pics/}}	% cartella di salvataggio immagini
+
+% STILE DI PAGINA
+%---------------------------------------------
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\lhead{\nouppercase{\rightmark}}
+\rhead{\nouppercase{\leftmark}}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+%Ridefinisco lo stile plain della pagina
+\fancypagestyle{plain}{%
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+%---------------------------------------------
+
+
+%INIZIO DOCUMENTO
+
+
+%---------------------------------------------
+% PRIMA PAGINA
+%---------------------------------------------
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{0.5in}
+\includegraphics{logo.eps}
+\vspace*{0.2in}
+
+{\Large \textbf{BR-jsys}}
+
+{\Large \emph{Business Rules} per sistemi gestionali in architettura J2EE } 
+\vspace{1.3in}
+\par\rule{10cm}{.4pt} \par
+\par\rule{12cm}{1pt} \par
+\vspace*{0.5in}
+\LARGE \textbf {NORME DI PROGETTO}
+\vspace*{0.5in}
+\par\rule{12cm}{1pt} \par
+{\large Versione 0.3 - 5 dicembre 2007}
+\par\rule{10cm}{.4pt} \par
+
+\end{center}
+\end{titlepage}
+\vspace*{0.5in}
+
+%---------------------------------------------
+% SECONDA PAGINA
+%---------------------------------------------
+\begin{center}
+\thispagestyle{plain}
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
+\begin{tabular}{||p{6cm}||p{6cm}||}
+\hline
+\textbf{Data creazione:} & 12/11/07 \\
+\hline
+\textbf{Versione:} & 0.3 \\
+\hline
+\textbf{Stato del documento:} & Formale ad uso Interno \\
+\hline
+\textbf{Redazione:} & Filippo Carraro \\
+\hline
+\textbf{Revisione:} & Marco Tessarotto \\
+\hline
+\textbf{Approvazione:}  & Elena Trivellato\\
+\hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Lista di distribuzione}}} \\
+\begin{tabular}{||p{6cm}||p{6cm}||}
+\hline
+{Tutta la HappyCode inc}& Gruppo di lavoro \\
+\hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Diario delle modifiche}}} \\
+\begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||}
+\hline
+\textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\
+\hline
+0.3 & 2007/12/03 & Revisione del documento. Modifiche al Comportamento generale e all'uso dello spazio web in Google Groups. \\
+\hline
+\hline
+0.2 & 2007/11/26 & Revisione del documento. Correzione errori ortografici. \\
+\hline
+\hline
+0.1 & 2007/11/12 & Stesura preliminare delle norme per i documenti. \\
+\hline
+\end{tabular} \\
+\end{tabular}
+
+}
+\end{table}
+\end{center}
+
+
+%---------------------------------------------
+\tableofcontents % Crea l'indice
+%---------------------------------------------
+
+\chapter{Introduzione}
+\section{Scopo del documento}
+Questo documento ha lo scopo di fornire una lista di norme
+generali sia per il comportamento dei vari membri del gruppo,
+sia per la stesura di tutta la documentazione interna
+ed esterna.E' rivolto quindi a tutta la HappyCode inc.
+
+\section{Glossario}
+Il glossario viene fornito in un file esterno chiamato \textbf {Glossario\_0\_4.pdf} 
+
+\chapter{Norme di Comportamento}
+\section{Uso della Mail del Gruppo}
+	La mail verr\`a utilizzata principalmente come mezzo di comunicazione 
+	e di informazione tra i vari componenti del gruppo,per ricordare scadenze e  segnalare risorse utili.
+	Inoltre sar\`a utilizzata come archivio per file di grosse dimensioni
+	che non necessitano di continue modifiche.
+
+\section{Uso dello spazio web in Google Groups}
+	Lo spazio web in Google Groups raggiungibile tramite il seguente URL: \({http://groups.google.com/group/happycodeinc}\)
+	, riservato ai soli membri del gruppo, i quali possono accedervi 
+ dopo essersi autenticati sul proprio account gmail.\\
+	Utilizzato per:
+	\begin{itemize}
+	\item Condivisione dei file necessari alla prossima revisione.
+	\item Archiviazione di file e documenti condivisi,o di uso frequente.
+	\item Gestione di discussioni su argomenti non chiari, o su possibili modifiche ai documenti.
+	\item Esposizione, tramite discussioni, di dubbi sulla correttezza dei documenti.
+	\item Aggiunta di pagine statiche contenenti risorse pertinenti i linguaggi utilizzati.
+	\item Iniziale stesura di documenti condivisi. 
+\end{itemize}
+
+\section{Struttura e Uso Cartella Condivisa}
+	La cartella condivisa chiamata \(HappyCodeInc\) conterr\`a al suo interno una cartella
+	per ogni revisione da effettuare o effettuata.\\
+	All'interno di quest'ultime si avranno, per ognuna,altre sottocartelle riguardanti
+	la documentazione,il codice prodotto,ecc...\\
+	Ogni documento,le sue versioni e revisioni andranno posti nella cartella corrispondente. 
+
+\section{Comportamento Generale}
+	Ad ogni componente del gruppo \`e richiesto, di partecipare alla stesura in
+	modalit\`a condivisa mediante le pagine statiche di Google Groups. 
+	Tutti i componenti contribuiranno ad ogni documento condiviso 
+	nella parte che pi\`u li compete , il documento verr\`a poi trascritto
+	all'interno del modello latex.
+	Ogni documento deve poi essere caricato  nella cartella condivisa del gruppo,
+	sia in formato tex sia in formato pdf.
+
+\chapter{Norme di Documento}
+\section{Nomenclatura}
+In questo capitolo vengono illustrate le norme per la nomenclatura di file sorgente e di testo.
+I nomi dei file devono essere significativi rispetto al loro contenuto ed inoltre:\\
+\begin{itemize}
+\item possono essere usati solo caratteri dell'alfabeto inglese dalla ``a'' alla ``z'' , minuscole e maiuscole.
+\item non devono essere utilizzati catteri speciali.
+\item non devono essere utilizzati catteri accentati.
+\item i nomi utilizzati non devono contenere spazi.
+\item Se il nome da utilizzare e' composto da piu' parole,
+queste dovranno essere disposte come in questo esempio: \\
+``EsempioDiNomeFile''
+\item Alla fine del nome del file deve esserci un codice per la versione 
+del documento nella forma :\\ 
+``\_a\_b'' \\
+
+dove:\\
+a=versione.\\
+b=revisione.\\
+
+- La versione, numero intero che parte da 0, verr\`a aggiornata,incrementandola,
+ogni volta che verr\`a aggiunta una nuova sezione al documento che tratta argomenti non presenti nel documento.
+
+- La revisione, numero intero che parte da 1, verr\`a incrementata ogni volta che il documento verr\`a modificato 
+e corretto, ma solo negli argomenti gi\`a presenti.
+
+\end{itemize}
+Esempio di un nome corretto:\\
+``NormeDiProgetto\_0\_1''
+
+\section{Impaginazione}
+Questo capitolo descrive l'impaginazione dei documenti ad uso interno ed esterno.
+Di seguito viene fornita la lista delle regole da seguire per la corretta stesura di un documento.
+
+\subsection{Struttura documento}
+Ogni documento \`e composto di queste parti:
+\begin{enumerate}
+\item Una prima pagina con il logo dell'azienda,titolo del documento,versione e data ultima modifica.
+\item Una seconda parte composta da tre tabelle contenti:
+	{\begin{itemize}
+	\item Data creazione (anno,mese,giorno),versione,stato del documento,\\
+			redazione,revisione,approvazione.
+	\item Lista di Distribuzione
+	\item Diario delle modifiche 
+	\end{itemize}}
+\item L'indice dei contenuti
+\item I contenuti del documento
+
+\end{enumerate}
+E' fornito un modello di documento generale \( Modello.tex\),nel quale sono state
+applicate le regole date precedentemente. E' consigliato quindi
+l'aggiornamento dello stesso,aggiungendo e modificando solo i capitoli necessari.
+
+\subsection{Intestazione/Pi\`e di pagina}
+L'intestazione e il pi\`e di pagina vengono generati automaticamente corretti dal file .tex.
+con i relativi loghi,il numero della pagina e i titoli dei capitoli.
+
+\subsection{Corpo del documento}
+	\subsubsection{Carattere Testo e Titoli}
+	Il carattere dei documenti e dei titoli \`e quello di default, scelto nel modello iniziale. 
+	Solo il titolo del documento dovr\`a essere messo tutto in maiuscolo.
+	Si dovr\`a sottostare a tali scelte,che inoltre rendono il tutto pi\`u leggibile e facile da usare. 
+	\subsubsection{Immagini}
+	Le immagini inserite nel corpo del documento dovranno essere necessariamente salvate nella cartella pics. Inoltre tutte le immagini contenute nei pdf devono essere in formato vettoriale eps.
+\section{Norme di Glossario}
+	Il glossario \`e fornito in un documento chiamato \textbf{ Glossario\_a\_b.pdf}. 
+	Dove ``a'' indica il numero di versione e ``b'' il numero di revisione, come descritto sopra.
+\end{document}
+
