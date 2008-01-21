@@ -136,7 +136,7 @@
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il presente documento identifica e spiega nel dettaglio le strategie di verifica e validazione proposte per il collaudo del sistema. Useremo l'analisi statica preliminare e l'analisi dinamica del codice per soddisfare i requisiti quali funzionalit\`a, affidabilit\`a e usabilit\`a del prodotto ''BR-jsys``.
+Il presente documento identifica e spiega nel dettaglio le strategie di verifica e validazione proposte per il collaudo del sistema al fine di fare emergere incongruenze e anomalie all'interno dello stesso. Useremo l'analisi statica preliminare e l'analisi dinamica del codice per soddisfare i requisiti quali funzionalit\`a, affidabilit\`a e usabilit\`a del prodotto ''BR-jsys``.
 
 \section{Scopo del prodotto}
 Il prodotto richiesto verr\`a inserito nell'ambito di un progetto pi\`u ampio. Il suo scopo \`e quello di automatizzare il sistema di validazione dei dati in ingresso al database dell'applicazione principale.
@@ -148,13 +148,29 @@ Viene fornito come documento esterno chiamato Glossario\_0\_4.pdf.
 
 \section[Organizzazione, pianificazione, responsabilit\`a]{Organizzazione, pianificazione strategica e temporale, responsabilit\`a}
 \subsection{Ciclo di vita}
-Le attivit\`a seguiranno un modello di tipo evolutivo che permetter\`a di apportare eventuali modifiche ai vari documenti. L'obiettivo \`e comprendere le richieste del cliente e quindi sviluppare una migliore definizione dei requisiti del sistema. Il prototipo si concentra sulle parti che sono mal comprese con l'obiettivo di contribuire a chiarire i requisiti. In quest'ottica il prototipo si pu\`o trasformare progressivamente nel prodotto. L'obiettivo del processo di sviluppo \`e lavorare in stretto contatto con il cliente per indagare i requisiti e giungere ad un prodotto finale. Si svilupperanno quindi le parti del sistema che sono ben chiare (requisiti ben compresi) e, solo successivamente si aggiungeranno nuove parti/funzionalit\`a come proposto dal cliente. 
+La nostra azienda istanzia il modello di ciclo di vita evolutivo, durante il quale il processo di sviluppo verr\`a affiancato dalla produzione di documentazione. La soluzione adottata permetter\`a di apportare eventuali modifiche sia ai vari documenti che al prodotto. Queste modifiche possono includere requisiti esistenti che non sono stati ancora implementati nel sistema rilasciato, richieste di nuovi requisiti e correzioni di bug da parte degli stakeholder del sistema, nuove idee e proposte per perfezionare il software (tratto da "Ingegneria del software" di Ian Sommerville). L'obiettivo \`e infatti comprendere e soddisfare progressivamente le richieste del cliente, esplicite o che possono essere dedotte dalle sue aspettative e sviluppare quindi una migliore definizione dei requisiti del sistema, concentrandosi principalmente sulle parti che sono mal comprese. Per giungere gradualmente ad un prodotto finale sar\`a necessario lavorare a stretto contatto con il cliente. Si svilupperanno quindi le parti del sistema che sono ben chiare (requisiti ben compresi) e solo successivamente si aggiungeranno nuove parti/funzionalit\`a come proposto dal cliente. 
 \subsection{Pianificazione delle attivit\`a}
-In una prima fase gli analisti discuteranno e cercheranno di comprendere meglio il problema da risolvere, soprattutto grazie alle varie comunicazioni e incontri con il cliente. Al termine di questa fase sar\`a possibile quindi scrivere l'analisi dei requisiti che sar\`a la base per la fase di progettazione seguente. Queste attivit\`a potranno essere eseguite in modo parallelo su diverse parti del sistema, come anche le attivit\`a di progettazione e verifica, in modo da consentire la riduzione di tempi e costi di consegna del prodotto. Al termine delle attivit\`a di progettazione seguir\`a quella di programmazione, che produrr\`a il prototipo richiesto. L'ultima fase prima del collaudo sar\`a dedicata ad un attenta verifica di tutto il lavoro svolto nelle precedenti fasi. Il verificatore ed il responsabile di progetto sono le figure alle quali verranno affidate le responsabilit\`a pertinenti alle attivit\`a di verifica. Per una descrizione pi\`u dettagliata della pianificazione si veda il documento del PianoDiProgetto\_0\_5.pdf.
+In una prima fase gli analisti discuteranno e cercheranno di comprendere meglio il problema da risolvere, grazie soprattutto alle varie comunicazioni e incontri con il cliente. Al termine di questa fase sar\`a possibile quindi scrivere una prima bozza dell'analisi dei requisiti che sar\`a la base per la fase di progettazione seguente. Queste attivit\`a potranno essere eseguite in modo parallelo su diverse parti del sistema, come anche le attivit\`a di progettazione e verifica, in modo da consentire la riduzione di tempi e costi di consegna del prodotto. Al termine delle attivit\`a di progettazione seguir\`a quella di programmazione, che produrr\`a il prototipo richiesto. L'ultima fase prima del collaudo sar\`a dedicata ad un attenta verifica di tutto il lavoro svolto nelle precedenti fasi. Il verificatore ed il responsabile di progetto sono le figure alle quali verranno affidate le responsabilit\`a pertinenti alle attivit\`a di verifica. Adotteremo due distinti processi di revisione:
+\begin{enumerate}
+\item Processo di revisione esterna condotta dal committente;
+\item Processo di revisione interna( di progresso), con il coinvolgimento del committente.
+\end{enumerate}
+Il processo di revisione esterna verr\`a applicato dal committente a:
+\begin{itemize}
+\item[-]\textbf{RR (Revisione dei requisiti);}
+\item[-]\textbf{RA (Revisione di accettazione);}
+\end{itemize}
+Il processo di revisione interna verr\`a applicato a:
+\begin{itemize}
+\item[-]\textbf{RPP (Revisione del prodotto preliminare);}
+\item[-]\textbf{RPD (Revisione del progetto definitivo);}
+\item[-]\textbf{RQ (Revisione di qualifica);}
+\end{itemize}
+Per contenere fattori critici che possono influenzare la buona riuscita del progetto ci affideremo alla produzione di prototipi da far visionare periodicamente al cliente al fine di soddisfare pienamente la domanda. Per una descrizione pi\`u dettagliata della pianificazione si veda il documento del PianoDiProgetto\_0\_5.pdf.
 
 \section{Risorse necessarie, risorse disponibili}
-Le attivit\`a di verifica necessitano di risorse umane e tecnologiche. Il gruppo \`e composto da sette membri, ognuno dei quali durante tutto il periodo di lavoro dovr\`a assumere, in periodi di tempo diversi (in base alla disponibilit\`a e soprattutto alle competenze di ciascuno) tutti i ruoli significativi per lo sviluppo del progetto. L'amministratore del progetto sar\`a tenuto a supervisionare tutte le fasi di verifica e a gestire le varie risorse necessarie per consentire un'attivit\`a di buon livello senza sprechi od oneri eccessivi. Per la comunicazione tra i componenti \`e stato creato un gruppo Google che permette la condivisione di files e la pianificazione di riunioni. Per l'archiviazione di grossi documenti o file verr\`a utilizzata la casella di posta elettronica del gruppo, mentre per i file di uso condiviso e quindi la cartella per la prossima revisione verr\`a usato lo spazio Google raggiungibile all'URL: \textit{http://groups.google.com/group/happycodeinc} e accessibile ai soli membri del gruppo.
-Essendo inoltre ognuno dei membri provvisto di un account Gmail, verr\`a utilizzato il sistema di chat locale per la comunicazione interattiva.
+Le attivit\`a di verifica necessitano di risorse umane e tecnologiche. Il gruppo \`e composto da sette membri, ognuno dei quali durante tutto il periodo di lavoro dovr\`a assumere, in periodi di tempo diversi (in base alla disponibilit\`a e soprattutto alle competenze di ciascuno) tutti i ruoli significativi per lo sviluppo del progetto. L'amministratore del progetto sar\`a tenuto a supervisionare tutte le fasi di verifica e a gestire le varie risorse necessarie per consentire un'attivit\`a di buon livello senza sprechi od oneri eccessivi. Per la comunicazione tra i componenti \`e stato creato un gruppo Google raggiungibile all'URL ``\ http://groups.google.com/group/happycodeinc'', accessibile ai soli membri del gruppo che permette discussioni, pianificazione di riunioni e la possibilit\`a di utilizzare il sistema di chat locale per le comunicazioni veloci. Per la condivisione dei file e il loro versionamento disponiamo invece di uno spazio svn presso Google all'URL ``\ http://code.google.com/p/br-jsys'' che utilizza la versione 1.4.0 di Subversion.
+
 \section{Strumenti, tecniche, metodi}
 \subsection{Analisi Statica}
 Questa fase verr\`a applicata durante la stesura del codice sorgente per rilevare incongruenze che possono sorgere tra il progetto e i requisiti. Verr\`a applicata inoltre sulla struttura delle varie componenti del sistema ''BR-jsys''. Essa comprende le seguenti sottofasi:
@@ -178,13 +194,22 @@ Questa fase verr\`a applicata durante la progettazione e la stesura del codice a
 \chapter[Gestione revisione]{Gestione amministrativa della revisione} 
 
 \section{Comunicazione e risoluzione di anomalie}
-Sar\`a compito dei verificatori la comunicazione delle anomalie e avverr\`a attraverso la stesura di documenti specifici. Costoro dovranno elencare le segnalazioni in modo che sia possibile individuare il punto errato in modo semplice e non ambiguo, eventualmente citando le parti non corrette. Discorso a parte va fatto per errori grammaticali o di formattazione che potranno essere corretti direttamente dai verificatori.
+Sar\`a compito dei verificatori la comunicazione delle anomalie e avverr\`a attraverso la stesura di documenti specifici. Costoro dovranno elencare le segnalazioni in modo che sia possibile individuare il punto errato in modo semplice e non ambiguo. Si dovr\`a pertanto spiegare in modo esaustivo i seguenti punti:
+\begin{itemize}
+\item[-]dati in ingresso
+\item[-]dati in uscita
+\item[-]dati attesi
+\item[-]ipotesi di causa
+\item[-]ipotesi di soluzione
+\end{itemize}
+Discorso a parte va fatto per errori grammaticali o di formattazione che potranno essere corretti direttamente dai verificatori.
 
 \section{Trattamento delle discrepanze} 
-Se dovessero verificarsi discrepanze tra le necessit\`a del cliente ed i requisiti risultanti dall'analisi si provveder\`a ad un ulteriore analisi che avr\`a la priorit\`a sulle altre attivit\`a. Si provveder\`a all'aggiornamento dei documenti di analisi dei requisiti e se necessario ai prodotti delle attivit\`a successive all'analisi. L'analista, in collaborazione col progettista e l'amministratore, valuter\`a l'impatto delle modifiche sul lavoro gi\`a svolto e comunicher\`a ai membri interessati le variazioni.
+Se dovessero verifiicarsi discrepanze tra le necessit\`a del cliente ed i requisiti risultanti dall'analisi si provveder\`a ad un ulteriore analisi che avr\`a la priorit\`a sulle altre attivit\`a. Si provveder\`a all'aggiornamento del documento di Analisi dei Requisiti e se necessario ai prodotti delle attivit\`a successive all'analisi. L'analista, in collaborazione col progettista e l'amministratore, valuter\`a l'impatto delle modifiche sul lavoro gi\`a svolto e comunicher\`a ai membri interessati le variazioni.
 
 \section{Procedure di controllo di qualit\`a di processo}
 Il controllo della qualit\`a del software interessa l'intero processo di sviluppo del prodotto in questione. Esso comprende il monitoraggio e il miglioramento del processo, la verifica dell'applicazione di standard e procedure prestabiliti nonch\`e la soluzione degli eventuali problemi.
+Parallelamnete alla componente software svilupperemo anche il relativo componente per il suo ``\test'' (test driver development). In questo modo ad ogni rilascio sar\`a possibile eseguire test che permettano di capire se l\`applicazione risponde alle sue specifiche e ai requisiti definiti in fase di analisi e se non si siano generati impatti indesiderati su altre componenti. 
 Per avere un esteso controllo degli errori, le modifiche apportate ai documenti, in seguito a inconsistenze riscontrate durante la fase di verifica e stesura, verranno notificate in ogni singolo cambiamento. Queste modifiche si troveranno all'inizio di ogni documento nella sezione ''Diario delle modifiche''. I verificatori sono tenuti a controllare parallelamente la documentazione sul lavoro svolto. Il responsabile di progetto deve verificare che le obiezioni sollevate dal verificatore siano corrette senza che si presentino discrepanze o anomalie. L'approvazione spetta pertanto al responsabile di progetto.
 
 \chapter{Pianificazione ed esecuzione del collaudo}
