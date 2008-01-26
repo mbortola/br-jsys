@@ -1,0 +1,18 @@
+\select@language {italian}
+\contentsline {chapter}{\numberline {1}Introduzione}{3}
+\contentsline {section}{\numberline {1.1}Scopo del documento}{3}
+\contentsline {section}{\numberline {1.2}Glossario}{3}
+\contentsline {chapter}{\numberline {2}Norme di Comportamento}{4}
+\contentsline {section}{\numberline {2.1}Uso della Mail del Gruppo}{4}
+\contentsline {section}{\numberline {2.2}Uso dello spazio web in Google Groups}{4}
+\contentsline {section}{\numberline {2.3}Struttura e Uso Cartella Condivisa}{5}
+\contentsline {section}{\numberline {2.4}Comportamento Generale}{5}
+\contentsline {chapter}{\numberline {3}Norme di Documento}{6}
+\contentsline {section}{\numberline {3.1}Nomenclatura}{6}
+\contentsline {section}{\numberline {3.2}Impaginazione}{7}
+\contentsline {subsection}{\numberline {3.2.1}Struttura documento}{7}
+\contentsline {subsection}{\numberline {3.2.2}Intestazione/Pi\`e di pagina}{7}
+\contentsline {subsection}{\numberline {3.2.3}Corpo del documento}{7}
+\contentsline {subsubsection}{Carattere Testo e Titoli}{7}
+\contentsline {subsubsection}{Immagini}{8}
+\contentsline {section}{\numberline {3.3}Norme di Glossario}{8}
