@@ -5,7 +5,7 @@
 \usepackage[italian]{babel}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
-\graphicspath{{./pics/}}	% cartella di salvataggio immagini
+\graphicspath{{./pics/}} % cartella di salvataggio immagini
 
 % STILE DI PAGINA
 %---------------------------------------------
@@ -26,17 +26,16 @@
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
 }
-%---------------------------------------------
 
-
-%INIZIO DOCUMENTO
-
-
-%---------------------------------------------
-% PRIMA PAGINA
-%---------------------------------------------
 \begin{document}
 
+%definizione variabili 
+\newcommand{\lv}{0.3} % latest version
+%fine definizione variabili
+
+
+
+\hyphenation{glos-sa-rio es-pli-ci-to ve-ri-fi-ca-re re-po-si-to-ry se-gna-la-ta coe-ren-za}
 \begin{titlepage}
 \begin{center}
 \vspace*{0.5in}
@@ -44,17 +43,12 @@
 \vspace*{0.2in}
 
 {\Large \textbf{BR-jsys}}
+{\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
+\vspace{2in}
 
-{\Large \emph{Business Rules} per sistemi gestionali in architettura J2EE } 
-\vspace{1.3in}
-\par\rule{10cm}{.4pt} \par
-\par\rule{12cm}{1pt} \par
-\vspace*{0.5in}
 \LARGE \textbf {NORME DI PROGETTO}
-\vspace*{0.5in}
-\par\rule{12cm}{1pt} \par
-{\large Versione 0.3 - 5 dicembre 2007}
-\par\rule{10cm}{.4pt} \par
+\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today}
+
 
 \end{center}
 \end{titlepage}
