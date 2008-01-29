@@ -1,0 +1,190 @@
+\documentclass[11pt,titlepage,a4paper]{report}
+
+%INCLUSIONE PACCHETTI
+%---------------------------------------------
+\usepackage[italian]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\graphicspath{{./pics/}} % cartella di salvataggio immagini
+
+% STILE DI PAGINA
+%---------------------------------------------
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\lhead{\nouppercase{\rightmark}}
+\rhead{\nouppercase{\leftmark}}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+%Ridefinisco lo stile plain della pagina
+\fancypagestyle{plain}{%
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+
+\begin{document}
+
+%definizione variabili 
+\newcommand{\lv}{1.2} % latest version
+%fine definizione variabili
+
+
+
+
+\hyphenation{glos-sa-rio es-pli-ci-to ve-ri-fi-ca-re re-po-si-to-ry se-gna-la-ta coe-ren-za}
+\begin{titlepage}
+\begin{center}
+\vspace*{0.5in}
+\includegraphics{logo.eps}
+\vspace*{0.2in}
+
+{\Large \textbf{BR-jsys}}
+{\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
+\vspace{2in}
+
+\LARGE \textbf {GLOSSARIO}
+\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today}
+
+
+\end{center}
+\end{titlepage}
+\vspace*{0.5in}
+
+\begin{center}
+\thispagestyle{plain}
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
+\begin{tabular}{||p{6cm}||p{6cm}||}
+\hline
+\textbf{Data creazione:} & 03/12/2007 \\ \hline
+\textbf{Versione:} & \lv \\ \hline
+\textbf{Stato del documento:} & Formale, esterno \\ \hline
+% ----------------------------------------------------------------------------autori
+\textbf{Redazione:} & Michele Bortolato\\ \hline
+\textbf{Revisione:} & Marco Tessarotto\\ \hline
+\textbf{Approvazione:}  & Elena Trivellato\\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Lista di distribuzione}}} \\
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+%  -------------------------------------------------------------lista di distribuzione
+{Elena Trivellato}& Responsabile di progetto \\ \hline 
+{Filippo Carraro}& Progettista \\ \hline
+{Alessia Trivellato, Michele Bortolato}& Analisti \\ \hline
+{Marco Tessarotto}& Verificatore \\ \hline
+{Tullio Vardanega, Renato Conte}& Committente \\ \hline 
+{Zucchetti S.r.l}& Azienda proponente\\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Diario delle modifiche}}} \\
+\begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
+\textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
+%-------------------------------------------------------------------------------diario modifiche
+1.2 & 22/01/2008 & Modifica al layout dei documenti.\\ \hline
+1.1 & 09/01/2008 & Canecellazioni e inserimenti.\\ \hline
+1.0 & 21/12/2007 & Documento sottoposto a revisionamento automatico.\\ \hline
+0.4 & 2007/12/05 & Correzione del documento. \\ \hline
+0.3 & 2007/12/05 & Inserimento documento nel modello unico di layout. \\ \hline
+0.2 & 2007/12/04 & Aggiunta nuovi termini. \\ \hline
+0.1 & 2007/12/03 & Stesura preliminare del documento. \\ \hline
+
+\end{tabular} \\
+\end{tabular}
+
+}
+\end{table}
+\end{center}
+\newpage
+
+\chapter{Scopo del documento}
+Il seguente documento ha lo scopo di fornire una breve lista dei termini usati nei vari documenti che possono sembrare ambigui oppure necessitano di una definizione o di una migliore spiegazione. In alcuni casi vengno messi disposizione dei collegamenti web per chi necessitasse di ulteriori informazioni.
+\chapter{Elenco dei termini}
+\begin{itemize}
+
+\item{\textbf{Account Gmail:}
+Per account Gmail si intende l'account personale fornito gratuitamente da Google e attivato da ognuno dei membri della HappyCode Inc.}
+
+\item{\textbf{Architettura J2EE:}
+Vedi J2EE.}
+
+\item{\textbf{BR-jsys:}
+Per BR-jsys si intende un sistema software per la gestione di business rules in ambito gestionale.}
+
+\item{\textbf{Business Object:}
+Anche chiamato Oggetto Business, \`e un oggetto, in un linguaggio di programmazione orientato agli oggetti, che astrae le entit\`a solitamente presenti in un database relazionale.
+Per esempio, un acquisto ha bisogno di un acquirente, di un fornitore e di merci di scambio, entrambe possono essere rappresentate in un database relazionale tramite entit\`a o in un programma sviluppato con un linguaggio orientato agli oggetti(come java o C++) tramite business objects.}
+
+\item{\textbf{Business rule:}
+Una business rule o Regola Business \`e una regola atta a definire dei vincoli particolari all'interno della gestione di un azienda. Ad esempio una Business Rule potrebbe essere questa: A tutti i prodotti con prezzo superiore a 600 euro  viene applicato uno sconto dell' 5\%.}
+
+\item{\textbf{Discussioni:}
+Con questo termine ci si riferisce ad una delle risorse disponibili su Google Groups, la quale permette lo scambio di pareri (similmente a un forum) all'interno del gruppo stesso.}
+
+\item{\textbf{Driver:}
+Componente attiva fittizia per pilotare un modulo.}
+
+\item{\textbf{Google Groups:}
+Vedi Spazio web in Google Groups. }
+
+\item{\textbf{J2EE:}
+Il termine J2EE \`e l'acronimo di Java 2 Enterprise Edition, Ossia la versione enterprise della piattaforma Java, utilizzata per lo sviluppo di applicazioni server.}
+
+\item{\textbf{Mail del Gruppo:}
+L'indirizzo di posta elettronica \textit{happycodeinc@gmail.com} creata appositamente come supporto allo sviluppo del progetto.}
+
+\item{\textbf{Middleware:}
+Programma informatico che funge da intermediario tra diverse applicazioni.}
+
+\item{\textbf{Modulo:}
+Componente collaudabile del software.}
+
+\item{\textbf{Oggetto Business:}
+Vedi Business Object.}
+
+\item{\textbf{Pagine Statiche:}
+Con questo termine ci si riferisce ad una delle risorse disponibili su Google Groups,  la quale permette di definire documenti modificabili e consultabili da parte di tutto il gruppo.}
+
+\item{\textbf{Regola Business:}
+Vedi Business Rule.}
+
+\item{\textbf{Rejector:}
+Tipologia di business rule che consente di bloccare un operazione se i dati analizzati non sono accettabili.}
+ 
+\item{\textbf{Repository:}
+Per repository si intende un archivio (nel nostro caso un file in linguaggio XML) in cui vengono memorizzati e mantenuti dei dati.}
+
+\item{\textbf{Revisione:}
+La revisione, numero intero che parte da 1, indica se il documento \`e stato aggiornato dal suo ultimo rilascio. Un aumento nell'indice di revisione indica che il documento \`e stato modificato e/o corretto in una dele sue parti}.
+
+\item{\textbf{Stub:}
+Componente passiva fittizia per simulare un modulo.}
+
+\item{\textbf{Spazio web in Google Groups:}
+Per spazio web in Google Groups si sintende l'insieme delle risorse messe a disposizione da Google Groups, raggiungibili dai soli membri della HappyCode Inc all'URL\\ \textit{http://groups.google.com/group/happycodeinc} e comprensivo delle seguenti risorse: spazio web per la condivisione di file, gestione delle discussioni, gestione delle pagine statiche.}
+
+\item{\textbf{Versione:}
+La versione, numero intero che parte da 0, serve a stabilire se il documento \`e stato modificato dal suo ultimo rilascio. Un aumento nell'indice della versione indica l'aggiunta di  una nuova sezione al documento.}
+
+\end{itemize}
+
+\newpage
+\tableofcontents
+\end{document}
