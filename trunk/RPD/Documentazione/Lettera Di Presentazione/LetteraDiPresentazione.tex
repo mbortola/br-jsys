@@ -5,11 +5,11 @@
 \usepackage[italian]{babel}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
-\graphicspath{{./pics/}}	% cartella di salvataggio immagini
+\graphicspath{{./pics/}} % cartella di salvataggio immagini
 
 % STILE DI PAGINA
 %---------------------------------------------
-\pagestyle{plain}
+\pagestyle{fancy}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 \lhead{\nouppercase{\rightmark}}
 \rhead{\nouppercase{\leftmark}}
@@ -22,20 +22,13 @@
 	\chead{}
 	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
 	\lfoot{BR-jsys}
-	%\cfoot{\thepage}
+	\cfoot{\thepage}
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
 }
-%---------------------------------------------
 
-
-%INIZIO DOCUMENTO
-
-
-%---------------------------------------------
-% PRIMA PAGINA
-%---------------------------------------------
 \begin{document}
+
 
 \begin{titlepage}
 \begin{center}
@@ -44,24 +37,17 @@
 \vspace*{0.2in}
 
 {\Large \textbf{BR-jsys}}
+{\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
+\vspace{2in}
 
-{\Large \emph{Business Rules} per sistemi gestionali in architettura J2EE } 
-\vspace{1.3in}
-\par\rule{10cm}{.4pt} \par
-\par\rule{12cm}{1pt} \par
-\vspace*{0.5in}
 \LARGE \textbf {LETTERA DI PRESENTAZIONE}
-\vspace*{0.5in}
-\par\rule{12cm}{1pt} \par
-\par\rule{10cm}{.4pt} \par
+\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today}
+
 
 \end{center}
 \end{titlepage}
 \vspace*{0.5in}
 
-%---------------------------------------------
-% SECONDA PAGINA
-%---------------------------------------------
 \thispagestyle{plain}
 \begin{flushright}
 Alla cortese attenzione dei docenti\\
