@@ -120,11 +120,11 @@
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il presente documento viene redatto al fine di identificare i requisiti presenti nel capitolato d'appalto denominato BR-jsys e per conseguire il raggiungimento dell'obiettivo richiesto e soddisfare le esigenze di tutti gli stakeholders coinvolti nella realizzazione del progetto di cui sopra.
+Il presente documento viene redatto al fine di identificare i requisiti presenti nel capitolato d'appalto denominato BR-jsys, conseguire il raggiungimento dell'obiettivo richiesto e soddisfare le esigenze di tutti gli stakeholders coinvolti nella realizzazione del progetto di cui sopra.
 \section{Scopo del prodotto}
-Il prodotto andr\`a inserito in un progetto globale. L'obiettivo principale del prodotto \`e quello di testare la consistenza di business object altrimenti difficilmente verificabile tramite vincoli relazionali.
-In particolare verr\`a creato un linguaggio per la definizione di business rules; le business rules verranno immagazzinate poi in un \textit{file repository}. Nel momento in cui l'utente necessita di verificare la consistenza di un business object un interprete si preoccuper\'a di invocare ed eseguire le regole che riguardano tale business object, stabilendo se esso rispetta tutte le regole.
-Il progetto dovr\'a integrarsi con le componenti gi\'a sviluppate dall' azienda proponente, in particolare dovr\`a interfacciarsi con il loro interprete, Il quale \`e incaricato di applicare le regole ai business object.
+Il prodotto andr\`a inserito in un progetto globale. L'obiettivo principale del prodotto \`e quello di testare la consistenza di business objects altrimenti difficilmente verificabili tramite vincoli relazionali.
+In particolare verr\`a creato un linguaggio per la definizione di business rules; quest'ultime verranno poi immagazzinate in un \textit{file repository}. Nel momento in cui l'utente avr\`a bisogno di verificare la consistenza di un business object, un interprete si preoccuper\`a di invocare ed eseguire le regole che lo riguardano, stabilendo cos\`i se esso rispetta o no tutte le regole.
+Il progetto dovr\`a integrarsi con le componenti gi\`a sviluppate dall' azienda proponente; in particolare dovr\`a interfacciarsi con il loro interprete che sar\`a incaricato di applicare le regole ai business objects.
 \section{Definizioni, acronimi, abbreviazioni}
 Vengono di seguito riportate in una tabella le abbreviazioni utlizzate nel documento. Comprese le sigle utilizzate per il tracciamento dei requisiti.
 \begin{center}
@@ -141,16 +141,20 @@ NQ\textit{\#} & Con NQ seguito da un numero intero sono indicati i requisiti di 
 
 \end{tabular} \\
 \end{center}
-
+Per gli altri termini qui non citati si fa riferimento al file esterno Glossario.1.2.pdf.
 \section{Riferimenti}
-Per un miglior tracciamento dei requisiti abbiamo ritenuto opportuno consultarci con l'azienda proponente. Il contenuto di tale contatto \`e reperibile nel verbale allegato (Incontro2007\_11\_22.pdf).
+\begin{itemize}
+\item Capitolato d'appalto concorso per sistema BR-jsys
+\item Verbale dell'incontro con il committente Incontro2007-11-22.pdf
+\item ``Ingegneria del Software'' 8a edizione - Ian Sommerville
+\end{itemize}
 %----------------------------------------------------------------------------------inserire il libro 
 \section{Descrizione del resto del documento}
-Di seguito viene descritto il sistema designato dalla sigla BR-jsys. Viene inoltre brevemente descritta la sua funzionalit\`a, la tipologia di utenti ed il contesto d'uso. L'analisi del sistema vine presentata con l'ausilio di un formalismo grafico: i diagrammi use-case UML. Vengono infine riportati tutti i requisiti individuati dalla \textit{Happycode Inc.} .
+Di seguito viene descritto il sistema designato dalla sigla BR-jsys. Viene inoltre brevemente descritta la sua funzionalit\`a, la tipologia di utenti ed il contesto d'uso. L'analisi del sistema viene presentata con l'ausilio di un formalismo grafico: i diagrammi use-case UML. Vengono infine riportati tutti i requisiti individuati dalla \textit{Happycode Inc.} .
 
 \chapter{Descrizione generale}
 \section{Prospettiva del prodotto}
-Il sistema va a collocarsi all'interno di un progetto globale di automazione nella generazione del codice per la produzione di software gestionale. In particolare il sistema si occuper\`a della gestione delle business rules, definendo un linguaggio con cui descriverle, e un sistema di archiviazione-recupero delle stesse.
+Il sistema va a collocarsi all'interno di un progetto globale di automazione nella generazione del codice per la produzione di software gestionale. In particolare il sistema si occuper\`a della gestione delle business rules, definendo un linguaggio con cui descriverle e un sistema di archiviazione-recupero delle stesse.
 \section{Funzioni del prodotto}
 Il sistema si occupa di definire un linguaggio con cui descrivere business rules, pi\`u concretamente il sistema dovr\`a verificare che delle business rules inserite dall'utente rispettino il sopracitato linguaggio, in caso di esito positivo dovr\`a inserirle in un repository dal quale possano poi essere recuperate nel momento in cui si desideri verificare la consistenza di un business object.
 \section{Caratteristiche utente}
@@ -165,7 +169,7 @@ Il linguaggio di programmazione adottato per lo sviluppo del prodotto sar\`a Jav
 \end{itemize}
 
 \chapter{Requisiti Specifici}
-Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, vengono ora presi in considerazione dei diagrammi use-case UML. In seguito vengono elencati i requisiti individuati ognuno dei quali \`e preceduto da una sigla identificativa e seguito da una sigla che indica il documento da cui proviene il requisito.
+Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno qui presi in considerazione dei diagrammi use-case UML. Verranno elencati in seguito i requisiti individuati, ognuno dei quali preceduto da una sigla identificativa e seguito da una sigla che indica il documento da cui proviene.
 
 
 \section{Inserimento e cancellazione di business rule.}
@@ -175,7 +179,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, vengono or
 
 \subsection{Inserisci nuova business rule.}
 \underline{Attori coinvolti:} L'utente finale che desidera inserire nel repository una nuova business rule.\\
-\underline{Scopo e descrizione sintetica:} Il sistema riceve in ingresso una nuova business rule, che dovr\`a essere validata.\\
+\underline{Scopo e descrizione sintetica:} Il sistema riceve in ingresso una nuova business rule che dovr\`a essere validata.\\
 \underline{Flusso di eventi:} Il sistema acquisisce la nuova business rule appena inserita dall'utente e la invia successivamente al validatore.\\
 \underline{Precondizioni:} L'utente ha inserito una nuova business rule.\\
 \underline{Postcondizioni} La business rule viene inviata al validatore.
@@ -193,13 +197,13 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, vengono or
 \underline{Postcondizioni} La business rule pu\`o avanzare al successivo controllo.
 
 \subsection{Controlla la semantica.}
-\underline{Scopo e descrizione sintetica:} Si controllano i tipi nella nuova business rule e si verifica che i campi dati utilizzati siano realmente presenti nel business object associato.\\
+\underline{Scopo e descrizione sintetica:} Si controllano i tipi nella nuova business rule e si verificano che i campi dati utilizzati siano realmente presenti nel business object associato.\\
 \underline{Flusso di eventi:} Vengono controllati i tipi nella business rule e la corrispondenza tra i campi dati usati nella business rule e quelli presenti nel business object ad essa associato.\\
 \underline{Precondizioni:} Il validatore ha inviato la business rule al controllo semantico.\\
 \underline{Postcondizioni} La business rule \`e pronta per essere inserita nel \textit{repository}.
 
 \subsection{Restituisci messaggio di errore.}
-\underline{Attori coinvolti:} L'utente finale che ha cercato di inserire una nuova business rule e riceve una segnalazione che lo aiuti a corregerla quando questa risulta errata.\\
+\underline{Attori coinvolti:} L'utente finale che ha cercato di inserire una nuova business rule e non ci \`e riuscito.\\
 \underline{Scopo e descrizione sintetica:} Il sistema comunica all'utente che la business rule inserita presenta degli errori.\\
 \underline{Flusso di eventi:} Il sistema  a fronte di un errore nella validazione della business rule invia una segnalazione dell'errore all'utente.\\
 \underline{Precondizioni:} La validazione non \`e andata a buon fine.\\
@@ -215,7 +219,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, vengono or
 \subsection{Richiedi al DBMS di cancellare dal repository.}
 \underline{Attori coinvolti:} L'utente finale che richiede al sistema di cancellare una business rule dal repository e il DBMS che si preoccuper\`a di cancellarla.\\
 \underline{Scopo e descrizione sintetica:} Il sistema mette in comunicazione l'utente finale col DBMS richiedendo al DBMS la cancellazione della business rule indicata dall'utente\\
-\underline{Flusso di eventi:} Il sistema riceve la richiesta di cancellazione di una business rule e comunica al DBMS la business rule da cancellare.\\
+\underline{Flusso di eventi:} Il sistema riceve la richiesta di cancellazione di una business rule e la comunica al DBMS.\\
 \underline{Precondizioni:} L'utente ha chiesto che una determinata business rule venga cancellata.\\
 \underline{Postcondizioni} Il DBMS canceller\`a la business rule dal \textit{repository}.
 
@@ -226,7 +230,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, vengono or
 \end{center}
 
 \subsection{Gestione della richiesta.}
-\underline{Attori coinvolti:} L'interprete esterno fornito dall' azienda che richiede la validazione di un business object.\\
+\underline{Attori coinvolti:} L'interprete esterno fornito dall'azienda che richiede la validazione di un business object.\\
 \underline{Scopo e descrizione sintetica:} Il sistema riceve una richiesta di validazione per un business object.\\
 \underline{Flusso di eventi:} Il sistema ha ricevuto la richiesta di validazione per un determinato business object.\\
 \underline{Precondizioni:} L'utente ha richiesto di validare un business object.\\
@@ -240,7 +244,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, vengono or
 \underline{Postcondizioni} Il DBMS riceve la richiesta di recuperare delle business rules dal repository.
 
 \subsection{Manda le business rules all'interprete.}
-\underline{Attori coinvolti:} L'interprete esterno fornito dall' azienda che riceve le business rules per poter validare il suo business object.\\
+\underline{Attori coinvolti:} L'interprete esterno fornito dall'azienda che riceve le business rules per poter validare il suo business object.\\
 \underline{Scopo e descrizione sintetica:} Il sistema ricevute le regole dal DBMS le invia all'interprete esterno.\\
 \underline{Flusso di eventi:} Il sistema ricevute dal DBMS tutte le regole riguardanti un determinato business object le invia all'interprete esterno.\\
 \underline{Precondizioni:} Il DBMS ha terminato il recupero di tutte le business rules che riguardano il business object dato.\\
@@ -255,17 +259,17 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, vengono or
 \item[F5]{Nell'interagire col repository il sistema dovr\'a appoggiarsi ad un DBMS esterno. [I02]}
 \item[F6]{Il sistema deve essere in grado di interfacciarsi all'interprete esterno fornito dall'azienda proponente fornendo ad esso le regole business da eseguire. [I02]}
 \item[F7]{Il sistema dovr\`a consentire la cancellazione di business rules all'interno del repository. [I02]}
-\item[F8]{Il sistema dovr\`a essere dotato di una interfaccia grafica minimale che consenta di inserire e cancellare business rules nel repository, per  vedere in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
-\item[F9]{ OPZIONALE : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra business rules. Verificher\`a cio\`e se la business rule da inserire nel repository entra in conflitto con le altre gi\'a presenti in esso. In particolare dovr\'a verificare che le business rules presenti nel repository rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i business object. [C04]}
+\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di inserire e cancellare business rules nel repository, per  vedere in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
+\item[F9]{ OPZIONALE : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra business rules. Verificher\`a cio\`e se la business rule da inserire nel repository entra in conflitto con le altre gi\`a presenti in esso. In particolare dovr\`a verificare che le business rules presenti nel repository rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i business objects. [C04]}
 \item[F10]{Il validatore nel validare una business rule deve poter accedere ai campi del business object ad essa associato, qualora la business rule utilizzasse tali campi. [I02]}
-\item[F11]{Ad ogni business rule \'e associato un business object, nel quale vanno eventualmente ricercati i campi dati utilizzati nella business rule. [I02]}
+\item[F11]{Ad ogni business rule \'e associato un business object nel quale vanno eventualmente ricercati i campi dati utilizzati nella business rule. [I02]}
 \end{itemize}
 
 \section{Requisiti di usabilit\`a}
 \begin{itemize}
 \item[NU1]{Il linguaggio dovr\`a essere di alto livello. Dovr\`a cio\`e essere semplice da capire per un utente con bassa conoscenza informatica. [I01]}
 \item[NU2]{Il linguaggio deve fornire funzioni primitive per le operazioni base tra i dati, come la somma, la media aritmetica e la negazione logica. [I01]}
-\item[NU3]{Ad ognuno dei confronti presenti in una business rule deve essere possibile da parte dell\`'utente associare un messaggio, che aiuti l'utente finale (ossia quello che chiede la validazione di un business object) a capire dove la validazione non \`e andata a buon fine. [I02]}
+\item[NU3]{Ad ognuno dei confronti presenti in una business rule deve essere possibile, da parte dell\`'utente, associare un messaggio che aiuti l'utente finale (ossia quello che chiede la validazione di un business object) a capire dove la validazione non \`e andata a buon fine. [I02]}
 \end{itemize}
 
 \section{Requisiti di portabilit\`a}
@@ -275,8 +279,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, vengono or
 
 \section{Requisiti prestazionali}
 \begin{itemize}
- \item[NPr1]{Il DBMS che andr\`a a interagire con il repository dovr\`a garantire una buona velocit\`a nell'interrogazione (mediante query) del file XML.
- Anche in presenza di un sostanziale popolamento dello stesso. [I02]}
+ \item[NPr1]{Il DBMS che andr\`a a interagire con il repository dovr\`a garantire una buona velocit\`a nell'interrogazione (mediante query) del file XML, anche in presenza di un sostanziale popolamento dello stesso. [I02]}
 \item[NPr2]{Ad ogni business rule deve venir associato un numero identificativo univoco per migliorarne l'indicizzazione nel repository. [I02]}
 \end{itemize}
 
