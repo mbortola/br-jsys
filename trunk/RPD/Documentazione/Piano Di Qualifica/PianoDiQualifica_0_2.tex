@@ -1,0 +1,411 @@
+\documentclass[11pt,titlepage,a4paper]{report}
+
+%INCLUSIONE PACCHETTI
+%---------------------------------------------
+\usepackage[italian]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\graphicspath{{./pics/}}	% cartella di salvataggio immagini
+
+% STILE DI PAGINA
+%---------------------------------------------
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\lhead{\nouppercase{\rightmark}}
+\rhead{\nouppercase{\leftmark}}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+%Ridefinisco lo stile plain della pagina
+\fancypagestyle{plain}{%
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+%---------------------------------------------
+
+
+%INIZIO DOCUMENTO
+
+
+%---------------------------------------------
+% PRIMA PAGINA
+%---------------------------------------------
+\begin{document}
+
+\hyphenation{re-qui-si-ti in-se-ri-men-to}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{0.5in}
+\includegraphics{logo.eps}
+\vspace*{0.2in}
+
+{\Large \textbf{BR-jsys}}
+
+{\Large \emph{Business Rules} per sistemi gestionali in architettura J2EE } 
+\vspace{1.3in}
+\par\rule{10cm}{.4pt} \par
+\par\rule{12cm}{1pt} \par
+\vspace*{0.5in}
+\LARGE \textbf {PIANO DI QUALIFICA}
+\vspace*{0.5in}
+\par\rule{12cm}{1pt} \par
+{\large Versione 0.2 - \today}
+\par\rule{10cm}{.4pt} \par
+
+\end{center}
+\end{titlepage}
+\vspace*{0.5in}
+
+%---------------------------------------------
+% SECONDA PAGINA
+%---------------------------------------------
+\begin{center}
+\thispagestyle{plain}
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
+\begin{tabular}{||p{6cm}||p{6cm}||}
+\hline
+\textbf{Data creazione:} & 19/11/07 \\
+\hline
+\textbf{Versione:} & 0.2 \\
+\hline
+\textbf{Stato del documento:} & formale, esterno \\
+\hline
+\textbf{Redazione:} & Luca Appon \\
+\hline
+\textbf{Revisione:} & Marco Tessarotto   \\
+\hline
+\textbf{Approvazione:}  & Elena Trivellato\\
+\hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Lista di distribuzione}}} \\
+\begin{tabular}{||p{6cm}||p{6cm}||}
+\hline
+{Elena Trivellato}& Responsabile di progetto \\ 
+\hline 
+{Filippo Carraro}& Amministratore \\ 
+\hline
+{Marco Tessarotto}& Verificatore \\
+\hline
+{Tullio Vardanega}& Committente \\
+\hline
+{Renato Conte}& Committente \\
+\hline
+{Zucchetti S.r.l.}& Proponente \\
+\hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Diario delle modifiche}}} \\
+\begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||}
+\hline
+\textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\
+\hline
+0.2 & 2007/12/06& Correzione errori. \\
+\hline
+0.1 & 2007/11/19 & Stesura preliminare del documento. \\
+\hline
+\end{tabular} \\
+\end{tabular}
+
+}
+\end{table}
+\end{center}
+
+\tableofcontents	%Crea l'indice
+
+\chapter{Introduzione}
+\section{Scopo del documento}
+Il presente documento identifica e spiega nel dettaglio le strategie di verifica e validazione proposte per il collaudo del sistema. Useremo l'analisi statica preliminare e l'analisi dinamica del codice per soddisfare i requisiti quali funzionalit\`a,affidabilit\`a e usabilit\`a del prodotto ''BR-jsys``.
+
+\section{Scopo del prodotto}
+Il prodotto richiesto verr\`a inserito nell'ambito di un progetto pi\`u ampio. Il suo scopo \`e quello di automatizzare il sistema di validazione dei dati in ingresso al database dell'applicazione principale.
+
+\section{Glossario}
+Viene fornito come documento esterno chiamato Glossario\_0\_4.pdf.
+
+\chapter[Strategia di verifica]{Visione generale della strategia di verifica}
+
+\section[Organizzazione, pianificazione, responsabilit\`a]{Organizzazione, pianificazione strategica e temporale, responsabilit\`a}
+\subsection{Ciclo di vita}
+Le attivit\`a seguiranno un modello di tipo evolutivo che permetter\`a di apportare eventuali modifiche ai vari documenti. L'obiettivo \`e comprendere le richieste del cliente e quindi sviluppare una migliore definizione dei requisiti del sistema. Il prototipo si concentra sulle parti che sono mal comprese con l'obiettivo di contribuire a chiarire i requisiti. In quest'ottica il prototipo si pu\`o trasformare progressivamente nel prodotto. L'obiettivo del processo di sviluppo \`e lavorare in stretto contatto con il cliente per indagare i requisiti e giungere ad un prodotto finale. Si svilupperanno quindi le parti del sistema che sono ben chiare (requisiti ben compresi) e, solo successivamente si aggiungeranno nuove parti/funzionalit\`a come proposto dal cliente. 
+\subsection{Pianificazione delle attivit\`a}
+In una prima fase gli analisti discuteranno e cercheranno di comprendere meglio il problema da risolvere, soprattutto grazie alle varie comunicazioni e incontri con il cliente. Al termine di questa fase sar\`a possibile quindi scrivere l'analisi dei requisiti che sar\`a la base per la fase di progettazione seguente. Queste attivit\`a potranno essere eseguite in modo parallelo su diverse parti del sistema, come anche le attivit\`a di progettazione e verifica, in modo da consentire la riduzione di tempi e costi di consegna del prodotto. Al termine delle attivit\`a di progettazione seguir\`a quella di programmazione, che produrr\`a il prototipo richiesto. L'ultima fase prima del collaudo sar\`a dedicata ad un attenta verifica di tutto il lavoro svolto nelle precedenti fasi. Il verificatore ed il responsabile di progetto sono le figure alle quali verranno affidate le responsabilit\`a pertinenti alle attivit\`a di verifica. Per una descrizione pi\`u dettagliata della pianificazione si veda il documento del PianoDiProgetto\_0\_5.pdf.
+
+\section{Risorse necessarie, risorse disponibili}
+Le attivit\`a di verifica necessitano di risorse umane e tecnologiche. Il gruppo \`e composto da sette membri, ognuno dei quali durante tutto il periodo di lavoro dovr\`a assumere, in periodi di tempo diversi (in base alla disponibilit\`a e soprattutto alle competenze di ciascuno) tutti i ruoli significativi per lo sviluppo del progetto. L'amministratore del progetto sar\`a tenuto a supervisionare tutte le fasi di verifica e a gestire le varie risorse necessarie per consentire un'attivit\`a di buon livello senza sprechi od oneri eccessivi. Per la comunicazione tra i componenti \`e stato creato un gruppo Google che permette la condivisione di files e la pianificazione di riunioni. Per l'archiviazione di grossi documenti o file verr\`a utilizzata la casella di posta elettronica del gruppo, mentre per i file di uso condiviso e quindi la cartella per la prossima revisione verr\`a usato lo spazio Google raggiungibile all'URL: \textit{http://groups.google.com/group/happycodeinc} e accessibile ai soli membri del gruppo.
+Essendo inoltre ognuno dei membri provvisto di un account Gmail, verr\`a utilizzato il sistema di chat locale per la comunicazione interattiva.
+\section{Strumenti, tecniche, metodi}
+\subsection{Analisi Statica}
+Questa fase verr\`a applicata durante la stesura del codice sorgente per rilevare incongruenze che possono sorgere tra il progetto e i requisiti. Verr\`a applicata inoltre sulla struttura delle varie componenti del sistema ''BR-jsys''. Essa comprende le seguenti sottofasi:
+\begin{itemize}
+\item \textbf{Analisi del flusso di controllo:} Verificher\`a una corretta esecuzione del codice  da parte delle varie componenti del prodotto.
+In particolare, si controller\`a che:
+\begin{itemize}
+\item[-]il validatore accetti la regola in ingresso secondo le specifiche del linguaggio scelto;
+\item[-]l'esecutore verifichi la consistenza dei dati espressi dagli oggetti business.
+\end{itemize}
+\item \textbf{Verifica formale del codice:} Verificher\`a la correttezza del codice scritto. Si constater\`a in particolare la correttezza totale di ogni modulo in modo che non conduca mai in uno stato di non terminazione.
+\end{itemize}
+
+\subsection{Analisi Dinamica}
+Questa fase verr\`a applicata durante la progettazione e la stesura del codice al fine di verificare dinamicamente l'indipendenza delle singole unit\`a rispetto all'integrazione del sistema. Verr\`a testato quindi il sistema in tutti i suoi possibili casi e verranno effettuate prove per verificarne l'integrit\`a.
+\begin{itemize}
+\item Attraverso l'inserimento di nuove regole business in un contesto di prova, effettueremo test sulla validazione e li confronteremo con i risultati attesi.
+\item Tramite opportuni oggetti business di prova effettueremo test sui risultati ottenuti dalla validazione, e li confronteremo con i risultati attesi.
+\end{itemize}
+
+\chapter[Gestione revisione]{Gestione amministrativa della revisione} 
+
+\section{Comunicazione e risoluzione di anomalie}
+Sar\`a compito dei verificatori la comunicazione delle anomalie e avverr\`a attraverso la stesura di documenti specifici. Costoro dovranno elencare le segnalazioni in modo che sia possibile individuare il punto errato in modo semplice e non ambiguo, eventualmente citando le parti non corrette. Discorso a parte va fatto per errori grammaticali o di formattazione che potranno essere corretti direttamente dai verificatori.
+
+\section{Trattamento delle discrepanze} 
+Se dovessero verificarsi discrepanze tra le necessit\`a del cliente ed i requisiti risultanti dall'analisi si provveder\`a ad un ulteriore analisi che avr\`a la priorit\`a sulle altre attivit\`a. Si provveder\`a all'aggiornamento dei documenti di analisi dei requisiti e se necessario ai prodotti delle attivit\`a successive all'analisi. L'analista, in collaborazione col progettista e l'amministratore, valuter\`a l'impatto delle modifiche sul lavoro gi\`a svolto e comunicher\`a ai membri interessati le variazioni.
+
+\section{Procedure di controllo di qualit\`a di processo}
+Il controllo della qualit\`a del software interessa l'intero processo di sviluppo del prodotto in questione. Esso comprende il monitoraggio e il miglioramento del processo, la verifica dell'applicazione di standard e procedure prestabiliti nonch\`e la soluzione degli eventuali problemi.
+Per avere un esteso controllo degli errori, le modifiche apportate ai documenti, in seguito a inconsistenze riscontrate durante la fase di verifica e stesura, verranno notificate in ogni singolo cambiamento. Queste modifiche si troveranno all'inizio di ogni documento nella sezione ''Diario delle modifiche''. I verificatori sono tenuti a controllare parallelamente la documentazione sul lavoro svolto. Il responsabile di progetto deve verificare che le obiezioni sollevate dal verificatore siano corrette senza che si presentino discrepanze o anomalie. L'approvazione spetta pertanto al responsabile di progetto.
+
+\chapter{Pianificazione ed esecuzione del collaudo}
+\section{Specifica della campagna di validazione}
+L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato secondo i requisiti da noi identificati. Il risultato dell'attivit\`a di collaudo \`e determinante per procedere al rilascio del prodotto software. In base ai requisiti verranno applicate diverse tecniche di verifica:
+\begin{itemize}
+\item Alcuni dei requisiti tracciati dovranno essere validati mediante l'inserimento di un input e la verifica dell esattezza dei dati ottenuti. In particolare i requisiti 3.1.1.1, 3.1.1.2, 3.1.1.3, 3.1.1.4, 3.1.1.5, 3.1.1.6, 3.1.1.8, 3.1.2.1, 3.2.1.1, 3.2.1.4.
+\item Altri invece necessitano di una approvazione da parte del committente attraverso incontri. In particolare i requisiti 3.2.1.2, 3.2.1.5, 3.2.1.6, 3.2.2.1, 3.2.2.2, 3.2.3.1, 3.2.3.2.
+\item Infine vi sar\`a la necessit\`a di verificare la gestione corretta delle anomalie da parte del progetto. In particolare per il requisito 3.1.1.7.
+\end{itemize}
+\chapter{Tracciabilit\`a}
+\section{Tabella di Tracciabilit\'a}
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
+\begin{tabular}{||p{10m}||}
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+\underline{ID:} F1.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{DESCRIZIONE PROVA:}  ?\\modifica
+\underline{INPUT:} ?\\
+\underline{OUTPUT:} ?\\
+\\
+\underline{ID:} F2.   \\
+\underline{OBIETTIVO PROVA:} Testare la correttezza sintattica di ogni Business Rules. \\
+\underline{DESCRIZIONE PROVA:} Tentativo di inserimento/eliminazione di varie Business Rules d'appoggio (sintatticamente corrette o meno), per testarne il loro stato di accettazione.\\
+\underline{INPUT:} Business Rules di appoggio.\\
+\underline{OUTPUT:} Lo stato di accettazione delle Business Rules attraverso la notifica rilasciata.\\
+\\
+\underline{ID:} F3.\\
+\underline{OBIETTIVO PROVA:} Testare il corretto inserimento delle Business Rules nel repository. \\
+\underline{DESCRIZIONE PROVA:} Inserimento di varie Business Rules d'appoggio gi\a' validate e controllo all'interno del repository dell'avvenuto inserimento.\\
+\underline{INPUT:} Business Rules (validate) di appoggio .\\
+\underline{OUTPUT:} Lo stato dell'inserimento delle Business Rules attraverso la notifica rilasciata.\\
+\\
+\underline{ID:} F4.\\
+\underline{OBIETTIVO PROVA:} Informare l'utente dell'avvenuta o meno validazione della Business Rule appena inserita, attraverso una notifica il pi\`u possibile chiara ed esaustiva. \\
+\underline{DESCRIZIONE PROVA:} Inserimento di varie Business Rules d'appoggio (corrette o meno), e controllo della corretta notifica di risposta alla richiesta di inserimento.\\
+\underline{INPUT:} Business Rules (corrette o meno) di appoggio .\\
+\underline{OUTPUT:} Una notifica per ogni ogni Business Rule che si \`e provato ad inserire.\\
+\\
+\underline{ID:} F5.\\
+\underline{OBIETTIVO PROVA:} Testare l'efficienza in termini di tempo di risposta del DBMS di appoggio al repository. \\
+\underline{DESCRIZIONE PROVA:} Tentativo di inserimento/eliminazione/modifica di varie Business Rules d'appoggio (sintatticamente corrette o meno) e valutare il tempo di risposta impiegato dal DBMS.\\
+\underline{INPUT:} Business Rules (corrette o meno) di appoggio .\\
+\underline{OUTPUT:} Notifica di inserimento/eliminazione prestando attenzione al tempo impiegato a fornira .\\
+\\
+\underline{ID:} F6.\\
+\underline{OBIETTIVO PROVA:}  \\
+\underline{DESCRIZIONE PROVA:} \\
+\underline{INPUT:} \\
+\underline{OUTPUT:} \\
+\\
+\underline{ID:} F7.\\
+\underline{OBIETTIVO PROVA:} Tesare la correttezza della cancellazione di una Business Rule dal repository e controllo dei risultati ottenuti. \\
+\underline{DESCRIZIONE PROVA:} Richiesta al DBMS di cancellare varie Business Rules date come input, dal repository e si tester\`a la correttezza dell'eliminazione svolta. Ogni eliminazione riuscita o meno dovr\`a essere accompagnata da una chiara notifica di evento.\\
+\underline{INPUT:} Business Rules da eliminare.\\
+\underline{OUTPUT:} Notifica di eliminazione (avvenuta o meno).\\
+\\
+\underline{ID:} F8.\\
+\underline{OBIETTIVO PROVA:} Creare interfaccia per l'inserimento/rimozione/modifica di Business Rules e verificare il corretto funzionamento. \\
+\underline{DESCRIZIONE PROVA:} Si creer\`a  una semplice interfaccia in linguaggio Java, con le componenti essenziali per permettere l' inserimento/rimozione di una Business Rule nel repository e la successiva notifica di tale evento\\
+\underline{INPUT:} Business Rules da eliminare.\\
+\underline{OUTPUT:} Notifica di eliminazione (avvenuta o meno).\\
+\\
+\underline{ID:} F9.\\
+l'esecuzione\underline{OBIETTIVO PROVA:} Creare una validatore che attesti la coerenza tra Business Rules all'interno del repository. \\
+\underline{DESCRIZIONE PROVA:} Tentativo di inserimento di Business Rules d'appoggio (coerenti o meno con quelle presenti nel repository) e verifica del corretto funzionamento del validatore. Il validatore dovr\`a rifiutare le Business Rules che entrano in conflitto e accettare le altre. Inserimento di varie Business Rules d'appoggio\\
+\underline{INPUT:} Business Rules. \\
+\underline{OUTPUT:} Notifica dello stato di accettazione. \\
+\\
+\underline{ID:} F10.\\
+\underline{OBIETTIVO PROVA:} Consentire al validatore di accedere ai campi del Business Object associato alla Business Rule da validare\\
+\underline{DESCRIZIONE PROVA:} Inserimento di varie Business Rules d'appoggio che si riferiscono a campi dati di Business Object e testare la correttezza della validazione effettuata.\\
+\underline{INPUT:} Business Rules d'appoggio. \\
+\underline{OUTPUT:} Esisto della validazione. \\
+\\
+\underline{ID:} F11.\\
+\underline{OBIETTIVO PROVA:} \\
+\underline{DESCRIZIONE PROVA:}  \\
+\underline{INPUT:}  \\
+\underline{OUTPUT:}  \\
+\\
+\underline{ID:} NU1.\\
+\underline{OBIETTIVO PROVA:} \\
+\underline{DESCRIZIONE PROVA:}  \\
+\underline{INPUT:}  \\
+\underline{OUTPUT:}  \\
+\\
+\underline{ID:} NU2.\\
+\underline{OBIETTIVO PROVA:} Verificare il corretto funzionamento delle funzioni primitive fornite.\\
+\underline{DESCRIZIONE PROVA:} Utilizzare dati di prova ed effettuare delle operazioni tra essi, utilizzando le funzioni primitive fornite (quali somma,media..), verificando i risultati cos\`i ottenuti. \\
+\underline{INPUT:} Dati fittizi \\
+\underline{OUTPUT:} Risultati delle operazioni svolte. \\
+\\
+\underline{ID:} NU3.\\
+\underline{OBIETTIVO PROVA:} \\
+\underline{DESCRIZIONE PROVA:}  \\
+\underline{INPUT:}  \\
+\underline{OUTPUT:}  \\
+\\
+\underline{ID:} NPo1.\\
+\underline{OBIETTIVO PROVA:}  \\
+\underline{DESCRIZIONE PROVA:}  \\
+\underline{INPUT:}  \\
+\underline{OUTPUT:}  \\
+\\
+\underline{ID:} NPr1.\\
+\underline{OBIETTIVO PROVA:}  \\
+\underline{DESCRIZIONE PROVA:}  \\
+\underline{INPUT:}  \\
+\underline{OUTPUT:}  \\
+\\
+\underline{ID:} NPr2.\\
+\underline{OBIETTIVO PROVA:}  \\
+\underline{DESCRIZIONE PROVA:}  \\
+\underline{INPUT:}  \\
+\underline{OUTPUT:}  \\
+\\
+\underline{ID:} NQ1.\\
+\underline{OBIETTIVO PROVA:}  \\
+\underline{DESCRIZIONE PROVA:}  \\
+\underline{INPUT:}  \\
+\underline{OUTPUT:}  \\
+\\
+\underline{ID:} NQ2.\\
+\underline{OBIETTIVO PROVA:}  \\
+\underline{DESCRIZIONE PROVA:}  \\
+\underline{INPUT:}  \\
+\underline{OUTPUT:}  \\
+\\
+\underline{ID:} NQ3.\\
+\underline{OBIETTIVO PROVA:}  \\
+\underline{DESCRIZIONE PROVA:}  \\
+\underline{INPUT:}  \\
+\underline{OUTPUT:}  \\
+\\
+\section {Esiti test effettuati}
+\underline{ID:} F1.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} F2.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} F3.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} F4.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} F5.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} F6.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} F7.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} F8.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} F9.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} F10.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} F11.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} NU1.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} NU2.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} NU3.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} NPo1.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} NPr1.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} NPr2.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} NQ1.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} NQ2.   \\
+\underline{OBIETTIVO PROVA:}  ?\\
+\underline{ESITO:} ?\\
+\\
+\underline{ID:} NQ3.   \\
+\underline{OBIETTIVO PROVA:} \\
+\underline{ESITO:} ?\\
+\\
+\end{document}
+	
