@@ -5,7 +5,7 @@
 \usepackage[italian]{babel}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
-\graphicspath{{./pics/}}	% cartella di salvataggio immagini
+\graphicspath{{./pics/}} % cartella di salvataggio immagini
 
 % STILE DI PAGINA
 %---------------------------------------------
@@ -26,16 +26,12 @@
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
 }
-%---------------------------------------------
 
-
-%INIZIO DOCUMENTO
-
-
-%---------------------------------------------
-% PRIMA PAGINA
-%---------------------------------------------
 \begin{document}
+
+%definizione variabili 
+\newcommand{\lv}{1.1} % latest version
+%fine definizione variabili
 
 \hyphenation{re-qui-si-ti in-se-ri-men-to}
 
@@ -46,45 +42,33 @@
 \vspace*{0.2in}
 
 {\Large \textbf{BR-jsys}}
+{\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
+\vspace{2in}
 
-{\Large \emph{Business Rules} per sistemi gestionali in architettura J2EE } 
-\vspace{1.3in}
-\par\rule{10cm}{.4pt} \par
-\par\rule{12cm}{1pt} \par
-\vspace*{0.5in}
 \LARGE \textbf {SPECIFICA TECNICA}
-\vspace*{0.5in}
-\par\rule{12cm}{1pt} \par
-{\large Versione 0.1 - \today}
-\par\rule{10cm}{.4pt} \par
+\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today}
+
 
 \end{center}
 \end{titlepage}
 \vspace*{0.5in}
 
-%---------------------------------------------
-% SECONDA PAGINA
-%---------------------------------------------
+
+
 \begin{center}
 \thispagestyle{plain}
 \begin{table}[htbp]
 \large{
 \begin{tabular}{l}
 \Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
-\begin{tabular}{||p{6cm}||p{6cm}||}
-\hline
-\textbf{Data creazione:} & 23/01/08 \\
-\hline
-\textbf{Versione:} & 0.1 \\
-\hline
-\textbf{Stato del documento:} & formale, esterno \\
-\hline
-\textbf{Redazione:} & Luca Appon e Mattia Meroi \\
-\hline
-\textbf{Revisione:} & Marco Tessarotto   \\
-\hline
-\textbf{Approvazione:}  & Elena Trivellato\\
-\hline
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\textbf{Data creazione:} & 23/01/08 \\ \hline
+\textbf{Versione:} & \lv  \\ \hline
+% ----------------------------------------------------------------------------autori
+\textbf{Stato del documento:} & formale, esterno \\ \hline
+\textbf{Redazione:} & Luca Appon e Mattia Meroi \\ \hline
+\textbf{Revisione:} & Marco Tessarotto   \\ \hline
+\textbf{Approvazione:}  & Elena Trivellato\\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -94,20 +78,14 @@
 \large{
 \begin{tabular}{l}
 \Large{\textbf{\textsf{Lista di distribuzione}}} \\
-\begin{tabular}{||p{6cm}||p{6cm}||}
-\hline
-{Elena Trivellato}& Responsabile di progetto \\ 
-\hline 
-{Filippo Carraro}& Amministratore \\ 
-\hline
-{Marco Tessarotto}& Verificatore \\
-\hline
-{Tullio Vardanega}& Committente \\
-\hline
-{Renato Conte}& Committente \\
-\hline
-{Zucchetti S.r.l.}& Proponente \\
-\hline
+%  -------------------------------------------------------------lista di distribuzione
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+{Elena Trivellato}& Responsabile di progetto \\ \hline 
+{Filippo Carraro}& Amministratore \\ \hline
+{Marco Tessarotto}& Verificatore \\ \hline
+{Tullio Vardanega}& Committente \\ \hline
+{Renato Conte}& Committente \\ \hline
+{Zucchetti S.r.l.}& Proponente \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -119,18 +97,18 @@
 \Large{\textbf{\textsf{Diario delle modifiche}}} \\
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||}
 \hline
-\textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\
-\hline
-0.1 & 2007/11/19 & Stesura preliminare del documento. \\
-\hline
+\textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
+%-------------------------------------------------------------------------------diario modifiche
+1.1 & 22/01/2008 & Modifica al layout dei documenti.\\ \hline
+1.0 & 21/12/2007 & Documento sottoposto a revisionamento automatico.\\ \hline
+0.1 & 2007/11/19 & Stesura preliminare del documento. \\ \hline
 \end{tabular} \\
 \end{tabular}
 
 }
 \end{table}
 \end{center}
-
-\tableofcontents	%Crea l'indice
+\newpage
 
 \chapter{Introduzione}
 \section{Scopo del documento}
@@ -176,7 +154,8 @@ Viene fornito come documento esterno chiamato Glossario\_0\_4.pdf.
 
 
 
-
+\newpage
+\tableofcontents
 
 \end{document}
 	
