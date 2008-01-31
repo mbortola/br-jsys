@@ -199,19 +199,19 @@ Ogni file sorgente dovr\` contenere una sola classe pubblica o interfaccia. I fi
 \subsection{Commenti iniziali}
 Tutti i file sorgente devono inziare con un commento in stile C che elenca il nome della classe, informazioni sulla versione e la data dell'ultima modifica come nell'esempio: \\
  \newline
-\texttt{/\ast \\
-\ast Nome classe \\
-\ast \\
-\ast Informazioni Versione \\
-\ast \\
-\ast Data Ultima Modifica \\
-\ast/ \\}
+\texttt{/* \\
+* Nome classe \\
+* \\
+* Informazioni Versione \\
+* \\
+* Data Ultima Modifica \\
+*/ \\}
  \newline
 \subsection{Statements di Package e di Import}
-La prima linea non di commento di un file deve essere uno statement di Package. Dopo seguono gli statement di import come nell'esempio: //
-     
-package java.awt; // % DOBBIAMO METTERE UN PACCHETTO VERO NOSTRO!!!!!!!!!!
-import org.w3c.dom; //
+La prima linea non di commento di un file deve essere uno statement di Package. Dopo seguono gli statement di import come nell'esempio: \\
+ \newline
+package java.awt; \\ % DOBBIAMO METTERE UN PACCHETTO VERO NOSTRO!!!!!!!!!!
+import org.w3c.dom; \\
 \subsection{Dichiarazioni di Classi e di Interfacce}
 Prima di tutto verranno dichiarate le varibili statiche nel seguente ordine: pubbliche, protette, quelle a livello package e poi le private. Solo successivamente le variabili di istanza, ma sempre nello stesso ordine. Infine i costruttori seguiti dai metodi. I metodi dovranno essere raggrupati secondo la funzionalit\`a e non secondo l'accessibilit\`a.
 
@@ -231,8 +231,8 @@ Quando un'espressione non sta su una singola linea, la si interrompe seguendo le
 \chapter{Commenti}
 Ci possono essere due tipi di commenti: commenti di implementazione e commenti di documentazione. 
 \begin{itemize}
-\item I commenti di implementazione, delimitati da \texttt{/\ast...\ast/} e \texttt{//}, sono commenti riguardanti il codice nell'ottica della sua particolare implementazione. 
-\item I commenti di documentazione, delimitati da \texttt{/\ast\ast...\ast/}, descrivono la specifica del codice astraendo dall'implementazione.
+\item I commenti di implementazione, delimitati da \texttt{/*...*/} e \texttt{//}, sono commenti riguardanti il codice nell'ottica della sua particolare implementazione. 
+\item I commenti di documentazione, delimitati da \texttt{/**...*/}, descrivono la specifica del codice astraendo dall'implementazione.
 \end{itemize}
 \section{Formato dei commenti di implementazione}
 Ci possono essere tre stili di commenti di implementazione: a blocco, a linea singola e commenti alla fine della linea.
@@ -241,30 +241,30 @@ I commenti a blocco devono essere usati per descrivere files, metodi, strutture 
 di ogni metodo. Possono essere usati anche in altre parti del file come ad esempio all'interno di un metodo. All'interno di una funzione o di un metodo devono essere indentati allo stesso livello del codice che descrivono. Deve inoltre essere preceduto da una linea bianca per poterlo separare dal resto del codice. \\
  \newline
 Esempio: \\
-\texttt{/\ast \\
-\ast Questo è un commento a blocco \\
-\ast/ } \\
+\texttt{/* \\
+* Questo è un commento a blocco \newline
+ */ } \\
  \newline
 \subsection{Commenti a linea singola}
 I commenti a linea singola devono apparire in una linea singola ed essere usati per brevi commenti, indentandoli al livello del codice che segue. Se un commento non può essere scritto su una linea singola allora si deve usare un commento a blocco. Un commento a singola linea deve essere preceduto da una linea bianca. \\
  \newline
 Esempio: \\
 \texttt{if (condition) \{ \\
-        /\ast Handle the condition. \ast/ \\
+        /* Handle the condition. */ \\
         ...... \\
 \}} \\
  \newline
 \subsection{Commenti alla fine della linea}
-Il delimitatore di commento ``//'' può commentare una linea completa oppure solo una parte di essa. Non deve essere utilizzato su linee consecutive per commenti di testo per\`a può essere utilizzato su linee consecutive per poter eliminare (commentando) sezioni di codice.
+Il delimitatore di commento ``\texttt{//}'' può commentare una linea completa oppure solo una parte di essa. Non deve essere utilizzato su linee consecutive per commenti di testo per\`a può essere utilizzato su linee consecutive per poter eliminare (commentando) sezioni di codice.
 
 \section{Commenti di documentazione}
-I commenti di documentazione devono descrivere classi, interfacce, costruttori, metodi e campi dato. Ogni commento di documentazione deve essere situato all'interno dei delimitatori \texttt{/\ast\ast...\ast/} e ci deve essere un solo commento per ogni classe, interfaccia o membro. Non devono essere posizionati all'interno del blocco di definizione di un metodo o di un costruttore. Questo tipo di commento deve apparire subito prima della dichiarazione:\\
+I commenti di documentazione devono descrivere classi, interfacce, costruttori, metodi e campi dato. Ogni commento di documentazione deve essere situato all'interno dei delimitatori \texttt{/**...*/} e ci deve essere un solo commento per ogni classe, interfaccia o membro. Non devono essere posizionati all'interno del blocco di definizione di un metodo o di un costruttore. Questo tipo di commento deve apparire subito prima della dichiarazione:\\
  \newline
 Esempio:\\
  \newline
-\texttt{/\ast\ast \\
-\ast Commento di documentazione \\
-\\ast/ \\
+\texttt{/** \\
+* Commento di documentazione \newline
+ */ \\
 public class Esempio \{ \\
     ....... \\
 \}} \\
