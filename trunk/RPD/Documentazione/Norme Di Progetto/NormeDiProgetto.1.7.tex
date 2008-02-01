@@ -297,16 +297,20 @@ Nella codifica di classi ed interfacce devono essere seguite le seguenti regole:
 \subsection{Statements semplici}
 Ogni linea deve contenere un solo statement, per facilitare la lettura e la comprensione del codice, nonch\`e la sua commentazione.
 \subsection{Statements Composti}
-  Gli statement composti contengono liste di statements racchiuse tra parentesi graffe.
-  Valgono le seguenti regole:
-Gli statement racchiusi devono essere indentati un livello in più dello statement
-  composto.
-La parentesi graffa di apertura deve essere alla fine della linea che inizia lo statement
-  composto; la parentesi graffa di chiusura deve iniziare una linea ed essere indentata
-  corrispondentemente all'inizio dello statement composto.
-Le parentesi devono essere usate per racchiudere tutti gli statement, anche quelli
-  singoli, quando essi sono parte di una struttura di controllo come statement if-else
-  oppure for.
+Uno statement composto contiene una lista di statements racchiusi tra parentesi graffe. Per gli statements composti valgono le seguenti regole:
+Il livello di indentazione di ogni statement racchiuso tra parentesi grafe deve essere aumentato di uno.
+La parentesi graffa di apertura deve essere alla fine della linea che inizia lo statement composto; la parentesi graffa di chiusura deve essere l'unico carattere di una linea indentata corrispondentemente all'inizio dello statement composto.\newline
+Ad esempio:\newline
+ \newline
+\texttt{
+statementComposto \{ \\
+    statement1 \\
+    statement2 \\
+    statement3 \\
+\}
+} \\
+ \newline
+Le parentesi devono essere usate per racchiudere tutti gli statement, anche quelli singoli, quando essi sono parte di una struttura di controllo come statement if-else oppure for.
 \subsection{Statements di Return}
    Uno statement di return non deve usare parentesi a meno che ciò non renda il valore di
 ritorno in qualche maniera più ovvio.
