@@ -1,0 +1,82 @@
+\documentclass[11pt,titlepage,a4paper]{report}
+
+%INCLUSIONE PACCHETTI
+%---------------------------------------------
+\usepackage[italian]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\graphicspath{{./pics/}} % cartella di salvataggio immagini
+
+% STILE DI PAGINA
+%---------------------------------------------
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\lhead{\nouppercase{\rightmark}}
+\rhead{\nouppercase{\leftmark}}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+%Ridefinisco lo stile plain della pagina
+\fancypagestyle{plain}{%
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+
+\begin{document}
+
+
+\begin{titlepage}
+\begin{center}
+\vspace*{0.5in}
+\includegraphics{logo.eps}
+\vspace*{0.2in}
+
+{\Large \textbf{BR-jsys}}
+{\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
+\vspace{2in}
+
+\LARGE \textbf {LETTERA DI ACCOMPAGNAMENTO}
+
+\end{center}
+\end{titlepage}
+\vspace*{0.5in}
+
+
+\thispagestyle{plain}
+\begin{flushright}
+Alla cortese attenzione dei docenti\\
+prof. Tullio Vardanega e prof. Renato Conte,\\
+rappresentanti del committente\\
+Zucchetti S.r.l.
+\end{flushright}
+Padova, 1 Febbario 2008\\
+
+In seguito alle modifiche radicali richieste dall'Azienda committente Zucchetti, abbiamo ritenuto opportuno revisionare il documento di Analisi dei Requisiti, al fine di garantire il soddisfacimento delle aspettative del cliente. \newline
+In allegato, come da Vostre indicazioni, la documentazione relativa:
+\begin{itemize}
+\item{}Analisi dei Requisiti (AnalisiDeiRequisiti.2.6.pdf)
+\item{}Piano di Qualifica (PianoDiQualifica.x.x.pdf)
+\item{}Piano di Progetto (PianoDiProgetto.x.x.pdf)
+\item{}Specifica tecnica(Specificatecnica.x.x.pdf) 
+\item{}Definizione di Prodotto (DefinizioneDiProdotto.x.x.pdf)
+\end{itemize}
+Per una maggiore completezza e chiarezza dell'offerta, alleghiamo inoltre i seguenti documenti:
+\begin{itemize}
+\item{}Glossario (Glossario.x.x.pdf)
+\item{}Norme di Progetto (NormeDiProgetto.x.x.pdf)
+\item{}Verbale incontro con l'Azienda Zucchetti (Incontrox.x.x.pdf)
+\end{itemize}
+Cordiali saluti.
+\begin{flushright}
+HappyCodeInc
+\end{flushright}
+
+
+
+
+\end{document}
