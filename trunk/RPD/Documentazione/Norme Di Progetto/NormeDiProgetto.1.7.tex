@@ -95,6 +95,7 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||}
 \hline
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
+1.8 & 31/01/2008 & Riorganizzazione dei capitoli. \\ \hline
 1.7 & 30/01/2008 & Modifica al layout degli esempi.\\ \hline
 1.6 & 30/01/2008 & Aggiunta del capitolo 'Linee e spazi bianchi'\\ \hline
 1.5 & 28/01/2008 & Aggiunta del capitolo 'Dichiarazioni'\\ \hline
@@ -128,6 +129,8 @@ Questo documento ha lo scopo di fornire una lista di norme generali sia per il c
 \section{Glossario}
 Il glossario viene fornito come file esterno chiamato \textbf {Glossario\_0\_4.pdf} 
 
+
+
 \chapter{Norme di Comportamento}
 \section{Uso della Mail del Gruppo}
 La mail verr\`a utilizzata principalmente come mezzo di comunicazione e di informazione tra i vari componenti del gruppo. In particolare per ricordare scadenze, segnalare risorse utili e pianificare gli incontri. 
@@ -140,6 +143,10 @@ Lo spazio web in Google Groups raggiungibile tramite il seguente URL: \({http://
 \end{itemize}
 \section{Comportamento Generale}
 Ad ogni componente del gruppo verr\`a richiesto di partecipare alla stesura dei documenti nella parte che pi\`u li compete. Il documento verr\`a poi trascritto all'interno del modello latex. Ogni documento deve poi essere caricato  su svn, sia in formato tex sia in formato pdf.
+\section{Condivisione, archiviazione e versionamento dei file}
+Per gestire il lavoro collaborativo di pi\`u componenti del gruppo in contemporanea sullo stesso documento utilizzeremo SVN (Subversion) che permette la sincronizzazione delle versioni. In questo modo, ogni aggiornamento del documento inviato al repositoty (l'archivio di dati centralizzato gestito direttamente da SVN) rappresenter\`a una nuova revisione. SVN applicher\`a ad ogni modifica un numero identificativo incrementale da 1 a infinito. Attraverso il comando ``commit'' ogni componente del gruppo potr\`a inviare al repository il documento che ha appena modificato in locale (ossia la working copy). Viceversa, ``update'' \`e la fase di download della versione aggiornata del repository con aggiornamento della propria working copy. 
+
+
 
 \chapter{Norme di Documento}
 \section{Nomenclatura}
@@ -179,7 +186,7 @@ Ogni documento sar\`a composto di queste parti:
 \item L'indice dei contenuti;
 \item I contenuti del documento;
 \end{enumerate}
-E' fornito un modello di documento generale \( Modello.tex\),nel quale sono state applicate le regole date precedentemente. E' consigliato quindi l'aggiornamento dello stesso, aggiungendo e modificando solo i capitoli necessari.
+E' fornito un modello di documento generale Modello.tex ,nel quale sono state applicate le regole date precedentemente. E' consigliato quindi l'aggiornamento dello stesso, aggiungendo e modificando solo i capitoli necessari.
 \subsection{Intestazione/Pi\`e di pagina}
 L'intestazione e il pi\`e di pagina vengono generati automaticamente corretti dal file .tex con i relativi loghi, il numero della pagina e i titoli dei capitoli.
 \subsection{Corpo del documento}
@@ -190,10 +197,11 @@ Le immagini inserite nel corpo del documento dovranno essere necessariamente sal
 \section{Norme di Glossario}
 Il glossario verr\`a fornito in un documento chiamato \textbf{ Glossario\_a\_b.pdf}; dove ``a'' indica il numero di versione e ``b'' il numero di revisione, come descritto sopra.
 
-\chapter{Condivisione, archiviazione e versionamento dei file}
-Per gestire il lavoro collaborativo di pi\`u componenti del gruppo in contemporanea sullo stesso documento utilizzeremo SVN (Subversion) che permette la sincronizzazione delle versioni. In questo modo, ogni aggiornamento del documento inviato al repositoty (l'archivio di dati centralizzato gestito direttamente da SVN) rappresenter\`a una nuova revisione. SVN applicher\`a ad ogni modifica un numero identificativo incrementale da 1 a infinito. Attraverso il comando ``commit'' ogni componente del gruppo potr\`a inviare al repository il documento che ha appena modificato in locale (ossia la working copy). Viceversa, ``update'' \`e la fase di download della versione aggiornata del repository con aggiornamento della propria working copy. 
 
-\chapter{File java}
+
+
+
+\chapter{Norme di codifica}
 \section{File sorgente}
 Ogni file sorgente dovr\` contenere una sola classe pubblica o interfaccia. I file sorgente dovranno avere il seguente ordine:
 \begin{itemize}
