@@ -295,13 +295,42 @@ Nella codifica di classi ed interfacce devono essere seguite le seguenti regole:
 \end{itemize}
 \section{Statements}
 \subsection{Statements semplici}
+Ogni linea deve contenere un solo statement, per facilitare la lettura e la comprensione del codice, nonch\`e la sua commentazione.
 \subsection{Statements Composti}
+  Gli statement composti contengono liste di statements racchiuse tra parentesi graffe.
+  Valgono le seguenti regole:
+Gli statement racchiusi devono essere indentati un livello in più dello statement
+  composto.
+La parentesi graffa di apertura deve essere alla fine della linea che inizia lo statement
+  composto; la parentesi graffa di chiusura deve iniziare una linea ed essere indentata
+  corrispondentemente all'inizio dello statement composto.
+Le parentesi devono essere usate per racchiudere tutti gli statement, anche quelli
+  singoli, quando essi sono parte di una struttura di controllo come statement if-else
+  oppure for.
 \subsection{Statements di Return}
+   Uno statement di return non deve usare parentesi a meno che ciò non renda il valore di
+ritorno in qualche maniera più ovvio.
 \subsection{Statements if, if-else}
+Gli statement del tipo if-else devono avere la seguente forma:
+Da notare che gli statement if devono sempre usare le parentesi graffe.
 \subsection{Statements for}
+  Uno statement for deve avere la seguente forma:
+  Uno statement for vuoto, cioè nel quale tutto il lavoro viene svolto nell'inizializzazione,
+nella condizione e nelle clausole di aggiornamento deve avere la seguente forma:
+  for (inizializzazioni; condizioni, aggiornamenti);
 \subsection{Statements while e do-while}
+Uno statement while deve avere la seguente forma:
+Uno statement while vuoto deve avere invece la seguente forma:
+while (condizione);
+Uno statement do-while deve avere la seguente forma:
 \subsection{Statements switch case}
+Uno statement switch deve avere la seguente forma:
+                                      13/17
+SGCCR - Norme di Codifica - Statements
+ Ogni statement switch deve includere un caso di default.
 \subsection{Statements try-catch}
+Uno statement try-catch deve avere il seguente formato:
+
 
 \section{Linee e spazi bianchi}
 Le linee bianche dovranno essere utilizzate per migliorare la leggibilit\`a del codice. Nei seguenti casi devono sempre essere usate due linee bianche:
