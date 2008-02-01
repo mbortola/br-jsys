@@ -227,6 +227,8 @@ package java.awt; \\ % DOBBIAMO METTERE UN PACCHETTO VERO NOSTRO!!!!!!!!!!
 import org.w3c.dom; \\
 \subsection{Dichiarazioni di Classi e di Interfacce}
 Prima di tutto verranno dichiarate le varibili statiche nel seguente ordine: pubbliche, protette, quelle a livello package e poi le private. Solo successivamente le variabili di istanza, ma sempre nello stesso ordine. Infine i costruttori seguiti dai metodi. I metodi dovranno essere raggrupati secondo la funzionalit\`a e non secondo l'accessibilit\`a.
+
+
 \section{Indentazione}
 Come unit\`a i indentazione dovranno essere usati 4 spazi.
 \subsection{Lunghezza della linea}
@@ -239,14 +241,15 @@ Quando un'espressione non sta su una singola linea, la si interrompe seguendo le
 \item La nuova linea deve essere allineata con l'inizio dell'espressione allo stesso livello nella linea precedente;
 \item Se le regole suddette portano a codice confuso oppure a codice che è troppo a ridosso del margine destro si deve invece usare una indentazione con 8 spazi.
 \end{itemize}
+
+
 \section{Commenti}
 Ci possono essere due tipi di commenti: commenti di implementazione e commenti di documentazione. 
+Ci possono essere tre stili di commenti di implementazione: a blocco, a linea singola e commenti alla fine della linea.
 \begin{itemize}
 \item I commenti di implementazione, delimitati da \texttt{/*...*/} e \texttt{//}, sono commenti riguardanti il codice nell'ottica della sua particolare implementazione. 
 \item I commenti di documentazione, delimitati da \texttt{/**...*/}, descrivono la specifica del codice astraendo dall'implementazione.
 \end{itemize}
-\section{Formato dei commenti di implementazione}
-Ci possono essere tre stili di commenti di implementazione: a blocco, a linea singola e commenti alla fine della linea.
 \subsection{Commenti a blocco}
 I commenti a blocco devono essere usati per descrivere files, metodi, strutture dati e algoritmi. Devono essere usati all'inizio di ogni file e prima
 di ogni metodo. Possono essere usati anche in altre parti del file come ad esempio all'interno di un metodo. All'interno di una funzione o di un metodo devono essere indentati allo stesso livello del codice che descrivono. Deve inoltre essere preceduto da una linea bianca per poterlo separare dal resto del codice. \\
@@ -267,8 +270,7 @@ Esempio: \\
  \newline
 \subsection{Commenti alla fine della linea}
 Il delimitatore di commento ``\texttt{//}'' può commentare una linea completa oppure solo una parte di essa. Non deve essere utilizzato su linee consecutive per commenti di testo per\`a può essere utilizzato su linee consecutive per poter eliminare (commentando) sezioni di codice.
-
-\section{Commenti di documentazione}
+\subsection{Commenti di documentazione}
 I commenti di documentazione devono descrivere classi, interfacce, costruttori, metodi e campi dato. Ogni commento di documentazione deve essere situato all'interno dei delimitatori \texttt{/**...*/} e ci deve essere un solo commento per ogni classe, interfaccia o membro. Non devono essere posizionati all'interno del blocco di definizione di un metodo o di un costruttore. Questo tipo di commento deve apparire subito prima della dichiarazione:\\
  \newline
 Esempio:\\
@@ -291,6 +293,16 @@ Nella codifica di classi ed interfacce devono essere seguite le seguenti regole:
 \item La parentesi di chiusura appare subito dopo quella di apertura;
 \item I metodi devono essere separati da una linea bianca.
 \end{itemize}
+\section{Statements}
+\subsection{Statements semplici}
+\subsection{Statements Composti}
+\subsection{Statements di Return}
+\subsection{Statements if, if-else}
+\subsection{Statements for}
+\subsection{Statements while e do-while}
+\subsection{Statements switch case}
+\subsection{Statements try-catch}
+
 \section{Linee e spazi bianchi}
 Le linee bianche dovranno essere utilizzate per migliorare la leggibilit\`a del codice. Nei seguenti casi devono sempre essere usate due linee bianche:
 \begin{itemize}
