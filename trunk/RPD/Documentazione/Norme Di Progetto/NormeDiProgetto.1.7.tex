@@ -95,7 +95,7 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||}
 \hline
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
-1.8 & 31/01/2008 & Riorganizzazione dei capitoli. \\ \hline
+1.8 & 31/01/2008 & Riorganizzazione dei capitoli e aggiunta delle norme per la codifica degli statements. \\ \hline
 1.7 & 30/01/2008 & Modifica al layout degli esempi.\\ \hline
 1.6 & 30/01/2008 & Aggiunta del capitolo 'Linee e spazi bianchi'\\ \hline
 1.5 & 28/01/2008 & Aggiunta del capitolo 'Dichiarazioni'\\ \hline
@@ -133,18 +133,18 @@ Il glossario viene fornito come file esterno chiamato \textbf {Glossario\_0\_4.p
 
 \chapter{Norme di Comportamento}
 \section{Uso della Mail del Gruppo}
-La mail verr\`a utilizzata principalmente come mezzo di comunicazione e di informazione tra i vari componenti del gruppo. In particolare per ricordare scadenze, segnalare risorse utili e pianificare gli incontri. 
+La mail verr\`a utilizzata principalmente come mezzo di comunicazione con cui rivolgersi a committente e proponente. Ogni membro del gruppo ha accesso, previa autenticazione, alla mail del gruppo.
 \section{Uso dello spazio web in Google Groups}
-Lo spazio web in Google Groups raggiungibile tramite il seguente URL: \({http://groups.google.com/group/happycodeinc}\), riservato ai soli membri del gruppo, i quali possono accedervi dopo essersi autenticati sul proprio account gmail, verr\`a usato per:
+Lo spazio web in Google Groups raggiungibile tramite il seguente URL: \({http://groups.google.com/group/happycodeinc}\), riservato ai soli membri del gruppo, i quali possono accedervi dopo essersi autenticati sul proprio account gmail, deve essere utilizzato per:
 \begin{itemize}
-\item Gestione di discussioni su argomenti non chiari o su possibili modifiche ai documenti;
-\item Esposizione, tramite discussioni, di dubbi sulla correttezza dei documenti;
-\item Aggiunta di pagine statiche contenenti risorse pertinenti i linguaggi utilizzati.
+\item La gestione di discussioni su argomenti non chiari;
+\item Condivisione di pagine statiche contenenti risorse pertinenti i linguaggi e gli strumenti utilizzati.
+\item Condivisione di file utili allo sviluppo del progetto, come manuali e tutorial.
 \end{itemize}
 \section{Comportamento Generale}
-Ad ogni componente del gruppo verr\`a richiesto di partecipare alla stesura dei documenti nella parte che pi\`u li compete. Il documento verr\`a poi trascritto all'interno del modello latex. Ogni documento deve poi essere caricato  su svn, sia in formato tex sia in formato pdf.
+Ad ogni componente del gruppo verr\`a richiesto di partecipare alla stesura dei documenti e del codice. Il documento verr\`a creato inserendo l'elenco dei capitoli, delle sezioni e delle sottosezioni all'interno di un modello in latex. Una volta creato il documento deve poi essere caricato nel repository SVN, nel solo formato \texttt{.tex} .
 \section{Condivisione, archiviazione e versionamento dei file}
-Per gestire il lavoro collaborativo di pi\`u componenti del gruppo in contemporanea sullo stesso documento utilizzeremo SVN (Subversion) che permette la sincronizzazione delle versioni. In questo modo, ogni aggiornamento del documento inviato al repositoty (l'archivio di dati centralizzato gestito direttamente da SVN) rappresenter\`a una nuova revisione. SVN applicher\`a ad ogni modifica un numero identificativo incrementale da 1 a infinito. Attraverso il comando ``commit'' ogni componente del gruppo potr\`a inviare al repository il documento che ha appena modificato in locale (ossia la working copy). Viceversa, ``update'' \`e la fase di download della versione aggiornata del repository con aggiornamento della propria working copy. 
+Per garantire la correttezza di ogni documento e file condiviso a fronte di cambiamenti (anche simultanei) da parte di tutto il gruppo, verr\`a  utilizzato un server SVN con opportuni client grafici (RapidSVN, KdeSvn).In questo modo verr\`a garantita l'atomicit\`a di ogni aggiornamento inviato al repositoty. Il server Subversion utilizzato dal gruppo (versione 1.4.0) \`e messo a disposizione da Google all'indirizzo \textit{http://code.google.com/p/br-jsys/}. Ogni membro del gruppo \`e tenuto a utilizzare il server SVN , eseguendo un \textit{update} prima di ogni modifica ed eseguendo un \textit{commit} al termine della stessa.
 
 
 
@@ -246,7 +246,7 @@ Quando un'espressione non sta su una singola linea, la si dovr\`a interrompere s
 \section{Commenti}
 Ci potranno essere due tipi di commenti: di documentazione e di implementazione. Quest'ultimi possono essere a loro volta suddivisi in: commenti a blocco, a linea singola e commenti alla fine della linea.
 \begin{itemize}
-\item I commenti di implementazione, delimitati da \texttt{/*...*/} e \texttt{//}, sono commenti riguardanti il codice nell'ottica della sua particolare implementazione. 
+\item I commenti di implementazione, delimitati da \texttt{/*...*/} e \texttt{//}, sono commenti riguardanti il codice nell'ottica della sua particolare implementazione.
 \item I commenti di documentazione, delimitati da \texttt{/**...*/}, descrivono la specifica del codice astraendo dall'implementazione.
 \end{itemize}
 \subsection{Commenti a blocco}
@@ -254,19 +254,22 @@ I commenti a blocco dovranno essere usati per descrivere files, metodi, struttur
 di ogni metodo; potranno inoltre essere usati anche in altre parti del file (ad esempio all'interno di un metodo). All'interno di una funzione o di un metodo dovranno essere indentati allo stesso livello del codice che descrivono. Questo commento dovr\`a inoltre essere preceduto da una linea bianca per poterlo separare dal resto del codice. \\
  \newline
 Esempio: \\
-\texttt{/* \newline
-* Questo è un commento a blocco \newline
- */ } \\
+\texttt{
+	/* \newline
+	* Questo è un commento a blocco \newline
+	*/
+} \\
  \newline
 \subsection{Commenti a linea singola}
 I commenti a linea singola dovranno apparire in una linea singola ed essere usati per brevi commenti, indentandoli al livello del codice che segue. Se un commento non pu\`o essere scritto su una linea singola allora si dovr\`a usare un commento a blocco. Un commento a singola linea dovr\`a essere preceduto da una linea bianca. \\
  \newline
 Esempio: \\
 \texttt{
-if (condition) \{ \\
-\phantom{....}/* Handle the condition. */ \\
-\phantom{....}...... \\
-\}} \\
+	if (condition) \{ \\
+	\phantom{....}/* Handle the condition. */ \\
+	\phantom{....}...... \\
+	\}
+} \\
  \newline
 \subsection{Commenti alla fine della linea}
 Il delimitatore di commento ``\texttt{//}'' potr\`a commentare una linea completa oppure solo una parte di essa. Non dovr\`a essere utilizzato su linee consecutive per commenti di testo. Potr\`a per\`o essere utilizzato su linee consecutive per eliminare (commentando) sezioni di codice.
@@ -275,12 +278,15 @@ I commenti di documentazione dovranno descrivere classi, interfacce, costruttori
  \newline
 Esempio:\\
  \newline
-\texttt{/** \newline
-* Commento di documentazione \newline
- */ \\
-public class Esempio \{ \\
-\phantom{....}....... \\
-\}} \\
+\texttt{
+	/** \newline
+	* Commento di documentazione \newline
+	*/ \\
+	public class Esempio \{ \\
+	\phantom{....}....... \\
+	\}
+	\\
+}
  \newline
 \section{Dichiarazioni}
 Per facilitare i commenti ci dovr\`a essere una sola dichiarazione per linea. Non si dovranno mettere tipi differenti sulla stessa linea. Le variabili locali dovranno essere inizializzate dove sono dichiarate se ci\`o \`e possibile. Le dichiarazioni dovranno essere posizionate solamente all'inizio dei blocchi di codice. L'unica eccezione che potr\`a essere fatta è per gli indici dei cicli for; in questo caso la dichiarazione potr\`a essere fatta nello statement del ciclo for. Non ci dovranno inoltre essere dichiarazioni che rendono invisibili altre dichiarazioni a livello più alto; non si dovr`a in pratica usare un nome di variabile già usato in un blocco sopra stante.
@@ -304,19 +310,18 @@ Uno statement composto conterr\`a una lista di statements racchiusi tra parentes
 \item La parentesi graffa di apertura deve essere alla fine della linea che inizia lo statement composto; la parentesi graffa di chiusura deve essere l'unico carattere di una linea indentata corrispondentemente all'inizio dello statement composto.\newline
 \end{itemize}
 Ad esempio:\newline
- \newline
-\texttt{
-statementComposto \{ \\
-\phantom{....}statement;\\
-\phantom{....}... \\
-\phantom{....}.... \\
-\}
+	\newline
+	\texttt{
+	statementComposto \{ \\
+	\phantom{....}statement;\\
+	\phantom{....}... \\
+	\phantom{....}.... \\
+	\}
 } \\
  \newline
 Le parentesi dovranno essere usate per racchiudere l'elenco degli statement, anche se ve ne fosse uno solo.
 \subsection{Statements di Return}
-Uno statement di return non dovr\`a usare parentesi a meno che ci\`o non renda il valore di
-ritorno in qualche maniera pi\`u ovvio.
+Uno statement di return non dovr\`a usare parentesi a meno che ci\`o non renda il valore di ritorno in qualche maniera pi\`u ovvio.
 \subsection{Statements if, if-else}
 Gli statement del tipo if-else dovranno avere la seguente forma:\\
 \texttt{
@@ -370,14 +375,36 @@ Uno statement switch dovr\`a avere la seguente forma:
 \texttt{
 	 \newline
 	switch (condizioni) \{ \\
+	case A:\\
 	\phantom{....}statement;\\
-	\phantom{....}... \\
-	\} while (condizioni)
+	\phantom{....}...\\
+	\phantom{....}break:\\
+	case B:\\
+	\phantom{....}statement;\\
+	\phantom{....}...\\
+	\phantom{....}break:\\
+	default:\\
+	\phantom{....}statement;\\
+	\phantom{....}...\\
+	\phantom{....}break:\\
+	\}
 }
- Ogni statement switch deve includere un caso di default.
+Ogni statement switch deve includere un caso di default.
 \subsection{Statements try-catch}
 Uno statement try-catch dovr\`a avere il seguente formato:
-
+\texttt{
+	 \newline
+	try \{ \\
+	\phantom{....}statement;\\
+	\phantom{....}... \\
+	\} catch (ExceptionClass e) \{ \\
+	\phantom{....}statement;\\
+	\phantom{....}... \\
+	\} finally \{ \\
+	\phantom{....}statement;\\
+	\phantom{....}... \\
+	\}
+}
 
 \section{Linee e spazi bianchi}
 Le linee bianche dovranno essere utilizzate per migliorare la leggibilit\`a del codice. Nei seguenti casi dovranno sempre essere usate due linee bianche:
