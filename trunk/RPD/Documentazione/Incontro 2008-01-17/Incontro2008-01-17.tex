@@ -61,7 +61,7 @@
 \vspace*{0.5in}
 
 \thispagestyle{plain}
-Il secondo incontro con l'azienda proponente aveva lo scopo di mostrare e far approvare il lavoro fin qui svolto e sciogliere degli ultimi dubbi sul capitolato.
+Il secondo incontro con l'azienda proponente aveva lo scopo di mostrare e far approvare il lavoro fin qui svolto e sciogliere gli ultimi dubbi sul capitolato.
 
 \paragraph{Approvazioni}
 \begin{itemize}
@@ -76,19 +76,19 @@ Il secondo incontro con l'azienda proponente aveva lo scopo di mostrare e far ap
 
 \begin{itemize}
 
-\item Si dovr\`a utilizzare un DBMS esterno come stumento di interfacciamento tra il repository e il sistema al fine di ridurre al minimo i tempi per le transazioni.
+\item Si dovr\`a utilizzare un DBMS esterno come stumento di interfacciamento tra il repository e il sistema, al fine di ridurre al minimo i tempi per le transazioni.
 
-\item Ogni business rules ha un proprio business object associato.
+\item Ogni business rules avr\`a un proprio business object associato.
 
-\item Ogni business rule presente nel repository dovr\`a avere un etichetta che la distingue dalle altre.
+\item Ogni business rule presente nel repository dovr\`a avere un' etichetta che la distingue dalle altre.
 
-\item Dotare il linguaggio della funzionalit\`a \textit{message} da porre alla fine di ogni operazione di confronto a discrezione dell'utente, \textit{message} conterr\`a un messaggio testuale. Se in fase di esecuzione viene violata un'operazione di confronto che ha associato un \textit{message} verra visualizzato il messaggio testuale al suo interno.
+\item Si dov\`a dotare il linguaggio della funzionalit\`a \textit{message} da porre alla fine di ogni operazione di confronto. Esso conterr\`a un messaggio testuale. Se in fase di esecuzione verr\`a violata un'operazione di confronto che ha associato un \textit{message} verr\`a visualizzato il messaggio testuale al suo interno.
 
-\item Dotare il sistema dela funzionalit\`a di cancellazione business rule.
+\item Si dovr\`a dotare il sistema della funzionalit\`a di cancellazione di una business rule.
 
-\item Il requisito di controllo coerenza viene convertito da obbligatorio a opzionale.
+\item Il requisito di controllo coerenza verr\`a convertito da obbligatorio a opzionale.
 
-\item L'azienda proponente ci fornir\`a un esecutore che interagir\`a col nostro sistema inviando richieste di business rule, che noi dovremo fornirgli tramite opportune invocazioni del DBMS usato per colloquiare col repository. Una volta ricevute le regole l'esecutore le applicher\`a ai suoi business object.Di conseguenza non dovremo pi\`u preoccuparci di realizzare l'esecutore di business rules.
+\item L'azienda proponente ci fornir\`a un esecutore. Esso interagir\`a col nostro sistema inviando richieste di business rule da noi fornite tramite opportune invocazioni del DBMS usato per colloquiare con il repository. Una volta ricevute le regole l'esecutore le applicher\`a ai suoi business objects. Di conseguenza non dovremo pi\`u preoccuparci di realizzare l'esecutore di business rules.
 \end{itemize}
 
 \end{document}
