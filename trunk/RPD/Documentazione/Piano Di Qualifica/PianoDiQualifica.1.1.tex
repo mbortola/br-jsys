@@ -143,18 +143,16 @@ Le attivit\`a seguiranno un modello di tipo evolutivo che permetter\`a di apport
 In una prima fase gli analisti discuteranno e cercheranno di comprendere al meglio il problema da risolvere, grazie soprattutto alle varie comunicazioni e incontri con il cliente. Una volta chiariti e consolidati i vari requisiti sar\`a possibile la stesura del documento intitolato ``Analisi dei Requisiti'', che sar\`a la base per la fase di progettazione seguente. Queste attivit\`a potranno essere eseguite in modo parallelo su diverse parti del sistema, come anche le attivit\`a di progettazione e verifica, in modo da consentire la riduzione di tempi e costi di consegna del prodotto. Al termine delle attivit\`a di progettazione seguir\`a quella di programmazione, che produrr\`a il prototipo richiesto. L'ultima fase prima del collaudo sar\`a dedicata ad un attenta verifica di tutto il lavoro svolto nelle precedenti fasi. Il verificatore ed il responsabile di progetto sono le figure alle quali verranno affidate le responsabilit\`a pertinenti alle attivit\`a di verifica. Per una descrizione pi\`u dettagliata della pianificazione si veda il documento del \PianoDiProgetto .
 
 \section{Risorse necessarie, risorse disponibili}
-Le attivit\`a di verifica necessitano di risorse umane e tecnologiche. Il gruppo \`e composto da sette membri, ognuno dei quali durante tutto il periodo di lavoro dovr\`a assumere, in periodi di tempo diversi (in base alla disponibilit\`a e soprattutto alle competenze di ciascuno) tutti i ruoli significativi per lo sviluppo del prodotto. L'amministratore del progetto sar\`a tenuto a supervisionare tutte le fasi di verifica e gestire le varie risorse necessarie per consentire un'attivit\`a di buon livello, senza sprechi od oneri eccessivi. Per la comunicazione tra i componenti \`e stato creato un gruppo Google, accessibile ai soli membri del gruppo, raggiungibile all'URL: \textit{http://groups.google.com/group/happycodeinc}. Essendo inoltre ogni componente provvisto di un account Gmail, verr\`a utilizzato anche il sistema di chat locale per la comunicazione interattiva. Per l'archiviazione invece dei file verr\`a utilizzato svn, che permette inoltre anche il versionamento automatico degli stessi.
+Le attivit\`a di verifica necessitano di risorse umane e tecnologiche. Il gruppo \`e composto da sette membri, ognuno dei quali durante tutto il periodo di lavoro dovr\`a assumere, in periodi di tempo diversi (in base alla disponibilit\`a di ciascuno) tutti i ruoli significativi per lo sviluppo del prodotto. L'amministratore del progetto sar\`a tenuto a supervisionare tutte le fasi di verifica e gestire le varie risorse necessarie per consentire un'attivit\`a di buon livello, senza sprechi od oneri eccessivi. Per la comunicazione tra i componenti \`e stato creato un gruppo Google, accessibile ai soli membri del gruppo, raggiungibile all'URL: \textit{http://groups.google.com/group/happycodeinc}. Essendo inoltre ogni componente provvisto di un account Gmail, verr\`a utilizzato anche il sistema di chat locale per la comunicazione interattiva. Per l'archiviazione invece dei file verr\`a utilizzato un server Subversion (SVN).
 
 \section{Strumenti, tecniche, metodi}
 \subsection{Analisi Statica}
 Questa fase verr\`a applicata durante la stesura del codice sorgente per rilevare incongruenze che possono sorgere tra il progetto e i requisiti. Verr\`a applicata inoltre sulla struttura delle varie componenti del sistema ''BR-jsys''. Essa comprende le seguenti sottofasi:
 \begin{itemize}
-\item \textbf{Analisi del flusso di controllo:} Verificher\`a una corretta esecuzione del codice  da parte delle varie componenti del prodotto.
-In particolare, si controller\`a che:
-\begin{itemize}
-\item[-]il validatore accetti la regola in ingresso secondo le specifiche del linguaggio scelto;
-\item[-]l'esecutore verifichi la consistenza dei dati espressi dagli oggetti business.
-\end{itemize}
+\item \textbf{Analisi del flusso di controllo:} Verificher\`a una corretta esecuzione del codice.
+In particolare, si controller\`a che non vi siano statement irragiungibili, ossia istruzioni la cui condizione di accesso non pu\`o mai essere vera.
+\item \textbf{Analisi dell'uso dei dati:} Verificher\`a un corretto utilizzo delle variabili.
+In particolare, si controller\`a che non vi siano variabili utilizzate prima di essere inizializzate; variabili iutilizzate; variabili sempre vereo sempre false.
 \item \textbf{Verifica formale del codice:} Verificher\`a la correttezza del codice scritto. Si constater\`a in particolare la correttezza totale di ogni modulo in modo che non conduca mai in uno stato di non terminazione.
 \end{itemize}
 
