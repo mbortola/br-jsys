@@ -30,7 +30,7 @@
 \begin{document}
 
 %definizione variabili 
-\newcommand{\lv}{2.5} % latest version
+\newcommand{\lv}{2.6} % latest version
 %fine definizione variabili
 
 
@@ -47,7 +47,7 @@
 \vspace{2in}
 
 \LARGE \textbf {ANALISI DEI REQUISITI}
-\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today}
+\par\rule{10cm}{0.4pt} \par {\Large 2.6 - \today}
 
 
 \end{center}
@@ -63,7 +63,7 @@
 \begin{tabular}{||p{6cm}||p{6cm}||}
 \hline
 \textbf{Data creazione:} & 18/11/2007 \\ \hline
-\textbf{Versione:} & \lv \\ \hline
+\textbf{Versione:} & 2.6 \\ \hline
 \textbf{Stato del documento:} & Formale, esterno \\ \hline
 % ----------------------------------------------------------------------------autori
 \textbf{Redazione:} & Michele Bortolato, Alessia Trivellato \\ \hline
@@ -80,10 +80,7 @@
 \Large{\textbf{\textsf{Lista di distribuzione}}} \\
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 %  -------------------------------------------------------------lista di distribuzione
-{Elena Trivellato}& Responsabile di progetto \\ \hline 
-{Filippo Carraro}& Progettista \\ \hline
-{Alessia Trivellato, Michele Bortolato}& Analisti \\ \hline
-{Marco Tessarotto}& Verificatore \\ \hline
+{HappyCode inc}& Gruppo di lavoro\\ \hline
 {Tullio Vardanega, Renato Conte}& Committente \\ \hline 
 {Zucchetti S.r.l}& Azienda proponente\\ \hline
 \end{tabular} \\
@@ -97,7 +94,7 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
-2.6 & 23/01/2008 & Prima correzione grammaticale.\\ \hline
+2.6 & 23/01/2008 & Correzione grammaticale.\\ \hline
 2.5 & 22/01/2008 & Modifica al layout dei documenti.\\ \hline
 2.4 & 21/01/2008 & Modifiche in conseguenza del secondo incontro con l'azienda.\\ \hline
 2.3 & 10/01/2008 & Inserito tracciamento dei requisiti.\\ \hline
@@ -121,13 +118,13 @@
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il presente documento viene redatto al fine di identificare i requisiti presenti nel capitolato d'appalto denominato BR-jsys, conseguire il raggiungimento dell'obiettivo richiesto e soddisfare le esigenze di tutti gli stakeholders coinvolti nella realizzazione del progetto di cui sopra.
+Il presente documento viene redatto al fine di identificare i requisiti presenti nel capitolato d'appalto denominato ``BR-jsys'', conseguire il raggiungimento dell'obiettivo richiesto e soddisfare le esigenze di tutti gli stakeholders coinvolti nella realizzazione del progetto di cui sopra.
 \section{Scopo del prodotto}
-Il prodotto andr\`a inserito in un progetto globale. L'obiettivo principale del prodotto \`e quello di testare la consistenza di business objects altrimenti difficilmente verificabili tramite vincoli relazionali.
-In particolare verr\`a creato un linguaggio per la definizione di business rules; quest'ultime verranno poi immagazzinate in un \textit{file repository}. Nel momento in cui l'utente avr\`a bisogno di verificare la consistenza di un business object, un interprete si preoccuper\`a di invocare ed eseguire le regole che lo riguardano, stabilendo cos\`i se esso rispetta o no tutte le regole.
-Il progetto dovr\`a integrarsi con le componenti gi\`a sviluppate dall' azienda proponente; in particolare dovr\`a interfacciarsi con il loro interprete che sar\`a incaricato di applicare le regole ai business objects.
+Il prodotto andr\`a inserito in un progetto pi\`u ampio. Il suo obiettivo \`e quello di testare la consistenza di business objects, altrimenti difficilmente verificabile tramite vincoli relazionali.
+Verr\`a creato quindi un linguaggio per la definizione di business rules. Quest'ultime verranno immagazzinate in un \textit{file repository}; nel momento in cui l'utente avr\`a bisogno di verificare la consistenza di un business object, un interprete si preoccuper\`a di invocare ed eseguire le regole che lo riguardano, stabilendo cos\`i se esso le rispetta tutte o meno.
+Il progetto dovr\`a integrarsi infine con le componenti gi\`a sviluppate dall'azienda committente. In particolare dovr\`a interfacciarsi con il loro interprete, il quale dovr\`a poi applicare le regole ai business objects.
 \section{Definizioni, acronimi, abbreviazioni}
-Vengono di seguito riportate in una tabella le abbreviazioni utlizzate nel documento. Comprese le sigle utilizzate per il tracciamento dei requisiti.
+Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel documento, comprese le sigle utilizzate per il tracciamento dei requisiti.
 \begin{center}
 \begin{tabular}{||p{3.5cm}||p{9.5cm}||} \hline
 \textbf{Abbreviazione} & \textbf{Significato} \\ \hline
@@ -142,30 +139,31 @@ NQ\textit{\#} & Con NQ seguito da un numero intero sono indicati i requisiti di 
 
 \end{tabular} \\
 \end{center}
-Per gli altri termini qui non citati si fa riferimento al file esterno Glossario.1.2.pdf.
+\subsection{Glossario}
+Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno Glossario.1.4.pdf.
 \section{Riferimenti}
 \begin{itemize}
-\item Capitolato d'appalto concorso per sistema BR-jsys
-\item Verbale dell'incontro con il committente Incontro2007-11-22.pdf
+\item Capitolato d'appalto concorso per sistema ``BR-jsys''
+\item Verbale dell'incontro con il committente ``Incontro2007-11-22.pdf''
 \item ``Ingegneria del Software'' 8a edizione - Ian Sommerville
 \end{itemize}
 %----------------------------------------------------------------------------------inserire il libro 
 \section{Descrizione del resto del documento}
-Di seguito viene descritto il sistema designato dalla sigla BR-jsys. Viene inoltre brevemente descritta la sua funzionalit\`a, la tipologia di utenti ed il contesto d'uso. L'analisi del sistema viene presentata con l'ausilio di un formalismo grafico: i diagrammi use-case UML. Vengono infine riportati tutti i requisiti individuati dalla \textit{Happycode Inc.} .
+Di seguito viene descritto il sistema designato dalla sigla ``BR-jsys''. Viene inoltre brevemente descritta la sua funzionalit\`a, la tipologia di utenti ed il contesto d'uso. L'analisi del sistema viene presentata con l'ausilio di un formalismo grafico: i diagrammi use-case UML. Vengono infine riportati tutti i requisiti individuati dalla \textit{Happycode Inc.} .
 
 \chapter{Descrizione generale}
 \section{Prospettiva del prodotto}
-Il sistema va a collocarsi all'interno di un progetto globale di automazione nella generazione del codice per la produzione di software gestionale. In particolare il sistema si occuper\`a della gestione delle business rules, definendo un linguaggio con cui descriverle e un sistema di archiviazione-recupero delle stesse.
+Il sistema va a collocarsi all'interno di un progetto globale di automazione nella generazione del codice per la produzione di software gestionale. In particolare si occuper\`a della gestione delle business rules, definendo un linguaggio con cui descriverle, oltre ad un sistema di archiviazione-recupero delle stesse.
 \section{Funzioni del prodotto}
-Il sistema si occupa di definire un linguaggio con cui descrivere business rules, pi\`u concretamente il sistema dovr\`a verificare che delle business rules inserite dall'utente rispettino il sopracitato linguaggio, in caso di esito positivo dovr\`a inserirle in un repository dal quale possano poi essere recuperate nel momento in cui si desideri verificare la consistenza di un business object.
+Il sistema si occupa di definire un linguaggio con cui descrivere business rules. Pi\`u concretamente dovr\`a verificare che le business rules inserite dall'utente rispettino il linguaggio sopracitato. In caso di esito positivo dovranno essere inserite in un repository, dal quale potranno poi essere recuperate nel momento in cui si desideri verificare la consistenza di un business object.
 \section{Caratteristiche utente}
-Il sistema andr\`a inserito all'interno di un progetto pi\`u ampio, il cui utente finale \`e un individuo esperto in ambito commerciale e gestionale, ma non necessariamente esperto in ambito informatico.
+Il sistema andr\`a inserito all'interno di un progetto pi\`u ampio, il cui utente finale \`e un individuo esperto in ambito commerciale e gestionale, ma non necessariamente in ambito informatico.
 \section{Vincoli generali}
-Il linguaggio di programmazione adottato per lo sviluppo del prodotto sar\`a Java. Il sistema dovr\`a inoltre potersi interfacciare con le componenti gi\`a sviluppate dall'azienda proponente. 
+Il linguaggio di programmazione adottato per lo sviluppo del prodotto sar\`a Java. Il sistema dovr\`a inoltre potersi interfacciare con le componenti gi\`a sviluppate dall'azienda committente. 
 \section{Presupposti e dipendenze}
 \begin{itemize}
 \item{Le business rules su cui si opera saranno di tipo \textit{Rejector}. Una business rule deve essere composta da uno o pi\`u confronti tra espressioni dello stesso tipo (eventualmente complesse).}
-\item{I business object che manipoleremo sono generalmente costituiti da campi dati semplici (numeri reali, booleani, stringhe ), da un insieme di array o vettori omogenei tutti della stessa lunghezza ( derivanti da tabelle ) e da riferimenti ad altri BO (ma non da arrray di BO). }
+\item{I business objects che manipoleremo sono generalmente costituiti da campi dati semplici (numeri reali, booleani, stringhe ), da un insieme di array o vettori omogenei tutti della stessa lunghezza ( derivanti da tabelle ) e da riferimenti ad altri business objects (ma non da array di business objects). }
 \item{La virtual machine utilizzata  per sviluppare gli oggetti richiesti \`e Java 1.5.}
 \end{itemize}
 
