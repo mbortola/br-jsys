@@ -133,11 +133,11 @@ L'utente finale del sistema non dovr\`a necessariamente avere grandi competenze 
 Il prodotto richiesto verr\`a inserito nell'ambito di un progetto pi\`u ampio. Il suo scopo \`e quello di automatizzare il sistema di validazione dei dati in ingresso al database dell'applicazione principale.
 
 \section{Glossario}
-Viene fornito come documento esterno chiamato \Glossario.
+Viene fornito come documento esterno chiamato Glossario.1.4.pdf.
 
 \chapter[Strategia di verifica]{Visione generale della strategia di verifica}
 \section[Organizzazione, pianificazione, responsabilit\`a]{Organizzazione, pianificazione strategica e temporale, responsabilit\`a}
-La Happycodeinc ha  pianificato delle fasi temporali per definire, sviluppare e validare il prodotto; tali fasi sono prese in analisi e descritte nei paragrafi successivi.
+La Happycodeinc ha  pianificato delle fasi temporali per definire, sviluppare e validare il prodotto; tali fasi saranno prese in analisi e descritte nei successivi paragrafi.
 
 \subsection{Ciclo di vita}
 Le attivit\`a seguiranno un modello di tipo evolutivo che permetter\`a di apportare, in fasi diverse, eventuali modifiche ai documenti. L'obiettivo \`e comprendere al meglio le richieste del cliente e sviluppare dunque una migliore definizione dei requisiti del sistema.\newline Per arrivare ad un prodotto finale sar\`a quindi indispensabile lavorare in stretto contatto con il cliente, sottoponendogli periodicamente versioni parziali o prototipi del prodotto finale. Si svilupperanno prima le parti del sistema che sono ben chiare (requisiti ben compresi) e, solo successivamente si aggiungeranno nuove parti/funzionalit\`a a fronte di chiarimenti da parte del cliente. 
@@ -149,12 +149,12 @@ Le attivit\`a di verifica necessitano di risorse umane e tecnologiche. Il gruppo
 
 \section{Strumenti, tecniche, metodi}
 \subsection{Analisi Statica}
-Questa fase verr\`a applicata durante la stesura del codice sorgente per rilevare incongruenze che possono sorgere tra il progetto e i requisiti. Verr\`a applicata inoltre sulla struttura delle varie componenti del sistema ''BR-jsys''. Essa comprende le seguenti sottofasi:
+Questa fase verr\`a applicata durante la stesura del codice sorgente per rilevare incongruenze che possono sorgere tra il progetto e i requisiti. Verr\`a applicata inoltre sulla struttura delle varie componenti del sistema ``BR-jsys''. Essa comprende le seguenti sottofasi:
 \begin{itemize}
 \item \textbf{Analisi del flusso di controllo:} Verificher\`a una corretta esecuzione del codice.
 In particolare, si controller\`a che non vi siano statement irragiungibili, ossia istruzioni la cui condizione di accesso non pu\`o mai essere vera.
 \item \textbf{Analisi dell'uso dei dati:} Verificher\`a un corretto utilizzo delle variabili.
-In particolare, si controller\`a che non vi siano variabili utilizzate prima di essere inizializzate; variabili iutilizzate; variabili sempre vere o sempre false.
+In particolare, si controller\`a che non vi siano variabili utilizzate prima di essere inizializzate, variabili iutilizzate, variabili sempre vere o sempre false.
 \item \textbf{Verifica formale del codice:} Verificher\`a la correttezza del codice scritto. Si constater\`a in particolare la correttezza totale di ogni modulo in modo che non conduca mai in uno stato di non terminazione.
 \end{itemize}
 
@@ -167,8 +167,14 @@ Questa fase verr\`a applicata durante la progettazione e la stesura del codice a
 
 \chapter[Gestione revisione]{Gestione amministrativa della revisione} 
 \section{Processo di ispezione}
-Le ispezioni del codice e dei documenti verranno eseguite da una squadra di almeno 4 persone. Parteciperanno alla riunione di ispezione: l'autore del documento ispezionato; i membri del gruppo tenuti a ispezionare il codice; il moderatore capo; il segretario che prender\`a nota degli erori scovati.
-In una fase iniziale l'autore del codice presenta alla squadra di ispezione il funzionamento dello stesso. Ognuno dei membri della squadra \`e poi tenuto a studiare il codice al fine di individuare difetti ed errori. Durante la riunione di ispezione poi verranno annotati dal segretario i difetti individuati. 
+Le ispezioni del codice e dei documenti verranno eseguite da una squadra di almeno 4 persone. Parteciperanno alla riunione di ispezione: 
+\begin{itemize}
+\item[-]l'autore del documento ispezionato;
+\item[-]i membri del gruppo tenuti a ispezionare il codice;
+\item[-]il moderatore capo;
+\item[-]il segretario che prender\`a nota degli erori scovati.
+\end{itemize}
+In una fase iniziale l'autore del codice presenter\`a alla squadra di ispezione il funzionamento dello stesso. Ognuno dei membri della squadra sar\`a poi tenuto a studiare il codice al fine di individuare difetti ed errori. I difetti individuati verranno poi annotati dal segretario durante la riunione di ispezione. 
 \section{Comunicazione e risoluzione di anomalie}
 Il documento redatto dal segretario dovr\`a elencare le segnalazioni in modo che sia possibile individuare il punto errato in modo semplice e non ambiguo, eventualmente citando le parti non corrette. In dettaglio il documento sar\`a costituito da una tabella contenente:
 \begin{itemize}
