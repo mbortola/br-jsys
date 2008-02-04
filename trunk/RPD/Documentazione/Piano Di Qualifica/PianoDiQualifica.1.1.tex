@@ -152,7 +152,7 @@ Questa fase verr\`a applicata durante la stesura del codice sorgente per rilevar
 \item \textbf{Analisi del flusso di controllo:} Verificher\`a una corretta esecuzione del codice.
 In particolare, si controller\`a che non vi siano statement irragiungibili, ossia istruzioni la cui condizione di accesso non pu\`o mai essere vera.
 \item \textbf{Analisi dell'uso dei dati:} Verificher\`a un corretto utilizzo delle variabili.
-In particolare, si controller\`a che non vi siano variabili utilizzate prima di essere inizializzate; variabili iutilizzate; variabili sempre vereo sempre false.
+In particolare, si controller\`a che non vi siano variabili utilizzate prima di essere inizializzate; variabili iutilizzate; variabili sempre vere o sempre false.
 \item \textbf{Verifica formale del codice:} Verificher\`a la correttezza del codice scritto. Si constater\`a in particolare la correttezza totale di ogni modulo in modo che non conduca mai in uno stato di non terminazione.
 \end{itemize}
 
@@ -160,13 +160,21 @@ In particolare, si controller\`a che non vi siano variabili utilizzate prima di 
 Questa fase verr\`a applicata durante la progettazione e la stesura del codice al fine di verificare dinamicamente l'indipendenza delle singole unit\`a rispetto all'integrazione del sistema. Verr\`a testato quindi il sistema in tutti i suoi possibili casi e verranno effettuate prove per verificarne l'integrit\`a.
 \begin{itemize}
 \item Attraverso l'inserimento di nuove regole business in un contesto di prova, effettueremo test sulla validazione e li confronteremo con i risultati attesi.
-\item Tramite opportuni oggetti business di prova effettueremo test sui risultati ottenuti dalla validazione, e li confronteremo con i risultati attesi.
+\item Tramite opportuni oggetti business di prova effettueremo test sull'utilizzo del DBMS.
 \end{itemize}
 
 \chapter[Gestione revisione]{Gestione amministrativa della revisione} 
-
+\section{Processo di ispezione}
+Le ispezioni del codice e dei documenti verranno eseguite da una squadra di almeno 4 persone. Parteciperanno alla riunione di ispezione: l'autore del documento ispezionato; i membri del gruppo tenuti a ispezionare il codice; il moderatore capo; il segretario che prender\`a nota degli erori scovati.
+In una fase iniziale l'autore del codice presenta alla squadra di ispezione il codice e il funzionamento dello stesso. Ognuno dei membri della squadra \`e poi tenuto a studiare il codice al fine di individuare difetti ed errori. Durante la riunione di ispezione poi verranno annotati dal segretario i difetti individuati. 
 \section{Comunicazione e risoluzione di anomalie}
-Sar\`a compito dei verificatori la comunicazione delle anomalie e avverr\`a attraverso la stesura di documenti specifici. Costoro dovranno elencare le segnalazioni in modo che sia possibile individuare il punto errato in modo semplice e non ambiguo, eventualmente citando le parti non corrette. Discorso a parte va fatto per errori grammaticali o di formattazione che potranno essere corretti direttamente dai verificatori.
+Il documento redatto dal segretario dovr\`a elencare le segnalazioni in modo che sia possibile individuare il punto errato in modo semplice e non ambiguo, eventualmente citando le parti non corrette. In dettaglio il documento sar\`a costituito da una tabella contenente:
+\begin{itemize}
+\item Un descrizione che identifichi in modo univoco l'errore (riga del codice, nome e revisione del file).
+\item I passi che hanno portato al verificarsi dell'errore.
+\item La gravit\`a dell'errore e iltempo in cui deve essere corretto.
+\end{itemize}
+L'autore del codice sottoposto a ispezione, preso atto dei difetti individuati nel codice, dovr\`a correggerli nei tempi indicati presentando un documento in cui indica le modifiche apportate.
 
 \section{Trattamento delle discrepanze} 
 Se dovessero verificarsi discrepanze tra le necessit\`a del cliente ed i requisiti risultanti dall'analisi si provveder\`a ad un ulteriore analisi che avr\`a la priorit\`a sulle altre attivit\`a. Si provveder\`a all'aggiornamento dei documenti di analisi dei requisiti e se necessario ai prodotti delle attivit\`a successive all'analisi. L'analista, in collaborazione col progettista e l'amministratore, valuter\`a l'impatto delle modifiche sul lavoro gi\`a svolto e comunicher\`a ai membri interessati le variazioni.
