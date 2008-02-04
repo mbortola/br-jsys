@@ -27,11 +27,15 @@
 	\renewcommand{\footrulewidth}{1pt}
 }
 
-%INIZIO DOCUMENTO
-
-
 \begin{document}
 
+
+%definizione variabili 
+\newcommand{\lv}{1.8 } % latest version
+\newcommand{\Glossario}{ Glossario.1.4.pdf }
+%fine definizione variabili
+
+\hyphenation{glos-sa-rio es-pli-ci-to ve-ri-fi-ca-re re-po-si-to-ry se-gna-la-ta coe-ren-za}
 \begin{titlepage}
 \begin{center}
 \vspace*{0.5in}
@@ -39,45 +43,31 @@
 \vspace*{0.2in}
 
 {\Large \textbf{BR-jsys}}
+{\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
+\vspace{2in}
 
-{\Large \emph{Business Rules} per sistemi gestionali in architettura J2EE } 
-\vspace{1.3in}
-\par\rule{10cm}{.4pt} \par
-\par\rule{12cm}{1pt} \par
-\vspace*{0.5in}
 \LARGE \textbf {PIANO DI PROGETTO}
-\vspace*{0.5in}
-\par\rule{12cm}{1pt} \par
-{\large Versione 0.5 - {5 dicembre 2007}}
-\par\rule{10cm}{.4pt} \par
+\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today}
+
 
 \end{center}
 \end{titlepage}
 \vspace*{0.5in}
 
-%---------------------------------------------
-% SECONDA PAGINA
-%---------------------------------------------
+
 \begin{center}
 \thispagestyle{plain}
 \begin{table}[htbp]
 \large{
 \begin{tabular}{l}
 \Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
-\begin{tabular}{||p{6cm}||p{6cm}||}
-\hline
-\textbf{Data creazione:} & 2007/11/21 \\
-\hline
-\textbf{Versione:} & 0.5 \\
-\hline
-\textbf{Stato del documento:} & formale, esterno \\
-\hline
-\textbf{Redazione:} &  2007/11/21 \\
-\hline
-\textbf{Revisione:} &    \\
-\hline
-\textbf{Approvazione:}  & \\
-\hline
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\textbf{Data creazione:} & 2007/11/21 \\ \hline
+\textbf{Versione:} & 0.5 \\ \hline
+\textbf{Stato del documento:} & formale, esterno \\ \hline
+\textbf{Redazione:} &  2007/11/21 \\ \hline
+\textbf{Revisione:} &    \\ \hline
+\textbf{Approvazione:}  & \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -155,7 +145,7 @@ Qui \`e riportata la divisione dei ruoli e il costo complessivo del
 sistema in base ai ruoli e alle ore impegnate.
 
 \section{Glossario}
-Vedi Glossario\_0\_4.pdf
+Il glossario viene fornito come file esterno chiamato \Glossario .
 
 \chapter{Ruoli}
 \section{Definizione ruoli}
