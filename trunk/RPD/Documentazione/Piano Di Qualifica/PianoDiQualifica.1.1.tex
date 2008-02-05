@@ -203,6 +203,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}& Creazione di business rules complesse attraverso semplici inserimenti\\ \hline
 {\textbf{Input}}&  Business rule di appoggio \\ \hline
 {\textbf{Output}}& Lo stato di accettazione della business rule attraverso la notifica rilasciata\\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -214,6 +215,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}& Inserimento/eliminazione di varie business rules d'appoggio (sintatticamente corrette o meno), per testarne il loro stato di accettazione \\ \hline
 {\textbf{Input}}& Business Rule di appoggio \\ \hline
 {\textbf{Output}}& Lo stato di accettazione delle business rule attraverso la notifica rilasciata \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -225,6 +227,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}&  Inserimento di varie business rules d'appoggio gi\`a validate e controllo all'interno del repository dell'avvenuto inserimento\\ \hline
 {\textbf{Input}}& Business Rules (validate) di appoggio \\ \hline
 {\textbf{Output}}& Lo stato dell'inserimento delle business rules attraverso la notifica rilasciata \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -236,6 +239,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}& Inserimento di varie business rules d'appoggio (corrette o meno) e controllo della corretta notifica di risposta alla richiesta di inserimento \\ \hline
 {\textbf{Input}}& Business Rules (corrette o meno) di appoggio  \\ \hline
 {\textbf{Output}}& Una notifica per ogni ogni business rule che si \`e provato ad inserire \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -247,6 +251,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}& Inserimento/eliminazione/modifica di varie business rules d'appoggio (sintatticamente corrette o meno) e valutazione del tempo di risposta impiegato dal DBMS \\ \hline
 {\textbf{Input}}& Business Rules (corrette o meno) di appoggio  \\ \hline
 {\textbf{Output}}& Notifica di inserimento/eliminazione di ogni business rule, prestando attenzione al tempo impiegato a per fornirlo \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -258,6 +263,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}&  Recuperare dal repository tutte le business rules associate ad un determinato business object\\ \hline
 {\textbf{Input}}&  Business object (in stringa) \\ \hline
 {\textbf{Output}}& Le business rules associate\\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -269,6 +275,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}&  Richiesta al DBMS di cancellare varie business rules date in input dal repository. Si tester\`a la correttezza dell'eliminazione fatta. Ogni eliminazione riuscita o meno dovr\`a essere accompagnata da una chiara notifica di evento\\ \hline
 {\textbf{Input}}& Business Rules da eliminare \\ \hline
 {\textbf{Output}}& Notifica di eliminazione (avvenuta o meno) \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -280,6 +287,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}& Si creer\`a  una semplice interfaccia in linguaggio Java, con le componenti essenziali per permettere l' inserimento/rimozione di una business rule nel repository e la successiva notifica di tale evento \\ \hline
 {\textbf{Input}}& Business Rules da eliminare \\ \hline
 {\textbf{Output}}& Notifica di eliminazione (avvenuta o meno) \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -291,6 +299,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}& Inserimento di business rules d'appoggio (coerenti o meno con quelle presenti nel repository) e verifica del corretto funzionamento del validatore. Il validatore dovr\`a rifiutare le business rules che entrano in conflitto e accettare le altre \\ \hline
 {\textbf{Input}}& Business Rules di appoggio \\ \hline
 {\textbf{Output}}& Notifica dello stato di accettazione \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -302,6 +311,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}&  Inserimento di varie business rules d'appoggio, che si riferiscono ai campi dati del business object associato, e testare la correttezza della validazione effettuata \\ \hline
 {\textbf{Input}}&  Business Rules d'appoggio \\ \hline
 {\textbf{Output}}& Esisto della validazione \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -309,10 +319,11 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \hline
 \textbf{\textsf{F11}}& \\
 \hline
-{\textbf {Obbiettivo Prova}}& Testare che ad ogni business rule \`e associato un business object nel quale vanno eventualmente ricercati i campi dati utilizzati nella business rule\\ \hline
+{\textbf {Obbiettivo Prova}}& Testare che ad ogni business rule sia associato un business object \\ \hline
 {\textbf{Descrizione Prova}}&  \\ \hline
 {\textbf{Input}}&  \\ \hline
 {\textbf{Output}}& \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -324,6 +335,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}&  \\ \hline
 {\textbf{Input}}&  \\ \hline
 {\textbf{Output}}& \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -335,6 +347,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}&  \\ \hline
 {\textbf{Input}}&  \\ \hline
 {\textbf{Output}}& \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -346,6 +359,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}& Si tenter\`a di validare vari business objects (con errori interni e di ogni genere possibile), valutando l'efficacia del messaggio d'errore emesso \\ \hline
 {\textbf{Input}}&  Business Objects \\ \hline
 {\textbf{Output}}& Messaggi d'errore\\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -357,6 +371,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}&  \\ \hline
 {\textbf{Input}}&  \\ \hline
 {\textbf{Output}}& \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -368,6 +383,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}& Popolamento del repository attraverso inserimento di business rules d'appoggio e attraverso iterazioni con esso. Si valuter\`a l'efficienza in termini di tempo di risposta, del DBMS usato  \\ \hline
 {\textbf{Input}}& Business Rules \\ \hline
 {\textbf{Output}}& Valutazione del tempo impiegato di ogni interrogazione \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -379,6 +395,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}& Inserimento di varie business rules d'appoggio nel repository e controllo dell'unicit\`a della loro indicizzazione \\ \hline
 {\textbf{Input}}& Business Object \\ \hline
 {\textbf{Output}}& L'esito del controllo\\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -390,6 +407,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}& Si applicheranno a business objects esistenti tutte le operazioni che il linguaggio permette e si valutera\`a l'esito della validazione di tali operazioni, confrontandoli con i risultati aspettati.  \\ \hline
 {\textbf{Input}}& Business Objects \\ \hline
 {\textbf{Output}}& L'esito della validazione delle operazioni tra i business objects dati in input\\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -401,6 +419,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}&  \\ \hline
 {\textbf{Input}}&  \\ \hline
 {\textbf{Output}}& \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -412,179 +431,10 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 {\textbf{Descrizione Prova}}&  \\ \hline
 {\textbf{Input}}&  \\ \hline
 {\textbf{Output}}& \\ \hline
+{\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 
 
-\section {Esiti test effettuati}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F1}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F2}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F3}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F4}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F5}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F6}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F7}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F8}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F9}} \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F10}} \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F11}} \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NU1}} \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NPo1}} \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NPr1}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NPr2}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NQ1}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NQ1}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NQ2}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
-\\
-\\
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NQ3}}& \\
-\hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Esito}}&  \\ \hline
-\end{tabular} \\
 \end{document}
 
 
