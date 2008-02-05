@@ -199,8 +199,8 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \hline
 \textbf{\textsf{F1}}& \\
 \hline
-{\textbf {Obbiettivo Prova}}& Creare un linguaggio ad alto livello \\ \hline
-{\textbf{Descrizione Prova}}& Creazione di business rules complesse attraverso semplici inserimenti\\ \hline
+{\textbf {Obbiettivo Prova}}& Creare un linguaggio per le business rules \\ \hline
+{\textbf{Descrizione Prova}}& Creazione di un linguaggio per rappresentare le business rules \\ \hline
 {\textbf{Input}}&  Business rule di appoggio \\ \hline
 {\textbf{Output}}& Lo stato di accettazione della business rule attraverso la notifica rilasciata\\ \hline
 {\textbf{Esito}}&  \\ \hline
@@ -231,6 +231,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \end{tabular} \\
 \\
 \\
+
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
 \hline
 \textbf{\textsf{F4}}& \\
@@ -320,9 +321,9 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \textbf{\textsf{F11}}& \\
 \hline
 {\textbf {Obbiettivo Prova}}& Testare che ad ogni business rule sia associato un business object \\ \hline
-{\textbf{Descrizione Prova}}&  \\ \hline
-{\textbf{Input}}&  \\ \hline
-{\textbf{Output}}& \\ \hline
+{\textbf{Descrizione Prova}}&  Nella Gui ogni business rule ha un campo dati per il business object associato. Se tale campo (``associated Object'') viene lasciato vuoto verr\`a lanciata un'eccezione dal sistema\\ \hline
+{\textbf{Input}}&  Business rule di appoggio (con campo dati ``associated Oblect'' pieno o vuoto)\\ \hline
+{\textbf{Output}}& Una eccezione se il campo dati \`e stato lasciato vuoto, altrimenti niente \\ \hline
 {\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
@@ -331,10 +332,10 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \hline
 \textbf{\textsf{NU1}}& \\
 \hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
-{\textbf{Descrizione Prova}}&  \\ \hline
-{\textbf{Input}}&  \\ \hline
-{\textbf{Output}}& \\ \hline
+{\textbf {Obbiettivo Prova}}& Creare un linguaggio di alto livello, facile da capire per un utente con scarse conoscenze informatiche\\ \hline
+{\textbf{Descrizione Prova}}& Creazione di business rules complesse attraverso semplici inserimenti da parte dell'utente\\ \hline
+{\textbf{Input}}&  \\ \hline Business rule di appoggio
+{\textbf{Output}}& \\ \hline Lo stato di accettazione della business rule attraverso la notifica rilasciata\\ \hline
 {\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
@@ -343,7 +344,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \hline
 \textbf{\textsf{NU2}}& \\
 \hline
-{\textbf {Obbiettivo Prova}}& \\ \hline
+{\textbf {Obbiettivo Prova}}& Il linguaggio deve fornire funzioni primitive per le operazioni base tra i dati, come la somma, la media aritmetica e la negazione logica \\ \hline
 {\textbf{Descrizione Prova}}&  \\ \hline
 {\textbf{Input}}&  \\ \hline
 {\textbf{Output}}& \\ \hline
