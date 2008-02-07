@@ -138,15 +138,19 @@ Viene fornito come documento esterno chiamato \Glossario .
 \subsection{Metodo e formalismo di specifica}
 La strategia che adotteremo per scomporre il sistema software in moduli sar\`a orientata agli oggetti, ovvero scomporremo il sistema in un insieme di oggetti comunicanti. Questa scomposizione si occuper\`a quindi delle classi di oggetti, dei loro attributi e delle loro operazioni. Abbiamo adottato questo metodo in quando ci permette di modificare l'implementazione degli oggetti senza dover per forza influenzare gli altri.
 \subsection{Presentazione dell'architettura generale del sistema e identificazione dei componenti architetturali di alto livello}
+%da rifare del tutto
 Il nostro sistema accetter\`a come input un linguaggio che rispetta le regole di una grammatica da noi definita e generer\`a un'altra rappresentazione di tale linguaggio. Trasformer\`a quindi la descrizione di dati XML in comandi per interrogare un database. L'architettura del nostro sistema viene cos\`i illustrato:
 \begin{center}
+%sicuro sia pertinente?
 \includegraphics[width=1\textwidth]{st.eps}
 \end{center}
 Le istruzioni, tradotte in un formato interno dal validatore, descrivono cosa deve essere fatto e corrispondono alle istruzioni che l'interprete esterno deve effettuare sui business objects; tali istruzioni saranno quindi interpretate da quest'ultimo.
-Le principali macro-componenti del sistema ``BR-jjsys'' sono:
+Le principali macro-componenti del sistema ``BR-jsys`` sono:
 \begin{itemize}
 \item Validatore delle business-rules;
-\item Modulo di connessione tra l'interprete e il DBMS (Database Managment System) esterno;
+\item Modulo di connessione al DBMS esterno;
+\item Modulo di comunicazione con il DBMS esterno;
+\item Gui minimale per permettere all'utente l'utilizzo semplice delle funzionalit\`a del prodotto;
 \end{itemize}
 
 Questa suddivisione, per quanto minimale, consente di individuare le principali componenti che verranno ampliamente descritte nel successivo capitolo.
@@ -155,24 +159,42 @@ Questa suddivisione, per quanto minimale, consente di individuare le principali 
 \subsection{Tipo, obiettivo e funzione del componente}
 
 \begin{itemize}
-\item Il validatore delle business-rules \`e un modulo software. Il suo obiettivo \`e verificare se la business-rules pu\`o essere inserita nel repository e, in caso affermativo tradurla in formato in XML comprensibile all'interprete esterno, altrimenti segnalare l'anomalia con  la rispettiva eccezione. Il nostro validatore ha un'architettura che comprende i seguenti sotto-componenti:
+\item Il validatore delle business-rules \`e un modulo software. Il suo obiettivo \`e verificare se la business-rules pu\`o essere inserita nel repository e, in caso affermativo tradurla in formato in XML comprensibile all'interprete esterno, altrimenti segnalare l'anomalia con la rispettiva eccezione. Il nostro validatore ha un'architettura che comprende i seguenti sotto-componenti:
 \begin{enumerate}
 \item un analizzatore lessicale (lexer) che prende i token del nostro linguaggio e li traduce in una forma interna;
-\item una tabella dei simboli che contiene le informazioni sui nomi delle entit\`a (variabili, nomi delle classi, nomi degli oggetti, etc.) utilizzate nel testo che si sta traducendo;
+%\item una tabella dei simboli che contiene le informazioni sui nomi delle entit\`a (nomi delle classi, nomi degli oggetti, etc.) utilizzate nel testo %che si sta traducendo;
+
 \item un analizzatore sintattico (parser) che controlla la sintassi del linguaggio che si sta traducendo: utilizza la grammatica del linguaggio da noi definita e costruisce l'albero sintattico;
-\item un albero sintattico, ovvero una struttura interna che rappresenta il programma da compilare;
-\item un analizzatore semantico che utilizza le informazioni dell'albero sintattico e la tabella dei simboli per verificare la correttezza semantica del testo in ingresso;
-\item un generatore di codice che ``cammina'' sull'albero e genera il codice da inserire nel repository.
+%\item un albero sintattico, ovvero una struttura interna che rappresenta il programma da compilare;
+%NON DICHIARANDO VARIABILI NON ABBIAMO BISONGO DI UNA TABELLA DEI SIMBOLI DURANTE IL PARSING
+%\item un analizzatore semantico che utilizza le informazioni dell'albero sintattico per verificare la correttezza semantica del testo in ingresso;
+%PER QUANTO RIGUARDA LA SEMANTICA O LA FA IL CONVERTITORE XML O LA FA IL PARSER
+\item un generatore di codice che ``cammina'' sull'albero e genera il codice XML da inserire nel repository.
 \end{enumerate}
 
-\item Il modulo di connessione \`e un middleware, ovvero un programma che funge da intermediario tra l'interprete e il DBMS esterno. La sua funzione \`e quella di gestire la richiesta dell'interprete, inviandola al DBMS. Ricevute dal DBMS tutte le regole riguardanti un determinato business object, le invier\`a all'interprete esterno.
-\item Interfaccia grafica (GUI) permetter\` all'utente di interagire con il validatore attraverso l'inserimento di nuove business rules e la cancellazione tramite la relativa chiamata al modulo di connessione.
+\item Il modulo di connessione al DBMS permette di accedere al Repository da interrogare.
+
+\item Il modulo di comunicazione \`e un middleware, ovvero un programma che funge da intermediario tra DBMS e le componenti che richiedono la comunicazione col repository. Le sue funzioni sono:
+\begin{enumerate}
+\item Gestire le richieste di business rules da eseguire da parte dell'interprete esterno .
+\item Gestire le richieste di inserimento di business rules validate da parte del validatore.
+\item Gestire le richieste di cancellazione di business rules da parte dell'utente.%?? penso sia Ok
+\end{enumerate}
+
+\item Interfaccia grafica (GUI) consentir\`a all'utente le seguenti operazioni:
+\begin{enumerate}
+\item Inserimento di una nuova business rule;
+\item Cancellazione di business rule presenti nel repository;
+\item Esecuzione di query definite dall'utente;
+\end{enumerate}
 
 \end{itemize}
 
 \subsection{Relazioni d'uso di altre componenti}
-Il modulo di connessione dialoga con la componente esterna DBMS attraverso il quale invia richieste di inserimento, cancellazione o recupero di informazioni. Ha relazioni inoltre con l'interprete esterno attraverso cui accetta richieste di business rules relative a un determinato business object. Successivamente il modulo di connessione chiama il DBMS richiedendo le opportune business rules che verranno restituite e inviate all'interprete. Il validatore dialoga con il DBMS esterno chiedendo di inserire le regole precedentemente validate. La GUI invece dialoga direttamente con il modulo di connessione durante la fase di cancellazione di una business rules e, direttamente con il validatore durante l'inserimento.
-
+\begin{itemize}
+\item{Il Validatore dialoga con il modulo di comunicazione nella fase di inserimento delle business rule validata. }
+Il modulo di comunicazione dialoga con il DBMS attraverso l'invio di richieste di inserimento, cancellazione o recupero di informazioni. Ha relazioni inoltre con l'interprete esterno attraverso cui accetta richieste di business rules relative a un determinato business object. Successivamente il modulo di connessione chiama il DBMS richiedendo le opportune business rules che verranno restituite e inviate all'interprete. Il validatore dialoga con il DBMS esterno chiedendo di inserire le regole precedentemente validate. La GUI invece dialoga direttamente con il modulo di connessione durante la fase di cancellazione di una business rules e, direttamente con il validatore durante l'inserimento.
+\end{itemize}
 \subsection{Interfacce con e relazioni di uso da altre componenti}
 Un interfaccia ``fornisce'' i servizi dal componente, ovvero i metodi che possono essere chiamati da un utente del programma. ``Specifica '' inoltre quali servizi devono essere forniti da altri componenti del sistema. Se questi non sono disponibili il componente non funzioner\`a senza per\`o compromettere l'indipendenza o la consegnabilit\`a di una componente, poich\`e non richiede che sia utilizzato uno specifico componente per fornire i servizi. Nel nostro caso:
 \begin{itemize}
@@ -186,7 +208,7 @@ Un interfaccia ``fornisce'' i servizi dal componente, ovvero i metodi che posson
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 Dopo aver analizzato il problema attraverso schemi progetturali sono state individuate le risorse necessarie  per la realizzazione del prodotto. Attraverso l'utilizzo di software open source siamo riusciti a contenere i costi e contemporaneamente a rendere disponibili tutte le risorse necessarie.
 Le risorse necessarie ai nostri componenti per affrontare le varie problematiche di comunicazione, sviluppo del codice, gestione degli archivi, verifica dei documenti e del sistema sono state descritte nel documento Piano di Qualifica. Nella fase di specifica tecnica e successivamente di progettazione verrano utilizzati diagrammi UML delle classi e degli oggetti realizzati con Dia. Lo sviluppo avr\`a luogo singolarmente o in piccoli gruppi a seconda della natura della problematica da affrontare. Il documento/codice avr\`a in ogni modo un unico proprietario incaricato di renderlo pubblico tramite server SVN.
-
+%Parlare ASSOLUTAMENTE di ANTLR e di ANTLRWORKS nonchè di poseidon, eclipse e se la elena per fare la gui utilizza roba esterna dichiararlo...ma poseidon non è + open source!!
 \chapter{Tracciamento della relazione componenti-requisiti}
 
 
