@@ -18,13 +18,14 @@
 
 %Ridefinisco lo stile plain della pagina
 \fancypagestyle{plain}{%
-    \lhead{\includegraphics[height=50pt]{logo.eps}}
-    \chead{}
-    \rhead{HappyCode inc \\ happycodeinc@gmail.com}
-    \lfoot{BR-jsys}
-    \cfoot{\thepage}
-    \renewcommand{\headrulewidth}{5pt}
-    \renewcommand{\footrulewidth}{0.4pt}
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\rfoot{\dt - \lv}
+	\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{5pt}
+	\renewcommand{\footrulewidth}{0.4pt}
 }
 
 
@@ -32,28 +33,23 @@
 
 
 %definizione variabili 
-\newcommand{\lv}{0.4} % latest version
+\newcommand{\lv}{ 0.5 } % latest version
+\newcommand{\dt}{ Specifica Tecnica }% Document title
 \newcommand{\Glossario}{ Glossario.1.4.pdf }
 %fine definizione variabili
 
 
-\hyphenation{re-qui-si-ti in-se-ri-men-to}
-\begin{titlepage}
-\begin{center}
+\hyphenation{glos-sa-rio es-pli-ci-to ve-ri-fi-ca-re re-po-si-to-ry se-gna-la-ta coe-ren-za}
+\begin{titlepage}\begin{center}
 \vspace*{0.5in}
 \includegraphics{logo.eps}
-\vspace*{0.2in}
-
+\vspace*{0.2in} \\
 {\Large \textbf{BR-jsys}}
 {\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
-\vspace{2in}
-
-\LARGE \textbf {SPECIFICA TECNICA}
-\par\rule{10cm}{0.4pt} \par {\Large 2.6 - \today}
-
-
-\end{center}
-\end{titlepage}
+\vspace{2in} \\
+\Huge \textsc{ \dt }
+\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today} \\
+\end{center}\end{titlepage}
 \vspace*{0.5in}
 
 
@@ -96,6 +92,7 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
 %-------------------------------------------------------------------------------diario modifiche
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
+0.5 & 2008/02/05 & Aggiunta del nome del file nel modello di documento.\\ \hline
 0.4 & 22/01/2008 & Modifica al layout dei documenti.\\ \hline
 0.3 & 22/12/2007 & Aggiornamento requisiti. \\ \hline \hline
 0.2 & 21/12/2007 & Documento sottoposto a revisionamento automatico.\\ \hline
