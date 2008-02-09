@@ -22,6 +22,7 @@
 	\chead{}
 	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
 	\lfoot{BR-jsys}
+	\rfoot{\dt - \lv}
 	\cfoot{\thepage}
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
@@ -30,28 +31,25 @@
 \begin{document}
 
 %definizione variabili 
-\newcommand{\lv}{1.4} % latest version
+\newcommand{\lv}{ 1.4 } % latest version
+\newcommand{\dt}{ Glossario }% Document title
 %fine definizione variabili
 
 
 \hyphenation{glos-sa-rio es-pli-ci-to ve-ri-fi-ca-re re-po-si-to-ry se-gna-la-ta coe-ren-za}
-\begin{titlepage}
-\begin{center}
+\begin{titlepage}\begin{center}
 \vspace*{0.5in}
 \includegraphics{logo.eps}
-\vspace*{0.2in}
-
+\vspace*{0.2in} \\
 {\Large \textbf{BR-jsys}}
 {\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
-\vspace{2in}
-
-\LARGE \textbf {GLOSSARIO}
-\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today}
-
-
-\end{center}
-\end{titlepage}
+\vspace{2in} \\
+\Huge \textsc{ \dt }
+\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today} \\
+\end{center}\end{titlepage}
 \vspace*{0.5in}
+
+
 
 \begin{center}
 \thispagestyle{plain}
