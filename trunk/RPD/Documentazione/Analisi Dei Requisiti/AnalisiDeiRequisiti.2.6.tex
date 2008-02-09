@@ -22,6 +22,7 @@
 	\chead{}
 	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
 	\lfoot{BR-jsys}
+	\rfoot{\dt - \lv}
 	\cfoot{\thepage}
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
@@ -30,7 +31,8 @@
 \begin{document}
 
 %definizione variabili 
-\newcommand{\lv}{2.3} % latest version
+\newcommand{\lv}{ 2.4 } % latest version
+\newcommand{\dt}{ Analisi Dei Requisiti }% Document title
 \newcommand{\Glossario}{ Glossario.1.4.pdf }
 %fine definizione variabili
 
@@ -42,12 +44,10 @@
 \vspace*{0.5in}
 \includegraphics{logo.eps}
 \vspace*{0.2in}
-
 {\Large \textbf{BR-jsys}}
 {\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
 \vspace{2in}
-
-\LARGE \textbf {ANALISI DEI REQUISITI}
+\Huge \textsc{ \dt }
 \par\rule{10cm}{0.4pt} \par {\large Versione 2.3 - \today}
 
 
@@ -98,8 +98,9 @@
 \begin{tabular}{l}
 \Large{\textbf{\textsf{Diario delle modifiche}}} \\
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
-\textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+\textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
+2.4 & 2008/02/05 & Aggiunta del nome del file nel modello di documento.
 2.3 & 2008/02/04 & Correzione grammaticale.\\ \hline
 2.2 & 2008/01/22 & Modifica al layout dei documenti e prima correzione grammaticale.\\ \hline
 2.1 & 2008/01/21 & Modifiche in conseguenza del secondo incontro con l'azienda.\\ \hline
@@ -132,7 +133,7 @@ Il progetto dovr\`a integrarsi infine con le componenti gi\`a sviluppate dall'az
 \section{Definizioni, acronimi, abbreviazioni}
 Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel documento, comprese le sigle utilizzate per il tracciamento dei requisiti.
 \begin{center}
-\begin{tabular}{||p{3.5cm}||p{9.5cm}||} \hline
+\begin{tabular}{||p{3.0cm}||p{8.5cm}||} \hline
 \textbf{Abbreviazione} & \textbf{Significato} \\ \hline
 C04 & Indica il quarto capitolato d'appalto denominato BR-jsys.\\ \hline
 I01 & Indica il primo incontro avuto con il proponente descritto nel documento Incontro2007-11-22.pdf\\ \hline
