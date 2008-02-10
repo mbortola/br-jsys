@@ -36,6 +36,13 @@
 \newcommand{\lv}{ 0.5 } % latest version
 \newcommand{\dt}{ Specifica Tecnica }% Document title
 \newcommand{\Glossario}{ Glossario.1.4.pdf }
+\newcommand{\br}{business rule}
+\newcommand{\brs}{business rules}
+\newcommand{\bo}{business object}
+\newcommand{\bos}{business objects}
+\newcommand{\re}{repository}
+\newcommand{\brp}{BusinessRuleParser}
+\newcommand{\brl}{BusinessRuleLexer}
 %fine definizione variabili
 
 
@@ -125,35 +132,123 @@ Viene fornito come documento esterno chiamato \Glossario .
 \item ``Ingegneria del software'' 8a edizione - Ian Sommerville 
 \item ``The Definitive ANTLR Reference''
 \end{itemize}
-\subsection{Riferimenti informativi}
-\begin{itemize}
-\item The Definitive ANTLR Reference
-\item ``Ingegneria del software'' 8a edizione - Ian Sommerville
-\end{itemize}
+%Ho tolto i riferimenti informativi
 
 \chapter{Definizione del prodotto}
 \subsection{Metodo e formalismo di specifica}
-La strategia che adotteremo per scomporre il sistema software in moduli sar\`a orientata agli oggetti, ovvero scomporremo il sistema in un insieme di oggetti comunicanti. Questa scomposizione si occuper\`a quindi delle classi di oggetti, dei loro attributi e delle loro operazioni. Abbiamo adottato questo metodo in quando ci permette di modificare l'implementazione degli oggetti senza dover per forza influenzare gli altri.
-\subsection{Presentazione dell'architettura generale del sistema e identificazione dei componenti architetturali di alto livello}
-%da rifare del tutto
-Il nostro sistema accetter\`a come input un linguaggio che rispetta le regole di una grammatica da noi definita e generer\`a un'altra rappresentazione di tale linguaggio. Trasformer\`a quindi la descrizione di dati XML in comandi per interrogare un database. L'architettura del nostro sistema viene cos\`i illustrato:
-\begin{center}
-%sicuro sia pertinente?
-\includegraphics[width=1\textwidth]{st.eps}
-\end{center}
-Le istruzioni, tradotte in un formato interno dal validatore, descrivono cosa deve essere fatto e corrispondono alle istruzioni che l'interprete esterno deve effettuare sui business objects; tali istruzioni saranno quindi interpretate da quest'ultimo.
-Le principali macro-componenti del sistema ``BR-jsys`` sono:
-\begin{itemize}
-\item Validatore delle business-rules;
-\item Modulo di connessione al DBMS esterno;
-\item Modulo di comunicazione con il DBMS esterno;
-\item Gui minimale per permettere all'utente l'utilizzo semplice delle funzionalit\`a del prodotto;
-\end{itemize}
+%Copiato di sana pianta dalla Nonsolocodice
+Abbiamo attuato la progettazione del prodotto con l'uso di diagrammi UML 2.1 in quanto linguaggio internazionalmente riconosciuto e standardizzato.
+Il software di cui l’azienda ha fatto uso per la creazione dei diagrammi e' ArgoUML 0.24. L'utilizzo di tale software deriva dalla completezza
+di strumenti di cui e' fornito, i quali soddisfano in pieno le nostre necessita'.
 
-Questa suddivisione, per quanto minimale, consente di individuare le principali componenti che verranno ampliamente descritte nel successivo capitolo.
+\subsection{Presentazione dell'architettura generale del sistema e identificazione dei componenti architetturali di alto livello}
+Lo schema generale del prodotto è specificato nell'immagine sottostante.
+%Immagine simile a quella che abbiamo mandato a tullio
+Abbiamo deciso di suddividere il prodotto in quattro macrocomponenti:
+\begin{enumerate}
+ \item GUI:Fornisce all'utente un interfaccia grafica minimale consentendogli di effettuare le operazioni di inserimento, cancellazione e interrogazione del repository in maniera user-friendly.
+\item Business Rule: Componente che rappresenta la \br che l'utente dichiara e che deve essere passata al validatore per compilarla.
+\item Validatore: Componente in grado di accettare in input una \br, di validarla, e di inserirla, se scritta correttamente, nel \re.
+\item Comunicatore: Componente in grado di connettersi al DBMS esterno e di comunicare con esso tramite i formalismi del linguaggio XQuery.
+Sar\`a appunto tramite Query che il DBMS effettuer\`a operazioni di insermento, cancellazione o di ricerca nel \re qualora un componente lo richiedesse.
+\end{enumerate}
+Questa suddivisione, per quanto minimale, consente di individuare le componenti che verranno ampliamente descritte nel successivo capitolo.
 
 \chapter{Descrizione dei singoli componenti}
-\subsection{Tipo, obiettivo e funzione del componente}
+Qui di seguito analizzeremo separatamente le quattro macrocomponenti elencate il capitolo precedente e ne daremo una descrizione pi\`u approfondita.
+\section{GUI}
+\subsection{Diagramma delle classi}
+\subsection{Gui}
+%Diagramma della classe GUI...comprensivo di package
+\paragraph{Tipo, obiettivo e funzione del componente}
+\paragraph{Relazioni d'uso di altre componenti}
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+\paragraph{Attivit\`a svolte e dati trattati}
+
+\section{Validatore}
+\subsection{Diagramma delle classi}
+\subsection{Validator}%facade!!!->va descritto
+\paragraph{Tipo, obiettivo e funzione del componente}
+\paragraph{Relazioni d'uso di altre componenti}
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+\paragraph{Attivit\`a svolte e dati trattati}
+
+\subsection{BusinessRuleLexer}
+\paragraph{Tipo, obiettivo e funzione del componente}
+Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una classe wrapper per la stringa che rappresenta la \br che aggiunge ad essa funzionalit\`a necessarie per il successivo parsing.
+\paragraph{Relazioni d'uso di altre componenti}
+Nessuna.
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+La componente BusinessRuleParser necessita la componente BusinessRuleLexer che verr\`a approfondita successivamente.
+\paragraph{Attivit\`a svolte e dati trattati}
+BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo della \br, nonch\`e per la gestione di eventuali eccezzioni avvenute in fase di validazione.
+%voglio i vostri pareri
+\textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
+\subsection{BusinessRuleParser}
+\paragraph{Tipo, obiettivo e funzione del componente}
+Questo componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua il controllo sintatico della regola, il controllo semantico facendo un controllo sui tipi dei dati siano essi costanti oppure campi dati di \bos. Mentre effettua la validazione BusinessRuleParser genera l'albero di pasing secondo le specifiche presenti nel controllo semantico. Infine \`e in grado di dare informazioni accurate riguardo eventuali errori in fase di validazione.
+\paragraph{Relazioni d'uso di altre componenti}
+Questa componente necessita di un TokenStream fornitogli indirettamente da BusinessRuleLexer. Nonchè ha bisogno della componente eccezzione TypeCollisionException per trattare gli errori in fase di validazione.
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+\brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
+\`E utilizzata inoltre dalla componente Validator.
+\paragraph{Attivit\`a svolte e dati trattati}
+\brp mette a disposizione vari metodi per effettuare il parsing e per i test semantici, nonch\`e dispone di numerosi campi dato per la ricognizione dei token.
+\textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
+\subsection{TypeCollisionException}
+\paragraph{Tipo, obiettivo e funzione del componente}
+Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException, permentte di ricavare informazioni sugli eventuali errori avvenuti in fase di parsing della \br, essa in definitiva aggiunge alla sua superclasse la possibilit\`a di riportare informazioni su errori di tipo.
+\paragraph{Relazioni d'uso di altre componenti}
+Nessuna.
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+La componente TypeCollisionException \`e utilizzata da \brp per sollevare eccezioni da errori sul controlo dei tipi.
+\paragraph{Attivit\`a svolte e dati trattati}
+Viene ridefinito il metodo printStackTrace() e messo a disposizione un costruttore per avere informazioni sui tipi che si sono rivelati incompatibili.
+\subsection{XMLParser}%probabilmente è un facade anche questo
+\paragraph{Tipo, obiettivo e funzione del componente}
+\paragraph{Relazioni d'uso di altre componenti}
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+\paragraph{Attivit\`a svolte e dati trattati}
+
+\subsection{BusinessObjects}%è un package
+\paragraph{Tipo, obiettivo e funzione del componente}
+\paragraph{Relazioni d'uso di altre componenti}
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+\paragraph{Attivit\`a svolte e dati trattati}
+
+\section{Business Rule}
+\subsection{Diagramma delle classi}
+\subsection{BusinessRule}
+\paragraph{Tipo, obiettivo e funzione del componente}
+\paragraph{Relazioni d'uso di altre componenti}
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+\paragraph{Attivit\`a svolte e dati trattati}
+
+\section{Comunicatore}
+\subsection{Diagramma delle classi}
+\subsection{Communicator}
+\paragraph{Tipo, obiettivo e funzione del componente}
+\paragraph{Relazioni d'uso di altre componenti}
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+\paragraph{Attivit\`a svolte e dati trattati}
+
+\subsection{GUICommunicator}
+\paragraph{Tipo, obiettivo e funzione del componente}
+\paragraph{Relazioni d'uso di altre componenti}
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+\paragraph{Attivit\`a svolte e dati trattati}
+
+\subsection{InterpreterCommunicator}
+\paragraph{Tipo, obiettivo e funzione del componente}
+\paragraph{Relazioni d'uso di altre componenti}
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+\paragraph{Attivit\`a svolte e dati trattati}
+
+\subsection{ValidatorCommunicator}
+\paragraph{Tipo, obiettivo e funzione del componente}
+\paragraph{Relazioni d'uso di altre componenti}
+\paragraph{Interfacce con e relazioni di uso da altre componenti}
+\paragraph{Attivit\`a svolte e dati trattati}
 
 \begin{itemize}
 \item Il validatore delle business-rules \`e un modulo software. Il suo obiettivo \`e verificare se la business-rules pu\`o essere inserita nel repository e, in caso affermativo tradurla in formato in XML comprensibile all'interprete esterno, altrimenti segnalare l'anomalia con la rispettiva eccezione. Il nostro validatore ha un'architettura che comprende i seguenti sotto-componenti:
@@ -167,15 +262,6 @@ Questa suddivisione, per quanto minimale, consente di individuare le principali 
 %\item un analizzatore semantico che utilizza le informazioni dell'albero sintattico per verificare la correttezza semantica del testo in ingresso;
 %PER QUANTO RIGUARDA LA SEMANTICA O LA FA IL CONVERTITORE XML O LA FA IL PARSER
 \item un generatore di codice che ``cammina'' sull'albero e genera il codice XML da inserire nel repository.
-\end{enumerate}
-
-\item Il modulo di connessione al DBMS permette di accedere al Repository da interrogare.
-
-\item Il modulo di comunicazione \`e un middleware, ovvero un programma che funge da intermediario tra DBMS e le componenti che richiedono la comunicazione col repository. Le sue funzioni sono:
-\begin{enumerate}
-\item Gestire le richieste di business rules da eseguire da parte dell'interprete esterno .
-\item Gestire le richieste di inserimento di business rules validate da parte del validatore.
-\item Gestire le richieste di cancellazione di business rules da parte dell'utente.%?? penso sia Ok
 \end{enumerate}
 
 \item Interfaccia grafica (GUI) consentir\`a all'utente le seguenti operazioni:
@@ -199,8 +285,8 @@ Un interfaccia ``fornisce'' i servizi dal componente, ovvero i metodi che posson
 \item La componente validatore richieder\`a due interfaccie: di input e di output. La prima deve colloquiare tra l'utente e il validatore, la seconda dal validatore al modulo di connessione.
 \item La componente modulo di connessione richieder\`a che l'interfaccia colloqui con l'interprete esterno.
 \end{itemize}
-\subsection{Attivit\`a svolte e dati trattati}
 
+\chapter{Descrizione dei diagrammi di attivit\`a, di sequenza e collaborazione}%attenzione...dobbiamo farli!
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 Dopo aver analizzato il problema attraverso schemi progetturali sono state individuate le risorse necessarie  per la realizzazione del prodotto. Attraverso l'utilizzo di software open source siamo riusciti a contenere i costi e contemporaneamente a rendere disponibili tutte le risorse necessarie.
