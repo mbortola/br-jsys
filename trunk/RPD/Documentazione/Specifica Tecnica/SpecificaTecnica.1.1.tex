@@ -157,8 +157,10 @@ Questa suddivisione, per quanto minimale, consente di individuare le componenti 
 
 \chapter{Descrizione dei singoli componenti}
 Qui di seguito analizzeremo separatamente le quattro macrocomponenti elencate il capitolo precedente e ne daremo una descrizione pi\`u approfondita.
+
 \section{GUI}
 \subsection{Diagramma delle classi}
+%gui.eps
 \subsection{Gui}
 %Diagramma della classe GUI...comprensivo di package
 \paragraph{Tipo, obiettivo e funzione del componente}
@@ -179,13 +181,16 @@ La componente fornisce una serie di widget grafici ai quali vengono associati op
 
 \section{Validatore}
 \subsection{Diagramma delle classi}
+%validatore.eps
 \subsection{Validator}%facade!!!->va descritto
 \paragraph{Tipo, obiettivo e funzione del componente}
 Questa componente offre uno strumento per effettuare la validazione di una \br senza far fare all'utilizzatore tutte le singole operazioni di compilazione.
 \paragraph{Relazioni d'uso di altre componenti}
-
+Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator che verranno descritte in seguito.
 \paragraph{Interfacce con e relazioni di uso da altre componenti}
+Validator \`e in relazione con la componente GUI per permettere la validazione.
 \paragraph{Attivit\`a svolte e dati trattati}
+La componente contiene soltanto il metodo validate() che effettua la validazione della \br.
 
 \subsection{BusinessRuleLexer}
 \paragraph{Tipo, obiettivo e funzione del componente}
@@ -252,6 +257,7 @@ BusinessObjects offre solamente le classi java che rappresentano i \bos.
 
 \section{Business Rule}
 \subsection{Diagramma delle classi}
+%businessrule.eps
 \subsection{BusinessRule}
 \paragraph{Tipo, obiettivo e funzione del componente}
 La componenete \BR rappresenta la \br che l'utente inserisce e vuole validare.
@@ -265,6 +271,7 @@ La componente contiene i campi dato Stringa per rappesentare una business rule o
 
 \section{Comunicatore}
 \subsection{Diagramma delle classi}
+%comunicatore.eps
 \subsection{Communicator}
 \paragraph{Tipo, obiettivo e funzione del componente}
 Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re presente nel DBMS.
@@ -292,37 +299,29 @@ GUICommunicator fornisce le operazioni:
  
 \subsection{InterpreterCommunicator}
 \paragraph{Tipo, obiettivo e funzione del componente}
-La componente contiene metodi necessari per rispondere a richieste di \br da parte di un interprete esterno.
+InterpreterCommunicator contiene metodi necessari per rispondere a richieste di \br da parte di un interprete esterno.
 \paragraph{Relazioni d'uso di altre componenti}
 InterpreterCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \paragraph{Interfacce con e relazioni di uso da altre componenti}
 InterpreterCommunicator viene messa in relazione con l'interprete esterno dal quale riceve richieste di \brs associate ad un determinato \bo.
 %Bisogna specificare le modalità di comunicazione
 \paragraph{Attivit\`a svolte e dati trattati}
-InterpreterCommunicator offre il medodo getRule(String associated)
+InterpreterCommunicator offre il metodo getRule() per richiedere le \br associate al \bo.
 
 
 \subsection{ValidatorCommunicator}
 \paragraph{Tipo, obiettivo e funzione del componente}
-La componente
+ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br validata alla quale \`e stato effettuato il parsin in XML.
 \paragraph{Relazioni d'uso di altre componenti}
 ValidatorCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \paragraph{Interfacce con e relazioni di uso da altre componenti}
+ValidatorCommunicator viene messa in relazione con la componente Validator per effettuare l'inserimento.
 \paragraph{Attivit\`a svolte e dati trattati}
+ValidatorCommunicator offre il metodi insertRule() per inserire la \br nel \re. L'inserimento avverr\`a soltanto se la \br ha un nome che non \`e ancora presente nel \re.
 
-
-\subsection{Relazioni d'uso di altre componenti}
-\begin{itemize}
-\item{Il Validatore dialoga con il modulo di comunicazione nella fase di inserimento delle business rule validata. }
-Il modulo di comunicazione dialoga con il DBMS attraverso l'invio di richieste di inserimento, cancellazione o recupero di informazioni. Ha relazioni inoltre con l'interprete esterno attraverso cui accetta richieste di business rules relative a un determinato business object. Successivamente il modulo di connessione chiama il DBMS richiedendo le opportune business rules che verranno restituite e inviate all'interprete. Il validatore dialoga con il DBMS esterno chiedendo di inserire le regole precedentemente validate. La GUI invece dialoga direttamente con il modulo di connessione durante la fase di cancellazione di una business rules e, direttamente con il validatore durante l'inserimento.
-\end{itemize}
-\subsection{Interfacce con e relazioni di uso da altre componenti}
-Un interfaccia ``fornisce'' i servizi dal componente, ovvero i metodi che possono essere chiamati da un utente del programma. ``Specifica '' inoltre quali servizi devono essere forniti da altri componenti del sistema. Se questi non sono disponibili il componente non funzioner\`a senza per\`o compromettere l'indipendenza o la consegnabilit\`a di una componente, poich\`e non richiede che sia utilizzato uno specifico componente per fornire i servizi. Nel nostro caso:
-\begin{itemize}
-\item La componente GUI richieder\`a che l'interfaccia fornita comprenda i metodi per inserire, cancellare e cercare le business rules. Richieder\`a quindi un'interfaccia di gestione e un'interfaccia dati.
-\item La componente validatore richieder\`a due interfaccie: di input e di output. La prima deve colloquiare tra l'utente e il validatore, la seconda dal validatore al modulo di connessione.
-\item La componente modulo di connessione richieder\`a che l'interfaccia colloqui con l'interprete esterno.
-\end{itemize}
+\chapter{Componenti esterne}
+\section{Interprete}
+\section{DBMS}
 
 \chapter{Descrizione dei diagrammi di attivit\`a, di sequenza e collaborazione}%attenzione...dobbiamo farli!
 
@@ -331,8 +330,6 @@ Dopo aver analizzato il problema attraverso schemi progetturali sono state indiv
 Le risorse necessarie ai nostri componenti per affrontare le varie problematiche di comunicazione, sviluppo del codice, gestione degli archivi, verifica dei documenti e del sistema sono state descritte nel documento Piano di Qualifica. Nella fase di specifica tecnica e successivamente di progettazione verrano utilizzati diagrammi UML delle classi e degli oggetti realizzati con Dia. Lo sviluppo avr\`a luogo singolarmente o in piccoli gruppi a seconda della natura della problematica da affrontare. Il documento/codice avr\`a in ogni modo un unico proprietario incaricato di renderlo pubblico tramite server SVN.
 %Parlare ASSOLUTAMENTE di ANTLR e di ANTLRWORKS nonchè di poseidon, eclipse e se la elena per fare la gui utilizza roba esterna dichiararlo...ma poseidon non è + open source!!
 \chapter{Tracciamento della relazione componenti-requisiti}
-
-
 
 \end{document}
 
