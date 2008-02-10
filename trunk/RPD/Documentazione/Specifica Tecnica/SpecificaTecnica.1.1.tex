@@ -146,8 +146,8 @@ di strumenti di cui e' fornito, i quali soddisfano in pieno le nostre necessita'
 Lo schema generale del prodotto è specificato nell'immagine sottostante.
 %Immagine simile a quella che abbiamo mandato a tullio
 Abbiamo deciso di suddividere il prodotto in quattro macrocomponenti:
-\begin{enumerate}perper
- \item GUI:Fornisce all'utente un interfaccia grafica minimale consentendogli di effettuare le operazioni di inserimento, cancellazione e interrogazione del repository in maniera user-friendly.
+\begin{enumerate}
+ \item GUI:Fornisce all'utente un interfaccia grafica minimale consentendogli di effettuare le operazioni di cancellazione e interrogazione del repository in maniera user-friendly.
 \item Business Rule: Componente che rappresenta la \br che l'utente dichiara e che deve essere passata al validatore per compilarla.
 \item Validatore: Componente in grado di accettare in input una \br, di validarla, e di inserirla, se scritta correttamente, nel \re.
 \item Comunicatore: Componente in grado di connettersi al DBMS esterno e di comunicare con esso tramite i formalismi del linguaggio XQuery.
@@ -162,14 +162,15 @@ Qui di seguito analizzeremo separatamente le quattro macrocomponenti elencate il
 \subsection{Gui}
 %Diagramma della classe GUI...comprensivo di package
 \paragraph{Tipo, obiettivo e funzione del componente}
-Questa componente fornisce all'utente un interfaccia minimale consentendogli di effettuare le operazioni di inserimento, cancellazione, e di querying.
+Questa componente fornisce all'utente un interfaccia minimale consentendogli di effettuare le operazioni di cancellazione, e di querying.
+Nel caso di esecuizone di una query definita dall'utente verranno fornite inoltre informazioni relative ai tempi d'esecuzione.
 Questa componente viene realizzata tramite una singola classe java.
 \paragraph{Relazioni d'uso di altre componenti}
 Questa componente utilizza:
 \begin{itemize}
  \item \BR per dichiarare una nuova \br da spedire al validatore;
  \item Validator per effettuare la validazione di una \br;
- \item GUICommunicator che varr\`a trattato successivamente.
+ \item GUICommunicator che verr\`a trattato successivamente.
 \end{itemize}
 \paragraph{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
@@ -247,7 +248,7 @@ Nessuna.
 \paragraph{Interfacce con e relazioni di uso da altre componenti}
 \brp necessita di questa componente per effettuare il controllo dei tipi qualora fosse necessario.
 \paragraph{Attivit\`a svolte e dati trattati}
-BusinessObjects offre solamente le classi java rappresentanti i \bos.
+BusinessObjects offre solamente le classi java che rappresentano i \bos.
 
 \section{Business Rule}
 \subsection{Diagramma delle classi}
@@ -266,58 +267,49 @@ La componente contiene i campi dato Stringa per rappesentare una business rule o
 \subsection{Diagramma delle classi}
 \subsection{Communicator}
 \paragraph{Tipo, obiettivo e funzione del componente}
-Questa componente è la classe base di una gerarchia a due livelli che fornisce i tre stumeni per la comuicazione col DBMS. Questa superclasse \`e in grado di connettersi col DBMS, e di fare query ricevute in input come stringa testuale.
-Inolte in fase di avvio si occupa di controlare che sia presente il \re nel DBMS, in caso contrario si occupa di generarlo e di posizionarlo in una posizione prefissata nel DBMS.
+Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re presente nel DBMS.
 \paragraph{Relazioni d'uso di altre componenti}
 Communicator necessita di interagire con la componente esterna DBMS per interrogare il \re.
 \paragraph{Interfacce con e relazioni di uso da altre componenti}
-Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator sono speciaizzazioni di Communicator, le loro descrizioni sono trattate successivamente.
+Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare Query specifiche, le loro descrizioni sono trattate successivamente.
 \paragraph{Attivit\`a svolte e dati trattati}
-Communicator racchiude tutte le operazioni e i campi dato comuni a tutti le sue specializzazioni. In particolare il campo dato XPathQueryService:service che associato al Repository consente di interrogarlo tramite il linguaggio XQuery
-
+Quando viene istanziata per la prima volta inizializza la connessione al DBMS tramite la definizione di una variabile statica che successivamente consente di interrogare il \re direttamente passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
+%
 \subsection{GUICommunicator}
 \paragraph{Tipo, obiettivo e funzione del componente}
-La Componente, derivata da Communicator,
+La componente contiene metodi necessari per modellare query di cancellazione(tramite operazioni XQuery Update) e di query di semplice interrogazione.
 \paragraph{Relazioni d'uso di altre componenti}
+GUICommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \paragraph{Interfacce con e relazioni di uso da altre componenti}
+GUICommunicator viene messa in relazione con la componente GUI dalla quale riceve richieste di cancellazione e di querying.%si dice così no?
 \paragraph{Attivit\`a svolte e dati trattati}
-
+GUICommunicator fornisce le operazioni:
+\begin{itemize}
+ \item deleteRuleByName():che dato il nome di una regola, provvede ad eliminarla dal \re nel caso questa regola fosse presente;
+ \item makeQuery():che permette l'esecuzione di una semplice query purche non implichi modifiche strutturali al \re;
+ \item getListRules():che ritorna, per ogni \br nome, \bo associato e sua struttura.
+\end{itemize}
+ 
 \subsection{InterpreterCommunicator}
 \paragraph{Tipo, obiettivo e funzione del componente}
-La Componente, derivata da Communicator,
+La componente contiene metodi necessari per rispondere a richieste di \br da parte di un interprete esterno.
 \paragraph{Relazioni d'uso di altre componenti}
+InterpreterCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \paragraph{Interfacce con e relazioni di uso da altre componenti}
+InterpreterCommunicator viene messa in relazione con l'interprete esterno dal quale riceve richieste di \brs associate ad un determinato \bo.
+%Bisogna specificare le modalità di comunicazione
 \paragraph{Attivit\`a svolte e dati trattati}
+InterpreterCommunicator offre il medodo getRule(String associated)
+
 
 \subsection{ValidatorCommunicator}
 \paragraph{Tipo, obiettivo e funzione del componente}
-La Componente, derivata da Communicator,
+La componente
 \paragraph{Relazioni d'uso di altre componenti}
+ValidatorCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \paragraph{Interfacce con e relazioni di uso da altre componenti}
 \paragraph{Attivit\`a svolte e dati trattati}
 
-\begin{itemize}
-\item Il validatore delle business-rules \`e un modulo software. Il suo obiettivo \`e verificare se la business-rules pu\`o essere inserita nel repository e, in caso affermativo tradurla in formato in XML comprensibile all'interprete esterno, altrimenti segnalare l'anomalia con la rispettiva eccezione. Il nostro validatore ha un'architettura che comprende i seguenti sotto-componenti:
-\begin{enumerate}
-\item un analizzatore lessicale (lexer) che prende i token del nostro linguaggio e li traduce in una forma interna;
-%\item una tabella dei simboli che contiene le informazioni sui nomi delle entit\`a (nomi delle classi, nomi degli oggetti, etc.) utilizzate nel testo %che si sta traducendo;
-
-\item un analizzatore sintattico (parser) che controlla la sintassi del linguaggio che si sta traducendo: utilizza la grammatica del linguaggio da noi definita e costruisce l'albero sintattico;
-%\item un albero sintattico, ovvero una struttura interna che rappresenta il programma da compilare;
-%NON DICHIARANDO VARIABILI NON ABBIAMO BISONGO DI UNA TABELLA DEI SIMBOLI DURANTE IL PARSING
-%\item un analizzatore semantico che utilizza le informazioni dell'albero sintattico per verificare la correttezza semantica del testo in ingresso;
-%PER QUANTO RIGUARDA LA SEMANTICA O LA FA IL CONVERTITORE XML O LA FA IL PARSER
-\item un generatore di codice che ``cammina'' sull'albero e genera il codice XML da inserire nel repository.
-\end{enumerate}
-
-\item Interfaccia grafica (GUI) consentir\`a all'utente le seguenti operazioni:
-\begin{enumerate}
-\item Inserimento di una nuova business rule;
-\item Cancellazione di business rule presenti nel repository;
-\item Esecuzione di query definite dall'utente;
-\end{enumerate}
-
-\end{itemize}
 
 \subsection{Relazioni d'uso di altre componenti}
 \begin{itemize}
