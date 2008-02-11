@@ -50,7 +50,7 @@
 \par\rule{10cm}{.4pt} \par
 \par\rule{12cm}{1pt} \par
 \vspace*{0.5in}
-\LARGE \textbf {Verbale della riunione del 17 gennaio 2008}
+\LARGE \textbf {Verbale della riunione del 05 febbraio 2008}
 \vspace*{0.5in}
 \par\rule{12cm}{1pt} \par
 \par\rule{10cm}{.4pt} \par
@@ -58,19 +58,27 @@
 \end{center}
 \end{titlepage}
 \vspace*{0.5in}
-Il terzo incontro con l'azienda proponente aveva lo scopo di mostrare e far approvare il lavoro fin qui svolto e mostrare un primo prototipo del progetto br-jsys.
+Il terzo incontro con l'azienda proponente aveva lo scopo di mostrare e far approvare il lavoro fin qui svolto e consegnare un primo prototipo del progetto br-jsys.
 \thispagestyle{plain}
 
 \paragraph{Approvazioni}
 \begin{itemize}
-\item \ 
+\item \`E stato approvato l'uso di eXist come DBMS esterno per ridurre al minimo i tempi per le tranzizioni.
+\item Sono state approvate le modifiche all' implementazione delle business rule. Ognuna avr\`a cos\`i un business object associato e un' etichetta per distinguerla dalle altre.
+\item \`E stato approvata la funzionalit\`a message.
+\item \`E stata approvata la funzionalit\`a di cancellazione di una business rule dal repository.
+\item Ci \`e stato fornito dal proponente un interprete minimale come comunicato nel precedente incontro.
+\item Approvato il prototipo e le sue funzionalit\`a.
 \end{itemize}
 
-\paragraph{Modifiche al capitolato}
+\paragraph{Modifiche al prototipo}
 \begin{itemize}
-
-\item \
-
+\item Si dovr\`a creare un' interfaccia grafica user-friendly con le seguenti funzionalit\`a:\\
+\textbf{-Inserimento:} per rinserire una business rule nel repository.\\
+\textbf{-Cancellazione:} per cancellare una business rule dal repository.\\
+\textbf{-RecuperaRegola:} per ricercare e reuperare una business rule se presente nel repository.\\
+\textbf{-Sandbox: }struttura con due TextArea, la prima per immettere una query e la seconda per visualizzare l'esito della query e una StatusBar che fornir\`a i dati dell'operazione svolta (per esempio tempo impiegato, numero di business rules trovate ecc).\\
+\textbf{-RecuperaDaBO: }simile a RecuperaRegola con la differenza che recupera tutte le regole associate ad un business object.\\
 \end{itemize}
 
 \end{document}
