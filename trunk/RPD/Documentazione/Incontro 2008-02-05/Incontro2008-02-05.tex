@@ -1,0 +1,93 @@
+\documentclass[11pt,titlepage,a4paper]{report}
+
+%INCLUSIONE PACCHETTI
+%---------------------------------------------
+\usepackage[italian]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\graphicspath{{./pics/}}	% cartella di salvataggio immagini
+
+% STILE DI PAGINA
+%---------------------------------------------
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\lhead{\nouppercase{\rightmark}}
+\rhead{\nouppercase{\leftmark}}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+%Ridefinisco lo stile plain della pagina
+\fancypagestyle{plain}{%
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+%---------------------------------------------
+
+
+%INIZIO DOCUMENTO
+
+
+%---------------------------------------------
+% PRIMA PAGINA
+%---------------------------------------------
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{0.5in}
+\includegraphics{logo.eps}
+\vspace*{0.2in}
+
+{\Large \textbf{BR-jsys}}
+
+{\Large \emph{Business Rules} per sistemi gestionali in architettura J2EE } 
+\vspace{1.3in}
+\par\rule{10cm}{.4pt} \par
+\par\rule{12cm}{1pt} \par
+\vspace*{0.5in}
+\LARGE \textbf {Verbale della riunione del 17 gennaio 2008}
+\vspace*{0.5in}
+\par\rule{12cm}{1pt} \par
+\par\rule{10cm}{.4pt} \par
+
+\end{center}
+\end{titlepage}
+\vspace*{0.5in}
+ggio a beneficio di un interprete che usa la rappresentazione per interpretare frasi prodotte in quel linguaggio.
+\thispagestyle{plain}
+Il secondo incontro con l'azienda proponente aveva lo scopo di mostrare e far approvare il lavoro fin qui svolto e sciogliere gli ultimi dubbi sul capitolato.
+
+\paragraph{Approvazioni}
+\begin{itemize}
+
+\item \`E stata approvata la grammatica proposta.
+\item \`E stato approvato l'utilizzo di ANTLR come strumento per la generazione del parser.
+\item \`E stato approvato l'utilizzo di ANTLRWorks come strumento di appoggio per il debugging del parser.
+
+\end{itemize}
+
+\paragraph{Modifiche al capitolato}
+
+\begin{itemize}
+
+\item Si dovr\`a utilizzare un DBMS esterno come stumento di interfacciamento tra il repository e il sistema, al fine di ridurre al minimo i tempi per le transazioni.
+
+\item Ogni business rule avr\`ggio a beneficio di un interprete che usa la rappresentazione per interpretare frasi prodotte in quel linguaggio.a un proprio business object associato.
+
+\item Ogni business rule presente nel repository dovr\`a avere un' etichetta che la distingue dalle altre.
+
+\item Si dov\`a dotare il linguaggio della funzionalit\`a \textit{message} da porre alla fine di ogni operazione di confronto. Se in fase di eggio a beneficio di un interprete che usa la rappresentazione per interpretare frasi prodotte in quel linguaggio.secuzione verr\`a violata un'operazione di confronto che ha associato un \textit{message}, allora verr\`a visualizzato il messaggio testuale al suo interno.
+
+\item Si dovr\`a dotare il sistema della funzionalit\`a di cancellazione di una business rule.
+
+\item Il requisito di controllo coerenza verr\`a convertito da obbligatorio a opzionale.
+
+\item L'azienda proponente ci fornir\`a un esecutore. Esso interagir\`a col nostro sistema inviando richieste di business rules, da noi fornite tramite opportune invocazioni del DBMS usato per colloquiare con il repository. Una volta ricevute le regole, l'esecutore le applicher\`a ai suoi business objects. Di conseguenza non dovremo pi\`u preoccuparci di realizzare l'esecutore di business rules.
+\end{itemize}
+
+\end{document}
