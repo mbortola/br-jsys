@@ -22,7 +22,6 @@
 	\chead{}
 	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
 	\lfoot{BR-jsys}
-	\rfoot{\dt - \lv}
 	\cfoot{\thepage}
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
@@ -31,27 +30,30 @@
 \begin{document}
 
 %definizione variabili 
-\newcommand{\lv}{ 2.4 } % latest version
-\newcommand{\dt}{ Analisi Dei Requisiti }% Document title
+\newcommand{\lv}{2.7} % latest version
 \newcommand{\Glossario}{ Glossario.1.4.pdf }
 %fine definizione variabili
 
 
 
 \hyphenation{glos-sa-rio es-pli-ci-to ve-ri-fi-ca-re re-po-si-to-ry se-gna-la-ta coe-ren-za}
-\begin{titlepage}\begin{center}
+\begin{titlepage}
+\begin{center}
 \vspace*{0.5in}
 \includegraphics{logo.eps}
-\vspace*{0.2in} \\
+\vspace*{0.2in}
+
 {\Large \textbf{BR-jsys}}
 {\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
-\vspace{2in} \\
-\Huge \textsc{ \dt }
-\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today} \\
-\end{center}\end{titlepage}
+\vspace{2in}
+
+\LARGE \textbf {ANALISI DEI REQUISITI}
+\par\rule{10cm}{0.4pt} \par {\large Versione 2.7 - \today}
+
+
+\end{center}
+\end{titlepage}
 \vspace*{0.5in}
-
-
 
 \begin{center}
 \thispagestyle{plain}
@@ -62,7 +64,7 @@
 \begin{tabular}{||p{6cm}||p{6cm}||}
 \hline
 \textbf{Data creazione:} & 18/11/2007 \\ \hline
-\textbf{Versione:} & \lv \\ \hline
+\textbf{Versione:} & 2.7 \\ \hline
 \textbf{Stato del documento:} & Formale, esterno \\ \hline
 % ----------------------------------------------------------------------------autori
 \textbf{Revisione RR}     \\ \hline
@@ -71,7 +73,7 @@
 \textbf{Approvazione:}  & Elena Trivellato\\ \hline
 \textbf{Revisione RPD}     \\ \hline
 \textbf{Redazione:} & Marco Tessarotto \\ \hline
-\textbf{Revisione:} &  Michele Bortolato, Alessia Trivellato \\ \hline
+\textbf{Revisione:} &  Alessia Trivellato, Michele Bortolato \\ \hline
 \textbf{Approvazione:}  & Elena Trivellato\\ \hline
 \end{tabular} \\
 \end{tabular}
@@ -96,20 +98,20 @@
 \begin{tabular}{l}
 \Large{\textbf{\textsf{Diario delle modifiche}}} \\
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
-%-------------------------------------------------------------------------------diario modifiche
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
-2.4 & 2008/02/05 & Aggiunta del nome del file nel modello di documento.\\ \hline
-2.3 & 2008/02/04 & Correzione grammaticale.\\ \hline
-2.2 & 2008/01/22 & Modifica al layout dei documenti e prima correzione grammaticale.\\ \hline
-2.1 & 2008/01/21 & Modifiche in conseguenza del secondo incontro con l'azienda.\\ \hline
-2.0 & 2008/01/10 & Inserito tracciamento dei requisiti.\\ \hline
-1.4 & 2008/01/09 & Modifiche alla struttura del documento e all'ordine dei paragrafi.\\ \hline
-1.3 & 2008/01/03 & Modifiche ai casi d'uso e alla loro analisi.\\ \hline
-1.2 & 2007/12/21 & Documento sottoposto a revisionamento automatico.\\ \hline
-1.1 & 2007/12/03 & Correzioni grammaticali, correzioni strutturali.\\ \hline
-1.0 & 2007/11/28 & Inserimento casi d'uso.\\ \hline
-0.2 & 2007/11/22 & Aggiornamento requisiti. \\ \hline
-0.1 & 2007/11/18 & Stesura preliminare del documento. \\ \hline
+%-------------------------------------------------------------------------------diario modifiche
+2.7 & 11/02/2008 & Deprecato requisito F9 e modificato F8\\ \hline
+2.6 & 04/02/2008 & Correzione grammaticale.\\ \hline
+2.5 & 22/01/2008 & Modifica al layout dei documenti e prima correzione grammaticale.\\ \hline
+2.4 & 21/01/2008 & Modifiche in conseguenza del secondo incontro con l'azienda.\\ \hline
+2.3 & 10/01/2008 & Inserito tracciamento dei requisiti.\\ \hline
+2.2 & 09/01/2008 & Modifiche alla struttura del documento e all'ordine dei paragrafi.\\ \hline
+2.1 & 03/01/2008 & Modifiche ai casi d'uso e alla loro analisi.\\ \hline
+2.0 & 21/12/2007 & Documento sottoposto a revisionamento automatico.\\ \hline
+1.3 & 03/12/2007 & Correzioni grammaticali, correzioni strutturali.\\ \hline
+1.2 & 28/11/2007 & Inserimento casi d'uso.\\ \hline
+0.2 & 22/11/2007 & Aggiornamento  , corequisiti. \\ \hline
+0.1 & 18/11/2007 & Stesura preliminare del documento. \\ \hline
 
 \end{tabular} \\
 \end{tabular}
@@ -131,7 +133,7 @@ Il progetto dovr\`a integrarsi infine con le componenti gi\`a sviluppate dall'az
 \section{Definizioni, acronimi, abbreviazioni}
 Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel documento, comprese le sigle utilizzate per il tracciamento dei requisiti.
 \begin{center}
-\begin{tabular}{||p{3.0cm}||p{8.5cm}||} \hline
+\begin{tabular}{||p{3.5cm}||p{9.5cm}||} \hline
 \textbf{Abbreviazione} & \textbf{Significato} \\ \hline
 C04 & Indica il quarto capitolato d'appalto denominato BR-jsys.\\ \hline
 I01 & Indica il primo incontro avuto con il proponente descritto nel documento Incontro2007-11-22.pdf\\ \hline
@@ -150,12 +152,11 @@ Per gli altri termini non citati nella tabella soprastante si fa riferimento al 
 \begin{itemize}
 \item Capitolato d'appalto concorso per sistema ``BR-jsys''
 \item Verbale dell'incontro con il committente ``Incontro2007-11-22.pdf''
-\item Verbale dell'incontro con il committente ``Incontro2008-02-05.pdf''
 \item ``Ingegneria del Software'' 8a edizione - Ian Sommerville
 \end{itemize}
 %----------------------------------------------------------------------------------inserire il libro 
 \section{Descrizione del resto del documento}
-Di seguito viene descritto il sistema designato dalla sigla ``BR-jsys''. Viene inoltre brevemente descritta la sua funzionalit\`a, la tipologia di utenti ed il contesto d'uso. L'analisi del sistema viene presentata con l'ausilio di un formalismo grafico: i diagrammi use-case UML. Vengono infine riportati tutti i requisiti individuati dalla \textit{Happycode Inc.} .
+Di seguito viene descritto il sistema designato dalla sigla ``BR-jsys''. Viene inoltre brevemente descritta la sua funzionalit\`a, la tipologia di utenti ed il contesto d'uso. L'analisi del sistema viene presentata con l'ausilio di un formalismo grafico: i diagrammi use-case UML. Vengono infine riportati tutti i requisiti individuati dalla \text , coit{Happycode Inc.} .
 
 \chapter{Descrizione generale}
 \section{Prospettiva del prodotto}
@@ -194,7 +195,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \underline{Flusso di eventi:} Il validatore una volta acquisita la business rule la sottopone a diversi controlli per poterla validare.\\
 \underline{Precondizioni:} Il sistema ha acquisito una nuova business rule.\\
 \underline{Postcondizioni} La business rule viene inviata alla componente che valida la sintassi.
-
+OPZIONALE 
 \subsection{Controlla sintassi.}
 \underline{Scopo e descrizione sintetica:} Si controlla che la nuova business rule sia formulata secondo le specifiche e la sintassi del linguaggio scelto.\\
 \underline{Flusso di eventi:} Viene controllata la sintassi della nuova business rule appena inserita.\\
@@ -217,7 +218,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \subsection{Richiedi al DBMS di inserire nel repository.}
 \underline{Attori coinvolti:} Il DBMS che si preoccuper\`a di inserire la regola nel repository.\\
 \underline{Scopo e descrizione sintetica:} Il sistema comunica al DBMS che la business rule \`e stata validata e pu\`o essere inserita nel repository.\\
-\underline{Flusso di eventi:} Il sistema  terminata la validazione invia la business rule al DBMS che si preoccuper\`a di inserirla nel \textit{repository}.\\
+\underline{Flusso di eventi:} Il sistema  terminata la validazione invia la business rule al DBMS che si preoccuper\`a di inserirla OPZIONALE nel \textit{repository}.\\
 \underline{Precondizioni:} La validazione \`e terminata senza errori.\\
 \underline{Postcondizioni} Il DBMS inserir\`a la business rule nel \textit{repository}.
 
@@ -264,8 +265,8 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \item[F5]{Nell'interagire col repository il sistema dovr\'a appoggiarsi ad un DBMS esterno. [I02]}
 \item[F6]{Il sistema deve essere in grado di interfacciarsi all'interprete esterno fornito dall'azienda proponente fornendo ad esso le regole business da eseguire. [I02]}
 \item[F7]{Il sistema dovr\`a consentire la cancellazione di business rules all'interno del repository. [I02]}
-\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di inserire e cancellare business rules nel repository, per  vedere in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
-\item[F9]{ OPZIONALE : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra business rules. Verificher\`a cio\`e se la business rule da inserire nel repository entra in conflitto con le altre gi\`a presenti in esso. In particolare dovr\`a verificare che le business rules presenti nel repository rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i business objects. [C04]}
+\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di definire una nuova business rule e una volta validata inserirla nel repository e cancellare business rules dal repository, per  vedere in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
+\item[F9]{ DEPRECATO : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra business rules. Verificher\`a cio\`e se la business rule da inserire nel repository entra in conflitto con le altre gi\`a presenti in esso. In particolare dovr\`a verificare che le business rules presenti nel repository rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i business objects. [C04]}
 \item[F10]{Il validatore nel validare una business rule deve poter accedere ai campi del business object ad essa associato, qualora la business rule utilizzasse tali campi. [I02]}
 \item[F11]{Ad ogni business rule \`e associato un business object nel quale vanno eventualmente ricercati i campi dati utilizzati nella business rule. [I02]}
 \end{itemize}
