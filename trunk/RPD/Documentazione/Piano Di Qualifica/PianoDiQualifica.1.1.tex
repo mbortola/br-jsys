@@ -254,11 +254,11 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \textbf{\textsf{F4}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Informare l'utente dell'avvenuta o meno validazione delle business rules appena inserite e del tempo trascorso, attraverso una notifica il pi\`u possibile chiara ed esaustiva\\ \hline
-{\textbf{Dipendenze:}} & F2, F3\\ \hline
+{\textbf{Dipendenze:}} & F2, F3, NU3 \\ \hline
 {\textbf{Descrizione Prova:}}& Inserimento di varie business rules d'appoggio (corrette o meno) e controllo della corretta notifica di risposta alla richiesta di inserimento (attraverso timer nel codice) \\ \hline
 {\textbf{Input}}& Business Rules (corrette o meno) di appoggio  \\ \hline
 {\textbf{Output}}& Una notifica per ogni ogni business rule che si \`e provato ad inserire, con il relativo messaggio riguardante il tempo impiegato \\ \hline
-{\textbf{Esito}}&  positivo \\ \hline
+{\textbf{Esito}}&   \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -292,12 +292,12 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \hline
 \textbf{\textsf{F7}}& \\
 \hline
-{\textbf {Obiettivo Prova:}}& Tesare la correttezza della cancellazione di una business rule dal repository e controllo dei risultati ottenuti\\ \hline
+{\textbf {Obiettivo Prova:}}& Testare la correttezza della cancellazione di una business rule dal repository e controllo dei risultati ottenuti\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
 {\textbf{Descrizione Prova:}}&  Richiesta al DBMS di cancellare varie business rules date in input dal repository. Si tester\`a la correttezza dell'eliminazione fatta. Ogni eliminazione riuscita o meno dovr\`a essere accompagnata da una chiara notifica di evento\\ \hline
 {\textbf{Input:}}& Business Rules da eliminare \\ \hline
 {\textbf{Output:}}& Notifica di eliminazione (positivo: cancellazione avvenuta con successo, negativo: eccezione) \\ \hline
-{\textbf{Esito:}}&  positivo\\ \hline
+{\textbf{Esito:}}&  negativo \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -305,7 +305,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \hline
 \textbf{\textsf{F8}}& \\
 \hline
-{\textbf {Obiettivo Prova:}}& Creare interfaccia per l'inserimento/rimozione/modifica di Business Rules e verificare il corretto funzionamento\\ \hline
+{\textbf {Obiettivo Prova:}}& Creare interfaccia per l'inserimento/rimozione di Business Rules e verificare il corretto funzionamento\\ \hline
 {\textbf{Dipendenze:}}& F3, F4, F7 \\ \hline
 {\textbf{Descrizione Prova:}}& Si creer\`a  una semplice interfaccia in linguaggio Java, con le componenti essenziali per permettere l' inserimento/rimozione di una business rule nel repository e la successiva notifica di tale evento \\ \hline
 {\textbf{Input:}}& Business Rules da eliminare/inserire \\ \hline
@@ -332,11 +332,11 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \textbf{\textsf{F10}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Consentire al validatore di accedere ai campi del business object associato alla business rule da validare \\ \hline
-{\textbf{Dipendenze:}}& nessuna \\ \hline
+{\textbf{Dipendenze:}}& F11\\ \hline
 {\textbf{Descrizione Prova:}}&  Inserimento di varie business rules d'appoggio, che si riferiscono ai campi dati del business object associato, e testare la correttezza della validazione effettuata \\ \hline
-{\textbf{Input:}}&  Business Rules d'appoggio \\ \hline
+{\textbf{Input:}}&  Business rules d'appoggio \\ \hline
 {\textbf{Output:}}& Esito della validazione \\ \hline
-{\textbf{Esito:}}&  positivo\\ \hline
+{\textbf{Esito:}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -344,11 +344,12 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \hline
 \textbf{\textsf{F11}}& \\
 \hline
-{\textbf {Obiettivo Prova}}& Testare che ad ogni business rule sia associato un business object \\ \hline
-{\textbf{Descrizione Prova}}&  Nella Gui ogni business rule ha un campo dati per il business object associato. Se tale campo (``associated Object'') viene lasciato vuoto verr\`a lanciata un'eccezione dal sistema\\ \hline
-{\textbf{Input}}&  Business rule di appoggio (con campo dati ``associated Oblect'' pieno o vuoto)\\ \hline
-{\textbf{Output}}& Una eccezione se il campo dati \`e stato lasciato vuoto, altrimenti niente \\ \hline
-{\textbf{Esito}}& positivo \\ \hline
+{\textbf {Obiettivo Prova:}}& Testare che ad ogni business rule sia associato un business object \\ \hline
+{\textbf{Dipendenze:}}& nessuna \\ \hline
+{\textbf{Descrizione Prova:}}&  Nella Gui ogni business rule ha un campo dati per il business object associato. Se tale campo (``associated Object'') viene lasciato vuoto verr\`a lanciata un'eccezione dal sistema\\ \hline
+{\textbf{Input:}}&  Business rule di appoggio (con campo dati ``associated Oblect'' pieno o vuoto)\\ \hline
+{\textbf{Output:}}& Una eccezione se il campo dati \`e stato lasciato vuoto, altrimenti niente \\ \hline
+{\textbf{Esito:}}& positivo \\ \hli{\textbf{Dipendenze:}}& nessuna \\ \hlinene
 \end{tabular} \\
 \\
 \\
@@ -356,10 +357,11 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \hline
 \textbf{\textsf{NU1}}& \\
 \hline
-{\textbf {Obiettivo Prova}}& Creare un linguaggio di alto livello, facile da capire per un utente con scarse conoscenze informatiche\\ \hline
-{\textbf{Descrizione Prova}}& Creazione di business rules complesse attraverso semplici inserimenti da parte dell'utente\\ \hline
-{\textbf{Input}}&  \\ \hline Business rule di appoggio
-{\textbf{Output}}& \\ \hline Lo stato di accettazione della business rule attraverso la notifica rilasciata\\ \hline
+{\textbf {Obiettivo Prova:}}& Creare un linguaggio di alto livello, facile da capire per un utente con scarse conoscenze informatiche\\ \hline
+{\textbf{Dipendenze:}}& F1\\ \hline
+{\textbf{Descrizione Prova:}}& Creazione di business rules complesse attraverso semplici inserimenti da parte dell'utente\\ \hline
+{\textbf{Input:}}& Business rule di appoggio \\ \hline
+{\textbf{Output:}}& Business rule scritta nel linguaggio adottato \\ \hline
 {\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
@@ -369,10 +371,11 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \textbf{\textsf{NU2}}& \\
 \hline
 {\textbf {Obiettivo Prova}}& Il linguaggio deve fornire funzioni primitive per le operazioni base tra i dati, come la somma, la media aritmetica e la negazione logica \\ \hline
-{\textbf{Descrizione Prova}}&  Creazione di business rules contenenti diverse operazioni base. Se non venissero accettate tali operazioni tra i dati verrebbe lancita una opportuna eccezzione dal sistema \\ \hline
-{\textbf{Input}}&  Business rules di appoggio contententi operazioni base \\ \hline
-{\textbf{Output}}& Lo stato di accettazione della business rule attraverso la notifica rilasciata \\ \hline
-{\textbf{Esito}}&  \\ \hline
+{\textbf{Dipendenze:}}& F1 \\ \hline
+{\textbf{Descrizione Prova}}&  Creazione di business rules contenenti diverse operazioni base. Se non vengono accettate tali operazioni viene lanciata un'eccezione \\ \hline
+{\textbf{Input}}&  Business rule di appoggio contententi operazioni base \\ \hline
+{\textbf{Output}}& Business rule scritta nel linguaggio adottato \\ \hline
+{\textbf{Esito}}&  positivo\\ \hline
 \end{tabular} \\
 \\
 \\
@@ -381,9 +384,10 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \textbf{\textsf{NU3}}& \\
 \hline
 {\textbf{Obiettivo Prova}}& Verificare la chiarezza e completezza dei messaggi d'errore\\ \hline
-{\textbf{Descrizione Prova}}& Si tenter\`a di validare vari business objects (con errori interni e di ogni genere possibile), valutando l'efficacia del messaggio d'errore emesso \\ \hline
-{\textbf{Input}}&  Business Objects \\ \hline
-{\textbf{Output}}& Messaggi d'errore\\ \hline
+{\textbf{Dipendenze:}}& nessuna \\ \hline
+{\textbf{Descrizione Prova}}& Si tenter\`a di validare vari business objects (con errori interni e di ogni genere possibile), valutando l'efficacia del messaggio d'errore{\textbf{Dipendenze:}}& nessuna \\ \hline emesso \\ \hline
+{\textbf{Input}}&  Business object (in stringa) \\ \hline %%%%%%%%%%%%%%%%%%%%%%%%%%%% CONTROLLARE
+{\textbf{Output}}& Messaggio d'errore comprensibile \\ \hline
 {\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
@@ -393,10 +397,11 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \textbf{\textsf{NPo1}}& \\
 \hline
 {\textbf{Obiettivo Prova}}& Il formato di salvataggio delle business rules e del repository dovr\`a essere XML.\\ \hline
+{\textbf{Dipendenze:}}& nessuna \\ \hline
 {\textbf{Descrizione Prova}}&  Creazione e salvataggio di business rules in formato XML  \\ \hline
 {\textbf{Input}}&  Business rule di appoggio in XML \\ \hline
-{\textbf{Output}}& Lo stato di accettazione della business rules attraverso la notifica rilasciata \\ \hline
-{\textbf{Esito}}&  \\ \hline
+{\textbf{Output}}& L'inserimento della business rule in formato XML nel repository \\ \hline
+{\textbf{Esito}}&  positivo\\ \hline
 \end{tabular} \\
 \\
 \\
@@ -405,9 +410,10 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \textbf{\textsf{NPr1}}& \\
 \hline
 {\textbf{Obiettivo Prova}}& Testare la velocit\`a di interrogazione del DBMS\\ \hline
-{\textbf{Descrizione Prova}}& Popolamento del repository attraverso inserimento di business rules d'appoggio e attraverso iterazioni con esso. Si valuter\`a l'efficienza in termini di tempo di risposta, del DBMS usato  \\ \hline
-{\textbf{Input}}& Business Rules \\ \hline
-{\textbf{Output}}& Valutazione del tempo impiegato di ogni interrogazione \\ \hline
+{\textbf{Dipendenze:}}& nessuna \\ \hline
+{\textbf{Descrizione Prova}}& Popolamento del repository attraverso inserimento di business rules d'appoggio e interazioni con esso. Si valuter\`a l'efficienza, in termini di tempo di risposta, del DBMS usato  \\ \hline
+{\textbf{Input}}& Business rule \\ \hline
+{\textbf{Output}}& Valutazione del tempo impiegato in ogni interrogazione \\ \hline
 {\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
@@ -415,12 +421,13 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
 \hline
 \textbf{\textsf{NPr2}}& \\
-\hline
+\hlines
 {\textbf{Obiettivo Prova}}& Rendere univoca l'identificazione delle business rules all'interno del repository \\ \hline
+{\textbf{Dipendenze:}}& nessuna \\ \hline
 {\textbf{Descrizione Prova}}& Inserimento di varie business rules d'appoggio nel repository e controllo dell'unicit\`a della loro indicizzazione \\ \hline
-{\textbf{Input}}& Business Object \\ \hline
+{\textbf{Input}}& Business object (in stringa) \\ \hline %%%%%%%%%%%%%%%%%%%% CONTROLLATE
 {\textbf{Output}}& L'esito del controllo\\ \hline
-{\textbf{Esito}}&  \\ \hline
+{\textbf{Esito}}&  negativo \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -429,6 +436,7 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \textbf{\textsf{NQ1}}& \\
 \hline
 {\textbf{Obiettivo Prova}}& Testare tutte le operazioni consentite dal linguaggio creato e la loro validazione\\ \hline
+{\textbf{Dipendenze:}}& F1, F3, F7 \\ \hline
 {\textbf{Descrizione Prova}}& Si applicheranno a business objects esistenti tutte le operazioni che il linguaggio permette e si valutera\`a l'esito della validazione di tali operazioni, confrontandoli con i risultati aspettati.  \\ \hline
 {\textbf{Input}}& Business Objects \\ \hline
 {\textbf{Output}}& L'esito della validazione delle operazioni tra i business objects dati in input\\ \hline
@@ -441,9 +449,10 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \textbf{\textsf{NQ2}}& \\
 \hline
 {\textbf {Obiettivo Prova}}& Testare che il manuale descriva il linguaggio di definizione delle business rules \\ \hline
+{\textbf{Dipendenze:}}&  F1, F8 \\ \hline
 {\textbf{Descrizione Prova}}&  Creazione di un manuale utente di facile comprensione per qualsiasi tipo di tutente \\ \hline
-{\textbf{Input}}&  Descrizione completa e allo stesso tempo semplice di ogni componente del linguaggio di definizione delle business rules e delle funzioni della Gui \\ \hline
-{\textbf{Output}}& Manuale utente \\ \hline
+{\textbf{Input}}&  Richieste di informazioni \\ \hline  %%%%%%%%%%%%%%%%%%%%%%% CONTROLLATE
+{\textbf{Output}}& Manuale utente completo e allo stesso tempo semplice di ogni componente del linguaggio di definizione delle business rules e delle funzioni della Gui \\ \hline
 {\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 \\
@@ -453,9 +462,10 @@ L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato
 \textbf{\textsf{NQ3}}& \\
 \hline
 {\textbf {Obiettivo Prova}}& Descrivere le API relative al validatore e al DBMS\\ \hline
-{\textbf{Descrizione Prova}}&  Descrizione delle API relative al validatore e al DBMS\\ \hline
-{\textbf{Input}}&  Descrizione completa e allo stesso semplice delle API usate \\ \hline
-{\textbf{Output}}& Il documento con la descrizione delle API chiamato ``DescrizioneAPI.pdf''  \\ \hline
+{\textbf{Dipendenze:}}& nessuna \\ \hline
+{\textbf{Descrizione Prova}}&  Creazione di una descrizione dettagliata delle API relative al validatore e al DBMS\\ \hline
+{\textbf{Input}}&  Richieste di informazioni \\ \hline  %%%%%%%%%%%%%%%%%%%%%% CONTROLLATE
+{\textbf{Output}}& Il documento completo e semplice con la descrizione delle API  \\ \hline
 {\textbf{Esito}}&  \\ \hline
 \end{tabular} \\
 
