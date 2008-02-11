@@ -100,7 +100,7 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
-2.7 & 11/02/2008 & Deprecato requisito F9 e modificato F8\\ \hline
+2.7 & 11/02/2008 & Deprecato requisito F9 e modificato i requisiti F4 e F8\\ \hline
 2.6 & 04/02/2008 & Correzione grammaticale.\\ \hline
 2.5 & 22/01/2008 & Modifica al layout dei documenti e prima correzione grammaticale.\\ \hline
 2.4 & 21/01/2008 & Modifiche in conseguenza del secondo incontro con l'azienda.\\ \hline
@@ -181,7 +181,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \section{Inserimento e cancellazione di business rule.}
 \begin{center}
  \includegraphics[width=1\textwidth]{Inserisci-regola.eps}
-\end{center}
+\end{center}\item[NQ4]{ OPZIONALE :   }
 
 \subsection{Inserisci nuova business rule.}
 \underline{Attori coinvolti:} L'utente finale che desidera inserire nel repository una nuova business rule.\\
@@ -261,7 +261,7 @@ OPZIONALE
 \item[F1]{Si dovr\`a creare un linguaggio per la rappresentazione di business rules. [C04]}
 \item[F2]{Il sistema dovr\`a fornire un validatore che consenta l'accettazione di nuove business rules soltanto se esse sono scritte secondo le specifiche del linguaggio creato. [C04]}
 \item[F3]{Il sistema dov\`a inserire nel repository la nuova business rule dopo la sua accettazione da parte del validatore. [C04]}
-\item[F4]{Il sistema deve informare l'utente dell'esito della validazione di una nuova business rule. Se la validazione \`e andata a buon fine l'utente deve essere informato in maniera chiara del buon esito. Se la regola non viene accettata l'utente deve essere informato in maniera chiara di dove la sua regola non rispetta le specifiche del linguaggio. [C04]}
+\item[F4]{Il sistema deve informare l'utente dell'esito della validazione di una nuova business rule. Se la validazione \`e andata a buon fine l'utente deve essere informato in maniera chiara del buon esito e del tempo di risposta della validazione. Se la regola non viene accettata l'utente deve essere informato in maniera chiara di dove la sua regola non rispetta le specifiche del linguaggio. [C04]}
 \item[F5]{Nell'interagire col repository il sistema dovr\'a appoggiarsi ad un DBMS esterno. [I02]}
 \item[F6]{Il sistema deve essere in grado di interfacciarsi all'interprete esterno fornito dall'azienda proponente fornendo ad esso le regole business da eseguire. [I02]}
 \item[F7]{Il sistema dovr\`a consentire la cancellazione di business rules all'interno del repository. [I02]}
