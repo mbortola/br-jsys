@@ -37,6 +37,7 @@
 \newcommand{\lv}{ 0.5 } % latest version
 \newcommand{\dt}{ Specifica Tecnica }% Document title
 \newcommand{\Glossario}{ Glossario.1.4.pdf }
+
 \newcommand{\br}{business rule }
 \newcommand{\brs}{business rules }
 \newcommand{\bo}{business object }
@@ -45,6 +46,25 @@
 \newcommand{\brp}{BusinessRuleParser }
 \newcommand{\brl}{BusinessRuleLexer }
 \newcommand{\BR}{BusinessRule }
+
+\newcommand{\br}{ business rule }
+\newcommand{\brs}{ business rules }
+\newcommand{\bo}{ business object }
+\newcommand{\bos}{ business objects }
+\newcommand{\re}{ repository }
+\newcommand{\brp}{ BusinessRuleParser }
+\newcommand{\brl}{ BusinessRuleLexer }
+\newcommand{\BR}{ BusinessRule }
+
+\newcommand{\br}{business rule }
+\newcommand{\brs}{business rules }
+\newcommand{\bo}{business object }
+\newcommand{\bos}{business objects }
+\newcommand{\re}{repository }
+\newcommand{\brp}{BusinessRuleParser }
+\newcommand{\brl}{BusinessRuleLexer }
+\newcommand{\BR}{BusinessRule }
+
 %fine definizione variabili
 
 
@@ -192,6 +212,7 @@ Per la GUI possiede i campi dato GUICommunicator e Validator che le forniscono l
 \subsection{Validator}%facade!!!->va descritto
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questa componente effettua la validazione di una \br senza far fare all'utilizzatore tutte le singole operazioni di compilazione.
+Validator ha il ruolo di \textit{fa\c{c}ade} in quanto fornisce un interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e di insermento che avremmo altrimenti dovuto riportare direttamente dove la cmponente GUI lo richiedesse.
 \subsubsection{Relazioni d'uso di altre componenti}
 Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator che verranno descritte in seguito.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -244,6 +265,7 @@ La componente XMLParser si occupa di effettuare la conversione dell'albero sinta
  \item la \br effettivamente digitata dall'utente;
  \item eventuali commenti associati dall'utente alla \br;
 \end{itemize}
+XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade} dato che la creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessitano di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
 \subsubsection{Relazioni d'uso di altre componenti}
 XMLParser ha bisogno dell' albero di parsing prodotto da \brp, nonch\`e necessita della componente \br per ricavare le informazioni da inserire nel'elemento XML.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -328,10 +350,26 @@ ValidatorCommunicator viene messa in relazione con la componente Validator per e
 ValidatorCommunicator offre il metodi insertRule() per inserire la \br nel \re. L'inserimento avverr\`a soltanto se la \br ha un nome che non \`e ancora presente nel \re.
 
 \chapter{Componenti esterne}
+%Interprete.eps
 \section{Interprete}
-
+\subsubsection{Tipo, obiettivo e funzione del componente}
+Questo componente si incarica di eseguire le \brs associate ad un determinato \bo. Per ottenere le \brs il componente deve poter interrogare il DBMS attraverso un opportuna interfaccia col sistema BR-jsys che risolver\`a per lui la richiesta.
+\subsubsection{Relazioni d'uso di altre componenti}
+Interprete utilizza la componente InterpreterCommunicator per comunicare col DBMS.
+\subsubsection{Interfacce con e relazioni di uso da altre componenti}
+Nessuna.
+\subsubsection{Attivit\`a svolte e dati trattati}
+Non siamo tenuti a considerare i dettagli riguardanti le operazioni specifiche della componente, l'unico vincolo posto \`e che debba comunicare tramite il DBMS tramite l'interfaccia InterpreterCommunicator.
 \section{DBMS}
-
+%DBMS.eps
+\subsubsection{Tipo, obiettivo e funzione del componente}
+Questo componente serve a comunicare col \re  in modo efficiente. La comunicazione avverr\`a tramite linguaggio XQuery.
+\subsubsection{Relazioni d'uso di altre componenti}
+Nessuna.
+\subsubsection{Interfacce con e relazioni di uso da altre componenti}
+Previa una connessione corretta, il DBMS mette a disposizione un interfaccia XPathQueryService con la quale interagire col \re  presente al suo interno.
+\subsubsection{Attivit\`a svolte e dati trattati}
+Una corretta autenticazione far\`a in modo che l'interfaccia di tipo XPathQueryService possa interagire col \re tramite il metodo query() che accetta come parametro una query impostata secondo le specifiche XQuery.
 
 
 \chapter{Diagrammi di attivit\`a}
