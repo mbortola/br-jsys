@@ -37,14 +37,14 @@
 \newcommand{\lv}{ 0.5 } % latest version
 \newcommand{\dt}{ Specifica Tecnica }% Document title
 \newcommand{\Glossario}{ Glossario.1.4.pdf }
-\newcommand{\br}{ business rule }
-\newcommand{\brs}{ business rules }
-\newcommand{\bo}{ business object }
-\newcommand{\bos}{ business objects }
-\newcommand{\re}{ repository }
-\newcommand{\brp}{ BusinessRuleParser }
-\newcommand{\brl}{ BusinessRuleLexer }
-\newcommand{\BR}{ BusinessRule }
+\newcommand{\br}{business rule }
+\newcommand{\brs}{business rules }
+\newcommand{\bo}{business object }
+\newcommand{\bos}{business objects }
+\newcommand{\re}{repository }
+\newcommand{\brp}{BusinessRuleParser }
+\newcommand{\brl}{BusinessRuleLexer }
+\newcommand{\BR}{BusinessRule }
 %fine definizione variabili
 
 
@@ -145,12 +145,14 @@ di strumenti di cui e' fornito, i quali soddisfano in pieno le nostre necessita'
 
 \subsection{Presentazione dell'architettura generale del sistema e identificazione dei componenti architetturali di alto livello}
 Lo schema generale del prodotto è specificato nell'immagine sottostante.
-%Immagine simile a quella che abbiamo mandato a tullio
+\begin{center}
+\includegraphics[width=0.6\textwidth, angle=-90]{DiagrammaClassi/schemagenerale.eps}
+\end{center}
 Abbiamo deciso di suddividere il prodotto in quattro macrocomponenti:
 \begin{enumerate}
  \item \textbf{GUI}:Fornisce all'utente un interfaccia grafica minimale consentendogli di effettuare le operazioni di cancellazione e interrogazione del repository in maniera user-friendly.
 \item \textbf{Business Rule}: Componente che rappresenta la \br che l'utente dichiara e che deve essere passata al validatore per compilarla.
-\item \textbf{Validatore}: Componente in grado di accettare in input una \br, di validarla, e di inserirla, se scritta correttamente, nel \re.
+\item \textbf{Validatore}: Componente in grado di accettare in input una \br, di validarla e di inserirla, se scritta correttamente, nel \re.
 \item \textbf{Comunicatore}: Componente in grado di connettersi al DBMS esterno e di comunicare con esso tramite i formalismi del linguaggio XQuery.
 Sar\`a appunto tramite Query che il DBMS effettuer\`a operazioni di insermento, cancellazione o di ricerca nel \re qualora un componente lo richiedesse.
 \end{enumerate}
