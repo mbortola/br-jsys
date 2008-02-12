@@ -161,7 +161,7 @@ Qui di seguito analizzeremo separatamente le quattro macrocomponenti elencate il
 
 \section{GUI}
 \subsection{Diagramma delle classi}
-%gui.eps
+\includegraphics[width=1\textwidth, angle=-90]{DiagrammaClassi/gui.eps}
 \subsection{Gui}
 %Diagramma della classe GUI...comprensivo di package
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -182,7 +182,7 @@ Per la GUI possiede i campi dato GUICommunicator e Validator che le forniscono l
 
 \section{Validatore}
 \subsection{Diagramma delle classi}
-%validatore.eps
+\includegraphics[width=0.9\textwidth, angle=-90]{DiagrammaClassi/validator.eps}
 \subsection{Validator}%facade!!!->va descritto
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questa componente effettua la validazione di una \br senza far fare all'utilizzatore tutte le singole operazioni di compilazione.
@@ -201,7 +201,7 @@ Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente BusinessRuleParser necessita la componente BusinessRuleLexer che verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo della \br, nonch\`e per la gestione di eventuali eccezzioni avvenute in fase di validazione.
+BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo della \br, nonch\`e per la gestione di eventuali eccezzioni avvenute in fase di validazione.\\
 \textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
 
 \subsection{BusinessRuleParser}
@@ -214,7 +214,7 @@ Questa componente necessita di un TokenStream fornitogli indirettamente da Busin
 \brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
 \subsubsection{Attivit\`a svolte e dati trattati}
-\brp mette a disposizione vari metodi per effettuare il parsing e per i test semantici, nonch\`e dispone di numerosi campi dato per la ricognizione dei token.
+\brp mette a disposizione vari metodi per effettuare il parsing e per i test semantici, nonch\`e dispone di numerosi campi dato per la ricognizione dei token.\\
 \textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
 
 \subsection{TypeCollisionException}
@@ -245,19 +245,19 @@ La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XML
 \subsubsection{Attivit\`a svolte e dati trattati}
 XMLParser contiene le operazioni per scorrere l'albero di parsing ed effettuare il traduzione in XML.Inoltre dispone di una tabella Hash statica che serve per associare i valori numerici che il parser 
 
-\subsection{BusinessObjects}%è un package
+\subsection{businessobjects}%è un package
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente BusinessObject si occupa di offrire un namespace comune a tutti i \bos che durante la validazione di una \br vengono interpellati richiedendo accesso ai suoi campi o sottocampi.
+La componente businessobjects si occupa di offrire un namespace comune a tutti i \bos che durante la validazione di una \br vengono interpellati richiedendo accesso ai suoi campi o sottocampi.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 \brp necessita di questa componente per effettuare il controllo dei tipi qualora fosse necessario.
 \subsubsection{Attivit\`a svolte e dati trattati}
-BusinessObjects offre solamente le classi java che rappresentano i \bos.
+Il componente businessbjects offre le classi java che rappresentano i \bos.
 
 \section{Business Rule}
 \subsection{Diagramma delle classi}
-%businessrule.eps
+\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Businessrule.eps}
 \subsection{BusinessRule}
 \subsubsection{Tipo, obiettivo e funzione del componente}
 La componenete \BR rappresenta la \br che l'utente inserisce e vuole validare.
@@ -271,7 +271,7 @@ La componente contiene i campi dato Stringa per rappesentare una business rule o
 
 \section{Comunicatore}
 \subsection{Diagramma delle classi}
-%comunicatore.eps
+\includegraphics[width=0.6\textwidth, angle=-90]{DiagrammaClassi/Comunicatore.eps}
 \subsection{Communicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re presente nel DBMS.
