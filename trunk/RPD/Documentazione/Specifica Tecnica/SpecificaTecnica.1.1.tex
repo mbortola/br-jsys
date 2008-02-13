@@ -182,7 +182,7 @@ Questa componente utilizza:
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La GUI possiede i campi dato GUICommunicator e Validator che le forniscono le funzionalit\`a che si devono visualizzare. Entrambe verranno trattate in seguito.
+La GUI possiede i campi dato ``GUICommunicator'' e ``Validator'' che le forniscono le funzionalit\`a che si devono visualizzare. Entrambe verranno trattate in seguito.
 
 \section{Validatore}
 \subsection{Diagramma delle classi}
@@ -192,7 +192,7 @@ La GUI possiede i campi dato GUICommunicator e Validator che le forniscono le fu
 \subsection{Validator}%facade!!!->va descritto
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questa componente effettua la validazione di una \br senza far fare all'utilizzatore tutte le singole operazioni di compilazione.
-Validator ha il ruolo di \textit{fa\c{c}ade} in quanto fornisce un interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e di insermento che avremmo altrimenti dovuto riportare direttamente dove la cmponente GUI lo richiedesse.
+Validator ha il ruolo di \textit{fa\c{c}ade} in quanto fornisce un'interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e di insermento che avremmo altrimenti dovuto riportare direttamente dove la componente GUI lo richiedesse.
 \subsubsection{Relazioni d'uso di altre componenti}
 Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator che verranno descritte in seguito.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -206,17 +206,16 @@ Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una cl
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-La componente BusinessRuleParser necessita la componente BusinessRuleLexer che verr\`a approfondita successivamente.
+La componente BusinessRuleParser necessita della componente BusinessRuleLexer che verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
 BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo della \br, nonch\`e per la gestione di eventuali eccezzioni avvenute in fase di validazione.\\
 \textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
 
 \subsection{BusinessRuleParser}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questo componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua il controllo sintatico della regola, il controllo semantico facendo un controllo sui tipi dei dati siano essi costanti oppure campi dati di \bos. Mentre effettua la validazione BusinessRuleParser genera l'albero di pasing secondo le specifiche presenti nel controllo semantico. Infine \`e in grado di dare informazioni accurate 
-riguardo eventuali errori in fase di validazione.
+Questo componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua il controllo sintatico della regola, il controllo semantico facendo un controllo sui tipi dei dati siano essi costanti oppure campi dati di \bos. Mentre effettua la validazione BusinessRuleParser genera l'albero di pasing secondo le specifiche presenti nel controllo semantico. Infine \`e in grado di dare informazioni accurate riguardo eventuali errori in fase di validazione.
 \subsubsection{Relazioni d'uso di altre componenti}
-Questa componente necessita di un TokenStream fornitogli indirettamente da BusinessRuleLexer. Per effettuare il controllo sui tipi per il \bo associato deve poi riferirsi alla componente BusinessObjects ed infine ha bisogno della componente TypeCollisionException per trattare gli errori in fase di validazione.
+Questa componente necessita di un TokenStream fornitogli indirettamente da BusinessRuleLexer. Per effettuare il controllo sui tipi per il \bo associato deve riferirsi poi alla componente BusinessObjects. Ha bisogno infine della componente TypeCollisionException per trattare gli errori in fase di validazione.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 \brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
@@ -226,7 +225,7 @@ Questa componente necessita di un TokenStream fornitogli indirettamente da Busin
 
 \subsection{TypeCollisionException}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException, permette di ricavare informazioni sugli eventuali errori avvenuti in fase di parsing della \br, essa in definitiva aggiunge alla sua superclasse la possibilit\`a di riportare informazioni su errori di tipo.
+Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException, permette di ricavare informazioni sugli eventuali errori avvenuti in fase di parsing della \br. In definitiva aggiunge alla sua superclasse la possibilit\`a di riportare informazioni su errori di tipo.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -251,7 +250,7 @@ XMLParser ha bisogno dell' albero di parsing prodotto da \brp, nonch\`e necessit
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \re.
 \subsubsection{Attivit\`a svolte e dati trattati}
-XMLParser contiene le operazioni per scorrere l'albero di parsing ed effettuare il traduzione in XML.Inoltre dispone di una tabella Hash statica che serve per associare i valori numerici che il parser 
+XMLParser contiene le operazioni per scorrere l'albero di parsing ed effettuare il traduzione in XML. Dispone inoltre di una tabella Hash statica che serve per associare i valori numerici che il parser 
 
 \subsection{businessobjects}%è un package
 \subsubsection{Tipo, obiettivo e funzione del componente}
