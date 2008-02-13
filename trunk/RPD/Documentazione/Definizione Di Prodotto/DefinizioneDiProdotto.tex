@@ -117,7 +117,7 @@
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il seguente docujmento ha lo scopo di descrivere l'architettura logica prodotta al termine della fase di progettazione architetturale, esso descrive in dettaglio i campi dati e i metodi appartenenti alle singole componenti del sistema.
+Il seguente documento ha lo scopo di descrivere l'architettura logica prodotta al termine della fase di progettazione architetturale, esso descrive in dettaglio i campi dati e i metodi appartenenti alle singole componenti del sistema.
 \section{Scopo del prodotto}
 Per lo scopo del prodotto si faccia riferimento al documento di Analisi dei Requisiti.
 \section{Glossario}
@@ -149,7 +149,7 @@ Le specifiche per la documentazione del codice sono descritte nel documento %ser
 \section{GUI}
 \subsection{Diagramma delle classi}
 \begin{center}
-\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/gui.eps}
+%\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/gui.eps}
 \end{center}
 \subsection{Gui}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -166,12 +166,30 @@ Questa componente utilizza:
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Per la GUI possiede i campi dato GUICommunicator e Validator che le forniscono le funzionalit\`a che si devono visualizzare, entrambe verranno trattate in seguito.
+La componente possiede i campi dato necessari per comunicare con le copmponente validatore e con la componente DBMS.
+\begin{center}
+% use packages: array
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Attributo & Descrizione \\  \hline
+-compiler:Validator & Rappresenta il validatore per le \br \\ \hline
+-repository:GUICommunicator & Collega la componente al DBMS consentendogli di effettuare le Query.\\ \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Metodo & Descrizione \\  \hline
+\underline{+main(String[]args):Validator} & Metodo standard in java per l'avvio dell'applicazione incaricher\`a di creare un oggetto Gui\\ \hline
++Gui() & Costruttore per Gui.
+\end{tabular}
+\end{center}
+
 
 \section{Validatore}
 \subsection{Diagramma delle classi}
 \begin{center}
-\includegraphics[width=0.6\textwidth, angle=-90]{DiagrammaClassi/validator.eps}
+%\includegraphics[width=0.6\textwidth, angle=-90]{DiagrammaClassi/validator.eps}
 \end{center}
 \subsection{Validator}%facade!!!->va descritto
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -182,7 +200,21 @@ Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator che ve
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Validator \`e in relazione con la componente GUI per permettere la validazione.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente contiene soltanto il metodo validate() che effettua la validazione della \br.
+La componente deve occuparsi della validazione e del successivo inserimento nel \re.
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Attributo & Descrizione \\  \hline
+-repository:ValidatorCommunicator & Collega la componente al DBMS per inserire la \br validata nel \re.
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Metodo & Descrizione \\  \hline
++Validator() & Costruttore di Validator\\ \hline
++validate(BusinessRule rule) throws RecognitionException & Unico metodo della componente che ricevuto in ingresso una \br ne effettua la validazione. qualora si verificassero errori in fase di compilazione si restituir\`a un eccezzione che verr\`a gestita dal chiamante.
+\end{tabular}
+\end{center}
 
 \subsection{BusinessRuleLexer}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -192,8 +224,14 @@ Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente BusinessRuleParser necessita la componente BusinessRuleLexer che verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo della \br, nonch\`e per la gestione di eventuali eccezzioni avvenute in fase di validazione.\\
-\textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
+La componente, che viene generata teramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica nonch\`e vari metodi per la loro gestione, in effettivo si dovra' usare soltanto il suo costruttore.
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Metodo & Descrizione \\  \hline
++BusiessRuleLexer(AntlrStringStream input) & Costruttore del componente\\ \hline
+\end{tabular}
+\end{center}
 
 \subsection{BusinessRuleParser}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -205,8 +243,7 @@ Questa componente necessita di un TokenStream fornitogli indirettamente da Busin
 \brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
 \subsubsection{Attivit\`a svolte e dati trattati}
-\brp mette a disposizione vari metodi per effettuare il parsing e per i test semantici, nonch\`e dispone di numerosi campi dato per la ricognizione dei token.\\
-\textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
+Questa componente, generata tramite un generatore automatico di parser, fornisce le i campi dato per il riconoscimento dei token, in appoggio a quelli gi\`a forniti dalla componente \brp. Contiene vari metodi privati per il controllo sintattico e semantico, per il parsing e per gestire 
 
 \subsection{TypeCollisionException}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -250,7 +287,7 @@ Il componente businessbjects offre le classi java che rappresentano i \bos.
 \section{Business Rule}
 \subsection{Diagramma delle classi}
 \begin{center}
-\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Businessrule.eps}
+%\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Businessrule.eps}
 \end{center}
 \subsection{BusinessRule}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -266,7 +303,7 @@ La componente contiene i campi dato Stringa per rappesentare una business rule o
 \section{Comunicatore}
 \subsection{Diagramma delle classi}
 \begin{center}
-\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Comunicatore.eps}
+%\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Comunicatore.eps}
 \end{center}
 \subsection{Communicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
