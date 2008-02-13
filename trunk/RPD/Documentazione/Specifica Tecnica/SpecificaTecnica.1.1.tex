@@ -417,20 +417,32 @@ Per tempistiche pi\`u dettagliate si rimanda al \PdP.
 
 \chapter{Tracciamento della relazione componenti-requisiti}
 
+\begin{center}
 \begin{table}[hbtp]
 \large{
 \begin{tabular}{l}
-\begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
-%-------------------------------------------------------------------------------diario modifiche
+\begin{tabular}{||p{3cm}||p{6cm}||p{6cm}||} \hline
 \textbf{Componente} & \textbf{Componente Specifico} & \textbf{Requisiti Associati} \\ \hline
+
+GUI & & F4\\ \hline
  &  & \\ \hline
+
+Validatore & Validator & F2,F3,F4\\ \hline
+ & BusinessRuleLexer & \\ \hline
+ & BusinessRuleParser & \\ \hline
+ & TypeCollisionException & F4\\ \hline
+ & XMLParser & \\ \hline
+ & businessobjects & \\ \hline
  &  & \\ \hline
+
+BusinessRule & & F1,F2,F3,F7\\ \hline
  &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
+
+Comunicatore & Communicator & F3,F6\\ \hline
+ & GUICommunicator & \\ \hline
+ & InterpreterCommunicator & F6\\ \hline
+ & ValidatorCommunicator & F3\\ \hline
+
 
 \end{tabular} \\
 \end{tabular}
