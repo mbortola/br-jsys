@@ -364,25 +364,24 @@ Una corretta autenticazione far\`a in modo che l'interfaccia di tipo XPathQueryS
 
 
 \section{Server}
-
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{Server.eps}
 \end{center}
-
+Il server DBMS con cui interagisce il BR-jsys viene avviato. Una volta completata la procedura di avvio passa in uno stato di attesa nel quale aspetta le richieste da parte della GUI e dell'interprete. Ricevuta una richiesta, viene inviata la query al DBMS e ritornato il risultato/esito della query. Il server torna quindi in uno stato di attesa, finch\`e evwentualmente viene spento.
 
 \section{Richiesta dell'interprete}
-
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{RichiestadellInterprete.eps}
 \end{center}
-
+L'interprete invia la richiesta al sistema, il quale formula la query da inviare al DBMS, la query viene quindi eseguita e il risultato viene tornato all'interprete sotto forma di un oggetto  \textit{org.w3c.dom.NodeList}.
 
 \section{GUI}
-
 \begin{center}
  \includegraphics[width=1\textwidth, angle=-90]{GUI.eps}
 \end{center}
-
+Viene viasualizzato un messaggio in cui vengono richiesti \textit{login} e \textit{password}. Si cerca quindi di stabilire una connessione 
+qualificata al DB. Si controlla l'esito del tentativo di connessione. Se il tentativo ha dato esito negativo si richiede la \textit{login} e la
+ \textit{password} all'utente. Se l'esito e positivo, ossia si ha disposizione una connessione 
 
 \section{Inserisci \br}
 
