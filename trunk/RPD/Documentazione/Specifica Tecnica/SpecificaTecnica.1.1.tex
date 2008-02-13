@@ -152,16 +152,16 @@ Lo schema generale del prodotto \`e specificato nell'immagine sottostante.
 \end{center}
 Abbiamo deciso di suddividere il prodotto in quattro macrocomponenti:
 \begin{enumerate}
- \item \textbf{GUI}:Fornisce all'utente un interfaccia grafica minimale consentendogli di effettuare le operazioni di cancellazione e interrogazione del repository in maniera user-friendly.
-\item \textbf{Business Rule}: Componente che rappresenta la \br che l'utente dichiara e che deve essere passata al validatore per compilarla.
-\item \textbf{Validatore}: Componente in grado di accettare in input una \br, di validarla e di inserirla, se scritta correttamente, nel \re.
+ \item \textbf{GUI}: Fornisce all'utente un interfaccia grafica minimale, consentendogli di effettuare operazioni di cancellazione e interrogazione del repository in maniera user-friendly.
+\item \textbf{Business Rule}: Componente che rappresenta la \br che l'utente dichiara e che deve essere passata al validatore per la compilazione.
+\item \textbf{Validatore}: Componente in grado di accettare in input una \br, validarla e inserirla se scritta correttamente nel \re.
 \item \textbf{Comunicatore}: Componente in grado di connettersi al DBMS esterno e di comunicare con esso tramite i formalismi del linguaggio XQuery.
-Sar\`a appunto tramite Query che il DBMS effettuer\`a operazioni di insermento, cancellazione o di ricerca nel \re qualora un componente lo richiedesse.
+Sar\`a appunto tramite Query che il DBMS effettuer\`a operazioni di insermento, cancellazione o ricerca nel \re qualora un componente lo richiedesse.
 \end{enumerate}
-Questa suddivisione, per quanto minimale, consente di individuare le componenti che verranno ampliamente descritte nel successivo capitolo.
+Questa suddivisione, per quanto minimale, consente di individuare le componenti che verranno ampliamente descritte nel capitolo successivo.
 
 \chapter{Descrizione dei singoli componenti}
-Qui di seguito analizzeremo separatamente le quattro macrocomponenti elencate il capitolo precedente e ne daremo una descrizione pi\`u approfondita.
+Analizzeremo di seguito le quattro macrocomponenti elencate nel capitolo precedente e ne daremo una descrizione pi\`u approfondita.
 
 \section{GUI}
 \subsection{Diagramma delle classi}
