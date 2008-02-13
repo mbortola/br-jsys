@@ -350,7 +350,9 @@ ValidatorCommunicator viene messa in relazione con la componente Validator per e
 ValidatorCommunicator offre il metodi insertRule() per inserire la \br nel \re. L'inserimento avverr\`a soltanto se la \br ha un nome che non \`e ancora presente nel \re.
 
 \chapter{Componenti esterne}
-%Interprete.eps
+\begin{center}
+ \includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Interprete.eps}
+\end{center}
 \section{Interprete}
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questo componente si incarica di eseguire le \brs associate ad un determinato \bo. Per ottenere le \brs il componente deve poter interrogare il DBMS attraverso un opportuna interfaccia col sistema BR-jsys che risolver\`a per lui la richiesta.
@@ -361,7 +363,9 @@ Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Non siamo tenuti a considerare i dettagli riguardanti le operazioni specifiche della componente, l'unico vincolo posto \`e che debba comunicare tramite il DBMS tramite l'interfaccia InterpreterCommunicator.
 \section{DBMS}
-%DBMS.eps
+\begin{center}
+ \includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/DBMS.eps}
+\end{center}
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questo componente serve a comunicare col \re  in modo efficiente. La comunicazione avverr\`a tramite linguaggio XQuery.
 \subsubsection{Relazioni d'uso di altre componenti}
