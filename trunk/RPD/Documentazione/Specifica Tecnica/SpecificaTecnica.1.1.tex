@@ -121,8 +121,7 @@
 \tableofcontents
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il presente documento si ripropone di descrivere il sistema software ``BR-jsys'', sulla base del documento di ``Analisi dei Requisiti'', dal punto di vista architetturale. Lo strumento da noi adottato \`e il linguaggio UML, sottoforma di diagrammi delle classi. L'approccio adottato nell'illustrare il sistema \`e di tipo ``Bottom-up'' Fornir\`a inoltre una visione pi\`u dettagliata delle componenti da realizzare.
-Verr\`a definito il contesto d'uso del sistema e fornita la decomposizione di questo in componenti principali.
+Il presente documento descrive il sistema software ``BR-jsys'' dal punto di vista architetturale e da noi implementato secondo le esigenze identificate nel documento ``Analisi dei Requisiti''. Attraverso l'uso di diagrammi UML, nella fattispecie con alcuni diagrammi delle classi, identificheremo alcune componenti principali nel quale scomporre il sistema. Procederemo inoltre con un approcio di tipo ``Bottom-up'' nelle procedure di verifica delle componenti. Questo documento fornir\`a quindi una visione pi\`u dettagliata delle componenti da realizzare. Verr\`a definito il contesto d'uso del sistema e fornita la decomposizione di questo in componenti principali.
 \section{Scopo del prodotto}
 Per lo scopo del prodotto si faccia riferimento al documento di ``Analisi dei Requisiti''.
 \section{Glossario}
@@ -144,10 +143,10 @@ Viene fornito come documento esterno chiamato \Glossario .
 %Copiato di sana pianta dalla Nonsolocodice
 La progettazione del prodotto \`e stata attuata con l'uso di diagrammi UML 2.1, in quanto linguaggio internazionalmente riconosciuto e standardizzato.
 Il software di cui l’azienda ha fatto uso per la creazione dei diagrammi e' ArgoUML 0.24. L'utilizzo di tale software deriva dalla completezza
-di strumenti di cui e' fornito, i quali soddisfano in pieno le nostre necessita'.
+di strumenti di cui \`e fornito, i quali soddisfano in pieno le nostre necessita'.
 
 \subsection{Presentazione dell'architettura generale del sistema e identificazione dei componenti architetturali di alto livello}
-Lo schema generale del prodotto è specificato nell'immagine sottostante.
+Lo schema generale del prodotto \`e specificato nell'immagine sottostante.
 \begin{center}
 \includegraphics[width=0.6\textwidth, angle=-90]{DiagrammaClassi/schemagenerale.eps}
 \end{center}
@@ -172,20 +171,19 @@ Qui di seguito analizzeremo separatamente le quattro macrocomponenti elencate il
 \subsection{Gui}
 %Diagramma della classe GUI...comprensivo di package
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente fornisce all'utente un interfaccia minimale, consentendogli di effettuare operazioni di cancellazione e di querying sul \re.
-Nel caso di esecuizone di una query definita dall'utente verranno fornite inoltre informazioni relative ai tempi d'esecuzione.
-Questa componente viene realizzata tramite una singola classe java.
+Questa componente, realizzata tramite una singola classe java, fornisce all'utente un interfaccia minimale, consentendogli di effettuare operazioni di cancellazione e di querying sul \re.
+Nel caso di esecuzione di una query definita dall'utente, verranno fornite inoltre informazioni relative ai tempi d'esecuzione.
 \subsubsection{Relazioni d'uso di altre componenti}
 Questa componente utilizza:
 \begin{itemize}
  \item \BR per dichiarare una nuova \br da spedire al validatore;
  \item Validator per effettuare la validazione di una \br;
- \item GUICommunicator che verr\`a trattato successivamente.
+ \item GUICommunicator che tratteremo successivamente.
 \end{itemize}
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Per la GUI possiede i campi dato GUICommunicator e Validator che le forniscono le funzionalit\`a che si devono visualizzare, entrambe verranno trattate in seguito.
+La GUI possiede i campi dato GUICommunicator e Validator che le forniscono le funzionalit\`a che si devono visualizzare, entrambe verranno trattate in seguito.
 
 \section{Validatore}
 \subsection{Diagramma delle classi}
