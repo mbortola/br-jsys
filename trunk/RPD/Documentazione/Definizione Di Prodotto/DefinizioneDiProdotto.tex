@@ -201,6 +201,7 @@ Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator che ve
 Validator \`e in relazione con la componente GUI per permettere la validazione.
 \subsubsection{Attivit\`a svolte e dati trattati}
 La componente deve occuparsi della validazione e del successivo inserimento nel \re.
+\begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
@@ -224,7 +225,7 @@ Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente BusinessRuleParser necessita la componente BusinessRuleLexer che verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente, che viene generata teramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica nonch\`e vari metodi per la loro gestione, in effettivo si dovra' usare soltanto il suo costruttore.
+La componente, che viene generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica nonch\`e vari metodi per la loro gestione, in effettivo si dovra' usare soltanto il suo costruttore.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
@@ -243,7 +244,22 @@ Questa componente necessita di un TokenStream fornitogli indirettamente da Busin
 \brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Questa componente, generata tramite un generatore automatico di parser, fornisce le i campi dato per il riconoscimento dei token, in appoggio a quelli gi\`a forniti dalla componente \brp. Contiene vari metodi privati per il controllo sintattico e semantico, per il parsing e per gestire 
+Questa componente, generata tramite un generatore automatico di parser, fornisce i campi dato per il riconoscimento dei token in appoggio a quelli gi\`a forniti dalla componente \brp. Contiene vari metodi privati per il controllo sintattico e semantico, per il parsing e infine, contiene classi innestate incaricate di generare l'AST.
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Attributo & Descrizione \\ \hline
++endParsing:BusinessRuleParser.start_return & Campo dati che contiene l'AST da convertire in XML \\ \hline 
+\end{tabular}
+\end{center}
+\begin{center}
+ \begin{tabular}{||p{6cm}||p{6cm}||}\hline
+Metodo & Descrizione \\  \hline
++BusiessRuleParser(CommonTokenStream input, String associated) & Costruttore del componente, il primo parametro identifica lo stream generato nelle fasi precedenti mentre il secondo parametro dice qual'e il \bo associato alla regola\\ \hline
++start():BusinessRuleParser.start_return & Risultato del parsing corretto di una \br, contiene al suo interno l'AST.
+\end{tabular}
+\end{center}
+
 
 \subsection{TypeCollisionException}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -254,6 +270,18 @@ Nessuna.
 La componente TypeCollisionException \`e utilizzata da \brp per sollevare eccezioni da errori sul controlo dei tipi.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Viene ridefinito il metodo printStackTrace() e messo a disposizione un costruttore per avere informazioni sui tipi che si sono rivelati incompatibili.
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Attributo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Metodo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
 
 \subsection{XMLParser}%probabilmente è un facade anche questo
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -273,6 +301,18 @@ XMLParser ha bisogno dell' albero di parsing prodotto da \brp, nonch\`e necessit
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \re.
 \subsubsection{Attivit\`a svolte e dati trattati}
 XMLParser contiene le operazioni per scorrere l'albero di parsing ed effettuare il traduzione in XML.Inoltre dispone di una tabella Hash statica che serve per associare i valori numerici che il parser 
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Attributo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Metodo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
 
 \subsection{businessobjects}%è un package
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -283,6 +323,18 @@ Nessuna.
 \brp necessita di questa componente per effettuare il controllo dei tipi qualora fosse necessario.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Il componente businessbjects offre le classi java che rappresentano i \bos.
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Attributo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Metodo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
 
 \section{Business Rule}
 \subsection{Diagramma delle classi}
@@ -299,6 +351,18 @@ La componente GUI utilizza \BR nel caso in cui l'utente voglia inserire una nuov
 La componente Validator effettua la validazione di un istanza di \BR tramita la chamata del suo metodo validate().
 \subsubsection{Attivit\`a svolte e dati trattati}
 La componente contiene i campi dato Stringa per rappesentare una business rule ossia name, associatedObject, rule e comment, quest'ultima può non essere istanziata, vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Attributo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Metodo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
 
 \section{Comunicatore}
 \subsection{Diagramma delle classi}
@@ -314,7 +378,19 @@ Communicator necessita di interagire con la componente esterna DBMS per interrog
 Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare Query specifiche, le loro descrizioni sono trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Quando viene istanziata per la prima volta inizializza la connessione al DBMS tramite la definizione di una variabile statica che successivamente consente di interrogare il \re direttamente passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
-%
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Attributo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Metodo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
+
 \subsection{GUICommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
 La componente contiene metodi necessari per modellare query di cancellazione(tramite operazioni XQuery Update) e di query di semplice interrogazione.
@@ -339,6 +415,18 @@ InterpreterCommunicator viene messa in relazione con l'interprete esterno dal qu
 %Bisogna specificare le modalità di comunicazione
 \subsubsection{Attivit\`a svolte e dati trattati}
 InterpreterCommunicator offre il metodo getRule() per richiedere le \br associate al \bo.
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Attributo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Metodo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
 
 \subsection{ValidatorCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -349,6 +437,19 @@ ValidatorCommunicator utilizza la componente Communicator per accedere al \re ed
 ValidatorCommunicator viene messa in relazione con la componente Validator per effettuare l'inserimento.
 \subsubsection{Attivit\`a svolte e dati trattati}
 ValidatorCommunicator offre il metodi insertRule() per inserire la \br nel \re. L'inserimento avverr\`a soltanto se la \br ha un nome che non \`e ancora presente nel \re.
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Attributo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\hline
+Metodo & Descrizione \\  \hline
+\end{tabular}
+\end{center}
+
 \chapter{Appendice}
 \section{Codice Sorgente}
 \section{Tracciamento della relazione componenti - requisiti}
