@@ -31,7 +31,7 @@
 \begin{document}
 
 %definizione variabili 
-\newcommand{\lv}{ 1.6 } % latest version
+\newcommand{\lv}{ 1.7 } % latest version
 \newcommand{\dt}{ Glossario }% Document title
 %fine definizione variabili
 
@@ -96,7 +96,8 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
 %-------------------------------------------------------------------------------diario modifiche
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
-1.6 & 2008/02/11 & Inserimento di AST e token.\\ \hline
+1.7 & 2008/02/13 & Inserimento di XQuery, XPath, Sandbox, FLWOR.\\ \hline
+1.6 & 2008/02/11 & Inserimento di AST e Token.\\ \hline
 1.5 & 2008/02/05 & Aggiunta del nome del file nel modello di documento.\\ \hline
 1.4 & 04/02/2008 & Correzione del documento.\\ \hline
 1.3 & 24/01/2008 & Inserimento di Antlr ,eXist, Use Case Diagram, Database, DBMS, JUnit, Stakeholder, Subversion, UML.\\ \hline
@@ -157,6 +158,10 @@ Componente attiva fittizia che serve per pilotare un modulo.
 \section{eXists:}
 Comando SQL che specifica una subquery per verificare l'esistenza di righe. Usa una sottoquery come condizione: la condizione è Vera se la sottoquery ritorna almeno una riga, ed è Falsa se la sottoquery non ritorna nessuna riga.
 
+\chapter{F}
+\section{FLWOR:}
+FLWOR \`e un acronimo, e significa FOR, LET, WHERE, ORDER BY, RETURN. FLWOR \`e analogo al SELECT-FROM-WHERE di SQL e pu\`o essere usato per introdurre funzionalit\`a \textit{join} in un documento XML.
+
 \chapter{G}
 \section{Google Groups:}
 Vedi Spazio web in Google Groups. 
@@ -189,9 +194,11 @@ Tipologia di business rule che consente di bloccare un operazione se i dati anal
 \section{Repository:} 
 Per repository si intende un archivio (nel nostro caso un file in linguaggio XML) in cui vengono memorizzati e mantenuti dei dati.
 \section{Revisione}
-La revisione, numero intero che parte da 1, indica se il documento \`e stato aggiornato dal suo ultimo rilascio. Un aumento nell'indice di revisione indica che il documento \`e stato modificato e/o corretto in una delle sue parti.
+La revisione, numero intero che parte da 1, indica se il documento \`e stato aggiornato dal suo ultimo rilascio. Un aumento nell'indice di revisione indica che il documento \`e stato modificato e/o corretto in una delle sue parti.\section{Google Groups:}
 
 \chapter{S}
+\section{Sandbox:}
+Identifica un ambiente in cui si possono effettuare sperimentazioni (nel nostro caso mediante il linguaggio \textit{XQuery}) che hanno lo scopo di investigare sugli effetti di eventuali modifiche o sviluppi all' interno del database. Tali sperimentazioni hanno inoltre lo scopo di favorire un rapido apprendimento del linguaggio \textit{XQuery}.
 \section{Spazio web in Google Groups:}
 Insieme delle risorse messe a disposizione da Google Groups. \`E raggiungibili dai soli membri della HappyCodeInc all'URL\\ \textit{http://groups.google.com/group/happycodeinc}. \`E comprensivo delle seguenti risorse: spazio web per la condivisione di file, gestione delle discussioni, gestione delle pagine statiche.
 \section{Stakeholder:}
@@ -203,7 +210,7 @@ Componente passiva fittizia per simulare un modulo.
 
 \chapter{T}
 \section{Token:}
-Un blocco di testo categorizzato, scritto in qualsiasi linguaggio e normalmente costituito da caratteri indivisibili chiamati lessemi. L'analizzatore lessicale legge in un flusso di lessemi e li categorizza in token: se esso trova un token non valido, restituisce un errore.
+Un blocco di testo categorizzato, scritto in qualsiasi linguaggio e normalmente costituito da caratteri indivisibili chiamati lessemi. L'analXQueryizzatore lessicale legge in un flusso di lessemi e li categorizza in token: se esso trova un token non valido, restituisce un errore.
 
 \chapter{U}
 \section{UML:}
@@ -214,5 +221,14 @@ In UML, gli Use Case Diagram (UCD o diagrammi dei casi d'uso) sono diagrammi ded
 \chapter{V}
 \section{Versione:}
 La versione, numero intero che parte da 0, serve a stabilire se il documento \`e stato modificato dal suo ultimo rilascio. Un aumento nell'indice della versione indica l'aggiunta di una nuova sezione al documento.
+
+\chapter{X}
+\section{XQuery:}
+``XML Query Language'' \`e un linguaggio destinato ad interrogare documenti e basi di dati XML.
+XQuery usa la sintassi delle espressioni di \textit{XPath} per la selezione di specifiche porzioni di documenti XML, con l'aggiunta delle cosiddette espressioni \textit{FLWOR} per la formulazione di query complesse.
+\section{XPath:}
+\`E un linguaggio parte della famiglia XML che permette di individuare i nodi all'interno di un documento XML. Le espressioni XPath, a differenza delle espressioni XML, non servono a identificare la struttura di un documento, bens\`i a localizzarne con precisione i nodi.
+
+
 
 \end{document}
