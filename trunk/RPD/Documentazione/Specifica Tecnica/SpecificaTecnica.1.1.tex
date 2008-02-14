@@ -131,13 +131,17 @@ Per lo scopo del prodotto si faccia riferimento al documento ``Analisi dei Requi
 Viene fornito come documento esterno chiamato \Glossario .
 \section{Riferimenti}
 \begin{itemize}
-\item Capitolato d'appalto BR-jsys
-\item AnalisiDeiRequisiti
-\item NormeDiProgetto
-\item \PdP
-\item \PdQ
-\item ``Ingegneria del software'' 8a edizione - Ian Sommerville 
-\item ``The Definitive ANTLR Reference''
+\item Capitolato d'appalto concorso per sistema ``BR-jsys'';
+\item ``Analisi dei Requisiti'';
+\item ``Norme di Progetto'';
+%\item \PdP
+\item ``Piano di Qualifica'';
+\item ``Piano di Progetto'';
+%\item \PdQ
+\item ``Ingegneria del software'' 8a edizione - Ian Sommerville;
+\item ``The Definitive ANTLR Reference'';
+\item Incontro con il committente ``Incontro2008-01-17.pdf'';
+\item Incontro con il committente ``Incontro2008-02-05.pdf''.
 \end{itemize}
 %Ho tolto i riferimenti informativi
 
@@ -155,15 +159,15 @@ Lo schema generale del prodotto \`e specificato nell'immagine sottostante.
 Abbiamo deciso di suddividere il prodotto in quattro macrocomponenti:
 \begin{enumerate}
  \item \textbf{GUI}: Fornisce all'utente un interfaccia grafica minimale, consentendogli di effettuare operazioni di cancellazione e interrogazione del repository in maniera user-friendly.
-\item \textbf{Business Rule}: Componente che rappresenta la \br che l'utente dichiara e che deve essere passata al validatore per la compilazione.
-\item \textbf{Validatore}: Componente in grado di accettare in input una \br, validarla e inserirla se scritta correttamente nel \re.
-\item \textbf{Comunicatore}: Componente in grado di connettersi al DBMS esterno e di comunicare con esso tramite i formalismi del linguaggio XQuery.
-Sar\`a appunto tramite Query che il DBMS effettuer\`a operazioni di inserimento, cancellazione o ricerca nel \re qualora un componente lo richiedesse.
+\item \textbf{Business Rule}: Rappresenta la \br che l'utente dichiara e che deve essere passata al validatore per la compilazione.
+\item \textbf{Validatore}: Accetta in input una \br, la valida e la inserisce se scritta correttamente nel \re.
+\item \textbf{Comunicatore}: Si connette al DBMS esterno e comunica con esso tramite i formalismi del linguaggio XQuery.
+Sar\`a appunto tramite Query che il DBMS effettuer\`a operazioni di inserimento, cancellazione o ricerca nel \re, qualora un componente lo richieda.
 \end{enumerate}
 Questa suddivisione, per quanto minimale, consente di individuare le componenti che verranno ampliamente descritte nel capitolo successivo.
 
 \chapter{Descrizione dei singoli componenti}
-Analizzeremo di seguito le quattro macrocomponenti elencate nel capitolo soprastante e ne daremo una descrizione pi\`u dettagliata.
+Analizzeremo in seguito le quattro macrocomponenti elencate nel capitolo soprastante e ne daremo una descrizione pi\`u dettagliata.
 
 \section{GUI}
 \subsection{Diagramma delle classi}
@@ -173,7 +177,7 @@ Analizzeremo di seguito le quattro macrocomponenti elencate nel capitolo soprast
 \subsection{Gui}
 %Diagramma della classe GUI...comprensivo di package
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, realizzata tramite una singola classe java, fornisce all'utente un interfaccia minimale che gli consente di effettuare operazioni di cancellazione e querying sul \re. Nel caso di esecuzione di una query definita dall'utente, verranno fornite anche informazioni relative ai tempi d'esecuzione.
+Questa componente, realizzata tramite una singola classe java, fornisce all'utente un'interfaccia minimale che gli consente di effettuare operazioni di cancellazione e querying sul \re. Nel caso di esecuzione di una query definita dall'utente, verranno fornite anche informazioni relative ai tempi d'esecuzione.
 \subsubsection{Relazioni d'uso di altre componenti}
 Questa componente utilizza:
 \begin{itemize}
@@ -184,7 +188,7 @@ Questa componente utilizza:
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La GUI possiede i campi dato ``GUICommunicator'' e ``Validator'' che le forniscono le funzionalit\`a che si devono visualizzare. Entrambe verranno trattate in seguito.
+La GUI possiede i campi dato ``GUICommunicator'' e ``Validator'' che vengono utilizzati per fornire funzionalit\`a di interfacciamento che verranno trattate in seguito.
 
 \section{Validatore}
 \subsection{Diagramma delle classi}
@@ -193,10 +197,9 @@ La GUI possiede i campi dato ``GUICommunicator'' e ``Validator'' che le fornisco
 \end{center}
 \subsection{Validator}%facade!!!->va descritto
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente effettua la validazione di una \br senza far fare all'utilizzatore tutte le singole operazioni di compilazione.
-Validator ha il ruolo di \textit{fa\c{c}ade} in quanto fornisce un'interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e di inserimento che avremmo altrimenti dovuto riportare direttamente dove la componente GUI lo richiedesse.
+Questa componente effettua la validazione di una \br, dando la possibilit\`a all'utilizzatore di evitare le singole operazioni di compilazione. Ha il ruolo di \textit{fa\c{c}ade}: fornisce un'interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e inserimento che avremmo altrimenti dovuto riportare direttamente dove la componente GUI lo richiedesse.
 \subsubsection{Relazioni d'uso di altre componenti}
-Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator che verranno descritte in seguito.
+Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator. Quest'ultime verranno ampliamente descritte in seguito.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Validator \`e in relazione con la componente GUI per permettere la validazione.
 \subsubsection{Attivit\`a svolte e dati trattati}
