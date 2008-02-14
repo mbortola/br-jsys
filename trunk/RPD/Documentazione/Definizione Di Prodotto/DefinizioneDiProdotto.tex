@@ -219,38 +219,37 @@ Attributo & Descrizione \\  \hline
 \hline
 Metodo & Descrizione \\  \hline
 +Validator() & Costruttore di Validator\\ \hline
-+validate(rule: BusinessRule ):boolean \lbrace throws\phantom{c} RecognitionException \rbrace& Unico metodo della componente che ricevuto in ingresso una \br ne effettua la validazione. qualora si verificassero errori in fase di compilazione si restituir\`a un eccezzione che verr\`a gestita dal chiamante. Se la \br viene inserita il metodo ritorner\`a \textit{true}, ritornero \textit{false} se la regola ha un nome che \`e gi\`a presente nel \re.\\ \hline
++validate(rule: BusinessRule ):boolean \lbrace throws\phantom{c} RecognitionException \rbrace& Unico metodo della componente che ricevuto in ingresso una \br ne effettua la validazione. Qualora si verificassero errori in fase di compilazione, si restituir\`a un'eccezione che verr\`a gestita dal chiamante. Se la \br viene inserita, il metodo ritorner\`a \textit{true}. Al contrario, ritornero \textit{false} se la regola ha un nome che \`e gi\`a presente nel \re.\\ \hline
 \end{tabular}
 \end{center}
 
 \subsection{BusinessRuleLexer}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una classe wrapper per la stringa che rappresenta la \br che aggiunge ad essa funzionalit\`a necessarie per il successivo parsing.
+Deriva da org.antlr.runtime.Lexer. Non \`e altro che una classe wrapper, per la stringa che rappresenta la \br, che aggiunge ad essa funzionalit\`a necessarie per il successivo parsing.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente BusinessRuleParser necessita la componente BusinessRuleLexer che verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente, che viene generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica nonch\`e vari metodi per la loro gestione, in effettivo si dovra' usare soltanto il suo costruttore.
+La componente, che viene generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica, nonch\`e vari metodi per la loro gestione. In definitiva si dovr\`a per\`o usare solo il suo costruttore.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-+BusinessRuleLexer(input: AntlrStringStream ) & Costruttore del componente.\\ \hline
++BusinessRuleLexer(input: AntlrStringStream ) & Costruttore della componente.\\ \hline
 \end{tabular}
 \end{center}
 
 \subsection{BusinessRuleParser}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questo componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua il controllo sintatico della regola, il controllo semantico facendo un controllo sui tipi dei dati siano essi costanti oppure campi dati di \bos. Mentre effettua la validazione BusinessRuleParser genera l'albero di pasing secondo le specifiche presenti nel controllo semantico. Infine \`e in grado di dare informazioni accurate 
+Deriva da org.antlr.runtime.Parser. Effettua il parsing della stringa che rappresenta la \br e effettua il controllo sintatico della regola e il controllo semantico facendo un controllo sui tipi dei dati (siano essi costanti o campi dati di \bos). Mentre effettua la validazione, BusinessRuleParser genera l'albero di pasing secondo le specifiche presenti nel controllo semantico. \`E infine in grado di dare informazioni accurate 
 riguardo eventuali errori in fase di validazione.
 \subsubsection{Relazioni d'uso di altre componenti}
-Questa componente necessita di un TokenStream fornitogli indirettamente da BusinessRuleLexer. Per effettuare il controllo sui tipi per il \bo associato deve poi riferirsi alla componente BusinessObjects ed infine ha bisogno della componente TypeCollisionException per trattare gli errori in fase di validazione.
+BusinessRuleParser necessita di un TokenStream, fornitogli indirettamente da BusinessRuleLexer. Per effettuare il controllo sui tipi per il \bo associato deve poi riferirsi alla componente BusinessObjects. Ha infine bisogno della componente TypeCollisionException per trattare gli errori in fase di validazione.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-\brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
-\`E utilizzata inoltre dalla componente Validator.
+\brp viene messa in relazione con XMLParser che verr\`a trattata successivamente. \`E utilizzata inoltre dalla componente Validator.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Questa componente, generata tramite un generatore automatico di parser, fornisce i campi dato per il riconoscimento dei token in appoggio a quelli gi\`a forniti dalla componente \brp. Contiene vari metodi privati per il controllo sintattico e semantico, per il parsing e infine, contiene classi innestate incaricate di generare l'AST.
+Questa componente, generata tramite un generatore automatico di parser, fornisce i campi dato per il riconoscimento dei token in appoggio a quelli gi\`a forniti dalla componente \brp. Contiene inoltre vari metodi privati per il controllo sintattico e semantico, per il parsing. Contiene infine classi innestate incaricate di generare l'AST.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
@@ -261,15 +260,15 @@ Attributo & Descrizione \\  \hline
 \begin{center}
  \begin{tabular}{||p{6cm}||p{6cm}||}\hline
 Metodo & Descrizione \\  \hline
-+BusinessRuleParser(input: CommonTokenStream, associated: String) & Costruttore del componente, il primo parametro identifica lo stream generato nelle fasi precedenti mentre il secondo parametro dice qual'e il \bo associato alla regola\\ \hline
-+start(): BusinessRuleParser.start\_return \lbrace throws\phantom{c}RecognitionException \rbrace& Risultato del parsing corretto di una \br, contiene al suo interno l'AST. Nel caso di errore nella validazione il chiamante dovr\`a gestire opportunamente l'eccezione.\\ \hline
++BusinessRuleParser(input: CommonTokenStream, associated: String) & Costruttore della componente, Il primo parametro identifica lo stream generato nelle fasi precedenti, mentre il secondo dice qual'\`e il \bo associato alla regola\\ \hline
++start(): BusinessRuleParser.start\_return \lbrace throws\phantom{c}RecognitionException \rbrace& Risultato del parsing corretto di una \br. Contiene al suo interno l'AST. Nel caso di errore nella validazione il chiamante dovr\`a gestire opportunamente l'eccezione.\\ \hline
 \end{tabular}
 \end{center}
 
 
 \subsection{TypeCollisionException}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException, permette di ricavare informazioni sugli eventuali errori avvenuti in fase di parsing della \br, essa in definitiva aggiunge alla sua superclasse la possibilit\`a di riportare informazioni su errori di tipo.
+Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException, permette di ricavare informazioni sugli eventuali errori avvenuti in fase di parsing della \br. Aggiunge, in definitiva, alla sua superclasse la possibilit\`a di riportare informazioni su errori di tipo.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -280,8 +279,8 @@ Viene ridefinito il metodo printStackTrace() e messo a disposizione un costrutto
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--first:Class & Identifica il tipo del primo elemento che ha causato un operazione incompatibile. \\ \hline
--second:Class & Identifica il tipi del secondo elemento che ha causato un operazione incompatibile \\ \hline
+-first:Class & Identifica il tipo del primo elemento che ha causato un'operazione incompatibile. \\ \hline
+-second:Class & Identifica il tipi del secondo elemento che ha causato un'operazione incompatibile \\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
@@ -295,9 +294,9 @@ Metodo & Descrizione \\  \hline
 
 \subsection{XMLParser}%probabilmente è un facade anche questo
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente XMLParser si occupa di effettuare la conversione dell'albero sintattico prodotto dalla componente \brp in un elemento XML rappresentante la \br, l'elemento XML risultante conterr\`a:
+La componente XMLParser si occupa di effettuare la conversione dell'albero sintattico prodotto dalla componente \brp in un elemento XML rappresentante la \br. L'elemento XML risultante conterr\`a:
 \begin{itemize}
- \item il nome della \br, che deve essere univoco;
+ \item il nome della \br, che dovr\`a essere univoco;
  \item il nome del \bo associato a quela regola;
  \item la struttura del albero sintattico della \br scritta secndo la metodologia elemento-attributo tipica di XML;
  \item la struttura del albero sintattico della \br scritta lineramente secondo la notazione prefissa rappresentata da un singolo attributo XML;
