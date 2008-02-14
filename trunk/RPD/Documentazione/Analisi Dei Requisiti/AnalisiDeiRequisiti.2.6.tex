@@ -69,10 +69,6 @@
 \textbf{Redazione:} & Michele Bortolato, Alessia Trivellato \\ \hline
 \textbf{Revisione:} &   Marco Tessarotto \\ \hline
 \textbf{Approvazione:}  & Elena Trivellato\\ \hline
-\textbf{Revisione RPD}     \\ \hline
-\textbf{Redazione:} & Marco Tessarotto \\ \hline
-\textbf{Revisione:} &  Alessia Trivellato, Michele Bortolato \\ \hline
-\textbf{Approvazione:}  & Elena Trivellato\\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -98,7 +94,8 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
-2.5 & 11/02/2008 & Deprecato requisito F9 e modificato i requisiti F4 e F8\\ \hline
+2.6 & 2008/02/14 & Correzione sintattica e grammaticale\\ \hline
+2.5 & 2008/02/11 & Deprecato requisito F9 e modificato i requisiti F4 e F8\\ \hline
 2.4 & 2008/02/05 & Aggiunta del nome del file nel modello di documento\\ \hline
 2.3 & 2008/02/04 & Correzione grammaticale\\ \hline
 2.2 & 2008/01/22 & Modifica al layout dei documenti e prima correzione grammaticale\\ \hline
@@ -162,7 +159,7 @@ Di seguito viene descritto il sistema designato dalla sigla ``BR-jsys''. Viene i
 \section{Prospettiva del prodotto}
 Il sistema va a collocarsi all'interno di un progetto globale di automazione nella generazione del codice per la produzione di software gestionale. In particolare si occuper\`a della gestione delle business rules, definendo un linguaggio con cui descriverle, oltre ad un sistema di archiviazione-recupero delle stesse.
 \section{Funzioni del prodotto}
-Il sistema si occupa di definire un linguaggio con cui descrivere business rules. Pi\`u concretamente dovr\`a verificare che le business rules inserite dall'utente rispettino il linguaggio sopracitato. In caso di esito positivo dovranno essere inserite in un repository, dal quale potranno poi essere recuperate nel momento in cui si desideri verificare la consistenza di un business object.
+Il sistema si occupa di definire un linguaggio con cui descrivere business rules. Pi\`u concretamente dovr\`a verificare che le business rules inserite dall'utente rispettino il linguaggio sopra citato. In caso di esito positivo dovranno essere inserite in un repository, dal quale potranno poi essere recuperate nel momento in cui si desideri verificare la consistenza di un business object.
 \section{Caratteristiche utente}
 Il sistema andr\`a inserito all'interno di un progetto pi\`u ampio, il cui utente finale \`e un individuo esperto in ambito commerciale e gestionale, ma non necessariamente in ambito informatico.
 \section{Vincoli generali}
@@ -249,7 +246,6 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \underline{Flusso di eventi:} Il sistema richiede al DBMS di estrarre dal repository tutte le regole riguardanti quel business object.\\
 \underline{Precondizioni:} Il sistema ha acquisito la richiesta di validazione per un determinato business object.\\
 \underline{Postcondizioni} Il DBMS riceve la richiesta di recuperare delle business rules dal repository.
-
 \subsection{Manda le business rules all'interprete.}
 \underline{Attori coinvolti:} L'interprete esterno fornito dall'azienda che riceve le business rules per poter validare il suo business object.\\
 \underline{Scopo e descrizione sintetica:} Il sistema ricevute le regole dal DBMS le invia all'interprete esterno.\\
@@ -264,11 +260,11 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \item[F3]{Il sistema dov\`a inserire nel repository la nuova business rule dopo la sua accettazione da parte del validatore. [C04]}
 \item[F4]{Il sistema deve informare l'utente dell'esito della validazione di una nuova business rule. Se la validazione \`e andata a buon fine l'utente deve essere informato in maniera chiara del buon esito e del tempo di risposta della validazione. Se la regola non viene accettata l'utente deve essere informato in maniera chiara di dove la sua regola non rispetta le specifiche del linguaggio. [C04]}
 \item[F5]{Nell'interagire col repository il sistema dovr\'a appoggiarsi ad un DBMS esterno. [I02]}
-\item[F6]{Il sistema deve essere in grado di interfacciarsi all'interprete esterno fornito dall'azienda proponente fornendo ad esso le regole business da eseguire. [I02]}
+\item[F6]{Il sistema deve essere in grado di interfacciarsi con l'interprete esterno fornito dall'azienda proponente provvedendo ad esso le regole business da eseguire. [I02]}
 \item[F7]{Il sistema dovr\`a consentire la cancellazione di business rules all'interno del repository. [I02]}
-\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di definire una nuova business rule e una volta validata inserirla nel repository e cancellare business rules dal repository, per  vedere in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
-\item[F9]{ DEPRECATO : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra business rules. Verificher\`a cio\`e se la business rule da inserire nel repository entra in conflitto con le altre gi\`a presenti in esso. In particolare dovr\`a verificare che le business rules presenti nel repository rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i business objects. [C04]}
-\item[F10]{Il validatore nel validare una business rule deve poter accedere ai campi del business object ad essa associato, qualora la business rule utilizzasse tali campi. [I02]}
+\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di definire una nuova business rule e una volta validata inserirla nel repository. Tale interfaccia dovr\`a inoltre consentire di cancellare business rules dal repository. Tutto ci\`o servir\`a a testare in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
+\item[F9]{ DEPRECATO : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra business rules. Esso verificher\`a cio\`e se la business rule da inserire nel repository entra in conflitto con le altre gi\`a presenti. Pi\`u dettagliatamente tale validatore dovr\`a verificare che le business rules presenti nel repository rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i business objects. [C04]}
+\item[F10]{Il validatore nel validare una business rule deve poter accedere ai campi del business object ad essa associato, qualora la business rule utilizzi tali campi. [I02]}
 \item[F11]{Ad ogni business rule \`e associato un business object nel quale vanno eventualmente ricercati i campi dati utilizzati nella business rule. [I02]}
 \end{itemize}
 
@@ -276,18 +272,17 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \begin{itemize}
 \item[NU1]{Il linguaggio dovr\`a essere di alto livello. Dovr\`a cio\`e essere semplice da capire per un utente con bassa conoscenza informatica. [I01]}
 \item[NU2]{Il linguaggio deve fornire funzioni primitive per le operazioni base tra i dati, come la somma, la media aritmetica e la negazione logica. [I01]}
-\item[NU3]{Ad ognuno dei confronti presenti in una business rule deve essere possibile, da parte dell'utente, associare un messaggio che aiuti l'utente finale (ossia quello che chiede la validazione di un business object) a capire dove la validazione non \`e andata a buon fine. [I02]}
+\item[NU3]{Ad ognuno dei confronti presenti in una business rule deve essere possibile, da parte dell'utente, associare un messaggio che aiuti l'utente finale (ossia quello che chiede la validazione di un business object) a capire dove la validazione ha riscontrato problemi. [I02]}
 \end{itemize}
 
 \section{Requisiti di portabilit\`a}
 \begin{itemize}
 \item[NPo1]{Il formato di salvataggio delle business rules e del repository deve essere XML. [C04]}
 \end{itemize}
-
 \section{Requisiti prestazionali}
 \begin{itemize}
- \item[NPr1]{Il DBMS che andr\`a a interagire con il repository dovr\`a garantire una buona velocit\`a nell'interrogazione (mediante query) del file XML, anche in presenza di un sostanziale popolamento dello stesso. [I02]}
-\item[NPr2]{Ad ogni business rule deve venir associato un numero identificativo univoco per migliorarne l'indicizzazione nel repository. [I02]}
+ \item[NPr1]{Il DBMS che andr\`a a interagire con il repository dovr\`a garantire una buona velocit\`a nell'interrogazione (mediante query) del file XML, anche in presenza di un consistente popolamento dello stesso. [I02]}
+\item[NPr2]{Ad ogni business rule deve venir associato un numero identificativo univoco per consentire un'efficiente indicizzazione delle stesse nel repository. [I02]}
 \end{itemize}
 
 \section{Requisiti di qualit\`a}
