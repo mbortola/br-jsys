@@ -173,7 +173,7 @@ Questa componente utilizza:
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente possiede i campi dato necessari per comunicare con le copmponente validatore e con la componente DBMS.
+La GUI possiede i campi dato necessari per comunicare con le componenti ``validatore'' e ``DBMS''.
 \begin{center}
 % use packages: array
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
@@ -187,7 +187,7 @@ Attributo & Descrizione \\  \hline
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-\underline{+main(args:String[]):Validator} & Metodo standard in java per l'avvio dell'applicazione incaricher\`a di creare un oggetto Gui\\ \hline
+\underline{+main(args:String[]):Validator} & Metodo standard in java per l'avvio dell'applicazione. Incaricher\`a di creare un oggetto Gui\\ \hline
 +Gui() & Costruttore per Gui.\\ \hline
 \end{tabular}
 \end{center}
@@ -200,14 +200,13 @@ Metodo & Descrizione \\  \hline
 \end{center}
 \subsection{Validator}%facade!!!->va descritto
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente effettua la validazione di una \br senza far fare all'utilizzatore tutte le singole operazioni di compilazione.
-Validator ha il ruolo di \textit{fa\c{c}ade} in quanto fornisce un interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e di insermento che avremmo altrimenti dovuto riportare direttamente dove la cmponente GUI lo richiedesse.
+Effettua la validazione di una \br, permettendo all'utilizzatore di non dover fare tutte le singole operazioni di compilazione. Ha il ruolo di \textit{fa\c{c}ade}. Fornisce un'interfaccia unificata che riesce a gestire in maniera semplice e immediata tutte le operazioni di compilazione e insermento che altrimenti avremmo dovuto riportare direttamente dove la componente GUI lo richiedesse.
 \subsubsection{Relazioni d'uso di altre componenti}
-Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator che verranno descritte in seguito.
+Usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator. Tutte queste componenti verranno descritte in seguito.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-Validator \`e in relazione con la componente GUI per permettere la validazione.
+\`E in relazione con la componente GUI per permettere la validazione.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente deve occuparsi della validazione e del successivo inserimento nel \re.
+Deve occuparsi della validazione e del successivo inserimento nel \re.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
