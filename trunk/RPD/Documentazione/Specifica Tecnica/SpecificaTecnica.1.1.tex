@@ -124,7 +124,7 @@
 \tableofcontents
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il presente documento descriver\`a il sistema software ``BR-jsys'' dal punto di vista architetturale e da noi implementato secondo le esigenze identificate nel documento ``Analisi dei Requisiti''. Attraverso l'uso di diagrammi UML, nella fattispecie con alcuni diagrammi delle classi, identificheremo alcune componenti principali nel quale scomporre il sistema. Procederemo inoltre con un approcio di tipo ``Bottom-up'' nelle procedure di verifica delle componenti. Questo documento fornir\`a quindi una visione pi\`u dettagliata delle componenti da realizzare; verr\`a definito il contesto d'uso del sistema e fornita la decomposizione di questo in componenti principali.
+Il presente documento descriver\`a il sistema software ``BR-jsys'' dal punto di vista architetturale e da noi implementato secondo le esigenze identificate nel documento ``Analisi dei Requisiti''. Attraverso l'uso di diagrammi UML, nella fattispecie con alcuni diagrammi delle classi, identificheremo alcune componenti principali nel quale scomporre il sistema. Procederemo inoltre con un approccio di tipo ``Bottom-up'' nelle procedure di verifica delle componenti. Questo documento fornir\`a quindi una visione pi\`u dettagliata delle componenti da realizzare; verr\`a definito il contesto d'uso del sistema e fornita la decomposizione di questo in componenti principali.
 \section{Scopo del prodotto}
 Per lo scopo del prodotto si faccia riferimento al documento ``Analisi dei Requisiti''.
 \section{Glossario}
@@ -143,9 +143,8 @@ Viene fornito come documento esterno chiamato \Glossario .
 
 \chapter{Definizione del prodotto}
 \subsection{Metodo e formalismo di specifica}
-%Copiato di sana pianta dalla Nonsolocodice
 La progettazione del prodotto \`e stata attuata con l'uso di diagrammi UML 2.1, in quanto linguaggio internazionalmente riconosciuto e standardizzato.
-Il software di cui l’azienda ha fatto uso per la creazione di quest'ultimi \`e ArgoUML 0.24. L'utilizzo di tale software deriva dalla completezza
+Il software di cui l’azienda ha fatto uso per la creazione di quest'ultimi \`e \textit{Poseidon for UML Professional edition 6.0.2}. L'utilizzo di tale software deriva dalla completezza
 di strumenti di cui \`e fornito, i quali soddisfano in pieno le nostre necessita'.
 
 \subsection{Presentazione dell'architettura generale del sistema e identificazione dei componenti architetturali di alto livello}
@@ -159,7 +158,7 @@ Abbiamo deciso di suddividere il prodotto in quattro macrocomponenti:
 \item \textbf{Business Rule}: Componente che rappresenta la \br che l'utente dichiara e che deve essere passata al validatore per la compilazione.
 \item \textbf{Validatore}: Componente in grado di accettare in input una \br, validarla e inserirla se scritta correttamente nel \re.
 \item \textbf{Comunicatore}: Componente in grado di connettersi al DBMS esterno e di comunicare con esso tramite i formalismi del linguaggio XQuery.
-Sar\`a appunto tramite Query che il DBMS effettuer\`a operazioni di insermento, cancellazione o ricerca nel \re qualora un componente lo richiedesse.
+Sar\`a appunto tramite Query che il DBMS effettuer\`a operazioni di inserimento, cancellazione o ricerca nel \re qualora un componente lo richiedesse.
 \end{enumerate}
 Questa suddivisione, per quanto minimale, consente di individuare le componenti che verranno ampliamente descritte nel capitolo successivo.
 
@@ -195,7 +194,7 @@ La GUI possiede i campi dato ``GUICommunicator'' e ``Validator'' che le fornisco
 \subsection{Validator}%facade!!!->va descritto
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questa componente effettua la validazione di una \br senza far fare all'utilizzatore tutte le singole operazioni di compilazione.
-Validator ha il ruolo di \textit{fa\c{c}ade} in quanto fornisce un'interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e di insermento che avremmo altrimenti dovuto riportare direttamente dove la componente GUI lo richiedesse.
+Validator ha il ruolo di \textit{fa\c{c}ade} in quanto fornisce un'interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e di inserimento che avremmo altrimenti dovuto riportare direttamente dove la componente GUI lo richiedesse.
 \subsubsection{Relazioni d'uso di altre componenti}
 Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator che verranno descritte in seguito.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -211,12 +210,12 @@ Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente BusinessRuleParser necessita della componente BusinessRuleLexer che verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo della \br, nonch\`e per la gestione di eventuali eccezzioni avvenute in fase di validazione.\\
+BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo della \br, nonch\`e per la gestione di eventuali eccezioni avvenute in fase di validazione.\\
 \textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
 
 \subsection{BusinessRuleParser}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questo componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua il controllo sintatico della regola, il controllo semantico facendo un controllo sui tipi dei dati siano essi costanti oppure campi dati di \bos. Mentre effettua la validazione BusinessRuleParser genera l'albero di pasing secondo le specifiche presenti nel controllo semantico. Infine \`e in grado di dare informazioni accurate riguardo eventuali errori in fase di validazione.
+Questo componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua il controllo sintattico della regola, il controllo semantico facendo un controllo sui tipi dei dati siano essi costanti oppure campi dati di \bos. Mentre effettua la validazione BusinessRuleParser genera l'albero di parsing secondo le specifiche presenti nel controllo semantico. Infine \`e in grado di dare informazioni accurate riguardo eventuali errori in fase di validazione.
 \subsubsection{Relazioni d'uso di altre componenti}
 Questa componente necessita di un TokenStream fornitogli indirettamente da BusinessRuleLexer. Per effettuare il controllo sui tipi per il \bo associato deve riferirsi poi alla componente BusinessObjects. Ha bisogno infine della componente TypeCollisionException per trattare gli errori in fase di validazione.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -232,7 +231,7 @@ Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException,
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-La componente TypeCollisionException \`e utilizzata da \brp per sollevare eccezioni da errori sul controlo dei tipi.
+La componente TypeCollisionException \`e utilizzata da \brp per sollevare eccezioni da errori sul controllo dei tipi.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Viene ridefinito il metodo printStackTrace() e messo a disposizione un costruttore per avere informazioni sui tipi che si sono rivelati incompatibili.
 
@@ -241,15 +240,15 @@ Viene ridefinito il metodo printStackTrace() e messo a disposizione un costrutto
 La componente XMLParser si occupa di effettuare la conversione dell'albero sintattico prodotto dalla componente \brp in un elemento XML rappresentante la \br, l'elemento XML risultante conterr\`a:
 \begin{itemize}
  \item il nome della \br, che deve essere univoco;
- \item il nome del \bo associato a quela regola;
- \item la struttura del albero sintattico della \br scritta secndo la metodologia elemento-attributo tipica di XML;
- \item la struttura del albero sintattico della \br scritta lineramente secondo la notazione prefissa rappresentata da un singolo attributo XML;
+ \item il nome del \bo associato a quella regola;
+ \item la struttura del albero sintattico della \br scritta secondo la metodologia elemento-attributo tipica di XML;
+ \item la struttura del albero sintattico della \br scritta linearmente secondo la notazione prefissa rappresentata da un singolo attributo XML;
  \item la \br effettivamente digitata dall'utente;
  \item eventuali commenti associati dall'utente alla \br;
 \end{itemize}
 XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade} dato che la creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessitano di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
 \subsubsection{Relazioni d'uso di altre componenti}
-XMLParser ha bisogno dell' albero di parsing prodotto da \brp, nonch\`e necessita della componente \br per ricavare le informazioni da inserire nel'elemento XML.
+XMLParser ha bisogno dell' albero di parsing prodotto da \brp, nonch\`e necessita della componente \br per ricavare le informazioni da inserire nell'elemento XML.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \re.
 \subsubsection{Attivit\`a svolte e dati trattati}
@@ -272,12 +271,12 @@ Il componente businessbjects offre le classi java che rappresentano i \bos.
 \end{center}
 \subsection{BusinessRule}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componenete \BR rappresenta la \br che l'utente inserisce e vuole validare.
+La componente \BR rappresenta la \br che l'utente inserisce e vuole validare.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente GUI utilizza \BR nel caso in cui l'utente voglia inserire una nuova \br.
-La componente Validator effettua la validazione di un istanza di \BR tramita la chamata del suo metodo validate().
+La componente Validator effettua la validazione di un istanza di \BR tramite la chiamata del suo metodo validate().
 \subsubsection{Attivit\`a svolte e dati trattati}
 La componente contiene i campi dato Stringa per rappesentare una business rule ossia name, associatedObject, rule e comment, quest'ultima può non essere istanziata, vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
 
@@ -307,7 +306,7 @@ GUICommunicator viene messa in relazione con la componente GUI dalla quale ricev
 GUICommunicator fornisce le operazioni:
 \begin{itemize}
  \item deleteRuleByName():che dato il nome di una regola, provvede ad eliminarla dal \re nel caso questa regola fosse presente;
- \item makeQuery():che permette l'esecuzione di una semplice query purche non implichi modifiche strutturali al \re;
+ \item makeQuery():che permette l'esecuzione di una semplice query purche' non implichi modifiche strutturali al \re;
  \item getListRules():che ritorna, per ogni \br nome, \bo associato e sua struttura.
 \end{itemize}
 \subsection{InterpreterCommunicator}
@@ -323,7 +322,7 @@ InterpreterCommunicator offre il metodo getRule() per richiedere le \br associat
 
 \subsection{ValidatorCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br validata alla quale \`e stato effettuato il parsin in XML.
+ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br validata alla quale \`e stato effettuato il parsing in XML.
 \subsubsection{Relazioni d'uso di altre componenti}
 ValidatorCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -410,7 +409,7 @@ Viene inizialmente effettuata una query sul DBMS atta a recuperare un elenco com
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 Dopo aver analizzato il problema attraverso schemi progetturali sono state individuate le risorse necessarie per la realizzazione del prodotto. Con l'utilizzo di software open source siamo riusciti a contenere i costi e contemporaneamente a rendere disponibili tutte le risorse necessarie.
 Tutte queste risorse necessarie ai nostri componenti per affrontare le varie problematiche di comunicazione, lo sviluppo del codice,la gestione degli archivi, la verifica dei documenti e del sistema, sono state descritte nel documento \PdQ.
-Nella fase di specifica tecnica e successivamente di progettazione verrano utilizzati diagrammi UML realizzati con \textit{Poseidon for UML Professional edition 6.0.2} nella versione trial in quanto pi\`u completo e usabile rispetto ad altri software simili come ad esempio ArgoUML. Solo i diagrammi use case sono stati realizzati con Dia in quanto progettati prima di affidarsi a Poseidon.
+Nella fase di specifica tecnica e successivamente di progettazione verranno utilizzati diagrammi UML realizzati con \textit{Poseidon for UML Professional edition 6.0.2} nella versione trial in quanto pi\`u completo e usabile rispetto ad altri software simili come ad esempio ArgoUML. Solo i diagrammi use case sono stati realizzati con Dia in quanto progettati prima di affidarsi a Poseidon.
 Il progetto sar\`a realizzato mediante il linguaggio java come requisito implicito del capitolato e useremo la versione 6 essendo di pi\`i recente sviluppo.
 Per la produzione della Gui e delle classi java abbiamo utilizzato Eclipse versione 3.3.1.1, un IDE in grado di fornire numerose funzionalit\`a per lo sviluppo del software.
 Per la parte riguardante la grammatica, dopo varie ricerche e confronti, ci siamo affidati invece ad Antlr 3.0.1 come generatore di parser e AntlrWorks 1.1.5 come ambiente grafico di sviluppo dato che offrivano la maggior chiarezza e risposta alle nostre aspettative.
