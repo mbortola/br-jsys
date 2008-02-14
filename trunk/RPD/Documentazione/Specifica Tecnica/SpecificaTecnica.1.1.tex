@@ -40,14 +40,14 @@
 \newcommand{\PdQ}{ PianoDiQualifica.1.1.pdf }
 \newcommand{\PdP}{ PianoDiProgetto.1.1.pdf }
 
-\newcommand{\br}{business rule }
-\newcommand{\brs}{business rules }
-\newcommand{\bo}{business object }
-\newcommand{\bos}{business objects }
-\newcommand{\re}{repository }
-\newcommand{\brp}{BusinessRuleParser }
-\newcommand{\brl}{BusinessRuleLexer }
-\newcommand{\BR}{BusinessRule }
+\newcommand{\br}{business rule}
+\newcommand{\brs}{business rules}
+\newcommand{\bo}{business object}
+\newcommand{\bos}{business objects}
+\newcommand{\re}{repository}
+\newcommand{\brp}{BusinessRuleParser}
+\newcommand{\brl}{BusinessRuleLexer}
+\newcommand{\BR}{BusinessRule}
 
 %fine definizione variabili
 
@@ -154,12 +154,12 @@ di strumenti di cui \`e fornito, i quali soddisfano in pieno le nostre necessita
 \subsection{Presentazione dell'architettura generale del sistema e identificazione dei componenti architetturali di alto livello}
 Lo schema generale del prodotto \`e specificato nell'immagine sottostante.
 \begin{center}
-\includegraphics[width=0.6\textwidth, angle=-90]{DiagrammaClassi/schemagenerale.eps}
+\includegraphics[width=0.8\textwidth, angle=-90]{DiagrammaClassi/schemagenerale.eps}
 \end{center}
 Abbiamo deciso di suddividere il prodotto in quattro macrocomponenti:
 \begin{enumerate}
  \item \textbf{GUI}: Fornisce all'utente un interfaccia grafica minimale, consentendogli di effettuare operazioni di cancellazione e interrogazione del repository in maniera user-friendly.
-\item \textbf{Business Rule}: Rappresenta la \br che l'utente dichiara e che deve essere passata al validatore per la compilazione.
+\item \textbf{Business Rule}: Rappresenta la \br\ che l'utente dichiara e che deve essere passata al validatore per la compilazione.
 \item \textbf{Validatore}: Accetta in input una \br, la valida e la inserisce se scritta correttamente nel \re.
 \item \textbf{Comunicatore}: Si connette al DBMS esterno e comunica con esso tramite i formalismi del linguaggio XQuery.
 Sar\`a appunto tramite Query che il DBMS effettuer\`a operazioni di inserimento, cancellazione o ricerca nel \re, qualora un componente lo richieda.
@@ -172,7 +172,7 @@ Analizzeremo in seguito le quattro macrocomponenti elencate nel capitolo soprast
 \section{GUI}
 \subsection{Diagramma delle classi}
 \begin{center}
-\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/gui.eps}
+\includegraphics[width=0.3\textwidth, angle=-90]{DiagrammaClassi/gui.eps}
 \end{center}
 \subsection{Gui}
 %Diagramma della classe GUI...comprensivo di package
@@ -181,14 +181,14 @@ Questa componente, realizzata tramite una singola classe java, fornisce all'uten
 \subsubsection{Relazioni d'uso di altre componenti}
 Questa componente utilizza:
 \begin{itemize}
- \item \BR per dichiarare una nuova \br da spedire al validatore;
+ \item \BR\ per dichiarare una nuova \br\ da spedire al validatore;
  \item Validator per effettuare la validazione di una \br;
  \item GUICommunicator che tratteremo successivamente.
 \end{itemize}
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La GUI possiede i campi dato ``GUICommunicator'' e ``Validator'' che vengono utilizzati per fornire funzionalit\`a di interfacciamento che verranno trattate in seguito.
+Gui possiede i campi dato ``GUICommunicator'' e ``Validator'' che vengono utilizzati per fornire funzionalit\`a di interfacciamento che verranno trattate in seguito.
 
 \section{Validatore}
 \subsection{Diagramma delle classi}
@@ -220,7 +220,7 @@ BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo dell
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questa componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua quindi il controllo sintattico della regola e il controllo semantico facendo un controllo sui tipi dei dati (siano essi costanti oppure campi dati di \bos). Mentre effettua la validazione BusinessRuleParser genera l'albero di parsing secondo le specifiche presenti nel controllo semantico. \`E in grado infine di dare informazioni accurate riguardo eventuali errori in fase di validazione.
 \subsubsection{Relazioni d'uso di altre componenti}
-Questa componente necessita di un TokenStream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects, per effettuare il controllo sui tipi per il \bo associato. Per trattare gli errori in fase di validazione, ha bisogno della componente TypeCollisionException.
+Questa componente necessita di un TokenStream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects, per effettuare il controllo sui tipi per il \bo\ associato. Per trattare gli errori in fase di validazione, ha bisogno della componente TypeCollisionException.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 \brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
@@ -234,7 +234,7 @@ Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException,
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-La componente TypeCollisionException \`e utilizzata da \brp per sollevare eccezioni derivanti da errori di tipo.
+La componente TypeCollisionException \`e utilizzata da \brp\ per sollevare eccezioni derivanti da errori di tipo.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Viene ridefinito il metodo printStackTrace() e messo a disposizione un costruttore per avere informazioni sui tipi che si sono rivelati incompatibili.
 
@@ -243,15 +243,15 @@ Viene ridefinito il metodo printStackTrace() e messo a disposizione un costrutto
 La componente XMLParser si occupa di effettuare la conversione dell'albero sintattico prodotto dalla componente \brp in un elemento XML rappresentante la \br. L'elemento XML risultante conterr\`a:
 \begin{itemize}
  \item il nome della \br, che dovr\`a essere univoco;
- \item il nome del \bo associato alla regola;
+ \item il nome del \bo\ associato alla regola;
  \item la struttura dell'AST della \br, scritta secondo la metodologia elemento-attributo tipica di XML;
  \item la struttura dell'AST della \br, scritta linearmente secondo la notazione prefissa rappresentata da un singolo attributo XML;
- \item la \br effettivamente digitata dall'utente;
+ \item la \br\ effettivamente digitata dall'utente;
  \item eventuali commenti associati dall'utente alla \br.
 \end{itemize}
 XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade}; la creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessita di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
 \subsubsection{Relazioni d'uso di altre componenti}
-XMLParser ha bisogno dell'AST prodotto da \brp, nonch\`e necessita della componente \br per ricavare le informazioni da inserire nell'elemento XML.
+XMLParser ha bisogno dell'AST prodotto da \brp, nonch\`e necessita della componente \br\ per ricavare le informazioni da inserire nell'elemento XML.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \re.
 \subsubsection{Attivit\`a svolte e dati trattati}
@@ -270,15 +270,15 @@ Il componente businessbjects offre le classi java che rappresentano i \bos.
 \section{Business Rule}
 \subsection{Diagramma delle classi}
 \begin{center}
-\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Businessrule.eps}
+\includegraphics[width=0.3\textwidth, angle=-90]{DiagrammaClassi/Businessrule.eps}
 \end{center}
 \subsection{BusinessRule}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente \BR rappresenta la \br che l'utente inserisce e vuole validare.
+La componente \BR\ rappresenta la \br\ che l'utente inserisce e vuole validare.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-La componente GUI utilizza \BR nel caso in cui l'utente voglia inserire una nuova \br.
+La componente GUI utilizza \BR\ nel caso in cui l'utente voglia inserire una nuova \br.
 La componente Validator effettua la validazione di un'istanza di \BR, tramite la chiamata del suo metodo validate().
 \subsubsection{Attivit\`a svolte e dati trattati}
 La componente contiene i campi dato Stringa per rappesentare una business rule (name, associatedObject, rule e comment, dove quest'ultimo pu\`o non essere istanziato). Vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
@@ -290,48 +290,47 @@ La componente contiene i campi dato Stringa per rappesentare una business rule (
 \end{center}
 \subsection{Communicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re presente nel DBMS.
+Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re\ presente nel DBMS.
 \subsubsection{Relazioni d'uso di altre componenti}
 Communicator necessita di interagire con la componente esterna DBMS per interrogare il \re.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare Query specifiche. Le loro descrizioni verranno trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Quando viene istanziata per la prima volta, inizializza la connessione al DBMS tramite la definizione di una variabile statica. Successivamente Communicator consente di interrogare il \re direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
+Quando viene istanziata per la prima volta, inizializza la connessione al DBMS tramite la definizione di una variabile statica. Successivamente Communicator consente di interrogare il \re\ direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
 %
 \subsection{GUICommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
 La componente contiene metodi necessari per modellare query di cancellazione (tramite operazioni XQuery Update) e query di semplice interrogazione.
 \subsubsection{Relazioni d'uso di altre componenti}
-GUICommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
+GUICommunicator utilizza la componente Communicator per accedere al \re\ ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 GUICommunicator viene messa in relazione con la componente GUI, dalla quale riceve richieste di cancellazione e di querying.
 \subsubsection{Attivit\`a svolte e dati trattati}
 GUICommunicator fornisce le operazioni:
 \begin{itemize}
- \item deleteRuleByName(): dato il nome di una regola, provvede ad eliminarla dal \re nel caso questa regola sia presente;
+ \item deleteRuleByName(): dato il nome di una regola, provvede ad eliminarla dal \re\ nel caso questa regola sia presente;
  \item makeQuery(): permette l'esecuzione di una semplice query purch\`e non implichi modifiche strutturali al \re;
- \item getListRules(): ritorna per ogni \br, nome, \bo associato e struttura.
+ \item getListRules(): ritorna per ogni \br, nome, \bo\ associato e struttura.
 \end{itemize}
 \subsection{InterpreterCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-InterpreterCommunicator contiene metodi necessari per rispondere a richieste di \br da parte di un interprete esterno.
+InterpreterCommunicator contiene metodi necessari per rispondere a richieste di \br\ da parte di un interprete esterno.
 \subsubsection{Relazioni d'uso di altre componenti}
-InterpreterCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
+InterpreterCommunicator utilizza la componente Communicator per accedere al \re\ ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente InterpreterCommunicator viene messa in relazione con l'interprete esterno, dal quale riceve richieste di \brs associate ad un determinato \bo.
->>>>>>> .r346
 \subsubsection{Attivit\`a svolte e dati trattati}
-InterpreterCommunicator offre il metodo getRule() per richiedere le \br associate al \bo.
+InterpreterCommunicator offre il metodo getRule() per richiedere le \br\ associate al \bo.
 
 \subsection{ValidatorCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br validata gi\`a tradotta in XML.
+ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br\ validata gi\`a tradotta in XML.
 \subsubsection{Relazioni d'uso di altre componenti}
-ValidatorCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
+ValidatorCommunicator utilizza la componente Communicator per accedere al \re\ ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 ValidatorCommunicator viene messa in relazione con la componente Validator per effettuare l'inserimento.
 \subsubsection{Attivit\`a svolte e dati trattati}
-ValidatorCommunicator offre il metodo insertRule() per inserire la \br nel \re. L'inserimento avverr\`a soltanto se la \br ha un nome che non \`e ancora presente nel \re.
+ValidatorCommunicator offre il metodo insertRule() per inserire la \br\ nel \re. L'inserimento avverr\`a soltanto se la \br\ ha un nome che non \`e ancora presente nel \re.
 
 \chapter{Componenti esterne}
 \begin{center}
@@ -339,7 +338,7 @@ ValidatorCommunicator offre il metodo insertRule() per inserire la \br nel \re. 
 \end{center}
 \section{Interprete}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questo componente si incarica di eseguire le \brs associate ad un determinato \bo. Per ottenere le \brs il componente deve poter interrogare il DBMS attraverso un opportuna interfaccia col sistema BR-jsys che risolver\`a per lui la richiesta.
+Questo componente si incarica di eseguire le \brs\ associate ad un determinato \bo. Per ottenere le \brs\ il componente deve poter interrogare il DBMS attraverso un opportuna interfaccia col sistema BR-jsys che risolver\`a per lui la richiesta.
 \subsubsection{Relazioni d'uso di altre componenti}
 Interprete utilizza la componente InterpreterCommunicator per comunicare col DBMS.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -355,7 +354,7 @@ Questa componente serve a comunicare con il \re\ in modo efficiente. La comunica
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-Previa una connessione corretta, il DBMS mette a disposizione un'interfaccia XPathQueryService con la quale interagire col \re  presente all'interno del DBMS stesso.
+Previa una connessione corretta, il DBMS mette a disposizione un'interfaccia XPathQueryService con la quale interagire col \re\ presente all'interno del DBMS stesso.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Una corretta autenticazione far\`a in modo che l'interfaccia di tipo XPathQueryService possa interagire col \re tramite il metodo query(). Quest'ultimo accetta come parametro una query impostata secondo le specifiche XQuery.
 
@@ -382,7 +381,7 @@ L'interprete invia la richiesta al sistema, il quale formula la query da inviare
 All'avvio della GUI viene visualizzato un messaggio in cui vengono richiesti \textit{login} e \textit{password}. Si cerca quindi di stabilire una connessione qualificata al DB. 
 Si controlla quindi l'esito del tentativo di connessione; se il tentativo ha dato esito negativo si richiede la \textit{login} e la
  \textit{password} all'utente. Se, al contrario, l'esito e positivo, ossia si ha disposizione una connessione, viene visualizzata la schermata della GUI dalla quale
- possono essere lanciati :\textit{ l'inserimento di una \br} , \textit{l'avvio di una Sandbox}, \textit{la cancellazione di una \br} . 
+ possono essere lanciati :\textit{ l'inserimento di una \br} , \textit{l'avvio di una Sandbox}, \textit{la cancellazione di una \br}.
 Nel diagramma queste tre attvit\`a sono rappresentate come delle \textit{sub-activity} che vengono illustrate di seguito. Al termine di ogni operazione l'utente viene riportato alla finestra principale dove pu\`o effettuare una nuova operazione oppure terminare l'esecuzione della GUI stessa.
 
 \section{Inserisci \br}
@@ -401,7 +400,7 @@ La \textit{Sandbox} \`e una finestra il cui scopo \`e permettere ad un utente di
 \begin{center}
  \includegraphics[width=0.7\textwidth, angle=-90]{CancellazioneBusinessRule.eps}
 \end{center}
-Viene inizialmente effettuata una query sul DBMS atta a recuperare un elenco completo delle \brs . Una volta recuperato l'elenco delle \brs presenti nel \re queste vengono visualizzate sinteticamente in forma tabellare, accompagnate da una \textit{checkbox}. Si attende quindi la selezione/deselezione dell'utente. L'utente notifica al sistema (mediante un bottone) l'intenzione di cancellare le \brs selezionate.  Viene poi mostrato un riepilogo delle \brs che verranno eliminate. Se l'utente non conferma il sistema torna ad attendere la selezione. Se invece la rimozione viene confermata, allora si formula la query di rimozione, la quale viene infine eseguita. Al termine della rimozione viene effettuata nuovamente una query di recupero per visualizzare le \brs rimaste nel \re.
+Viene inizialmente effettuata una query sul DBMS atta a recuperare un elenco completo delle \brs. Una volta recuperato l'elenco delle \brs\ presenti nel \re\ queste vengono visualizzate sinteticamente in forma tabellare, accompagnate da una \textit{checkbox}. Si attende quindi la selezione/deselezione dell'utente. L'utente notifica al sistema (mediante un bottone) l'intenzione di cancellare le \brs\ selezionate.  Viene poi mostrato un riepilogo delle \brs che verranno eliminate. Se l'utente non conferma il sistema torna ad attendere la selezione. Se invece la rimozione viene confermata, allora si formula la query di rimozione, la quale viene infine eseguita. Al termine della rimozione viene effettuata nuovamente una query di recupero per visualizzare le \brs\ rimaste nel \re.
 
 
 %\chapter{Diagrammi di sequenza}
