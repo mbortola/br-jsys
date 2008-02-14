@@ -435,14 +435,14 @@ Metodo & Descrizione \\  \hline
 
 \subsection{InterpreterCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-InterpreterCommunicator contiene metodi necessari per rispondere a richieste di \br da parte di un interprete esterno.
+Contiene metodi necessari per rispondere a richieste di \br da parte di un interprete esterno.
 \subsubsection{Relazioni d'uso di altre componenti}
-InterpreterCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
+Utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-InterpreterCommunicator viene messa in relazione con l'interprete esterno dal quale riceve richieste di \brs associate ad un determinato \bo.
+Questa componente viene messa in relazione con l'interprete esterno, dal quale riceve richieste di \brs associate ad un determinato \bo.
 %Bisogna specificare le modalità di comunicazione
 \subsubsection{Attivit\`a svolte e dati trattati}
-InterpreterCommunicator offre il metodo getRule() per richiedere le \br associate al \bo.
+Offre il metodo getRule() per richiedere le \br associate al \bo.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
@@ -455,19 +455,19 @@ Attributo & Descrizione \\  \hline
 \hline
 Metodo & Descrizione \\  \hline
 +InterpreterCommunicator( username: String, password: String) & Costuttore con funzionamento analogo a GUICommunicator.\\ \hline
-+getRule(associated: String): NodeList & Dato in input un \bo ritorna tutte le \brs che sono associate ad esso, \\ \hline
++getRule(associated: String): NodeList & Dato in input un \bo ritorna tutte le \brs che sono associate ad esso. \\ \hline
 \end{tabular}
 \end{center}
 
 \subsection{ValidatorCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br validata alla quale \`e stato effettuato il parsin in XML.
+Contiene metodi necessari per effettuare l'inserimento di una \br validata, alla quale \`e stato effettuato il parsin in XML.
 \subsubsection{Relazioni d'uso di altre componenti}
-ValidatorCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
+Utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-ValidatorCommunicator viene messa in relazione con la componente Validator per effettuare l'inserimento.
+Questa componente viene messa in relazione con la componente Validator, per effettuare l'inserimento.
 \subsubsection{Attivit\`a svolte e dati trattati}
-ValidatorCommunicator offre il metodi insertRule() per inserire la \br nel \re. L'inserimento avverr\`a soltanto se la \br ha un nome che non \`e ancora presente nel \re.
+Offre il metodi insertRule() per inserire la \br nel \re. L'inserimento avverr\`a soltanto se la \br ha un nome che non \`e ancora presente nel \re.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
