@@ -99,9 +99,10 @@
 \hline
 %-------------------------------------------------------------------------------diario modifiche
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
-1.5 & 2008/02/10 & Aggiunta esiti nella tabella di tracciamento e ulteriore correzione al documento\\ \hline1.4 & 2008/02/05 & Aggiunta del nome del file nel modello di documento\\ \hline
-1.3 & 2008/02/05 & Completamento tabella di tracciamento Requisiti-Test
-1.2 & 2008/02/04 & Correzione grammaticale documento
+1.5 & 2008/02/10 & Aggiunta esiti nella tabella di tracciamento e ulteriore correzione al documento\\ \hline
+1.4 & 2008/02/05 & Aggiunta del nome del file nel modello di documento\\ \hline
+1.3 & 2008/02/05 & Completamento tabella di tracciamento Requisiti-Test \\ \hline
+1.2 & 2008/02/04 & Correzione grammaticale documento \\ \hline
 1.1 & 2008/01/28 & Modifica al ``Processo di ispezione''\\ \hline
 1.0 & 2008/01/25 & Aggiunta delle tabelle di tracciamento Requisiti-Test\\ \hline
 0.6 & 2008/01/24 & Modifica al capitolo ``Pianificazione ed esecuzione del collaudo''\\ \hline
@@ -241,7 +242,7 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \textbf{\textsf{F3}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Testare il corretto inserimento delle business rules nel repository\\ \hline
-{\textbf{Dipendenze:}& F2 \\ \hline
+{\textbf{Dipendenze:}}& F2 \\ \hline
 {\textbf{Descrizione Prova}}&  Inserimento di varie business rules d'appoggio gi\`a validate e controllo all'interno del repository dell'avvenuto inserimento\\ \hline
 {\textbf{Input:}}& Business Rules (validate) di appoggio \\ \hline
 {\textbf{Output:}}& Lo stato dell'inserimento delle business rules attraverso la notifica rilasciata (positivo: inserimento avvenuto con successo, negativo: eccezione) \\ \hline
@@ -350,7 +351,7 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}&  Nella Gui ogni business rule ha un campo dati per il business object associato. Se tale campo (``associated Object'') viene lasciato vuoto verr\`a lanciata un'eccezione dal sistema\\ \hline
 {\textbf{Input:}}&  Business rule di appoggio (con campo dati ``associated Oblect'' pieno o vuoto)\\ \hline
 {\textbf{Output:}}& Una eccezione se il campo dati \`e stato lasciato vuoto, altrimenti niente \\ \hline
-{\textbf{Esito:}}& positivo \\ \hli{\textbf{Dipendenze:}}& nessuna \\ \hline
+{\textbf{Esito:}}& positivo \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -386,7 +387,7 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \hline
 {\textbf{Obiettivo Prova:}}& Verificare la chiarezza e completezza dei messaggi d'errore\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
-{\textbf{Descrizione Prova:}}& Si tenter\`a di validare vari business objects (con errori interni e di ogni genere possibile), valutando l'efficacia del messaggio d'errore{\textbf{Dipendenze:}}& nessuna \\ \hline emesso \\ \hline
+{\textbf{Descrizione Prova:}}& Si tenter\`a di validare vari business objects (con errori interni e di ogni genere possibile), valutando l'efficacia del messaggio d'errore \\ \hline
 {\textbf{Input:}}&  Business object (in stringa) \\ \hline %%%%%%%%%%%%%%%%%%%%%%%%%%%% CONTROLLARE
 {\textbf{Output:}}& Messaggio d'errore comprensibile \\ \hline
 {\textbf{Esito:}}& - \\ \hline
@@ -422,7 +423,7 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
 \hline
 \textbf{\textsf{NPr2}}& \\
-\hlines
+\hline
 {\textbf{Obiettivo Prova:}}& Rendere univoca l'identificazione delle business rules all'interno del repository \\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
 {\textbf{Descrizione Prova:}}& Inserimento di varie business rules d'appoggio nel repository e controllo dell'unicit\`a della loro indicizzazione \\ \hline
