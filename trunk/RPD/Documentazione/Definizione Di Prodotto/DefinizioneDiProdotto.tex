@@ -298,12 +298,12 @@ La componente XMLParser si occupa di effettuare la conversione dell'albero sinta
 \begin{itemize}
  \item il nome della \br, che dovr\`a essere univoco;
  \item il nome del \bo associato a quela regola;
- \item la struttura del albero sintattico della \br scritta secndo la metodologia elemento-attributo tipica di XML;
- \item la struttura del albero sintattico della \br scritta lineramente secondo la notazione prefissa rappresentata da un singolo attributo XML;
+ \item la struttura dell'albero sintattico della \br, scritta secondo la metodologia elemento-attributo tipica di XML;
+ \item la struttura del albero sintattico della \br, scritta lineramente secondo la notazione prefissa rappresentata da un singolo attributo XML;
  \item la \br effettivamente digitata dall'utente;
  \item eventuali commenti associati dall'utente alla \br;
 \end{itemize}
-XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade} dato che la creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessitano di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
+XMLParser ha, in questo contesto, il ruolo del design pattern \textit{fa\c{c}ade}. Questo \`e dovuto al fatto che la creazione di un elemento XML, tramite il package java \textit{org.w3c.dom}, necessitano di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
 \subsubsection{Relazioni d'uso di altre componenti}
 XMLParser ha bisogno dell' albero di parsing prodotto da \brp, nonch\`e necessita della componente \br per ricavare le informazioni da inserire nel'elemento XML.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
