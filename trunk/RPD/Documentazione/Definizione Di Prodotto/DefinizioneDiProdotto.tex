@@ -427,9 +427,9 @@ Metodo & Descrizione \\  \hline
 
 +deleteRuleByName(id: String): boolean & Metodo per Cancellare un \br dato il suo identificativo, se la \br è stata trovata nel \re e dunque cancellata ritorner\`a \textit{true} altrimenti \textit{false}.\\ \hline
 
-+makeQuery(query: String):String & Metodo per eseguire una query in XQuery, dovr\`o fare attenzione che la struttura della query non contenga istruzioni XQuery Update che permetterebbero all'utente di modificare a piacimento il \re rendendolo inconsistente.\\ \hline
++makeQuery(query: String):String & Metodo per eseguire una query in XQuery. Si dovr\`a fare attenzione che la struttura della query non contenga istruzioni XQuery Update, che permetterebbero all'utente di modificare a piacimento il \re rendendolo inconsistente.\\ \hline
 
-+getListRules(): String[]& Metodo che ritorna informazioni riguardo le query scritte nel \re. in particolare l'array di ritorno avr\`a un elemento per \br nel \re ed ogni elemento conterr\`a il nome, la regola, il \bo associato e l'eventuale commento.\\ \hline
++getListRules(): String[]& Metodo che ritorna informazioni riguardo le query scritte nel \re. L'array di ritorno avr\`a, in particolare, un elemento per \br nel \re. Ogni elemento conterr\`a nome, regola, \bo associato e eventuale commento.\\ \hline
 \end{tabular}
 \end{center}
 
