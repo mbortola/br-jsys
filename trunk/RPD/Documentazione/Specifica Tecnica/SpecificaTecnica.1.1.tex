@@ -426,26 +426,26 @@ Per tempistiche pi\`u dettagliate si rimanda al \PdP.
 \begin{table}[hbtp]
 \large{
 \begin{tabular}{l}
-\begin{tabular}{||p{3cm}||p{5cm}||p{6cm}||} \hline
+\begin{tabular}{||p{3cm}||p{5cm}||p{6cm}||} \hline \hline
 \textbf{Componente} & \textbf{Componente Specifico} & \textbf{Requisiti Associati} \\ \hline
 
-GUI & & F4, F8, NU3, F7\\ \hline
+GUI & & F4, F5, F7, F8\\ \hline
  &  & \\ \hline
 
-Validatore & Validator & F2, F3, F4, F8, F10, NU3, NPo1, NPr1\\ \hline
- & BusinessRuleLexer & F2, F4 \\ \hline
- & BusinessRuleParser & F2, F4 \\ \hline
- & TypeCollisionException & F2, F4\\ \hline
- & XMLParser & F4, NPo1, NPr1\\ \hline
- & businessobjects & NU3, NPo1\\ \hline
+Validatore & Validator & F2, F3, F4, F5, F8, NPR1, NQ1\\ \hline
+ & BusinessRuleLexer & F2, F4, NQ1 \\ \hline
+ & BusinessRuleParser & F2, F4, F10, NQ1 \\ \hline
+ & TypeCollisionException & F2, F4, F10, NQ1\\ \hline
+ & XMLParser & NPo1\\ \hline
+ & businessobjects & F2, F10, F11\\ \hline
  &  & \\ \hline
 
-BusinessRule & & F2, F3, F4, F6, F7, F8, F10, F11, NU1, NU2, NU3, NPo1, NPr2\\ \hline
+BusinessRule & & F2, F10, F11, NU1, NU2, NU3, NQ1\\ \hline
  &  & \\ \hline
 
-Comunicatore & Communicator & F3, F5, F6, F7, F8, NU3, NPr1\\ \hline
- & GUICommunicator & F7, F8, NU3\\ \hline
- & InterpreterCommunicator & F6\\ \hline
+Comunicatore & Communicator & F3, F5, F6, NPr1\\ \hline
+ & GUICommunicator & F5, F7, F8\\ \hline
+ & InterpreterCommunicator & F5, F6\\ \hline
  & ValidatorCommunicator & F3\\ \hline
 
 
