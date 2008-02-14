@@ -201,32 +201,32 @@ Questa componente effettua la validazione di una \br, dando la possibilit\`a all
 \subsubsection{Relazioni d'uso di altre componenti}
 Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator. Quest'ultime verranno ampliamente descritte in seguito.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-Validator \`e in relazione con la componente GUI per permettere la validazione.
+Validator \`e in relazione con la componente GUI, al fine di rendere possibile la validazione.
 \subsubsection{Attivit\`a svolte e dati trattati}
 La componente contiene soltanto il metodo validate() che effettua la validazione della \br.
 
 \subsection{BusinessRuleLexer}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una classe wrapper per la stringa che rappresenta la \br che aggiunge ad essa funzionalit\`a necessarie per il successivo parsing.
+Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una classe wrapper per la stringa che rappresenta la \br. Essa aggiunge funzionalit\`a alla stringa, necessarie per il successivo parsing.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-La componente BusinessRuleParser necessita della componente BusinessRuleLexer che verr\`a approfondita successivamente.
+La componente BusinessRuleParser necessita della componente BusinessRuleLexer. Quest'ultima verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
 BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo della \br, nonch\`e per la gestione di eventuali eccezioni avvenute in fase di validazione.\\
-\textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
+\textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser, data in input la specifica di una grammatica.}
 
 \subsection{BusinessRuleParser}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questo componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua il controllo sintattico della regola, il controllo semantico facendo un controllo sui tipi dei dati siano essi costanti oppure campi dati di \bos. Mentre effettua la validazione BusinessRuleParser genera l'albero di parsing secondo le specifiche presenti nel controllo semantico. Infine \`e in grado di dare informazioni accurate riguardo eventuali errori in fase di validazione.
+Questa componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua quindi il controllo sintattico della regola e il controllo semantico facendo un controllo sui tipi dei dati (siano essi costanti oppure campi dati di \bos). Mentre effettua la validazione BusinessRuleParser genera l'albero di parsing secondo le specifiche presenti nel controllo semantico. \`E in grado infine di dare informazioni accurate riguardo eventuali errori in fase di validazione.
 \subsubsection{Relazioni d'uso di altre componenti}
-Questa componente necessita di un TokenStream fornitogli indirettamente da BusinessRuleLexer. Per effettuare il controllo sui tipi per il \bo associato deve riferirsi poi alla componente BusinessObjects. Ha bisogno infine della componente TypeCollisionException per trattare gli errori in fase di validazione.
+Questa componente necessita di un TokenStream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects, per effettuare il controllo sui tipi per il \bo associato. Per trattare gli errori in fase di validazione, ha bisogno della componente TypeCollisionException.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 \brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
 \subsubsection{Attivit\`a svolte e dati trattati}
-\brp mette a disposizione vari metodi per effettuare il parsing e per i test semantici, nonch\`e dispone di numerosi campi dato per la ricognizione dei token.\\
-\textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
+\brp mette a disposizione vari metodi per effettuare il parsing e i test semantici. Dispone inoltre di numerosi campi dato per la ricognizione dei token.\\
+\textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser, data in input la specifica di una grammatica.}
 
 \subsection{TypeCollisionException}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -234,28 +234,28 @@ Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException,
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-La componente TypeCollisionException \`e utilizzata da \brp per sollevare eccezioni da errori sul controllo dei tipi.
+La componente TypeCollisionException \`e utilizzata da \brp per sollevare eccezioni derivanti da errori di tipo.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Viene ridefinito il metodo printStackTrace() e messo a disposizione un costruttore per avere informazioni sui tipi che si sono rivelati incompatibili.
 
 \subsection{XMLParser}%probabilmente è un facade anche questo
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente XMLParser si occupa di effettuare la conversione dell'albero sintattico prodotto dalla componente \brp in un elemento XML rappresentante la \br, l'elemento XML risultante conterr\`a:
+La componente XMLParser si occupa di effettuare la conversione dell'albero sintattico prodotto dalla componente \brp in un elemento XML rappresentante la \br. L'elemento XML risultante conterr\`a:
 \begin{itemize}
- \item il nome della \br, che deve essere univoco;
- \item il nome del \bo associato a quella regola;
- \item la struttura del albero sintattico della \br scritta secondo la metodologia elemento-attributo tipica di XML;
- \item la struttura del albero sintattico della \br scritta linearmente secondo la notazione prefissa rappresentata da un singolo attributo XML;
+ \item il nome della \br, che dovr\`a essere univoco;
+ \item il nome del \bo associato alla regola;
+ \item la struttura dell'AST della \br, scritta secondo la metodologia elemento-attributo tipica di XML;
+ \item la struttura dell'AST della \br, scritta linearmente secondo la notazione prefissa rappresentata da un singolo attributo XML;
  \item la \br effettivamente digitata dall'utente;
- \item eventuali commenti associati dall'utente alla \br;
+ \item eventuali commenti associati dall'utente alla \br.
 \end{itemize}
-XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade} dato che la creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessitano di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
+XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade}; la creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessita di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
 \subsubsection{Relazioni d'uso di altre componenti}
-XMLParser ha bisogno dell' albero di parsing prodotto da \brp, nonch\`e necessita della componente \br per ricavare le informazioni da inserire nell'elemento XML.
+XMLParser ha bisogno dell'AST prodotto da \brp, nonch\`e necessita della componente \br per ricavare le informazioni da inserire nell'elemento XML.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \re.
 \subsubsection{Attivit\`a svolte e dati trattati}
-XMLParser contiene le operazioni per scorrere l'albero di parsing ed effettuare il traduzione in XML. Dispone inoltre di una tabella Hash statica che serve per associare i valori numerici che il parser 
+XMLParser contiene le operazioni per scorrere l'AST ed effettuare il traduzione in XML. Dispone inoltre di una tabella Hash statica che serve per associare i valori numerici che il parser 
 
 \subsection{businessobjects}%è un package
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -279,9 +279,9 @@ La componente \BR rappresenta la \br che l'utente inserisce e vuole validare.
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente GUI utilizza \BR nel caso in cui l'utente voglia inserire una nuova \br.
-La componente Validator effettua la validazione di un istanza di \BR tramite la chiamata del suo metodo validate().
+La componente Validator effettua la validazione di un'istanza di \BR, tramite la chiamata del suo metodo validate().
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente contiene i campi dato Stringa per rappesentare una business rule ossia name, associatedObject, rule e comment, quest'ultima può non essere istanziata, vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
+La componente contiene i campi dato Stringa per rappesentare una business rule (name, associatedObject, rule e comment, dove quest'ultimo pu\`o non essere istanziato). Vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
 
 \section{Comunicatore}
 \subsection{Diagramma delle classi}
@@ -294,23 +294,23 @@ Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effe
 \subsubsection{Relazioni d'uso di altre componenti}
 Communicator necessita di interagire con la componente esterna DBMS per interrogare il \re.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare Query specifiche, le loro descrizioni sono trattate successivamente.
+Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare Query specifiche. Le loro descrizioni verranno trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Quando viene istanziata per la prima volta inizializza la connessione al DBMS tramite la definizione di una variabile statica che successivamente consente di interrogare il \re direttamente passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
+Quando viene istanziata per la prima volta, inizializza la connessione al DBMS tramite la definizione di una variabile statica. Successivamente Communicator consente di interrogare il \re direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
 %
 \subsection{GUICommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente contiene metodi necessari per modellare query di cancellazione(tramite operazioni XQuery Update) e di query di semplice interrogazione.
+La componente contiene metodi necessari per modellare query di cancellazione (tramite operazioni XQuery Update) e query di semplice interrogazione.
 \subsubsection{Relazioni d'uso di altre componenti}
 GUICommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-GUICommunicator viene messa in relazione con la componente GUI dalla quale riceve richieste di cancellazione e di querying.%si dice così no?
+GUICommunicator viene messa in relazione con la componente GUI, dalla quale riceve richieste di cancellazione e di querying.
 \subsubsection{Attivit\`a svolte e dati trattati}
 GUICommunicator fornisce le operazioni:
 \begin{itemize}
- \item deleteRuleByName():che dato il nome di una regola, provvede ad eliminarla dal \re nel caso questa regola fosse presente;
- \item makeQuery():che permette l'esecuzione di una semplice query purche' non implichi modifiche strutturali al \re;
- \item getListRules():che ritorna, per ogni \br nome, \bo associato e sua struttura.
+ \item deleteRuleByName(): dato il nome di una regola, provvede ad eliminarla dal \re nel caso questa regola sia presente;
+ \item makeQuery(): permette l'esecuzione di una semplice query purch\`e non implichi modifiche strutturali al \re;
+ \item getListRules(): ritorna per ogni \br, nome, \bo associato e struttura.
 \end{itemize}
 \subsection{InterpreterCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -318,20 +318,19 @@ InterpreterCommunicator contiene metodi necessari per rispondere a richieste di 
 \subsubsection{Relazioni d'uso di altre componenti}
 InterpreterCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-InterpreterCommunicator viene messa in relazione con l'interprete esterno dal quale riceve richieste di \brs associate ad un determinato \bo.
-%Bisogna specificare le modalità di comunicazione
+La componente InterpreterCommunicator viene messa in relazione con l'interprete esterno, dal quale riceve richieste di \brs associate ad un determinato \bo.
 \subsubsection{Attivit\`a svolte e dati trattati}
 InterpreterCommunicator offre il metodo getRule() per richiedere le \br associate al \bo.
 
 \subsection{ValidatorCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br validata alla quale \`e stato effettuato il parsing in XML.
+ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br validata gi\`a tradotta in XML.
 \subsubsection{Relazioni d'uso di altre componenti}
 ValidatorCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 ValidatorCommunicator viene messa in relazione con la componente Validator per effettuare l'inserimento.
 \subsubsection{Attivit\`a svolte e dati trattati}
-ValidatorCommunicator offre il metodi insertRule() per inserire la \br nel \re. L'inserimento avverr\`a soltanto se la \br ha un nome che non \`e ancora presente nel \re.
+ValidatorCommunicator offre il metodo insertRule() per inserire la \br nel \re. L'inserimento avverr\`a soltanto se la \br ha un nome che non \`e ancora presente nel \re.
 
 \chapter{Componenti esterne}
 \begin{center}
