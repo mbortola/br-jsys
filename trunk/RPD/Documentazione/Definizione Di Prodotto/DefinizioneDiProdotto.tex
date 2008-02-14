@@ -82,8 +82,7 @@
 \large{
 \begin{tabular}{l}
 \Large{\textbf{\textsf{Lista di distribuzione}}} \\
-\begin{tabular}{l}
-\Large{\textbf{\textsf{Lista di distribuzione}}} \\
+
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 {HappyCode inc}& Gruppo di lavoro\\ \hline
 {Tullio Vardanega, Renato Conte}& Rappresentanti del committente \\ \hline
@@ -382,7 +381,7 @@ BusinessRule(nameR: String , associatedR: String, ruleR: String, commentR: Strin
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re presente nel DBMS.
 %Si comincia a parlare di eXist
-Gli studi fatti su alcuni DBMS che manipolano dati XML hanno portato la HappyCode ad appoggiarsi su eXist, tramite le API messe a disposizione possiamo interagire con esso tramite costrutti java.
+Gli studi fatti su alcuni DBMS per database XML hanno portato la HappyCode ad appoggiarsi su eXist, tramite le API messe a disposizione possiamo interagire con esso tramite i costrutti java.
 \subsubsection{Relazioni d'uso di altre componenti}
 Communicator necessita di interagire con la componente esterna DBMS per interrogare il \re.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -403,7 +402,7 @@ Attributo & Descrizione \\  \hline
 \hline
 Metodo & Descrizione \\  \hline
 +Communicator(username: String, password: String) & Costruttore di Communicator. Nel caso si acceda alla classe per la prima volta durante l'esecuzione del programma si istanzierà l'attributo service, se la connessione \`e andata a buon fine gli attributi correctUsername e correctPassword verranno settati con i valori corrispondenti.Altrimeti se l'attributo service \`e gi\`a stato istanziato non si far\`a altro che assicurarsi che i parametri in ingresso al costruttore corrispondano a quelli presenti negli attributi.\\ \hline
-+makeQuery(query:String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche XQuery la esegue e ne restituisce il risultato.Si dovr\`a gestire il caso di query mal formata.
++makeQuery(query:String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche XQuery la esegue e ne restituisce il risultato.Si dovr\`a gestire il caso di query mal formata. \\\hline
 \end{tabular}
 \end{center}
 
@@ -441,7 +440,7 @@ Metodo & Descrizione \\  \hline
 \subsubsection{Tipo, obiettivo e funzione del componente}
 InterpreterCommunicator contiene metodi necessari per rispondere a richieste di \br da parte di un interprete esterno.
 \subsubsection{Relazioni d'uso di altre componenti}
-InterpreterCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
+InterpreterCommunicator utilizza la componente Communicator per accedere al \re\ ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 InterpreterCommunicator viene messa in relazione con l'interprete esterno dal quale riceve richieste di \brs associate ad un determinato \bo.
 %Bisogna specificare le modalità di comunicazione
@@ -456,6 +455,7 @@ Attributo & Descrizione \\  \hline
 \end{tabular}
 \end{center}
 \begin{center}
+
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
@@ -466,7 +466,7 @@ Metodo & Descrizione \\  \hline
 
 \subsection{ValidatorCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br validata alla quale \`e stato effettuato il parsin in XML.
+ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br validata alla quale \`e stato effettuato il parsing in XML.
 \subsubsection{Relazioni d'uso di altre componenti}
 ValidatorCommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -491,6 +491,146 @@ insertRule(rule: String, idRule: String): boolean & Inserisce la \br nel \re sol
 
 \chapter{Appendice}
 \section{Tracciamento della relazione componenti - requisiti}
+
+\begin{tabular}{||p{4.8cm}||p{5.3cm}||p{3.9cm}||}\hline
+\hline
+Componente
+&
+Metodo Associato
+&
+Requisiti
+\\\hline
+Gui
+&
++Gui()
+&
+F4, F5, F7, F8
+\\\cline{2-3}
+&
++main(args:String[])
+&
+
+\bigskip
+\\\hline
+Validator
+&
++Validator()
+&
+F2, F5, F8
+\\\cline{2-3}
+&
++validate()
+&
+F2, F3, F4, F5, F8, Npr1, NQ1
+\\\hline
+BusinessRuleLexer
+&
++BusinessRuleLexer()
+&
+F2, F4, NQ1
+\\\hline
+BusinessRuleParser
+&
++BusinessRuleParser()
+&
+F2, F4, F10
+\\\cline{2-3}
+&
++start()
+&
+F2, F4, F10, NQ1
+\\\hline
+TypeCollisionException
+&
++TypeCollisionException()
+&
+F2, F4, F10, NQ1
+\\\cline{2-3}
+&
++printStackTrace()
+&
+F2, F4, F10
+\\\hline
+XMLParser
+&
+{}-generateSimbols()
+&
+NPo1
+\\\cline{2-3}
+&
++parse()
+&
+NPo1
+\\\hline
+businessobject
+&
+
+\bigskip
+&
+F2, F10, F11
+\\\hline
+BusinessRule
+&
++BusinessRule()
+&
+F2, F10, F11, NU1, NU2, NU3, NQ1
+\\\hline
+Communicator
+&
++Communicator()
+&
+F3, F5, F6, NPr1
+\\\cline{2-3}
+&
++makeQuery()
+&
+F3, F5, F6, NPr1
+\\\hline
+GUICommunicator
+&
++GUICommunicator()
+&
+F5, F7, F8
+\\\cline{2-3}
+&
++deleteRuleByName()
+&
+F5, F7, F8
+\\\cline{2-3}
+&
++makeQuery()
+&
+F5, F8
+\\\cline{2-3}
+&
++getListRules()
+&
+F5, F8
+\\\hline
+InterpreterCommunicator
+&
++InterpreterCommunicator()
+&
+F5, F6
+\\\cline{2-3}
+&
++getRule()
+&
+F5, F6
+\\\hline
+ValidatorCommunicator
+&
++ValidatorCommunicator()
+&
+F3
+\\\cline{2-3}
+&
++insertRule()
+&
+F3
+\\\hline
+\end{tabular}
+
 \newpage
 
 \end{document}
