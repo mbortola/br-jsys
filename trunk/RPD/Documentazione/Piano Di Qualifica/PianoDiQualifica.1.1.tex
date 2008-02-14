@@ -31,7 +31,7 @@
 \begin{document}
 
 %definizione variabili 
-\newcommand{\lv}{ 1.6 } % latest version
+\newcommand{\lv}{ 2.1 } % latest version
 \newcommand{\dt}{ Piano Di Qualifica }% Document title
 \newcommand{\PianoDiProgetto}{ PianoDiProgetto.1.0.pdf }
 \newcommand{\Glossario}{ Glossario.1.4.pdf }
@@ -64,11 +64,11 @@
 \textbf{Versione:} & \lv \\ \hline
 \textbf{Stato del documento:} & Formale, esterno \\ \hline
 % ----------------------------------------------------------------------------autori
-\textbf{Revisione RR}     \\ \hline
+\textbf{Revisione RR} &    \\ \hline
 \textbf{Redazione:} & Luca Appon \\ \hline
 \textbf{Revisione:} & Marco Tessarotto   \\ \hline
 \textbf{Approvazione:}  & Elena Trivellato \\ \hline
-\textbf{Revisione RPD}     \\ \hline
+\textbf{Revisione RPD} &    \\ \hline
 \textbf{Redazione:} & Elena Trivellato, Alessia Trivellato \\ \hline
 \textbf{Revisione:} & Mattia Meroi, Marco Tessarotto \\ \hline
 \textbf{Approvazione:}  & Michele Bortolato \\ \hline
@@ -99,13 +99,13 @@
 \hline
 %-------------------------------------------------------------------------------diario modifiche
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
-1.6 & 2008/02/14 & Correzione grammaticale \\ \hline
-1.5 & 2008/02/10 & Aggiunta esiti nella tabella di tracciamento e ulteriore correzione al documento\\ \hline
-1.4 & 2008/02/05 & Aggiunta del nome del file nel modello di documento\\ \hline
-1.3 & 2008/02/05 & Completamento tabella di tracciamento Requisiti-Test \\ \hline
+2.1 & 2008/02/14 & Correzione grammaticale documento \\ \hline
+2.0 & 2008/02/10 & Aggiunta esiti nella tabella di tracciamento e ulteriore correzione \\ \hline
+1.4 & 2008/02/05 & Correzione grammaticale documento \\ \hline
+1.3 & 2008/02/05 & Completamento tabella tracciamento Requisiti-Test \\ \hline
 1.2 & 2008/02/04 & Correzione grammaticale documento \\ \hline
 1.1 & 2008/01/28 & Modifica al ``Processo di ispezione''\\ \hline
-1.0 & 2008/01/25 & Aggiunta delle tabelle di tracciamento Requisiti-Test\\ \hline
+1.0 & 2008/01/25 & Aggiunta della tabella di tracciamento Requisiti-Test\\ \hline
 0.6 & 2008/01/24 & Modifica al capitolo ``Pianificazione ed esecuzione del collaudo''\\ \hline
 0.5 & 2008/01/23 & Modifiche allo ``Scopo del documento''\\ \hline
 0.4 & 2008/01/22 & Modifica al layout dei documenti\\ \hline
@@ -125,11 +125,11 @@
 \section{Scopo del documento}
 Nel presente documento illustreremo le strategie di verifica e validazione adottate al fine di garantire la qualit\`a attesa del nostro prodotto. Si utilizzer\`a l'analisi statica, sotto forma di ispezioni del codice e dei documenti, al fine di individuare errori e difetti negli stessi. Verr\`a inoltre utilizzata l'analisi dinamica del codice, sottoforma di test, per soddisfare i requisiti quali funzionalit\`a, affidabilit\`a e usabilit\`a del prodotto ``BR-jsys''.
 \begin{itemize}
-\item Funzionalit\`a: \newline
-Il prodotto soddisfer\`a pienamente i requisiti descritti nel documento di ``Analisi dei Requisiti''.
-\item Affidabilit\`a: \newline
+\item \underline{Funzionalit\`a:} \newline
+Il prodotto soddisfer\`a pienamente i requisiti descritti nel documento di ``AnalisiDeiRequisiti''.
+\item \underline{Affidabilit\`a:} \newline
 Il sistema sar\`a privo di errori in quanto la verifica verr\`a effettuata attraverso opportuni strumenti di controllo (test e ispezioni).
-\item Usabilit\`a:
+\item \underline{Usabilit\`a:} \newline
 L'utente finale del sistema non dovr\`a necessariamente avere grandi competenze nel campo informatico.
 \end{itemize}
 
@@ -137,29 +137,29 @@ L'utente finale del sistema non dovr\`a necessariamente avere grandi competenze 
 Il prodotto richiesto verr\`a inserito nell'ambito di un progetto pi\`u ampio. Il suo scopo \`e quello di automatizzare il sistema di validazione dei dati in ingresso al database dell'applicazione principale.
 
 \section{Glossario}
-Viene fornito come documento esterno chiamato Glossario.1.4.pdf.
+Viene fornito come documento esterno chiamato ``Glossario''.
 \section{Riferimenti}
 \begin{itemize}
-\item Capitolato d'appalto concorso per sistema ``BR-jsys''
-\item Verbale dell'incontro con il committente ``Incontro2007-11-22.pdf''
-\item Verbale dell'incontro con il committente ``Incontro2008-02-05.pdf''
-\item ``Ingegneria del Software'' 8a edizione - Ian Sommerville
-\item ``Analisi dei Requisiti''
-\item ``Norme di Progetto''
-\item ``Piano di Progetto''
+\item Capitolato d'appalto concorso per sistema ``BR-jsys'';
+\item Verbale dell'incontro con il committente ``Incontro2007-11-22.pdf'';
+\item Verbale dell'incontro con il committente ``Incontro2008-02-05.pdf'';
+\item ``Ingegneria del Software'' 8a edizione - Ian Sommerville;
+\item ``Analisi dei Requisiti'';
+\item ``Norme di Progetto'';
+\item ``Piano di Progetto''.
 \end{itemize}
 
 \chapter[Strategia di verifica]{Visione generale della strategia di verifica}
 \section[Organizzazione, pianificazione, responsabilit\`a]{Organizzazione, pianificazione strategica e temporale, responsabilit\`a}
-La HappyCode inc ha  pianificato delle fasi temporali per definire, sviluppare e validare il prodotto; tali fasi saranno prese in analisi e descritte nel dettaglio nei successivi paragrafi.
+La HappyCode ha  pianificato delle fasi temporali per definire, sviluppare e validare il prodotto; tali fasi saranno prese in analisi e descritte nel dettaglio nei successivi paragrafi.
 
 \subsection{Ciclo di vita}
 Le attivit\`a seguiranno un modello di tipo evolutivo che permetter\`a di intrecciare le attivit\`a di specifica, sviluppo e convalida del software, e di apportare eventuali modifiche ai documenti in tempi diversi. L'obiettivo \`e comprendere al meglio le richieste del cliente e sviluppare dunque una migliore definizione dei requisiti del sistema. Per arrivare ad un prodotto finale sar\`a quindi indispensabile lavorare in stretto contatto con il cliente, sottoponendogli periodicamente versioni parziali o prototipi del prodotto finale. Adotteremo lo sviluppo esplorativo, concentrandoci dapprima sulle parti del sistema che sono ben chiare (requisiti ben compresi) e, solo successivamente verranno aggiunte nuove parti/funzionalit\`a a fronte di chiarimenti da parte del cliente. 
 \subsection{Pianificazione delle attivit\`a}
-In una prima fase gli analisti discuteranno e cercheranno di comprendere al meglio il problema da risolvere, grazie soprattutto alle varie comunicazioni e incontri con il cliente. Una volta chiariti e consolidati i vari requisiti sar\`a quindi possibile la stesura del documento intitolato ``Analisi dei Requisiti'', che sar\`a la base per la fase di progettazione seguente. Queste attivit\`a potranno essere eseguite in modo parallelo su diverse parti del sistema, come anche le attivit\`a di progettazione e verifica, in modo da consentire la riduzione di tempi e costi di consegna del prodotto. Al termine delle attivit\`a di progettazione seguir\`a quella di programmazione, che produrr\`a il prototipo richiesto. L'ultima fase prima del collaudo sar\`a dedicata ad un attenta verifica di tutto il lavoro svolto nelle precedenti fasi. Il verificatore ed il responsabile di progetto sono le figure alle quali verranno affidate le responsabilit\`a pertinenti alle attivit\`a di verifica. Per una descrizione pi\`u dettagliata della pianificazione si veda il documento ``Piano di Progetto''.
+In una prima fase gli analisti discuteranno e cercheranno di comprendere al meglio il problema da risolvere, grazie soprattutto alle varie comunicazioni e incontri con il cliente. Una volta chiariti e consolidati i vari requisiti sar\`a quindi possibile la stesura del documento intitolato ``AnalisiDeiRequisiti'', che sar\`a la base per la fase di progettazione seguente. Queste attivit\`a potranno essere eseguite in modo parallelo su diverse parti del sistema, come anche le attivit\`a di progettazione e verifica, in modo da consentire la riduzione di tempi e costi di consegna del prodotto. Al termine delle attivit\`a di progettazione seguir\`a quella di programmazione, che produrr\`a il prototipo richiesto. L'ultima fase prima del collaudo sar\`a dedicata ad un attenta verifica di tutto il lavoro svolto nelle precedenti fasi. Il verificatore ed il responsabile di progetto sono le figure alle quali verranno affidate le responsabilit\`a pertinenti alle attivit\`a di verifica. Per una descrizione pi\`u dettagliata della pianificazione si veda il documento ``Piano di Progetto''.
 
 \section{Risorse necessarie, risorse disponibili}
-Le attivit\`a di verifica necessitano di risorse umane e tecnologiche. Il gruppo \`e composto da sette membri, ognuno dei quali durante tutto il periodo di lavoro dovr\`a assumere, in periodi di tempo diversi (in base alla disponibilit\`a di ciascuno), tutti i ruoli significativi per lo sviluppo del prodotto. L'amministratore del progetto sar\`a tenuto a supervisionare tutte le fasi di verifica e gestire le varie risorse necessarie per consentire un'attivit\`a di buon livello, senza sprechi od oneri eccessivi. Per la comunicazione tra i componenti \`e stato creato un gruppo Google, accessibile ai soli membri, raggiungibile all'URL: \textit{http://groups.google.com/group/happycodeinc}. Essendo inoltre ogni componente provvisto di un account Gmail, verr\`a utilizzato anche il sistema di chat locale per la comunicazione interattiva. Per l'archiviazione invece dei file verr\`a utilizzato un server Subversion (SVN).
+Le attivit\`a di verifica necessitano di risorse umane e tecnologiche. Il gruppo \`e composto da sette membri, ognuno dei quali durante tutto il periodo di lavoro dovr\`a assumere, in periodi di tempo diversi (in base alle disponibilit\`a e competenze di ciascuno), tutti i ruoli significativi per lo sviluppo del prodotto. L'amministratore del progetto sar\`a tenuto a supervisionare tutte le fasi di verifica e gestire le varie risorse necessarie per consentire un'attivit\`a di buon livello, senza sprechi od oneri eccessivi. Per la comunicazione tra i componenti \`e stato creato un gruppo Google, accessibile ai soli membri, raggiungibile all'URL: \textit{http://groups.google.com/group/happycodeinc}. Essendo inoltre ogni componente provvisto di un account Gmail, verr\`a utilizzato il sistema di chat locale per la comunicazione interattiva. Per l'archiviazione dei file verr\`a invece utilizzato un server SVN (vedi il documento ``Norme di Progetto'').
 
 \section{Strumenti, tecniche, metodi}
 \subsection{Analisi Statica}
@@ -169,52 +169,51 @@ Verr\`a utilizzata durante la stesura del codice sorgente per rilevare errori, o
 In particolare si controller\`a che non vi siano statement irraggiungibili, ossia istruzioni la cui condizione di accesso non pu\`o mai essere vera.
 \item \textbf{Analisi dell'uso dei dati:} Verificher\`a un corretto utilizzo delle variabili.
 In particolare si controller\`a che non vi siano variabili utilizzate prima di essere inizializzate, variabili inutilizzate, variabili sempre vere o sempre false.
-\item \textbf{Verifica formale del codice:} Verificher\`a la correttezza del codice scritto. In particolare si constater\`a la correttezza totale di ogni unit\`a in modo che non conduca mai in uno stato di non terminazione.
+\item \textbf{Verifica formale del codice:} Verificher\`a la correttezza del codice scritto. In particolare si constater\`a la correttezza totale di ogni unit\`a, in modo che non conduca mai in uno stato di non terminazione.
 \end{itemize}
 
 \subsection{Analisi Dinamica}
-Verr\`a applicata durante la progettazione e la stesura del codice al fine di verificare dinamicamente l'indipendenza delle singole unit\`a rispetto all'integrazione del sistema. Verr\`a testato quindi il sistema in tutti i suoi possibili casi e verranno effettuate prove per verificarne l'integrit\`a. Avverr\`a:
+Verr\`a applicata durante la progettazione e la stesura del codice, al fine di verificare dinamicamente l'indipendenza delle singole unit\`a rispetto all'integrazione del sistema. Verr\`a testato quindi il sistema in tutti i suoi possibili casi e verranno effettuate prove per verificarne l'integrit\`a. L'analisi avverr\`a:
 \begin{itemize}
-\item Attraverso l'inserimento di nuove regole business in un contesto di prova, effettueremo test sulla validazione e li confronteremo con i risultati attesi.
-\item Tramite opportune query di prova effettueremo test sull'utilizzo del DBMS.
-\item Attraverso opportuni driver da noi progettati e sviluppati, testeremo il corretto funzionamento del DBMS e del validatore.
-\item Per quanto riguarda la Gui, utilizzeremo invece stub 
+\item Attraverso l'inserimento di nuove regole business, in un contesto di prova, effettueremo test sulla validazione e li confronteremo con i risultati attesi;
+\item tramite opportune query di prova effettueremo test sull'utilizzo del DBMS;
+\item attraverso opportuni driver da noi progettati e sviluppati, testeremo il corretto funzionamento del DBMS e del validatore;
+\item utilizzando stub per quanto riguarda la Gui. 
 \end{itemize}
 
 \chapter[Gestione revisione]{Gestione amministrativa della revisione} 
 \section{Processo di ispezione}
-Le ispezioni del codice e dei documenti verranno eseguite da una squadra di almeno 4 persone che analizzeranno sistematicamente il codice e ne individueranno i possibili difetti. Parteciperanno alla riunione di ispezione: 
+Le ispezioni del codice e dei documenti verranno eseguite da una squadra di almeno 4 persone che, analizzeranno sistematicamente il codice e ne individueranno i possibili difetti. Parteciperanno alla riunione di ispezione: 
 \begin{itemize}
 \item[-]L'autore del documento ispezionato;
 \item[-]i membri del gruppo tenuti a ispezionare il codice;
 \item[-]il moderatore capo;
 \item[-]il segretario che prender\`a nota degli errori scovati.
 \end{itemize}
-In una fase iniziale l'autore del codice presenter\`a alla squadra di ispezione il funzionamento dello stesso. Ognuno dei membri della squadra sar\`a poi tenuto a studiare il codice al fine di individuare difetti ed errori. I difetti individuati verranno poi annotati dal segretario durante la riunione di ispezione. 
+In fase iniziale l'autore del codice presenter\`a alla squadra di ispezione il funzionamento dello stesso. Ognuno dei membri della squadra sar\`a poi tenuto a studiare il codice, al fine di individuarne difetti ed errori; i difetti individuati verranno poi annotati dal segretario durante la riunione di ispezione. 
 \section{Comunicazione e risoluzione di anomalie}
 Il documento redatto dal segretario dovr\`a elencare le segnalazioni in modo che sia possibile individuare il punto errato in modo semplice e non ambiguo, eventualmente citando le parti non corrette. In dettaglio il documento sar\`a costituito da una tabella contenente:
 \begin{itemize}
-\item Un descrizione che identifichi in modo univoco l'errore (riga del codice, nome e revisione del file).
-\item I passi che hanno portato al verificarsi dell'errore.
-\item La gravit\`a dell'errore e il tempo in cui deve essere corretto.
+\item Un descrizione che identifichi in modo univoco l'errore (riga del codice, nome e revisione del file);
+\item i passi che hanno portato al verificarsi dell'errore;
+\item la gravit\`a dell'errore ed il tempo in cui deve essere corretto.
 \end{itemize}
 L'autore del codice sottoposto a ispezione, preso atto dei difetti individuati nello stesso, sar\`a tenuto a correggerli nei tempi indicati presentando un documento in cui indica le modifiche apportate.
 
 \section{Trattamento delle discrepanze} 
-Se dovessero verificarsi discrepanze tra le necessit\`a del cliente ed i requisiti risultanti dall'analisi, si provveder\`a ad un ulteriore analisi che avr\`a la priorit\`a sulle altre attivit\`a. Verr\`a aggiornato quindi il documento relativo all' ``Analisi dei Requisiti'' e  i documenti/pezzi di codice da esso dipendenti. In ogni caso, se fosse necessario un cambiamento, si dovr\`a prima di tutto tracciarne l'impatto sugli altri requisiti e sul progetto del sistema, valutando l'effetto della modifica proposta. Il costo della modifica verr\`a stimato in base a quante modifiche dovrebbero essere fatte al documento dei requisiti e, se opportuno, al progetto del sistema e alla sua implementazione. Completata tale analisi, si dovr\`a decidere se procedere o meno con la modifica. Sar\`a quindi compito dell'analista, in collaborazione col progettista e l'amministratore, valutare questo impatto sul lavoro gi\`a svolto e comunicare ai membri interessati le variazioni.
+Se dovessero verificarsi discrepanze tra le necessit\`a del cliente ed i requisiti risultanti dall'analisi, si provveder\`a ad un ulteriore analisi che avr\`a la priorit\`a sulle altre attivit\`a. Verr\`a aggiornato quindi il documento relativo all' ``Analisi dei Requisiti'' e  i documenti/pezzi di codice da esso dipendenti. In ogni caso, se fosse necessario un cambiamento, si dovr\`a prima di tutto tracciarne l'impatto sugli altri requisiti e sul progetto del sistema, valutando l'effetto della modifica proposta. Il costo della modifica verr\`a stimato in base a quanti cambiamenti dovranno essere fatti al documento dei requisiti e, se opportuno, al progetto del sistema e alla sua implementazione. Completata tale analisi, si dovr\`a decidere se procedere o meno con la modifica. Sar\`a quindi compito dell'analista, in collaborazione col progettista e l'amministratore, valutare questo impatto sul lavoro gi\`a svolto e comunicare ai membri interessati le variazioni.
 
 \section{Procedure di controllo di qualit\`a di processo}
-Il controllo della qualit\`a del software interessa l'intero processo di sviluppo del prodotto in questione. A tale scopo sono stati adottati degli standard di documentazione che regolano la struttura e la presentazione dei documenti, nonch\`e degli standard di codifica e di processo. Quest'ultimi definiscono i processi da seguire durante tutto lo sviluppo software; includono definizione dei processi di specifica, progettazione e convalida, oltre ad una descrizione dei documenti che dovrebbero essere scritti durante l'esecuzione di questi processi. Il controllo di qualit\`a prevede il monitoraggio del processo software, per garantire che le procedure e gli standard di assicurazione della qualit\`a siano seguiti. Esso comprende inoltre il miglioramento del processo e la soluzione degli eventuali problemi. Quest'ultimo consiste nel comprendere i processi esistenti e modificarli per aumentare la qualit\`a del software e/o diminuire i costi e i tempi di sviluppo. Il suo obiettivo principale \`e quello di concentrarsi sul perfezionamento, per migliorare la qualit\`a del prodotto e, in particolare, per ridurre il numero di difetti nel software consegnato. Una volta ottenuto ci\`o, gli obiettivi primari diventeranno la riduzione dei costi e dei tempi.
+Il controllo della qualit\`a del software interessa l'intero processo di sviluppo del prodotto in questione. A tale scopo sono stati adottati degli standard di documentazione che regolano la struttura e la presentazione dei documenti, nonch\`e degli standard di codifica e di processo. Quest'ultimi definiscono i processi da seguire durante tutto lo sviluppo software; includono definizione dei processi di specifica, progettazione e convalida, oltre ad una descrizione dei documenti che dovrebbero essere scritti durante l'esecuzione di questi processi. Il controllo di qualit\`a prevede il monitoraggio del processo software, per garantire che le procedure e gli standard di qualit\`a siano seguiti. Esso comprende inoltre il miglioramento del processo e la soluzione degli eventuali problemi. Quest'ultimo consiste nel comprendere i processi esistenti e modificarli per aumentare la qualit\`a del software e/o diminuire i costi e i tempi di sviluppo. Il suo obiettivo principale \`e quello di concentrarsi sul perfezionamento, per migliorare la qualit\`a del prodotto e, in particolare, per ridurre il numero di difetti nel software consegnato. Una volta ottenuto ci\`o, gli obiettivi primari diventeranno la riduzione dei costi e dei tempi.
 Per avere un esteso controllo degli errori, le modifiche apportate ai documenti, in seguito a inconsistenze riscontrate durante la fase di verifica e stesura, verranno notificate secondo alcune convenzioni interne illustrate nel documento ``NormeDiProgetto''. Queste modifiche si troveranno all'inizio di ogni documento nella sezione ``Diario delle modifiche''. I verificatori sono tenuti a controllare parallelamente la documentazione sul lavoro svolto.
 
 \chapter[Collaudo]{Pianificazione ed esecuzione del collaudo}
 \section[Campagna di validazione]{Specifica della campagna di validazione}
 L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato secondo i requisiti da noi identificati. Il risultato di questa attivit\`a \`e determinante per procedere al rilascio del prodotto software. In base ai requisiti verranno applicate diverse tecniche di verifica.
 \subsection{Tabella di Tracciabilit\`a}
-Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, sta a significare che la prova non \`e ancora stata eseguita.
+Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, sta a significare che la prova non \`e ancora stata eseguita. \newline
+\subsubsection{Requisito F1}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F1}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Creare un linguaggio per le business rules \\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -225,9 +224,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito F2}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F2}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Testare la correttezza sintattica di ogni business rule \\ \hline
 {\textbf{Dipendenze:}}& F1 \\ \hline
@@ -238,23 +236,20 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito F3}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F3}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Testare il corretto inserimento delle business rules nel repository\\ \hline
 {\textbf{Dipendenze:}}& F2 \\ \hline
 {\textbf{Descrizione Prova}}&  Inserimento di varie business rules d'appoggio gi\`a validate e controllo all'interno del repository dell'avvenuto inserimento\\ \hline
-{\textbf{Input:}}& Business Rules (validate) di appoggio \\ \hline
-{\textbf{Output:}}& Lo stato dell'inserimento delle business rules attraverso la notifica rilasciata (positivo: inserimento avvenuto con successo, negativo: eccezione) \\ \hline
+{\textbf{Input:}}& Business Rule (validata) di appoggio \\ \hline
+{\textbf{Output:}}& Lo stato dell'inserimento della business rule attraverso la notifica rilasciata (positivo: inserimento avvenuto con successo, negativo: eccezione) \\ \hline
 {\textbf{Esito:}}& positivo\\ \hline
 \end{tabular} \\
 \\
 \\
-
+\subsubsection{Requisito F4}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F4}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Informare l'utente dell'avvenuta o meno validazione delle business rules appena inserite e del tempo trascorso, attraverso una notifica il pi\`u possibile chiara ed esaustiva\\ \hline
 {\textbf{Dipendenze:}} & F2, F3, NU3 \\ \hline
@@ -265,9 +260,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito F5}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F5}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Testare l'efficienza in termini di tempo di risposta del DBMS di appoggio al repository \\ \hline
 {\textbf{Dipendenze:}}& F2, F3, F4\\ \hline
@@ -278,9 +272,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito F6}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F6}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Il sistema deve essere in grado di interfacciarsi con l'interprete esterno, fornendo ad esso le business rules da eseguire \\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -291,9 +284,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito F7}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F7}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Testare la correttezza della cancellazione di una business rule dal repository e controllo dei risultati ottenuti\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -304,9 +296,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito F8}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F8}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Creare interfaccia per l'inserimento/rimozione di Business Rules e verificare il corretto funzionamento\\ \hline
 {\textbf{Dipendenze:}}& F3, F4, F7 \\ \hline
@@ -317,9 +308,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito F9}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F9}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& REQUISITO DEPRECATO\\ \hline
 {\textbf{Dipendenze:}}& \\ \hline
@@ -330,9 +320,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito F10}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F10}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Consentire al validatore di accedere ai campi del business object associato alla business rule da validare \\ \hline
 {\textbf{Dipendenze:}}& F11\\ \hline
@@ -343,9 +332,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito F11}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{F11}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Testare che ad ogni business rule sia associato un business object \\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -356,9 +344,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito NU1}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NU1}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Creare un linguaggio di alto livello, facile da capire per un utente con scarse conoscenze informatiche\\ \hline
 {\textbf{Dipendenze:}}& F1\\ \hline
@@ -369,9 +356,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito NU2}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NU2}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Il linguaggio deve fornire funzioni primitive per le operazioni base tra i dati, come la somma, la media aritmetica e la negazione logica \\ \hline
 {\textbf{Dipendenze:}}& F1 \\ \hline
@@ -382,9 +368,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito NU3}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NU3}}& \\
 \hline
 {\textbf{Obiettivo Prova:}}& Verificare la chiarezza e completezza dei messaggi d'errore\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -395,9 +380,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito NPo1}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NPo1}}& \\
 \hline
 {\textbf{Obiettivo Prova:}}& Il formato di salvataggio delle business rules e del repository dovr\`a essere XML.\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -408,9 +392,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito NPr1}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NPr1}}& \\
 \hline
 {\textbf{Obiettivo Prova:}}& Testare la velocit\`a di interrogazione del DBMS\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -421,9 +404,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito NPr2}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NPr2}}& \\
 \hline
 {\textbf{Obiettivo Prova:}}& Rendere univoca l'identificazione delle business rules all'interno del repository \\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -434,9 +416,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito NQ1}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NQ1}}& \\
 \hline
 {\textbf{Obiettivo Prova:}}& Testare tutte le operazioni consentite dal linguaggio creato e la loro validazione\\ \hline
 {\textbf{Dipendenze:}}& F1, F3, F7 \\ \hline
@@ -447,9 +428,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito NQ2}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NQ2}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Testare che il manuale descriva il linguaggio di definizione delle business rules \\ \hline
 {\textbf{Dipendenze:}}&  F1, F8 \\ \hline
@@ -460,9 +440,8 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 \end{tabular} \\
 \\
 \\
+\subsubsection{Requisito NQ3}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
-\hline
-\textbf{\textsf{NQ3}}& \\
 \hline
 {\textbf {Obiettivo Prova:}}& Descrivere le API relative al validatore e al DBMS\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
