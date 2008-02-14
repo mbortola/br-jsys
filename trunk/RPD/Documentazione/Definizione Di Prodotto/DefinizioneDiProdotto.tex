@@ -350,7 +350,7 @@ Nessuna.
 La componente GUI utilizza \BR nel caso in cui l'utente voglia inserire una nuova \br.
 La componente Validator effettua la validazione di un istanza di \BR tramita la chamata del suo metodo validate().
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente contiene i campi dato Stringa per rappesentare una business rule ossia name, associatedObject, rule e comment, quest'ultima può non essere istanziata, vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
+La componente contiene i campi dato Stringa per rappesentare una business rule, ossia name, associatedObject, rule e comment. Quest'ultima pu\`o anche non essere istanziata. Vengono messi inoltre a disposizione il costruttore e il metodo ridefinito toString().
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
@@ -378,18 +378,18 @@ BusinessRule(nameR: String , associatedR: String, ruleR: String, commentR: Strin
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re presente nel DBMS.
 %Si comincia a parlare di eXist
-Gli studi fatti su alcuni DBMS che manipolano dati XML hanno portato la HappyCode ad appoggiarsi su eXist, tramite le API messe a disposizione possiamo interagire con esso tramite costrutti java.
+Gli studi fatti su alcuni DBMS che manipolano dati XML, hanno portato la HappyCode ad appoggiarsi su eXist, tramite le API messe a disposizione possiamo interagire con esso tramite costrutti java.
 \subsubsection{Relazioni d'uso di altre componenti}
 Communicator necessita di interagire con la componente esterna DBMS per interrogare il \re.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare Query specifiche, le loro descrizioni sono trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Quando viene istanziata per la prima volta inizializza la connessione al DBMS tramite la definizione di una variabile statica che successivamente consente di interrogare il \re direttamente passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
+Quando viene istanziata per la prima volta inizializza la connessione al DBMS tramite la definizione di una variabile statica che, successivamente consente di interrogare il \re direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
-\underline{-service:XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su eXist, in particolare faremo in modo configurarlo in modo che faccia query solamente nel \re posizionato in una posizione specifica nel DBMS.\\ \hline
+\underline{-service:XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su eXist. In particolare, verr\`a configurato in modo che faccia query solamente nel \re posizionato in una posizione specifica nel DBMS.\\ \hline
 -correctUsername:String & Memorizza il corretto username utilizzato per l'accesso.\\ \hline
 -correctPassword:String & memorizza la corretta password utilizzata per l'accesso.\\ \hline
 \end{tabular}
