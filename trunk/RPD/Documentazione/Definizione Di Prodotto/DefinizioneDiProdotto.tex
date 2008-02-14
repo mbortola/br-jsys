@@ -398,20 +398,20 @@ Attributo & Descrizione \\  \hline
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-+Communicator(username: String, password: String) & Costruttore di Communicator. Nel caso si acceda alla classe per la prima volta durante l'esecuzione del programma si istanzierà l'attributo service, se la connessione \`e andata a buon fine gli attributi correctUsername e correctPassword verranno settati con i valori corrispondenti.Altrimeti se l'attributo service \`e gi\`a stato istanziato non si far\`a altro che assicurarsi che i parametri in ingresso al costruttore corrispondano a quelli presenti negli attributi.\\ \hline
-+makeQuery(query:String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche XQuery la esegue e ne restituisce il risultato.Si dovr\`a gestire il caso di query mal formata.
++Communicator(username: String, password: String) & Costruttore di Communicator. Nel caso si acceda alla classe per la prima volta, durante l'esecuzione del programma si istanzierà l'attributo service. Se la connessione \`e andata a buon fine gli attributi correctUsername e correctPassword verranno settati con i valori corrispondenti. In caso contrario, se l'attributo service \`e gi\`a stato istanziato, non si far\`a altro che assicurarsi che i parametri in ingresso al costruttore corrispondano a quelli presenti negli attributi.\\ \hline
++makeQuery(query:String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche XQuery la esegue e ne restituisce il risultato. Dovr\`a essere gestito il caso di query mal formata.
 \end{tabular}
 \end{center}
 
 \subsection{GUICommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente contiene metodi necessari per modellare query di cancellazione(tramite operazioni XQuery Update) e di query di semplice interrogazione.
+Contiene metodi necessari per modellare query di cancellazione(tramite operazioni XQuery Update) e query di semplice interrogazione.
 \subsubsection{Relazioni d'uso di altre componenti}
-GUICommunicator utilizza la componente Communicator per accedere al \re ed interrogarlo.
+Utilizza la componente Communicator per accedere al \re ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-GUICommunicator viene messa in relazione con la componente GUI dalla quale riceve richieste di cancellazione e di querying.%si dice così no?
+Questa componente viene messa in relazione con la componente GUI, dalla quale riceve richieste di cancellazione e querying.%si dice così no?
 \subsubsection{Attivit\`a svolte e dati trattati}
-GUICommunicator sar\`a strutturata nel seguente modo:
+Sar\`a strutturata nel seguente modo:
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
