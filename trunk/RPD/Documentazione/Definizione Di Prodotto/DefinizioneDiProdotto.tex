@@ -157,17 +157,21 @@ La HappyCode ha fatto uso dei seguenti strumenti di lavoro:
 \begin{center}
 \includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/gui.eps}
 \end{center}
+\section{GUI}
+\subsection{Diagramma delle classi}
+\begin{center}
+\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/gui.eps}
+\end{center}
 \subsection{Gui}
+%Diagramma della classe GUI...comprensivo di package
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente fornisce all'utente un interfaccia minimale consentendogli di effettuare le operazioni di cancellazione, e di querying sul \re.
-Nel caso di esecuizone di una query definita dall'utente verranno fornite inoltre informazioni relative ai tempi d'esecuzione.
-Questa componente viene realizzata tramite una singola classe java.
+Questa componente, realizzata tramite una singola classe java, fornisce all'utente un interfaccia minimale che gli consente di effettuare operazioni di cancellazione e querying sul \re. Nel caso di esecuzione di una query definita dall'utente, verranno fornite anche informazioni relative ai tempi d'esecuzione.
 \subsubsection{Relazioni d'uso di altre componenti}
 Questa componente utilizza:
 \begin{itemize}
  \item \BR per dichiarare una nuova \br da spedire al validatore;
  \item Validator per effettuare la validazione di una \br;
- \item GUICommunicator che verr\`a trattato successivamente.
+ \item GUICommunicator che tratteremo successivamente.
 \end{itemize}
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
@@ -200,13 +204,13 @@ Metodo & Descrizione \\  \hline
 \subsection{Validator}%facade!!!->va descritto
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questa componente effettua la validazione di una \br senza far fare all'utilizzatore tutte le singole operazioni di compilazione.
-Validator ha il ruolo di \textit{fa\c{c}ade} in quanto fornisce un interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e di insermento che avremmo altrimenti dovuto riportare direttamente dove la cmponente GUI lo richiedesse.
+Validator ha il ruolo di \textit{fa\c{c}ade} in quanto fornisce un'interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e di insermento che avremmo altrimenti dovuto riportare direttamente dove la componente GUI lo richiedesse.
 \subsubsection{Relazioni d'uso di altre componenti}
 Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator che verranno descritte in seguito.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Validator \`e in relazione con la componente GUI per permettere la validazione.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente deve occuparsi della validazione e del successivo inserimento nel \re.
+La componente contiene soltanto il metodo validate() che effettua la validazione della \br.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
@@ -229,7 +233,7 @@ Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una cl
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-La componente BusinessRuleParser necessita la componente BusinessRuleLexer che verr\`a approfondita successivamente.
+La componente BusinessRuleParser necessita della componente BusinessRuleLexer che verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
 La componente, che viene generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica nonch\`e vari metodi per la loro gestione, in effettivo si dovra' usare soltanto il suo costruttore.
 \begin{center}
@@ -242,10 +246,9 @@ Metodo & Descrizione \\  \hline
 
 \subsection{BusinessRuleParser}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questo componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua il controllo sintatico della regola, il controllo semantico facendo un controllo sui tipi dei dati siano essi costanti oppure campi dati di \bos. Mentre effettua la validazione BusinessRuleParser genera l'albero di pasing secondo le specifiche presenti nel controllo semantico. Infine \`e in grado di dare informazioni accurate 
-riguardo eventuali errori in fase di validazione.
+Questo componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua il controllo sintatico della regola, il controllo semantico facendo un controllo sui tipi dei dati siano essi costanti oppure campi dati di \bos. Mentre effettua la validazione BusinessRuleParser genera l'albero di pasing secondo le specifiche presenti nel controllo semantico. Infine \`e in grado di dare informazioni accurate riguardo eventuali errori in fase di validazione.
 \subsubsection{Relazioni d'uso di altre componenti}
-Questa componente necessita di un TokenStream fornitogli indirettamente da BusinessRuleLexer. Per effettuare il controllo sui tipi per il \bo associato deve poi riferirsi alla componente BusinessObjects ed infine ha bisogno della componente TypeCollisionException per trattare gli errori in fase di validazione.
+Questa componente necessita di un TokenStream fornitogli indirettamente da BusinessRuleLexer. Per effettuare il controllo sui tipi per il \bo associato deve riferirsi poi alla componente BusinessObjects. Ha bisogno infine della componente TypeCollisionException per trattare gli errori in fase di validazione.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 \brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
@@ -269,7 +272,7 @@ Metodo & Descrizione \\  \hline
 
 \subsection{TypeCollisionException}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException, permette di ricavare informazioni sugli eventuali errori avvenuti in fase di parsing della \br, essa in definitiva aggiunge alla sua superclasse la possibilit\`a di riportare informazioni su errori di tipo.
+Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException, permette di ricavare informazioni sugli eventuali errori avvenuti in fase di parsing della \br. In definitiva aggiunge alla sua superclasse la possibilit\`a di riportare informazioni su errori di tipo.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -293,7 +296,7 @@ Metodo & Descrizione \\  \hline
 \end{tabular}
 \end{center}
 
-\subsection{XMLParser}%probabilmente è un facade anche questo
+\subsection{XMLParser}
 \subsubsection{Tipo, obiettivo e funzione del componente}
 La componente XMLParser si occupa di effettuare la conversione dell'albero sintattico prodotto dalla componente \brp in un elemento XML rappresentante la \br, l'elemento XML risultante conterr\`a:
 \begin{itemize}
@@ -310,7 +313,7 @@ XMLParser ha bisogno dell' albero di parsing prodotto da \brp, nonch\`e necessit
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \re.
 \subsubsection{Attivit\`a svolte e dati trattati}
-XMLParser  contiene le operazioni per scorrere l'albero di parsing ed effettuare il traduzione in XML.Inoltre dispone di una tabella Hash statica che serve per associare i valori numerici che il parser 
+XMLParser  contiene le operazioni per scorrere l'albero di parsing ed effettuare la traduzione in XML.Inoltre dispone di una tabella Hash statica che serve per associare i valori numerici che il parser 
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
@@ -335,7 +338,7 @@ Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 \brp necessita di questa componente per effettuare il controllo dei tipi qualora fosse necessario.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Il componente businessbjects offre le classi java che rappresentano i \bos.%eventuali vincoli sui tipi
+Il componente businessbjects offre le classi java che rappresentano i \bos.
 
 \section{Business Rule}
 \subsection{Diagramma delle classi}
