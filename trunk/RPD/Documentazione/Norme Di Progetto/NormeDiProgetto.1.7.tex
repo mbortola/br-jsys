@@ -209,9 +209,15 @@ La prima linea non di commento di un file dovr\`a essere uno statement di Packag
  \newline
 \texttt{package java.awt; \\ 
 import org.w3c.dom; \\}
+Tutti i package e import dovranno essere scritti in minuscolo.
 \subsection{Dichiarazioni di Classi e di Interfacce}
-Prima di tutto verranno dichiarate le varibili statiche nel seguente ordine: pubbliche, protette, quelle a livello package e poi le private. Successivamente le variabili di istanza sempre nello stesso ordine. Solo infine i costruttori seguiti dai metodi. I metodi dovranno essere raggrupati secondo la funzionalit\`a e non secondo l'accessibilit\`a.
-
+Prima di tutto verranno dichiarate le varibili statiche nel seguente ordine: pubbliche, protette, quelle a livello package e poi le private. Successivamente le variabili di istanza sempre nello stesso ordine. Solo infine i costruttori seguiti dai metodi. I metodi dovranno essere raggrupati secondo la funzionalit\`a e non secondo l'accessibilit\`a. I nomi delle classi dovranno essere al singolare e inizare con la lettera maiuscola.
+\subsection{Variabili}
+Dovranno essere scritte al singolare e in minuscolo. Nel caso di un nome di variabile composto da pi\`u parole, la prima lettera delle parole verr\`a scritta in maiuscolo, ad eccezione della prima parola che sar\`a sempre in minuscolo (compresa la prima lettera). \newline
+Esempio: dataNascita \newline
+Le variabili non dovranno avere ambiguit\`a nei nomi.
+\subsection{Metodi}
+Seguono lo stesso standard adottato per le variabili.
 
 \section{Indentazione}
 Come unit\`a i indentazione dovranno essere usati 4 spazi.
@@ -412,6 +418,12 @@ Nelle seguenti situazioni dovranno essere usati spazi bianchi:
 \item Tutti gli operatori binari ad eccezione di “.” dovranno essere separati dagli operandi con spazi bianchi;
 \item Le espressioni in uno statement for dovranno essere separate da spazi bianchi.
 \end{itemize}
+
+\section{Standard di denominazione di entit\`a e relazioni}
+\subsection{Entit\`a}
+Le entit\`a componenti il ``BR-jsys'' verranno identificate usando una notazione al singolare, in carattere minuscolo e con l'iniziale di ogni parola in maiuscolo. Il nome dei campi dato e dei metodi verranno descritti con la stessa notazione, ad eccezione del primo carattere della prima parola che compare in carattere minuscolo.
+\subsection{Relazioni}
+Le relazioni vrranno descritte in minuscolo, utilizzando il nome della tabella da cui se ne prende l'ID preceduto da ``fk_''.
 
 \end{document}
 
