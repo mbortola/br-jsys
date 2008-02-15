@@ -222,10 +222,10 @@ Questa componente, derivata da org.antlr.runtime.Parser, effettua il parsing del
 \subsubsection{Relazioni d'uso di altre componenti}
 Questa componente necessita di un TokenStream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects, per effettuare il controllo sui tipi per il \bo\ associato. Per trattare gli errori in fase di validazione, ha bisogno della componente TypeCollisionException.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-\brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
+\brp\ viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
 \subsubsection{Attivit\`a svolte e dati trattati}
-\brp mette a disposizione vari metodi per effettuare il parsing e i test semantici. Dispone inoltre di numerosi campi dato per la ricognizione dei token.\\
+\brp\ mette a disposizione vari metodi per effettuare il parsing e i test semantici. Dispone inoltre di numerosi campi dato per la ricognizione dei token.\\
 \textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser, data in input la specifica di una grammatica.}
 
 \subsection{TypeCollisionException}
@@ -255,11 +255,11 @@ XMLParser ha bisogno dell'AST prodotto da \brp, nonch\`e necessita della compone
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \re.
 \subsubsection{Attivit\`a svolte e dati trattati}
-XMLParser contiene le operazioni per scorrere l'AST ed effettuare il traduzione in XML. Dispone inoltre di una tabella Hash statica che serve per associare i valori numerici che il parser 
+XMLParser  contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML.Inoltre dispone di una tabella Hash statica che serve per associare i valori numerici che il parser usa per identificare i token ai nomi dei tokens definiti dall'utente.
 
 \subsection{businessobjects}%è un package
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente businessobjects si occupa di offrire un namespace comune a tutti i \bos che durante la validazione di una \br vengono interpellati richiedendo accesso ai suoi campi o sottocampi.
+La componente businessobjects si occupa di offrire un namespace comune a tutti i \bos\ che durante la validazione di una \br\ vengono interpellati richiedendo accesso ai suoi campi o sottocampi.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
