@@ -200,11 +200,11 @@ La componente Gui possiede i campi dato ``GUICommunicator'' e ``Validator'' che 
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questa componente effettua la validazione di una \br, dando la possibilit\`a all'utilizzatore di evitare le singole operazioni di compilazione. Ha il ruolo di \textit{fa\c{c}ade}: fornisce un'interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione e inserimento che altrimenti avremmo dovuto riportare direttamente dove la componente GUI lo richiedesse.
 \subsubsection{Relazioni d'uso di altre componenti}
-La componente Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator. Quest'ultime verranno ampliamente descritte successivamente.
+Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator. Quest'ultime verranno ampliamente descritte successivamente.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-Validator \`e in relazione con la componente GUI, al fine di rendere possibile la validazione.
+La componente Validator \`e in relazione con la componente GUI, al fine di rendere possibile la validazione.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente contiene soltanto il metodo validate() che effettua la validazione della \br.
+Validator contiene solo il metodo validate(). Tale metodo effettua la validazione della \br.
 
 \subsection{BusinessRuleLexer}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -212,10 +212,10 @@ Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una cl
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-La componente BusinessRuleParser necessita della componente BusinessRuleLexer. Quest'ultima verr\`a approfondita successivamente.
+La componente BusinessRuleParser necessita della componente BusinessRuleLexer. Quest'ultima verr\`a approfondita in seguito.
 \subsubsection{Attivit\`a svolte e dati trattati}
 BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo della \br, nonch\`e per la gestione di eventuali eccezioni avvenute in fase di validazione.\\
-\textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser, data in input la specifica di una grammatica.}
+\textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
 
 \subsection{BusinessRuleParser}
 \subsubsection{Tipo, obiettivo e funzione del componente}
