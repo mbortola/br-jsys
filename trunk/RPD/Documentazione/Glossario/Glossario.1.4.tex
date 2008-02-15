@@ -31,7 +31,7 @@
 \begin{document}
 
 %definizione variabili 
-\newcommand{\lv}{ 1.7 } % latest version
+\newcommand{\lv}{ 1.8 } % latest version
 \newcommand{\dt}{ Glossario }% Document title
 %fine definizione variabili
 
@@ -96,6 +96,7 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
 %-------------------------------------------------------------------------------diario modifiche
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
+1.8 & 2008/02/15 & Inserimento di alcuni riferimenti e nuovi termini.\\ \hline
 1.7 & 2008/02/13 & Inserimento di XQuery, XPath, Sandbox, FLWOR.\\ \hline
 1.6 & 2008/02/11 & Inserimento di AST e Token.\\ \hline
 1.5 & 2008/02/05 & Aggiunta del nome del file nel modello di documento.\\ \hline
@@ -123,7 +124,17 @@
 Il seguente documento ha lo scopo di fornire una breve lista dei termini, usati nei vari documenti, che possono sembrare ambigui oppure necessitano di una definizione o di una migliore spiegazione. In alcuni casi, per maggiori informazioni, verranno messi a disposizione dei collegamenti web.
 \section{Riferimenti}
 \begin{itemize}
+\item Sommerville Ian - Ingegneria del software
+\item Design Patterns - E. Gamma, R. Helm, R. Johnson, J. Vlissides
+\item UML2 and the Unified Process - Jim Arlow, Ila Neustadt
 \item http://en.wikipedia.org
+\item http://exist.sourceforge.net/
+\item http://www.uml.org/
+\item http://java.sun.com/
+\item http://www.w3.org/XML/
+\item Altre Risorse Web
+
+
 \end{itemize}
 \chapter{A}
 \section{Account Gmail:}
@@ -164,23 +175,21 @@ Componente attiva fittizia che serve per pilotare un modulo.
 
 \chapter{E}
 \section{eXists:}
-eXist-db e' un DBMS open source interamente basato sulla tecnologia XML. Salva i dati in formato XML e permette un' interrogazione molto efficiente del database grazie a XQuery.
+eXist-db \`e un DBMS open source interamente basato sulla tecnologia XML. Salva i dati in formato XML e permette un' interrogazione molto efficiente del database grazie a XQuery.
 
 \chapter{F}
 \section{FLWOR:}
-XQuery utilizza una serie di istruzioni che possono essere raccolte ed identificate con la sigla "FLOWR" dove ogni lettera corrisponde alla lettera iniziale di ogni istruzione:
-
-For
-Let
-Order by 
-Where
-Return
-
-XQuery permette di fare query su dati semi-strutturati e/o destrutturati come XML. Può lavorare direttamente sull’ XML Data Type, sia come variabile che come colonna, utilizzando sia query XPath che FLWOR.
+XQuery utilizza una serie di istruzioni che possono essere raccolte ed identificate con la sigla "FLOWR" dove ogni lettera corrisponde alla lettera iniziale di ogni istruzione:\\
+For \\
+Let \\
+Order by \\
+Where \\
+Return \\
+XQuery permette di fare query su dati semi-strutturati e/o destrutturati come XML. Pu\`o lavorare direttamente sull' XML Data Type, sia come variabile che come colonna, utilizzando sia query XPath che FLWOR.
 
 \chapter{G}
 \section{Google Groups:}
-Vedi Spazio web in Google Groups. 
+Vedi Spazio Web in Google Groups.
 
 \chapter{J}
 \section{JUnit:}
@@ -210,13 +219,13 @@ Tipologia di business rule che consente di bloccare un operazione se i dati anal
 \section{Repository:} 
 Per repository si intende un archivio (nel nostro caso un file in linguaggio XML) in cui vengono memorizzati e mantenuti dei dati.
 \section{Revisione}
-La revisione, numero intero che parte da 1, indica se il documento \`e stato aggiornato dal suo ultimo rilascio. Un aumento nell'indice di revisione indica che il documento \`e stato modificato e/o corretto in una delle sue parti.\section{Google Groups:}
+La revisione, numero intero che parte da 1, indica se il documento \`e stato aggiornato dal suo ultimo rilascio. Un aumento nell'indice di revisione indica che il documento \`e stato modificato e/o corretto in una delle sue parti.
 
 \chapter{S}
 \section{Sandbox:}
 Identifica un ambiente in cui si possono effettuare sperimentazioni (nel nostro caso mediante il linguaggio \textit{XQuery}) che hanno lo scopo di investigare sugli effetti di eventuali modifiche o sviluppi all' interno del database. Tali sperimentazioni hanno inoltre lo scopo di favorire un rapido apprendimento del linguaggio \textit{XQuery}.
 \section{Spazio web in Google Groups:}
-Insieme delle risorse messe a disposizione da Google Groups. \`E raggiungibili dai soli membri della HappyCodeInc all'URL\\ \textit{http://groups.google.com/group/happycodeinc}. \`E comprensivo delle seguenti risorse: spazio web per la condivisione di file, gestione delle discussioni, gestione delle pagine statiche.
+Insieme delle risorse messe a disposizione da Google Groups. Sono raggiungibili dai soli membri della HappyCodeInc all'URL\\ \textit{http://groups.google.com/group/happycodeinc}. \`E comprensivo delle seguenti risorse: spazio web per la condivisione di file, gestione delle discussioni, gestione delle pagine statiche.
 \section{Stakeholder:}
 Soggetti ``portatori di interessi'' nei confronti di un'iniziativa economica, sia essa un'azienda o un progetto. Fanno, ad esempio, parte di questo insieme: i clienti, i fornitori, i finanziatori, i collaboratori, ma anche gruppi di interesse esterni, come i residenti di aree limitrofe all'azienda o gruppi di interesse locali.
 \section{Stub:}
