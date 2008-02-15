@@ -349,7 +349,7 @@ Nessuna.
 La componente GUI utilizza \BR\ nel caso in cui l'utente voglia inserire una nuova \br.
 La componente Validator effettua la validazione di un'istanza di \BR, tramite la chiamata del suo metodo validate().
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente contiene i campi dato Stringa per rappresentare una business rule ossia name, associatedObject, rule e comment, quest'ultima pu\'o non essere istanziata, vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
+La componente contiene i campi dato Stringa per rappresentare una business rule ossia name, associatedObject, rule e comment, quest'ultima pu\'o non essere istanziata. Vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
@@ -373,7 +373,7 @@ BusinessRule(nameR: String , associatedR: String, ruleR: String, commentR: Strin
 \begin{center}
 \includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Comunicatore.eps}
 \end{center}
-Durante la fase di progettazione la Happycode ha fatto diversi studi sui DBMS in grado di trattare basi di dati XML. Si \`e infine presa la decisione di adottare eXist in quanto oltre ad essere stato consigliato dal proponente, si \`e rivelato il pi\`u adatto alle nostre esigenze. EXist oltre a garantire buone prestazioni, mette a disposizione pi\`u funzionalit\`a rispetto ai suoi concorrenti e consente di sviluppare applicazioni java che si interfacciano al DBMS stesso.
+Durante la fase di progettazione, la nostra azienda ha fatto diversi studi sui DBMS in grado di trattare basi di dati XML. Si \`e infine presa la decisione di adottare eXist in quanto oltre ad essere stato consigliato dal proponente, si \`e rivelato il pi\`u adatto alle nostre esigenze. EXist oltre a garantire buone prestazioni, mette a disposizione pi\`u funzionalit\`a rispetto ai suoi concorrenti e consente di sviluppare applicazioni java che si interfacciano al DBMS stesso.
 \subsection{Communicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re\ presente nel DBMS.
@@ -382,22 +382,22 @@ Communicator necessita di interagire con la componente esterna DBMS per interrog
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare Query specifiche. Le loro descrizioni verranno trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Quando viene istanziata per la prima volta inizializza la connessione al DBMS tramite la definizione di una variabile statica che successivamente consente di interrogare il \re direttamente passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
+Quando viene istanziata per la prima volta, Communicator inizializza la connessione al DBMS, tramite la definizione di una variabile statica. Quest'ultima consentir\`a successivamente di interrogare il \re direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
-\underline{-service:XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su eXist, in particolare faremo in modo configurarlo in modo che faccia query solamente nel \re posizionato in una posizione specifica nel DBMS.\\ \hline
--correctUsername:String & Memorizza il corretto username utilizzato per l'accesso.\\ \hline
--correctPassword:String & memorizza la corretta password utilizzata per l'accesso.\\ \hline
+\underline{-service: XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su eXist. In particolare faremo in modo di configurarlo affinch\`e faccia query solamente nel \re (posizionato in una posizione specifica nel DBMS).\\ \hline
+-correctUsername: String & Memorizza il corretto username utilizzato per l'accesso.\\ \hline
+-correctPassword: String & memorizza la corretta password utilizzata per l'accesso.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-+Communicator(username: String, password: String) & Costruttore di Communicator. Nel caso si acceda alla classe per la prima volta durante l'esecuzione del programma si istanzierà l'attributo service, se la connessione \`e andata a buon fine gli attributi correctUsername e correctPassword verranno settati con i valori corrispondenti.Altrimeti se l'attributo service \`e gi\`a stato istanziato non si far\`a altro che assicurarsi che i parametri in ingresso al costruttore corrispondano a quelli presenti negli attributi.\\ \hline
-+makeQuery(query:String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche XQuery la esegue e ne restituisce il risultato.Si dovr\`a gestire il caso di query mal formata. \\\hline
++Communicator(username: String, password: String) & Costruttore di Communicator. Nel caso si acceda alla classe per la prima volta durante l'esecuzione del programma si istanzierà l'attributo service. Se la connessione andr\`a a buon fine gli attributi ``correctUsername'' e ``correctPassword'' verranno settati ai valori corrispondenti. Se l'attributo service \`e gi\`a stato istanziato non si far\`a altro che assicurarsi che i parametri in ingresso al costruttore corrispondano a quelli presenti negli attributi.\\ \hline
++makeQuery(query: String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche XQuery la esegue e ne restituisce il risultato. Si dovr\`a gestire il caso di query mal formata. \\\hline
 \end{tabular}
 \end{center}
 
@@ -414,7 +414,7 @@ GUICommunicator sar\`a strutturata nel seguente modo:
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--queryService:Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
+-queryService: Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
@@ -423,17 +423,17 @@ Attributo & Descrizione \\  \hline
 Metodo & Descrizione \\  \hline
 +GUICommunicator(username: String, password: String) & Costruttore del componente, username e password saranno utilizzati per l'istanziazione di queryService. \\ \hline
 
-+deleteRuleByName(id: String): boolean & Metodo per Cancellare un \br\ dato il suo identificativo, se la \br\ è stata trovata nel \re\ e dunque cancellata ritorner\`a \textit{true} altrimenti \textit{false}.\\ \hline
++deleteRuleByName(id: String): boolean & Metodo per Cancellare un \br\ dato il suo identificativo. Se la \br\ \`e stata trovata nel \re\ e cancellata ritorner\`a \textit{true}, altrimenti \textit{false}.\\ \hline
 
-+makeQuery(query: String):String & Metodo per eseguire una query in XQuery, dovr\`o fare attenzione che la struttura della query non contenga istruzioni XQuery Update che permetterebbero all'utente di modificare a piacimento il \re\ rendendolo inconsistente.\\ \hline
++makeQuery(query: String): String & Metodo per eseguire una query in XQuery. Si dovr\`a fare attenzione che la struttura della query non contenga istruzioni XQuery Update che permetterebbero altrimenti all'utente di modificare a piacimento il \re\ rendendolo inconsistente.\\ \hline
 
-+getListRules(): String[]& Metodo che ritorna informazioni riguardo le query scritte nel \re. in particolare l'array di ritorno avr\`a un elemento per \br nel \re ed ogni elemento conterr\`a il nome, la regola, il \bo associato e l'eventuale commento.\\ \hline
++getListRules(): String[]& Metodo che ritorna informazioni riguardo le query scritte nel \re. In particolare, l'array di ritorno avr\`a un elemento per ogni \br nel \re. Ogni elemento conterr\`a nome, regola, \bo associato e eventuale commento.\\ \hline
 \end{tabular}
 \end{center}
 
 \subsection{InterpreterCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-InterpreterCommunicator contiene metodi necessari per rispondere a richieste di \br\ da parte di un interprete esterno.
+InterpreterCommunicator contiene metodi necessari per rispondere a richieste di \br\ da parte di un'interprete esterno.
 \subsubsection{Relazioni d'uso di altre componenti}
 InterpreterCommunicator utilizza la componente Communicator per accedere al \re\ ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -445,7 +445,7 @@ InterpreterCommunicator offre il metodo getRule() per richiedere le \br associat
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--queryService:Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
+-queryService: Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
@@ -454,7 +454,7 @@ Attributo & Descrizione \\  \hline
 \hline
 Metodo & Descrizione \\  \hline
 +InterpreterCommunicator( username: String, password: String) & Costuttore con funzionamento analogo a GUICommunicator.\\ \hline
-+getRule(associated: String): NodeList & Dato in input un \bo ritorna tutte le \brs che sono associate ad esso. \\ \hline
++getRule(associated: String): NodeList & Dato in input un \bo ritorna tutte le \brs ad esso associate. \\ \hline
 \end{tabular}
 \end{center}
 
@@ -471,7 +471,7 @@ ValidatorCommunicator offre il metodi insertRule() per inserire la \br\ nel \re.
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--queryService:Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
+-queryService: Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
