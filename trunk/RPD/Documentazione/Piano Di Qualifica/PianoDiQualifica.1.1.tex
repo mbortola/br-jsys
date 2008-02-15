@@ -207,11 +207,12 @@ Se dovessero verificarsi discrepanze tra le necessit\`a del cliente ed i requisi
 Il controllo della qualit\`a del software interessa l'intero processo di sviluppo del prodotto in questione. A tale scopo sono stati adottati degli standard di documentazione che regolano la struttura e la presentazione dei documenti, nonch\`e degli standard di codifica e di processo. Quest'ultimi definiscono i processi da seguire durante tutto lo sviluppo software; includono definizione dei processi di specifica, progettazione e convalida, oltre ad una descrizione dei documenti che dovrebbero essere scritti durante l'esecuzione di questi processi. Il controllo di qualit\`a prevede il monitoraggio del processo software, per garantire che le procedure e gli standard di qualit\`a siano seguiti. Esso comprende inoltre il miglioramento del processo e la soluzione degli eventuali problemi. Quest'ultimo consiste nel comprendere i processi esistenti e modificarli per aumentare la qualit\`a del software e/o diminuire i costi e i tempi di sviluppo. Il suo obiettivo principale \`e quello di concentrarsi sul perfezionamento, per migliorare la qualit\`a del prodotto e, in particolare, per ridurre il numero di difetti nel software consegnato. Una volta ottenuto ci\`o, gli obiettivi primari diventeranno la riduzione dei costi e dei tempi.
 Per avere un esteso controllo degli errori, le modifiche apportate ai documenti, in seguito a inconsistenze riscontrate durante la fase di verifica e stesura, verranno notificate secondo alcune convenzioni interne illustrate nel documento ``NormeDiProgetto''. Queste modifiche si troveranno all'inizio di ogni documento nella sezione ``Diario delle modifiche''. I verificatori sono tenuti a controllare parallelamente la documentazione sul lavoro svolto.
 
-\chapter[Collaudo]{Pianificazione ed esecuzione del collaudo}
-\section[Campagna di validazione]{Specifica della campagna di validazione}
-L'attivit\`a di collaudo \`e volta a qualificare il prodotto software sviluppato secondo i requisiti da noi identificati. Il risultato di questa attivit\`a \`e determinante per procedere al rilascio del prodotto software. In base ai requisiti verranno applicate diverse tecniche di verifica.
-\subsection{Tabella di Tracciabilit\`a}
-Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, sta a significare che la prova non \`e ancora stata eseguita. \newline
+\chapter{Resoconto attivit\`a di verifica}
+\section{Tracciamento componenti-requisiti}
+Per una completa e chiara tracciabilit\`a componenti-requisiti, ogni componente, classe o metodo del prodotto ``BR-jsys'' \`e stato ideato come risposta ad ogni singolo requisito. Al fine di tenere traccia di tali corrispondenze \`e stata redatta una tabella, consultabile nel documento ``Specifica Tecnica'', che identifica per ogni componente quali sono i requisiti che la interessano. Ci\`o faciliter\`a la fase di verifica; si attester\`a quindi se ogni componente soddisfi pienamente i requisiti ad esso associato.
+\section{Descrizione prove sui Requisiti}
+In questa sezione intendiamo elencare la descrizione dei vari test che successivamente effettueremo.
+
 \subsubsection{Requisito F1}
 \begin{tabular}{||p{4.5cm}||p{7.5cm}||}
 \hline
@@ -220,7 +221,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& Rappresentazione di una business rule attraverso il linguaggio creato \\ \hline
 {\textbf{Input:}}&  Business rule in linguaggio naturale \\ \hline
 {\textbf{Output:}}& Business rule scritta nel linguaggio adottato \\ \hline
-{\textbf{Esito:}}& positivo\\ \hline
 \end{tabular} \\
 \\
 \\
@@ -232,7 +232,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& Inserimento di business rules d'appoggio (sintatticamente corrette o meno), per testarne il loro stato di accettazione \\ \hline
 {\textbf{Input:}}& Business Rule di appoggio \\ \hline
 {\textbf{Output:}}& La stringa accettata o meno dal validatore \\ \hline
-{\textbf{Esito:}}& positivo\\ \hline
 \end{tabular} \\
 \\
 \\
@@ -244,7 +243,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova}}&  Inserimento di varie business rules d'appoggio gi\`a validate e controllo all'interno del repository dell'avvenuto inserimento\\ \hline
 {\textbf{Input:}}& Business Rule (validata) di appoggio \\ \hline
 {\textbf{Output:}}& Lo stato dell'inserimento della business rule attraverso la notifica rilasciata (positivo: inserimento avvenuto con successo, negativo: eccezione) \\ \hline
-{\textbf{Esito:}}& positivo\\ \hline
 \end{tabular} \\
 \\
 \\
@@ -256,7 +254,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& Inserimento di varie business rules d'appoggio (corrette o meno) e controllo della corretta notifica di risposta alla richiesta di inserimento (attraverso timer nel codice) \\ \hline
 {\textbf{Input:}}& Business Rules (corrette o meno) di appoggio  \\ \hline
 {\textbf{Output:}}& Una notifica per ogni ogni business rule che si \`e provato ad inserire, con il relativo messaggio riguardante il tempo impiegato \\ \hline
-{\textbf{Esito:}}& -  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -268,7 +265,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& Inserimento/eliminazione/modifica di varie business rules d'appoggio (sintatticamente corrette o meno) e valutazione del tempo di risposta impiegato dal DBMS. Tale valore viene visualizzato dalla Gui. \\ \hline
 {\textbf{Input:}}& Business Rules (corrette o meno) di appoggio  \\ \hline
 {\textbf{Output:}}& Tempo impiegato \\ \hline
-{\textbf{Esito:}}& - \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -280,7 +276,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}&  Recuperare dal repository tutte le business rules associate ad un determinato business object\\ \hline
 {\textbf{Input:}}&  Business object (in stringa) \\ \hline
 {\textbf{Output:}}& Le business rules associate\\ \hline
-{\textbf{Esito:}}& - \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -292,7 +287,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}&  Richiesta al DBMS di cancellare varie business rules date in input dal repository. Si tester\`a la correttezza dell'eliminazione fatta. Ogni eliminazione riuscita o meno dovr\`a essere accompagnata da una chiara notifica di evento\\ \hline
 {\textbf{Input:}}& Business Rules da eliminare \\ \hline
 {\textbf{Output:}}& Notifica di eliminazione (positivo: cancellazione avvenuta con successo, negativo: eccezione) \\ \hline
-{\textbf{Esito:}}& - \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -304,7 +298,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& Si creer\`a  una semplice interfaccia in linguaggio Java, con le componenti essenziali per permettere l' inserimento/rimozione di una business rule nel repository e la successiva notifica di tale evento \\ \hline
 {\textbf{Input:}}& Business Rules da eliminare/inserire \\ \hline
 {\textbf{Output:}}& Notifica di eliminazione o inserimento (avvenuta o meno) \\ \hline
-{\textbf{Esito:}}& positivo\\ \hline
 \end{tabular} \\
 \\
 \\
@@ -316,7 +309,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& \\ \hline
 {\textbf{Input:}}& \\ \hline
 {\textbf{Output:}}&  \\ \hline
-{\textbf{Esito:}}&  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -328,7 +320,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}&  Inserimento di varie business rules d'appoggio, che si riferiscono ai campi dati del business object associato, e testare la correttezza della validazione effettuata \\ \hline
 {\textbf{Input:}}&  Business rules d'appoggio \\ \hline
 {\textbf{Output:}}& Esito della validazione \\ \hline
-{\textbf{Esito:}}& -  \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -340,7 +331,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}&  Nella Gui ogni business rule ha un campo dati per il business object associato. Se tale campo (``associated Object'') viene lasciato vuoto verr\`a lanciata un'eccezione dal sistema\\ \hline
 {\textbf{Input:}}&  Business rule di appoggio (con campo dati ``associated Oblect'' pieno o vuoto)\\ \hline
 {\textbf{Output:}}& Una eccezione se il campo dati \`e stato lasciato vuoto, altrimenti niente \\ \hline
-{\textbf{Esito:}}& positivo \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -352,7 +342,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& Creazione di business rules complesse attraverso semplici inserimenti da parte dell'utente\\ \hline
 {\textbf{Input:}}& Business rule di appoggio \\ \hline
 {\textbf{Output:}}& Business rule scritta nel linguaggio adottato \\ \hline
-{\textbf{Esito:}}& - \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -364,7 +353,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}&  Creazione di business rules contenenti diverse operazioni base. Se non vengono accettate tali operazioni viene lanciata un'eccezione \\ \hline
 {\textbf{Input:}}&  Business rule di appoggio contenenti operazioni base \\ \hline
 {\textbf{Output:}}& Business rule scritta nel linguaggio adottato \\ \hline
-{\textbf{Esito:}}& positivo\\ \hline
 \end{tabular} \\
 \\
 \\
@@ -376,7 +364,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& Si tenter\`a di validare vari business objects (con errori interni e di ogni genere possibile), valutando l'efficacia del messaggio d'errore \\ \hline
 {\textbf{Input:}}&  Business object (in stringa) \\ \hline %%%%%%%%%%%%%%%%%%%%%%%%%%%% CONTROLLARE
 {\textbf{Output:}}& Messaggio d'errore comprensibile \\ \hline
-{\textbf{Esito:}}& - \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -388,7 +375,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}&  Creazione e salvataggio di business rules in formato XML  \\ \hline
 {\textbf{Input:}}&  Business rule di appoggio in XML \\ \hline
 {\textbf{Output:}}& L'inserimento della business rule in formato XML nel repository \\ \hline
-{\textbf{Esito:}}& positivo\\ \hline
 \end{tabular} \\
 \\
 \\
@@ -400,7 +386,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& Popolamento del repository attraverso inserimento di business rules d'appoggio e interazioni con esso. Si valuter\`a l'efficienza, in termini di tempo di risposta, del DBMS usato  \\ \hline
 {\textbf{Input:}}& Business rule \\ \hline
 {\textbf{Output:}}& Valutazione del tempo impiegato in ogni interrogazione \\ \hline
-{\textbf{Esito:}}& - \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -412,7 +397,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& Inserimento di varie business rules d'appoggio nel repository e controllo dell'unicit\`a della loro indicizzazione \\ \hline
 {\textbf{Input:}}& Business object (in stringa) \\ \hline 
 {\textbf{Output:}}& L'esito del controllo\\ \hline
-{\textbf{Esito:}}& - \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -424,7 +408,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}& Si applicheranno a business objects esistenti tutte le operazioni che il linguaggio permette e si valutera\`a l'esito della validazione di tali operazioni, confrontandoli con i risultati aspettati.  \\ \hline
 {\textbf{Input:}}& Business Objects \\ \hline
 {\textbf{Output:}}& L'esito della validazione delle operazioni tra i business objects dati in input\\ \hline
-{\textbf{Esito:}}& - \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -436,7 +419,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}&  Creazione di un manuale utente di facile comprensione per qualsiasi tipo di utente \\ \hline
 {\textbf{Input:}}&  Richieste di informazioni \\ \hline  
 {\textbf{Output:}}& Manuale utente completo e allo stesso tempo semplice di ogni componente del linguaggio di definizione delle business rules e delle funzioni della Gui \\ \hline
-{\textbf{Esito:}}& - \\ \hline
 \end{tabular} \\
 \\
 \\
@@ -448,7 +430,6 @@ Per convenzione il trattino ``-'', nel campo ``esito'' delle seguenti tabelle, s
 {\textbf{Descrizione Prova:}}&  Creazione di una descrizione dettagliata delle API relative al validatore e al DBMS\\ \hline
 {\textbf{Input:}}&  Richieste di informazioni \\ \hline  
 {\textbf{Output:}}& Il documento completo e semplice con la descrizione delle API  \\ \hline
-{\textbf{Esito:}}& - \\ \hline
 \end{tabular} \\
 
 
