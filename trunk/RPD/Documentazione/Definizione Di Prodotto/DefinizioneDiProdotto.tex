@@ -178,7 +178,7 @@ Gui possiede i campi dato necessari per comunicare col validatore e col DBMS.
 \hline
 Attributo & Descrizione \\  \hline
 -compiler:Validator & Rappresenta il validatore per le \br \\ \hline
--repository:GUICommunicator & Collega la componente al DBMS consentendogli di effettuare le Query.\\ \hline
+-repository:GUICommunicator & Collega la componente al DBMS consentendogli di effettuare le query.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
@@ -380,7 +380,7 @@ Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effe
 \subsubsection{Relazioni d'uso di altre componenti}
 Communicator necessita di interagire con la componente esterna DBMS per interrogare il \re.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare Query specifiche. Le loro descrizioni verranno trattate successivamente.
+Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare le query specifiche. Le loro descrizioni verranno trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Quando viene istanziata per la prima volta, Communicator inizializza la connessione al DBMS, tramite la definizione di una variabile statica. Quest'ultima consentir\`a successivamente di interrogare il \re direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
 \begin{center}
@@ -397,7 +397,7 @@ Attributo & Descrizione \\  \hline
 \hline
 Metodo & Descrizione \\  \hline
 +Communicator(username: String, password: String) & Costruttore di Communicator. Nel caso si acceda alla classe per la prima volta durante l'esecuzione del programma si istanzierà l'attributo service. Se la connessione andr\`a a buon fine gli attributi ``correctUsername'' e ``correctPassword'' verranno settati ai valori corrispondenti. Se l'attributo service \`e gi\`a stato istanziato non si far\`a altro che assicurarsi che i parametri in ingresso al costruttore corrispondano a quelli presenti negli attributi.\\ \hline
-+makeQuery(query: String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche XQuery la esegue e ne restituisce il risultato. Si dovr\`a gestire il caso di query mal formata. \\\hline
++makeQuery(query: String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche XQuery la esegue e ne restituisce il risultato. Si dovr\`a gestire il caso di query mal formata. \\ \hline
 \end{tabular}
 \end{center}
 
@@ -427,7 +427,7 @@ Metodo & Descrizione \\  \hline
 
 +makeQuery(query:String): String & Metodo per eseguire una query in XQuery. Si dovr\`a fare attenzione che la struttura della query non contenga istruzioni XQuery Update che permetterebbero altrimenti all'utente di modificare a piacimento il \re\ rendendolo inconsistente.\\ \hline
 
-+getListRules():String[]& Metodo che ritorna informazioni riguardo le query scritte nel \re. In particolare, l'array di ritorno avr\`a un elemento per ogni \br nel \re. Ogni elemento conterr\`a nome, regola, \bo associato e eventuale commento.\\ \hline
++getListRules():String[]& Metodo che ritorna informazioni riguardo le \brs\ scritte nel \re. In particolare, l'array di ritorno avr\`a un elemento per ogni \br\ nel \re. Ogni elemento conterr\`a nome, regola, \bo\ associato e eventuale commento.\\ \hline
 \end{tabular}
 \end{center}
 
