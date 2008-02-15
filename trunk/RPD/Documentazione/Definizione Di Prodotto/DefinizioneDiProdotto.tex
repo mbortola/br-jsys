@@ -439,7 +439,7 @@ InterpreterCommunicator utilizza la componente Communicator per accedere al \re\
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente InterpreterCommunicator viene messa in relazione con l'interprete esterno, dal quale riceve richieste di \brs associate ad un determinato \bo.
 \subsubsection{Attivit\`a svolte e dati trattati}
-InterpreterCommunicator offre il metodo getRule() per richiedere le \br associate al \bo.
+InterpreterCommunicator deve soltanto fornire al chiamamte le \brs\ associate al \bo.
 
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
@@ -466,7 +466,7 @@ ValidatorCommunicator utilizza la componente Communicator per accedere al \re\ e
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 ValidatorCommunicator viene messa in relazione con la componente Validator per effettuare l'inserimento.
 \subsubsection{Attivit\`a svolte e dati trattati}
-ValidatorCommunicator offre il metodi insertRule() per inserire la \br\ nel \re. L'inserimento avverr\`a soltanto se la \br\ ha un nome che non \`e ancora presente nel \re.
+ValidatorCommunicator deve soltanto occuparsi di inserire la \br\ nel \re. L'inserimento avverr\`a soltanto se la \br\ ha un nome che non \`e ancora presente nel \re.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
@@ -478,8 +478,8 @@ Attributo & Descrizione \\  \hline
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-ValidatorCommunicator( username:String, password:String) & Costruttore con comportamento analogo a GUICommunicator.\\ \hline
-insertRule(rule:String, idRule:String):  boolean & Inserisce la \br\ nel \re\ soltanto se il suo nome non \`e gi\`a presente. Se l'inserimento \`e andato a buon fine ritorner\`a \textit{true}.\\ \hline
++ValidatorCommunicator( username:String, password:String) & Costruttore con comportamento analogo a GUICommunicator.\\ \hline
++insertRule(rule:String, idRule:String):  boolean & Inserisce la \br\ nel \re\ soltanto se il suo nome non \`e gi\`a presente. Se l'inserimento \`e andato a buon fine ritorner\`a \textit{true}.\\ \hline
 \end{tabular}
 \end{center}
 
