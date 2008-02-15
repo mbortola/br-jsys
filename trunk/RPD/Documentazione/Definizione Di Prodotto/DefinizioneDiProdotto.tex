@@ -239,7 +239,7 @@ Metodo & Descrizione \\  \hline
 
 \subsection{BusinessRuleParser}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua quindi il controllo sintattico della regola e il controllo semantico facendo un controllo sui tipi dei dati (siano essi costanti oppure campi dati di \bos). Mentre effettua la validazione BusinessRuleParser genera l'albero di parsing secondo le specifiche presenti nel controllo semantico. \`E in grado infine di dare informazioni accurate riguardo eventuali errori in fase di validazione.
+Questa componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua quindi il controllo sia sintattico che semantico della regola, facendo un ulteriore controllo sui tipi dei dati (siano essi costanti oppure campi dati di \bos). Mentre effettua la validazione BusinessRuleParser genera l'albero di parsing secondo le specifiche presenti nel controllo semantico. \`E in grado infine di dare informazioni accurate riguardo eventuali errori in fase di validazione.
 \subsubsection{Relazioni d'uso di altre componenti}
 Questa componente necessita di un TokenStream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects, per effettuare il controllo sui tipi per il \bo\ associato. Per trattare gli errori in fase di validazione, ha bisogno della componente TypeCollisionException.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
