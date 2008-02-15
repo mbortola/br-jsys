@@ -98,9 +98,9 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
 %-------------------------------------------------------------------------------diario modifiche
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
-0.3 & 05/02/2008 & Aggiunta del nome del file nel modello di documento.\\ \hline
-0.2 & 26/01/2008 & Documento sottoposto a revisionamento automatico.\\ \hline
-0.1 & 25/01/2008 & Stesura preliminare del documento. \\ \hline
+0.3 & 05/02/2008 & Aggiunta del nome del file nel modello di documento\\ \hline
+0.2 & 26/01/2008 & Documento sottoposto a revisionamento automatico\\ \hline
+0.1 & 25/01/2008 & Stesura preliminare del documento \\ \hline
 
 \end{tabular} \\
 \end{tabular}
@@ -114,12 +114,12 @@
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il seguente documento ha lo scopo di descrivere l'architettura logica prodotta al termine della fase di progettazione architetturale. Descrive in dettaglio i campi dati e i metodi appartenenti alle singole componenti del sistema.
+Il seguente documento ha lo scopo di descrivere l'architettura logica prodotta al termine della fase di progettazione architetturale. Descriver\`a in dettaglio i campi dati e i metodi appartenenti alle singole componenti del sistema ``BR-jsys''.
 \section{Scopo del prodotto}
-Il prodotto richiesto verr\`a inserito nell'ambito di un progetto pi\`u ampio. Il suo scopo \`e quello di automatizzare il sistema di validazione dei dati in ingresso al database dell'applicazione principale.
+Per lo scopo del prodotto si faccia riferimento al documento ``Analisi dei Requisiti''.
 
 \section{Glossario}
-Viene fornito come documento esterno chiamato Glossario.1.4.pdf.
+Viene fornito come documento esterno chiamato \Glossario.
 
 \section{Riferimenti}
 \begin{itemize}
@@ -136,7 +136,7 @@ Viene fornito come documento esterno chiamato Glossario.1.4.pdf.
 \end{itemize}
 \chapter{Standard di progetto}
 \section{Standard di progettazione architetturale}
-Ci baseremo sulle regole definite da UML 2.1 per quanto riguarda le rappresentazioni grafiche dell'architettura del sistema. In particolare, ci appoggeremo sull'uso di ``Poseidon for UML - professional edition 6.0.2''. Per quanto riguarda invece i diagrammi use-cases ci siamo appoggiati su Dia.
+Per quanto riguarda le rappresentazioni grafiche dell'architettura del sistema ``BR-jsys'', ci siamo basati sulle regole definite da UML 2.1. In particolare, ci siamo appoggiati aull'uso di ``Poseidon for UML - professional edition 6.0.2''. Per i diagrammi use-cases ci siamo affidati invece a Dia 0.96.1.
 \section{Standard di documentazione del codice}
 Per le regole di documentazione del codice si faccia riferimento al documento ``Norme di Progetto'' allegato.
 \section{Standard di denominazione di entit\`a e relazioni}
@@ -144,12 +144,12 @@ Per le regole di denominazione delle entit\`a, delle relazioni e degli oggetti, 
 \section{Standard di programmazione}
 Anche in questo caso, si faccia riferimento al documento ``Norme di Progetto'' allegato.
 \section{Strumenti di lavoro}
-La HappyCode ha fatto uso dei seguenti strumenti di lavoro:
+L'azienda ha fatto uso dei seguenti strumenti di lavoro:
 \begin{itemize}
 \item Eclipse 3.3.1.1;
 \item eXist 13.1.1.2; 
 \item Latex 3.14;
-\item ANTLRWorks 1.5.
+\item ANTLRWorks 1.1.5.
 \end{itemize}
 \chapter{Specifica delle componenti}
 \section{GUI}
@@ -171,21 +171,21 @@ Questa componente utilizza:
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Gui possiede i compi dato necessari per comunicare col validatore e col DBMS.
+Gui possiede i campi dato necessari per comunicare col validatore e col DBMS.
 \begin{center}
 
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--compiler:Validator & Rappresenta il validatore per le \br \\ \hline
--repository:GUICommunicator & Collega la componente al DBMS consentendogli di effettuare le Query.\\ \hline
+-compiler: Validator & Rappresenta il validatore per le \br \\ \hline
+-repository: GUICommunicator & Collega la componente al DBMS consentendogli di effettuare le Query.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-\underline{+main(args:String[]):Validator} & Metodo standard in java per l'avvio dell'applicazione. Si incaricher\`a di creare un oggetto Gui\\ \hline
+\underline{+main(args: String[]):Validator} & Metodo standard in java per l'avvio dell'applicazione. Si incaricher\`a di creare un oggetto Gui\\ \hline
 +Gui() & Costruttore per Gui.\\ \hline
 \end{tabular}
 \end{center}
@@ -198,7 +198,7 @@ Metodo & Descrizione \\  \hline
 \end{center}
 \subsection{Validator}%facade!!!->va descritto
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente effettua la validazione di una \br, dando la possibilit\`a all'utilizzatore di evitare le singole operazioni di compilazione. Ha il ruolo di \textit{fa\c{c}ade}: fornisce un'interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione ed inserimento che avremmo altrimenti dovuto riportare direttamente laddove la componente GUI l'avrebbe richiesto.
+La componente Validator effettua la validazione di una \br, dando la possibilit\`a all'utilizzatore di evitare le singole operazioni di compilazione. Ha il ruolo di \textit{fa\c{c}ade}: fornisce un'interfaccia unificata che riesce a gestire in maniera semplice ed immediata le operazioni di compilazione ed inserimento che avremmo altrimenti dovuto riportare direttamente laddove la componente GUI l'avrebbe richiesto.
 \subsubsection{Relazioni d'uso di altre componenti}
 Validator usa le componenti \brp, \brl, XMLParser e ValidatorCommunicator. Quest'ultime verranno ampliamente descritte in seguito.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -209,7 +209,7 @@ Validator \`e in relazione con la componente GUI, al fine di rendere possibile l
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--repository:ValidatorCommunicator & Collega la componente al DBMS per inserire la \br\ validata nel \re.\\ \hline
+-repository: ValidatorCommunicator & Collega la componente al DBMS per inserire la \br\ validata nel \re.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
@@ -217,7 +217,7 @@ Attributo & Descrizione \\  \hline
 \hline
 Metodo & Descrizione \\  \hline
 +Validator() & Costruttore di Validator.\\ \hline
-+validate(rule: BusinessRule ): boolean \textbraceleft throws  RecognitionException \textbraceright& Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezione che verr\`a gestita dal chiamante. Se la \br\ viene inserita il metodo ritorner\`a \textit{true}, ritornero \textit{false} se la regola ha un nome che \`e gi\`a presente nel \re.\\ \hline
++validate(rule: BusinessRule ): boolean \textbraceleft throws  RecognitionException \textbraceright& Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezione che verr\`a gestita dal chiamante. Se la \br\ viene inserita, il metodo ritorner\`a \textit{true}. Ritorner\`o invece \textit{false} se la regola ha un nome che \`e gi\`a presente nel \re.\\ \hline
 \end{tabular}
 \end{center}
 
@@ -229,7 +229,7 @@ Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente BusinessRuleParser necessita della componente BusinessRuleLexer. Quest'ultima verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente, che viene generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica nonch\`e vari metodi per la loro gestione, in effettivo si dovra\`a usare soltanto il suo costruttore.
+La componente, generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica, nonch\`e vari metodi per la loro gestione. In definitiva si dovra\`a usare solo il suo costruttore.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
@@ -240,14 +240,14 @@ Metodo & Descrizione \\  \hline
 
 \subsection{BusinessRuleParser}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua quindi il controllo sia sintattico che semantico della regola, facendo un ulteriore controllo sui tipi dei dati (siano essi costanti oppure campi dati di \bos). Mentre effettua la validazione BusinessRuleParser, genera l'albero di parsing secondo le specifiche presenti nel controllo semantico. \`E in grado infine di dare informazioni accurate riguardo eventuali errori in fase di validazione.
+Questa componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua quindi il controllo sia sintattico che semantico della regola, facendo un ulteriore controllo sui tipi dei dati (siano essi costanti oppure campi dati di \bos). Mentre effettua la validazione, BusinessRuleParser genera l'albero di parsing secondo le specifiche presenti nel controllo semantico. \`E infine in grado di dare informazioni accurate riguardo eventuali errori in fase di validazione.
 \subsubsection{Relazioni d'uso di altre componenti}
-Questa componente necessita di un TokenStream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects, per effettuare il controllo sui tipi per il \bo\ associato. Per trattare gli errori in fase di validazione, ha bisogno della componente TypeCollisionException.
+Questa componente necessita di un TokenStream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects per effettuare il controllo sui tipi per il \bo\ associato. Per trattare gli errori in fase di validazione ha bisogno invece della componente TypeCollisionException.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 \brp viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Questa componente, generata tramite un generatore automatico di parser, fornisce i campi dato per il riconoscimento dei token in appoggio a quelli gi\`a forniti dalla componente \brp. Contiene vari metodi privati per il controllo sintattico e semantico, per il parsing e infine, contiene classi innestate incaricate di generare l'AST.
+Questa componente, generata tramite un generatore automatico di parser, fornisce i campi dato per il riconoscimento dei token in appoggio a quelli gi\`a forniti dalla componente \brp. Contiene vari metodi privati per il controllo sintattico e semantico, per il parsing e contiene infine classi innestate incaricate di generare l'AST.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
@@ -258,8 +258,8 @@ Attributo & Descrizione \\  \hline
 \begin{center}
  \begin{tabular}{||p{6cm}||p{6cm}||}\hline
 Metodo & Descrizione \\  \hline
-+BusinessRuleParser(input: CommonTokenStream, associated: String) & Costruttore del componente, il primo parametro identifica lo stream generato nelle fasi precedenti mentre il secondo parametro dice qual'\`e il \bo\ associato alla regola.\\ \hline
-+start(): BusinessRuleParser.start\_return \textbraceleft throws\phantom{c}RecognitionException \textbraceright & Risultato del parsing corretto di una \br, contiene al suo interno l'AST. Nel caso di errore nella validazione il chiamante dovr\`a gestire opportunamente l'eccezione.\\ \hline
++BusinessRuleParser(input: CommonTokenStream, associated: String) & Costruttore della componente. Il primo parametro identifica lo stream generato nelle fasi precedenti, il secondo dice qual'\`e il \bo\ associato alla regola.\\ \hline
++start(): BusinessRuleParser.start\_return \textbraceleft throws\phantom{c}RecognitionException \textbraceright & Risultato del parsing corretto di una \br. Contiene al suo interno l'AST. Nel caso di errore nella validazione il chiamante dovr\`a gestire opportunamente l'eccezione.\\ \hline
 \end{tabular}
 \end{center}
 
@@ -277,8 +277,8 @@ Viene ridefinito il metodo printStackTrace() e messo a disposizione un costrutto
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--first:Class & Identifica il tipo del primo elemento che ha causato un' operazione incompatibile. \\ \hline
--second:Class & Identifica il tipo del secondo elemento che ha causato un' operazione incompatibile \\ \hline
+-first:Class & Identifica il tipo del primo elemento che ha causato un'operazione incompatibile. \\ \hline
+-second:Class & Identifica il tipo del secondo elemento che ha causato un'operazione incompatibile \\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
@@ -301,13 +301,13 @@ La componente XMLParser si occupa di effettuare la conversione dell'albero sinta
  \item la \br\ effettivamente digitata dall'utente;
  \item eventuali commenti associati dall'utente alla \br.
 \end{itemize}
-XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade}; la creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessita di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
+XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade}. La creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessita di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
 \subsubsection{Relazioni d'uso di altre componenti}
 XMLParser ha bisogno dell'AST prodotto da \brp, nonch\`e necessita della componente \br\ per ricavare le informazioni da inserire nell'elemento XML.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \re.
 \subsubsection{Attivit\`a svolte e dati trattati}
-XMLParser  contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML. Inoltre dispone di una tabella Hash statica che serve per associare i valori numerici che il parser usa per identificare i token ai nomi dei tokens definiti dall'utente.
+XMLParser contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML. Dispone inoltre di una tabella Hash statica che serve per associare i valori numerici che il parser usa per identificare i token ai nomi dei tokens definiti dall'utente.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
