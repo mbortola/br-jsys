@@ -250,13 +250,13 @@ La componente XMLParser si occupa di effettuare la conversione dell'albero sinta
  \item la \br\ effettivamente digitata dall'utente;
  \item eventuali commenti associati dall'utente alla \br.
 \end{itemize}
-XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade}; la creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessita di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
+XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade}. La creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessita di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
 \subsubsection{Relazioni d'uso di altre componenti}
 XMLParser ha bisogno dell'AST prodotto da \brp, nonch\`e necessita della componente \br\ per ricavare le informazioni da inserire nell'elemento XML.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \re.
 \subsubsection{Attivit\`a svolte e dati trattati}
-XMLParser  contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML.Inoltre dispone di una tabella Hash statica che serve per associare i valori numerici che il parser usa per identificare i token ai nomi dei tokens definiti dall'utente.
+XMLParser  contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML. Dispone inoltre di una tabella Hash statica che serve per associare i valori numerici che il parser usa per identificare i token ai nomi dei tokens definiti dall'utente.
 
 \subsection{businessobjects}%è un package
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -282,7 +282,7 @@ Nessuna.
 La componente GUI utilizza \BR\ nel caso in cui l'utente voglia inserire una nuova \br.
 La componente Validator effettua la validazione di un'istanza di \BR, tramite la chiamata del suo metodo validate().
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente contiene i campi dato Stringa per rappesentare una business rule (name, associatedObject, rule e comment, dove quest'ultimo pu\`o non essere istanziato). Vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
+Business Rule contiene i campi dato Stringa per rappesentare una business rule (name, associatedObject, rule e comment, dove quest'ultimo pu\`o anche non essere istanziato). Vengono messi inoltre a disposizione il costruttore e il metodo ridefinito toString().
 
 \section{Comunicatore}
 \subsection{Diagramma delle classi}
@@ -291,23 +291,23 @@ La componente contiene i campi dato Stringa per rappesentare una business rule (
 \end{center}
 \subsection{Communicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re\ presente nel DBMS.
+La componente Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re\ presente nel DBMS.
 \subsubsection{Relazioni d'uso di altre componenti}
 Communicator necessita di interagire con la componente esterna DBMS per interrogare il \re.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare Query specifiche. Le loro descrizioni verranno trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Quando viene istanziata per la prima volta, inizializza la connessione al DBMS tramite la definizione di una variabile statica. Successivamente Communicator consente di interrogare il \re\ direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
+Quando viene istanziata per la prima volta, Communicator inizializza la connessione al DBMS tramite la definizione di una variabile statica. Consente successivamente di interrogare il \re\ direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
 %
 \subsection{GUICommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente contiene metodi necessari per modellare query di cancellazione (tramite operazioni XQuery Update) e query di semplice interrogazione.
+La componente GUICommunicator contiene metodi necessari per modellare query di cancellazione (tramite operazioni XQuery Update) e query di semplice interrogazione.
 \subsubsection{Relazioni d'uso di altre componenti}
 GUICommunicator utilizza la componente Communicator per accedere al \re\ ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 GUICommunicator viene messa in relazione con la componente GUI, dalla quale riceve richieste di cancellazione e di querying.
 \subsubsection{Attivit\`a svolte e dati trattati}
-GUICommunicator fornisce le operazioni:
+La componente fornisce le seguenti operazioni:
 \begin{itemize}
  \item deleteRuleByName(): dato il nome di una regola, provvede ad eliminarla dal \re\ nel caso questa regola sia presente;
  \item makeQuery(): permette l'esecuzione di una semplice query purch\`e non implichi modifiche strutturali al \re;
@@ -315,23 +315,23 @@ GUICommunicator fornisce le operazioni:
 \end{itemize}
 \subsection{InterpreterCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-InterpreterCommunicator contiene metodi necessari per rispondere a richieste di \br\ da parte di un interprete esterno.
+La componente InterpreterCommunicator contiene metodi necessari per rispondere a richieste di \br\ da parte di un interprete esterno.
 \subsubsection{Relazioni d'uso di altre componenti}
 InterpreterCommunicator utilizza la componente Communicator per accedere al \re\ ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-La componente InterpreterCommunicator viene messa in relazione con l'interprete esterno, dal quale riceve richieste di \brs associate ad un determinato \bo.
+InterpreterCommunicator viene messa in relazione con l'interprete esterno, dal quale riceve richieste di \brs associate ad un determinato \bo.
 \subsubsection{Attivit\`a svolte e dati trattati}
-InterpreterCommunicator offre il metodo getRule() per richiedere le \br\ associate al \bo.
+La componente InterpreterCommunicator offre il metodo getRule() per richiedere le \br\ associate al \bo.
 
 \subsection{ValidatorCommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br\ validata gi\`a tradotta in XML.
+La componente ValidatorCommunicator contiene metodi necessari per effettuare l'inserimento di una \br\ validata gi\`a tradotta in XML.
 \subsubsection{Relazioni d'uso di altre componenti}
 ValidatorCommunicator utilizza la componente Communicator per accedere al \re\ ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 ValidatorCommunicator viene messa in relazione con la componente Validator per effettuare l'inserimento.
 \subsubsection{Attivit\`a svolte e dati trattati}
-ValidatorCommunicator offre il metodo insertRule() per inserire la \br\ nel \re. L'inserimento avverr\`a soltanto se la \br\ ha un nome che non \`e ancora presente nel \re.
+La componente offre il metodo insertRule() per inserire la \br\ nel \re. L'inserimento avverr\`a soltanto se la \br\ ha un nome che non \`e ancora presente nel \re.
 
 \chapter{Componenti esterne}
 \begin{center}
@@ -339,9 +339,9 @@ ValidatorCommunicator offre il metodo insertRule() per inserire la \br\ nel \re.
 \end{center}
 \section{Interprete}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questo componente si incarica di eseguire le \brs\ associate ad un determinato \bo. Per ottenere le \brs\ il componente deve poter interrogare il DBMS attraverso un opportuna interfaccia col sistema BR-jsys che risolver\`a per lui la richiesta.
+Questo componente si incarica di eseguire le \brs\ associate ad un determinato \bo. Per ottenere le \brs, deve poter interrogare il DBMS attraverso un opportuna interfaccia col sistema BR-jsys che risolver\`a per lui la richiesta.
 \subsubsection{Relazioni d'uso di altre componenti}
-Interprete utilizza la componente InterpreterCommunicator per comunicare col DBMS.
+La componente Interprete utilizza la componente InterpreterCommunicator per comunicare col DBMS.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
@@ -367,7 +367,7 @@ Una corretta autenticazione far\`a in modo che l'interfaccia di tipo XPathQueryS
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{Server.eps}
 \end{center}
-Il server DBMS, con il quale interagisce il prodotto ``BR-jsys'', viene avviato. Una volta completata la procedura di avvio entra in uno stato di attesa di richieste da parte della GUI e dell'interprete. Ricevuta una richiesta, la relativa query viene inviata al DBMS e il risultato/esito della query viene ritornato all'utente. Il server torna quindi in uno stato di attesa, finch\`e eventualmente viene spento.
+Il server DBMS, con il quale interagisce il prodotto ``BR-jsys'', viene avviato. Una volta completata la procedura di avvio, entra in uno stato di attesa di richieste da parte della GUI e dell'interprete. Ricevuta una richiesta, la relativa query viene inviata al DBMS e il risultato/esito della query viene ritornato all'utente. Il server torna quindi in uno stato di attesa finch\`e eventualmente viene spento.
 
 \section{Richiesta dell'interprete}
 \begin{center}
