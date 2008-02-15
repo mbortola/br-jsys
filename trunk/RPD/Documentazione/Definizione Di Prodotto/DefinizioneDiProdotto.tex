@@ -129,7 +129,7 @@ Viene fornito come documento esterno chiamato Glossario.1.4.pdf.
 \item ``Analisi dei Requisiti'';
 \item ``Piano di Qualifica'';
 \item ``Norme di Progetto'';
-\item ``Specifica tecnica'';
+\item ``Specifica Tecnica'';
 \item ``Ingegneria del Software'' 8a edizione - Ian Sommerville;
 \item ``The Definitive ANTLR Reference'';
 \item Manuale di eXist reperibile all'URL \textit{exist.sourceforge.net}.
@@ -216,7 +216,7 @@ Attributo & Descrizione \\  \hline
 \hline
 Metodo & Descrizione \\  \hline
 +Validator() & Costruttore di Validator\\ \hline
-+validate(rule: BusinessRule ):boolean  throws  RecognitionException & Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezzione che verr\`a gestita dal chiamante. Se la \br\ viene inserita il metodo ritorner\`a \textit{true}, ritornero \textit{false} se la regola ha un nome che \`e gi\`a presente nel \re.\\ \hline
++validate(rule: BusinessRule ):boolean  throws  RecognitionException & Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un' eccezzione che verr\`a gestita dal chiamante. Se la \br\ viene inserita il metodo ritorner\`a \textit{true}, ritorner\`a \textit{false} se la regola ha un nome che \`e gi\`a presente nel \re.\\ \hline
 \end{tabular}
 \end{center}
 
@@ -228,7 +228,7 @@ Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente BusinessRuleParser necessita della componente BusinessRuleLexer. Quest'ultima verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente, che viene generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica nonch\`e vari metodi per la loro gestione, in effettivo si dovra' usare soltanto il suo costruttore.
+La componente, che viene generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica nonch\`e vari metodi per la loro gestione, in definitiva si dovra' usare soltanto il suo costruttore.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
