@@ -373,7 +373,7 @@ BusinessRule(nameR: String , associatedR: String, ruleR: String, commentR: Strin
 \begin{center}
 \includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Comunicatore.eps}
 \end{center}
-Durante la fase di progettazione la Happycode ha fatto vari studi sui DBMS in grado di trattare basi di dati XML. Abbiamo infine preso la decisione di adottare eXist in quanto oltre ad esserci stato consigliato dal proponente, garantisce buone prestazioni e consente di sviluppare applicazioni java che si interfacciano ad esso.
+Durante la fase di progettazione la Happycode ha fatto diversi studi sui DBMS in grado di trattare basi di dati XML. Si \`e infine presa la decisione di adottare eXist in quanto oltre ad essere stato consigliato dal proponente, si \`e rivelato il pi\`u adatto alle nostre esigenze. EXist oltre a garantire buone prestazioni, mette a disposizione pi\`u funzionalit\`a rispetto ai suoi concorrenti e consente di sviluppare applicazioni java che si interfacciano al DBMS stesso.
 \subsection{Communicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \re\ presente nel DBMS.
@@ -454,7 +454,7 @@ Attributo & Descrizione \\  \hline
 \hline
 Metodo & Descrizione \\  \hline
 +InterpreterCommunicator( username: String, password: String) & Costuttore con funzionamento analogo a GUICommunicator.\\ \hline
-+getRule(associated: String): NodeList & Dato in input un \bo ritorna tutte le \brs che sono associate ad esso.- \\ \hline
++getRule(associated: String): NodeList & Dato in input un \bo ritorna tutte le \brs che sono associate ad esso. \\ \hline
 \end{tabular}
 \end{center}
 
