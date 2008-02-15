@@ -34,7 +34,7 @@
 %definizione variabili 
 \newcommand{\lv}{ 2.1 } % latest version
 \newcommand{\dt}{ Piano Di Progetto }% Document title
-\newcommand{\Glossario}{ Glossario.1.4.pdf }
+\newcommand{\Glossario}{ Glossario.1.7.pdf }
 %fine definizione variabili
 
 \hyphenation{glos-sa-rio es-pli-ci-to ve-ri-fi-ca-re re-po-si-to-ry se-gna-la-ta coe-ren-za}
@@ -57,11 +57,14 @@
 \thispagestyle{plain}
 \begin{table}[htbp]\section{Riferimenti}
 \begin{itemize}
-\item Capitolato d'appalto concorso per sistema ``BR-jsys'';
+\item Capitolato d'appalto concorsVediamo graficamente in questo modo come ogni ruolo di progetto contribuisce a formare 
+il totale delle ore di ciascuna delle quattro fasi di lavoro:o per sistema ``BR-jsys'';
 \item Verbale dell'incontro con il committente ``Incontro2007-11-22.pdf'';
 \item Verbale dell'incontro con il committente ``Incontro2008-02-05.pdf'';
-\item ``Ingegneria del Software'' 8a edizione - Ian Sommerville.
+\item ``Ingegneria del Software'' 8a edizione - Ian Sommerville.\newline
 \end{itemize}
+
+\newpage
 \large{
 \begin{tabular}{l}
 \Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
@@ -73,7 +76,7 @@
 \textbf{Revisione RR} &           \\ \hline
 \textbf{Redazione:} & Elena Trivellato \\ \hline
 \textbf{Revisione:} & Marco Tessarotto \\ \hline
-\textbf{Approvazione:} Elena Trivellato & \\ \hline
+\textbf{Approvazione:} & Elena Trivellato \\ \hline
 \textbf{Revisione RPD} &    \\ \hline
 \textbf{Redazione:} & Mattia Meroi \\ \hline
 \textbf{Revisione:} & Elena Trivellato, Filippo Carraro \\ \hline
@@ -132,11 +135,7 @@
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Questo documento rappresenta il piano di progetto preliminare
-del capitolato d'appalto per il sistema "Business Rules per sistemi
-gestionali in architettura J2EE BR-jsys". 
-Qui \`e riportata la divisione dei ruoli e il costo complessivo del
-sistema in base ai ruoli e alle ore impegnate.
+Questo documento rappresenta il piano di progetto preliminare del capitolato d'appalto per il sistema "Business Rules per sistemi gestionali in architettura J2EE BR-jsys". Qui \`e riportata la divisione dei ruoli e il costo complessivo del sistema in base ai ruoli e alle ore impegnate.
 
 \section{Glossario}
 Il glossario viene fornito come file esterno chiamato \Glossario .
@@ -174,7 +173,7 @@ Tutto ci\`o \`e avvenuto a seguito dell'utilizzo del generatore di parser che ha
 \hline
 {Analista}& 60 \footnotesize{(-2)}&20&5&0 \\
 \hline
-{Progettista}&29 \footnotesize{(+24)}&60 \footnotesize{(-15)}&25&0 \\
+{Progettista}&29 \footnotesize{(+24)}&6 \footnotesize{(-15)}&25&0 \\
 \hline
 {Programmatore}&0&10 \footnotesize{(+5)}&60&55 \\
 \hline
@@ -189,9 +188,8 @@ Tutto ci\`o \`e avvenuto a seguito dell'utilizzo del generatore di parser che ha
 
 \end{table}
 
-Il seguente grafico mostra in che misura incide ciascun ruolo per ogni macrofase e la differenza tra ore previste ed ore effettive nelle due fasi (analisi e progettazione) gi\`a portate a termine.
-Vediamo graficamente in questo modo come ogni ruolo di progetto contribuisce a formare 
-il totale delle ore di ciascuna delle quattro fasi di lavoro:
+Il seguente grafico mostra in che misura incide ciascun ruolo per ogni macrofase. Abbiamo voluto mettere in evidenza le variazioni tra le nostre previsioni e il tempo effettivamente dedicato ad ogni ruolo affiancando alle colonne con i colori pi\`u chiari (a destra, rappresentano i dati effettivi) le colonne che invece rappresentano i dati previsti (marcandole con colori pi\`u scuri, a sinistra). Tale convenzione sar\`a usata anche nei grafici successivi. Per quanto riguarda le fasi di sviluppo e verifica le colonne coincidono in quanto non siamo in possesso di dati effettivi trattandosi di fasi che affronteremo nell'immediato futuro.
+
 \begin{center}
 \includegraphics [width=1\textwidth] {confronto-ruoli-fasi.eps}
 \end{center}
@@ -228,8 +226,8 @@ complessive previste di realizzazione del prodotto. Le cifre tra parentesi indic
 }
 \end{table}
 
-Evidenziamo la distribuzione delle ore aggiornata al 15 febbraio tra i vari ruoli con un grafico; a differenza di prima qui abbiamo una visione globale riguardante 
-tutto il ciclo di vita del software:
+Evidenziamo la distribuzione delle ore aggiornata al 15 febbraio tra i vari ruoli con un grafico; a differenza di prima qui abbiamo una visione globale riguardante tutto il ciclo di vita del software.
+Anche in questo grafico a torta usiamo la convenzione che associa ai colori pi\`u scuri i dati previsti e a quelli pi\`u chiari i dati effettivi.
 
 
 \begin{center}
@@ -255,7 +253,7 @@ Nelle seguenti tabelle vediamo la ripartizione delle ore nelle quattro macro-fas
 \hline
 {Carraro Filippo}&0&5&8&4 \footnotesize{(+4)} \\
 \hline
-{Meroi Mattia}&6&0&6 \footnotesize{(-1)}&3 \footnotesize{(+3)}\\
+{Meroi Mattia}&6&0&6 \footnotesize{(-1)}&3\footnotesize{(+3)}\\
 \hline
 {Tessarotto Marco} &0&0&9&7 \footnotesize{(+4)}\\
 \hline
@@ -375,7 +373,6 @@ Nelle seguenti tabelle vediamo la ripartizione delle ore nelle quattro macro-fas
 \end{tabular}
 }
 \end{table}
-
 \begin{table}[hbtp]
 \large{
 \begin{tabular}{l}
@@ -540,10 +537,7 @@ Evidenziamo il costo orario di ciascun ruolo di progetto
 \end{table}
 
 \section{Costo totale per ogni ruolo}
-Evidenziamo il costo totale di ciascun ruolo di progetto e la sua incidenza
-percentuale sul totale di spesa prevista.
-Vediamo che l'incremento di ore effettive
-rispetto a quelle previste ha causato
+Evidenziamo il costo totale di ciascun ruolo di progetto e la sua incidenza percentuale sul totale di spesa prevista. Vediamo che l'incremento di ore effettive rispetto a quelle previste ha causato
 anche un aumento del costo complessivo del lavoro di euro 205.00.
 
 \begin{table}[hbtp]
@@ -551,21 +545,21 @@ anche un aumento del costo complessivo del lavoro di euro 205.00.
 
 \begin{tabular}{l}
 \Large{\textbf{\textsf{Tabella dei costi Totali (Consuntivo al 15/02/08)}}} \\
-\begin{tabular}{||p{4cm}||p{5cm}||p{3cm}||}
+\begin{tabular}{||p{4cm}||p{4cm}||p{4cm}||}
 \hline
 \textbf{Ruoli} & \textbf{Costo Totale}& \textbf{Costo Percentuale}\\
 \hline
-{Responsabile}&1.170,00&10\\ 
+{Responsabile}&1.170,00&10 \footnotesize{(-0,3)}\\ 
 \hline 
 {Amministratore} &720,00&6\\ 
 \hline
-{Analista} &2.075,00 \footnotesize{(-50,00)}&17 \footnotesize{(-1)} \\
+{Analista} &2.075,00 \footnotesize{(-50,00)}&17 \footnotesize{(-0,7)} \\
 \hline
-{Progettista} &2.280,00 \footnotesize{(+180,00)}&21 \footnotesize{(+3)} \\
+{Progettista} &2.280,00 \footnotesize{(+180,00)}&21 \footnotesize{(+3,5)} \\
 \hline
 {Programmatore} &1.875,00 \footnotesize{(+75,00)}&15 \footnotesize{(-1)}\\
 \hline
-{Verificatore} &3.675,00&31 \footnotesize{(-1)} \\
+{Verificatore} &3.675,00&31 \footnotesize{(-1,5)} \\
 \hline
 {Totale} &11.795,00 \footnotesize{(+205,00)}&100 \\
 \hline
@@ -575,9 +569,8 @@ anche un aumento del costo complessivo del lavoro di euro 205.00.
 }
 \end{table}
 
-
-Evidenziamo come il costo di ciascun ruolo incide in percentuale
-sul totale con un grafico:
+\newpage
+Evidenziamo come il costo di ciascun ruolo incide in percentuale sul totale con un grafico. Adottiamo ancora una volta la convenzione secondo la quale il cerchio pi\`u esterno con colori pi\`u scuri rappresenta i dati previsti, mentre i dati effettivi sono quelli interni di colore pi\`u chiaro:
 \begin{center}
 \includegraphics [width=1\textwidth] {confronti-costi-totale.eps}
 \end{center}
@@ -586,10 +579,8 @@ sul totale con un grafico:
 \chapter{Diagramma di Gantt}
 Alleghiamo due files denominati rispettivamente:
 \begin {itemize} 
-\item DiagrammaGantt\_0\_1.png che rappresenta l'impiego delle risorse nel tempo 
-visualizzate giorno per giorno
-\item DiagrammaGanttSettimanale\_0\_1.png che invece mostra l'impiego delle risorse
-pi\'u globalmente organizzato per settimane
+\item ganttRPD.png che rappresenta l'impiego delle risorse nel tempo visualizzate giorno per giorno
+\item gantt\_settRPD.png che invece mostra l'impiego delle risorse pi\'u globalmente organizzato per settimane
 \end{itemize}
 
 
