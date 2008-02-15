@@ -31,9 +31,10 @@
 \begin{document}
 
 %definizione variabili 
-\newcommand{\lv}{ 1.9 } % latest version
+\newcommand{\lv}{ 2.0 } % latest version1.9 & 2008/02/05 & Aggiunta del nome del file nel modello di documento.\\ \hline
+
 \newcommand{\dt}{ Norme Di Progetto }% Document title
-\newcommand{\Glossario}{ Glossario.1.4.pdf }
+\newcommand{\Glossario}{ Glossario.1.8.pdf }
 %fine definizione variabili
 
 
@@ -99,6 +100,7 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
 %-------------------------------------------------------------------------------diario modifiche
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
+2.0 & 2008/02/15 & Correzione errori ortografici.\\ \hline
 1.9 & 2008/02/05 & Aggiunta del nome del file nel modello di documento.\\ \hline
 1.8 & 31/01/2008 & Riorganizzazione dei capitoli. Aggiunta delle norme per la codifica degli statements. Modifica alle Norme di comportamento e alle Norme di documento. \\ \hline
 1.7 & 30/01/2008 & Modifica al layout degli esempi.\\ \hline
@@ -147,7 +149,7 @@ Lo spazio web in Google Groups raggiungibile tramite il seguente URL: \({http://
 \section{Comportamento Generale}
 Ad ogni componente del gruppo verr\`a richiesto di partecipare alla stesura dei documenti e del codice. Il documento verr\`a creato inserendo l'elenco dei capitoli, delle sezioni e delle sottosezioni all'interno di un modello in latex. Una volta creato il documento dovr\`a poi essere caricato nel repository SVN, nel solo formato \texttt{.tex} .
 \section[Condivisione dei file]{Condivisione, archiviazione e versionamento dei file}
-Per garantire la correttezza di ogni documento e file condiviso, a fronte di cambiamenti (anche simultanei) da parte di tutto il gruppo, verr\`a  utilizzato un server SVN con opportuni client grafici (RapidSVN, KdeSvn). Verr\`a garantita in questo modo l'atomicit\`a di ogni aggiornamento inviato al repositoty.\\ 
+Per garantire la correttezza di ogni documento e file condiviso, a fronte di cambiamenti (anche simultanei) da parte di tutto il gruppo, verr\`a  utilizzato un server SVN con opportuni client grafici (RapidSVN, KdeSvn). Verr\`a garantita in questo modo l'atomicit\`a di ogni aggiornamento inviato al repository.\\ 
 Il server Subversion utilizzato dal gruppo (versione 1.4.0) \`e messo a disposizione da Google all'indirizzo \textit{http://code.google.com/p/br-jsys/}.
 \newline
  \newline
@@ -199,7 +201,7 @@ Ogni file sorgente dovr\`a contenere una sola classe pubblica o interfaccia. I f
 \item Dichiarazioni di classi e interfacce.
 \end{itemize}
 \subsection{Commenti iniziali}
-Tutti i file sorgente dovranno inziare con un commento in stile C che elenca il nome della classe, informazioni sulla versione e la data dell'ultima modifica come nell'esempio: \\
+Tutti i file sorgente dovranno inziare con un commento che elenca il nome della classe, informazioni sulla versione e la data dell'ultima modifica come nell'esempio: \\
  \newline
 \texttt{/* \newline
 * Nome classe \newline
@@ -216,7 +218,7 @@ La prima linea non di commento di un file dovr\`a essere uno statement di Packag
 import org.w3c.dom; \\}
 Tutti i package e import dovranno essere scritti in minuscolo.
 \subsection{Dichiarazioni di Classi e di Interfacce}
-Prima di tutto verranno dichiarate le varibili statiche nel seguente ordine: pubbliche, protette, quelle a livello package e poi le private. Successivamente le variabili di istanza sempre nello stesso ordine. Solo infine i costruttori seguiti dai metodi. I metodi dovranno essere raggrupati secondo la funzionalit\`a e non secondo l'accessibilit\`a. I nomi delle classi dovranno essere al singolare e inizare con la lettera maiuscola.
+Prima di tutto verranno dichiarate le varibili statiche nel seguente ordine: pubbliche, protette, quelle a livello package e poi le private. Successivamente le variabili di istanza sempre nello stesso ordine. Solo infine i costruttori seguiti dai metodi. I metodi dovranno essere raggrupati secondo la funzionalit\`a e non secondo l'accessibilit\`a. I nomi delle classi dovranno essere al singolare e iniziare con la lettera maiuscola.
 \subsection{Variabili}
 Dovranno essere scritte al singolare e in minuscolo. Nel caso di un nome di variabile composto da pi\`u parole, la prima lettera delle parole verr\`a scritta in maiuscolo, ad eccezione della prima parola che sar\`a sempre in minuscolo (compresa la prima lettera). \newline
 Esempio: dataNascita \newline
@@ -225,7 +227,7 @@ Le variabili non dovranno avere ambiguit\`a nei nomi.
 Seguono lo stesso standard adottato per le variabili.
 
 \section{Indentazione}
-Come unit\`a i indentazione dovranno essere usati 4 spazi.
+Come unit\`a di indentazione dovranno essere usati 4 spazi.
 \subsection{Lunghezza della linea}
 Una linea di codice non dovr\`a superare 80 caratteri.
 \subsection{Interruzione delle linee}
@@ -245,8 +247,7 @@ Ci potranno essere due tipi di commenti: di documentazione e di implementazione.
 \item I commenti di documentazione, delimitati da \texttt{/**...*/}, descrivono la specifica del codice astraendo dall'implementazione.
 \end{itemize}
 \subsection{Commenti a blocco}
-I commenti a blocco dovranno essere usati per descrivere files, metodi, strutture dati e algoritmi. Dovranno essere usati all'inizio di ogni file e prima
-di ogni metodo; potranno inoltre essere usati anche in altre parti del file (ad esempio all'interno di un metodo). All'interno di una funzione o di un metodo dovranno essere indentati allo stesso livello del codice che descrivono. Questo commento dovr\`a inoltre essere preceduto da una linea bianca per poterlo separare dal resto del codice. \\
+I commenti a blocco dovranno essere usati per descrivere files, metodi, strutture dati e algoritmi. Dovranno essere usati all'inizio di ogni file e prima di ogni metodo; potranno inoltre essere usati anche in altre parti del file (ad esempio all'interno di un metodo). All'interno di una funzione o di un metodo dovranno essere indentati allo stesso livello del codice che descrivono. Questo commento dovr\`a inoltre essere preceduto da una linea bianca per poterlo separare dal resto del codice. \\
  \newline
 Esempio: \\
 \texttt{
@@ -256,7 +257,7 @@ Esempio: \\
 } \\
  \newline
 \subsection{Commenti a linea singola}
-I commenti a linea singola dovranno apparire in una linea singola ed essere usati per brevi commenti, indentandoli al livello del codice che segue. Se un commento non pu\`o essere scritto su una linea singola allora si dovr\`a usare un commento a blocco. Un commento a singola linea dovr\`a essere preceduto da una linea bianca. \\
+Questi commenti dovranno apparire in una linea singola ed essere usati per brevi commenti, indentandoli al livello del codice che segue. Se un commento non pu\`o essere scritto su una linea singola allora si dovr\`a usare un commento a blocco. Dovr\`a essere preceduto da una linea bianca. \\
  \newline
 Esempio: \\
 \texttt{
@@ -284,13 +285,13 @@ Esempio:\\
 }
  \newline
 \section{Dichiarazioni}
-Per facilitare i commenti ci dovr\`a essere una sola dichiarazione per linea. Non si dovranno mettere tipi differenti sulla stessa linea. Le variabili locali dovranno essere inizializzate dove sono dichiarate se ci\`o \`e possibile. Le dichiarazioni dovranno essere posizionate solamente all'inizio dei blocchi di codice. L'unica eccezione che potr\`a essere fatta è per gli indici dei cicli for; in questo caso la dichiarazione potr\`a essere fatta nello statement del ciclo for. Non ci dovranno inoltre essere dichiarazioni che rendono invisibili altre dichiarazioni a livello più alto; non si dovr`a in pratica usare un nome di variabile già usato in un blocco sopra stante.
+Per facilitare i commenti ci dovr\`a essere una sola dichiarazione per linea. Non si dovranno mettere tipi differenti sulla stessa linea. Le variabili locali dovranno essere inizializzate dove sono dichiarate se ci\`o \`e possibile. Le dichiarazioni dovranno essere posizionate solamente all'inizio dei blocchi di codice. L'unica eccezione che potr\`a essere fatta è per gli indici dei cicli for; in questo caso la dichiarazione potr\`a essere fatta nello statement del ciclo for. Non ci dovranno inoltre essere dichiarazioni che rendono invisibili altre dichiarazioni a livello pi\`u alto; non si dovr\`a in pratica usare un nome di variabile gi\`a usato in un blocco soprastante.
 \subsection{Dichiarazioni di Classi o di Interfacce}
 Nella codifica di classi ed interfacce dovranno essere seguite le seguenti regole:
 \begin{itemize}
 \item Non ci dovranno essere spazi tra il nome di un metodo e le parentesi che apre la sua lista dei parametri;
 \item La parentesi graffa che apre un blocco di codice dovr\`a apparire alla fine della stessa linea dello statement di dichiarazione;
-\item La parentesi graffa che chiude un blocco di codice dovr\`a apparire su una linea singola a sé stante, indentata in modo da poter corrispondere la corrispondente parentesi di apertura del blocco, ad eccezione del caso quando lo statement è vuoto nel qual caso;
+\item La parentesi graffa che chiude un blocco di codice dovr\`a apparire su una linea singola a s\`e stante, indentata in modo da potersi allineare alla corrispondente parentesi di apertura del blocco, ad eccezione del caso in cui lo statement sia vuoto;
 \item La parentesi di chiusura apparir\`a subito dopo quella di apertura;
 \item I metodi dovranno essere separati da una linea bianca.
 \end{itemize}
@@ -414,7 +415,7 @@ Nei seguenti casi dovr\`a essere invece usata una una sola linea bianca:
 \item Tra metodi;
 \item Tra le variabili locali in un metodo e il suo primo statement;
 \item Prima di un commento a blocco o un commento a linea singola;
-\item Tra sezioni logiche all'interno di un metodo in modo da migliorare la leggibilità.
+\item Tra sezioni logiche all'interno di un metodo in modo da migliorare la leggibilit\`a.
 \end{itemize}
 Nelle seguenti situazioni dovranno essere usati spazi bianchi:
 \begin{itemize}
@@ -428,7 +429,7 @@ Nelle seguenti situazioni dovranno essere usati spazi bianchi:
 \subsection{Entit\`a}
 Le entit\`a componenti il ``BR-jsys'' verranno identificate usando una notazione al singolare, in carattere minuscolo e con l'iniziale di ogni parola in maiuscolo. Il nome dei campi dato e dei metodi verranno descritti con la stessa notazione, ad eccezione del primo carattere della prima parola che compare in carattere minuscolo.
 \subsection{Relazioni}
-Le relazioni vrranno descritte in minuscolo, utilizzando il nome della tabella da cui se ne prende l'ID preceduto da ``fk_''.
+Le relazioni verranno descritte in minuscolo, utilizzando il nome della tabella da cui se ne prende l'ID preceduto da ``fk\_''.
 
 \end{document}
 
