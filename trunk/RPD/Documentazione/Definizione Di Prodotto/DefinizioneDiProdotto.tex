@@ -177,15 +177,15 @@ Gui possiede i campi dato necessari per comunicare col validatore e col DBMS.
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--compiler: Validator & Rappresenta il validatore per le \br \\ \hline
--repository: GUICommunicator & Collega la componente al DBMS consentendogli di effettuare le Query.\\ \hline
+-compiler:Validator & Rappresenta il validatore per le \br \\ \hline
+-repository:GUICommunicator & Collega la componente al DBMS consentendogli di effettuare le Query.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-\underline{+main(args: String[]):Validator} & Metodo standard in java per l'avvio dell'applicazione. Si incaricher\`a di creare un oggetto Gui\\ \hline
+\underline{+main(args:String[]):Validator} & Metodo standard in java per l'avvio dell'applicazione. Si incaricher\`a di creare un oggetto Gui\\ \hline
 +Gui() & Costruttore per Gui.\\ \hline
 \end{tabular}
 \end{center}
@@ -209,7 +209,7 @@ Validator \`e in relazione con la componente GUI, al fine di rendere possibile l
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--repository: ValidatorCommunicator & Collega la componente al DBMS per inserire la \br\ validata nel \re.\\ \hline
+-repository:ValidatorCommunicator & Collega la componente al DBMS per inserire la \br\ validata nel \re.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
@@ -217,7 +217,7 @@ Attributo & Descrizione \\  \hline
 \hline
 Metodo & Descrizione \\  \hline
 +Validator() & Costruttore di Validator.\\ \hline
-+validate(rule: BusinessRule ): boolean \textbraceleft throws  RecognitionException \textbraceright& Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezione che verr\`a gestita dal chiamante. Se la \br\ viene inserita, il metodo ritorner\`a \textit{true}. Ritorner\`o invece \textit{false} se la regola ha un nome che \`e gi\`a presente nel \re.\\ \hline
++validate(rule:BusinessRule ):boolean \textbraceleft throws  RecognitionException \textbraceright& Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezione che verr\`a gestita dal chiamante. Se la \br\ viene inserita, il metodo ritorner\`a \textit{true}. Ritorner\`o invece \textit{false} se la regola ha un nome che \`e gi\`a presente nel \re.\\ \hline
 \end{tabular}
 \end{center}
 
@@ -234,7 +234,7 @@ La componente, generata tramite un generatore di parser, dispone di numerosi cam
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-+BusinessRuleLexer(input: AntlrStringStream ) & Costruttore del componente.\\ \hline
++BusinessRuleLexer(input: AntlrStringStream) &   Costruttore del componente.\\ \hline
 \end{tabular}
 \end{center}
 
@@ -285,7 +285,7 @@ Attributo & Descrizione \\  \hline
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-+TypeCollisionException(typeA: Class, typeB: Class ) & Costruttore a due parametri che rappresentano i due tipi che sono entrati in conflitto.\\ \hline
++TypeCollisionException(typeA: Class, typeB:Class ) & Costruttore a due parametri che rappresentano i due tipi che sono entrati in conflitto.\\ \hline
 +printStackTrace() & Metodo ridefinito che consente di visualizzare correttamente la struttura dell'errore avvenuto.\\ \hline
 \end{tabular}
 \end{center}
@@ -320,7 +320,7 @@ Attributo & Descrizione \\  \hline
 \hline
 Metodo & Descrizione \\  \hline
 \underline{-generateSimbols():} \underline{HashTable\textless Integer, String \textgreater} & Questo metodo legge il file \textit{BusinessRule.tokens} dal quale ricava tutte le associazioni tra il numero associato al token e la stringa che gli si associa in fase di costruzione dell'attributo \textit{simbols}.\\ \hline
-+parse(AST: Tree, rule: BusinessRule): String & Metodo pubblico che si incarica di effettuare la conversione da AST a stringa che rappresenta l'elemento XML. Si dovr\`a seguire la procedura adeguata per la creazione di un elemento strutturato XML secondo le specifiche delle librerie \textit{org.w3c.dom}\\ \hline
++parse(AST:Tree, rule:BusinessRule): String & Metodo pubblico che si incarica di effettuare la conversione da AST a stringa che rappresenta l'elemento XML. Si dovr\`a seguire la procedura adeguata per la creazione di un elemento strutturato XML secondo le specifiche delle librerie \textit{org.w3c.dom}\\ \hline
 -scanAST(AST: Tree, root: Element, doc: Document) Element & Metodo privato che scorre ricorsivamente l'AST per convertirla in un elemento XML. La regola verr\`a successivamente inserita nel \re. \\ \hline
 \end{tabular}
 \end{center}
@@ -387,9 +387,9 @@ Quando viene istanziata per la prima volta, Communicator inizializza la connessi
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
-\underline{-service: XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su eXist. In particolare faremo in modo di configurarlo affinch\`e faccia query solamente nel \re (posizionato in una posizione specifica nel DBMS).\\ \hline
--correctUsername: String & Memorizza il corretto username utilizzato per l'accesso.\\ \hline
--correctPassword: String & memorizza la corretta password utilizzata per l'accesso.\\ \hline
+\underline{-service:XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su eXist. In particolare faremo in modo di configurarlo affinch\`e faccia query solamente nel \re (posizionato in una posizione specifica nel DBMS).\\ \hline
+-correctUsername:String & Memorizza il corretto username utilizzato per l'accesso.\\ \hline
+-correctPassword:String & memorizza la corretta password utilizzata per l'accesso.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
@@ -414,20 +414,20 @@ GUICommunicator sar\`a strutturata nel seguente modo:
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--queryService: Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
+-queryService:Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-+GUICommunicator(username: String, password: String) & Costruttore del componente, username e password saranno utilizzati per l'istanziazione di queryService. \\ \hline
++GUICommunicator(username: String, password:String) & Costruttore del componente, username e password saranno utilizzati per l'istanziazione di queryService. \\ \hline
 
-+deleteRuleByName(id: String): boolean & Metodo per Cancellare un \br\ dato il suo identificativo. Se la \br\ \`e stata trovata nel \re\ e cancellata ritorner\`a \textit{true}, altrimenti \textit{false}.\\ \hline
++deleteRuleByName(id:String): boolean & Metodo per Cancellare un \br\ dato il suo identificativo. Se la \br\ \`e stata trovata nel \re\ e cancellata ritorner\`a \textit{true}, altrimenti \textit{false}.\\ \hline
 
-+makeQuery(query: String): String & Metodo per eseguire una query in XQuery. Si dovr\`a fare attenzione che la struttura della query non contenga istruzioni XQuery Update che permetterebbero altrimenti all'utente di modificare a piacimento il \re\ rendendolo inconsistente.\\ \hline
++makeQuery(query:String): String & Metodo per eseguire una query in XQuery. Si dovr\`a fare attenzione che la struttura della query non contenga istruzioni XQuery Update che permetterebbero altrimenti all'utente di modificare a piacimento il \re\ rendendolo inconsistente.\\ \hline
 
-+getListRules(): String[]& Metodo che ritorna informazioni riguardo le query scritte nel \re. In particolare, l'array di ritorno avr\`a un elemento per ogni \br nel \re. Ogni elemento conterr\`a nome, regola, \bo associato e eventuale commento.\\ \hline
++getListRules():String[]& Metodo che ritorna informazioni riguardo le query scritte nel \re. In particolare, l'array di ritorno avr\`a un elemento per ogni \br nel \re. Ogni elemento conterr\`a nome, regola, \bo associato e eventuale commento.\\ \hline
 \end{tabular}
 \end{center}
 
@@ -445,7 +445,7 @@ InterpreterCommunicator offre il metodo getRule() per richiedere le \br associat
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--queryService: Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
+-queryService:Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
@@ -453,8 +453,8 @@ Attributo & Descrizione \\  \hline
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-+InterpreterCommunicator( username: String, password: String) & Costuttore con funzionamento analogo a GUICommunicator.\\ \hline
-+getRule(associated: String): NodeList & Dato in input un \bo ritorna tutte le \brs ad esso associate. \\ \hline
++InterpreterCommunicator( username:String, password:String) & Costuttore con funzionamento analogo a GUICommunicator.\\ \hline
++getRule(associated:String): NodeList & Dato in input un \bo ritorna tutte le \brs ad esso associate. \\ \hline
 \end{tabular}
 \end{center}
 
@@ -471,15 +471,15 @@ ValidatorCommunicator offre il metodi insertRule() per inserire la \br\ nel \re.
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Attributo & Descrizione \\  \hline
--queryService: Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
+-queryService:Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 \hline
 Metodo & Descrizione \\  \hline
-ValidatorCommunicator(username: String, password: String) & Costruttore con comportamento analogo a GUICommunicator.\\ \hline
-insertRule(rule: String, idRule: String): boolean & Inserisce la \br\ nel \re\ soltanto se il suo nome non \`e gi\`a presente. Se l'inserimento \`e andato a buon fine ritorner\`a \textit{true}.\\ \hline
+ValidatorCommunicator( username:String, password:String) & Costruttore con comportamento analogo a GUICommunicator.\\ \hline
+insertRule(rule:String, idRule:String):  boolean & Inserisce la \br\ nel \re\ soltanto se il suo nome non \`e gi\`a presente. Se l'inserimento \`e andato a buon fine ritorner\`a \textit{true}.\\ \hline
 \end{tabular}
 \end{center}
 
