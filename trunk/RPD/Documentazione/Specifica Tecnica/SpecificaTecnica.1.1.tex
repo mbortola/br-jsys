@@ -383,7 +383,7 @@ All'avvio della GUI viene visualizzato un messaggio in cui vengono richiesti \te
 Si controlla quindi l'esito del tentativo di connessione; se il tentativo ha dato esito negativo si richiede la \textit{login} e la
  \textit{password} all'utente. Se, al contrario, l'esito e positivo, ossia si ha disposizione una connessione, viene visualizzata la schermata della GUI dalla quale
  possono essere lanciati :\textit{ l'inserimento di una \br} , \textit{l'avvio di una Sandbox}, \textit{la cancellazione di una \br}.
-Nel diagramma queste tre attvit\`a sono rappresentate come delle \textit{sub-activity} che vengono illustrate di seguito. Al termine di ogni operazione l'utente viene riportato alla finestra principale dove pu\`o effettuare una nuova operazione oppure terminare l'esecuzione della GUI stessa.
+Nel diagramma queste tre attivit\`a sono rappresentate come delle \textit{sub-activity} che vengono illustrate di seguito. Al termine di ogni operazione l'utente viene riportato alla finestra principale dove pu\`o effettuare una nuova operazione oppure terminare l'esecuzione della GUI stessa.
 
 \section{Inserisci \br}
 \begin{center}
@@ -401,7 +401,7 @@ La \textit{Sandbox} \`e una finestra il cui scopo \`e permettere ad un utente di
 \begin{center}
  \includegraphics[width=0.7\textwidth, angle=-90]{CancellazioneBusinessRule.eps}
 \end{center}
-Viene inizialmente effettuata una query sul DBMS atta a recuperare un elenco completo delle \brs. Una volta recuperato l'elenco delle \brs\ presenti nel \re\ queste vengono visualizzate sinteticamente in forma tabellare, accompagnate da una \textit{checkbox}. Si attende quindi la selezione/deselezione dell'utente. L'utente notifica al sistema (mediante un bottone) l'intenzione di cancellare le \brs\ selezionate.  Viene poi mostrato un riepilogo delle \brs che verranno eliminate. Se l'utente non conferma il sistema torna ad attendere la selezione. Se invece la rimozione viene confermata, allora si formula la query di rimozione, la quale viene infine eseguita. Al termine della rimozione viene effettuata nuovamente una query di recupero per visualizzare le \brs\ rimaste nel \re.
+Viene inizialmente effettuata una query sul DBMS atta a recuperare un elenco completo delle \brs. Una volta recuperato l'elenco delle \brs\ presenti nel \re\ queste vengono visualizzate sinteticamente in forma tabellare, accompagnate da una \textit{checkbox}. Si attende quindi la selezione/deselezione dell'utente. L'utente notifica al sistema (mediante un bottone) l'intenzione di cancellare le \brs\ selezionate.  Viene poi mostrato un riepilogo delle \brs che verranno eliminate; se l'utente non conferma, il sistema torna ad attendere la selezione. Se, al contrario, la rimozione viene confermata si formula allora la query di rimozione, la quale viene infine eseguita. Al termine della rimozione viene effettuata nuovamente una query di recupero per visualizzare le \brs\ rimaste nel \re.
 
 
 %\chapter{Diagrammi di sequenza}
@@ -409,15 +409,15 @@ Viene inizialmente effettuata una query sul DBMS atta a recuperare un elenco com
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 Dopo aver analizzato il problema attraverso schemi progettuali sono state individuate le risorse necessarie per la realizzazione del prodotto. Con l'utilizzo di software open source siamo riusciti a contenere i costi e contemporaneamente a rendere disponibili tutte le risorse.
-Tutte queste risorse necessarie ai nostri componenti per affrontare le varie problematiche di comunicazione, lo sviluppo del codice, la gestione degli archivi, la verifica dei documenti e del sistema, sono state descritte nel documento \PdQ.
-Nella fase di specifica tecnica e successivamente di progettazione verranno utilizzati diagrammi UML realizzati con \textit{Poseidon for UML Professional edition 6.0.2} nella versione trial in quanto pi\`u completo e usabile rispetto ad altri software simili come ad esempio ArgoUML. Solo i diagrammi use case sono stati realizzati con Dia in quanto progettati prima di affidarsi a Poseidon.
+Tutte le risorse necessarie ai nostri componenti per affrontare le varie problematiche di comunicazione, lo sviluppo del codice, la gestione degli archivi, la verifica dei documenti e del sistema, sono state descritte nel documento \PdQ.
+Nella fase di specifica tecnica e successivamente di progettazione verranno utilizzati diagrammi UML realizzati con \textit{Poseidon for UML Professional edition 6.0.2} (nella versione trial), in quanto pi\`u completo e usabile rispetto ad altri software simili, come ad esempio ArgoUML. Solo i diagrammi use case sono stati realizzati con Dia in quanto progettati prima di affidarsi a Poseidon.
 Il progetto sar\`a realizzato mediante il linguaggio java come da requisito implicito del capitolato. Useremo la versione 6 essendo quella di pi\`u recente sviluppo.
 Per la produzione della Gui e delle classi java abbiamo utilizzato Eclipse versione 3.3.1.1, un IDE in grado di fornire numerose funzionalit\`a per lo sviluppo del software.
 Per la parte riguardante la grammatica, dopo varie ricerche e confronti, ci siamo affidati invece ad Antlr 3.0.1 come generatore di parser e AntlrWorks 1.1.5 come ambiente grafico di sviluppo in quanto offrivano la maggior chiarezza e risposta alle nostre aspettative.
 Tutta la documentazione sar\`a redatta utilizzando Kile 2.0 un user-friendly Tex/Latex editor completo e chiaro nelle sue funzionalit\`a.
 Lo sviluppo avr\`a luogo singolarmente o in piccoli gruppi a seconda della natura della problematica da affrontare.
 Il documento/codice avr\`a ad ogni modo un unico proprietario incaricato di renderlo pubblico tramite server SVN.
-Utilizzando queste risorse e visti i tempi di consegna del prodotto, la ditta HappyCodeInc ritiene quindi soddisfacibili le richieste del committente.
+Utilizzando queste risorse e visti i tempi di consegna del prodotto, la ditta HappyCode ritiene quindi soddisfacibili le richieste del committente.
 Per tempistiche pi\`u dettagliate si rimanda al \PdP.
 
 \chapter{Tracciamento della relazione componenti-requisiti}
