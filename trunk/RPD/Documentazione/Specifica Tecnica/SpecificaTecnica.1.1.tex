@@ -249,7 +249,7 @@ La componente BusinessRuleParser necessita di un TokenStream, fornitogli indiret
 
 \subsection{TypeCollisionException}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, derivata dalla classe org.antlr.runtime.RecognitionException, permette di ricavare informazioni sugli eventuali errori avvenuti in fase di parsing della \br. In definitiva aggiunge alla sua superclasse la possibilit\`a di riportare informazioni su errori di tipo.
+Questa componente, derivata dalla classe\\ org.antlr.runtime.RecognitionException, permette di ricavare informazioni sugli eventuali errori avvenuti in fase di parsing della \br. In definitiva aggiunge alla sua superclasse la possibilit\`a di riportare informazioni su errori di tipo.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -305,7 +305,7 @@ Business Rule contiene i campi dato Stringa per rappesentare una business rule (
 \section{Comunicatore}
 \subsection{Diagramma delle classi}
 \begin{center}
-\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Comunicatore.eps}
+\includegraphics[width=0.4\textwidth, angle=-90]{DiagrammaClassi/Comunicatore.eps}
 \end{center}
 \subsection{Communicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -353,7 +353,7 @@ La componente offre il metodo insertRule() per inserire la \br\ nel \re. L'inser
 
 \chapter{Componenti esterne}
 \begin{center}
- \includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Interprete.eps}
+ \includegraphics[width=0.4\textwidth, angle=-90]{DiagrammaClassi/Interprete.eps}
 \end{center}
 \section{Interprete}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -404,7 +404,7 @@ Nel diagramma queste tre attivit\`a sono rappresentate come delle \textit{sub-ac
 
 \subsection{Inserisci \br}
 \begin{center}
- \includegraphics[width=1.4\textwidth, angle=-90]{InserisciBusinessRule2.eps}
+ \includegraphics[width=1.3\textwidth, angle=-90]{InserisciBusinessRule2.eps}
 \end{center}
 
 All'avvio della finestra di inserimento business rule questa richiede l'immissione dei relativi campi dati. Dall'oggetto \textit{rule} si estrae il codice della regola e lo si trasforma in un array di char per creare il relativo oggetto per la validazione. Viene quindi effettuata l'analisi lessicale esaminando un carattere per volta fino alla terminazione di un token. Una volta in possesso di un token si cerca di identificarlo confrontandolo con gli operatori e le keyword del linguaggio. Se il token non viene identificato viene lanciata un'eccezione \textit{NotViableAltException} che servir\`a per notificare all'utente la presenza di un errore lessicale. Una volta identificato il token si passa all'analisi sintattica ed al controllo dei tipi da parte del parser; tale operazione pu\`o: sollevare una RecognitionException in caso di errore sintattico, sollevare una TypeCollisionException in caso di errore nei tipi. Si procede poi all'analisi dell' ultimo carattere letto. Se questo \`e uno spazio si continua l'analisi della regola. Se eventualmente \`e un carattere inaspettato viene lanciata l'eccezione \textit{NotViableAltException}. Se l'ultimo carattere letto \`e il simbolo terminale della regola (l'ultima posizione dell'array di char), si termina la validazione ritornando un oggetto \textit{org.antlr.runtime.tree.Tree}.
@@ -460,7 +460,7 @@ Per tempistiche pi\`u dettagliate si rimanda al \PdP.
 \begin{table}[hbtp]
 \large{
 \begin{tabular}{l}
-\begin{tabular}{||p{2.8cm}||p{4.8cm}||p{4cm}||} \hline
+\begin{tabular}{||p{2.6cm}||p{4.6cm}||p{2.8cm}||} \hline
 \textbf{Componente} & \textbf{Componente Specifico} & \textbf{Requisiti Associati} \\ \hline
 
 GUI & & F4, F5, F7, F8\\ \hline
