@@ -92,8 +92,8 @@
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 %  -------------------------------------------------------------lista di distribuzione
 {HappyCode inc}& Gruppo di lavoro\\ \hline
-{Tullio Vardanega, Renato Conte}& Rappresentanti del committente \\ \hline 
-{Zucchetti S.r.l}& Azienda committente\\ \hline
+{Tullio Vardanega, Renato Conte}& Committenti \\ \hline 
+{Zucchetti S.r.l}& Azienda proponente\\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -136,7 +136,7 @@ Il presente documento viene redatto al fine di identificare i requisiti presenti
 \section{Scopo del prodotto}
 Il prodotto andr\`a inserito in un progetto pi\`u ampio. Il suo obiettivo \`e quello di testare la consistenza di business objects, altrimenti difficilmente verificabile tramite vincoli relazionali.
 Verr\`a creato quindi un linguaggio per la definizione di business rules. Quest'ultime verranno immagazzinate in un \textit{file repository}; nel momento in cui l'utente avr\`a bisogno di verificare la consistenza di un business object, un interprete si preoccuper\`a di invocare ed eseguire le regole che lo riguardano, stabilendo cos\`i se esso le rispetta tutte o meno.
-Il progetto dovr\`a integrarsi infine con le componenti gi\`a sviluppate dall'azienda committente. In particolare dovr\`a interfacciarsi con il loro interprete, il quale dovr\`a poi applicare le regole ai business objects.
+Il progetto dovr\`a integrarsi infine con le componenti gi\`a sviluppate dall'azienda proponente. In particolare dovr\`a interfacciarsi con il loro interprete, il quale dovr\`a poi applicare le regole ai business objects.
 \section{Definizioni, acronimi, abbreviazioni}
 Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel documento, comprese le sigle utilizzate per il tracciamento dei requisiti.
 \begin{center}
@@ -158,8 +158,8 @@ Per gli altri termini non citati nella tabella soprastante si fa riferimento al 
 \section{Riferimenti}
 \begin{itemize}
 \item Capitolato d'appalto concorso per sistema ``BR-jsys'';
-\item Verbale dell'incontro con il committente ``Incontro2007-11-22.pdf'';
-\item Verbale dell'incontro con il committente ``Incontro2008-02-05.pdf'';
+\item Verbale dell'incontro con il proponente ``Incontro2007-11-22.pdf'';
+\item Verbale dell'incontro con il proponente ``Incontro2008-02-05.pdf'';
 \item ``Ingegneria del Software'' 8a edizione - Ian Sommerville.
 \end{itemize}
 %----------------------------------------------------------------------------------inserire il libro 
@@ -174,7 +174,7 @@ Il sistema si occupa di definire un linguaggio con cui descrivere business rules
 \section{Caratteristiche utente}
 Il sistema andr\`a inserito all'interno di un progetto pi\`u ampio, il cui utente finale \`e un individuo esperto in ambito commerciale e gestionale, ma non necessariamente in ambito informatico.
 \section{Vincoli generali}
-Il linguaggio di programmazione adottato per lo sviluppo del prodotto sar\`a Java. Il sistema dovr\`a inoltre potersi interfacciare con le componenti gi\`a sviluppate dall'azienda committente. 
+Il linguaggio di programmazione adottato per lo sviluppo del prodotto sar\`a Java. Il sistema dovr\`a inoltre potersi interfacciare con le componenti gi\`a sviluppate dall'azienda proponente. 
 \section{Presupposti e dipendenze}
 \begin{itemize}
 \item{Le business rules su cui si opera saranno di tipo \textit{Rejector}. Una business rule deve essere composta da uno o pi\`u confronti tra espressioni dello stesso tipo (eventualmente complesse).}
