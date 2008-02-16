@@ -34,7 +34,7 @@
 
 
 %definizione variabili 
-\newcommand{\lv}{ 0.8 } % latest version
+\newcommand{\lv}{ 1.0 } % latest version
 \newcommand{\dt}{ Specifica Tecnica }% Document title
 \newcommand{\Glossario}{ Glossario.1.4.pdf }
 \newcommand{\PdQ}{ PianoDiQualifica.1.1.pdf }
@@ -105,6 +105,7 @@
 \begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
 %-------------------------------------------------------------------------------diario modifiche
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
+1.0 & 16/02/2008 & Inserimento diagramma di collaborazione e diagramma di sequenza. \\ \hline
 0.9 & 15/02/2008 & Correzione grammaticale \\ \hline
 0.8 & 12/02/2008 & Modifiche ai diagrammi di attivit\`a e alle loro descrizioni\\ \hline
 0.7 & 08/02/2008 & Aggiunta dei diagrammi di attivit\`a e rispettive descrizioni\\ \hline
@@ -359,23 +360,23 @@ Previa una connessione corretta, il DBMS mette a disposizione un'interfaccia XPa
 \subsubsection{Attivit\`a svolte e dati trattati}
 Una corretta autenticazione far\`a in modo che l'interfaccia di tipo XPathQueryService possa interagire col \re tramite il metodo query(). Quest'ultimo accetta come parametro una query impostata secondo le specifiche XQuery.
 
+\chapter{Diagrammi}
+\section{Diagrammi di attivit\`a}
 
-\chapter{Diagrammi di attivit\`a}
 
-
-\section{Server DBMS}
+\subsection{Server DBMS}
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{Server.eps}
 \end{center}
 Il server DBMS, con il quale interagisce il prodotto ``BR-jsys'', viene avviato. Una volta completata la procedura di avvio, entra in uno stato di attesa di richieste da parte della GUI e dell'interprete. Ricevuta una richiesta, la relativa query viene inviata al DBMS e il risultato/esito della query viene ritornato all'utente. Il server torna quindi in uno stato di attesa finch\`e eventualmente viene spento.
 
-\section{Richiesta dell'interprete}
+\subsection{Richiesta dell'interprete}
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{RichiestadellInterprete.eps}
 \end{center}
 L'interprete invia la richiesta al sistema, il quale formula la query da inviare al DBMS. La query viene quindi eseguita e il risultato viene tornato all'interprete sottoforma di un oggetto \textit{org.w3c.dom.NodeList}.
 
-\section{GUI}
+\subsection{GUI}
 \begin{center}
  \includegraphics[width=1\textwidth, angle=-90]{GUI.eps}
 \end{center}
@@ -384,7 +385,7 @@ Si controlla quindi l'esito del tentativo di connessione; se il tentativo ha dat
  \textit{password} all'utente. Se, al contrario, l'esito e positivo, ossia si ha disposizione una connessione, viene visualizzata la schermata della GUI dalla quale  possono essere lanciati :\textit{ l'inserimento di una \br}, \textit{l'avvio di una Sandbox}, \textit{la cancellazione di una \br}.
 Nel diagramma queste tre attivit\`a sono rappresentate come delle \textit{sub-activity} che vengono illustrate di seguito. Al termine di ogni operazione l'utente viene riportato alla finestra principale dove pu\`o effettuare una nuova operazione oppure terminare l'esecuzione della GUI stessa.
 
-\section{Inserisci \br}
+\subsection{Inserisci \br}
 \begin{center}
  \includegraphics[width=1.4\textwidth, angle=-90]{InserisciBusinessRule2.eps}
 \end{center}
@@ -394,31 +395,34 @@ Dall'oggetto viene estratto l'AST e istanziare org.antlr.runtime.tree.CommonTree
 
 
 
-\section{Sandbox}
+\subsection{Sandbox}
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{Sandbox.eps}
 \end{center}
 La \textit{Sandbox} \`e una finestra il cui scopo \`e permettere ad un utente di eseguire dei test sul repository. Viene quindi fornito uno spazio in cui digitare una query. La query viene inviata al DBMS ed eseguita. Vengono infine presentati a video i risultati della query evidenziando il tempo impiegato per ottenerli. L'utente pu\`o poi terminare la finestra \textit{Sandbox} o inserire una nuova query.
 
-\section{Cancellazione \br}
+\subsection{Cancellazione \br}
 \begin{center}
  \includegraphics[width=0.7\textwidth, angle=-90]{CancellazioneBusinessRule.eps}
 \end{center}
 Viene inizialmente effettuata una query sul DBMS atta a recuperare un elenco completo delle \brs. Una volta recuperato l'elenco delle \brs\ presenti nel \re\ queste vengono visualizzate sinteticamente in forma tabellare, accompagnate da una \textit{checkbox}. Si attende quindi la selezione/deselezione dell'utente. L'utente notifica al sistema (mediante un bottone) l'intenzione di cancellare le \brs\ selezionate.  Viene poi mostrato un riepilogo delle \brs che verranno eliminate; se l'utente non conferma, il sistema torna ad attendere la selezione. Se, al contrario, la rimozione viene confermata si formula allora la query di rimozione, la quale viene infine eseguita. Al termine della rimozione viene effettuata nuovamente una query di recupero per visualizzare le \brs\ rimaste nel \re.
 
-\chapter{Diagrammi di collaborazione}
-Viene presentato di seguito un diagramam di collaborazione riguardante le relazioni tra le classi utilizzate nella cancellazione di una \br\ dal \re.
-\section{Cancellazione \br}
+\section{Diagrammi di collaborazione}
+Viene presentato di seguito un diagramma di collaborazione riguardante le relazioni tra le classi utilizzate nella cancellazione di una \br\ dal \re.
+
+\subsection{Cancellazione \br}
 \begin{center}
  \includegraphics[width=0.7\textwidth, angle=-90]{Cancellazione-cld.eps}
 \end{center}
 L'utente chede di cancellare una \br\ alla GUI. Questa richiesta provoca innanzitutto l'invocazione di \textit{getListRules()} (1.1) sul campo dati \textit{\re\ } della GUI. L'oggetto \re\ che appartiene alla classe \textit{GuiCommunicator} invoca \textit{makeQuery(list)} (1.2) per recuperare la lista di \brs\ dal \re. E di conseguenza verr\`a invocata \textit{query()} (1.3) sull'oggetto \textit{servic}e della classe \textit{XPathQuery} che si occuperà i eseguire la query. Il risultato verr\`a riportato alla GUI mediante l'oggetto \textit{result} della classe \textit{ResourseSet} che conterrà appunto il risultato della query eseguita. Una volta poi effettuta la selezione delle \brs\ da rimuovere viene invocato il metodo \textit{deleteRuleByName(id)} (2). Vengono quindi invocati gli stessi metodi (2.1,2.2) utilizzati precedentemente, ma questa volta la query eseguita ritorner\`a un \textit{result} vuoto perch\`e \`e una query di cancellazione e quindi \textit{deleteRuleByName(id)} si limiter\`a tornare un \textit{Boolean} che indichi l'esito positivo o negativo della cancellazione.
 
-\chapter{Diagrammi di sequenza}
-\section{Interpretazione}
+\section{Diagrammi di sequenza}
+Viene di seguito illustrato un diagramma di sequenza che chiarisca la sequenza di chiamate e invocazioni fatte dall'interprete nella richiesta di \brs\ al sistema \textit{BR-jsys}. Non riuscendo a definire operazioni interne diverse dalla ricorsione in \textit{Poseidon}, le operazioni interne \textit{costruzione query} e \textit{conversione} sono state realizzate con delle frecce vuote indicanti un messaggio asincrono, piuttosto che delle frecce piene. Tali messaggi sono da intendersi tuttavia come messaggi sincroni.
+\subsection{Interpretazione}
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{Interpretazione-cld.eps}
 \end{center}
+L'interprete chiama \textit{getRule()} su un suo campo dati interno appartenente alla classe \textit{InterpreteCommunicator}. Il metodo getRule() viene invocato con un parametro di tipo \textit{String} contenente il nome del \bo\ associato. Viene poi costruita la query che viene lanciata mediante il metodo \textit{makeQuery} dell'oggetto \textit{queryService}. La query viene poi eseguita dal metodo \textit{query} dell'oggetto \textit{service}. Viene poi ritornato un \textit{resourceSet} che verr\`a convertito in un \textit{nodeList} e ritornato all'interprete. Il messaggio 3) \`e un messaggio con ritardo, ma non siamo riusciti a rappresentarlo con \textit{Poseidon}.
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 Dopo aver analizzato il problema attraverso schemi progettuali sono state individuate le risorse necessarie per la realizzazione del prodotto. Con l'utilizzo di software open source siamo riusciti a contenere i costi e contemporaneamente a rendere disponibili tutte le risorse.
@@ -439,7 +443,7 @@ Per tempistiche pi\`u dettagliate si rimanda al \PdP.
 \begin{table}[hbtp]
 \large{
 \begin{tabular}{l}
-\begin{tabular}{||p{3cm}||p{5cm}||p{6cm}||} \hline \hline
+\begin{tabular}{||p{2.8cm}||p{4.8cm}||p{4cm}||} \hline
 \textbf{Componente} & \textbf{Componente Specifico} & \textbf{Requisiti Associati} \\ \hline
 
 GUI & & F4, F5, F7, F8\\ \hline
