@@ -27,6 +27,14 @@
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
 }
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\rfoot{\dt - \lv}
+	\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
 
 \begin{document}
 
@@ -59,7 +67,7 @@
 \large{
 \begin{tabular}{l}
 \Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
-\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\begin{tabular}{||p{5cm}||p{5cm}||} \hline
 \textbf{Data creazione:} & 19/11/07 \\ \hline
 \textbf{Versione:} & \lv \\ \hline
 \textbf{Stato del documento:} & Formale, esterno \\ \hline
@@ -95,7 +103,7 @@
 \large{
 \begin{tabular}{l}
 \Large{\textbf{\textsf{Diario delle modifiche}}} \\
-\begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||}
+\begin{tabular}{||p{2cm}||p{3cm}||p{5cm}||}
 \hline
 %-------------------------------------------------------------------------------diario modifiche
 \textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
@@ -214,7 +222,7 @@ Per una completa e chiara tracciabilit\`a componenti-requisiti, ogni componente,
 In questa sezione intendiamo elencare la descrizione dei vari test che successivamente effettueremo sui requisiti.
 
 \subsubsection{Requisito F1}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Creare un linguaggio per le business rules \\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -225,7 +233,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito F2}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Testare la correttezza sintattica di ogni business rule \\ \hline
 {\textbf{Dipendenze:}}& F1 \\ \hline
@@ -236,7 +244,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito F3}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Testare il corretto inserimento delle business rules nel repository\\ \hline
 {\textbf{Dipendenze:}}& F2 \\ \hline
@@ -247,7 +255,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito F4}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Informare l'utente dell'avvenuta o meno validazione delle business rules appena inserite e del tempo trascorso, attraverso una notifica il pi\`u possibile chiara ed esaustiva\\ \hline
 {\textbf{Dipendenze:}} & F2, F3, NU3 \\ \hline
@@ -258,7 +266,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito F5}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Testare l'efficienza in termini di tempo di risposta del DBMS di appoggio al repository \\ \hline
 {\textbf{Dipendenze:}}& F2, F3, F4\\ \hline
@@ -269,7 +277,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito F6}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Il sistema deve essere in grado di interfacciarsi con l'interprete esterno, fornendo ad esso le business rules da eseguire \\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -280,7 +288,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito F7}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Testare la correttezza della cancellazione di una business rule dal repository e controllo dei risultati ottenuti\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -291,7 +299,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito F8}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Creare interfaccia per l'inserimento/rimozione di Business Rules e verificare il corretto funzionamento\\ \hline
 {\textbf{Dipendenze:}}& F3, F4, F7 \\ \hline
@@ -302,7 +310,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito F9}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& REQUISITO DEPRECATO\\ \hline
 {\textbf{Dipendenze:}}& \\ \hline
@@ -313,7 +321,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito F10}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Consentire al validatore di accedere ai campi del business object associato alla business rule da validare \\ \hline
 {\textbf{Dipendenze:}}& F11\\ \hline
@@ -324,7 +332,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito F11}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Testare che ad ogni business rule sia associato un business object \\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -335,7 +343,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito NU1}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Creare un linguaggio di alto livello, facile da capire per un utente con scarse conoscenze informatiche\\ \hline
 {\textbf{Dipendenze:}}& F1\\ \hline
@@ -346,7 +354,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito NU2}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Il linguaggio deve fornire funzioni primitive per le operazioni base tra i dati, come la somma, la media aritmetica e la negazione logica \\ \hline
 {\textbf{Dipendenze:}}& F1 \\ \hline
@@ -357,7 +365,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito NU3}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf{Obiettivo Prova:}}& Verificare la chiarezza e completezza dei messaggi d'errore\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -368,7 +376,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito NPo1}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf{Obiettivo Prova:}}& Il formato di salvataggio delle business rules e del repository dovr\`a essere XML.\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -379,7 +387,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito NPr1}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf{Obiettivo Prova:}}& Testare la velocit\`a di interrogazione del DBMS\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -390,7 +398,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito NPr2}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf{Obiettivo Prova:}}& Rendere univoca l'identificazione delle business rules all'interno del repository \\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
@@ -401,7 +409,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito NQ1}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf{Obiettivo Prova:}}& Testare tutte le operazioni consentite dal linguaggio creato e la loro validazione\\ \hline
 {\textbf{Dipendenze:}}& F1, F3, F7 \\ \hline
@@ -412,7 +420,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito NQ2}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Testare che il manuale descriva il linguaggio di definizione delle business rules \\ \hline
 {\textbf{Dipendenze:}}&  F1, F8 \\ \hline
@@ -423,7 +431,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \\
 \\
 \subsubsection{Requisito NQ3}
-\begin{tabular}{||p{4.5cm}||p{7.5cm}||}
+\begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
 {\textbf {Obiettivo Prova:}}& Descrivere le API relative al validatore e al DBMS\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
