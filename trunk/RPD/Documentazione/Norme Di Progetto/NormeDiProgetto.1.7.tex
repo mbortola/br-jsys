@@ -248,7 +248,7 @@ Quando un'espressione non sta su una singola linea, la si dovr\`a interrompere s
 
 
 \section{Commenti}
-Ci potranno essere due tipi di commenti: di documentazione e di implementazione. Quest'ultimi possono essere a loro volta suddivisi in: commenti a blocco, a linea singola e commenti alla fine della linea.
+Ci potranno essere due tipi di commenti: di implementazione e di documentazione. Quest'ultimi possono essere a loro volta suddivisi in: commenti a blocco, a linea singola e commenti alla fine della linea.
 \begin{itemize}
 \item I commenti di implementazione, delimitati da \texttt{/*...*/} e \texttt{//}, sono commenti riguardanti il codice nell'ottica della sua particolare implementazione.
 \item I commenti di documentazione, delimitati da \texttt{/**...*/}, descrivono la specifica del codice astraendo dall'implementazione.
@@ -292,7 +292,7 @@ Esempio:\\
 }
  \newline
 \section{Dichiarazioni}
-Per facilitare i commenti ci dovr\`a essere una sola dichiarazione per linea. Non si dovranno mettere tipi differenti sulla stessa linea. Le variabili locali dovranno essere inizializzate dove sono dichiarate se ci\`o \`e possibile. Le dichiarazioni dovranno essere posizionate solamente all'inizio dei blocchi di codice. L'unica eccezione che potr\`a essere fatta è per gli indici dei cicli for; in questo caso la dichiarazione potr\`a essere fatta nello statement del ciclo for. Non ci dovranno inoltre essere dichiarazioni che rendono invisibili altre dichiarazioni a livello pi\`u alto; non si dovr\`a in pratica usare un nome di variabile gi\`a usato in un blocco soprastante.
+Per facilitare i commenti ci dovr\`a essere una sola dichiarazione per linea. Non si dovranno mettere tipi differenti sulla stessa linea. Le variabili locali dovranno essere inizializzate dove sono dichiarate se ci\`o \`e possibile. Le dichiarazioni dovranno essere posizionate solamente all'inizio dei blocchi di codice. L'unica eccezione che potr\`a essere fatta è per gli indici dei cicli \textit{for}; in questo caso la dichiarazione potr\`a essere fatta nello statement del ciclo \textit{for}. Non ci dovranno inoltre essere dichiarazioni che rendono invisibili altre dichiarazioni a livello pi\`u alto; non si dovr\`a in pratica usare un nome di variabile gi\`a usato in un blocco soprastante.
 \subsection{Dichiarazioni di Classi o di Interfacce}
 Nella codifica di classi ed interfacce dovranno essere seguite le seguenti regole:
 \begin{itemize}
@@ -348,7 +348,7 @@ Gli statement del tipo if-else dovranno avere la seguente forma:\\
 }
 Da notare che gli statement if devono sempre usare le parentesi graffe.
 \subsection{Statements for}
-Uno statement for dovr\`a avere la seguente forma: \newline
+Uno statement \textit{for} dovr\`a avere la seguente forma: \newline
 \texttt{
 	 \newline
 	for (inizializzazioni; condizioni; incrementi)\{ \\
@@ -357,7 +357,7 @@ Uno statement for dovr\`a avere la seguente forma: \newline
 	\}
 }
 \subsection{Statements while e do-while}
-Uno statement while dovr\`a avere la seguente forma:\newline
+Uno statement \textit{while} dovr\`a avere la seguente forma:\newline
 \texttt{
 	 \newline
 	while (condizioni)\{ \\
@@ -366,7 +366,7 @@ Uno statement while dovr\`a avere la seguente forma:\newline
 	\}
 }\newline
  \newline
-Uno statement do-while deve avere la seguente forma: \newline
+Uno statement \textit{do-while} deve avere la seguente forma: \newline
 \texttt{
 	 \newline
 	do \{ \\
@@ -375,7 +375,7 @@ Uno statement do-while deve avere la seguente forma: \newline
 	\} while (condizioni);
 }
 \subsection{Statements switch case}
-Uno statement switch dovr\`a avere la seguente forma:\newline
+Uno statement \textit{switch} dovr\`a avere la seguente forma:\newline
 \texttt{
 	 \newline
 	switch (condizioni) \{ \\
@@ -394,9 +394,9 @@ Uno statement switch dovr\`a avere la seguente forma:\newline
 	\}
 }\newline
  \newline
-Ogni statement switch deve includere un caso di default.
+Uno statement \textit{switch} deve includere un caso di \textit{default}.
 \subsection{Statements try-catch}
-Uno statement try-catch dovr\`a avere il seguente formato:\newline
+Uno statement \textit{try-catch} dovr\`a avere il seguente formato:\newline
 \texttt{
 	 \newline
 	try \{ \\
@@ -428,8 +428,7 @@ Nelle seguenti situazioni dovranno essere usati spazi bianchi:
 \begin{itemize}
 \item Una parola chiave seguita da una parentesi dovr\`a essere separata da uno spazio bianco. Da notare che uno spazio bianco non deve essere usato tra il nome di un metodo e la sua parentesi di apertura;
 \item Uno spazio bianco dovr\`a apparire dopo le virgole nelle liste degli argomenti;
-\item Tutti gli operatori binari ad eccezione di “.” dovranno essere separati dagli operandi con spazi bianchi;
-\item Le espressioni in uno statement for dovranno essere separate da spazi bianchi.
+\item Le espressioni in uno statement \textit{for} dovranno essere separate da spazi bianchi.
 \end{itemize}
 
 \section{Standard di denominazione di entit\`a e relazioni}
