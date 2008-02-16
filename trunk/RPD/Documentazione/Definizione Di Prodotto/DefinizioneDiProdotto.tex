@@ -27,6 +27,14 @@
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
 }
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\rfoot{\dt - \lv}
+	\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
 
 \begin{document}
 
@@ -175,7 +183,6 @@ Gui possiede i campi dato necessari per comunicare col validatore e col DBMS.
 \begin{center}
 
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Attributo & Descrizione \\  \hline
 -compiler:Validator & Rappresenta il validatore per le \br \\ \hline
 -repository:GUICommunicator & Collega la componente al DBMS consentendogli di effettuare le query.\\ \hline
@@ -183,7 +190,6 @@ Attributo & Descrizione \\  \hline
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Metodo & Descrizione \\  \hline
 \underline{+main(args:String[]):Validator} & Metodo standard in java per l'avvio dell'applicazione. Si incaricher\`a di creare un oggetto Gui\\ \hline
 +Gui() & Costruttore per Gui.\\ \hline
@@ -207,14 +213,12 @@ Validator \`e in relazione con la componente GUI, al fine di rendere possibile l
 
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Attributo & Descrizione \\  \hline
 -repository:ValidatorCommunicator & Collega la componente al DBMS per inserire la \br\ validata nel \re.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Metodo & Descrizione \\  \hline
 +Validator() & Costruttore di Validator.\\ \hline
 +validate(rule:BusinessRule ):boolean \textbraceleft throws  RecognitionException \textbraceright& Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezione che verr\`a gestita dal chiamante. Se la \br\ viene inserita, il metodo ritorner\`a \textit{true}. Ritorner\`o invece \textit{false} se la regola ha un nome che \`e gi\`a presente nel \re.\\ \hline
@@ -232,7 +236,6 @@ La componente BusinessRuleParser necessita della componente BusinessRuleLexer. Q
 La componente, generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i token della grammatica, nonch\`e vari metodi per la loro gestione. In definitiva si dovra\`a usare solo il suo costruttore.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Metodo & Descrizione \\  \hline
 +BusinessRuleLexer(input: AntlrStringStream) &   Costruttore del componente.\\ \hline
 \end{tabular}
@@ -250,7 +253,6 @@ Questa componente necessita di un TokenStream, fornitogli indirettamente da Busi
 Questa componente, generata tramite un generatore automatico di parser, fornisce i campi dato per il riconoscimento dei token in appoggio a quelli gi\`a forniti dalla componente \brp. Contiene vari metodi privati per il controllo sintattico e semantico, per il parsing e contiene infine classi innestate incaricate di generare l'AST.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Attributo & Descrizione \\  \hline
 +endParsing: BusinessRuleParser.start\_return & Campo dati che contiene l'AST da convertire in XML.\\ \hline 
 \end{tabular}
@@ -275,7 +277,6 @@ La componente TypeCollisionException \`e utilizzata da \brp\ per sollevare eccez
 Viene ridefinito il metodo printStackTrace() e messo a disposizione un costruttore per avere informazioni sui tipi che si sono rivelati incompatibili.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Attributo & Descrizione \\  \hline
 -first:Class & Identifica il tipo del primo elemento che ha causato un'operazione incompatibile. \\ \hline
 -second:Class & Identifica il tipo del secondo elemento che ha causato un'operazione incompatibile \\ \hline
@@ -283,7 +284,6 @@ Attributo & Descrizione \\  \hline
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Metodo & Descrizione \\  \hline
 +TypeCollisionException(typeA: Class, typeB:Class ) & Costruttore a due parametri che rappresentano i due tipi che sono entrati in conflitto.\\ \hline
 +printStackTrace() & Metodo ridefinito che consente di visualizzare correttamente la struttura dell'errore avvenuto.\\ \hline
@@ -310,14 +310,12 @@ La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XML
 XMLParser contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML. Dispone inoltre di una tabella Hash statica che serve per associare i valori numerici che il parser usa per identificare i token ai nomi dei tokens definiti dall'utente.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Attributo & Descrizione \\  \hline
 \underline{-simbols:}\underline{HashTable\textless Integer,String\textgreater}& Nell'AST il tipo di token viene rappresentato tramite un numero univoco. Per poter associare in maniera rapida i tokens ai numeri che li rappresentano \`e dunque necessario generare una tabella Hash. Le informazioni riguardo l'associazione sono riportate in un file di nome \textit{BusinessRule.tokens} generato automaticamente dal generatore di parser.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Metodo & Descrizione \\  \hline
 \underline{-generateSimbols():} \underline{HashTable\textless Integer, String \textgreater} & Questo metodo legge il file \textit{BusinessRule.tokens} dal quale ricava tutte le associazioni tra il numero associato al token e la stringa che gli si associa in fase di costruzione dell'attributo \textit{simbols}.\\ \hline
 +parse(AST:Tree, rule:BusinessRule): String & Metodo pubblico che si incarica di effettuare la conversione da AST a stringa che rappresenta l'elemento XML. Si dovr\`a seguire la procedura adeguata per la creazione di un elemento strutturato XML secondo le specifiche delle librerie \textit{org.w3c.dom}\\ \hline
@@ -352,7 +350,6 @@ La componente Validator effettua la validazione di un'istanza di \BR, tramite la
 La componente contiene i campi dato Stringa per rappresentare una business rule ossia name, associatedObject, rule e comment, quest'ultima pu\`o non essere istanziata. Vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Attributo & Descrizione \\  \hline
 +name:String &  Denota il nome della \br.\\ \hline
 +associated:String & Denota il \bo\ assocato.\\ \hline
@@ -362,7 +359,6 @@ Attributo & Descrizione \\  \hline
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Metodo & Descrizione \\  \hline
 BusinessRule(nameR: String , associatedR: String, ruleR: String, commentR: String) & Costruttore di BusinessRule.\\ \hline
 \end{tabular}
@@ -371,7 +367,7 @@ BusinessRule(nameR: String , associatedR: String, ruleR: String, commentR: Strin
 \section{Comunicatore}
 \subsection{Diagramma delle classi}
 \begin{center}
-\includegraphics[width=0.5\textwidth, angle=-90]{DiagrammaClassi/Comunicatore.eps}
+\includegraphics[width=0.4\textwidth, angle=-90]{DiagrammaClassi/Comunicatore.eps}
 \end{center}
 Durante la fase di progettazione, la nostra azienda ha fatto diversi studi sui DBMS in grado di trattare basi di dati XML. Si \`e infine presa la decisione di adottare eXist in quanto oltre ad essere stato consigliato dal proponente, si \`e rivelato il pi\`u adatto alle nostre esigenze. EXist oltre a garantire buone prestazioni, mette a disposizione pi\`u funzionalit\`a rispetto ai suoi concorrenti e consente di sviluppare applicazioni java che si interfacciano al DBMS stesso.
 \subsection{Communicator}
@@ -385,7 +381,6 @@ Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator n
 Quando viene istanziata per la prima volta, Communicator inizializza la connessione al DBMS, tramite la definizione di una variabile statica. Quest'ultima consentir\`a successivamente di interrogare il \re direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Attributo & Descrizione \\  \hline
 \underline{-service:XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su eXist. In particolare faremo in modo di configurarlo affinch\`e faccia query solamente nel \re (posizionato in una posizione specifica nel DBMS).\\ \hline
 -correctUsername:String & Memorizza il corretto username utilizzato per l'accesso.\\ \hline
@@ -394,7 +389,6 @@ Attributo & Descrizione \\  \hline
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Metodo & Descrizione \\  \hline
 +Communicator(username: String, password: String) & Costruttore di Communicator. Nel caso si acceda alla classe per la prima volta durante l'esecuzione del programma si istanzierà l'attributo service. Se la connessione andr\`a a buon fine gli attributi ``correctUsername'' e ``correctPassword'' verranno settati ai valori corrispondenti. Se l'attributo service \`e gi\`a stato istanziato non si far\`a altro che assicurarsi che i parametri in ingresso al costruttore corrispondano a quelli presenti negli attributi.\\ \hline
 +makeQuery(query: String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche XQuery la esegue e ne restituisce il risultato. Si dovr\`a gestire il caso di query mal formata. \\ \hline
@@ -412,14 +406,12 @@ GUICommunicator viene messa in relazione con la componente GUI, dalla quale rice
 GUICommunicator sar\`a strutturata nel seguente modo:
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Attributo & Descrizione \\  \hline
 -queryService:Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Metodo & Descrizione \\  \hline
 +GUICommunicator(username: String, password:String) & Costruttore del componente, username e password saranno utilizzati per l'istanziazione di queryService. \\ \hline
 
@@ -443,7 +435,6 @@ InterpreterCommunicator deve soltanto fornire al chiamamte le \brs\ associate al
 
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Attributo & Descrizione \\  \hline
 -queryService:Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
 \end{tabular}
@@ -451,7 +442,6 @@ Attributo & Descrizione \\  \hline
 \begin{center}
 
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Metodo & Descrizione \\  \hline
 +InterpreterCommunicator( username:String, password:String) & Costuttore con funzionamento analogo a GUICommunicator.\\ \hline
 +getRule(associated:String): NodeList & Dato in input un \bo ritorna tutte le \brs ad esso associate. \\ \hline
@@ -469,14 +459,12 @@ ValidatorCommunicator viene messa in relazione con la componente Validator per e
 ValidatorCommunicator deve soltanto occuparsi di inserire la \br\ nel \re. L'inserimento avverr\`a soltanto se la \br\ ha un nome che non \`e ancora presente nel \re.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Attributo & Descrizione \\  \hline
 -queryService:Communicator & Permette alla componente di colloquiare con eXist.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
-\hline
 Metodo & Descrizione \\  \hline
 +ValidatorCommunicator( username:String, password:String) & Costruttore con comportamento analogo a GUICommunicator.\\ \hline
 +insertRule(rule:String, idRule:String):  boolean & Inserisce la \br\ nel \re\ soltanto se il suo nome non \`e gi\`a presente. Se l'inserimento \`e andato a buon fine ritorner\`a \textit{true}.\\ \hline
@@ -486,11 +474,10 @@ Metodo & Descrizione \\  \hline
 \chapter{Appendice}
 \section{Tracciamento relazione componenti - requisiti}
 
-\begin{tabular}{||p{4.8cm}||p{5.3cm}||p{3.9cm}||}\hline
-\hline
+\begin{tabular}{||p{4cm}||p{5cm}||p{3cm}||}\hline
 Componente & Metodo Associato & Requisiti \\\hline
 Gui & +Gui() & F4, F5, F7, F8 \\\cline{2-3}
-& +main(args:String[]) & \bigskip \\\hline
+& +main(args:String[]) & -- \\ \hline
 
 Validator & +Validator() & F2, F5, F8 \\\cline{2-3}
 & +validate() & F2, F3, F4, F5, F8, Npr1, NQ1 \\\hline
@@ -507,7 +494,7 @@ XMLParser & -generateSimbols() & NPo1 \\\cline{2-3}
 & +parse() & NPo1 \\\cline{2-3}
 & -scanAST() & NPo1 \\\hline
 
-businessobject & \bigskip & F2, F10, F11 \\\hline
+businessobject & -- & F2, F10, F11 \\\hline
 
 BusinessRule & +BusinessRule() & F2, F10, F11, NU1, NU2, NU3, NQ1 \\\hline
 
