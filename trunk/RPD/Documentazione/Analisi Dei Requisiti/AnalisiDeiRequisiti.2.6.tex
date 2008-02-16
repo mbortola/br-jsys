@@ -212,7 +212,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \underline{Postcondizioni} La business rule pu\`o avanzare al successivo controllo.
 
 \subsection{Controlla la semantica.}
-\underline{Scopo e descrizione sintetica:} Si controllano i tipi nella nuova business rule e si verificano che i campi dati utilizzati siano realmente presenti nel business object associato.\\
+\underline{Scopo e descrizione sintetica:} Si controllano i tipi nella nuova business rule e si verifica che i campi dati utilizzati siano realmente presenti nel business object associato.\\
 \underline{Flusso di eventi:} Vengono controllati i tipi nella business rule e la corrispondenza tra i campi dati usati nella business rule e quelli presenti nel business object ad essa associato.\\
 \underline{Precondizioni:} Il validatore ha inviato la business rule al controllo semantico.\\
 \underline{Postcondizioni} La business rule \`e pronta per essere inserita nel \textit{repository}.
@@ -293,7 +293,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \section{Requisiti prestazionali}
 \begin{itemize}
  \item[NPr1]{Il DBMS che andr\`a a interagire con il repository dovr\`a garantire una buona velocit\`a nell'interrogazione (mediante query) del file XML, anche in presenza di un consistente popolamento dello stesso. [I02]}
-\item[NPr2]{Ad ogni business rule deve venire associata una stringa identificativa univoca per consentire un'efficiente indicizzazione business rules nel repository. [I02]}
+\item[NPr2]{Ad ogni business rule deve venire associata una stringa identificativa univoca per consentire un'efficiente indicizzazione delle business rules nel repository. [I02]}
 \end{itemize}
 
 \section{Requisiti di qualit\`a}
