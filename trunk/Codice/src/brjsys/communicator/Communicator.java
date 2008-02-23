@@ -1,5 +1,7 @@
 package brjsys.communicator;
 
-public class Communicator {
+import org.xmldb.api.modules.XPathQueryService;
 
+public class Communicator {
+	private XPathQueryService service=null;
 }
