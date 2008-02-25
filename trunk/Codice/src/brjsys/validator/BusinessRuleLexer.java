@@ -1,5 +1,6 @@
-// $ANTLR 3.0.1 /home/1/2006/mbortola/br-jsys/Codice/src/brjsys/files/BusinessRule.g 2008-02-25 09:25:56
 package brjsys.validator;
+
+// $ANTLR 3.0.1 /home/1/2006/mbortola/br-jsys/Codice/src/brjsys/files/BusinessRule.g 2008-02-25 10:16:58
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -38,8 +39,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mT21() throws RecognitionException {
         try {
             int _type = T21;
-            // /home/1/2006/mbortola/br-jsys/Codice/src/brjsys/files/BusinessRule.g:4:5: ( '(' )
-            // /home/1/2006/mbortola/br-jsys/Codice/src/brjsys/files/BusinessRule.g:4:7: '('
+            // /home/1/2006/mbortola/br-jsys/Codice/src/brjsys/files/BusinessRule.g:3:5: ( '(' )
+            // /home/1/2006/mbortola/br-jsys/Codice/src/brjsys/files/BusinessRule.g:3:7: '('
             {
             match('('); 
 
@@ -56,8 +57,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mT22() throws RecognitionException {
         try {
             int _type = T22;
-            // /home/1/2006/mbortola/br-jsys/Codice/src/brjsys/files/BusinessRule.g:5:5: ( ')' )
-            // /home/1/2006/mbortola/br-jsys/Codice/src/brjsys/files/BusinessRule.g:5:7: ')'
+            // /home/1/2006/mbortola/br-jsys/Codice/src/brjsys/files/BusinessRule.g:4:5: ( ')' )
+            // /home/1/2006/mbortola/br-jsys/Codice/src/brjsys/files/BusinessRule.g:4:7: ')'
             {
             match(')'); 
 
