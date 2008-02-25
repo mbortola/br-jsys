@@ -61,7 +61,7 @@ options{
 				return (reduce?confronto.getComponentType():confronto);
 			}//tutte e due matrici di dimensioni diverse
 		}
-		throw new TypeCollisionException(input,confronto);
+		throw new RecognitionException();
 	}
 	private static Class<?> getBasicType(Class<?> input){
 		//dato un oggetto Class ritorno il tipo base ossia:
