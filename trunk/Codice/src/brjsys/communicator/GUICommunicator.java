@@ -82,8 +82,9 @@ public class GUICommunicator {
 		GUICommunicator v=null;
 		try {
 			try {
-				v=new GUICommunicator("admin","happy");
+				v=new GUICommunicator("admin","michele");
 			} catch (XMLDBException e) {
+				e.printStackTrace();
 				System.err.println("errore in connessione");
 				System.exit(1);
 			}
