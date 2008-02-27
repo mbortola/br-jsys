@@ -14,5 +14,5 @@ public class BusinessRule {
 	public String toString(){
 		return name+' '+associated+' '+rule+' '+(comment==null||comment==""?"":comment);
 	}
-	
+	public BusinessRule(){}
 }
