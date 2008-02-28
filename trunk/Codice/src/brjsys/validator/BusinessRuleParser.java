@@ -1,4 +1,4 @@
-//$ANTLR 3.0.1 /../../media/sda1/ids/src/compiler/BusinessRule.g 2008-02-28 17:08:56
+//$ANTLR 3.0.1 /../../media/sda1/ids/src/compiler/BusinessRule.g 2008-02-28 21:42:30
 package brjsys.validator;
 
 
@@ -12,20 +12,21 @@ import org.antlr.runtime.tree.*;
 
 public class BusinessRuleParser extends Parser {
 	public static final String[] tokenNames = new String[] {
-		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "OpRule", "Conf", "Bconf", "Msg", "STRING", "OpA", "OpM", "OpBool", "FIELD", "FLOAT", "BOOL", "BoFun", "FlFun", "Count", "CHAR", "SUBFIELD", "WHITESPACE", "'('", "')'"
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "OpRule", "Conf", "Bconf", "Msg", "STRING", "OpA", "OpM", "OpBool", "FIELD", "FLOAT", "BOOL", "BoFun", "FlFun", "Count", "CHAR", "OTHERCHAR", "SUBFIELD", "WHITESPACE", "'('", "')'"
 	};
 	public static final int Count=17;
 	public static final int OpRule=4;
 	public static final int BOOL=14;
 	public static final int CHAR=18;
-	public static final int WHITESPACE=20;
+	public static final int WHITESPACE=21;
 	public static final int Conf=5;
 	public static final int FLOAT=13;
+	public static final int OTHERCHAR=19;
 	public static final int EOF=-1;
 	public static final int OpBool=11;
 	public static final int Msg=7;
 	public static final int Bconf=6;
-	public static final int SUBFIELD=19;
+	public static final int SUBFIELD=20;
 	public static final int FlFun=16;
 	public static final int FIELD=12;
 	public static final int OpM=10;
@@ -300,7 +301,7 @@ public class BusinessRuleParser extends Parser {
 
 
 				// AST REWRITE
-				// elements: conf, e, message, e2
+				// elements: e, conf, message, e2
 				// token labels: 
 				// rule labels: retval, e2, e
 				// token list labels: 
@@ -437,14 +438,14 @@ public class BusinessRuleParser extends Parser {
 				root_0 = (CommonTree)adaptor.becomeRoot(Msg7_tree, root_0);
 
 				char_literal8=(Token)input.LT(1);
-				match(input,21,FOLLOW_21_in_message131); 
+				match(input,22,FOLLOW_22_in_message131); 
 				STRING9=(Token)input.LT(1);
 				match(input,STRING,FOLLOW_STRING_in_message133); 
 				STRING9_tree = (CommonTree)adaptor.create(STRING9);
 				adaptor.addChild(root_0, STRING9_tree);
 
 				char_literal10=(Token)input.LT(1);
-				match(input,22,FOLLOW_22_in_message134); 
+				match(input,23,FOLLOW_23_in_message134); 
 
 			}
 
@@ -725,7 +726,7 @@ public class BusinessRuleParser extends Parser {
 	public final atom_return atom() throws RecognitionException {
 		atom_return retval = new atom_return();
 		retval.start = input.LT(1);
-
+		System.out.println("atom-start"+retval.start.getText());
 		CommonTree root_0 = null;
 
 		Token FIELD14=null;
@@ -745,8 +746,8 @@ public class BusinessRuleParser extends Parser {
 		CommonTree STRING17_tree=null;
 		CommonTree char_literal18_tree=null;
 		CommonTree char_literal19_tree=null;
-		RewriteRuleTokenStream stream_21=new RewriteRuleTokenStream(adaptor,"token 21");
 		RewriteRuleTokenStream stream_22=new RewriteRuleTokenStream(adaptor,"token 22");
+		RewriteRuleTokenStream stream_23=new RewriteRuleTokenStream(adaptor,"token 23");
 		RewriteRuleSubtreeStream stream_exp=new RewriteRuleSubtreeStream(adaptor,"rule exp");
 		RewriteRuleSubtreeStream stream_fun=new RewriteRuleSubtreeStream(adaptor,"rule fun");
 		try {
@@ -773,7 +774,7 @@ public class BusinessRuleParser extends Parser {
 				alt6=4;
 			}
 			break;
-			case 21:
+			case 22:
 			{
 				alt6=5;
 			}
@@ -813,6 +814,7 @@ public class BusinessRuleParser extends Parser {
 				root_0 = (CommonTree)adaptor.nil();
 
 				FLOAT15=(Token)input.LT(1);
+				System.out.println("Float!!"+FLOAT15.getText());
 				match(input,FLOAT,FOLLOW_FLOAT_in_atom259); 
 				FLOAT15_tree = (CommonTree)adaptor.create(FLOAT15);
 				adaptor.addChild(root_0, FLOAT15_tree);
@@ -853,8 +855,8 @@ public class BusinessRuleParser extends Parser {
 				// /../../media/sda1/ids/src/compiler/BusinessRule.g:147:3: '(' e= exp ')'
 			{
 				char_literal18=(Token)input.LT(1);
-				match(input,21,FOLLOW_21_in_atom282); 
-				stream_21.add(char_literal18);
+				match(input,22,FOLLOW_22_in_atom282); 
+				stream_22.add(char_literal18);
 
 				pushFollow(FOLLOW_exp_in_atom285);
 				e=exp();
@@ -862,8 +864,8 @@ public class BusinessRuleParser extends Parser {
 
 				stream_exp.add(e.getTree());
 				char_literal19=(Token)input.LT(1);
-				match(input,22,FOLLOW_22_in_atom286); 
-				stream_22.add(char_literal19);
+				match(input,23,FOLLOW_23_in_atom286); 
+				stream_23.add(char_literal19);
 
 				retval.value =e.value;
 
@@ -1007,14 +1009,14 @@ public class BusinessRuleParser extends Parser {
 				root_0 = (CommonTree)adaptor.becomeRoot(BoFun20_tree, root_0);
 
 				char_literal21=(Token)input.LT(1);
-				match(input,21,FOLLOW_21_in_fun323); 
+				match(input,22,FOLLOW_22_in_fun323); 
 				pushFollow(FOLLOW_exp_in_fun328);
 				e=exp();
 				_fsp--;
 
 				adaptor.addChild(root_0, e.getTree());
 				char_literal22=(Token)input.LT(1);
-				match(input,22,FOLLOW_22_in_fun330); 
+				match(input,23,FOLLOW_23_in_fun330); 
 				retval.value =compare(input.get(input.index()-1),e.value,new Boolean(true).getClass(),false);
 
 			}
@@ -1030,14 +1032,14 @@ public class BusinessRuleParser extends Parser {
 				root_0 = (CommonTree)adaptor.becomeRoot(FlFun23_tree, root_0);
 
 				char_literal24=(Token)input.LT(1);
-				match(input,21,FOLLOW_21_in_fun341); 
+				match(input,22,FOLLOW_22_in_fun341); 
 				pushFollow(FOLLOW_exp_in_fun346);
 				e=exp();
 				_fsp--;
 
 				adaptor.addChild(root_0, e.getTree());
 				char_literal25=(Token)input.LT(1);
-				match(input,22,FOLLOW_22_in_fun348); 
+				match(input,23,FOLLOW_23_in_fun348); 
 				retval.value =compare(input.get(input.index()-1),e.value,new Float(0).getClass(),true);
 
 			}
@@ -1053,14 +1055,14 @@ public class BusinessRuleParser extends Parser {
 				root_0 = (CommonTree)adaptor.becomeRoot(Count26_tree, root_0);
 
 				char_literal27=(Token)input.LT(1);
-				match(input,21,FOLLOW_21_in_fun359); 
+				match(input,22,FOLLOW_22_in_fun359); 
 				pushFollow(FOLLOW_exp_in_fun364);
 				e=exp();
 				_fsp--;
 
 				adaptor.addChild(root_0, e.getTree());
 				char_literal28=(Token)input.LT(1);
-				match(input,22,FOLLOW_22_in_fun367); 
+				match(input,23,FOLLOW_23_in_fun367); 
 				retval.value =new Float(0).getClass();
 
 			}
@@ -1085,45 +1087,45 @@ public class BusinessRuleParser extends Parser {
 
 
 	public static final BitSet FOLLOW_rule_in_start51 = new BitSet(new long[]{0x0000000000000012L});
-	public static final BitSet FOLLOW_OpRule_in_start55 = new BitSet(new long[]{0x000000000023F100L});
+	public static final BitSet FOLLOW_OpRule_in_start55 = new BitSet(new long[]{0x000000000043F100L});
 	public static final BitSet FOLLOW_rule_in_start58 = new BitSet(new long[]{0x0000000000000012L});
 	public static final BitSet FOLLOW_exp_in_rule77 = new BitSet(new long[]{0x0000000000000060L});
-	public static final BitSet FOLLOW_conf_in_rule82 = new BitSet(new long[]{0x000000000023F100L});
+	public static final BitSet FOLLOW_conf_in_rule82 = new BitSet(new long[]{0x000000000043F100L});
 	public static final BitSet FOLLOW_exp_in_rule86 = new BitSet(new long[]{0x0000000000000082L});
 	public static final BitSet FOLLOW_message_in_rule94 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_set_in_conf0 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Msg_in_message129 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_21_in_message131 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_STRING_in_message133 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_message134 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Msg_in_message129 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_message131 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_STRING_in_message133 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_23_in_message134 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_opA_in_exp151 = new BitSet(new long[]{0x0000000000000202L});
-	public static final BitSet FOLLOW_OpA_in_exp159 = new BitSet(new long[]{0x000000000023F100L});
+	public static final BitSet FOLLOW_OpA_in_exp159 = new BitSet(new long[]{0x000000000043F100L});
 	public static final BitSet FOLLOW_opA_in_exp164 = new BitSet(new long[]{0x0000000000000202L});
 	public static final BitSet FOLLOW_opB_in_opA184 = new BitSet(new long[]{0x0000000000000402L});
-	public static final BitSet FOLLOW_OpM_in_opA191 = new BitSet(new long[]{0x000000000023F100L});
+	public static final BitSet FOLLOW_OpM_in_opA191 = new BitSet(new long[]{0x000000000043F100L});
 	public static final BitSet FOLLOW_opB_in_opA196 = new BitSet(new long[]{0x0000000000000402L});
 	public static final BitSet FOLLOW_atom_in_opB220 = new BitSet(new long[]{0x0000000000000802L});
-	public static final BitSet FOLLOW_OpBool_in_opB227 = new BitSet(new long[]{0x000000000023F100L});
+	public static final BitSet FOLLOW_OpBool_in_opB227 = new BitSet(new long[]{0x000000000043F100L});
 	public static final BitSet FOLLOW_atom_in_opB232 = new BitSet(new long[]{0x0000000000000802L});
 	public static final BitSet FOLLOW_FIELD_in_atom251 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_FLOAT_in_atom259 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_BOOL_in_atom267 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_STRING_in_atom275 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_21_in_atom282 = new BitSet(new long[]{0x000000000023F100L});
-	public static final BitSet FOLLOW_exp_in_atom285 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_atom286 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_22_in_atom282 = new BitSet(new long[]{0x000000000043F100L});
+	public static final BitSet FOLLOW_exp_in_atom285 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_23_in_atom286 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_fun_in_atom296 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BoFun_in_fun320 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_21_in_fun323 = new BitSet(new long[]{0x000000000023F100L});
-	public static final BitSet FOLLOW_exp_in_fun328 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_fun330 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FlFun_in_fun338 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_21_in_fun341 = new BitSet(new long[]{0x000000000023F100L});
-	public static final BitSet FOLLOW_exp_in_fun346 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_fun348 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Count_in_fun356 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_21_in_fun359 = new BitSet(new long[]{0x000000000023F100L});
-	public static final BitSet FOLLOW_exp_in_fun364 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_fun367 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BoFun_in_fun320 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_fun323 = new BitSet(new long[]{0x000000000043F100L});
+	public static final BitSet FOLLOW_exp_in_fun328 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_23_in_fun330 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FlFun_in_fun338 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_fun341 = new BitSet(new long[]{0x000000000043F100L});
+	public static final BitSet FOLLOW_exp_in_fun346 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_23_in_fun348 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Count_in_fun356 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_fun359 = new BitSet(new long[]{0x000000000043F100L});
+	public static final BitSet FOLLOW_exp_in_fun364 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_23_in_fun367 = new BitSet(new long[]{0x0000000000000002L});
 
 }

@@ -21,24 +21,24 @@ public class Validator {
 		ANTLRStringStream input;
 		CommonTokenStream tokens=null;
 		try {
-			
+
 			input = new ANTLRStringStream(Brule.rule);
 			// create a lexer that feeds off of input CharStream
 			BusinessRuleLexer lexer = new BusinessRuleLexer(input);
-			
+
 			// create a buffer of tokens pulled from the lexer
 			tokens = new CommonTokenStream(lexer);
-			
+
 			// create a parser that feeds off the tokens buffer
 			BusinessRuleParser parser = new BusinessRuleParser(Brule.associated, tokens);
 			// begin parsing at rule r
 			BusinessRuleParser.start_return r=parser.start();
-			
+
 			CommonTree tree=(CommonTree)r.getTree();
-			
+
 			XMLParser tree2XML =new XMLParser();
 			String result=tree2XML.parse(tree, Brule);
-			
+
 			return repository.insertRule(result, Brule.name);
 
 		} catch (RecognitionException e) {
@@ -47,32 +47,33 @@ public class Validator {
 		}
 	}
 	public static void main(String[] args){
-		try {
-
-			Validator v=new Validator("admin","happy");
-			BusinessRule rule=new BusinessRule("uno","art","12=0","no");
-			q("nome:");
-			rule.name=(new BufferedReader(new InputStreamReader(System.in))).readLine();
-			q("associated:");
-			rule.associated=(new BufferedReader(new InputStreamReader(System.in))).readLine();
-			q("rule:");
-			rule.rule=(new BufferedReader(new InputStreamReader(System.in))).readLine();
-			q("comment:");
-			rule.comment=(new BufferedReader(new InputStreamReader(System.in))).readLine();
+		while (true) {
 			try {
-				p(v.validate(rule)?"yes":"no");
-			} catch (RecognitionException e) {
+				Validator v=new Validator("admin","happy");
+				BusinessRule rule=new BusinessRule("uno","art","12=0","no");
+				q("nome:");
+				rule.name=(new BufferedReader(new InputStreamReader(System.in))).readLine();
+				q("associated:");
+				rule.associated=(new BufferedReader(new InputStreamReader(System.in))).readLine();
+				q("rule:");
+				rule.rule=(new BufferedReader(new InputStreamReader(System.in))).readLine();
+				q("comment:");
+				rule.comment=(new BufferedReader(new InputStreamReader(System.in))).readLine();
+				try {
+					p(v.validate(rule)?"yes":"no");
+				} catch (RecognitionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (XMLDBException e) {
+				System.out.println("errore in connessione");
+				e.printStackTrace();
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-		} catch (XMLDBException e) {
-			System.out.println("errore in connessione");
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+
 	}
 	public static void p(String s){
 		System.out.println(s);

@@ -10,34 +10,26 @@ import brjsys.businessrules.BusinessRule;
 
 public class GUICommunicator {
 	private Communicator queryService=null;
-	
+
 	public GUICommunicator(String username, String password) throws XMLDBException{
-			queryService=new Communicator(username, password);
+		queryService=new Communicator(username, password);
 	}
-	
+
 	public boolean deleteRuleByName(String id){
 		//Guardo se esiste la regola con questo nome
-		
+
 		try {
 			long test=queryService.makeQuery("let $i:=//BusinessRule[@name='"+id+"'] return $i").getSize();
-			if(test>0)return false;
+			if(test<=0)return false;
 		} catch (XMLDBException e) {e.printStackTrace();}
 		//Cancello la regola con questo id
 		queryService.makeQuery("for $i in //BusinessRule[@name='"+id+"'] return update delete $i");
 		return true;
 	}
-	
-	public String makeQuery(String query) throws XMLDBException{
-		//controllo che la query non mi modifichi il repository
-		
-		if(query.contains("update")){
-			if(query.contains("insert")||query.contains("replace")||query.contains("delete")||query.contains("value")||query.contains("rename")){
-				//query cattiva
-			}
-		}
-		
+
+	public String makeBadQuery(String query) throws XMLDBException{
 		ResourceSet result=queryService.makeQuery(query);
-		
+
 		ResourceIterator i = result.getIterator();
 		//System.out.println(result.getSize());debug
 		String val="";
@@ -47,23 +39,39 @@ public class GUICommunicator {
 		}
 		return val;
 	}
-	
+
+	public String makeQuery(String query) throws XMLDBException{
+		//controllo che la query non mi modifichi il repository
+
+		if(query.contains("update")){
+			if(query.contains("insert")||query.contains("replace")||query.contains("delete")||query.contains("value")||query.contains("rename")){
+				throw new XMLDBException(ErrorCodes.PERMISSION_DENIED,"Non puoi fare query di modifica!");
+			}
+		}
+		ResourceSet result=queryService.makeQuery(query);
+
+		ResourceIterator i = result.getIterator();
+		//System.out.println(result.getSize());debug
+		String val="";
+		while(i.hasMoreResources()) {
+			Resource r = i.nextResource();
+			val+=((String)r.getContent());
+		}
+		return val;
+	}
+
 	public BusinessRule[] getListRules(){
 		//ritorno una stringa per br coi campi separati e li gestisco a mano
 		try {
 			String informations=this.makeQuery(
-					"for $i in //BusinessRule return concat($i/@name,':',$i/@rule,':',$i/@comment,':',$i/@associated,':::')");
-			System.out.println(informations);
-			/*$$ separa br tra di loro
-			 * ^ separa tra di loro i vari campi delle br
-			 * usare split....e ricordarsi di mettere il tag comment non alla fine
-			 */
-			
+			"for $i in //BusinessRule return concat($i/@name,':',$i/@rule,':',$i/@comment,':',$i/@associated,':::')");
+			//System.out.println(informations);debug
+
 			String[] numBR=informations.split(":::");
 			for(int i=0;i<numBR.length;i++){
 				System.out.println(numBR[i]);
 			}
-			
+
 			String[] temp=new String[4];
 			BusinessRule[] result=new BusinessRule[numBR.length];
 			for(int index=0;index<numBR.length;index++){
@@ -71,7 +79,7 @@ public class GUICommunicator {
 				result[index]=new BusinessRule(temp[0],temp[3],temp[1],temp[2]);
 			}
 			return result;
-			
+
 		} catch (XMLDBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,7 +89,7 @@ public class GUICommunicator {
 	public void x() throws XMLDBException{//debug
 		queryService.showResource();
 	}
-	
+
 	public static void main(String[]args){//debug
 		GUICommunicator v=null;
 		try {
@@ -94,14 +102,11 @@ public class GUICommunicator {
 			}
 			//v.x();Debug
 			String x=null,result=null;
-			BusinessRule[] array=v.getListRules();
-			for(int i=0;i<array.length;i++){
-				System.out.println(array[i]);
-			}
+			v.deleteRuleByName("inutile11");
 			while(true){
 				x=(new BufferedReader(new InputStreamReader(System.in))).readLine();
 				try {
-					result=v.makeQuery(x);
+					result=v.makeBadQuery(x);
 					System.out.println("<<<\n"+result);
 				} catch (XMLDBException e) {
 					e.printStackTrace();

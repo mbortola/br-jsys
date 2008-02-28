@@ -52,10 +52,9 @@ public class XMLParser {
 				//tag diventa il nome del Token secondo il linguaggio
 				tag=(String)simbols.get(new Integer(treeChild.getType()));
 				//operazioin per unificare alcuni tags
-				
-				if(tag=="Oprule"||tag=="OpBool")tag="OBool";
-				if(tag=="Bconf")tag="Conf";
-				if(tag=="OpA"||tag=="OpM")tag="OFloat";
+				if(tag.equals("OpRule")||tag.equals("OpBool"))tag="OBool";
+				if(tag.equals("Bconf"))tag="Conf";
+				if(tag.equals("OpA")||tag.equals("OpM"))tag="OFloat";
 				
 				//creo un elemento
 				e=doc.createElement(tag);
