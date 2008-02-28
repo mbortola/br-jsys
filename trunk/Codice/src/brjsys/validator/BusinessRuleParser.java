@@ -58,7 +58,7 @@ public class BusinessRuleParser extends Parser {
 	public void recoverFromMismatchedSet(IntStream input,RecognitionException e,BitSet follow)throws RecognitionException{
 		throw e;
 	}
-	public static Class<?> getType(String nome,String ambiente){try{
+	public static Class getType(String nome,String ambiente){try{
 		System.out.println(nome+' '+ambiente);
 		int index=nome.indexOf(".");
 		if(index==-1){
@@ -74,22 +74,22 @@ public class BusinessRuleParser extends Parser {
 	}catch(Exception e){e.printStackTrace();System.err.println("Exception");}
 	return null; 
 	};
-	private static Class<?> type(String nome){
+	private static Class type(String nome){
 		try{
-			Class<?> cl=Class.forName(nome);
+			Class cl=Class.forName(nome);
 			return cl;
 		}catch(ClassNotFoundException e){
 			System.err.println("ClassNotFound");			
 		}
 		return null;
 	}
-	private static int getDimension(Class<?> input){
+	private static int getDimension(Class input){
 		//mi dice la "dimensione" di input
 		String inputString=input.getCanonicalName();
 		int index=inputString.indexOf("[");
 		return (index==-1?0:(inputString.length()-index)/2);
 	}
-	public static Class<?> compare(Token token,Class<?> input,Class<?> confronto,boolean reduce)throws TypeCollisionException{
+	public static Class compare(Token token,Class input,Class confronto,boolean reduce)throws TypeCollisionException{
 		System.out.println("COMPILE:"+input.getCanonicalName()+'-'+confronto.getCanonicalName());
 		if(getBasicType(input)==getBasicType(confronto)){//se no neanche faccio il test
 			if(input.equals(confronto))return input;//stesso identico tipo
@@ -102,7 +102,7 @@ public class BusinessRuleParser extends Parser {
 		}
 		throw new TypeCollisionException(input,confronto, token);
 	}
-	private static Class<?> getBasicType(Class<?> input){
+	private static Class getBasicType(Class input){
 		//dato un oggetto Class ritorno il tipo base ossia:
 		//input->Float ritorna Float
 		//input->Float[][][] ritorna Float

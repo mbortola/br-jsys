@@ -6,14 +6,14 @@ import java.util.*;
 
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
-import org.xmldb.api.base.XMLDBException;
+//import org.xmldb.api.base.XMLDBException;
 
 import brjsys.businessrules.BusinessRule;
 import brjsys.communicator.ValidatorCommunicator;
 
 public class Validator {
 	private ValidatorCommunicator repository;
-	public Validator(String username, String password) throws XMLDBException/*errore in connessione*/{
+	public Validator(String username, String password){// throws XMLDBException/*errore in connessione*/{
 		repository=new ValidatorCommunicator(username, password);
 	}
 	public boolean validate(BusinessRule Brule){
@@ -40,7 +40,7 @@ public class Validator {
 			XMLParser tree2XML =new XMLParser();
 			String result=tree2XML.parse(tree, Brule);
 			System.out.println("Exit XMLParser");
-			return repository.insertRule(result, Brule.name);
+			return true;//repository.insertRule(result, Brule.name);
 			
 		} catch (RecognitionException e) {
 			System.out.println(e);
@@ -53,20 +53,20 @@ public class Validator {
 			
 			Validator v=new Validator("admin","michele");
 			BusinessRule rule=new BusinessRule("uno","art","12=0","no");
-			/*q("nome:");
+			q("nome:");
 			rule.name=(new BufferedReader(new InputStreamReader(System.in))).readLine();
 			q("associated:");
 			rule.associated=(new BufferedReader(new InputStreamReader(System.in))).readLine();
 			q("rule:");
 			rule.rule=(new BufferedReader(new InputStreamReader(System.in))).readLine();
 			q("comment:");
-			rule.comment=(new BufferedReader(new InputStreamReader(System.in))).readLine();*/
+			rule.comment=(new BufferedReader(new InputStreamReader(System.in))).readLine();
 			p(v.validate(rule)?"yes":"no");
 			
-		} catch (XMLDBException e) {
+		}/* catch (XMLDBException e) {
 			System.out.println("errore in connessione");
 			e.printStackTrace();
-		} catch (Exception e) {
+		} */catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

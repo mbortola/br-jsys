@@ -16,8 +16,8 @@ import brjsys.businessrules.BusinessRule;
 public class XMLParser {
 	private static Hashtable simbols=generateSimbols();
 
-	static private Hashtable<Integer, String> generateSimbols(){
-		Hashtable<Integer,String> hash=new Hashtable<Integer,String>();
+	static private Hashtable generateSimbols(){
+		Hashtable hash=new Hashtable();
 		Scanner in;
 		try {
 			in = new Scanner(new File("BusinessRule.tokens"));
@@ -26,7 +26,7 @@ public class XMLParser {
 			while(in.hasNext()){
 				line=in.nextLine();
 				index=line.indexOf("=");
-				hash.put(Integer.parseInt(line.substring(index+1)),line.substring(0,index));
+				hash.put(new Integer(Integer.parseInt(line.substring(index+1))),line.substring(0,index));
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -36,7 +36,7 @@ public class XMLParser {
 	}
 
 	private void scanAST(Tree AST, Element root, Document doc){
-		//root è gia stato inserito la chiamata precedente,ora devo impostargli il suo valore interno
+		//root ï¿½ gia stato inserito la chiamata precedente,ora devo impostargli il suo valore interno
 		int childs=AST.getChildCount();
 		String tag=null;
 		Element e=null;
@@ -50,7 +50,7 @@ public class XMLParser {
 				//treeChild si riferisce al figlio
 				treeChild=AST.getChild(index);
 				//tag diventa il nome del Token secondo il linguaggio
-				tag=(String)simbols.get(treeChild.getType());
+				tag=(String)simbols.get(new Integer(treeChild.getType()));
 				//creo un elemento
 				e=doc.createElement(tag);
 				root.appendChild(e);
@@ -84,7 +84,7 @@ public class XMLParser {
 			base.setAttribute("comment",rule.comment);
 		}
 		doc.appendChild(base);
-		Element root=doc.createElement((String)simbols.get(AST.getType()));
+		Element root=doc.createElement((String)simbols.get(new Integer(AST.getType())));
 		Element astRule=doc.createElement("AstRuleVersion");
 		astRule.setAttribute("value",AST.toStringTree());
 		//appendChild pone alla fine!!!
