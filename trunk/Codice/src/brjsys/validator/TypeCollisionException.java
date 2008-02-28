@@ -9,15 +9,20 @@ public class TypeCollisionException extends RecognitionException{
 	protected Class first;
 	protected Class second;
 	
-	public TypeCollisionException(Class a,Class b){first=a;second=b;}
-	
-	public TypeCollisionException(Class a,Class b,Token t){first=a;second=b;token=t;}
-	
-	public void printStackTrace(){
-		System.err.println("COLLISION:"+first.getCanonicalName()+"!="+second.getCanonicalName());
-		super.printStackTrace();
+	protected String message=null;
+		
+	public TypeCollisionException(Class a,Class b,Token t){
+		first=a;
+		second=b;
+		token=t;
+		message="errore in confronto:"+first+"!="+second+" al token:"+token.getText();
 	}
+	
+	public TypeCollisionException(String msg){
+		message=msg;
+	}
+	
 	public String toString(){
-		return "errore in confronto:"+first+"!="+second+" al token:"+token.getText();
+		return message;
 	}
 }

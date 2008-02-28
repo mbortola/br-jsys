@@ -1,4 +1,4 @@
-// $ANTLR 3.0.1 /../../media/sda1/ids/src/compiler/BusinessRule.g 2008-02-25 23:47:42
+// $ANTLR 3.0.1 /../../media/sda1/ids/src/compiler/BusinessRule.g 2008-02-28 17:08:56
 package brjsys.validator;
 
 import org.antlr.runtime.*;
@@ -74,7 +74,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mFlFun() throws RecognitionException {
         try {
             int _type = FlFun;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:136:7: ( 'SUM' | 'AVG' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:158:7: ( 'SUM' | 'AVG' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -86,13 +86,13 @@ public class BusinessRuleLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("136:1: FlFun : ( 'SUM' | 'AVG' );", 1, 0, input);
+                    new NoViableAltException("158:1: FlFun : ( 'SUM' | 'AVG' );", 1, 0, input);
 
                 throw nvae;
             }
             switch (alt1) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:136:9: 'SUM'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:158:9: 'SUM'
                     {
                     match("SUM"); 
 
@@ -100,7 +100,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:136:15: 'AVG'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:158:15: 'AVG'
                     {
                     match("AVG"); 
 
@@ -120,8 +120,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mBoFun() throws RecognitionException {
         try {
             int _type = BoFun;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:138:7: ( 'NOT' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:138:9: 'NOT'
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:7: ( 'NOT' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:9: 'NOT'
             {
             match("NOT"); 
 
@@ -139,8 +139,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mCount() throws RecognitionException {
         try {
             int _type = Count;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:140:7: ( 'COUNT' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:140:9: 'COUNT'
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:162:7: ( 'COUNT' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:162:9: 'COUNT'
             {
             match("COUNT"); 
 
@@ -158,8 +158,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mMsg() throws RecognitionException {
         try {
             int _type = Msg;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:142:5: ( 'message' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:142:7: 'message'
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:164:5: ( 'message' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:164:7: 'message'
             {
             match("message"); 
 
@@ -177,7 +177,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mOpRule() throws RecognitionException {
         try {
             int _type = OpRule;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:144:8: ( 'AND' | 'OR' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:166:8: ( 'AND' | 'OR' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -189,13 +189,13 @@ public class BusinessRuleLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("144:1: OpRule : ( 'AND' | 'OR' );", 2, 0, input);
+                    new NoViableAltException("166:1: OpRule : ( 'AND' | 'OR' );", 2, 0, input);
 
                 throw nvae;
             }
             switch (alt2) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:144:10: 'AND'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:166:10: 'AND'
                     {
                     match("AND"); 
 
@@ -203,7 +203,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:144:16: 'OR'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:166:16: 'OR'
                     {
                     match("OR"); 
 
@@ -223,7 +223,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mOpBool() throws RecognitionException {
         try {
             int _type = OpBool;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:146:8: ( '||' | '&&' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:8: ( '||' | '&&' )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -235,13 +235,13 @@ public class BusinessRuleLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("146:1: OpBool : ( '||' | '&&' );", 3, 0, input);
+                    new NoViableAltException("168:1: OpBool : ( '||' | '&&' );", 3, 0, input);
 
                 throw nvae;
             }
             switch (alt3) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:146:10: '||'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:10: '||'
                     {
                     match("||"); 
 
@@ -249,7 +249,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:146:15: '&&'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:15: '&&'
                     {
                     match("&&"); 
 
@@ -269,7 +269,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mOpA() throws RecognitionException {
         try {
             int _type = OpA;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:148:5: ( '+' | '-' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:170:5: ( '+' | '-' )
             // /../../media/sda1/ids/src/compiler/BusinessRule.g:
             {
             if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
@@ -296,7 +296,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mOpM() throws RecognitionException {
         try {
             int _type = OpM;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:150:5: ( '*' | '/' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:172:5: ( '*' | '/' )
             // /../../media/sda1/ids/src/compiler/BusinessRule.g:
             {
             if ( input.LA(1)=='*'||input.LA(1)=='/' ) {
@@ -323,7 +323,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mConf() throws RecognitionException {
         try {
             int _type = Conf;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:152:6: ( '<' | '>' | '<=' | '>=' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:174:6: ( '<' | '>' | '<=' | '>=' )
             int alt4=4;
             int LA4_0 = input.LA(1);
 
@@ -347,27 +347,27 @@ public class BusinessRuleLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("152:1: Conf : ( '<' | '>' | '<=' | '>=' );", 4, 0, input);
+                    new NoViableAltException("174:1: Conf : ( '<' | '>' | '<=' | '>=' );", 4, 0, input);
 
                 throw nvae;
             }
             switch (alt4) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:152:8: '<'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:174:8: '<'
                     {
                     match('<'); 
 
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:152:12: '>'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:174:12: '>'
                     {
                     match('>'); 
 
                     }
                     break;
                 case 3 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:152:16: '<='
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:174:16: '<='
                     {
                     match("<="); 
 
@@ -375,7 +375,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:152:21: '>='
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:174:21: '>='
                     {
                     match(">="); 
 
@@ -395,7 +395,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mBconf() throws RecognitionException {
         try {
             int _type = Bconf;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:154:7: ( '=' | '!=' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:176:7: ( '=' | '!=' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -407,20 +407,20 @@ public class BusinessRuleLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("154:1: Bconf : ( '=' | '!=' );", 5, 0, input);
+                    new NoViableAltException("176:1: Bconf : ( '=' | '!=' );", 5, 0, input);
 
                 throw nvae;
             }
             switch (alt5) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:154:9: '='
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:176:9: '='
                     {
                     match('='); 
 
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:154:13: '!='
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:176:13: '!='
                     {
                     match("!="); 
 
@@ -440,11 +440,11 @@ public class BusinessRuleLexer extends Lexer {
     public final void mSTRING() throws RecognitionException {
         try {
             int _type = STRING;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:156:8: ( '\"' ( CHAR | ' ' )* '\"' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:156:10: '\"' ( CHAR | ' ' )* '\"'
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:178:8: ( '\"' ( CHAR | ' ' )* '\"' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:178:10: '\"' ( CHAR | ' ' )* '\"'
             {
             match('\"'); 
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:156:13: ( CHAR | ' ' )*
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:178:13: ( CHAR | ' ' )*
             loop6:
             do {
                 int alt6=3;
@@ -460,14 +460,14 @@ public class BusinessRuleLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:156:14: CHAR
+            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:178:14: CHAR
             	    {
             	    mCHAR(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:156:19: ' '
+            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:178:19: ' '
             	    {
             	    match(' '); 
 
@@ -494,7 +494,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mBOOL() throws RecognitionException {
         try {
             int _type = BOOL;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:158:6: ( 'true' | 'false' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:180:6: ( 'true' | 'false' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -506,13 +506,13 @@ public class BusinessRuleLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("158:1: BOOL : ( 'true' | 'false' );", 7, 0, input);
+                    new NoViableAltException("180:1: BOOL : ( 'true' | 'false' );", 7, 0, input);
 
                 throw nvae;
             }
             switch (alt7) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:158:8: 'true'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:180:8: 'true'
                     {
                     match("true"); 
 
@@ -520,7 +520,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:158:15: 'false'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:180:15: 'false'
                     {
                     match("false"); 
 
@@ -540,10 +540,10 @@ public class BusinessRuleLexer extends Lexer {
     public final void mFLOAT() throws RecognitionException {
         try {
             int _type = FLOAT;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:7: ( ( '~' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:9: ( '~' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:182:7: ( ( '~' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:182:9: ( '~' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
             {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:9: ( '~' )?
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:182:9: ( '~' )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -552,7 +552,7 @@ public class BusinessRuleLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:10: '~'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:182:10: '~'
                     {
                     match('~'); 
 
@@ -561,7 +561,7 @@ public class BusinessRuleLexer extends Lexer {
 
             }
 
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:15: ( '0' .. '9' )+
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:182:15: ( '0' .. '9' )+
             int cnt9=0;
             loop9:
             do {
@@ -575,7 +575,7 @@ public class BusinessRuleLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:16: '0' .. '9'
+            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:182:16: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -591,7 +591,7 @@ public class BusinessRuleLexer extends Lexer {
                 cnt9++;
             } while (true);
 
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:26: ( '.' ( '0' .. '9' )+ )?
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:182:26: ( '.' ( '0' .. '9' )+ )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -600,10 +600,10 @@ public class BusinessRuleLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:27: '.' ( '0' .. '9' )+
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:182:27: '.' ( '0' .. '9' )+
                     {
                     match('.'); 
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:30: ( '0' .. '9' )+
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:182:30: ( '0' .. '9' )+
                     int cnt10=0;
                     loop10:
                     do {
@@ -617,7 +617,7 @@ public class BusinessRuleLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:160:31: '0' .. '9'
+                    	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:182:31: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -653,11 +653,11 @@ public class BusinessRuleLexer extends Lexer {
     public final void mFIELD() throws RecognitionException {
         try {
             int _type = FIELD;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:162:7: ( SUBFIELD ( '.' SUBFIELD )* )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:162:9: SUBFIELD ( '.' SUBFIELD )*
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:184:7: ( SUBFIELD ( '.' SUBFIELD )* )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:184:9: SUBFIELD ( '.' SUBFIELD )*
             {
             mSUBFIELD(); 
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:162:17: ( '.' SUBFIELD )*
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:184:17: ( '.' SUBFIELD )*
             loop12:
             do {
                 int alt12=2;
@@ -670,7 +670,7 @@ public class BusinessRuleLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:162:18: '.' SUBFIELD
+            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:184:18: '.' SUBFIELD
             	    {
             	    match('.'); 
             	    mSUBFIELD(); 
@@ -697,10 +697,10 @@ public class BusinessRuleLexer extends Lexer {
     public final void mWHITESPACE() throws RecognitionException {
         try {
             int _type = WHITESPACE;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:164:12: ( ( ' ' | '\\n' | '\\t' | '\\r' )+ )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:164:14: ( ' ' | '\\n' | '\\t' | '\\r' )+
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:186:12: ( ( ' ' | '\\n' | '\\t' | '\\r' )+ )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:186:14: ( ' ' | '\\n' | '\\t' | '\\r' )+
             {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:164:14: ( ' ' | '\\n' | '\\t' | '\\r' )+
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:186:14: ( ' ' | '\\n' | '\\t' | '\\r' )+
             int cnt13=0;
             loop13:
             do {
@@ -753,11 +753,11 @@ public class BusinessRuleLexer extends Lexer {
     // $ANTLR start SUBFIELD
     public final void mSUBFIELD() throws RecognitionException {
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:166:19: ( CHAR ( CHAR | ( '0' .. '9' ) )* )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:166:21: CHAR ( CHAR | ( '0' .. '9' ) )*
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:188:19: ( CHAR ( CHAR | ( '0' .. '9' ) )* )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:188:21: CHAR ( CHAR | ( '0' .. '9' ) )*
             {
             mCHAR(); 
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:166:25: ( CHAR | ( '0' .. '9' ) )*
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:188:25: ( CHAR | ( '0' .. '9' ) )*
             loop14:
             do {
                 int alt14=3;
@@ -773,17 +773,17 @@ public class BusinessRuleLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:166:26: CHAR
+            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:188:26: CHAR
             	    {
             	    mCHAR(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:166:31: ( '0' .. '9' )
+            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:188:31: ( '0' .. '9' )
             	    {
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:166:31: ( '0' .. '9' )
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:166:32: '0' .. '9'
+            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:188:31: ( '0' .. '9' )
+            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:188:32: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -810,7 +810,7 @@ public class BusinessRuleLexer extends Lexer {
     // $ANTLR start CHAR
     public final void mCHAR() throws RecognitionException {
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:15: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | '_' )
+            // /../../media/sda1/ids/src/compiler/BusinessRule.g:190:15: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | '_' )
             int alt15=3;
             switch ( input.LA(1) ) {
             case 'a':
@@ -880,17 +880,17 @@ public class BusinessRuleLexer extends Lexer {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("168:10: fragment CHAR : ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | '_' );", 15, 0, input);
+                    new NoViableAltException("190:10: fragment CHAR : ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | '_' );", 15, 0, input);
 
                 throw nvae;
             }
 
             switch (alt15) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:17: ( 'a' .. 'z' )
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:190:17: ( 'a' .. 'z' )
                     {
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:17: ( 'a' .. 'z' )
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:18: 'a' .. 'z'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:190:17: ( 'a' .. 'z' )
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:190:18: 'a' .. 'z'
                     {
                     matchRange('a','z'); 
 
@@ -900,10 +900,10 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:28: ( 'A' .. 'Z' )
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:190:28: ( 'A' .. 'Z' )
                     {
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:28: ( 'A' .. 'Z' )
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:29: 'A' .. 'Z'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:190:28: ( 'A' .. 'Z' )
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:190:29: 'A' .. 'Z'
                     {
                     matchRange('A','Z'); 
 
@@ -913,7 +913,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:168:39: '_'
+                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:190:39: '_'
                     {
                     match('_'); 
 

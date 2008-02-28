@@ -52,18 +52,22 @@ public class GUICommunicator {
 		//ritorno una stringa per br coi campi separati e li gestisco a mano
 		try {
 			String informations=this.makeQuery(
-					"for $i:=//BusinessRule return concat($i/@name,'^',$i/@rule,'^',$i/@comment,'^',$i/@associated,'$$')");
-			
+					"for $i in //BusinessRule return concat($i/@name,':',$i/@rule,':',$i/@comment,':',$i/@associated,':::')");
+			System.out.println(informations);
 			/*$$ separa br tra di loro
 			 * ^ separa tra di loro i vari campi delle br
 			 * usare split....e ricordarsi di mettere il tag comment non alla fine
 			 */
 			
-			String[] numBR=informations.split("$$");
+			String[] numBR=informations.split(":::");
+			for(int i=0;i<numBR.length;i++){
+				System.out.println(numBR[i]);
+			}
+			
 			String[] temp=new String[4];
 			BusinessRule[] result=new BusinessRule[numBR.length];
 			for(int index=0;index<numBR.length;index++){
-				temp=numBR[index].split("^");
+				temp=numBR[index].split(":");
 				result[index]=new BusinessRule(temp[0],temp[3],temp[1],temp[2]);
 			}
 			return result;
@@ -90,6 +94,10 @@ public class GUICommunicator {
 			}
 			//v.x();Debug
 			String x=null,result=null;
+			BusinessRule[] array=v.getListRules();
+			for(int i=0;i<array.length;i++){
+				System.out.println(array[i]);
+			}
 			while(true){
 				x=(new BufferedReader(new InputStreamReader(System.in))).readLine();
 				try {
