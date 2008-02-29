@@ -109,7 +109,7 @@ L'azienda ha fatto uso dei seguenti strumenti di lavoro:
 \item Eclipse 3.3.1.1;
 \item eXist 13.1.1.2; 
 \item Latex 3.14;
-\item ANTLRWorks 1.1.5.
+\item ANTLRWorks 1.1.7.
 \end{itemize}
 \chapter{Specifica delle componenti}
 \section{GUI}
@@ -172,8 +172,8 @@ Attributo & Descrizione \\  \hline
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Metodo & Descrizione \\  \hline
-+Validator() & Costruttore di Validator.\\ \hline
-+validate(rule:BusinessRule ):boolean \textbraceleft throws  RecognitionException \textbraceright& Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezione che verr\`a gestita dal chiamante. Se la \br\ viene inserita, il metodo ritorner\`a \textit{true}. Ritorner\`o invece \textit{false} se la regola ha un nome che \`e gi\`a presente nel \rp.\\ \hline
++Validator(username: String password: String) \textbraceleft throws Exception \textbraceright& Costruttore di Validator. Necessita in ingresso le credenziali dell'utente per accedere al DBMS. Qualora fossero sbagliate verr\`a lanciata un'eccezione.\\ \hline
++validate(rule:BusinessRule ):boolean \textbraceleft throws Exception \textbraceright& Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezione che verr\`a gestita dal chiamante. Se la \br\ viene inserita, il metodo ritorner\`a \textit{true}. Ritorner\`o invece \textit{false} se la regola ha un nome che \`e gi\`a presente nel \rp.\\ \hline
 \end{tabular}
 \end{center}
 
@@ -230,8 +230,7 @@ Viene ridefinito il metodo printStackTrace() e messo a disposizione un costrutto
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Attributo & Descrizione \\  \hline
--first:Class & Identifica il tipo del primo elemento che ha causato un'operazione incompatibile. \\ \hline
--second:Class & Identifica il tipo del secondo elemento che ha causato un'operazione incompatibile \\ \hline
+-message:String & Messaggio che spiega le circostanze dell'errore. \\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
