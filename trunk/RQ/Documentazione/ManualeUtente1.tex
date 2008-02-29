@@ -1,0 +1,174 @@
+\documentclass[11pt,titlepage,a4paper]{report}
+
+%INCLUSIONE PACCHETTI
+%---------------------------------------------
+\usepackage[italian]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\graphicspath{{./pics/}} % cartella di salvataggio immagini
+
+% STILE DI PAGINA
+%---------------------------------------------
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\lhead{\nouppercase{\rightmark}}
+\rhead{\nouppercase{\leftmark}}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+%Ridefinisco lo stile plain della pagina
+\fancypagestyle{plain}{%
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\rfoot{\dt - \lv}
+	\cfoot{\thepage}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+
+\begin{document}
+
+%definizione variabili 
+\newcommand{\lv}{ 0.3 } % latest version
+\newcommand{\dt}{ Manuale Utente }% Document title
+\newcommand{\Glossario}{ Glossario.1.4.pdf }
+%fine definizione variabili
+
+\hyphenation{glos-sa-rio}
+\begin{titlepage}\begin{center}
+\vspace*{0.5in}
+\includegraphics{logo.eps}
+\vspace*{0.2in} \\
+{\Large \textbf{BR-jsys}}
+{\Large \emph{business rules} per sistemi gestionali in architettura J2EE } 
+\vspace{2in} \\
+\Huge \textsc{ \dt }
+\par\rule{10cm}{0.4pt} \par {\large Versione \lv - \today} \\
+\end{center}\end{titlepage}
+\vspace*{0.5in}
+
+\begin{center}
+\thispagestyle{plain}
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+\textbf{Data creazione:} & 2008/02/25 \\ \hline
+\textbf{Versione:} & \\ \hline
+\textbf{Stato del documento:} & Formale, esterno \\ \hline
+% ----------------------------------------------------------------------------autori
+\textbf{Redazione:} & \\ \hline
+\textbf{Revisione:} & \\ \hline
+\textbf{Approvazione:} & \\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Lista di distribuzione}}} \\
+
+\begin{tabular}{||p{6cm}||p{6cm}||} \hline
+{HappyCode inc}& Gruppo di lavoro\\ \hline
+{Tullio Vardanega, Renato Conte}& Rappresentanti del committente \\ \hline
+{Zucchetti S.r.l}& Azienda committente\\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Diario delle modifiche}}} \\
+\begin{tabular}{||p{2cm}||p{3.5cm}||p{6cm}||} \hline
+%-------------------------------------------------------------------------------diario modifiche
+\textbf{Versione} & \textbf{Data rilascio} & \textbf{Descrizione} \\ \hline
+0.1 & 2008/02/25 & Stesura preliminare del documento \\ \hline
+
+\end{tabular} \\
+\end{tabular}
+
+}
+\end{table}
+\end{center}
+\newpage
+
+\tableofcontents 
+
+\chapter{Introduzione}
+Il presente documento contiene la definizione dell'architettura logica del sistema ``BR-jsys'' con una descrizione pi\`u accurata di ogni singola componente.
+\section{Definizione dell'utente del prodotto}
+Il prodotto \`e rivolto ad un utente al quale non sono richieste particolari conoscenze nel campo informatico. A tale scopo il software mette a dispozione:
+\begin{itemize}
+\item un'interfaccia grafica user-friendly;
+\item messaggi di testo che aiutano l'utente dando informazione aggiuntive sullo stato del prodotto ``BR-jsys''.
+\end{itemize}
+\section{Come leggere il manuale}
+Questo manuale presenta il sistema ``BR-jsys'' da noi realizzato e insegna come usare tutte le funzioni ad esso correlate. \`E organizzato in tre sezioni in modo da rendere facile il reperimento delle informazioni desiderate:
+\begin{itemize}
+\item SEZIONE GENERALE: dedicata alla descrizione generale del prodotto. Fornisce informazioni di base sul funzionamento del prodotto.
+\item SEZIONE DETTAGLIATA: dedicata alla descrizione dettagliata. Indispensabile per un corretto utilizzo di ogni singola parte del prodotto.
+\item SEZIONE APPENDICE: riporta gli errori pi\`u comuni che l'utente pu\`o riscontrare durante l'utilizzo del prodotto e il glossario per chiarire la terminologia da noi adottata.
+\end{itemize}
+Verranno riportati quindi tutti i passi che si possono effettuare, grazie anche all'ausilio di immagini dell'applicazione.
+\section{Documenti utili}
+Il presente manuale descrive totalmente il sistema e non richiede la lettura di ulteriori documenti. Tuttavia ogni utente deve avere installato nel proprio pc ``eXist'' in quanto vero e proprio requisito di sistema. 
+\section{Come riportare problemi e malfunzionamenti}
+Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivio fornisce una sezione ``issues'' all'URL: \\ 
+\textbf{``http://code.google.com/p/br-jsys/issues/list''}, che visualizza in qualsiasi momento la lista aggiornata di tutti i problemi e malfunzionamenti da noi riscontrati. Attraverso questo sistema ogni componente del gruppo potr\`a creare un ``new issue'', assegnandogli una priorit\`a che varier\`a a seconda della gravit\`a del problema. Ogni issue conterr\`a inoltre il nome dell'utente che lo ha aggiunto nella lista, oltre ad uno status (new, accepted, started, verified, etc...) che in qualsiasi momento ogni membro del gruppo potr\`a aggiornare. 
+\chapter{Descrizione generale}
+% da fare
+\section{Caratteristiche del servizio}
+% da fare
+\section{Requisiti minimi}
+\subsection{Requisiti sofware}
+Sistema operativo:\\
+\begin{itemize}
+\item Linux: tutte le piattaforme con qualsiasi distribuzione.
+\item Windows: WindowsME, Windows2000 e WindowsXp home/professional.
+\item MacOSX: ?
+\end{itemize}
+Per usufruire del servizio \`e necessario possedere una connessione con il DBMS ``eXist'', come gi\`a citato precedentemente e la presenza della Java SE Development Kit (JDK) dalla versione 1.4.
+\subsection{Requisiti hardware}
+%da fare
+\chapter{Istruzioni per l'uso}
+\section{Descrizione funzionale}
+Di seguito \`e riportata la descrizione delle funzioni del prodotto. Ad ogni passo \`e stata associata una figura, in modo da daterminare, senza amibiguit\`a il contesto dell'applicazione.
+
+% da fare
+\section{Azioni richieste/permesse}
+% da fare
+\section{Errori probabili e cause possibili}
+% da fare
+\chapter{Appendice}
+\section{Messaggi di errore e loro significato}
+\begin{table}[htbp]
+\begin{tabular}{||p{6.5cm}||p{6.5cm}||}
+\hline
+\textbf{Messaggio:} & \textbf{Descrizione:} \\ \hline
+Oggetto associato \textless nome associato\textgreater\ inesistente & Inserimento di una business rule con un business object associato non valido.  \\ \hline
+Campo dato \textless nome campo dato\textgreater\ non trovato & Riferimento ad un campo dato sbagliato. \\ \hline
+Operazione non consentita: \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ al punto <token dove è avvenuto l'errore> & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. \\ \hline
+Errore sintattico al punto \textless punto di errore\textgreater\ & Errore di scrittura. \\ \hline
+Regola \textless nome regola\textgreater\  gi\`a presente & La regola ha un nome gi\`a presente nel repository.
+\end{tabular} \\
+\end{table}
+
+
+
+
+
+
+
+% da finire una volta completata
+\section{Glossario}
+Viene fornito come documento esterno chiamato \Glossario.
+
+\newpage
+
+\end{document}
