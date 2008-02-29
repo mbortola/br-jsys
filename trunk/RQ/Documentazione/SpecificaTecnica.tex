@@ -79,7 +79,7 @@
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il presente documento descriver\`a il sistema software ``BR-jsys'' dal punto di vista architetturale e da noi implementato secondo le esigenze identificate nel documento ``Analisi dei Requisiti''. Attraverso l'uso di diagrammi UML, nella fattispecie con alcuni diagrammi delle classi, identificheremo alcune componenti principali nel quale scomporre il sistema. Procederemo inoltre con un approccio di tipo ``Bottom-up'' nelle procedure di verifica delle componenti. Questo documento fornir\`a quindi una visione pi\`u dettagliata delle componenti da realizzare; verr\`a definito il contesto d'uso del sistema e fornita la decomposizione di questo in componenti principali.
+Il presente documento descriver\`a il sistema software ``BR-jsys'' dal punto di vista architetturale e da noi implementato secondo le esigenze identificate nel documento ``Analisi dei Requisiti''. Attraverso l'uso di diagrammi UML, nella fattispecie con alcuni diagrammi delle classi, identificheremo alcune componenti principali nel quale scomporre il sistema. Questo documento fornir\`a quindi una visione pi\`u dettagliata delle componenti da realizzare; verr\`a definito il contesto d'uso del sistema e fornita la decomposizione di questo in componenti principali.
 \section{Scopo del prodotto}
 Per lo scopo del prodotto si faccia riferimento al documento ``Analisi dei Requisiti''.
 \section{Glossario}
@@ -210,17 +210,17 @@ XMLParser ha bisogno dell'AST prodotto da \brp, nonch\`e necessita della compone
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \rp.
 \subsubsection{Attivit\`a svolte e dati trattati}
-XMLParser  contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML. Dispone inoltre di una tabella Hash statica che serve per associare i valori numerici che il parser usa per identificare i token ai nomi dei tokens definiti dall'utente.
+XMLParser contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML.
 
 \subsection{businessobjects}%è un package
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente businessobjects si occupa di offrire un namespace comune a tutti i \bos\ che durante la validazione di una \br\ vengono interpellati richiedendo accesso ai suoi campi o sottocampi.
+La componente businessobjects si occupa di offrire un namespace comune a tutti i \bos\ che durante la validazione di una \br\ vengono interpellati richiedendo accesso ai suoi campi dato o sottocampi dato.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 \brp necessita di questa componente per effettuare il controllo dei tipi qualora fosse necessario.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Il componente businessbjects offre le classi java che rappresentano i \bos.
+La componente businessbjects offre al validatore le classi java che rappresentano i \bos.
 
 \section{Business Rule}
 \subsection{Diagramma delle classi}
