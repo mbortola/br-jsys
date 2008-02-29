@@ -5,24 +5,20 @@ import org.antlr.runtime.Token;
 
 public class TypeCollisionException extends RecognitionException{
 
-	private static final long serialVersionUID = 1L;
-	protected Class first;
-	protected Class second;
+	String message;
 	
-	protected String message=null;
-		
+	private static final long serialVersionUID = 1L;
+			
 	public TypeCollisionException(Class a,Class b,Token t){
-		first=a;
-		second=b;
-		token=t;
-		message="errore in confronto:"+first+"!="+second+" al token:"+token.getText();
+		message=("errore in confronto:"+a+"!="+b+" al token:"+t.getText());
 	}
 	
-	public TypeCollisionException(String msg){
-		message=msg;
+	public TypeCollisionException(String s){
+		message=s;
 	}
 	
 	public String toString(){
 		return message;
 	}
+	
 }

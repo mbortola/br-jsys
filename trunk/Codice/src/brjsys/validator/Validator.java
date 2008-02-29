@@ -16,7 +16,7 @@ public class Validator {
 	public Validator(String username, String password)throws XMLDBException/*errore in connessione*/{
 		repository=new ValidatorCommunicator(username, password);
 	}
-	public boolean validate(BusinessRule Brule) throws RecognitionException{
+	public boolean validate(BusinessRule Brule) throws Exception{
 		// create a CharStream that reads from standard input
 		ANTLRStringStream input;
 		CommonTokenStream tokens=null;
@@ -42,14 +42,14 @@ public class Validator {
 			return repository.insertRule(result, Brule.name);
 
 		} catch (RecognitionException e) {
-			System.out.println(e);
+			//Qui faccio il controllo di tutti gli errori lanciati dal validatore
 			throw e;
 		}
 	}
 	public static void main(String[] args){
 		while (true) {
 			try {
-				Validator v=new Validator("admin","happy");
+				Validator v=new Validator("admin","michele");
 				BusinessRule rule=new BusinessRule("uno","art","12=0","no");
 				q("nome:");
 				rule.name=(new BufferedReader(new InputStreamReader(System.in))).readLine();
@@ -61,9 +61,8 @@ public class Validator {
 				rule.comment=(new BufferedReader(new InputStreamReader(System.in))).readLine();
 				try {
 					p(v.validate(rule)?"yes":"no");
-				} catch (RecognitionException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				} catch (Exception e) {
+					System.out.println("ERRORE!!!!!\n"+e);
 				}
 			} catch (XMLDBException e) {
 				System.out.println("errore in connessione");
