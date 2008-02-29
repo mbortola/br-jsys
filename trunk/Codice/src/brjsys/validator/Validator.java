@@ -2,20 +2,20 @@ package brjsys.validator;
 
 
 import java.io.*;
-import java.util.*;
 
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
-import org.xmldb.api.base.XMLDBException;
 
 import brjsys.businessrules.BusinessRule;
 import brjsys.communicator.ValidatorCommunicator;
 
 public class Validator {
 	private ValidatorCommunicator repository;
-	public Validator(String username, String password)throws XMLDBException/*errore in connessione*/{
+	
+	public Validator(String username, String password)throws Exception/*errore in connessione*/{
 		repository=new ValidatorCommunicator(username, password);
 	}
+	
 	public boolean validate(BusinessRule Brule) throws Exception{
 		// create a CharStream that reads from standard input
 		ANTLRStringStream input;
@@ -47,11 +47,12 @@ public class Validator {
 				throw new Exception(e);
 			}
 			if(e instanceof NoViableAltException){
-				
+
 			}
 			throw e;
 		}
 	}
+	
 	public static void main(String[] args){
 		while (true) {
 			try {
@@ -70,11 +71,10 @@ public class Validator {
 				} catch (Exception e) {
 					System.out.println("ERRORE!!!!!\n"+e.getMessage());
 				}
-			} catch (XMLDBException e) {
-				System.out.println("errore in connessione");
-				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}catch (Exception e) {
+				System.out.println("errore in connessione");
 				e.printStackTrace();
 			}
 		}
