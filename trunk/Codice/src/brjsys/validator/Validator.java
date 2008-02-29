@@ -36,7 +36,7 @@ public class Validator {
 
 			CommonTree tree=(CommonTree)r.getTree();
 
-			XMLParser tree2XML =new XMLParser();
+			XMLParser tree2XML =new XMLParser(BusinessRuleParser.tokenNames);
 			String result=tree2XML.parse(tree, Brule);
 
 			return repository.insertRule(result, Brule.name);
@@ -49,7 +49,7 @@ public class Validator {
 	public static void main(String[] args){
 		while (true) {
 			try {
-				Validator v=new Validator("admin","michele");
+				Validator v=new Validator("admin","happy");
 				BusinessRule rule=new BusinessRule("uno","art","12=0","no");
 				q("nome:");
 				rule.name=(new BufferedReader(new InputStreamReader(System.in))).readLine();

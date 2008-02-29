@@ -12,7 +12,29 @@ import org.antlr.runtime.tree.*;
 
 public class BusinessRuleParser extends Parser {
 	public static final String[] tokenNames = new String[] {
-		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "OpRule", "Conf", "Bconf", "Msg", "STRING", "OpA", "OpM", "OpBool", "FIELD", "FLOAT", "BOOL", "BoFun", "FlFun", "Count", "CHAR", "OTHERCHAR", "SUBFIELD", "WHITESPACE", "'('", "')'"
+		"<invalid>",
+		"<EOR>",
+		"<DOWN>",
+		"<UP>",
+		"OpRule",
+		"Conf", "Bconf",
+		"Msg",
+		"STRING",
+		"OpA",
+		"OpM",
+		"OpBool",
+		"FIELD",
+		"FLOAT",
+		"BOOL",
+		"BoFun",
+		"FlFun",
+		"Count", 
+		"CHAR",
+		"OTHERCHAR",
+		"SUBFIELD",
+		"WHITESPACE",
+		"'('",
+		"')'"
 	};
 	public static final int Count=17;
 	public static final int OpRule=4;

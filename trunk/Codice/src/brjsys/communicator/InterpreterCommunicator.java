@@ -29,14 +29,17 @@ public class InterpreterCommunicator {
 		XMLResource r = (XMLResource)i.nextResource();
 		val=((String)r.getContent());
 		System.out.println("++++"+val);
-		Element node=(Element)r.getContentAsDOM();
+		Node node=r.getContentAsDOM();
+				
+		NodeList list=node.getChildNodes();
+		Element el=(Element)list.item(0);
+		NodeList list2=el.getElementsByTagName("BusinessRule");
 		
-		Element cNode=(Element)node.getFirstChild();
+		for(int x=0;x<list2.getLength();x++){
+			System.out.println(list2.item(x).getNodeName());
+		}
 		
-		/*Element fc=node.getFirstChild();
-		System.out.println(fc.getNodeName());*/
-		NodeList result=node.getElementsByTagName("BusinessRule");
-		return result;
+		return list2;
 	}
 	public static void main(String[]args){
 		try {
