@@ -43,6 +43,12 @@ public class Validator {
 
 		} catch (RecognitionException e) {
 			//Qui faccio il controllo di tutti gli errori lanciati dal validatore
+			if(e instanceof TypeCollisionException){
+				throw new Exception(e);
+			}
+			if(e instanceof NoViableAltException){
+				
+			}
 			throw e;
 		}
 	}
@@ -62,7 +68,7 @@ public class Validator {
 				try {
 					p(v.validate(rule)?"yes":"no");
 				} catch (Exception e) {
-					System.out.println("ERRORE!!!!!\n"+e);
+					System.out.println("ERRORE!!!!!\n"+e.getMessage());
 				}
 			} catch (XMLDBException e) {
 				System.out.println("errore in connessione");

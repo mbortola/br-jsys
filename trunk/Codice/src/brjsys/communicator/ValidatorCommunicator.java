@@ -11,7 +11,7 @@ public class ValidatorCommunicator {
 	}
 
 	public boolean insertRule(String rule, String idRule){
-		//Guardo se nel repository non esiste gia'  una br con il mio stesso nome
+		//Guardo se nel repository non esiste gia' e' una br con il mio stesso nome
 		try {
 			long test=queryService.makeQuery("let $i:=//BusinessRule[@name='"+idRule+"'] return $i").getSize();
 			if(test>0)return false;

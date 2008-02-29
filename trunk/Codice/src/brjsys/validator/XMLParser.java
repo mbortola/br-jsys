@@ -12,6 +12,15 @@ import org.w3c.dom.*;
 
 import brjsys.businessrules.BusinessRule;
 
+/**
+ *Classe incaricata di effettuare il parsing da AST a elemento XML
+ *utilizzando le librerie di org.w3c.dom  
+ *
+ * @author  Michele Bortolato
+ *
+ * 
+ */
+
 public class XMLParser {
 	
 	String[] tokenList;
@@ -47,7 +56,14 @@ public class XMLParser {
 		}else{
 			root.setTextContent(AST.getText());}
 	}
-	
+	/**
+     * Effettua il parsing da AST a XML
+     *
+     * @param 	AST		Rappresenta l'albero sintattico prodotto dal parser
+     * @param	rule	Rappresenta la Business rule validats dal parser
+     * @return  La stringa XML che rappresenta la Business rule
+     * 
+     */
 	public String parse(Tree AST, BusinessRule rule){
 		//Eseguo il parsing in XML
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

@@ -53,7 +53,7 @@ public class Communicator {
 
 				service =	(XPathQueryService) cpointer.getService("XPathQueryService", "1.0");
 				service.setProperty("indent", "yes");
-				//XPathQueryService è un servizio che consente di fare query con eXist
+				//XPathQueryService e' un servizio che consente di fare query con eXist
 			}
 			catch (ClassNotFoundException e) {e.printStackTrace();} 
 			catch (InstantiationException e) {e.printStackTrace();}
