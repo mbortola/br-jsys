@@ -3,6 +3,7 @@
 \usepackage[italian]{babel}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
+\usepackage{lastpage} % total page count
 \graphicspath{{./pics/}} % cartella di salvataggio immagini
 
 \pagestyle{fancy}
@@ -18,7 +19,7 @@
 	\chead{}
 	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
 	\lfoot{BR-jsys}
-	\cfoot{\thepage}
+	\cfoot{\thepage\ / \pageref{LastPage}}
 	\rfoot{\dt - \lv}
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
@@ -27,7 +28,7 @@
 	\chead{}
 	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
 	\lfoot{BR-jsys}
-	\cfoot{\thepage}
+	\cfoot{\thepage\ / \pageref{LastPage}}
 	\rfoot{\dt - \lv}
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
