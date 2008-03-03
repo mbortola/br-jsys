@@ -256,4 +256,123 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \newpage
 
 
+\chapter{Appendice}
+\section{Tracciamento relazione use case - requisiti}
+\large{
+\begin{tabular}{l}
+
+\textbf{Inserimento e cancellazione di business rule dal repository}\\ \\
+
+\begin{tabular}{||p{8cm}||p{4cm}||} \hline
+\textbf{Use-case} & \textbf{Requisiti associati} \\ \hline
+\textbf{Inserisci nuova business rule} & F2 - F8 - NU1 \\ \hline
+\textbf{Valida business rule} & F2 - F3 - F4 - F5 - F8 - NPr1 - NQ1 \\ \hline
+\textbf{Controlla la semantica} & F2 - F4 - F10 - NQ1\\ \hline
+\textbf{Controlla sintassi} & F2 - F4 - NU2 - NQ1\\ \hline
+\textbf{Richiedi al DBMS di inserire nel repository} & F3 -  F5 -  NPo1 \\ \hline
+\textbf{Restituisci messaggio di errore} & F2 - F4 - F10 - NU3 \\ \hline
+\textbf{Richiedi al DBMS di cancellare dal repositiry} & F7 - F8 \\ \hline
+\end{tabular} \\ \\
+
+\textbf {Gestione di una richiesta di business rule}\\ \\
+
+\begin{tabular}{||p{8cm}||p{4cm}||} \hline
+\textbf{Gestisci la richiesta di business rule per un determinato business object} & F6 - F10 - F11 \\ \hline
+\textbf{Recupera business rule pertinenti al business object} & F5 - NPr1 - NPr2 \\ \hline
+\textbf{Manda la business rule all'interprete esterno} & F6 \\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+
+\section{Tracciamento relazione inversa: requisiti - use case}
+\large{
+\begin{tabular}{l}
+\begin{tabular}{||p{2cm}||p{10cm}||} \hline
+\textbf{Requisito} & \textbf{Use-case associato} \\ \hline
+\textbf {F2} & \begin{itemize}
+\item Inserisci nuova business rule
+\item Valida busness rule
+\item Controlla la semantica
+\item Controlla sintassi
+\item restituisci messaggio di errore
+\end{itemize} \\ \hline
+\textbf{F3} & \begin{itemize}
+\item Valida business rule
+\item Richiedi al DBMS di inserire nel repository
+\end{itemize} \\ \hline
+\textbf{F4} & \begin{itemize}
+\item Valida business rule
+\item Controlla la semantica
+\item Cotrolla sintassi
+\item Restituisci messaggio di errore
+\end{itemize} \\ \hline
+\textbf{F5} & \begin{itemize}
+\item Valida business rule
+\item Richiedi al DBMS di inserire nel repository
+\item Recupera business rule pertinenti al business object
+\end{itemize} \\ \hline
+\textbf{F6} & \begin{itemize}
+\item Gestisci la richiesta di business rule per un determinato business object
+\item Manda la business rule all'interprete esterno
+\end{itemize} \\ \hline
+\end{tabular}
+\end{tabular}
+
+\begin{tabular}{l}
+\begin{tabular}{||p{2cm}||p{10cm}||} \hline
+\textbf{F7} & \begin{itemize}
+\item Richiedi al DBMS di cancellare dal repository
+\end{itemize}\\ \hline
+
+
+\textbf{F8} & \begin{itemize}
+\item Inserisci nuova business rule
+\item Valida business rule
+\item Richiedi al DBMS di cancellare dal repository
+\end{itemize} \\ \hline
+\textbf{F10} & \begin{itemize}
+\item Controlla la semantica
+\item Restituisci messaggio di errore
+\item Gestisci la richiesta di business rule per un determinato business object
+\end{itemize} \\ \hline
+\textbf{F11} & \begin{itemize}
+\item Gestisci la richiesta di business rule per un determinato business object
+\end{itemize} \\ \hline
+\textbf{NU1} & \begin{itemize}
+\item Inserisci nuova business rule
+\end{itemize} \\ \hline
+\textbf{NU2} & \begin{itemize}
+\item Controlla sintassi
+\end{itemize} \\ \hline
+\textbf{NU3} & \begin{itemize}
+\item Restituisci messaggio di errore
+\end{itemize} \\ \hline
+\textbf{NPo1} & \begin{itemize}
+\item Richiedi al DBMS di inserire nel repository
+\end{itemize} \\ \hline
+\textbf{NPr1} & \begin{itemize}
+\item Valida business rule
+\item Recupera business rule pertinenti al business object
+\end{itemize} \\ \hline
+
+\end{tabular}
+\end{tabular}
+
+\begin{tabular}{l}
+\begin{tabular}{||p{2cm}||p{10cm}||} \hline
+
+
+\textbf{NPr2} & \begin{itemize}
+\item Recupera business rule pertinenti al business object
+\end{itemize} \\ \hline
+
+\textbf{NQ1} & \begin{itemize}
+\item Valida business rule
+\item Controlla la semantica
+\item Controlla sintassi
+\end{itemize} \\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+
 \end{document}
