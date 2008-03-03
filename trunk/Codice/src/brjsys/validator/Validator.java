@@ -1,24 +1,25 @@
 package brjsys.validator;
 
-
-import java.io.*;
-
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
 import brjsys.businessrules.BusinessRule;
 import brjsys.communicator.ValidatorCommunicator;
 
 /**
+ * Consente la validazione di una business rule
+ * @author Michele  Bortolato
+ * @version 0.9 3 Mar 2008
  * 
  */
+
 public class Validator {
 	/**
 	 * Fa comunicare Validator con eXist
-	 *
 	 */
 	private ValidatorCommunicator repository;
 
 	public Validator (String username, String password) throws Exception {
+
 		repository=new ValidatorCommunicator(username, password);
 	}
 	
@@ -42,6 +43,7 @@ public class Validator {
 			CommonTree tree= (CommonTree)r.getTree();
 
 			XMLParser tree2XML =new XMLParser(BusinessRuleParser.tokenNames);
+			
 			String result=tree2XML.parse(tree, Brule);
 
 			return repository.insertRule(result, Brule.name);
@@ -57,4 +59,5 @@ public class Validator {
 			throw e;
 		}
 	}
+
 }

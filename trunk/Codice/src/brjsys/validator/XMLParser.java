@@ -12,18 +12,37 @@ import org.w3c.dom.*;
 
 import brjsys.businessrules.BusinessRule;
 
+/**
+ * Consente di convertire un AST in un elemento analogo XML
+ * @author Michele  Bortolato
+ * @version 0.9 3 Mar 2008
+ * 
+ */
 public class XMLParser {
-	/**
-	 * Lista che associa l'identificativo del token al token stesso
-	 * 
-	 * */
+	/**Lista che associa l'identificativo del token al token stesso*/
 	String[] tokenList;
 
-	XMLParser (String[]tList) {
+	/**
+	 * Costruttore
+	 * @param tList Array che associa il nome dei token al intero che li 
+	 * identifica
+	 * */
+	public XMLParser (String[]tList) {
 		tokenList=tList;
 	}
+	
+	/**
+	 * Metodo interno per scorrere l'AST ed effetturare il parsing in XML
+	 * 
+	 * @param AST il nodo dell'albero sintattico da analizzare
+	 * @param root L'elemento padre al quale aggiungere i figli
+	 * @param doc Classe necessaria per istanziare nuovi nodi
+	 * 
+	 * @see org.w3c.dom
+	 * */
 	private void scanAST(Tree AST, Element root, Document doc){
-		//root e' gia stato inserito la chiamata precedente,ora devo impostargli il suo valore interno
+		//root e' gia stato inserito la chiamata precedente, 
+		//ora devo impostargli il suo valore interno
 		int childs=AST.getChildCount();
 		String tag=null;
 		Element e=null;
@@ -77,16 +96,16 @@ public class XMLParser {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		//Create blank DOM Document
+		//Crea un Document
 		Document doc = docBuilder.newDocument();
-		//create the root element
+		//Crea l'elemento radice
 		Element base = doc.createElement("BusinessRule");
-		//all it to the xml tree
 
 		//Inserisco gli attributi alla Business rule
 		base.setAttribute("name",rule.name);
 		base.setAttribute("associated",rule.associated);
 		base.setAttribute("rule",rule.rule);
+		//Controllo se la regola ha un commento
 		if(rule.comment!=null){
 			base.setAttribute("comment",rule.comment);
 		}
@@ -94,6 +113,7 @@ public class XMLParser {
 		Element root=doc.createElement(tokenList[AST.getType()]);
 		Element astRule=doc.createElement("AstRuleVersion");
 		astRule.setAttribute("value",AST.toStringTree());
+		
 		//appendChild pone alla fine!!!
 		base.appendChild(astRule);
 		base.appendChild(root);
@@ -104,8 +124,9 @@ public class XMLParser {
 		try {
 			aTransformer = tranFactory.newTransformer();
 		} catch (TransformerConfigurationException e1) {
-
+			//In teoria non dovrebbe mai accadere
 			e1.printStackTrace();
+			System.exit(1);
 		}
 		StringWriter st=new StringWriter();
 		Source src = new DOMSource(doc);
@@ -113,16 +134,16 @@ public class XMLParser {
 		try {
 			aTransformer.transform(src, dest);
 		} catch (TransformerException e) {
-
+			//In teoria non dovrebbe mai accadere
 			e.printStackTrace();
+			System.exit(1);
 		}
-		System.out.println(st);
+		
 		//devo togliergli l'intestazione!
+		String result=st.toString();
+		result=result.substring(result.indexOf(">")+1);
 
-		String string=st.toString();
-		string=string.substring(string.indexOf(">")+1);
-
-		return string;
+		return result;
 
 	}
 }
