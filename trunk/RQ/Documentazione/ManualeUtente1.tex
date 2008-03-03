@@ -5,6 +5,7 @@
 \newcommand{\lv}{ 0.3 } % latest version
 \newcommand{\Glossario}{} %latest version
 \newcommand{\dt}{ Manuale Utente }% Document title
+\newcommand{\Grammatica}{}} % paragrafo dove si trova la spiegazione della grammatica
 \input{model/variables.tex}%altre variabili
 \input{model/document-latest-versions.tex}%nomi documenti
 %fine definizione variabili
@@ -139,7 +140,6 @@ I dati di autenticazione immessi sono quelli utilizzati per la registrazione al 
 
 \section{Azioni richieste/permesse}
 A questo punto verr\`a visualizzata la schermata principale (figura 3.1).
-\\
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[width=0.4\textwidth]{manuale_utente/schermata_iniziale.eps}
@@ -147,8 +147,7 @@ A questo punto verr\`a visualizzata la schermata principale (figura 3.1).
 \caption{schermata principale}
 \label{figura 3.1}
 \end{figure}
-\\
-Le azioni permesse sono in questa raffigurazione rappresentate dai 3 bottoni:
+Nella figura 3.1 vediamo illustrate le tre funzionalit\`a associate ai rispettivi bottoni:
 \begin{itemize}
 \item Inserisci Business Rule;
 \item Rimuovi Business Rule;
@@ -163,7 +162,14 @@ L'analisi dettagliata delle singole azioni verr\`a trattata nelle sottosezioni s
 \caption{schermata di inserimento}
 \label{figura 3.3}
 \end{figure}
-
+Nella figura 3.3 vediamo illustrata la schermata di inserimento di una nuova business rule. L'utente dovr\`a inserire negli appositi spazi i campi dati richiesti:
+\begin{itemize}
+\item Nome: il nome della business rule che l'utente intende inserire (il nome dovr\`a essere significativo)
+\item BO Associato: il nome della classe del business object alla quale si vuole associare la regola.
+\item Regola: la regola scritta secondo la grammatica spiegata nel paragrafo \Grammatica.
+\item Commento: descrizione sintetica del comportamento della regola. 
+\end{itemize}
+L'utente dovr\`a ora cliccare su ``Valida''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
 \subsection{Rimuovi Business Rule}
 \begin{figure}[htbp]
 \begin{center}
@@ -172,6 +178,7 @@ L'analisi dettagliata delle singole azioni verr\`a trattata nelle sottosezioni s
 \caption{schermata di rimozione}
 \label{figura 3.4}
 \end{figure}
+Nella figura 3.3 vediamo illustrata la schermata di inserimento di una nuova business rule. L'utente dovr\`a inserire negli appositi spazi i campi dati richiesti:
 
 \subsection{Sandbox}
 \begin{figure}[htbp]
