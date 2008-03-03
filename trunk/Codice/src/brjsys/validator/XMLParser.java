@@ -12,28 +12,23 @@ import org.w3c.dom.*;
 
 import brjsys.businessrules.BusinessRule;
 
-/**
- *Classe incaricata di effettuare il parsing da AST a elemento XML
- *utilizzando le librerie di org.w3c.dom  
- *
- * @author  Michele Bortolato
- *
- * 
- */
-
 public class XMLParser {
-	
+	/**
+	 * Lista che associa l'identificativo del token al token stesso
+	 * 
+	 * */
 	String[] tokenList;
-	
-	XMLParser(String[]tList){tokenList=tList;}
-	
+
+	XMLParser (String[]tList) {
+		tokenList=tList;
+	}
 	private void scanAST(Tree AST, Element root, Document doc){
 		//root e' gia stato inserito la chiamata precedente,ora devo impostargli il suo valore interno
 		int childs=AST.getChildCount();
 		String tag=null;
 		Element e=null;
 		Tree treeChild=null;
-	
+
 		if (childs>0) {
 			if (!root.hasAttribute("name")) {
 				root.setAttribute("type", AST.getText());
@@ -44,26 +39,33 @@ public class XMLParser {
 				//tag diventa il nome del Token secondo il linguaggio
 				tag=tokenList[treeChild.getType()];
 				//operazioin per unificare alcuni tags
-				if(tag.equals("OpRule")||tag.equals("OpBool"))tag="OBool";
-				if(tag.equals("Bconf"))tag="Conf";
-				if(tag.equals("OpA")||tag.equals("OpM"))tag="OFloat";
-				
+				if(tag.equals("OpRule")||tag.equals("OpBool")){
+					tag="OBool";
+				}
+				if(tag.equals("Bconf")){
+					tag="Conf";
+				}
+				if(tag.equals("OpA")||tag.equals("OpM")){
+					tag="OFloat";
+				}
 				//creo un elemento
 				e=doc.createElement(tag);
 				root.appendChild(e);
 				scanAST(treeChild,e,doc);
 			}
-		}else{
-			root.setTextContent(AST.getText());}
+		}else {
+			root.setTextContent(AST.getText());
+		}
 	}
+
 	/**
-     * Effettua il parsing da AST a XML
-     *
-     * @param 	AST		Rappresenta l'albero sintattico prodotto dal parser
-     * @param	rule	Rappresenta la Business rule validats dal parser
-     * @return  La stringa XML che rappresenta la Business rule
-     * 
-     */
+	 * Effettua il parsing da AST a XML
+	 *
+	 * @param 	AST		Rappresenta l'albero sintattico prodotto dal parser
+	 * @param	rule	Rappresenta la Business rule validats dal parser
+	 * @return  La stringa XML che rappresenta la Business rule
+	 * 
+	 */
 	public String parse(Tree AST, BusinessRule rule){
 		//Eseguo il parsing in XML
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -102,7 +104,7 @@ public class XMLParser {
 		try {
 			aTransformer = tranFactory.newTransformer();
 		} catch (TransformerConfigurationException e1) {
-			
+
 			e1.printStackTrace();
 		}
 		StringWriter st=new StringWriter();
@@ -111,7 +113,7 @@ public class XMLParser {
 		try {
 			aTransformer.transform(src, dest);
 		} catch (TransformerException e) {
-			
+
 			e.printStackTrace();
 		}
 		System.out.println(st);
@@ -119,7 +121,7 @@ public class XMLParser {
 
 		String string=st.toString();
 		string=string.substring(string.indexOf(">")+1);
-		
+
 		return string;
 
 	}

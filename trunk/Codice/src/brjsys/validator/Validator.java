@@ -5,14 +5,21 @@ import java.io.*;
 
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
-
 import brjsys.businessrules.BusinessRule;
 import brjsys.communicator.ValidatorCommunicator;
 
+/**
+ * 
+ */
+
 public class Validator {
+	/**
+	 * Fa comunicare Validator con eXist
+	 *
+	 */
 	private ValidatorCommunicator repository;
-	
-	public Validator(String username, String password)throws Exception/*errore in connessione*/{
+
+	public Validator (String username, String password) throws Exception {
 		repository=new ValidatorCommunicator(username, password);
 	}
 	
@@ -21,17 +28,14 @@ public class Validator {
 		ANTLRStringStream input;
 		CommonTokenStream tokens=null;
 		try {
-
 			input = new ANTLRStringStream(Brule.rule);
-			// create a lexer that feeds off of input CharStream
+			
 			BusinessRuleLexer lexer = new BusinessRuleLexer(input);
 
-			// create a buffer of tokens pulled from the lexer
 			tokens = new CommonTokenStream(lexer);
 
-			// create a parser that feeds off the tokens buffer
 			BusinessRuleParser parser = new BusinessRuleParser(Brule.associated, tokens);
-			// begin parsing at rule r
+
 			BusinessRuleParser.start_return r=parser.start();
 
 			CommonTree tree=(CommonTree)r.getTree();
@@ -52,8 +56,9 @@ public class Validator {
 			throw e;
 		}
 	}
-	
+
 	public static void main(String[] args){
+		
 		while (true) {
 			try {
 				Validator v=new Validator("admin","happy");
@@ -80,6 +85,7 @@ public class Validator {
 		}
 
 	}
+
 	public static void p(String s){
 		System.out.println(s);
 	}

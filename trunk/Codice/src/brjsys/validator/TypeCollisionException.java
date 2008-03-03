@@ -1,7 +1,6 @@
 package brjsys.validator;
 
 import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.Token;
 
 public class TypeCollisionException extends RecognitionException{
 

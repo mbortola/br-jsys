@@ -1,3 +1,5 @@
+package brjsys.GUI2;
+
 /*
  * GUI.java
  *

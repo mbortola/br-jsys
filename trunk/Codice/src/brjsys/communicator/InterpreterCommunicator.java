@@ -11,7 +11,9 @@ import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XMLResource;
 
 public class InterpreterCommunicator {
-
+	/**
+	 * s
+	 */
 	private Communicator queryService=null;
 
 	public InterpreterCommunicator(String username, String password) throws XMLDBException{
