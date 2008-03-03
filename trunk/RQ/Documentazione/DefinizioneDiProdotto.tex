@@ -467,5 +467,162 @@ ValidatorCommunicator & +ValidatorCommunicator() & F3 \\\cline{2-3}
 & +insertRule() & F3 \\\hline
 \end{tabular}
 
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Tracciamento inverso: requisiti - componenti}}} \\
+
+\begin{tabular}{||p{2cm}||p{10cm}||} \hline
+\textbf{Requisito} & {Metodi associati} \\ \hline
+\textbf{F2} & 
+\begin{itemize}
+\item Validator: + Validator()
+\item Validator: + Validate()
+\item BusinessRuleLexer: +~ BusinessRuleLexer()
+\item BusinessRuleParser: BusinessRuleParser()
+\item BusinessRuleParser: + start()
+\item TypeCollisionException: +~ TypeCollisionException()
+\item TypeCollisionException: +~ printStackTrace()
+\item BusinessRule: + BusinessRule()
+\end{itemize} \\ \hline
+\textbf{F3} &
+\begin{itemize}
+\item Validator: + Validate()
+\item Communicator: + Communicator()
+\item Communicator: + makeQuery()
+\item ValidatorCommunicator: +~ ValidatorCommunicator()
+\item ValidatorCommunicator: +~ insertRule()
+\end{itemize} \\ \hline
+\textbf{F4} & 
+\begin{itemize}
+\item Gui: + Gui()
+\item Validator: + Validate()
+\item BusinessRuleLexer: +~ BusinessRuleLexer()
+\item BusinessRuleParser: BusinessRuleParser()
+\item BusinessRuleParser: + start()
+\item TypeCollisionException: +~ TypeCollisionException()
+\end{itemize} \\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\begin{tabular}{||p{2cm}||p{10cm}||} \hline
+\textbf{} & 
+\begin{itemize}
+\item TypeCollisionException: +~ printStackTrace()
+\end{itemize} \\ \hline
+\textbf{F5} &
+\begin{itemize}
+\item Gui: + Gui()
+\item Validator: + Validator()
+\item Validator: + validate()
+\item Communicator: + Communicator()
+\item Communicator: + makeQuery()
+\item GUICommunicator: +~ GUICommunicator()
+\item GUICommunicator: +~ deleteRuleByName()
+\item GUICommunicator: + makeQuery()
+\item GUICommunicator: + getListRules()
+\item InterpreterCommunicator: +~ InterpreterCommunicator()
+\item InterpreterCommunicator: + getRule()
+\end{itemize} \\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+
+\begin{tabular}{||p{2cm}||p{10cm}||} \hline
+\textbf{F6} & 
+\begin{itemize}
+
+\item Communicator: + Communicator()
+\item Communicator: + makeQuery()
+\item InterpreterCommunicator: +~ InterpreterCommunicator()
+\item InterpreterCommunicator: + getRule()
+\end{itemize} \\ \hline
+
+\textbf{F7} & 
+\begin{itemize}
+\item Gui: + Gui() 
+\item GUICommunicator: +~ GUICommunicator()
+\item GUICommunicator: +~ deleteRuleByName()
+\end{itemize} \\ \hline
+\textbf{F8} & 
+\begin{itemize}
+\item Gui: + Gui()
+\item Validator: + Validator()
+\item Validator: + validate()
+\item GUICommunicator: +~ GUICommunicator()
+\item GUICommunicator: +~ deleteRuleByName()
+\item GUICommunicator: + makeQuery()
+\item GUICommunicator: +~ getListRules()
+\end{itemize} \\ \hline
+\textbf{F10} & 
+\begin{itemize}
+\item BusinessRuleParser: BusinessRuleParser
+\item BusinessRuleParser: + start()
+\item TypeCollisionException: +~ typeCollisionException()
+\item TypeCollisionException: +~ printStackTrace()
+\item BusinessRule: + BusinessRule()
+\end{itemize} \\
+\hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\begin{tabular}{||p{2cm}||p{10cm}||} \hline
+\textbf{F11} & 
+\begin{itemize}
+\item Business Rule: + BusinessRule()
+\end{itemize} \\ \hline
+\textbf{NU1} & 
+\begin{itemize}
+\item BusinessRule: + BusinessRule()
+\end{itemize} \\ \hline
+\textbf{NU2} & 
+\begin{itemize}
+\item BusinessRule: + BusinessRule()
+\end{itemize} \\ \hline
+\textbf{NU3} & 
+\begin{itemize}
+\item BusinessRule: + BusinessRule()
+\end{itemize} \\ 
+\hline 
+\textbf{NPo1} & 
+\begin{itemize}
+\item XMLParser: - generateSimbols()
+\item XMLParser: + parse()
+\item XMLParser: - scanAST()
+\end{itemize} \\ \hline
+\textbf{NPr1} & 
+\begin{itemize}
+\item Validator: + validate()
+\item Communicator: + Communicator()
+\item Communicator: + makeQuery()
+\end{itemize} \\ \hline
+\textbf{NQ1} & 
+\begin{itemize}
+\item Validator: + validate()
+\item BusinessRuleLexer: +~ BusinessRuleLexer()
+\item BusinessRuleParser: + ~start()
+\item TypeCollisionException: +~ TypeCollisionException()
+\item BusinessRule: + BusinessRule()
+\end{itemize} \\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
 
 \end{document}
