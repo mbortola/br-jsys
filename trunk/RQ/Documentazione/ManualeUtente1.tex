@@ -91,12 +91,40 @@ Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivi
 Il prodotto BR-jsys permette di testare la consistenza di business objects. A tale scopo il software mette a disposozione, attraverso la propria interfaccia grafica, la possibilità di inserirmento di business rules validate, cancellazione e querying nel repository.
 
 \section{Descrizione della grammatica}
-In questa sezione faremo una descrizione della grammatica da noi generata per rappresentare le business rules. La struttura di una business rule \`e molto semplice. Pu\`o essere costruita da:
+In questa sezione faremo una descrizione della grammatica da noi generata per rappresentare le business rules. La \textbr{struttura di una business rule} \`e molto semplice. Pu\`o essere formata da:
 \begin{itemize}
 \item una regola atomica;
 \item un insieme di regole collegate tra loro attraverso gli operatori booleani (AND | OR).
 \end{itemize}
-Ogni singola regola che costituisce la business rule \`e costituita da un insieme di espressioni collegate tra loro attaverso un operatore di confronto (= | != | < | > | <= | >=). A ciascuna regola pu\`o venire associato un ``message'' (opzionale), col compito di dare informazioni aggiuntive sullo stato di validazione della business rule.
+Ogni singola \textbr{regola} che costituisce la business rule \`e costituita da un insieme di espressioni collegate tra loro attaverso un operatore di confronto (= | != | < | > | <= | >=). A ciascuna regola pu\`o venire associato un ``message'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della business rule. Una \textbr{espressione} \`e costituita a sua volta da campi dati che posso essere di 3 tipi diversi:
+\begin{itemize}
+\item float;
+\item string;
+\item bool. 
+\end{itemize}
+
+Float permette le operazioni di:
+\begin{itemize}
+\item addizione;
+\item sottrazione;
+\item moltiplicazione;
+\item divisione.
+\end{itemize}
+e le funzioni:
+\begin{itemize}
+\item AVG (media aritmetica);
+\item COUNT (contatore);
+\item SUM (somma). 
+\end{itemize}
+
+Bool permette le operazioni di:
+\begin{itemize}
+\item NOT;
+\item &&;
+\item ||.
+\end{itemize}
+
+String permette invece solo le operazioni di confronto.
 \section{Caratteristiche del servizio}
 % da fare
 
