@@ -90,7 +90,8 @@ Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivi
 \chapter{Descrizione generale}
 Il prodotto BR-jsys permette di testare la consistenza di business objects. A tale scopo il software mette a disposozione, attraverso la propria interfaccia grafica, la possibilità di inserirmento di business rules validate, cancellazione e querying nel repository.
 
-
+\section{Descrizione della grammatica}
+%da fare
 \section{Caratteristiche del servizio}
 % da fare
 
@@ -167,7 +168,7 @@ Nella figura 3.3 vediamo illustrata la schermata di inserimento di una nuova bus
 \item Regola: la regola scritta secondo la grammatica spiegata nel paragrafo \Grammatica.
 \item Commento: descrizione sintetica del comportamento della regola. 
 \end{itemize}
-L'utente dovr\`a ora cliccare su ``Valida''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
+L'utente dovr\`a ora cliccare sul pulsante ``Valida''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
 \subsection{Rimuovi Business Rule}
 \begin{figure}[htbp]
 \begin{center}
@@ -176,7 +177,7 @@ L'utente dovr\`a ora cliccare su ``Valida''. Se l'inserimento viene effettuato c
 \caption{schermata di rimozione}
 \label{figura 3.4}
 \end{figure}
-Nella figura 3.4 vediamo illustrata la schermata di cancellazione di una business rule. L'utente dovr\`a inserire negli appositi spazi i campi dati richiesti:
+Nella figura 3.4 vediamo illustrata la schermata di cancellazione di una business rule. Per procedere all'eliminazione, l'utente dovr\`a insierire nell'appostito  il nome della regola che intende rimuovere e cliccare sul pulsante ``Cerca''. Verr\`a visualizzato quindi nella parte bassa della schermata il 
 
 \subsection{Sandbox}
 \begin{figure}[htbp]
@@ -197,7 +198,7 @@ Nella figura 3.4 vediamo illustrata la schermata di cancellazione di una busines
 \hline
 \textbf{Messaggio:} & \textbf{Descrizione:} \\ \hline
 Oggetto associato \textless nome associato\textgreater\ inesistente! & Inserimento di una business rule con un business object associato non valido. \\ \hline
-Campo dato \textless nome campo dato\textgreater\ non trovato: validazione interrotta! & Riferimento ad un campo dato sbagliato. La validazione viene interrotta. \\ \hline
+Campo dati \textless nome campo dati\textgreater\ non trovato: validazione interrotta! & Riferimento ad un campo dati sbagliato. La validazione viene interrotta. \\ \hline
 Operazione non consentita! \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta! & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
 Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
 Regola \textless nome regola\textgreater\  gi\`a presente: inserimento fallito! & La regola ha un nome gi\`a presente nel repository. Non verr\`a quindi inserita. \\ \hline
