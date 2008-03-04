@@ -91,7 +91,6 @@ Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivi
 
 \chapter{Descrizione generale}
 Il prodotto BR-jsys permette di testare la consistenza di business objects. A tale scopo il software mette a disposozione, attraverso la propria interfaccia grafica, la possibilit\`a di inserirmento di business rules validate, cancellazione e querying nel repository.
-
 \section{Descrizione della grammatica}
 In questa sezione faremo una descrizione dettagliata della grammatica da noi generata per rappresentare le business rules. 
 \subsection{Struttura business rule}
@@ -143,20 +142,18 @@ Il nome dello studente deve essere Lisa. I suoi crediti devono essere almeno 180
 \underline{REGOLA NELLA GRAMMATICA:} \\
 nome=``Lisa'' AND SUM(crediti)\textgreater =180 message(``totale crediti sbagliato'') AND COUNT(anni)\textless =3 message(``risulti fuori corso'')
 \end{itemize}
-
 \section{Caratteristiche del servizio}
-BR-jsys \'e destinato ad utenti anche senza esperienza in ambiti informatici. Una volta avviato, il sistema offre all'utente:
+BR-jsys \`e destinato ad utenti che non necessariamente hanno competenze in ambito informatico. Una volta avviato, il sistema offre all'utente:
 \begin{itemize}
-\item[-] un' elevata configurabilit\'a ed estendibilit\'a dei business objects, mantenendo il rispetto dei controlli cablati.
-\item[-] un linguaggio per la definizione di business rules.
-\item[-] un validatore che consenta l'accettazione di nuove business rules soltanto se esse sono scritte secondo le specifiche del linguaggio creato.
-\item[-] un file repository per immagazzinare le business rules.
-\item[-] un DBMS esterno (eXist) per interagire con il repository. 
-\item[-] un interprete per stabilire se un business object rispetta o meno tutte le regole che lo riguardano.
-\item[-] un aiuto agli utenti meno esperti attraverso  messaggi di errore.
+\item[-] un'elevata configurabilit\`a ed estendibilit\`a dei business objects, mantenendo il rispetto dei controlli cablati;
+\item[-] un linguaggio per la definizione di business rules;
+\item[-] un validatore che consenta l'accettazione di nuove business rules soltanto se esse sono scritte secondo le specifiche del linguaggio creato;
+\item[-] un file repository per immagazzinare le business rules;
+\item[-] un DBMS esterno (eXist) per interagire con il repository;
+\item[-] un interprete per stabilire se un business object rispetta o meno tutte le regole che lo riguardano;
+\item[-] un aiuto agli utenti meno esperti attraverso  messaggi di errore;
 \item[-] una semplice interfaccia per operare su questo sistema.
 \end{itemize}
-
 \section{Requisiti minimi}
 \subsection{Requisiti sofware}
 Sistema operativo:
