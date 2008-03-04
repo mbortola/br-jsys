@@ -22,20 +22,25 @@ public class Validator {
 
 		repository=new ValidatorCommunicator(username, password);
 	}
-	
+
 	/**
 	 * Valida la business rule
 	 * 
-	 * @param 
+	 * @param bRule La regola da validare.
+	 * 
+	 * @return true se la regola viene inserita nel repository, false se nel 
+	 * repository esiste gia' una regola con quel nome.
+	 * 
+	 * @exception Exception Errore in fase di validazione.
 	 * */
 	public boolean validate(BusinessRule bRule) throws Exception{
 		// create a CharStream that reads from standard input
 		ANTLRStringStream input;
 		CommonTokenStream tokens=null;
-		
+
 		try {
 			input = new ANTLRStringStream(bRule.rule);
-			
+
 			BusinessRuleLexer lexer = new BusinessRuleLexer(input);
 
 			tokens = new CommonTokenStream(lexer);
@@ -48,20 +53,16 @@ public class Validator {
 			CommonTree tree= (CommonTree)r.getTree();
 
 			XMLParser tree2XML =new XMLParser(BusinessRuleParser.tokenNames);
-			
+
 			String result=tree2XML.parse(tree, bRule);
 
 			return repository.insertRule(result, bRule.name);
 
 		} catch (RecognitionException e) {
-			//Qui faccio il controllo di tutti gli errori lanciati dal validatore
-			if (e instanceof TypeCollisionException) {
-				throw new Exception(e);
-			}
-			if (e instanceof NoViableAltException) {
-
-			}
-			throw e;
+			/*Evito di far conoscere al validatore le operazioni interne, 
+			 * comprese le eccezioni.
+			*/
+			throw new Exception(e);
 		}
 	}
 
