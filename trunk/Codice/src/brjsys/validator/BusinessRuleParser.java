@@ -36,7 +36,7 @@ public class BusinessRuleParser extends Parser {
 	public static final int Bconf=6;
 	public static final int SUBFIELD=20;
 	public static final int FlFun=16;
-	public static final int FIELD=12;
+	public static final int FIELD=12;/server0/0/2004/etrivell/workspace
 	public static final int OpM=10;
 	public static final int BoFun=15;
 	public static final int OpA=9;
