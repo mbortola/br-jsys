@@ -126,9 +126,12 @@ Queste possono essere accompagnate da funzioni quali:
 \end{itemize}
 \textbf{Bool} permette operazioni quali:
 \begin{itemize}
-\item[-] NOT (negazione logica);
 \item[-] \&\& (congiunzione logica);
 \item[-] \textbar\textbar\ (disgiunzione logica).
+\end{itemize}
+oltre alla funzione:
+\begin{itemize}
+\item[-] NOT (negazione logica). 
 \end{itemize}
 \textbf{String} permette invece solo operazioni di confronto.
 \subsection{Esempi di business rules}
@@ -183,17 +186,13 @@ X\textgreater =Y &  \textless Conf type=``\&gt=''\textgreater \\
 \begin{table}[htbp]
 \begin{tabular}{||p{3cm}||p{6.5cm}||}
 \hline
-Conf AND Conf & \textless OpRule type=``AND''\textgreater \\
-& \textless Conf..\textgreater \\
-& \textless /Conf\textgreater\\
-& \textless Conf..\textgreater \\
-& \textless /Conf\textgreater\\
+X AND Y & \textless OpRule type=``AND''\textgreater \\
+& \textless TIPO\textgreater X\textless /TIPO\textgreater \\
+& \textless TIPO\textgreater Y\textless /TIPO\textgreater \\
 & \textless /OpRule\textgreater \\ \hline
-Conf OR Conf & \textless OpRule type=``OR''\textgreater \\
-& \textless Conf..\textgreater \\
-& \textless /Conf\textgreater\\
-& \textless Conf..\textgreater \\
-& \textless /Conf\textgreater\\
+X OR Y & \textless OpRule type=``OR''\textgreater \\
+& \textless TIPO\textgreater X\textless /TIPO\textgreater \\
+& \textless TIPO\textgreater Y\textless /TIPO\textgreater \\
 & \textless /OpRule\textgreater \\ \hline
 & \\ \hline
 SUM(X) & \textless Fun type=``SUM''\textgreater\\ 
@@ -205,10 +204,41 @@ COUNT(X) & \textless Fun type=``COUNT''\textgreater\\
 AVG(X) & \textless Fun type=``AVG''\textgreater\\ 
 & \textless TIPO\textgreater X\textless /TIPO\textgreater \\
 & \textless /Fun\textgreater \\ \hline
-X+Y & \\ \hline
-X-Y & \\ \hline
-x*Y & \\ \hline
-X/Y & \\ \hline
+& \\ \hline
+X+Y & \textless OFloat type=``+''\textgreater\\
+& \textless FLOAT\textgreater X\textless /FLOAT\textgreater \\
+& \textless FLOAT\textgreater Y\textless /FLOAT\textgreater \\
+& \textless /OFloat\textgreater \\ \hline
+X-Y & \textless OFloat type=``-''\textgreater\\
+& \textless FLOAT\textgreater X\textless /FLOAT\textgreater \\
+& \textless FLOAT\textgreater Y\textless /FLOAT\textgreater \\
+& \textless /OFloat\textgreater \\ \hline
+X*Y & \textless OFloat type=``*''\textgreater\\
+& \textless FLOAT\textgreater X\textless /FLOAT\textgreater \\
+& \textless FLOAT\textgreater Y\textless /FLOAT\textgreater \\
+& \textless /OFloat\textgreater \\ \hline
+X/Y & \textless OFloat type=``/''\textgreater\\
+& \textless FLOAT\textgreater X\textless /FLOAT\textgreater \\
+& \textless FLOAT\textgreater Y\textless /FLOAT\textgreater \\
+& \textless /OFloat\textgreater \\ \hline
+& \\ \hline
+X \textbar\textbar Y & \textless OBool type=``\textbar\textbar''\textgreater\\
+& \textless BOOL\textgreater X\textless /BOOL\textgreater \\
+& \textless BOOL\textgreater Y\textless /BOOL\textgreater \\
+& \textless /OBool\textgreater \\ \hline
+X \&\& Y & \textless OBool type=``\&amp;\&amp;''\textgreater \\
+& \textless BOOL\textgreater X\textless /BOOL\textgreater \\
+& \textless BOOL\textgreater Y\textless /BOOL\textgreater \\
+& \textless /OBool\textgreater \\ \hline
+\end{tabular} \\
+\end{table}
+
+\begin{table}[htbp]
+\begin{tabular}{||p{3cm}||p{6.5cm}||}
+\hline
+NOT(X) & \textless BoFun type=``NOT''\textgreater \\
+& \textless BOOL\textgreater Y\textless /BOOL\textgreater \\
+& \textless /BoFun\textgreater \\ \hline
 \end{tabular} \\
 \end{table}
 
