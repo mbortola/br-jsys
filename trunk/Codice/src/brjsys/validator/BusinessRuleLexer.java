@@ -1,4 +1,3 @@
-
 package brjsys.validator;
 
 import org.antlr.runtime.*;
