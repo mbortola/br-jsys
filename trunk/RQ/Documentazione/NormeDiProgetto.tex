@@ -2,7 +2,7 @@
 \input{model/layout.tex}% layout
 \begin{document}
 %definizione variabili 
-\newcommand{\lv}{ 2.1 } % latest version
+\newcommand{\lv}{ 2.2 } % latest version
 \newcommand{\dt}{ Norme Di Progetto }% Document title
 \input{model/variables.tex}%altre variabili
 \input{model/document-latest-versions.tex}%nomi documenti
@@ -33,6 +33,10 @@
 \textbf{Redazione:} & \ET \\ \hline
 \textbf{Revisione:} & \FC \\ \hline
 \textbf{Approvazione:} & \MM \\ \hline
+\textbf{Revisione RQ} & \\ \hline
+\textbf{Redazione:} & \MT \\ \hline
+\textbf{Revisione:} &  \\ \hline
+\textbf{Approvazione:} &  \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -57,6 +61,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+2.2 & 04/03/2008 & \MT & Cancellazione del paragrafo 'Comportamento Generale' perch\`e deprecato.\\ \hline
 2.1 & 04/03/2008 & \MT & Modifica al layout, introduzione totale pagine e autori nel diario delle modifiche.\\ \hline
 2.0 & 15/02/2008 & \FC & Correzione del documento.\\ \hline
 1.9 & 05/02/2008 & \MT & Aggiunta del nome del file nel modello di documento.\\ \hline
@@ -104,8 +109,7 @@ Lo spazio web in Google Groups raggiungibile tramite il seguente URL: \({http://
 \item Condividere pagine statiche contenenti risorse pertinenti i linguaggi e gli strumenti utilizzati.
 \item Condividere file utili allo sviluppo del progetto, come manuali e tutorial.
 \end{itemize}
-\section{Comportamento Generale}
-Ad ogni componente del gruppo verr\`a richiesto di partecipare alla stesura dei documenti e del codice. Il documento verr\`a creato inserendo l'elenco dei capitoli, delle sezioni e delle sottosezioni all'interno di un modello in latex. Una volta creato il documento dovr\`a poi essere caricato nel repository SVN, nel solo formato \texttt{.tex} .
+
 \section[Condivisione dei file]{Condivisione, archiviazione e versionamento dei file}
 Per garantire la correttezza di ogni documento e file condiviso, a fronte di cambiamenti (anche simultanei) da parte di tutto il gruppo, verr\`a  utilizzato un server SVN con opportuni client grafici (RapidSVN, KdeSvn). Verr\`a garantita in questo modo l'atomicit\`a di ogni aggiornamento inviato al repository.\\ 
 Il server Subversion utilizzato dal gruppo (versione 1.4.0) \`e messo a disposizione da Google all'indirizzo \textit{http://code.google.com/p/br-jsys/}.
