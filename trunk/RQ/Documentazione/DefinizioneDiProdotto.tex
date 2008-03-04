@@ -220,7 +220,8 @@ Attributo & Descrizione \\  \hline
 \begin{center}
  \begin{tabular}{||p{6cm}||p{6cm}||}\hline
 Metodo & Descrizione \\  \hline
-+BusinessRuleParser(input: CommonTokenStream, associated: String) & Costruttore della componente. Il primo parametro identifica lo stream generato nelle fasi precedenti, il secondo dice qual'\`e il \bo\ associato alla regola.\\ \hline
++BusinessRuleParser(input: CommonTokenStream, associated: String) \textbraceleft throws\phantom{c}RecognitionException \textbraceright & Costruttore della componente. Il primo parametro identifica lo stream generato nelle fasi precedenti, il secondo dice qual'\`e il \bo\ associato alla regola. Se associated non corrisponde a nessun busioness object verra sollevata un'eccezzione.\\ \hline
+
 +start(): BusinessRuleParser.start\_return \textbraceleft throws\phantom{c}RecognitionException \textbraceright & Risultato del parsing corretto di una \br. Contiene al suo interno l'AST. Nel caso di errore nella validazione il chiamante dovr\`a gestire opportunamente l'eccezione.\\ \hline
 \end{tabular}
 \end{center}

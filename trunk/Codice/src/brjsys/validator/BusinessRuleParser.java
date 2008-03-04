@@ -173,15 +173,21 @@ public class BusinessRuleParser extends Parser {
 			//tutte e due matrici di dimensioni diverse
 		}
 		throw new TypeCollisionException("Operazione non consentita:\n"+input+
-				" != "+confronto+"\n "+printTSNew(stream, 0, stream.index()-1)+
+				" != "+confronto+":\n "+printTSNew(stream, 0, stream.index()-1)+
 				"\nValidazione interrotta");
 	}
-
+	/**
+	 * Dato un oggetto Class ritorno il tipo base ossia:
+	 * getBasicType(Float) ritorna Float
+	 * getBasicTyp(Float[][][]) ritorna Float
+	 * 
+	 * @param input Il tipo in ingresso.
+	 * 
+	 * @return La classe base di quel tipo.
+	 * 
+	 * @exception RecognitionException Tipo in ingresso inesistente. 
+	 * */
 	private static Class getBasicType(Class input) throws RecognitionException {
-		/*dato un oggetto Class ritorno il tipo base ossia:
-		 *input->Float ritorna Float
-		 *input->Float[][][] ritorna Float
-		 */
 		String inputString=input.getCanonicalName();
 		int index=inputString.indexOf("[");
 		if (index==-1) {
@@ -192,14 +198,24 @@ public class BusinessRuleParser extends Parser {
 		}
 	}
 
-	public BusinessRuleParser(String associated,CommonTokenStream input)throws TypeCollisionException{
+	/**
+	 * Costruttore.
+	 * 
+	 * @param associated Nome dell'oggetto business associato.
+	 * 
+	 * @param input Stream di input.
+	 * \
+	 * @exception RecognitionException Associated non fa riferimento a nessun business object esistente.
+	 * 
+	 * */
+	public BusinessRuleParser(String associated,CommonTokenStream input)throws RecognitionException{
 		super(input);
 		try {
 			env=Class.forName("brjsys.validator.businessobjects."+associated);
 		} catch (SecurityException e) {
 			throw new TypeCollisionException("Security Exception");
 		} catch (ClassNotFoundException e) {
-			throw new TypeCollisionException("Oggetto Associato Inesistente");
+			throw new TypeCollisionException("Oggetto associato "+associated+" inesistente");
 		}
 	}
 
@@ -707,7 +723,7 @@ public class BusinessRuleParser extends Parser {
 		}
 		catch (RecognitionException error) {
 			if(error instanceof TypeCollisionException){}
-			else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+			else{throw new TypeCollisionException("Errore sintattico\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
 			}
 			throw error;}    finally {
 			}
@@ -793,7 +809,7 @@ public class BusinessRuleParser extends Parser {
 		}
 		catch (RecognitionException error) {
 			if(error instanceof TypeCollisionException){}
-			else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+			else{throw new TypeCollisionException("Errore sintattico\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
 			}
 			throw error;}    finally {
 			}
@@ -1014,7 +1030,7 @@ public class BusinessRuleParser extends Parser {
 		}
 		catch (RecognitionException error) {
 			if(error instanceof TypeCollisionException){}
-			else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+			else{throw new TypeCollisionException("Errore sintattico\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
 			}
 			throw error;}    finally {
 			}
@@ -1164,7 +1180,7 @@ public class BusinessRuleParser extends Parser {
 		}
 		catch (RecognitionException error) {
 			if(error instanceof TypeCollisionException){}
-			else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+			else{throw new TypeCollisionException("Errore sintattico\n"+printTSNew(input,0,input.index()-1)+"\n:Validazione interrotta!");
 			}
 			throw error;}    finally {
 			}
@@ -1175,7 +1191,10 @@ public class BusinessRuleParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_rule_in_start51 = new BitSet(new long[]{0x0000000000000012L});
+	public static final BitSet FOLLOW_rule_in_start51 = new BitSet(new long[] {
+			0x0000000000000012L}
+	);
+	
 	public static final BitSet FOLLOW_OpRule_in_start55 = new BitSet(new long[]{0x000000000043F100L});
 	public static final BitSet FOLLOW_rule_in_start58 = new BitSet(new long[]{0x0000000000000012L});
 	public static final BitSet FOLLOW_exp_in_rule77 = new BitSet(new long[]{0x0000000000000060L});
