@@ -2,6 +2,7 @@ package brjsys.validator;
 
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.CommonTree;
+
 import brjsys.businessrules.BusinessRule;
 import brjsys.communicator.ValidatorCommunicator;
 
@@ -62,8 +63,8 @@ public class Validator {
 			/*Evito di far conoscere al validatore le operazioni interne, 
 			 * comprese le eccezioni.
 			*/
-			throw new Exception(e);
+			throw new Exception(e.getMessage());
 		}
 	}
-
+		
 }
