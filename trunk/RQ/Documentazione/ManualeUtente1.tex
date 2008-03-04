@@ -95,41 +95,38 @@ In questa sezione faremo una descrizione dettagliata della grammatica da noi gen
 \subsection{Struttura business rule}
 Una business rule pu\`o essere formata da:
 \begin{itemize}
-\item una regola atomica;
-\item un insieme di regole collegate tra loro attraverso operatori booleani (AND \textbar OR).
+\item una \textbf{regola} atomica;
+\item un insieme di \textbf{regole} collegate tra loro attraverso operatori booleani (AND \textbar OR).
 \end{itemize}
 \subsection{Struttura regola}
-Ogni singola regola \`e formata da espressioni collegate tra loro attaverso operatori di confronto (= \textbar != \textbar \textless \textbar \textgreater \textbar \textless= \textbar \textgreater=). Alla regola pu\`o venire associato un ``message'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della business rule. 
+Ogni singola regola \`e formata da \textbf{espressioni} collegate tra loro attaverso operatori di confronto (= \textbar\ != \textbar\ \textless\ \textbar\ \textgreater\ \textbar\ \textless= \textbar\ \textgreater=). Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della business rule. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business oblect che non rispetta una o pi\`u regole presenti nel repository.
 \subsection{Struttura espressione}
-Una espressione \`e formata da campi dati che posso essere di 3 tipi diversi:
+Un'espressione \`e formata da campi dati che posso essere di 3 tipi:
 \begin{itemize}
 \item Float;
 \item Bool;
 \item String. 
 \end{itemize}
-
-Float permette le operazioni di:
+\textbf{Float} permette le operazioni di:
 \begin{itemize}
 \item[-] addizione;
 \item[-] sottrazione;
 \item[-] moltiplicazione;
 \item[-] divisione.
 \end{itemize}
-e le funzioni:
+Queste possono essere accompagnate da funzioni quali:
 \begin{itemize}
 \item[-] AVG (media aritmetica);
 \item[-] COUNT (contatore);
 \item[-] SUM (somma). 
 \end{itemize}
-
-Bool permette le operazioni di:
+\textbf{Bool} permette le operazioni di:
 \begin{itemize}
 \item[-] NOT;
-\item[-] %&&;
+\item[-] \&\&;
 \item[-] ||.
 \end{itemize}
-
-String permette invece solo le operazioni di confronto.
+\textbf{String} permette invece solo le operazioni di confronto.
 \section{Caratteristiche del servizio}
 BR-jsys \'e destinato ad utenti anche senza esperienza in ambiti informatici. Una volta avviato, il sistema offre all'utente:
 \begin{itemize}
