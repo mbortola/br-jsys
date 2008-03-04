@@ -109,7 +109,7 @@ Un'espressione \`e formata da campi dati che posso essere di 3 tipi:
 \item Bool;
 \item String. 
 \end{itemize}
-\textbf{Float} permette le operazioni di:
+\textbf{Float} permette operazioni di:
 \begin{itemize}
 \item[-] addizione;
 \item[-] sottrazione;
@@ -122,13 +122,28 @@ Queste possono essere accompagnate da funzioni quali:
 \item[-] COUNT (contatore);
 \item[-] SUM (somma). 
 \end{itemize}
-\textbf{Bool} permette le operazioni di:
+\textbf{Bool} permette operazioni quali:
 \begin{itemize}
-\item[-] NOT;
-\item[-] \&\&;
-\item[-] ||.
+\item[-] NOT (negazione logica);
+\item[-] \&\& (congiunzione logica);
+\item[-] \textbar\textbar\ (disgiunzione logica).
 \end{itemize}
-\textbf{String} permette invece solo le operazioni di confronto.
+\textbf{String} permette invece solo operazioni di confronto.
+\subsection{Esempi di business rules}
+Per una maggiore comprensione della grammatica faremo ora alcuni esempi di business rules. 
+\begin{itemize}
+\item \textbf{ESEMPIO 1} \\
+\underline{REGOLA NEL LINGUAGGIO NATURALE:} \\
+L'azienda deve essere la IBM. La somma delle entrate deve essere maggiore di quella delle uscite altrimenti deve ritornare un messaggio con scritto ``errore nei calcoli''. \\
+\underline{REGOLA NELLA GRAMMATICA:} \\
+azienda=``IBM'' AND SUM(entrate)\textgreater\SUM(uscite) message(``errore nei calcoli'')
+\item \textbf{ESEMPI0 2} \\
+\underline{REGOLA NEL LINGUAGGIO NATURALE:} \\
+Il nome dello studente deve essere Lisa. I suoi crediti devono essere almeno 180 altrimenti deve ritornare un messaggio con scritto ``totale crediti sbagliato''. I suoi anni di corso devono essere non pi\`u di tre altrimenti torna un messaggio con scritto ``risulti fuori corso''.  \\
+\underline{REGOLA NELLA GRAMMATICA:} \\
+nome=``Lisa'' AND SUM(crediti)\textgreater =180 message(``totale crediti sbagliato'') AND COUNT(anni)\textless =3 message(``risulti fuori corso'')
+\end{itemize}
+
 \section{Caratteristiche del servizio}
 BR-jsys \'e destinato ad utenti anche senza esperienza in ambiti informatici. Una volta avviato, il sistema offre all'utente:
 \begin{itemize}
