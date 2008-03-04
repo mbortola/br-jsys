@@ -44,7 +44,7 @@ public class GUICommunicator {
 	 * @param id Il nome della business rule
 	 * 
 	 * @return true se business rule e' stata cancellata, false se la regola
-	 *  non era presente nel repository 
+	 *  non era presente nel repository.
 	 * */
 	public boolean deleteRuleByName(String id){
 		//Guardo se esiste la regola con questo nome
