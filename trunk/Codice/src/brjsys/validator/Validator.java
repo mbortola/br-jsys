@@ -23,20 +23,25 @@ public class Validator {
 		repository=new ValidatorCommunicator(username, password);
 	}
 	
-	public boolean validate(BusinessRule Brule) throws Exception{
+	/**
+	 * Valida la business rule
+	 * 
+	 * @param 
+	 * */
+	public boolean validate(BusinessRule bRule) throws Exception{
 		// create a CharStream that reads from standard input
 		ANTLRStringStream input;
 		CommonTokenStream tokens=null;
 		
 		try {
-			input = new ANTLRStringStream(Brule.rule);
+			input = new ANTLRStringStream(bRule.rule);
 			
 			BusinessRuleLexer lexer = new BusinessRuleLexer(input);
 
 			tokens = new CommonTokenStream(lexer);
 
 			BusinessRuleParser parser = 
-				new BusinessRuleParser(Brule.associated, tokens);
+				new BusinessRuleParser(bRule.associated, tokens);
 
 			BusinessRuleParser.start_return r=parser.start();
 
@@ -44,9 +49,9 @@ public class Validator {
 
 			XMLParser tree2XML =new XMLParser(BusinessRuleParser.tokenNames);
 			
-			String result=tree2XML.parse(tree, Brule);
+			String result=tree2XML.parse(tree, bRule);
 
-			return repository.insertRule(result, Brule.name);
+			return repository.insertRule(result, bRule.name);
 
 		} catch (RecognitionException e) {
 			//Qui faccio il controllo di tutti gli errori lanciati dal validatore
