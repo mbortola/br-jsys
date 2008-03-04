@@ -373,7 +373,7 @@ Attributo & Descrizione \\  \hline
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Metodo & Descrizione \\  \hline
-+GUICommunicator(username: String, password:String) \textbraceleft throws Exception \textbraceright & Costruttore del componente, username e password saranno utilizzati per l'istanziazione di queryService. In caso di fallimento verr\`a lanciata un'eccezione. \\ \hline
++GUICommunicator( username: String, password:String) \textbraceleft throws Exception \textbraceright & Costruttore del componente, username e password saranno utilizzati per l'istanziazione di queryService. In caso di fallimento verr\`a lanciata un'eccezione. \\ \hline
 
 +deleteRuleByName(id:String): boolean & Metodo per Cancellare una \br\ dato il suo identificativo. Se la \br\ \`e stata trovata nel \rp\ e cancellata ritorner\`a \textit{true}, altrimenti \textit{false}.\\ \hline
 
@@ -448,8 +448,7 @@ BusinessRuleLexer & +BusinessRuleLexer() & F2, F4, NQ1 \\\hline
 BusinessRuleParser & +BusinessRuleParser() & F2, F4, F10 \\\cline{2-3}
 & +start() & F2, F4, F10, NQ1 \\\hline
 
-TypeCollisionException & +TypeCollisionException() & F2, F4, F10, NQ1 \\\cline{2-3}
-& +toString() & F2, F4, F10 \\\hline
+TypeCollisionException & +TypeCollisionException() & F2, F4, F10, NQ1 \\\hline
 
 XMLParser & XMLParser() &  \\\cline{2-3}
 & +parse() & NPo1 \\\cline{2-3}
@@ -485,7 +484,6 @@ ValidatorCommunicator & +ValidatorCommunicator() & F3 \\\cline{2-3}
 \item BusinessRuleParser: BusinessRuleParser()
 \item BusinessRuleParser: + start()
 \item TypeCollisionException: +~ TypeCollisionException()
-\item TypeCollisionException: +~ printStackTrace()
 \item BusinessRule: + BusinessRule()
 \end{itemize} \\ \hline
 \textbf{F3} &
@@ -567,7 +565,6 @@ ValidatorCommunicator & +ValidatorCommunicator() & F3 \\\cline{2-3}
 \item BusinessRuleParser: BusinessRuleParser
 \item BusinessRuleParser: + start()
 \item TypeCollisionException: +~ typeCollisionException()
-\item TypeCollisionException: +~ printStackTrace()
 \item BusinessRule: + BusinessRule()
 \end{itemize} \\
 \hline
