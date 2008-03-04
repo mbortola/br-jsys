@@ -3,6 +3,7 @@
 \usepackage[italian]{babel}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage{lastpage} % total page count
 \graphicspath{{./pics/}} % cartella di salvataggio immagini
 
@@ -32,4 +33,11 @@
 	\rfoot{\dt - \lv}
 	\renewcommand{\headrulewidth}{1pt}
 	\renewcommand{\footrulewidth}{1pt}
+
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+   linkcolor=[rgb]{0.84,0.28,0.14},          % color of internal links
+    urlcolor=cyan           % color of external links
+}
+
 % fine layout
