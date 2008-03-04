@@ -182,12 +182,10 @@ Per utilizzare il prodotto \`e necessario che questo sia installato sulla macchi
 \item Windows: avviare il prompt dei comandi (shell), accedere alla cartella ``BR-jsys'' fornita e cliccare sulla sottocartella ``install.exe''.
 \end{itemize}
 \subsection{Avvio dell'applicazione}
-
 \begin{center}
 \includegraphics[width=0.4\textwidth]{manuale_utente/login.eps}\\
  figura 3.0: schermata di login
 \end{center}
-
 Per avviare il programma una volta terminata l' installazione, sia in Linux che in Windows che in MacOSX, avviare il prompt dei comandi (shell), accedere alla cartella ``BR-jsys'' fornita e digitare ``BR-jsys.start''. Dopo un breve periodo di caricamento apparir\`a la schermata di login (figura 3.0), nella quale l' utente che accede per la prima volta al servizio dovr\`a digitare i dati: 
 \begin{itemize}
 \item username
@@ -195,12 +193,10 @@ Per avviare il programma una volta terminata l' installazione, sia in Linux che 
 \end{itemize}
 I dati di autenticazione immessi sono quelli utilizzati per la registrazione al server ``eXist''. Tutti i dati richiesti dovranno essere insieriti prestando attenzione alla scelta della password, la quale dovr\`a avere una complessit\`a elevata. 
 \section{Azioni richieste/permesse}
-
 \begin{center}
 \includegraphics[width=0.4\textwidth]{manuale_utente/schermata_principale.eps}\\
  figura 3.1: schermata principale
 \end{center}
-
 A questo punto verr\`a visualizzata la schermata principale (figura 3.1).
 Nella figura 3.1 vediamo illustrate le tre funzionalit\`a associate ai rispettivi bottoni:
 \begin{itemize}
@@ -210,48 +206,48 @@ Nella figura 3.1 vediamo illustrate le tre funzionalit\`a associate ai rispettiv
 \end{itemize}
 L'analisi dettagliata delle singole azioni verr\`a trattata nelle sottosezioni seguenti.
 \subsection{Inserisci Business Rule}
-
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/schermata_inserimento.eps}\\
  figura 3.2: schermata di inserimento
 \end{center}
-
 Nella figura 3.2 vediamo illustrata la schermata di inserimento di una nuova business rule. L'utente dovr\`a inserire negli appositi spazi i campi dati richiesti:
 \begin{itemize}
 \item Nome: il nome della business rule che l'utente intende inserire (il nome dovr\`a essere significativo)
 \item BO Associato: il nome della classe del business object alla quale si vuole associare la regola.
 \item Regola: la regola scritta secondo la grammatica spiegata nel paragrafo \Grammatica.
 \item Commento: descrizione sintetica del comportamento della regola. 
-
 \begin{center}
 \includegraphics[width=0.9\textwidth]{manuale_utente/schermata_esempio_inserimento.eps}\\
  figura 3.2.2: schermata di inserimento
 \end{center}
-
 \end{itemize}
 L'utente dovr\`a ora cliccare sul pulsante ``Valida''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo. 
 \subsection{Rimuovi Business Rule}
-
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/schermata_rimozione.eps}\\
  figura 3.3: schermata di rimozione
 \end{center}
-
-Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una business rule. Per procedere all'eliminazione l'utente avr\`a due possibilit\`a:
+Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una business rule. Per procedere all'eliminazione l'utente avr\`a due modi:
 \begin{itemize}
 \item inserire nell'appostito campo (TextBox) il nome della business rule che intende rimuovere e cliccare sul pulsante ``Cerca'';
 \item selezionare una o pi\`u business rules dalla lista sottostante;
 \end{itemize}
-Se la business rule risulta presente nel repository, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento). A questo punto baster\`a cliccare sul pulsante ``Rimuovi Selezionate''.  Se la cancellazione viene effettuata con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
+Se la business rule risulta presente nel repository, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento). 
+\begin{footnotesize}
+Nel caso di selezione di pi\`u regole, verranno mostrati i dettagli dell'ultima selezionata.
+\end{footnotsize}
+A questo punto baster\`a cliccare sul pulsante ``Rimuovi Selezionate''.  Se la cancellazione viene effettuata con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
 \subsection{Sandbox}
-
 \begin{center}
  \includegraphics[width=0.7\textwidth]{manuale_utente/schermata_sandbox.eps} \\
  figura 3.4: schermata sandbox
 \end{center}
-
-Nella figura 3.4 vediamo illustrata la schermata di sandbox. Per procedere con l'interrogazione del database, l'utente dovr\`a inserire nell'appostito campo ``Query'', la query, scritta in linguaggio XQuery e cliccare sul pulsante ``Esegui''. Verr\`a visualizzato quindi nel campo dati ``Risultati'' l'esito della query.
-
+Nella figura 3.4 vediamo illustrata la schermata di sandbox. Per procedere con l'interrogazione del database, l'utente dovr\`a:
+\begin{itemize}
+\item inserire la query (scritta in linguaggio Xquery) nell'appostito campo dati ``Query'';
+\item cliccare sul pulsante ``Esegui''.
+\end{itemize}
+A questo punto verr\`a visualizzato nel campo dati ``Risultati'' l'esito della query.
 \section{Errori probabili e cause possibili}
 % da fare
 \chapter{Appendice}
