@@ -143,6 +143,7 @@ Il nome dello studente deve essere Lisa. I suoi crediti devono essere almeno 180
 nome=``Lisa'' AND SUM(crediti)\textgreater =180 message(``totale crediti sbagliato'') AND COUNT(anni)\textless =3 message(``risulti fuori corso'')
 \end{itemize}
 \section{Rappresentazione in XML}
+Per semplificazione nella tabella seguente ``TIPO'' \`e stato messo al posto di STRING \textbar  BOOL \textbar  FLOAT.
 \begin{table}[htbp]
 \begin{tabular}{||p{3cm}||p{6.5cm}||}
 \hline
@@ -173,6 +174,12 @@ X\textgreater =Y &  \textless Conf type=``\&gt=''\textgreater \\
 & \textless TIPO\textgreater Y\textless /TIPO\textgreater \\ 
 & \textless /Conf\textgreater\\ \hline
 & \\ \hline
+\end{tabular} \\
+\end{table}
+
+\begin{table}[htbp]
+\begin{tabular}{||p{3cm}||p{6.5cm}||}
+\hline
 Conf AND Conf & \textless OpRule type=``AND''\textgreater \\
 & \textless Conf..\textgreater \\
 & \textless /Conf\textgreater\\
@@ -189,12 +196,6 @@ Conf OR Conf & \textless OpRule type=``OR''\textgreater \\
 SUM(X) & \textless Fun type=``SUM''\textgreater\\ 
 & \textless TIPO\textgreater A\textless /TIPO\textgreater \\
 & \textless /Fun\textgreater \\ \hline
-\end{tabular} \\
-\end{table}
-
-\begin{table}[htbp]
-\begin{tabular}{||p{3cm}||p{6.5cm}||}
-\hline
 COUNT(X) & \textless Fun type=``COUNT''\textgreater\\ 
 & \textless TIPO\textgreater A\textless /TIPO\textgreater \\
 & \textless /Fun\textgreater \\ \hline
