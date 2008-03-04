@@ -98,6 +98,8 @@ public class Communicator {
 	 * 
 	 * @param query Query da eseguire.
 	 * 
+	 * @return Il risultato della query.
+	 * 
 	 * @exception XMLDBException Query mal posta.
 	 * */
 	public ResourceSet makeQuery(String query)throws XMLDBException {
