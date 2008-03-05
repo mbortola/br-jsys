@@ -123,7 +123,7 @@ Il prodotto \`e stato suddiviso in quattro macrocomponenti:
  \item \textbf{GUI}: Fornisce all'utente un interfaccia grafica minimale, consentendogli di effettuare operazioni di cancellazione e interrogazione del repository in maniera user-friendly.
 \item \textbf{Business Rule}: Rappresenta la \br\ che l'utente dichiara e che deve essere passata al validatore per la compilazione.
 \item \textbf{Validatore}: Accetta in input una \br, la valida e la inserisce, se scritta correttamente, nel \rp.
-\item \textbf{Comunicatore}: Si connette al \underline{DBMS} esterno e comunica con esso tramite i formalismi del linguaggio XQuery.
+\item \textbf{Comunicatore}: Si connette al \underline{DBMS} esterno e comunica con esso tramite i formalismi del linguaggio \underline{XQuery}.
 Sar\`a appunto tramite Query che il \underline{DBMS} effettuer\`a operazioni di inserimento, cancellazione o ricerca nel \rp, qualora un componente lo richieda.
 \end{enumerate}
 Questa suddivisione, per quanto minimale, consente di individuare le componenti che verranno poi ampliamente descritte nel successivo capitolo.
@@ -258,11 +258,11 @@ Communicator necessita di interagire con la componente esterna \underline{DBMS} 
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare query specifiche. Le loro descrizioni verranno trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Quando viene istanziata per la prima volta, Communicator inizializza la connessione al \underline{DBMS} tramite la definizione di una variabile statica. Consente successivamente di interrogare il \rp\ direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
+Quando viene istanziata per la prima volta, Communicator inizializza la connessione al \underline{DBMS} tramite la definizione di una variabile statica. Consente successivamente di interrogare il \rp\ direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche \underline{XQuery}.
 %
 \subsection{GUICommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente GUICommunicator contiene metodi necessari per modellare query di cancellazione (tramite operazioni XQuery Update) e query di semplice interrogazione.
+La componente GUICommunicator contiene metodi necessari per modellare query di cancellazione (tramite operazioni \underline{XQuery} Update) e query di semplice interrogazione.
 \subsubsection{Relazioni d'uso di altre componenti}
 GUICommunicator utilizza la componente Communicator per accedere al \rp\ ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -312,13 +312,13 @@ Non siamo tenuti a considerare i dettagli riguardanti le operazioni specifiche d
  \includegraphics[width=0.5\textwidth, angle=-90]{class-dia/DBMS.eps}
 \end{center}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente serve a comunicare con il \rp\ in modo efficiente. La comunicazione avverr\`a tramite linguaggio XQuery.
+Questa componente serve a comunicare con il \rp\ in modo efficiente. La comunicazione avverr\`a tramite linguaggio \underline{XQuery}.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Previa una connessione corretta, il \underline{DBMS} mette a disposizione un'interfaccia XPathQueryService con la quale interagire col \rp\ presente all'interno del \underline{DBMS} stesso.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Una corretta autenticazione far\`a in modo che l'interfaccia di tipo XPathQueryService possa interagire col \rp\ tramite il metodo query(). Quest'ultimo accetta come parametro una query impostata secondo le specifiche XQuery.
+Una corretta autenticazione far\`a in modo che l'interfaccia di tipo XPathQueryService possa interagire col \rp\ tramite il metodo query(). Quest'ultimo accetta come parametro una query impostata secondo le specifiche \underline{XQuery}.
 
 \chapter{Diagrammi}
 \section{Diagrammi di attivit\`a}

@@ -340,7 +340,7 @@ Communicator necessita di interagire con la componente esterna \underline{DBMS} 
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare le query specifiche. Le loro descrizioni verr\`anno trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Quando viene istanziata per la prima volta, Communicator inizializza la connessione al \underline{DBMS}, tramite la definizione di una variabile statica. Quest'ultima consentir\`a successivamente di interrogare il \rp direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
+Quando viene istanziata per la prima volta, Communicator inizializza la connessione al \underline{DBMS}, tramite la definizione di una variabile statica. Quest'ultima consentir\`a successivamente di interrogare il \rp direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche \underline{XQuery}.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Attributo & Descrizione \\  \hline
@@ -353,13 +353,13 @@ Attributo & Descrizione \\  \hline
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Metodo & Descrizione \\  \hline
 +Communicator(username: String, password: String) \textbraceleft throws XMLDBException \textbraceright & Costruttore di Communicator. Nel caso si acceda alla classe per la prima volta durante l'esecuzione del programma si istanzier\`a l'attributo service. Se la connessione andr\`a a buon fine gli attributi ``correctUsername'' e ``correctPassword'' verr\`anno settati ai valori corrispondenti. Se l'attributo service \`e gi\`a stato istanziato non si far\`a altro che assicurarsi che i parametri in ingresso al costruttore corrispondano a quelli presenti negli attributi. Se i dati in ingresso non sono validi verr\`a lanciata un'eccezione.\\ \hline
-+makeQuery(query: String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche XQuery la esegue e ne restituisce il risultato. Si dovr\`a gestire il caso di query mal formata. \\ \hline
++makeQuery(query: String) :ResourceSet & Metodo pubblico che ricevuto in ingresso una query scritta secondo le specifiche \underline{XQuery} la esegue e ne restituisce il risultato. Si dovr\`a gestire il caso di query mal formata. \\ \hline
 \end{tabular}
 \end{center}
 
 \subsection{GUICommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente contiene metodi necessari per modellare query di cancellazione (tramite operazioni XQuery Update) e query di semplice interrogazione.
+La componente contiene metodi necessari per modellare query di cancellazione (tramite operazioni \underline{XQuery} Update) e query di semplice interrogazione.
 \subsubsection{Relazioni d'uso di altre componenti}
 GUICommunicator utilizza la componente Communicator per accedere al \rp\ ed interrogarlo ed utilizza inoltre la componente \BR\ come parametro di ritorno del metodo \textit{getListRules}.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -379,7 +379,7 @@ Metodo & Descrizione \\  \hline
 
 +deleteRuleByName(id:String): boolean & Metodo per Cancellare una \br\ dato il suo identificativo. Se la \br\ \`e stata trovata nel \rp\ e cancellata ritorner\`a \textit{true}, altrimenti \textit{false}.\\ \hline
 
-+makeQuery(query:String): String  \textbraceleft throws Exception \textbraceright& Metodo per eseguire una query in XQuery. Si dovr\`a fare attenzione che la struttura della query non contenga istruzioni XQuery Update che permetterebbero altrimenti all'utente di modificare a piacimento il \rp\ rendendolo inconsistente.\\ \hline
++makeQuery(query:String): String  \textbraceleft throws Exception \textbraceright& Metodo per eseguire una query in \underline{XQuery}. Si dovr\`a fare attenzione che la struttura della query non contenga istruzioni \underline{XQuery} Update che permetterebbero altrimenti all'utente di modificare a piacimento il \rp\ rendendolo inconsistente.\\ \hline
 
 +getListRules(): BusinessRules[] & Ritorna le informazioni su tutte le \brs\ scritte nel \rp. \\ \hline
 \end{tabular}
