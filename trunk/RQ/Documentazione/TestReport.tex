@@ -1,0 +1,69 @@
+
+\input{model/layout.tex}% layout
+\begin{document}
+%definizione variabili 
+\newcommand{\lv}{ 0.1 } % latest version
+\newcommand{\dt}{ Test Report }% Document title
+\input{model/variables.tex}%altre variabili
+\input{model/document-latest-versions.tex}%nomi documenti
+%fine definizione variabili
+\input{model/hyphenation.tex}%sillabazione
+\input{model/titlepage.tex}%pagina del titolo
+
+
+\begin{center}
+\thispagestyle{plain}
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
+\begin{tabular}{|p{6cm}|p{6cm}|}
+\hline
+\textbf{Data creazione:} & 05/03/2008 \\ \hline
+\textbf{Versione:} & \lv \\ \hline
+\textbf{Stato del documento:} & Formale, esterno \\ \hline
+% ----------------------------------------------------------------------------autori
+\textbf{Revisione RQ} & \\ \hline
+\textbf{Redazione:} & \MT \\ \hline
+\textbf{Revisione:} &  \\ \hline
+\textbf{Approvazione:}  &  \\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Lista di distribuzione}}} \\
+\begin{tabular}{|p{6cm}|p{6cm}|} \hline
+%  -------------------------------------------------------------lista di distribuzione
+{HappyCode inc}& Gruppo di lavoro \\ \hline
+{Tullio Vardanega, Renato Conte}& Committenti \\ \hline 
+{Zucchetti S.r.l}& Azienda proponente\\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+\begin{table}[hbtp]
+
+\Large{\textbf{\textsf{Diario delle modifiche}}} \\
+\begin{small}
+\begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
+Versione & Data & Autore & Descrizione \\ \hline
+%-------------------------------------------------------------------------------diario modifiche
+0.1 & 05/03/2008 & \MT & Stesura iniziale del documento.\\ \hline
+
+\end{tabular} \\
+\end{small}
+
+
+\end{table}
+\end{center}
+\newpage
+\tableofcontents
+
+\chapter{Introduzione}
+
+
+\end{document}
