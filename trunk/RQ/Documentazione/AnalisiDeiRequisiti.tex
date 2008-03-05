@@ -61,6 +61,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+3.2 & 05/03/2208 & \LA & Aggiunto capitolo sommario
 3.1 & 05/03/2208 & \MM & Eliminazione sezione ''Descrizione del resto del documento`` perch\'e inutile.\\ \hline
 3.0 & 05/03/2008 & \MM & Evidenziazione dei termini contenuti nel documento \G .\\ \hline
 2.9 & 04/03/2008 & \MM & Aggiunta di link ipertestuali all'indice del documento.\\ \hline
@@ -90,6 +91,11 @@ Versione & Data & Autore & Descrizione \\ \hline
 \newpage
 
 \tableofcontents
+\chapter*{Sommario}
+\addcontentsline{toc}{chapter}{I Sommario}
+\chapter*{Glossario}
+\addcontentsline{toc}{chapter}{II Glossario}
+Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G. I termini che sono presenti nel \G sono sottolineati.
 
 \chapter{Introduzione}
 \section{Scopo del documento}
@@ -114,8 +120,7 @@ NQ\textit{\#} & Con NQ seguito da un numero intero sono indicati i requisiti di 
 
 \end{tabular} \\
 \end{center}
-\subsection{Glossario}
-Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G. I termini che sono presenti nel \G sono sottolineati.
+
 \section{Riferimenti}
 \begin{itemize}
 \item Capitolato d'appalto concorso per sistema ``\underline{BR-jsys}'';
