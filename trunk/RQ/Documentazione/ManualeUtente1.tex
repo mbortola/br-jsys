@@ -89,7 +89,7 @@ Questo manuale presenta il sistema ``\underline{BR-jsys}'' da noi realizzato e i
 \end{itemize}
 Verranno riportati quindi tutti i passi che si possono effettuare, grazie anche all'ausilio di immagini dell'applicazione.
 \section{Documenti utili}
-Il presente manuale descrive totalmente il sistema e non richiede la lettura di ulteriori documenti. Tuttavia ogni utente deve avere installato nel proprio pc ``eXist'' in quanto vero e proprio requisito di sistema. 
+Il presente manuale descrive totalmente il sistema e non richiede la lettura di ulteriori documenti. Tuttavia ogni utente deve avere installato nel proprio pc ``\underline{eXist}'' in quanto vero e proprio requisito di sistema. 
 \section{Come riportare problemi e malfunzionamenti}
 Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivio fornisce una sezione ``issues'' all'URL: \\ 
 \textbf{``http://code.google.com/p/br-jsys/issues/list''}, che visualizza in qualsiasi momento la lista aggiornata di tutti i problemi e malfunzionamenti da noi riscontrati. Attraverso questo sistema ogni componente del gruppo potr\`a creare un ``new issue'', assegnandogli una priorit\`a che varier\`a a seconda della gravit\`a del problema. Ogni issue conterr\`a inoltre il nome dell'utente che lo ha aggiunto nella lista, oltre ad uno status (new, accepted, started, verified, etc...) che in qualsiasi momento ogni membro del gruppo potr\`a aggiornare. 
@@ -256,7 +256,7 @@ true & \textless BOOL \textgreater true\textless /BOOL\textgreater \\ \hline
 \item[-] un linguaggio per la definizione di business rules;
 \item[-] un validatore che consenta l'accettazione di nuove business rules soltanto se esse sono scritte secondo le specifiche del linguaggio creato;
 \item[-] un repository per immagazzinare le business rules;
-\item[-] una competa gestione del repository tramite interfacciamento ad eXist;
+\item[-] una competa gestione del repository tramite interfacciamento ad \underline{eXist};
 \item[-] un aiuto agli utenti meno esperti attraverso  messaggi di errore;
 \item[-] una semplice interfaccia per operare su questo sistema.
 \end{itemize}
@@ -267,9 +267,9 @@ Sistema operativo:
 \item Linux: tutte le piattaforme con qualsiasi distribuzione.
 \item Windows: WindowsME, Windows2000 e WindowsXp home/professional.
 \item MacOSX: 10.4
-\item eXist 1.2
+\item \underline{eXist} 1.2
 \end{itemize}
-Per usufruire del servizio \`e necessario possedere una connessione con il \underline{DBMS} ``eXist'', come gi\`a citato precedentemente e la presenza della Java SE Development Kit (JDK) dalla versione 1.4.
+Per usufruire del servizio \`e necessario possedere una connessione con il \underline{DBMS} ``\underline{eXist}'', come gi\`a citato precedentemente e la presenza della Java SE Development Kit (JDK) dalla versione 1.4.
 \subsection{Requisiti hardware}
 Per un corretto e scorrevole funzionamento del software sono richiesti:
 \begin{itemize}
@@ -282,7 +282,7 @@ Per un corretto e scorrevole funzionamento del software sono richiesti:
 \section{Descrizione funzionale}
 Di seguito \`e riportata la descrizione delle funzioni del prodotto. Ad ogni passo \`e stata associata una figura, in modo da daterminare, senza amibiguit\`a il contesto dell'applicazione.
 \subsection{Installazione}
-Per utilizzare il prodotto \`e necessario che questo sia installato sulla macchina server. La sua architettura prevede che venga usato eXist, scaricabile liberamente al sito http://exist.sourceforge.net. Dopodich\`e:
+Per utilizzare il prodotto \`e necessario che questo sia installato sulla macchina server. La sua architettura prevede che venga usato \underline{eXist}, scaricabile liberamente al sito http://exist.sourceforge.net. Dopodich\`e:
 \begin{itemize}
 \item Linux e MacOSX: avviare il prompt dei comandi (shell), accedere alla cartella ``\underline{BR-jsys}'' fornita e digitare il comando ``sh install''.
 \item Windows: avviare il prompt dei comandi (shell), accedere alla cartella ``\underline{BR-jsys}'' fornita e cliccare sulla sottocartella ``install.exe''.
@@ -297,7 +297,7 @@ Per avviare il programma una volta terminata l' installazione, sia in Linux che 
 \item username
 \item password
 \end{itemize}
-I dati di autenticazione immessi sono quelli utilizzati per la registrazione al server ``eXist''. Tutti i dati richiesti dovranno essere insieriti prestando attenzione alla scelta della password, la quale dovr\`a avere una complessit\`a elevata. 
+I dati di autenticazione immessi sono quelli utilizzati per la registrazione al server ``\underline{eXist}''. Tutti i dati richiesti dovranno essere insieriti prestando attenzione alla scelta della password, la quale dovr\`a avere una complessit\`a elevata. 
 \section{Azioni richieste/permesse}
 \begin{center}
 \includegraphics[width=0.4\textwidth]{manuale_utente/schermata_principale.eps}\\
@@ -365,7 +365,7 @@ Campo dati \textless nome campo dati\textgreater\ non trovato: validazione inter
 Operazione non consentita! \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta! & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
 Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
 Regola \textless nome regola\textgreater\  gi\`a presente: inserimento fallito! & La regola ha un nome gi\`a presente nel repository. Non verr\`a quindi inserita. \\ \hline
-Collegarsi ad eXist! & Il server eXist non \`e avviato. \\ \hline
+Collegarsi ad \underline{eXist}! & Il server \underline{eXist} non \`e avviato. \\ \hline
 Dati di autenticazione non corretti! & Nome utente e/o password non inseriti correttamente. \\ \hline
 Business rule non trovata! & La business rule cercata non \`e stata trovata nel repository. \\ \hline
 \end{tabular} \\
