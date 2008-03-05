@@ -25,12 +25,12 @@ public class Communicator {
 	private String correctPassword=null;
 
 	/**
-	 * Costruttore.Controlla inoltre che il repository sia presente nel DBMS, 
-	 * in caso contrario verra' ceato un repository vuoto.
+	 * Costruttore. Controlla inoltre che il repository sia presente nel DBMS, 
+	 * in caso contrario verra' creato un repository vuoto.
 	 * @param username Username 
 	 * @param password Password
 	 * @exception XMLDBException Connessione rifuitata a causa di dati in 
-	 * ingresso errati o di server eXist non avviato
+	 * ingresso errati o di server eXist non ancora avviato.
 	 */	
 	public Communicator(String username, String password) throws XMLDBException{
 		if(service!=null){//sono gia' connesso
