@@ -323,13 +323,6 @@ Una corretta autenticazione far\`a in modo che l'interfaccia di tipo XPathQueryS
 \chapter{Diagrammi}
 \section{Diagrammi di attivit\`a}
 
-
-\subsection{Server \underline{DBMS}}
-\begin{center}
- \includegraphics[width=0.5\textwidth, angle=-90]{activity-dia/Server.eps}
-\end{center}
-Il server \underline{DBMS}, con il quale interagisce il prodotto ``\underline{BR-jsys}'', viene avviato. Una volta completata la procedura di avvio, entra in uno stato di attesa di richieste da parte della GUI e dell'interprete. Ricevuta una richiesta, la relativa query viene inviata al \underline{DBMS} e il risultato/esito della query viene ritornato all'utente. Il server torna quindi in uno stato di attesa finch\`e eventualmente viene spento.
-
 \subsection{Richiesta dell'interprete}
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{activity-dia/RichiestadellInterprete.eps}
@@ -347,15 +340,33 @@ Nel diagramma queste tre attivit\`a sono rappresentate come delle \textit{sub-ac
 
 \subsection{Inserisci \br}
 \begin{center}
- \includegraphics[width=1.3\textwidth, angle=-90]{activity-dia/InserisciBusinessRule.eps}
+ \includegraphics[width=1.1\textwidth, angle=-90]{activity-dia/InserisciBusinessRule.eps}
 \end{center}
 
-All'avvio della finestra di inserimento business rule questa richiede l'immissione dei relativi campi dati. Dall'oggetto \textit{rule} si estrae il codice della regola e lo si trasforma in un array di char per creare il relativo oggetto per la validazione. Viene quindi effettuata l'analisi lessicale esaminando un carattere per volta fino alla terminazione di un token. Una volta in possesso di un token si cerca di identificarlo confrontandolo con gli operatori e le keyword del linguaggio. Se il token non viene identificato viene lanciata un'eccezione \textit{NotViableAltException} che servir\`a per notificare all'utente la presenza di un errore lessicale. Una volta identificato il token si passa all'analisi sintattica ed al controllo dei tipi da parte del parser; tale operazione pu\`o: sollevare una RecognitionException in caso di errore sintattico, sollevare una TypeCollisionException in caso di errore nei tipi. Si procede poi all'analisi dell' ultimo carattere letto. Se questo \`e uno spazio si continua l'analisi della regola. Se eventualmente \`e un carattere inaspettato viene lanciata l'eccezione \textit{NotViableAltException}. Se l'ultimo carattere letto \`e il simbolo terminale della regola (l'ultima posizione dell'array di char), si termina la validazione ritornando un oggetto \textit{org.antlr.runtime.tree.Tree}.
-Dall'oggetto viene estratto l'AST e istanziato org.antlr.runtime.tree.CommonTree. Viene poi creato un documento XML. Viene creato l'elemento radice \textit{BusinessRule}. Vengono aggiunti gli attributi \textit{nome}, \textit{business object associato} ed eventualmente il \textit{commento} se presente. Una volta terminata la creazione l'elemento viene aggiunto al documento. Viene creata una tabella hash partendo dalla lettura riga per riga del file \textit{BusinessRule.tokens}. La tabella hash chiamata \textit{simbols} conterr\`a i nomi dei tag da usare per i vari elementi del documento XML. Si procede all'analisi dell'albero AST. viene invocata una funzione ricorsiva che recupera il codice dell'elemento presente nell'AST, lo associa al nome del tag presente nella tabella hash, crea l'elemento e i suoi attributi, aggiunge infine l'elemento al documento. Una volta terminata l'analisi dell'albero AST il documento viene quindi trasformato in stringa e i tag XML eliminati affinch\`e tale stringa possa essere inserita in un altro documento XML. Giunti a questo punto si verifica tramite una query l'univocit\`a del nome della business rule. Se l'esecuzione di questa query notifica che una business rule con lo stesso nome \`e gi\`a presente nel repository si torna alla finestra iniziale di inserimento dei campi dati, notificandolo all'utente. Nel caso in cui invece, il nome assegnato alla business rule sia disponibile viene formulata ed eseguita una query di inserimento della regola e quindi notificato l'avvenuto inserimento. A questo punto la finestra di inserimento pu\`o essere chiusa.
+Una volta avviata la finestra di inserimento l'utente inserir\`a i campi dato per la \br\, verr\`a dunque costruito un oggetto \textit{\BR\ }. Quest'oggetto verr\`a inviato al parser che lo convertir\`a in un AST dopo aver contrto la validit\`a della regola (Vedi diagramma Conversione \br -AST), se la regola mostra errori verr\`a sollevata una eccezione, altrimenti si passer\`a alla fase di conversione da AST a stringa rappresentante un elemento XML (Vedi diagramma Conversione AST-XML). La fase successiva sar\`a quella di inserire la regola nel \rp\ (Vedi Diagramma Inserimento \br\ nel \rp). In caso di esito positivo dell'inserimento si dovr\`a uscire dalla finestra inserimento, altrimenti si informer\`a l'utente del errore e si ritorner\`a alla finestra iniziale.
+
+\subsubsection{Conversione \br -AST}
+\begin{center}
+ \includegraphics[width=1\textwidth, angle=-90]{activity-dia/ConversioneBusinessRuleAST.eps}
+\end{center}
+Al parser arriva in ingresso una stringa rappresentante la \br\ da validare. Inizialmente si controller\` che la \br\ si riferisca ad un \bo\ valido, in caso contrario la validazione verr\`a subito bloccata. Dopodich\`e verranno fatti vari controlli con lo scopo di scorrere tutta la regola alla ricerca di errori sintattici, lessicali o logici, nel caso venissero trovati verranno invocate le opportune eccezioni che verranno gestite in maniera da ritornare al chiamante le struttura dell'errore che ne indicher\`a il tipo e la posizione nella \br\ dove \`e avvenuto. In caso di validazione senza errori verr\`a generato un opportuno AST che successivamente si convertira 
+in una stringa in XML.
 
 
+\subsubsection{Conversione AST-XML}
+\begin{center}
+ \includegraphics[width=1\textwidth, angle=-90]{activity-dia/ConversioneASTXML.eps}
+\end{center}
+Abbiamo ora a disposizione un AST che dovremo scorrere in maniera prefissa per generare l'elemento XML da inserire nel \rp. Innanzi tutto abbiamo bisogno di sapere come il parser identifica (tramite un numero intero univoco) i vari token. La struttura non \`e altro che un array che associa un intero univoco al token della grammatica. Dopodich\`e seguir\`o la prassi tipica del package \textit{org.w3c.dom} per la generazione di un elemento XML. Il L'elemento radice della \br\ scritta in XML conterr\`a il nome della regola, il \bo\ associato, il testo della regola e l'eventuale commento.
+Si scorrer\`a ricorsivamente l'AST percorrendo tutti i nodi aggiornando la struttura dell'Elemento XML. Una volta completata la scansione e la relativa generazione dell'elemento XML lo si dovr\`a convertire in stringa, infine si dovr\`a rimuovere l'intestazione che di consuetudine si trova in tutti i documenti XML (esempio \textit{\textless?xml version="1.0" encoding="UTF-8"?\textgreater}) che impedirebbe l'inserimento nel \rp\ tramite query.
 
-\subsection{\underline{Sandbox}}
+\subsubsection{Inserimento \br\ nel \rp}
+\begin{center} 
+ \includegraphics[width=0.9\textwidth, angle=-90]{activity-dia/InserimentoXMLnelrepository.eps}
+\end{center}
+Dovr\`o prima di tutto controllare che il nome della regola che voglio inserire non sia gi\`a presente nel \rp. Se \`e gi\`a presente troncher\`o immediatamente l'operazione di inserimento, altrimenti formuler\`o la query adatta per inserire la \br\ e indicher\`o al chiamante che l'operazione \`e riuscita con successo.
+
+\subsection{Sandbox}
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{activity-dia/Sandbox.eps}
 \end{center}
@@ -374,7 +385,7 @@ Viene presentato di seguito un diagramma di collaborazione riguardante le relazi
 \begin{center}
  \includegraphics[width=0.8\textwidth, angle=-90]{collaboration-dia/Cancellazione.eps}
 \end{center}
-L'utente chiede di cancellare una \br\ alla GUI. Questa richiesta provoca innanzitutto l'invocazione di \textit{getListRules()} (1.1) sul campo dati \textit{\rp\ } della GUI. L'oggetto \rp\ che appartiene alla classe \textit{GuiCommunicator} invoca \textit{makeQuery(list)} (1.2) per recuperare la lista di \brs\ dal \rp. E di conseguenza verr\`a invocata \textit{query()} (1.3) sull'oggetto \textit{servic}e della classe \textit{XPathQuery} che si occuper\`a di eseguire la query. Il risultato verr\`a riportato alla GUI mediante l'oggetto \textit{result} della classe \textit{ResourseSet} che conterr\`a appunto il risultato della query eseguita. Una volta poi effettuta la selezione delle \brs\ da rimuovere viene invocato il metodo \textit{deleteRuleByName(id)} (2). Vengono quindi invocati gli stessi metodi (2.1,2.2) utilizzati precedentemente, ma questa volta la query eseguita ritorner\`a un \textit{result} vuoto perch\`e \`e una query di cancellazione e quindi \textit{deleteRuleByName(id)} si limiter\`a a tornare un \textit{Boolean} che indichi l'esito positivo o negativo della cancellazione.
+L'utente chiede di cancellare una \br\ alla GUI. Questa richiesta provoca innanzitutto l'invocazione di \textit{getListRules()} (1.1) sul campo dati \textit{\rp\ } della GUI. L'oggetto \rp\ che appartiene alla classe \textit{GuiCommunicator} invoca \textit{makeQuery(list)} (1.2) per recuperare la lista di \brs\ dal \rp. E di conseguenza verr\`a invocata \textit{query()} (1.3) sull'oggetto \textit{service} della classe \textit{XPathQuery} che si occuper\`a di eseguire la query. Il risultato verr\`a riportato alla GUI mediante l'oggetto \textit{result} della classe \textit{ResourseSet} che conterr\`a appunto il risultato della query eseguita. Una volta poi effettuta la selezione delle \brs\ da rimuovere viene invocato il metodo \textit{deleteRuleByName(id)} (2). Vengono quindi invocati gli stessi metodi (2.1,2.2) utilizzati precedentemente, ma questa volta la query eseguita ritorner\`a un \textit{result} vuoto perch\`e \`e una query di cancellazione e quindi \textit{deleteRuleByName(id)} si limiter\`a a tornare un \textit{Boolean} che indichi l'esito positivo o negativo della cancellazione.
 
 \section{Diagrammi di sequenza}
 Viene di seguito illustrato un diagramma di sequenza che chiarisca la sequenza di chiamate e invocazioni fatte dall'interprete nella richiesta di \brs\ al sistema \textit{\underline{BR-jsys}}. Non riuscendo a definire operazioni interne diverse dalla ricorsione in \textit{Poseidon}, le operazioni interne \textit{costruzione query} e \textit{conversione} sono state realizzate con delle frecce vuote indicanti un messaggio asincrono, piuttosto che delle frecce piene. Tali messaggi sono da intendersi tuttavia come messaggi sincroni.
@@ -383,6 +394,14 @@ Viene di seguito illustrato un diagramma di sequenza che chiarisca la sequenza d
  \includegraphics[width=0.6\textwidth, angle=-90]{sequence-dia/Interpretazione.eps}
 \end{center}
 L'interprete chiama \textit{getRule()} su un suo campo dati interno appartenente alla classe \textit{InterpreteCommunicator}. Il metodo getRule() viene invocato con un parametro di tipo \textit{String} contenente il nome del \bo\ associato. Viene poi costruita la query che viene lanciata mediante il metodo \textit{makeQuery} dell'oggetto \textit{queryService}. La query viene poi eseguita dal metodo \textit{query} dell'oggetto \textit{service}. Viene poi ritornato un \textit{resourceSet} che verr\`a convertito in un \textit{nodeList} e ritornato all'interprete. Il messaggio 3) \`e un messaggio con ritardo, ma non siamo riusciti a rappresentarlo con \textit{Poseidon}.
+
+\section{Diagrammi di stato}
+
+\subsection{Server DBMS}
+\begin{center}
+ \includegraphics[width=0.9\textwidth, angle=-90]{state-dia/DBMS.eps}
+\end{center}
+Il server \underline{DBMS}, con il quale interagisce il prodotto ``\underline{BR-jsys}'', viene avviato. Una volta completata la procedura di avvio, entra in uno stato di attesa di richieste da parte del nostro prodotto. Ricevuta una richiesta di operazione(per esempio, una richiesta di connessione, di creazione del \rp\ o di accesso allo stesso), la dovr\`a valutarla, eseguirla e ritornare gli eventuali risultati. Il server successivamente torna in uno stato di attesa finch\`e eventualmente viene spento.
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 Dopo aver analizzato il problema attraverso schemi progettuali sono state individuate le risorse necessarie per la realizzazione del prodotto. Con l'utilizzo di software open source siamo riusciti a contenere i costi e contemporaneamente a rendere disponibili tutte le risorse.
