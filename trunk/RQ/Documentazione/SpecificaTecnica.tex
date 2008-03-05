@@ -123,8 +123,8 @@ Il prodotto \`e stato suddiviso in quattro macrocomponenti:
  \item \textbf{GUI}: Fornisce all'utente un interfaccia grafica minimale, consentendogli di effettuare operazioni di cancellazione e interrogazione del repository in maniera user-friendly.
 \item \textbf{Business Rule}: Rappresenta la \br\ che l'utente dichiara e che deve essere passata al validatore per la compilazione.
 \item \textbf{Validatore}: Accetta in input una \br, la valida e la inserisce, se scritta correttamente, nel \rp.
-\item \textbf{Comunicatore}: Si connette al DBMS esterno e comunica con esso tramite i formalismi del linguaggio XQuery.
-Sar\`a appunto tramite Query che il DBMS effettuer\`a operazioni di inserimento, cancellazione o ricerca nel \rp, qualora un componente lo richieda.
+\item \textbf{Comunicatore}: Si connette al \underline{DBMS} esterno e comunica con esso tramite i formalismi del linguaggio XQuery.
+Sar\`a appunto tramite Query che il \underline{DBMS} effettuer\`a operazioni di inserimento, cancellazione o ricerca nel \rp, qualora un componente lo richieda.
 \end{enumerate}
 Questa suddivisione, per quanto minimale, consente di individuare le componenti che verranno poi ampliamente descritte nel successivo capitolo.
 
@@ -252,13 +252,13 @@ Business Rule contiene i campi dato Stringa per rappesentare una \br\ (name, ass
 \end{center}
 \subsection{Communicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \rp\ presente nel DBMS.
+La componente Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \rp\ presente nel \underline{DBMS}.
 \subsubsection{Relazioni d'uso di altre componenti}
-Communicator necessita di interagire con la componente esterna DBMS per interrogare il \rp.
+Communicator necessita di interagire con la componente esterna \underline{DBMS} per interrogare il \rp.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare query specifiche. Le loro descrizioni verranno trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Quando viene istanziata per la prima volta, Communicator inizializza la connessione al DBMS tramite la definizione di una variabile statica. Consente successivamente di interrogare il \rp\ direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
+Quando viene istanziata per la prima volta, Communicator inizializza la connessione al \underline{DBMS} tramite la definizione di una variabile statica. Consente successivamente di interrogare il \rp\ direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
 %
 \subsection{GUICommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -300,14 +300,14 @@ La componente offre il metodo insertRule() per inserire la \br\ nel \rp. L'inser
 \end{center}
 \section{Interprete}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questo componente si incarica di eseguire le \brs\ associate ad un determinato \bo. Per ottenere le \brs, deve poter interrogare il DBMS attraverso un opportuna interfaccia col sistema \underline{BR-jsys} che risolver\`a per lui la richiesta.
+Questo componente si incarica di eseguire le \brs\ associate ad un determinato \bo. Per ottenere le \brs, deve poter interrogare il \underline{DBMS} attraverso un opportuna interfaccia col sistema \underline{BR-jsys} che risolver\`a per lui la richiesta.
 \subsubsection{Relazioni d'uso di altre componenti}
-La componente Interprete utilizza la componente InterpreterCommunicator per comunicare col DBMS.
+La componente Interprete utilizza la componente InterpreterCommunicator per comunicare col \underline{DBMS}.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Non siamo tenuti a considerare i dettagli riguardanti le operazioni specifiche della componente. L'unico vincolo posto \`e che comunichi con il DBMS tramite l'interfaccia InterpreterCommunicator.
-\section{DBMS}
+Non siamo tenuti a considerare i dettagli riguardanti le operazioni specifiche della componente. L'unico vincolo posto \`e che comunichi con il \underline{DBMS} tramite l'interfaccia InterpreterCommunicator.
+\section{\underline{DBMS}}
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{class-dia/DBMS.eps}
 \end{center}
@@ -316,7 +316,7 @@ Questa componente serve a comunicare con il \rp\ in modo efficiente. La comunica
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-Previa una connessione corretta, il DBMS mette a disposizione un'interfaccia XPathQueryService con la quale interagire col \rp\ presente all'interno del DBMS stesso.
+Previa una connessione corretta, il \underline{DBMS} mette a disposizione un'interfaccia XPathQueryService con la quale interagire col \rp\ presente all'interno del \underline{DBMS} stesso.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Una corretta autenticazione far\`a in modo che l'interfaccia di tipo XPathQueryService possa interagire col \rp\ tramite il metodo query(). Quest'ultimo accetta come parametro una query impostata secondo le specifiche XQuery.
 
@@ -324,17 +324,17 @@ Una corretta autenticazione far\`a in modo che l'interfaccia di tipo XPathQueryS
 \section{Diagrammi di attivit\`a}
 
 
-\subsection{Server DBMS}
+\subsection{Server \underline{DBMS}}
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{activity-dia/Server.eps}
 \end{center}
-Il server DBMS, con il quale interagisce il prodotto ``\underline{BR-jsys}'', viene avviato. Una volta completata la procedura di avvio, entra in uno stato di attesa di richieste da parte della GUI e dell'interprete. Ricevuta una richiesta, la relativa query viene inviata al DBMS e il risultato/esito della query viene ritornato all'utente. Il server torna quindi in uno stato di attesa finch\`e eventualmente viene spento.
+Il server \underline{DBMS}, con il quale interagisce il prodotto ``\underline{BR-jsys}'', viene avviato. Una volta completata la procedura di avvio, entra in uno stato di attesa di richieste da parte della GUI e dell'interprete. Ricevuta una richiesta, la relativa query viene inviata al \underline{DBMS} e il risultato/esito della query viene ritornato all'utente. Il server torna quindi in uno stato di attesa finch\`e eventualmente viene spento.
 
 \subsection{Richiesta dell'interprete}
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{activity-dia/RichiestadellInterprete.eps}
 \end{center}
-L'interprete invia la richiesta al sistema, il quale formula la query da inviare al DBMS. La query viene quindi eseguita e il risultato viene tornato all'interprete sottoforma di un oggetto \textit{org.w3c.dom.NodeList}.
+L'interprete invia la richiesta al sistema, il quale formula la query da inviare al \underline{DBMS}. La query viene quindi eseguita e il risultato viene tornato all'interprete sottoforma di un oggetto \textit{org.w3c.dom.NodeList}.
 
 \subsection{GUI}
 \begin{center}
@@ -359,13 +359,13 @@ Dall'oggetto viene estratto l'AST e istanziato org.antlr.runtime.tree.CommonTree
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{activity-dia/Sandbox.eps}
 \end{center}
-La \textit{Sandbox} \`e una finestra il cui scopo \`e permettere ad un utente di eseguire dei test sul repository. Viene quindi fornito uno spazio in cui digitare una query. La query viene inviata al DBMS ed eseguita. Vengono infine presentati a video i risultati della query evidenziando il tempo impiegato per ottenerli. L'utente pu\`o poi terminare la finestra \textit{Sandbox} o inserire una nuova query.
+La \textit{Sandbox} \`e una finestra il cui scopo \`e permettere ad un utente di eseguire dei test sul repository. Viene quindi fornito uno spazio in cui digitare una query. La query viene inviata al \underline{DBMS} ed eseguita. Vengono infine presentati a video i risultati della query evidenziando il tempo impiegato per ottenerli. L'utente pu\`o poi terminare la finestra \textit{Sandbox} o inserire una nuova query.
 
 \subsection{Cancellazione \br}
 \begin{center}
  \includegraphics[width=0.7\textwidth, angle=-90]{activity-dia/CancellazioneBusinessRule.eps}
 \end{center}
-Viene inizialmente effettuata una query sul DBMS atta a recuperare un elenco completo delle \brs. Una volta recuperato l'elenco delle \brs\ presenti nel \rp\ queste vengono visualizzate sinteticamente in forma tabellare, accompagnate da una \textit{checkbox}. Si attende quindi la selezione/deselezione dell'utente. L'utente notifica al sistema (mediante un bottone) l'intenzione di cancellare le \brs\ selezionate.  Viene poi mostrato un riepilogo delle \brs\ che verranno eliminate; se l'utente non conferma, il sistema torna ad attendere la selezione. Se, al contrario, la rimozione viene confermata si formula allora la query di rimozione, la quale viene infine eseguita. Al termine della rimozione viene effettuata nuovamente una query di recupero per visualizzare le \brs\ rimaste nel \rp.
+Viene inizialmente effettuata una query sul \underline{DBMS} atta a recuperare un elenco completo delle \brs. Una volta recuperato l'elenco delle \brs\ presenti nel \rp\ queste vengono visualizzate sinteticamente in forma tabellare, accompagnate da una \textit{checkbox}. Si attende quindi la selezione/deselezione dell'utente. L'utente notifica al sistema (mediante un bottone) l'intenzione di cancellare le \brs\ selezionate.  Viene poi mostrato un riepilogo delle \brs\ che verranno eliminate; se l'utente non conferma, il sistema torna ad attendere la selezione. Se, al contrario, la rimozione viene confermata si formula allora la query di rimozione, la quale viene infine eseguita. Al termine della rimozione viene effettuata nuovamente una query di recupero per visualizzare le \brs\ rimaste nel \rp.
 
 \section{Diagrammi di collaborazione}
 Viene presentato di seguito un diagramma di collaborazione riguardante le relazioni tra le classi utilizzate nella cancellazione di una \br\ dal \rp.

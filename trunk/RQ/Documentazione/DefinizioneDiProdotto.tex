@@ -139,13 +139,13 @@ Questa componente utilizza:
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Gui possiede i campi dato necessari per comunicare col validatore e col DBMS.
+Gui possiede i campi dato necessari per comunicare col validatore e col \underline{DBMS}.
 \begin{center}
 
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Attributo & Descrizione \\  \hline
 -compiler:Validator & Rappresenta il validatore per le \br \\ \hline
--repository:GUICommunicator & Collega la componente al DBMS consentendogli di effettuare le query.\\ \hline
+-repository:GUICommunicator & Collega la componente al \underline{DBMS} consentendogli di effettuare le query.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
@@ -174,13 +174,13 @@ Validator \`e in relazione con la componente GUI, al fine di rendere possibile l
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Attributo & Descrizione \\  \hline
--repository:ValidatorCommunicator & Collega la componente al DBMS per inserire la \br\ validata nel \rp.\\ \hline
+-repository:ValidatorCommunicator & Collega la componente al \underline{DBMS} per inserire la \br\ validata nel \rp.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Metodo & Descrizione \\  \hline
-+Validator(username: String password: String) \textbraceleft throws Exception \textbraceright& Costruttore di Validator. Necessita in ingresso le credenziali dell'utente per accedere al DBMS. Qualora fossero sbagliate verr\`a lanciata un'eccezione.\\ \hline
++Validator(username: String password: String) \textbraceleft throws Exception \textbraceright& Costruttore di Validator. Necessita in ingresso le credenziali dell'utente per accedere al \underline{DBMS}. Qualora fossero sbagliate verr\`a lanciata un'eccezione.\\ \hline
 +validate(rule:BusinessRule ):boolean \textbraceleft throws Exception \textbraceright& Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezione che verr\`a gestita dal chiamante. Se la \br\ viene inserita, il metodo ritorner\`a \textit{true}. Ritorner\`o invece \textit{false} se la regola ha un nome che \`e gi\`a presente nel \rp.\\ \hline
 \end{tabular}
 \end{center}
@@ -331,20 +331,20 @@ BusinessRule(nameR: String , associatedR: String, ruleR: String, commentR: Strin
 \begin{center}
 \includegraphics[width=0.4\textwidth, angle=-90]{class-dia/Comunicatore.eps}
 \end{center}
-Durante la fase di progettazione, la nostra azienda ha fatto diversi studi sui DBMS in grado di trattare basi di dati XML. Si \`e infine presa la decisione di adottare eXist, in quanto, oltre ad essere stato consigliato dal proponente, si \`e rivelato il pi\`u adatto alle nostre esigenze. eXist oltre a garantire buone prestazioni, mette a disposizione pi\`u funzionalit\`a rispetto ai suoi concorrenti e consente di sviluppare applicazioni java che si interfacciano al DBMS stesso.
+Durante la fase di progettazione, la nostra azienda ha fatto diversi studi sui \underline{DBMS} in grado di trattare basi di dati XML. Si \`e infine presa la decisione di adottare eXist, in quanto, oltre ad essere stato consigliato dal proponente, si \`e rivelato il pi\`u adatto alle nostre esigenze. eXist oltre a garantire buone prestazioni, mette a disposizione pi\`u funzionalit\`a rispetto ai suoi concorrenti e consente di sviluppare applicazioni java che si interfacciano al \underline{DBMS} stesso.
 \subsection{Communicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \rp\ presente nel DBMS.
+Communicator fornisce alle componenti che la utilizzano la possibilit\`a di effettuare query di qualsiasi tipo al \rp\ presente nel \underline{DBMS}.
 \subsubsection{Relazioni d'uso di altre componenti}
-Communicator necessita di interagire con la componente esterna DBMS per interrogare il \rp.
+Communicator necessita di interagire con la componente esterna \underline{DBMS} per interrogare il \rp.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare le query specifiche. Le loro descrizioni verr\`anno trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Quando viene istanziata per la prima volta, Communicator inizializza la connessione al DBMS, tramite la definizione di una variabile statica. Quest'ultima consentir\`a successivamente di interrogare il \rp direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
+Quando viene istanziata per la prima volta, Communicator inizializza la connessione al \underline{DBMS}, tramite la definizione di una variabile statica. Quest'ultima consentir\`a successivamente di interrogare il \rp direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche XQuery.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Attributo & Descrizione \\  \hline
-\underline{-service:XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su eXist. In particolare faremo in modo di configurarlo affinch\`e faccia query solamente nel \rp (posizionato in una posizione specifica nel DBMS).\\ \hline
+\underline{-service:XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su eXist. In particolare faremo in modo di configurarlo affinch\`e faccia query solamente nel \rp (posizionato in una posizione specifica nel \underline{DBMS}).\\ \hline
 -correctUsername:String & Memorizza il corretto username utilizzato per l'accesso.\\ \hline
 -correctPassword:String & memorizza la corretta password utilizzata per l'accesso.\\ \hline
 \end{tabular}
