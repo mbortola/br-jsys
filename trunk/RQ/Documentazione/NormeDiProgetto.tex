@@ -61,6 +61,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+2.5 & 05/03/2008 & \MT & Aggiunta della sottosezione 'Glossario'.\\ \hline
 2.4 & 05/03/2008 & \MM & Evidenziazione dei termini contenuti nel documento \G .\\ \hline
 2.3 & 04/03/2008 & \MM & Aggiunta di link ipertestuali all'indice del documento.\\ \hline
 2.2 & 04/03/2008 & \MT & Cancellazione del paragrafo 'Comportamento Generale' perch\`e deprecato.\\ \hline
@@ -148,13 +149,15 @@ Ogni documento sar\`a composto di queste parti:
 \item L'indice dei contenuti;
 \item I contenuti del documento;
 \end{enumerate}
-\`E fornito un modello di documento generale ModelloUnicoDiLayout.tex, nel quale sono state applicate le regole date precedentemente. Il modello va utilizzato per la prima stesura di ogni nuovo documento.
+\`E fornito un modello di documento generale \textit{layout.tex}, nel quale sono state applicate le regole date precedentemente. Il modello va utilizzato  per la prima stesura di ogni nuovo documento includendolo all'interno del file \textit{tex} .
 \subsection{Intestazione/Pi\`e di pagina}
 L'intestazione e il pi\`e di pagina verranno generati automaticamente corretti dal file .tex con i relativi loghi, il numero della pagina e i titoli dei capitoli.
 \subsection{Carattere Testo e Titoli}
 Il formato (dimensione e font utilizzato) sono quelli standard per un documento latex e sono parte del Modello.
 \subsection{Immagini}
 Le immagini inserite nel corpo del documento dovranno essere necessariamente salvate nella cartella pics. Per garantire la massima qualit\`a dell'immagine ogni immagine dovr\`a essere nel formato vettoriale \textit{.eps} (Encapsulate PostScript).
+\subsection{Glossario}
+Il glossario viene fornito come documento esterno \textit{\G}. I termini contenuti nel glossario andranno sottolineati in ogni documento.
 
 \chapter{Norme di codifica}
 \section{File sorgente}
