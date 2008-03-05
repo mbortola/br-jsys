@@ -78,19 +78,26 @@ Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel 
 
 VT\textit{\#} & Con VT seguito da un numero intero sono indicati i test che riguardano la ``macrocomponente validatore''.\\ \hline
 CT\textit{\#} & Con CT seguito da un numero intero sono indicati i test che riguardano la ``macrocomponente comunicatore''.\\ \hline
+CV\textit{\#} & Con CV seguito da un numero intero sono indicati i test di integrazione tra 'validatore' e 'comunicatore'.\\ \hline
+GV\textit{\#} & Con GV seguito da un numero intero sono indicati i test integrazione tra 'gui' e 'validatore'.\\ \hline
+S\textit{\#} & Con S seguito da un numero intero sono indicati i test di integrazione del sistema.\\ \hline
 
 \end{tabular} \\
 \end{center}
 \subsection{Glossario}
-Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G.
+Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G.I termini presenti in questo documento la cui descrizione è riportata nel glossario sono evidenziati mediante sottolineatura.
 
 \chapter{Descrizione dei test case}
 Vengono di seguito presentati i \textit{test case}. Ogni test case \`e composto da un input, un output atteso. Ogni test case \`e inoltre accompagnato da un breve testo che identifica lo scopo del test, e dall'elenco dei requisiti soddisfatti dal test.
 
-\section{Test sul validatore}
+\section{Test sulle componenti}
+Vengono di seguito riportati i test riguardanti le macrocomponenti del sistema \underline{br-jsys}. Questi test si occupano di testare il corretto funzionamento della componente, nonch\`e di mostrare il soddisfacimento di alcuni requisiti.
+
+\subsection{Test sul validatore}
 La macrocomponente validatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso.\\
 \\
 \begin{Large}\textbf{VT1}\end{Large} \\
+Si cercherà di forzare etc....
 Requisiti soddisfatti dall'esecuzione: F1 etc..
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
@@ -110,7 +117,7 @@ sdfdffd\\
 \end{tabular} \\
 \end{center}
 
-\section{Test sul comunicatore}
+\subsection{Test sul comunicatore}
 La macrocomponente comunicatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al comunicatore un stringa contenente una query \underline{XPath} e confrontando l'output del comunicatore con l'output atteso.\\
 \\
 \begin{Large}\textbf{CT1}\end{Large} \\
@@ -129,6 +136,14 @@ sdfdffd\\
  \hline
 \end{tabular} \\
 \end{center}
+
+\section{Test di integrazione}
+Vengono di seguito riportati i test riguardanti le integrazioni delle varie componenti. Questi test hanno come precondizione l'esecuzione dei test sulle singole macrocomponenti, di conseguenza sono mirati a scoprire difetti nell'interfacciamento e nell'interazione tra diverse componenti, nonch\`e di mostrare il soddisfacimento di alcuni requisiti.
+
+\subsection{Integrazione validatore, comunicatore}
+\subsection{Integrazione gui, validatore}
+\subsection{Integrazione del sistema}
+
 
 \chapter{Esiti dei test}
 Vengono di seguito elencati gli esiti dei test effetuati. I test contenuti nella sezione 'Test dei difetti' sono presentati in forma tabellare 
