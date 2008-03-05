@@ -342,7 +342,7 @@ L'interprete invia la richiesta al sistema, il quale formula la query da inviare
 \end{center}
 All'avvio della GUI viene visualizzato un messaggio in cui vengono richiesti \textit{login} e \textit{password}. Si cerca quindi di stabilire una connessione qualificata al DB. 
 Si controlla quindi l'esito del tentativo di connessione; se il tentativo ha dato esito negativo si richiede la \textit{login} e la
- \textit{password} all'utente. Se, al contrario, l'esito e positivo, ossia si ha disposizione una connessione, viene visualizzata la schermata della GUI dalla quale  possono essere lanciati :\textit{ l'inserimento di una \br}, \textit{l'avvio di una Sandbox}, \textit{la cancellazione di una \br}.
+ \textit{password} all'utente. Se, al contrario, l'esito e positivo, ossia si ha disposizione una connessione, viene visualizzata la schermata della GUI dalla quale  possono essere lanciati :\textit{ l'inserimento di una \br}, \textit{l'avvio di una \underline{Sandbox}}, \textit{la cancellazione di una \br}.
 Nel diagramma queste tre attivit\`a sono rappresentate come delle \textit{sub-activity} che vengono illustrate di seguito. Al termine di ogni operazione l'utente viene riportato alla finestra principale dove pu\`o effettuare una nuova operazione oppure terminare l'esecuzione della GUI stessa.
 
 \subsection{Inserisci \br}
@@ -355,11 +355,11 @@ Dall'oggetto viene estratto l'AST e istanziato org.antlr.runtime.tree.CommonTree
 
 
 
-\subsection{Sandbox}
+\subsection{\underline{Sandbox}}
 \begin{center}
  \includegraphics[width=0.5\textwidth, angle=-90]{activity-dia/Sandbox.eps}
 \end{center}
-La \textit{Sandbox} \`e una finestra il cui scopo \`e permettere ad un utente di eseguire dei test sul repository. Viene quindi fornito uno spazio in cui digitare una query. La query viene inviata al \underline{DBMS} ed eseguita. Vengono infine presentati a video i risultati della query evidenziando il tempo impiegato per ottenerli. L'utente pu\`o poi terminare la finestra \textit{Sandbox} o inserire una nuova query.
+La \textit{\underline{Sandbox}} \`e una finestra il cui scopo \`e permettere ad un utente di eseguire dei test sul repository. Viene quindi fornito uno spazio in cui digitare una query. La query viene inviata al \underline{DBMS} ed eseguita. Vengono infine presentati a video i risultati della query evidenziando il tempo impiegato per ottenerli. L'utente pu\`o poi terminare la finestra \textit{\underline{Sandbox}} o inserire una nuova query.
 
 \subsection{Cancellazione \br}
 \begin{center}
