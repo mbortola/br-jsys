@@ -59,16 +59,11 @@ public class InterpreterCommunicator {
 			String val="";
 			XMLResource r = (XMLResource)i.nextResource();
 			val=((String)r.getContent());
-			System.out.println("++++"+val);
 			Node node=r.getContentAsDOM();
 
 			NodeList list=node.getChildNodes();
 			Element el=(Element)list.item(0);
 			NodeList list2=el.getElementsByTagName("BusinessRule");
-
-			for(int x=0;x<list2.getLength();x++){
-				System.out.println(list2.item(x).getNodeName());
-			}
 
 			return list2;
 		} catch (XMLDBException e) {
