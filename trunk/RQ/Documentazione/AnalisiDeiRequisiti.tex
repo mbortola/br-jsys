@@ -153,50 +153,50 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \end{center}
 
 \subsection{Inserisci nuova \underline{Business Rule}.}
-\underline{\textbf{\textit{Attori coinvolti}}:} L'utente finale che desidera inserire nel repository una nuova \underline{Business Rule}.\\
-\underline{Scopo e descrizione sintetica:} Il sistema riceve in ingresso una nuova \underline{Business Rule} che dovr\`a essere validata.\\
-\underline{Flusso di eventi:} Il sistema acquisisce la nuova \underline{Business Rule} appena inserita dall'utente e la invia successivamente al validatore.\\
-\underline{Precondizioni:} L'utente ha inserito una nuova \underline{Business Rule}.\\
-\underline{Postcondizioni} La \underline{Business Rule} viene inviata al validatore.
+\textbf{Attori coinvolti:} L'utente finale che desidera inserire nel repository una nuova \underline{Business Rule}.\\
+\textbf{Scopo e descrizione sintetica:} Il sistema riceve in ingresso una nuova \underline{Business Rule} che dovr\`a essere validata.\\
+\textbf{Flusso di eventi:} Il sistema acquisisce la nuova \underline{Business Rule} appena inserita dall'utente e la invia successivamente al validatore.\\
+\textbf{Precondizioni:} L'utente ha inserito una nuova \underline{Business Rule}.\\
+\textbf{Postcondizioni} La \underline{Business Rule} viene inviata al validatore.
 
 \subsection{Valida \underline{Business Rule}.}
-\underline{Scopo e descrizione sintetica:} Il validatore riceve in ingresso la \underline{Business Rule} e si preoccupa di eseguire una serie di controlli per la sua validazione.\\
-\underline{Flusso di eventi:} Il validatore una volta acquisita la \underline{Business Rule} la sottopone a diversi controlli per poterla validare.\\
-\underline{Precondizioni:} Il sistema ha acquisito una nuova \underline{Business Rule}.\\
-\underline{Postcondizioni} La \underline{Business Rule} viene inviata alla componente che valida la sintassi.
+\textbf{Scopo e descrizione sintetica:} Il validatore riceve in ingresso la \underline{Business Rule} e si preoccupa di eseguire una serie di controlli per la sua validazione.\\
+\textbf{Flusso di eventi:} Il validatore una volta acquisita la \underline{Business Rule} la sottopone a diversi controlli per poterla validare.\\
+\textbf{Precondizioni:} Il sistema ha acquisito una nuova \underline{Business Rule}.\\
+\textbf{Postcondizioni} La \underline{Business Rule} viene inviata alla componente che valida la sintassi.
  
 \subsection{Controlla sintassi.}
-\underline{Scopo e descrizione sintetica:} Si controlla che la nuova \underline{Business Rule} sia formulata secondo le specifiche e la sintassi del linguaggio scelto.\\
-\underline{Flusso di eventi:} Viene controllata la sintassi della nuova \underline{Business Rule} appena inserita.\\
-\underline{Precondizioni:} Il validatore ha inviato la \underline{Business Rule} al controllo della sintassi.\\
-\underline{Postcondizioni} La \underline{Business Rule} pu\`o avanzare al successivo controllo.
+\textbf{Scopo e descrizione sintetica:} Si controlla che la nuova \underline{Business Rule} sia formulata secondo le specifiche e la sintassi del linguaggio scelto.\\
+\textbf{Flusso di eventi:} Viene controllata la sintassi della nuova \underline{Business Rule} appena inserita.\\
+\textbf{Precondizioni:} Il validatore ha inviato la \underline{Business Rule} al controllo della sintassi.\\
+\textbf{Postcondizioni} La \underline{Business Rule} pu\`o avanzare al successivo controllo.
 
 \subsection{Controlla la semantica.}
-\underline{Scopo e descrizione sintetica:} Si controllano i tipi nella nuova \underline{Business Rule} e si verifica che i campi dati utilizzati siano realmente presenti nel business object associato.\\
-\underline{Flusso di eventi:} Vengono controllati i tipi nella \underline{Business Rule} e la corrispondenza tra i campi dati usati nella \underline{Business Rule} e quelli presenti nel business object ad essa associato.\\
-\underline{Precondizioni:} Il validatore ha inviato la \underline{Business Rule} al controllo semantico.\\
-\underline{Postcondizioni} La \underline{Business Rule} \`e pronta per essere inserita nel \textit{repository}.
+\textbf{Scopo e descrizione sintetica:} Si controllano i tipi nella nuova \underline{Business Rule} e si verifica che i campi dati utilizzati siano realmente presenti nel business object associato.\\
+\textbf{Flusso di eventi:} Vengono controllati i tipi nella \underline{Business Rule} e la corrispondenza tra i campi dati usati nella \textbf{Business Rule} e quelli presenti nel business object ad essa associato.\\
+\textbf{Precondizioni:} Il validatore ha inviato la \underline{Business Rule} al controllo semantico.\\
+\textbf{Postcondizioni} La \underline{Business Rule} \`e pronta per essere inserita nel \textit{repository}.
 
 \subsection{Restituisci messaggio di errore.}
-\underline{Attori coinvolti:} L'utente finale che ha cercato di inserire una nuova \underline{Business Rule} e non ci \`e riuscito.\\
-\underline{Scopo e descrizione sintetica:} Il sistema comunica all'utente che la \underline{Business Rule} inserita presenta degli errori.\\
-\underline{Flusso di eventi:} Il sistema  a fronte di un errore nella validazione della \underline{Business Rule} invia una segnalazione dell'errore all'utente.\\
-\underline{Precondizioni:} La validazione non \`e andata a buon fine.\\
-\underline{Postcondizioni} L'utente riceve un messaggio che lo informa dell'errore commesso nella creazione della nuova \underline{Business Rule}.
+\textbf{Attori coinvolti:} L'utente finale che ha cercato di inserire una nuova \underline{Business Rule} e non ci \`e riuscito.\\
+\textbf{Scopo e descrizione sintetica:} Il sistema comunica all'utente che la \underline{Business Rule} inserita presenta degli errori.\\
+\textbf{Flusso di eventi:} Il sistema  a fronte di un errore nella validazione della \underline{Business Rule} invia una segnalazione dell'errore all'utente.\\
+\textbf{Precondizioni:} La validazione non \`e andata a buon fine.\\
+\textbf{Postcondizioni} L'utente riceve un messaggio che lo informa dell'errore commesso nella creazione della nuova \underline{Business Rule}.
 
 \subsection{Richiedi al \underline{DBMS} di inserire nel repository.}
-\underline{Attori coinvolti:} Il \underline{DBMS} che si preoccuper\`a di inserire la regola nel repository.\\
-\underline{Scopo e descrizione sintetica:} Il sistema comunica al \underline{DBMS} che la \underline{Business Rule} \`e stata validata e pu\`o essere inserita nel repository.\\
-\underline{Flusso di eventi:} Il sistema  terminata la validazione invia la \underline{Business Rule} al \underline{DBMS} che si preoccuper\`a di inserirla nel \textit{repository}.\\
-\underline{Precondizioni:} La validazione \`e terminata senza errori.\\
-\underline{Postcondizioni} Il \underline{DBMS} inserir\`a la \underline{Business Rule} nel \textit{repository}.
+\textbf{Attori coinvolti:} Il \underline{DBMS} che si preoccuper\`a di inserire la regola nel repository.\\
+\textbf{Scopo e descrizione sintetica:} Il sistema comunica al \underline{DBMS} che la \underline{Business Rule} \`e stata validata e pu\`o essere inserita nel repository.\\
+\textbf{Flusso di eventi:} Il sistema  terminata la validazione invia la \underline{Business Rule} al \underline{DBMS} che si preoccuper\`a di inserirla nel \textit{repository}.\\
+\textbf{Precondizioni:} La validazione \`e terminata senza errori.\\
+\textbf{Postcondizioni} Il \underline{DBMS} inserir\`a la \underline{Business Rule} nel \textit{repository}.
 
 \subsection{Richiedi al \underline{DBMS} di cancellare dal repository.}
-\underline{Attori coinvolti:} L'utente finale che richiede al sistema di cancellare una \underline{Business Rule} dal repository e il \underline{DBMS} che si preoccuper\`a di cancellarla.\\
-\underline{Scopo e descrizione sintetica:} Il sistema mette in comunicazione l'utente finale col \underline{DBMS} richiedendo al \underline{DBMS} la cancellazione della \underline{Business Rule} indicata dall'utente\\
-\underline{Flusso di eventi:} Il sistema riceve la richiesta di cancellazione di una \underline{Business Rule} e la comunica al \underline{DBMS}.\\
-\underline{Precondizioni:} L'utente ha chiesto che una determinata \underline{Business Rule} venga cancellata.\\
-\underline{Postcondizioni} Il \underline{DBMS} canceller\`a la \underline{Business Rule} dal \textit{repository}.
+\textbf{Attori coinvolti:} L'utente finale che richiede al sistema di cancellare una \underline{Business Rule} dal repository e il \underline{DBMS} che si preoccuper\`a di cancellarla.\\
+\textbf{Scopo e descrizione sintetica:} Il sistema mette in comunicazione l'utente finale col \underline{DBMS} richiedendo al \underline{DBMS} la cancellazione della \underline{Business Rule} indicata dall'utente\\
+\textbf{Flusso di eventi:} Il sistema riceve la richiesta di cancellazione di una \underline{Business Rule} e la comunica al \underline{DBMS}.\\
+\textbf{Precondizioni:} L'utente ha chiesto che una determinata \underline{Business Rule} venga cancellata.\\
+\textbf{Postcondizioni} Il \underline{DBMS} canceller\`a la \underline{Business Rule} dal \textit{repository}.
 
 
 \section{Recupera \\underline{Business Rules}.}
@@ -205,24 +205,24 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \end{center}
 
 \subsection{Gestione della richiesta.}
-\underline{Attori coinvolti:} L'interprete esterno fornito dall'azienda che richiede la validazione di un business object.\\
-\underline{Scopo e descrizione sintetica:} Il sistema riceve una richiesta di validazione per un business object.\\
-\underline{Flusso di eventi:} Il sistema ha ricevuto la richiesta di validazione per un determinato business object.\\
-\underline{Precondizioni:} L'utente ha richiesto di validare un business object.\\
-\underline{Postcondizioni} Recupero delle regole pertinenti dal \underline{DBMS} .
+\textbf{Attori coinvolti:} L'interprete esterno fornito dall'azienda che richiede la validazione di un business object.\\
+\textbf{Scopo e descrizione sintetica:} Il sistema riceve una richiesta di validazione per un business object.\\
+\textbf{Flusso di eventi:} Il sistema ha ricevuto la richiesta di validazione per un determinato business object.\\
+\textbf{Precondizioni:} L'utente ha richiesto di validare un business object.\\
+\textbf{Postcondizioni} Recupero delle regole pertinenti dal \underline{DBMS} .
 
 \subsection{Recupera \\underline{Business Rules} pertinenti.}
-\underline{Attori coinvolti:} Il \underline{DBMS} che si occuper\`a di recuperare le regole\\
-\underline{Scopo e descrizione sintetica:} Il sistema chiede al \underline{DBMS} di recuperare le regole dal repository.\\
-\underline{Flusso di eventi:} Il sistema richiede al \underline{DBMS} di estrarre dal repository tutte le regole riguardanti quel business object.\\
-\underline{Precondizioni:} Il sistema ha acquisito la richiesta di validazione per un determinato business object.\\
-\underline{Postcondizioni} Il \underline{DBMS} riceve la richiesta di recuperare delle \\underline{Business Rules} dal repository.
+\textbf{Attori coinvolti:} Il \underline{DBMS} che si occuper\`a di recuperare le regole\\
+\textbf{Scopo e descrizione sintetica:} Il sistema chiede al \underline{DBMS} di recuperare le regole dal repository.\\
+\textbf{Flusso di eventi:} Il sistema richiede al \underline{DBMS} di estrarre dal repository tutte le regole riguardanti quel business object.\\
+\textbf{Precondizioni:} Il sistema ha acquisito la richiesta di validazione per un determinato business object.\\
+\textbf{Postcondizioni} Il \underline{DBMS} riceve la richiesta di recuperare delle \\underline{Business Rules} dal repository.
 \subsection{Manda le \\underline{Business Rules} all'interprete.}
-\underline{Attori coinvolti:} L'interprete esterno fornito dall'azienda che riceve le \\underline{Business Rules} per poter validare il suo business object.\\
-\underline{Scopo e descrizione sintetica:} Il sistema ricevute le regole dal \underline{DBMS} le invia all'interprete esterno.\\
-\underline{Flusso di eventi:} Il sistema ricevute dal \underline{DBMS} tutte le regole riguardanti un determinato business object le invia all'interprete esterno.\\
-\underline{Precondizioni:} Il \underline{DBMS} ha terminato il recupero di tutte le \\underline{Business Rules} che riguardano il business object dato.\\
-\underline{Postcondizioni} L'interprete utilizzer\`a le \\underline{Business Rules} appena ricevute.
+\textbf{Attori coinvolti:} L'interprete esterno fornito dall'azienda che riceve le \\underline{Business Rules} per poter validare il suo business object.\\
+\\textbf{Scopo e descrizione sintetica:} Il sistema ricevute le regole dal \underline{DBMS} le invia all'interprete esterno.\\
+\textbf{Flusso di eventi:} Il sistema ricevute dal \underline{DBMS} tutte le regole riguardanti un determinato business object le invia all'interprete esterno.\\
+\textbf{Precondizioni:} Il \underline{DBMS} ha terminato il recupero di tutte le \\underline{Business Rules} che riguardano il business object dato.\\
+\textbf{Postcondizioni} L'interprete utilizzer\`a le \\underline{Business Rules} appena ricevute.
 
 \section{Requisiti funzionali}
 \begin{itemize}
