@@ -2,7 +2,7 @@
 \input{model/layout.tex}% layout
 \begin{document}
 %definizione variabili 
-\newcommand{\lv}{ 0.1 } % latest version
+\newcommand{\lv}{ 0.3 } % latest version
 \newcommand{\dt}{ Test Report }% Document title
 \input{model/variables.tex}%altre variabili
 \input{model/document-latest-versions.tex}%nomi documenti
@@ -19,7 +19,7 @@
 \Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline
-\textbf{Data creazione:} & 05/03/2008 \\ \hline
+\textbf{Data creazione:} & 02/03/2008 \\ \hline
 \textbf{Versione:} & \lv \\ \hline
 \textbf{Stato del documento:} & Formale, esterno \\ \hline
 % ----------------------------------------------------------------------------autori
@@ -52,8 +52,10 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
-0.1 & 05/03/2008 & \MT & Stesura iniziale del documento.\\ \hline
-
+0.4 & 05/03/2008 & \MT & Aggiunta delle tabelle per gli esiti.\\ \hline
+0.3 & 04/03/2008 & \MT & Modifica alla nomenclatura dei test.\\ \hline
+0.2 & 03/03/2008 & \MT & Aggiunta dei 'test case'.\\ \hline
+0.1 & 02/03/2008 & \MT & Stesura iniziale del documento.\\ \hline
 \end{tabular} \\
 \end{small}
 
@@ -86,10 +88,10 @@ Per gli altri termini non citati nella tabella soprastante si fa riferimento al 
 Vengono di seguito presentati i \textit{test case}. Ogni test case \`e composto da un input, un output atteso. Ogni test case \`e inoltre accompagnato da un breve testo che identifica lo scopo del test, e dall'elenco dei requisiti soddisfatti dal test.
 
 \section{Test sul validatore}
-La macrocomponente validatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso.
-
+La macrocomponente validatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso.\\
+\\
 \begin{Large}\textbf{VT1}\end{Large} \\
-sdfdfsdfdfsdfdsf
+Requisiti soddisfatti dall'esecuzione: F1 etc..
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
@@ -109,14 +111,14 @@ sdfdffd\\
 \end{center}
 
 \section{Test sul comunicatore}
-La macrocomponente comunicatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al comunicatore un stringa contenente una query \underline{Xpath} e confrontando l'output del comunicatore con l'output atteso.
-
+La macrocomponente comunicatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al comunicatore un stringa contenente una query \underline{XPath} e confrontando l'output del comunicatore con l'output atteso.\\
+\\
 \begin{Large}\textbf{CT1}\end{Large} \\
-sdfdsfsdfdsfdf
+Requisiti soddisfatti dall'esecuzione: F1 etc..
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Query eseguita}\\ \hline
-Business object associato & dfgdfgfgf.\\ \hline
+Business object associato.\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
