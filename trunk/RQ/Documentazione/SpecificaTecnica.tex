@@ -111,7 +111,7 @@ La progettazione del prodotto \`e stata attuata con l'uso di diagrammi UML 2.1, 
 Il software di cui l'azienda ha fatto uso per la loro creazione \`e \textit{Poseidon for UML Professional edition 6.0.2 (Evaluation Copy)}. L'utilizzo di tale software deriva dalla completezza
 di strumenti di cui \`e fornito, i quali soddisfano in pieno le nostre necessit\`a.
 
-\section{Presentazione dell'architettura generale del sistema e identificazione dei componenti architetturali di alto livello}
+\section [Architettura generale del sistema]{Presentazione dell'architettura generale del sistema e identificazione dei componenti architetturali di alto livello}
 Lo schema generale del prodotto \`e specificato nell'immagine sottostante.
 \begin{center}
 \includegraphics[width=0.8\textwidth, angle=-90]{class-dia/schemagenerale.eps}
@@ -435,37 +435,10 @@ Comunicatore & Communicator & F3, F5, F6, NPr1\\ \hline
 \begin{tabular}{l}
 \begin{tabular}{||p{3cm}||p{9cm}||} \hline
 \textbf{Requisito} & {Componenti associati} \\ \hline
-\textbf{F2} & 
-\begin{itemize}
-\item Validator
-\item BusinessRuleLexer
-\item BusinessRuleParser
-\item TypeCollisionException
-\item businessobject
-\item BusinessRule
-\end{itemize} \\ \hline
-\textbf{F3} &
-\begin{itemize}
-\item Validator
-\item Communicator
-\item ValidatorCommunicator
-\end{itemize} \\ \hline
-\textbf{F4} & 
-\begin{itemize}
-\item GUI
-\item Validator
-\item BusinessRuleLexer
-\item BusinessRuleParser
-\item TypeCollisionException
-\end{itemize} \\ \hline
-\textbf{F5} &
-\begin{itemize}
-\item GUI
-\item Validator
-\item Communicator
-\item GUICommunicator
-\item InterpreterCommunicator
-\end{itemize} \\ \hline
+\textbf{F2} & Validator, BusinessRuleLexer, BusinessRuleParser, TypeCollisionException, businessobject, BusinessRule \\ \hline
+\textbf{F3} & Validator, Communicator, ValidatorCommunicator \\ \hline
+\textbf{F4} & GUI, Validator, BusinessRuleLexer, BusinessRuleParser, TypeCollisionException \\ \hline
+\textbf{F5} & GUI, Validator, Communicator, GUICommunicator, InterpreterCommunicator, \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -473,47 +446,15 @@ Comunicatore & Communicator & F3, F5, F6, NPr1\\ \hline
 \large{
 \begin{tabular}{l}
 \begin{tabular}{||p{3cm}||p{9cm}||} \hline
-\textbf{F6} & 
-\begin{itemize}
-\item Communicator
-\item InterpreterCommunicator
-\end{itemize} \\ \hline
+\textbf{F6} & Communicator, InterpreterCommunicator \\ \hline
 
-\textbf{F7} & 
-\begin{itemize}
-\item GUI
-\item GUICommunicator
-\end{itemize} \\ \hline
-\textbf{F8} & 
-\begin{itemize}
-\item GUI
-\item Validator
-\item GUICommunicator
-\end{itemize} \\ \hline
-\textbf{F10} & 
-\begin{itemize}
-\item BusinessRuleParser
-\item TypeCollisionException
-\item businessobject
-\item Business Rule
-\end{itemize} \\ \hline
-\textbf{F11} & 
-\begin{itemize}
-\item businessobject
-\item Business Rule
-\end{itemize} \\ \hline
-\textbf{NU1} & 
-\begin{itemize}
-\item BusinessRule
-\end{itemize} \\ \hline
-\textbf{NU2} & 
-\begin{itemize}
-\item BusinessRule
-\end{itemize} \\ \hline
-\textbf{NU3} & 
-\begin{itemize}
-\item BusinessRule
-\end{itemize} \\ \hline
+\textbf{F7} & GUI, GUICommunicator \\ \hline
+\textbf{F8} & GUI, Validator, GUICommunicator \\ \hline
+\textbf{F10} & BusinessRuleParser, TypeCollisionException, businessobject, Business Rule \\ \hline
+\textbf{F11} & businessobject, Business Rule \\ \hline
+\textbf{NU1} & BusinessRule \\ \hline
+\textbf{NU2} & BusinessRule \\ \hline
+\textbf{NU3} & BusinessRule \\ \hline
 
 \end{tabular} \\
 \end{tabular}
@@ -523,23 +464,9 @@ Comunicatore & Communicator & F3, F5, F6, NPr1\\ \hline
 \begin{tabular}{l}
 \begin{tabular}{||p{3cm}||p{9cm}||} \hline
 
-\textbf{NPo1} & 
-\begin{itemize}
-\item XMLParser
-\end{itemize} \\ \hline
-\textbf{NPr1} & 
-\begin{itemize}
-\item Validator
-\item Communicator
-\end{itemize} \\ \hline
-\textbf{NQ1} & 
-\begin{itemize}
-\item Validator
-\item BusinessRuleLexer
-\item BusinessRuleParser
-\item TypeCollisionException
-\item BusinessRule
-\end{itemize} \\ \hline
+\textbf{NPo1} &  XMLParser \\ \hline
+\textbf{NPr1} & Validator, Communicator \\ \hline
+\textbf{NQ1} & Validator, BusinessRuleLexer, BusinessRuleParser, TypeCollisionException, BusinessRule \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
