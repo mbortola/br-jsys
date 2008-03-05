@@ -95,7 +95,7 @@ Versione & Data & Autore & Descrizione \\ \hline
 Il presente documento viene redatto al fine di identificare i requisiti presenti nel capitolato d'appalto denominato ``\underline{BR-jsys}'', conseguire il raggiungimento dell'obiettivo richiesto e soddisfare le esigenze di tutti gli stakeholders coinvolti nella realizzazione del progetto di cui sopra.
 \section{Scopo del prodotto}
 Il prodotto andr\`a inserito in un progetto pi\`u ampio. Il suo obiettivo \`e quello di testare la consistenza di business objects, altrimenti difficilmente verificabile tramite vincoli relazionali.
-Verr\`a creato quindi un linguaggio per la definizione di business rules. Quest'ultime verranno immagazzinate in un \textit{file repository}; nel momento in cui l'utente avr\`a bisogno di verificare la consistenza di un business object, un interprete si preoccuper\`a di invocare ed eseguire le regole che lo riguardano, stabilendo cos\`i se esso le rispetta tutte o meno.
+Verr\`a creato quindi un linguaggio per la definizione di \\underline{Business Rules}. Quest'ultime verranno immagazzinate in un \textit{file repository}; nel momento in cui l'utente avr\`a bisogno di verificare la consistenza di un business object, un interprete si preoccuper\`a di invocare ed eseguire le regole che lo riguardano, stabilendo cos\`i se esso le rispetta tutte o meno.
 Il progetto dovr\`a integrarsi infine con le componenti gi\`a sviluppate dall'azienda proponente. In particolare dovr\`a interfacciarsi con il loro interprete, il quale dovr\`a poi applicare le regole ai business objects.
 \section{Definizioni, acronimi, abbreviazioni}
 Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel documento, comprese le sigle utilizzate per il tracciamento dei requisiti.
@@ -128,16 +128,16 @@ Di seguito viene descritto il sistema designato dalla sigla ``\underline{BR-jsys
 
 \chapter{Descrizione generale}
 \section{Prospettiva del prodotto}
-Il sistema va a collocarsi all'interno di un progetto globale di automazione nella generazione del codice per la produzione di software gestionale. In particolare si occuper\`a della gestione delle business rules, definendo un linguaggio con cui descriverle, oltre ad un sistema di archiviazione-recupero delle stesse.
+Il sistema va a collocarsi all'interno di un progetto globale di automazione nella generazione del codice per la produzione di software gestionale. In particolare si occuper\`a della gestione delle \\underline{Business Rules}, definendo un linguaggio con cui descriverle, oltre ad un sistema di archiviazione-recupero delle stesse.
 \section{Funzioni del prodotto}
-Il sistema si occupa di definire un linguaggio con cui descrivere business rules. Pi\`u concretamente dovr\`a verificare che le business rules inserite dall'utente rispettino il linguaggio sopra citato. In caso di esito positivo dovranno essere inserite in un repository, dal quale potranno poi essere recuperate nel momento in cui si desideri verificare la consistenza di un business object.
+Il sistema si occupa di definire un linguaggio con cui descrivere \\underline{Business Rules}. Pi\`u concretamente dovr\`a verificare che le \\underline{Business Rules} inserite dall'utente rispettino il linguaggio sopra citato. In caso di esito positivo dovranno essere inserite in un repository, dal quale potranno poi essere recuperate nel momento in cui si desideri verificare la consistenza di un business object.
 \section{Caratteristiche utente}
 Il sistema andr\`a inserito all'interno di un progetto pi\`u ampio, il cui utente finale \`e un individuo esperto in ambito commerciale e gestionale, ma non necessariamente in ambito informatico.
 \section{Vincoli generali}
 Il linguaggio di programmazione adottato per lo sviluppo del prodotto sar\`a Java. Il sistema dovr\`a inoltre potersi interfacciare con le componenti gi\`a sviluppate dall'azienda proponente. 
 \section{Presupposti e dipendenze}
 \begin{itemize}
-\item{Le business rules su cui si opera saranno di tipo \textit{\underline{Rejector}}. Una business rule deve essere composta da uno o pi\`u confronti tra espressioni dello stesso tipo (eventualmente complesse).}
+\item{Le \\underline{Business Rules} su cui si opera saranno di tipo \textit{\underline{Rejector}}. Una \underline{Business Rule} deve essere composta da uno o pi\`u confronti tra espressioni dello stesso tipo (eventualmente complesse).}
 \item{I business objects che manipoleremo sono generalmente costituiti da campi dati semplici (numeri reali, booleani, stringhe), da un insieme di array o vettori omogenei tutti della stessa lunghezza (derivanti da tabelle) e da riferimenti ad altri business objects (ma non da array di business objects).
 }
 \item{La virtual machine utilizzata  per sviluppare gli oggetti richiesti \`e Java 1.5.}
@@ -147,59 +147,59 @@ Il linguaggio di programmazione adottato per lo sviluppo del prodotto sar\`a Jav
 Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno qui presi in considerazione dei diagrammi use-case \underline{UML}. Verranno elencati in seguito i requisiti individuati, ognuno dei quali preceduto da una sigla identificativa e seguito da una sigla che indica il documento da cui proviene.
 
 
-\section{Inserimento e cancellazione di business rule.}
+\section{Inserimento e cancellazione di \underline{Business Rule}.}
 \begin{center}
  \includegraphics[width=1\textwidth]{use-case/Inserisci-regola.eps}
 \end{center}
 
-\subsection{Inserisci nuova business rule.}
-\underline{Attori coinvolti:} L'utente finale che desidera inserire nel repository una nuova business rule.\\
-\underline{Scopo e descrizione sintetica:} Il sistema riceve in ingresso una nuova business rule che dovr\`a essere validata.\\
-\underline{Flusso di eventi:} Il sistema acquisisce la nuova business rule appena inserita dall'utente e la invia successivamente al validatore.\\
-\underline{Precondizioni:} L'utente ha inserito una nuova business rule.\\
-\underline{Postcondizioni} La business rule viene inviata al validatore.
+\subsection{Inserisci nuova \underline{Business Rule}.}
+\underline{Attori coinvolti:} L'utente finale che desidera inserire nel repository una nuova \underline{Business Rule}.\\
+\underline{Scopo e descrizione sintetica:} Il sistema riceve in ingresso una nuova \underline{Business Rule} che dovr\`a essere validata.\\
+\underline{Flusso di eventi:} Il sistema acquisisce la nuova \underline{Business Rule} appena inserita dall'utente e la invia successivamente al validatore.\\
+\underline{Precondizioni:} L'utente ha inserito una nuova \underline{Business Rule}.\\
+\underline{Postcondizioni} La \underline{Business Rule} viene inviata al validatore.
 
-\subsection{Valida business rule.}
-\underline{Scopo e descrizione sintetica:} Il validatore riceve in ingresso la business rule e si preoccupa di eseguire una serie di controlli per la sua validazione.\\
-\underline{Flusso di eventi:} Il validatore una volta acquisita la business rule la sottopone a diversi controlli per poterla validare.\\
-\underline{Precondizioni:} Il sistema ha acquisito una nuova business rule.\\
-\underline{Postcondizioni} La business rule viene inviata alla componente che valida la sintassi.
+\subsection{Valida \underline{Business Rule}.}
+\underline{Scopo e descrizione sintetica:} Il validatore riceve in ingresso la \underline{Business Rule} e si preoccupa di eseguire una serie di controlli per la sua validazione.\\
+\underline{Flusso di eventi:} Il validatore una volta acquisita la \underline{Business Rule} la sottopone a diversi controlli per poterla validare.\\
+\underline{Precondizioni:} Il sistema ha acquisito una nuova \underline{Business Rule}.\\
+\underline{Postcondizioni} La \underline{Business Rule} viene inviata alla componente che valida la sintassi.
  
 \subsection{Controlla sintassi.}
-\underline{Scopo e descrizione sintetica:} Si controlla che la nuova business rule sia formulata secondo le specifiche e la sintassi del linguaggio scelto.\\
-\underline{Flusso di eventi:} Viene controllata la sintassi della nuova business rule appena inserita.\\
-\underline{Precondizioni:} Il validatore ha inviato la business rule al controllo della sintassi.\\
-\underline{Postcondizioni} La business rule pu\`o avanzare al successivo controllo.
+\underline{Scopo e descrizione sintetica:} Si controlla che la nuova \underline{Business Rule} sia formulata secondo le specifiche e la sintassi del linguaggio scelto.\\
+\underline{Flusso di eventi:} Viene controllata la sintassi della nuova \underline{Business Rule} appena inserita.\\
+\underline{Precondizioni:} Il validatore ha inviato la \underline{Business Rule} al controllo della sintassi.\\
+\underline{Postcondizioni} La \underline{Business Rule} pu\`o avanzare al successivo controllo.
 
 \subsection{Controlla la semantica.}
-\underline{Scopo e descrizione sintetica:} Si controllano i tipi nella nuova business rule e si verifica che i campi dati utilizzati siano realmente presenti nel business object associato.\\
-\underline{Flusso di eventi:} Vengono controllati i tipi nella business rule e la corrispondenza tra i campi dati usati nella business rule e quelli presenti nel business object ad essa associato.\\
-\underline{Precondizioni:} Il validatore ha inviato la business rule al controllo semantico.\\
-\underline{Postcondizioni} La business rule \`e pronta per essere inserita nel \textit{repository}.
+\underline{Scopo e descrizione sintetica:} Si controllano i tipi nella nuova \underline{Business Rule} e si verifica che i campi dati utilizzati siano realmente presenti nel business object associato.\\
+\underline{Flusso di eventi:} Vengono controllati i tipi nella \underline{Business Rule} e la corrispondenza tra i campi dati usati nella \underline{Business Rule} e quelli presenti nel business object ad essa associato.\\
+\underline{Precondizioni:} Il validatore ha inviato la \underline{Business Rule} al controllo semantico.\\
+\underline{Postcondizioni} La \underline{Business Rule} \`e pronta per essere inserita nel \textit{repository}.
 
 \subsection{Restituisci messaggio di errore.}
-\underline{Attori coinvolti:} L'utente finale che ha cercato di inserire una nuova business rule e non ci \`e riuscito.\\
-\underline{Scopo e descrizione sintetica:} Il sistema comunica all'utente che la business rule inserita presenta degli errori.\\
-\underline{Flusso di eventi:} Il sistema  a fronte di un errore nella validazione della business rule invia una segnalazione dell'errore all'utente.\\
+\underline{Attori coinvolti:} L'utente finale che ha cercato di inserire una nuova \underline{Business Rule} e non ci \`e riuscito.\\
+\underline{Scopo e descrizione sintetica:} Il sistema comunica all'utente che la \underline{Business Rule} inserita presenta degli errori.\\
+\underline{Flusso di eventi:} Il sistema  a fronte di un errore nella validazione della \underline{Business Rule} invia una segnalazione dell'errore all'utente.\\
 \underline{Precondizioni:} La validazione non \`e andata a buon fine.\\
-\underline{Postcondizioni} L'utente riceve un messaggio che lo informa dell'errore commesso nella creazione della nuova business rule.
+\underline{Postcondizioni} L'utente riceve un messaggio che lo informa dell'errore commesso nella creazione della nuova \underline{Business Rule}.
 
 \subsection{Richiedi al \underline{DBMS} di inserire nel repository.}
 \underline{Attori coinvolti:} Il \underline{DBMS} che si preoccuper\`a di inserire la regola nel repository.\\
-\underline{Scopo e descrizione sintetica:} Il sistema comunica al \underline{DBMS} che la business rule \`e stata validata e pu\`o essere inserita nel repository.\\
-\underline{Flusso di eventi:} Il sistema  terminata la validazione invia la business rule al \underline{DBMS} che si preoccuper\`a di inserirla nel \textit{repository}.\\
+\underline{Scopo e descrizione sintetica:} Il sistema comunica al \underline{DBMS} che la \underline{Business Rule} \`e stata validata e pu\`o essere inserita nel repository.\\
+\underline{Flusso di eventi:} Il sistema  terminata la validazione invia la \underline{Business Rule} al \underline{DBMS} che si preoccuper\`a di inserirla nel \textit{repository}.\\
 \underline{Precondizioni:} La validazione \`e terminata senza errori.\\
-\underline{Postcondizioni} Il \underline{DBMS} inserir\`a la business rule nel \textit{repository}.
+\underline{Postcondizioni} Il \underline{DBMS} inserir\`a la \underline{Business Rule} nel \textit{repository}.
 
 \subsection{Richiedi al \underline{DBMS} di cancellare dal repository.}
-\underline{Attori coinvolti:} L'utente finale che richiede al sistema di cancellare una business rule dal repository e il \underline{DBMS} che si preoccuper\`a di cancellarla.\\
-\underline{Scopo e descrizione sintetica:} Il sistema mette in comunicazione l'utente finale col \underline{DBMS} richiedendo al \underline{DBMS} la cancellazione della business rule indicata dall'utente\\
-\underline{Flusso di eventi:} Il sistema riceve la richiesta di cancellazione di una business rule e la comunica al \underline{DBMS}.\\
-\underline{Precondizioni:} L'utente ha chiesto che una determinata business rule venga cancellata.\\
-\underline{Postcondizioni} Il \underline{DBMS} canceller\`a la business rule dal \textit{repository}.
+\underline{Attori coinvolti:} L'utente finale che richiede al sistema di cancellare una \underline{Business Rule} dal repository e il \underline{DBMS} che si preoccuper\`a di cancellarla.\\
+\underline{Scopo e descrizione sintetica:} Il sistema mette in comunicazione l'utente finale col \underline{DBMS} richiedendo al \underline{DBMS} la cancellazione della \underline{Business Rule} indicata dall'utente\\
+\underline{Flusso di eventi:} Il sistema riceve la richiesta di cancellazione di una \underline{Business Rule} e la comunica al \underline{DBMS}.\\
+\underline{Precondizioni:} L'utente ha chiesto che una determinata \underline{Business Rule} venga cancellata.\\
+\underline{Postcondizioni} Il \underline{DBMS} canceller\`a la \underline{Business Rule} dal \textit{repository}.
 
 
-\section{Recupera business rules.}
+\section{Recupera \\underline{Business Rules}.}
 \begin{center}
  \includegraphics[width=1\textwidth]{use-case/Recupera-regole.eps}\
 \end{center}
@@ -211,31 +211,31 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \underline{Precondizioni:} L'utente ha richiesto di validare un business object.\\
 \underline{Postcondizioni} Recupero delle regole pertinenti dal \underline{DBMS} .
 
-\subsection{Recupera business rules pertinenti.}
+\subsection{Recupera \\underline{Business Rules} pertinenti.}
 \underline{Attori coinvolti:} Il \underline{DBMS} che si occuper\`a di recuperare le regole\\
 \underline{Scopo e descrizione sintetica:} Il sistema chiede al \underline{DBMS} di recuperare le regole dal repository.\\
 \underline{Flusso di eventi:} Il sistema richiede al \underline{DBMS} di estrarre dal repository tutte le regole riguardanti quel business object.\\
 \underline{Precondizioni:} Il sistema ha acquisito la richiesta di validazione per un determinato business object.\\
-\underline{Postcondizioni} Il \underline{DBMS} riceve la richiesta di recuperare delle business rules dal repository.
-\subsection{Manda le business rules all'interprete.}
-\underline{Attori coinvolti:} L'interprete esterno fornito dall'azienda che riceve le business rules per poter validare il suo business object.\\
+\underline{Postcondizioni} Il \underline{DBMS} riceve la richiesta di recuperare delle \\underline{Business Rules} dal repository.
+\subsection{Manda le \\underline{Business Rules} all'interprete.}
+\underline{Attori coinvolti:} L'interprete esterno fornito dall'azienda che riceve le \\underline{Business Rules} per poter validare il suo business object.\\
 \underline{Scopo e descrizione sintetica:} Il sistema ricevute le regole dal \underline{DBMS} le invia all'interprete esterno.\\
 \underline{Flusso di eventi:} Il sistema ricevute dal \underline{DBMS} tutte le regole riguardanti un determinato business object le invia all'interprete esterno.\\
-\underline{Precondizioni:} Il \underline{DBMS} ha terminato il recupero di tutte le business rules che riguardano il business object dato.\\
-\underline{Postcondizioni} L'interprete utilizzer\`a le business rules appena ricevute.
+\underline{Precondizioni:} Il \underline{DBMS} ha terminato il recupero di tutte le \\underline{Business Rules} che riguardano il business object dato.\\
+\underline{Postcondizioni} L'interprete utilizzer\`a le \\underline{Business Rules} appena ricevute.
 
 \section{Requisiti funzionali}
 \begin{itemize}
-\item[F1]{Si dovr\`a creare un linguaggio per la rappresentazione di business rules. [C04]}
-\item[F2]{Il sistema dovr\`a fornire un validatore che consenta l'accettazione di nuove business rules soltanto se esse sono scritte secondo le specifiche del linguaggio creato. [C04]}
-\item[F3]{Il sistema dov\`a inserire nel repository la nuova business rule dopo la sua accettazione da parte del validatore. [C04]}
-\item[F4]{Il sistema deve informare l'utente dell'esito della validazione di una nuova business rule. Se la validazione \`e andata a buon fine l'utente deve essere informato in maniera chiara del buon esito e del tempo di risposta della validazione. Se la regola non viene accettata l'utente deve essere informato in maniera chiara di dove la sua regola non rispetta le specifiche del linguaggio. [C04]}
+\item[F1]{Si dovr\`a creare un linguaggio per la rappresentazione di \\underline{Business Rules}. [C04]}
+\item[F2]{Il sistema dovr\`a fornire un validatore che consenta l'accettazione di nuove \\underline{Business Rules} soltanto se esse sono scritte secondo le specifiche del linguaggio creato. [C04]}
+\item[F3]{Il sistema dov\`a inserire nel repository la nuova \underline{Business Rule} dopo la sua accettazione da parte del validatore. [C04]}
+\item[F4]{Il sistema deve informare l'utente dell'esito della validazione di una nuova \underline{Business Rule}. Se la validazione \`e andata a buon fine l'utente deve essere informato in maniera chiara del buon esito e del tempo di risposta della validazione. Se la regola non viene accettata l'utente deve essere informato in maniera chiara di dove la sua regola non rispetta le specifiche del linguaggio. [C04]}
 \item[F5]{Nell'interagire col repository il sistema dovr\'a appoggiarsi ad un \underline{DBMS} esterno. [I02]}
 \item[F6]{Il sistema deve essere in grado di interfacciarsi con l'interprete esterno fornito dall'azienda proponente provvedendo ad esso le regole business da eseguire. [I02]}
-\item[F7]{Il sistema dovr\`a consentire la cancellazione di business rules all'interno del repository. [I02]}
-\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di definire una nuova business rule e una volta validata inserirla nel repository. Tale interfaccia dovr\`a inoltre consentire di cancellare business rules dal repository. Tutto ci\`o servir\`a a testare in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
-\item[F9]{ DEPRECATO : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra business rules. Esso verificher\`a cio\`e se la business rule da inserire nel repository entra in conflitto con le altre gi\`a presenti. Pi\`u dettagliatamente tale validatore dovr\`a verificare che le business rules presenti nel repository rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i business objects. [C04]}
-\item[F10]{Il validatore nel validare una business rule deve poter accedere ai campi del business object ad essa associato, qualora la business rule utilizzi tali campi. [I02]}
+\item[F7]{Il sistema dovr\`a consentire la cancellazione di \underline{Business Rules} all'interno del repository. [I02]}
+\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di definire una nuova \underline{Business Rules} e una volta validata inserirla nel repository. Tale interfaccia dovr\`a inoltre consentire di cancellare \underline{Business Rules} dal repository. Tutto ci\`o servir\`a a testare in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
+\item[F9]{ DEPRECATO : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra \\underline{Business Rules}. Esso verificher\`a cio\`e se la \underline{Business Rule} da inserire nel repository entra in conflitto con le altre gi\`a presenti. Pi\`u dettagliatamente tale validatore dovr\`a verificare che le \\underline{Business Rules} presenti nel repository rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i business objects. [C04]}
+\item[F10]{Il validatore nel validare una \underline{Business Rule} deve poter accedere ai campi del business object ad essa associato, qualora la \underline{Business Rule} utilizzi tali campi. [I02]}
 \item[F11]{Ad ogni business rule \`e associato un business object nel quale vanno eventualmente ricercati i campi dati utilizzati nella business rule. [I02]}
 \end{itemize}
 
