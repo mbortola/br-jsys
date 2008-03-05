@@ -193,7 +193,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 {\textbf {Obiettivo Prova:}}& Testare la correttezza sintattica di ogni business rule \\ \hline
 {\textbf{Dipendenze:}}& F1 \\ \hline
 {\textbf{Descrizione Prova:}}& Inserimento di business rules d'appoggio (sintatticamente corrette o meno), per testarne il loro stato di accettazione \\ \hline
-{\textbf{Input:}}& Business Rule di appoggio \\ \hline
+{\textbf{Input:}}& \underline{Business Rule} di appoggio \\ \hline
 {\textbf{Output:}}& La stringa accettata o meno dal validatore \\ \hline
 \end{tabular} \\
 \\
@@ -204,7 +204,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 {\textbf {Obiettivo Prova:}}& Testare il corretto inserimento delle business rules nel repository\\ \hline
 {\textbf{Dipendenze:}}& F2 \\ \hline
 {\textbf{Descrizione Prova}}&  Inserimento di varie business rules d'appoggio gi\`a validate e controllo all'interno del repository dell'avvenuto inserimento\\ \hline
-{\textbf{Input:}}& Business Rule (validata) di appoggio \\ \hline
+{\textbf{Input:}}& \underline{Business Rule} (validata) di appoggio \\ \hline
 {\textbf{Output:}}& Lo stato dell'inserimento della business rule attraverso la notifica rilasciata (positivo: inserimento avvenuto con successo, negativo: eccezione) \\ \hline
 \end{tabular} \\
 \\
@@ -215,7 +215,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 {\textbf {Obiettivo Prova:}}& Informare l'utente dell'avvenuta o meno validazione delle business rules appena inserite e del tempo trascorso, attraverso una notifica il pi\`u possibile chiara ed esaustiva\\ \hline
 {\textbf{Dipendenze:}} & F2, F3, NU3 \\ \hline
 {\textbf{Descrizione Prova:}}& Inserimento di varie business rules d'appoggio (corrette o meno) e controllo della corretta notifica di risposta alla richiesta di inserimento (attraverso timer nel codice) \\ \hline
-{\textbf{Input:}}& Business Rules (corrette o meno) di appoggio  \\ \hline
+{\textbf{Input:}}& \underline{Business Rule}s (corrette o meno) di appoggio  \\ \hline
 {\textbf{Output:}}& Una notifica per ogni business rule che si \`e provato ad inserire, con il relativo messaggio riguardante il tempo impiegato \\ \hline
 \end{tabular} \\
 \\
@@ -226,7 +226,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 {\textbf {Obiettivo Prova:}}& Testare l'efficienza in termini di tempo di risposta del DBMS di appoggio al repository \\ \hline
 {\textbf{Dipendenze:}}& F2, F3, F4\\ \hline
 {\textbf{Descrizione Prova:}}& Inserimento/eliminazione/modifica di varie business rules d'appoggio (sintatticamente corrette o meno) e valutazione del tempo di risposta impiegato dal DBMS. Tale valore viene visualizzato dalla Gui. \\ \hline
-{\textbf{Input:}}& Business Rules (corrette o meno) di appoggio  \\ \hline
+{\textbf{Input:}}& \underline{Business Rule}s (corrette o meno) di appoggio  \\ \hline
 {\textbf{Output:}}& Tempo impiegato \\ \hline
 \end{tabular} \\
 \\
@@ -248,7 +248,7 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 {\textbf {Obiettivo Prova:}}& Testare la correttezza della cancellazione di una business rule dal repository e controllo dei risultati ottenuti\\ \hline
 {\textbf{Dipendenze:}}& nessuna \\ \hline
 {\textbf{Descrizione Prova:}}&  Richiesta al DBMS di cancellare varie business rules date in input dal repository. Si tester\`a la correttezza dell'eliminazione fatta. Ogni eliminazione riuscita o meno dovr\`a essere accompagnata da una chiara notifica di evento\\ \hline
-{\textbf{Input:}}& Business Rules da eliminare \\ \hline
+{\textbf{Input:}}& \underline{Business Rule}s da eliminare \\ \hline
 {\textbf{Output:}}& Notifica di eliminazione (positivo: cancellazione avvenuta con successo, negativo: eccezione) \\ \hline
 \end{tabular} \\
 \\
@@ -256,10 +256,10 @@ In questa sezione intendiamo elencare la descrizione dei vari test che successiv
 \subsubsection{Requisito F8}
 \begin{tabular}{||p{4cm}||p{8cm}||}
 \hline
-{\textbf {Obiettivo Prova:}}& Creare interfaccia per l'inserimento/rimozione di Business Rules e verificare il corretto funzionamento\\ \hline
+{\textbf {Obiettivo Prova:}}& Creare interfaccia per l'inserimento/rimozione di \underline{Business Rule}s e verificare il corretto funzionamento\\ \hline
 {\textbf{Dipendenze:}}& F3, F4, F7 \\ \hline
 {\textbf{Descrizione Prova:}}& Si creer\`a  una semplice interfaccia in linguaggio Java, con le componenti essenziali per permettere l' inserimento/rimozione di una business rule nel repository e la successiva notifica di tale evento \\ \hline
-{\textbf{Input:}}& Business Rules da eliminare/inserire \\ \hline
+{\textbf{Input:}}& \underline{Business Rule}s da eliminare/inserire \\ \hline
 {\textbf{Output:}}& Notifica di eliminazione o inserimento (avvenuta o meno) \\ \hline
 \end{tabular} \\
 \\
