@@ -39,11 +39,21 @@ public class ValidatorTester {
 			BusinessRule[23] = new BusinessRule("BR","Articolo","matricePrezzi=“ArticoloUno” AND prezziScontati=3 OR uscite=true","Commento");
 			BusinessRule[24] = new BusinessRule("BR","Articolo","uscite=2*3*4+4-3*5-5+3/2*3","Commento");
 			BusinessRule[25] = new BusinessRule("BR","Articolo","uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7)","Commento");
-			BusinessRule[26] = new BusinessRule("BR","Articolo","entrate=0 AND NOT(scontato)=true","Commento");
-			BusinessRule[27] = new BusinessRule("BR","Articolo","entrate=0 AND NOT(scontato)=true","Commento");
-			BusinessRule[28] = new BusinessRule("BR","Articolo","entrate=0 AND NOT(scontato)=true","Commento");
-			BusinessRule[29] = new BusinessRule("BR","Articolo","entrate=0 AND NOT(scontato)=true","Commento");
-			BusinessRule[30] = new BusinessRule("BR","Articolo","entrate=0 AND NOT(scontato)=true","Commento");
+			BusinessRule[26] = new BusinessRule("BR","Articolo","\"ArticoloUno\">\"ArticoloUno\" AND \"ArticoloUno\">=\"ArticoloUno\" AND \"ArticoloUno\"<\"ArticoloUno\" AND \"ArticoloUno\"<=\"ArticoloUno\" AND \"ArticoloUno\" *nome AND \"ArticoloUno\"-nome AND \"ArticoloUno\"/nome AND \"ArticoloUno\"+nome","Commento");
+			BusinessRule[27] = new BusinessRule("BR","Articolo","nome=\"ArticoloUno\"  AND nome!=\"ArticoloDue\"","Commento");
+			BusinessRule[28] = new BusinessRule("BR","Articolo","((scontato||scontato) && scontato) = true AND (true || false && NOT(true))=scontato","Commento");
+			BusinessRule[29] = new BusinessRule("BR","Articolo","SUM(prezzoBase) = 12 AND COUNT(entrate)=1, AND AVG(prezzoBase)=4 ","Commento");
+			BusinessRule[30] = new BusinessRule("BR","Articolo","SUM(prezzoBase)","Commento");
+			BusinessRule[31] = new BusinessRule("BR","Articolo","SUM(prezzoBase)=","Commento");
+			BusinessRule[32] = new BusinessRule("BR","Articolo","12 = 2entrate","Commento");
+			BusinessRule[33] = new BusinessRule("BR","Articolo","uscite = 2 entrate","Commento");
+			BusinessRule[34] = new BusinessRule("BR","Articolo","uscite = 2 AND","Commento");
+			BusinessRule[35] = new BusinessRule("BR","Articolo","((2+4)=uscite","Commento");
+			BusinessRule[36] = new BusinessRule("BR","Articolo","uscite=(((( 2*(( 3* 4)+( 4)-( 3* 5)-5)+3)/ 2)* 3)+7)","Commento");
+			BusinessRule[37] = new BusinessRule("a` e` i` o` u` A` E` I` O` U` \"test\", 'test', &, >, <","Articolo","scontato=true","a` e` i` o` u` A` E` I` O` U` \"test\", 'test', &, >, <");
+			BusinessRule[38] = new BusinessRule("BR","Articolo","scontato=true message(\"abc.. ABC.. 0..9 .?!^_-\")","Commento");
+			BusinessRule[39] = new BusinessRule("BR","Articolo","scontato=true message(\"#[]{}—=+-*$%\")","Commento");
+			BusinessRule[40] = new BusinessRule("BR","Articolo","scontato=true +","Commento");
 
 
 			for(int index=0;index<array.length;index++){
