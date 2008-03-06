@@ -71,7 +71,7 @@ public class GUICommunicator {
 	 * Permette di fare query che non intaccano l'integrita' del repository.
 	 * 
 	 * @param query Query in ingresso.
-	 * @return Il risultato sotto frma di dato String.
+	 * @return Il risultato sotto forma di dato String.
 	 * @exception Exception Query mal posta.
 	 * */
 	public String makeQuery(String query) throws Exception{
