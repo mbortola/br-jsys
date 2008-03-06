@@ -104,7 +104,7 @@ Vengono di seguito riportati i test riguardanti le macrocomponenti del sistema \
 \subsection{Test sul validatore}
 La macrocomponente validatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso.\\
 \\
-\begin{Large}\textbf{VT1}\end{Large} \\
+\begin{Large}\textbf{VT1a}\end{Large} \\
 Si testa una \br\ semplice per verificare che siano accettati tutti i campi dati.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -124,7 +124,7 @@ Regola & entrate=0 AND NOT(scontato)\\ \hline
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT2}\end{Large} \\
+\begin{Large}\textbf{VT1b}\end{Large} \\
 Si testa una \br\ semplice per verificare che il commento pu\`o non essere inserito.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -144,7 +144,7 @@ Regola & entrate=3 AND NOT(uscite=4)\\ \hline
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT3}\end{Large} \\
+\begin{Large}\textbf{VT1c}\end{Large} \\
 Si testa una \br\ semplice per verificare che il nome non \`e opzionale.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -164,7 +164,7 @@ Regola & entrate=5 AND uscite=3\\ \hline
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT4}\end{Large} \\
+\begin{Large}\textbf{VT1d}\end{Large} \\
 Si testa una \br\ semplice per verificare che il \bo\ non \`e opzionale.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -184,7 +184,7 @@ Regola & entrate=3 OR uscite=5\\ \hline
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT5}\end{Large} \\
+\begin{Large}\textbf{VT1e}\end{Large} \\
 Si testa una \br\ semplice per verificare che la regola stessa non \`e opzionale.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -204,7 +204,7 @@ Regola & \\ \hline
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT6}\end{Large} \\
+\begin{Large}\textbf{VT1f}\end{Large} \\
 Si testa una \br\ semplice per verificare che non vengano accettate \br\ vuote.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -224,47 +224,7 @@ Regola & \\ \hline
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT7}\end{Large} \\
-Si testa una \br\ per verificare che siano ammessi gli 'AND' nel linguaggio.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & entrate=5 AND uscite=5\\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT8}\end{Large} \\
-Si testa una \br\ per verificare che siano ammessi gli 'OR' nel linguaggio.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & entrate=5 OR uscite=5\\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT9}\end{Large} \\
+\begin{Large}\textbf{VT2a}\end{Large} \\
 Si testa una \br\ per verificare che vengano ben interpretate le parentesi tra 'AND' e 'OR'.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -284,7 +244,7 @@ Regola & uscite=5 AND uscite=5 OR uscite=5 AND ( uscite=5 OR uscite=5 AND ( usci
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT10}\end{Large} \\
+\begin{Large}\textbf{VT2b}\end{Large} \\
 Si testa una \br\ per verificare che vengano corretamente riportato il susseguirsi di 'AND' e 'OR'.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -304,7 +264,7 @@ Regola & uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 AND uscite=5
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT11}\end{Large} \\
+\begin{Large}\textbf{VT2c}\end{Large} \\
 Si testa una \br\ per verificare che possano essere assenti 'AND' e 'OR'.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -324,7 +284,7 @@ Regola & entrate=5+2\\ \hline
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT12}\end{Large} \\
+\begin{Large}\textbf{VT3a}\end{Large} \\
 Si testa una \br\ per verificare che il 'message' sia opzionale.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -344,7 +304,7 @@ Regola & entrate=SUM(prezzoBase)\\ \hline
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT13}\end{Large} \\
+\begin{Large}\textbf{VT3b}\end{Large} \\
 Si testa una \br\ per verificare che sia possibile inserire un 'message'.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -364,8 +324,8 @@ Regola & entrate=AVG(prezzoBase)+2 message(``errore nel confronto'')\\ \hline
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT14}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile fare confroni del tipo '\textless'.\\
+\begin{Large}\textbf{VT4}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare confroni del tipo '\textless', '\textgreater', '\textless =', '\textgreater =', '=', '!='.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
@@ -373,187 +333,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite\textless2 message(``errore nel confronto'')\\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT15}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile fare confroni del tipo '\textgreater'.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & uscite\textgreater2 message(``errore nel confronto'')\\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT16}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile fare confroni del tipo '\textgreater ='.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & uscite\textgreater =2 message(``errore nel confronto'')\\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT17}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile fare confroni del tipo '\textless ='.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & uscite\textless =2 message(``errore nel confronto'')\\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT18}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile fare confroni del tipo '!='.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & uscite!=2 message(``errore nel confronto'')\\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT19}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile fare la somma tra scalari.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & uscite=2+2 \\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT20}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile fare la moltiplicazione tra scalari.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & uscite=2\*2 \\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT21}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile fare la divisione tra scalari.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & uscite=2/2 \\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT22}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile fare la sottrazione tra scalari.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & uscite=2-2 \\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT23}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile fare la sottrazione tra scalari.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & uscite=2-2 \\ \hline
+Regola & uscite\textless2 AND entrate\textgreater 3 OR (uscite\textless=2 AND entrate\textgreater =3 OR (uscite=5 AND entrate!=2) )\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -565,17 +345,185 @@ Regola & uscite=2-2 \\ \hline
 \end{center}
 
 
+\begin{Large}\textbf{VT5a}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare operazioni aritmetiche semplici tra scalari.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=(2+2-(3*4))/5 \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
+\begin{Large}\textbf{VT5b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare operazioni aritmetiche semplici tra scalari e campi dati scalari.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=(2+entrate-(uscite*4))/entrate \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
+\begin{Large}\textbf{VT5c}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare operazioni aritmetiche semplici tra campi dati scalari.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=(2+entrate-(uscite*4))/entrate \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
+\begin{Large}\textbf{VT6a}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare la operazioni aritmetiche semplici tra scalare e vettore.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=(2+prezzoBase)+(prezzoBase*4)+(prezzoBase/4)+(prezzoBase-3) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
+\begin{Large}\textbf{VT6b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare la operazioni aritmetiche semplici tra campi dati scalari e vettori.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (entrate+prezzoBase)+(prezzoBase*uscite)+(prezzoBase/entrate)+(prezzoBase-uscite) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
+\begin{Large}\textbf{VT7}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare la operazioni aritmetiche semplici tra vettori omogenei.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (prezzoBase+prezzoBase)+(prezzoBase*prezzoBase)+(prezzoBase/prezzoBase)+(prezzoBase-prezzoBase) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
+\begin{Large}\textbf{VT8a}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare la operazioni aritmetiche semplici tra matrici omogenee.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (matrice+matrice)+(matrice*matrice)+(matrice/matrice)+(matrice-matrice) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
+\begin{Large}\textbf{VT8b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare la operazioni aritmetiche semplici tra matrici e scalari.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (matrice+2)+(matrice*3)+(matrice/4)+(matrice-5) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
-
-
-
+\begin{Large}\textbf{VT8b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare la operazioni aritmetiche semplici tra matrici e campi dati scalari.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (matrice+entrate)+(matrice*entrate)+(matrice/entrate)+(matrice-entrate) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
 
 
