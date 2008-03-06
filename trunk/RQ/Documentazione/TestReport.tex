@@ -474,7 +474,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matrice+matrice)+(matrice*matrice)+(matrice/matrice)+(matrice-matrice) \\ \hline
+Regola & (matricePrezzi+matricePrezzi)+(matricePrezzi*matricePrezzi)+(matricePrezzi/matricePrezzi)+(matricePrezzi-matricePrezzi) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -494,7 +494,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matrice+2)+(matrice*3)+(matrice/4)+(matrice-5) \\ \hline
+Regola & (matricePrezzi+2)+(matricePrezzi*3)+(matricePrezzi/4)+(matricePrezzi-5) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -505,7 +505,7 @@ Regola & (matrice+2)+(matrice*3)+(matrice/4)+(matrice-5) \\ \hline
 \end{tabular} \\
 \end{center}
 
-\begin{Large}\textbf{VT8b}\end{Large} \\
+\begin{Large}\textbf{VT8c}\end{Large} \\
 Si testa una \br\ per verificare che sia possibile fare la operazioni aritmetiche semplici tra matrici e campi dati scalari.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
@@ -514,7 +514,107 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matrice+entrate)+(matrice*entrate)+(matrice/entrate)+(matrice-entrate) \\ \hline
+Regola & (matricePrezzi+entrate)+(matricePrezzi*entrate)+(matricePrezzi/entrate)+(matricePrezzi-entrate) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT9a}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile fare la operazioni aritmetiche semplici tra matrici e vettori.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (matricePrezzi+prezzoBase)+(matricePrezzi*prezzoBase)+(matricePrezzi/prezzoBase)+(matricePrezzi-prezzoBase) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT9b}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile fare la operazioni aritmetiche semplici tra matrici non omogenee.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (matricePrezzi+grafico)+(matricePrezzi*grafico)+(matricePrezzi/grafico)+(matricePrezzi-grafico) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT9c}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile fare la operazioni aritmetiche semplici tra matrici, vettori e scalari di tipo diverso.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & matricePrezzi=``ArticoloUno'' AND prezziScontati=3 OR uscite=true \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT10}\end{Large} \\
+Si testa una \br\ per verificare che sia ben inteprtata la precedenza tra gli operatori.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=2*3*4+4-3*5-5+3/2*3 \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT11}\end{Large} \\
+Si testa una \br\ per verificare che siano ben inteprtate le parentesi.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
