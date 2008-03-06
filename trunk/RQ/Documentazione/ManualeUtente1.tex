@@ -345,37 +345,47 @@ Nella figura 3.1 vediamo illustrate le tre funzionalit\`a associate ai rispettiv
 \item Sandbox.
 \end{itemize}
 L'analisi dettagliata delle singole azioni verr\`a trattata nelle sottosezioni seguenti.
-\subsection{Inserisci \underline{Business Rule}}
+\subsection{Inserisci Business Rule}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/schermata_inserimento.eps}\\
  figura 3.2: schermata di inserimento
 \end{center}
 Nella figura 3.2 vediamo illustrata la schermata di inserimento di una nuova business rule. L'utente dovr\`a inserire negli appositi spazi i campi dati richiesti:
 \begin{itemize}
-\item Nome: il nome della business rule che l'utente intende inserire (il nome dovr\`a essere significativo)
-\item BO Associato: il nome della classe del business object alla quale si vuole associare la regola.
-\item Regola: la regola scritta secondo la grammatica spiegata nel paragrafo \Grammatica.
-\item Commento: descrizione sintetica del comportamento della regola. 
+\item \underline{Nome:} \\
+Il nome della business rule che l'utente intende inserire (il nome dovr\`a essere significativo);
+\item \underline{BO Associato:} \\
+Il nome della classe del business object alla quale si vuole associare la regola;
+\item \underline{Regola:} \\
+ La regola scritta secondo la grammatica spiegata nel paragrafo \Grammatica;
+\item \underline{Commento:} \\
+Descrizione sintetica del comportamento della regola. 
+\end{itemize}
+L'utente dovr\`a ora cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo. 
 \begin{center}
 \includegraphics[width=0.9\textwidth]{manuale_utente/schermata_esempio_inserimento.eps}\\
  figura 3.2.2: schermata di inserimento
-\end{center}
-\end{itemize}
-L'utente dovr\`a ora cliccare sul pulsante ``Valida''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo. 
-\subsection{Rimuovi \underline{Business Rule}}
+\end{center} % questo deve essere il disegno dei messaggi sia di esito positivo che di negativo: quindi 2 disegni
+\subsection{Rimuovi Business Rule}
 \begin{center}
 \includegraphics[width=0.9\textwidth]{manuale_utente/schermata_rimozione.eps}\\
  figura 3.3: schermata di rimozione
 \end{center}
-Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una business rule. Per procedere all'eliminazione l'utente avr\`a due modi:
+Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una business rule. 
 \begin{itemize}
-\item inserire nell'appostito campo (TextBox) il nome della business rule che intende rimuovere e cliccare sul pulsante ``Cerca'';
-\item selezionare una o pi\`u business rules dalla lista sottostante;
-\end{itemize}
-Se la business rule risulta presente nel repository, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento). 
+\item Per procedere all'eliminazione l'utente avr\`a 2 modi:
+\begin{enumerate}
+\item inserire nell'appostito campo (TextBox) il nome della business rule che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}'';
+\item selezionare una o pi\`u business rules dalla lista sottostante.
+\end{enumerate}
+\item Se la business rule risulta presente nel repository, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento). \\
 \begin{footnotesize}\textit{Nel caso di selezione di pi\`u regole, verranno mostrati i dettagli dell'ultima selezionata.
-} \end{footnotesize} A questo punto baster\`a cliccare sul pulsante ``Rimuovi Selezionate''.  Se la cancellazione viene effettuata con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
-\subsection{\underline{Sandbox}}
+} \end{footnotesize} \\
+\item A questo punto baster\`a cliccare sul pulsante ``\textbf{Rimuovi Selezionate}''.  
+\end{itemize}
+Se la cancellazione viene effettuata con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
+% occorre inserire il messaggio dei due esiti
+\subsection{Sandbox}
 \begin{center}
  \includegraphics[width=0.9\textwidth]{manuale_utente/schermata_sandbox.eps} \\
  figura 3.4: schermata sandbox
@@ -383,7 +393,7 @@ Se la business rule risulta presente nel repository, comparir\`a  nel campo ``De
 Nella figura 3.4 vediamo illustrata la schermata di sandbox. Per procedere con l'interrogazione del database, l'utente dovr\`a:
 \begin{itemize}
 \item inserire la query (scritta in linguaggio Xquery) nell'appostito campo dati ``Query'';
-\item cliccare sul pulsante ``Esegui''.
+\item cliccare sul pulsante ``\textbf{Esegui}''.
 \end{itemize}
 A questo punto verr\`a visualizzato nel campo dati ``Risultati'' l'esito della query.
 \section{Errori probabili e cause possibili}
@@ -399,7 +409,7 @@ Campo dati \textless nome campo dati\textgreater\ non trovato: validazione inter
 Operazione non consentita! \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta! & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
 Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
 Regola \textless nome regola\textgreater\  gi\`a presente: inserimento fallito! & La regola ha un nome gi\`a presente nel repository. Non verr\`a quindi inserita. \\ \hline
-Collegarsi ad \underline{eXist}! & Il server \underline{eXist} non \`e avviato. \\ \hline
+Collegarsi ad eXist! & Il server eXist non \`e avviato. \\ \hline
 Dati di autenticazione non corretti! & Nome utente e/o password non inseriti correttamente. \\ \hline
 Business rule non trovata! & La business rule cercata non \`e stata trovata nel repository. \\ \hline
 \end{tabular} \\
