@@ -606,7 +606,7 @@ Regola & uscite=2*3*4+4-3*5-5+3/2*3 \\ \hline
 \end{center}
 
 \begin{Large}\textbf{VT11}\end{Large} \\
-Si testa una \br\ per verificare che siano ben inteprtate le parentesi.\\
+Si testa una \br\ per verificare che siano ben intepretate le parentesi.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
@@ -615,26 +615,6 @@ Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
 Regola & uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7) \\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-...\\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT11}\end{Large} \\
-Si testa una \br\ per verificare che siano supportato l'utilizzo dei numeri negativi.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & uscite=((((~2*((~3*~4)+(~4)-(~3*~5)-5)+3)/~2)*~3)+7) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -706,7 +686,7 @@ Regola & (scontato+3) - (scontato*4)/scontato\\ \hline
 \end{center}
 
 \begin{Large}\textbf{VT13b}\end{Large} \\
-Si testa una \br\ per verificare che sia possibile effettuare operazioni aritmetiche  tra booleani.\\
+Si testa una \br\ per verificare che sia possibile effettuare operazioni logiche  tra booleani.\\
 Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
@@ -714,7 +694,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (scontato+3) - (scontato*4)/scontato\\ \hline
+Regola & ((scontato||scontato)\&\& scontato) = true AND (true||false\&\&NOT(true))=scontato\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -724,6 +704,172 @@ Regola & (scontato+3) - (scontato*4)/scontato\\ \hline
  \hline
 \end{tabular} \\
 \end{center}
+
+\begin{Large}\textbf{VT14}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile effettuare funzioni aritmetiche semplici come 'AVG', 'COUNT', 'SUM'.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & SUM(prezzoBase) = 12 AND COUNT(entrate)=1, AND AVG(prezzoBase)=4\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT15a}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire regole prive di un operatore di confronto.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & SUM(prezzoBase)\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT15b}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire regole prive di uno dei due elementi da confrontare\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & SUM(prezzoBase)=\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+
+\begin{Large}\textbf{VT15c}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire espressioni prive di operandi\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & 12 = 2entrate\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT15d}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire espressioni prive di operandi\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite = 2 entrate\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT15e}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire regole non complete.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite = 2 AND\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT15f}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire parentesizzazioni errate.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & ((2+4)=uscite\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT16}\end{Large} \\
+Si testa una \br\ per verificare che siano supportato l'utilizzo dei numeri negativi.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=((((~2*((~3*~4)+(~4)-(~3*~5)-5)+3)/~2)*~3)+7) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+
+
+
+
 
 
 
