@@ -106,7 +106,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR\\ \hline
 Commento & UnCommento\\ \hline
 Business object associato & BO\\ \hline
-Regola & field<3 AND NOT(valore)\\ \hline
+Regola & field=3 AND NOT(valore)\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -126,7 +126,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR\\ \hline
 Commento & \\ \hline
 Business object associato & BO\\ \hline
-Regola & x>3 AND NOT(y<4)\\ \hline
+Regola & x=3 AND NOT(y=4)\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -166,7 +166,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & \\ \hline
-Regola & Y<3 OR X<5\\ \hline
+Regola & Y=3 OR X=5\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -266,7 +266,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BO \\ \hline
 Commento & Commento\\ \hline
 Business object associato & BO \\ \hline
-Regola & x=5 AND x<15 OR x>3 AND ( x=2 OR x=12 AND ( x<2 OR (x>4 AND x=3 AND x=3 AND x=4) OR x=2) OR x=5 ( x=3 OR x=2) OR x=7) AND x=12 \\ \hline
+Regola & x=5 AND x=15 OR x=3 AND ( x=2 OR x=12 AND ( x=2 OR (x=4 AND x=3 AND x=3 AND x=4) OR x=2) OR x=5 ( x=3 OR x=2) OR x=7) AND x=12 \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -286,7 +286,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BO \\ \hline
 Commento & Commento\\ \hline
 Business object associato & BO \\ \hline
-Regola & x=5 AND x<15 OR x>3 AND x=2 OR x=12 AND x<2 OR x>4 AND x=3 AND x=3 AND x=4 OR x=2 OR x=5 x=3 OR x=2 OR x=7 AND x=12 \\ \hline
+Regola & x=5 AND x=15 OR x=3 AND x=2 OR x=12 AND x=2 OR x=4 AND x=3 AND x=3 AND x=4 OR x=2 OR x=5 x=3 OR x=2 OR x=7 AND x=12 \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -346,7 +346,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BO \\ \hline
 Commento & Commento\\ \hline
 Business object associato & BO \\ \hline
-Regola & x=AVG(y)+2 message(''errore nel confronto'')\\ \hline
+Regola & x=AVG(y)+2 message(``errore nel confronto'')\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -357,7 +357,25 @@ Regola & x=AVG(y)+2 message(''errore nel confronto'')\\ \hline
 \end{tabular} \\
 \end{center}
 
-
+\begin{Large}\textbf{VT14}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare confroni del tipo '\textless'.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BO \\ \hline
+Commento & Commento\\ \hline
+Business object associato & BO \\ \hline
+Regola & x\textless2 message(``errore nel confronto'')\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
 
 
