@@ -105,8 +105,8 @@ Requisiti soddisfatti dall'esecuzione:
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
 Nome & BR\\ \hline
 Commento & UnCommento\\ \hline
-Business object associato & BO\\ \hline
-Regola & field=3 AND NOT(valore)\\ \hline
+Business object associato & Articolo\\ \hline
+Regola & entrate=0 AND NOT(scontato)\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -125,8 +125,8 @@ Requisiti soddisfatti dall'esecuzione:
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
 Nome & BR\\ \hline
 Commento & \\ \hline
-Business object associato & BO\\ \hline
-Regola & x=3 AND NOT(y=4)\\ \hline
+Business object associato & Articolo\\ \hline
+Regola & entrate=3 AND NOT(uscite=4)\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -145,8 +145,8 @@ Requisiti soddisfatti dall'esecuzione:
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
 Nome & \\ \hline
 Commento & Commento\\ \hline
-Business object associato & BO\\ \hline
-Regola & x=5 AND field=3\\ \hline
+Business object associato & Articolo\\ \hline
+Regola & entrate=5 AND uscite=3\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -166,7 +166,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & \\ \hline
-Regola & Y=3 OR X=5\\ \hline
+Regola & entrate=3 OR uscite=5\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -185,7 +185,7 @@ Requisiti soddisfatti dall'esecuzione:
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
-Business object associato & BO \\ \hline
+Business object associato & Articolo \\ \hline
 Regola & \\ \hline
 \end{tabular} \\
 \end{center}
@@ -223,10 +223,10 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BO \\ \hline
+Nome & BR \\ \hline
 Commento & Commento\\ \hline
-Business object associato & BO \\ \hline
-Regola & x=5 AND x=5\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & entrate=5 AND uscite=5\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -243,10 +243,10 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BO \\ \hline
+Nome & BR \\ \hline
 Commento & Commento\\ \hline
-Business object associato & BO \\ \hline
-Regola & x=5 OR x=5\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & entrate=5 OR uscite=5\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -263,10 +263,10 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BO \\ \hline
+Nome & BR \\ \hline
 Commento & Commento\\ \hline
-Business object associato & BO \\ \hline
-Regola & x=5 AND x=15 OR x=3 AND ( x=2 OR x=12 AND ( x=2 OR (x=4 AND x=3 AND x=3 AND x=4) OR x=2) OR x=5 ( x=3 OR x=2) OR x=7) AND x=12 \\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=5 AND uscite=5 OR uscite=5 AND ( uscite=5 OR uscite=5 AND ( uscite=5 OR (uscite=5 AND uscite=5 AND uscite=5 AND uscite=5) OR uscite=5) OR uscite=5 AND ( uscite=5 OR uscite=5) OR uscite=5) AND uscite=5 \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -283,10 +283,10 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BO \\ \hline
+Nome & BR \\ \hline
 Commento & Commento\\ \hline
-Business object associato & BO \\ \hline
-Regola & x=5 AND x=15 OR x=3 AND x=2 OR x=12 AND x=2 OR x=4 AND x=3 AND x=3 AND x=4 OR x=2 OR x=5 x=3 OR x=2 OR x=7 AND x=12 \\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 AND uscite=5 AND uscite=5 OR uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 OR uscite=5 AND uscite=5 \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -303,10 +303,10 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BO \\ \hline
+Nome & BR \\ \hline
 Commento & Commento\\ \hline
-Business object associato & BO \\ \hline
-Regola & x=5+2\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & entrate=5+2\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -323,10 +323,10 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BO \\ \hline
+Nome & BR \\ \hline
 Commento & Commento\\ \hline
-Business object associato & BO \\ \hline
-Regola & x=AVG(y)\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & entrate=SUM(prezzoBase)\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -343,10 +343,10 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BO \\ \hline
+Nome & BR \\ \hline
 Commento & Commento\\ \hline
-Business object associato & BO \\ \hline
-Regola & x=AVG(y)+2 message(``errore nel confronto'')\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & entrate=AVG(prezzoBase)+2 message(``errore nel confronto'')\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -363,10 +363,10 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BO \\ \hline
+Nome & BR \\ \hline
 Commento & Commento\\ \hline
-Business object associato & BO \\ \hline
-Regola & x\textless2 message(``errore nel confronto'')\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite\textless2 message(``errore nel confronto'')\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
