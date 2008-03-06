@@ -16,11 +16,17 @@ public class BusinessRule {
 	/**Commento opzionale alla regola*/
 	public String comment;
 	
-	/**Costruttore.*/
-	public BusinessRule(String string, String string2, String string3,String string4) {
-		name=string;
-		associated=string2;
-		rule=string3;
-		comment=string4;
+	/**Costruttore.
+	 * 
+	 * @param nameR Nome della regola.
+	 * @param associatedR Business object associato alla regola.
+	 * @param ruleR Regola inserita.
+	 * @param commentR Commento.
+	 * */
+	public BusinessRule(String nameR, String associatedR, String ruleR,String commentR) {
+		name=nameR;
+		associated=associatedR;
+		rule=ruleR;
+		comment=commentR;
 	}
 }
