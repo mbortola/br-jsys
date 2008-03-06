@@ -56,6 +56,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+1.4 & 06/03/2008 & \LA & Aggiunto sommario \G .\\ \hline
 1.3 & 05/03/2008 & \MM & Evidenziazione dei termini contenuti nel documento \G .\\ \hline
 1.2 & 04/03/2008 & \MM & Aggiunta di link ipertestuali all'indice del documento.\\ \hline
 1.1 & 04/03/2008 & \MT & Modifica al layout, introduzione totale pagine e autori nel diario delle modifiche.\\ \hline
@@ -80,14 +81,20 @@ Versione & Data & Autore & Descrizione \\ \hline
 
 \tableofcontents 
 
+\chapter*{Sommario}
+\addcontentsline{toc}{chapter}{ I Sommario}
+Il presente documento contiene la definizione dell'architettura logica del sistema BR-jsys, con raffinamento della descrizione delle singole
+componenti.
+
+\chapter*{Glossario}
+\addcontentsline{toc}{chapter}{II Glossario}
+Viene fornito come documento esterno chiamato \G. I termini che sono presenti nel \G sono sottolineati.
+
 \chapter{Introduzione}
 \section{Scopo del documento}
 Il seguente documento ha lo scopo di descrivere l'architettura logica prodotta al termine della fase di progettazione architetturale. Descriver\`a in dettaglio i campi dati e i metodi appartenenti alle singole componenti del sistema ``\underline{BR-jsys}''.
 \section{Scopo del prodotto}
 Per lo scopo del prodotto si faccia riferimento al documento ``Analisi dei Requisiti''.
-
-\section{Glossario}
-Viene fornito come documento esterno chiamato \G. I termini che sono presenti nel \G sono sottolineati.
 
 \section{Riferimenti}
 \begin{itemize}
