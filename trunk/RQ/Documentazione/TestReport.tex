@@ -52,6 +52,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+0.5 & 06/03/2008 & \LA & Aggiunto Sommario.\\ \hline
 0.4 & 05/03/2008 & \MT & Aggiunta delle tabelle per gli esiti e della tabella di tracciamento 'requisiti - test'.\\ \hline
 0.3 & 04/03/2008 & \MT & Modifica alla nomenclatura dei test.\\ \hline
 0.2 & 03/03/2008 & \MT & Aggiunta dei 'test case'.\\ \hline
@@ -64,6 +65,14 @@ Versione & Data & Autore & Descrizione \\ \hline
 \end{center}
 \newpage
 \tableofcontents
+
+\chapter*{Sommario}
+\addcontentsline{toc}{chapter}{ I Sommario}
+Il presente documento illustra le strategie utilizzate per testare il prodotto BR-jsys in ogni sua componente.
+
+\chapter*{Glossario}
+\addcontentsline{toc}{chapter}{II Glossario}
+Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G. I termini presenti in questo documento la cui descrizione \`e riportata nel glossario sono evidenziati mediante sottolineatura.
 
 \chapter{Introduzione}
 
@@ -85,8 +94,6 @@ RT\textit{} & Con RT si intende la riesecuzione di un test (test di regressione)
 
 \end{tabular} \\
 \end{center}
-\subsection{Glossario}
-Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G.I termini presenti in questo documento la cui descrizione \`e riportata nel glossario sono evidenziati mediante sottolineatura.
 
 \chapter{Descrizione dei test case}
 Vengono di seguito presentati i \textit{test case}. Ogni test case \`e composto da un input, un output atteso. Ogni test case \`e inoltre accompagnato da un breve testo che identifica lo scopo del test, e dall'elenco dei requisiti soddisfatti dal test.
