@@ -866,8 +866,45 @@ Regola & uscite=((((~2*((~3*~4)+(~4)-(~3*~5)-5)+3)/~2)*~3)+7) \\ \hline
 \end{tabular} \\
 \end{center}
 
+\begin{Large}\textbf{VT17}\end{Large} \\
+Si testa una \br\ per verificare che siano ben tradotti tutti i caratteri non ammessi in un documento xml.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & \`a \`e \`i \`o \`u \`A \`E \`I \`O \`U ``test'' , 'test', \& , \textgreater , \textless \\ \hline
+Commento & \`a \`e \`i \`o \`u \`A \`E \`I \`O \`U ``test'' , 'test', \& , \textgreater , \textless \\ \hline
+Business object associato & Articolo \\ \hline
+Regola & scontato=true \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
-
+\begin{Large}\textbf{VT18}\end{Large} \\
+Si testa una \br\ per verificare che siano ammessi solo alcuni caratteri nel message.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento \\ \hline
+Business object associato & Articolo \\ \hline
+Regola & scontato=true message(``abcABC .?!^_-~'') \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
 
 
