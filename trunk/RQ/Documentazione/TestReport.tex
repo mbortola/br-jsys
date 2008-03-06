@@ -98,15 +98,15 @@ Vengono di seguito riportati i test riguardanti le macrocomponenti del sistema \
 La macrocomponente validatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso.\\
 \\
 \begin{Large}\textbf{VT1}\end{Large} \\
-Si 
-Requisiti soddisfatti dall'esecuzione: F1 etc..
+Si testa una \br\ semplice per verificare che siano accettati tutti i campi dati.\\
+Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
 \textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR.\\ \hline
-Commento & UnCommento.\\ \hline
-Business object associato & BO.\\ \hline
-Regola & field<3 AND NOT(valore).\\ \hline
+Nome & BR\\ \hline
+Commento & UnCommento\\ \hline
+Business object associato & BO\\ \hline
+Regola & field<3 AND NOT(valore)\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -116,6 +116,275 @@ Regola & field<3 AND NOT(valore).\\ \hline
  \hline
 \end{tabular} \\
 \end{center}
+
+\begin{Large}\textbf{VT2}\end{Large} \\
+Si testa una \br\ semplice per verificare che il commento pu\`o non essere inserito.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR\\ \hline
+Commento & \\ \hline
+Business object associato & BO\\ \hline
+Regola & x>3 AND NOT(y<4)\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT3}\end{Large} \\
+Si testa una \br\ semplice per verificare che il nome non \`e opzionale.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & \\ \hline
+Commento & Commento\\ \hline
+Business object associato & BO\\ \hline
+Regola & x=5 AND field=3\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT4}\end{Large} \\
+Si testa una \br\ semplice per verificare che il \bo\ non \`e opzionale.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & \\ \hline
+Regola & Y<3 OR X<5\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT5}\end{Large} \\
+Si testa una \br\ semplice per verificare che la regola stessa non \`e opzionale.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & BO \\ \hline
+Regola & \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT6}\end{Large} \\
+Si testa una \br\ semplice per verificare che non vengano accettate \br\ vuote.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome &  \\ \hline
+Commento & \\ \hline
+Business object associato &  \\ \hline
+Regola & \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT7}\end{Large} \\
+Si testa una \br\ per verificare che siano ammessi gli 'AND' nel linguaggio.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BO \\ \hline
+Commento & Commento\\ \hline
+Business object associato & BO \\ \hline
+Regola & x=5 AND x=5\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT8}\end{Large} \\
+Si testa una \br\ per verificare che siano ammessi gli 'OR' nel linguaggio.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BO \\ \hline
+Commento & Commento\\ \hline
+Business object associato & BO \\ \hline
+Regola & x=5 OR x=5\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT9}\end{Large} \\
+Si testa una \br\ per verificare che vengano ben interpretate le parentesi tra 'AND' e 'OR'.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BO \\ \hline
+Commento & Commento\\ \hline
+Business object associato & BO \\ \hline
+Regola & x=5 AND x<15 OR x>3 AND ( x=2 OR x=12 AND ( x<2 OR (x>4 AND x=3 AND x=3 AND x=4) OR x=2) OR x=5 ( x=3 OR x=2) OR x=7) AND x=12 \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT10}\end{Large} \\
+Si testa una \br\ per verificare che vengano corretamente riportato il susseguirsi di 'AND' e 'OR'.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BO \\ \hline
+Commento & Commento\\ \hline
+Business object associato & BO \\ \hline
+Regola & x=5 AND x<15 OR x>3 AND x=2 OR x=12 AND x<2 OR x>4 AND x=3 AND x=3 AND x=4 OR x=2 OR x=5 x=3 OR x=2 OR x=7 AND x=12 \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT11}\end{Large} \\
+Si testa una \br\ per verificare che possano essere assenti 'AND' e 'OR'.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BO \\ \hline
+Commento & Commento\\ \hline
+Business object associato & BO \\ \hline
+Regola & x=5+2\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT12}\end{Large} \\
+Si testa una \br\ per verificare che il 'message' sia opzionale.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BO \\ \hline
+Commento & Commento\\ \hline
+Business object associato & BO \\ \hline
+Regola & x=AVG(y)\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT13}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile inserire un 'message'.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BO \\ \hline
+Commento & Commento\\ \hline
+Business object associato & BO \\ \hline
+Regola & x=AVG(y)+2 message(''errore nel confronto'')\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Test sul comunicatore}
 La macrocomponente comunicatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al comunicatore un stringa contenente una query \underline{XPath} e confrontando l'output del comunicatore con l'output atteso.\\
