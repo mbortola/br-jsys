@@ -30,7 +30,7 @@ public class XMLParser {
 	public XMLParser (String[]tList) {
 		tokenList=tList;
 	}
-	
+
 	/**
 	 * Metodo interno per scorrere l'AST ed effetturare il parsing in XML.
 	 * 
@@ -113,7 +113,7 @@ public class XMLParser {
 		Element root=doc.createElement(tokenList[AST.getType()]);
 		Element astRule=doc.createElement("AstRuleVersion");
 		astRule.setAttribute("value",AST.toStringTree());
-		
+
 		//appendChild pone alla fine!!!
 		base.appendChild(astRule);
 		base.appendChild(root);
@@ -138,7 +138,7 @@ public class XMLParser {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		
+
 		//devo togliergli l'intestazione!
 		String result=st.toString();
 		result=result.substring(result.indexOf(">")+1);
