@@ -5,155 +5,201 @@ package brjsys.gui;
  * 
  * Interfaccia Grafica per il prodotto Brjsys
  * @author Filippo Carraro
- * @version 5 Mar 2008
+ * @version 0.9 5 Mar 2008
  * 
  */
 
-//import java.util.Arrays;
-import javax.swing.JOptionPane;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 import brjsys.businessrules.BusinessRule;
 import brjsys.communicator.GUICommunicator;
 import brjsys.validator.Validator;
 
-public class Gui extends javax.swing.JFrame {
+public class Gui extends JFrame {
     
-    /** Creates new form GUI */
+	/**
+	 * Costruttore: Crea un nuovo frame e ne inizializza le componenti 
+	 */
     public Gui() {
         initComponents(); 
     }
     
-    /**
-     * Inizializzazione
-    */
+    /** Inizializzazione Componenti Grafiche */
  
     private void initComponents() {
     	
-    	MainGui = new javax.swing.JFrame("Brjsys");
-        jButton_Inserisci = new javax.swing.JButton();
-        jButton_Rimuovi = new javax.swing.JButton();
-        jButton_Sandbox = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu_File = new javax.swing.JMenu();
-        jMenuItem_Exit = new javax.swing.JMenuItem();
-        jMenu_Help = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        Sandbox = new javax.swing.JFrame("Sandbox");
-        PannelloQuery = new javax.swing.JTabbedPane();
-        jScrollPane_Query = new javax.swing.JScrollPane();
-        TextAreaQuery = new javax.swing.JTextArea();
-        PannelloRisultati = new javax.swing.JTabbedPane();
-        jScrollPane_Ris = new javax.swing.JScrollPane();
-        TextAreaRisultati = new javax.swing.JTextArea();
-        jButton_Esegui = new javax.swing.JButton();
+    	//------------------------------------------------------
+    	/**
+    	 * Inizializzazione Finestra Principale
+    	 * 
+    	 * @param MainGui
+    	 **/
+    	
+    	MainGui = new JFrame("Brjsys");
+    	
+    	/** Inizializzazione delle Componenti della Finestra Principale*/
+        jButton_Inserisci = new JButton();
+        jButton_Rimuovi = new JButton();
+        jButton_Sandbox = new JButton();
         
-        jSeparator = new javax.swing.JSeparator();
-        statusBar = new javax.swing.JLabel();
+        //------------------------------------------------------
+    	/**
+    	 * Inizializzazione Finestra SandBox
+    	 * 
+    	 * @param Sandbox
+    	 **/
         
-        InsertGui = new javax.swing.JFrame("Inserisci");
-        jLabel_Nome = new javax.swing.JLabel();
-        jTextField_Nome = new javax.swing.JTextField();
-        jLabel_BOAss = new javax.swing.JLabel();
-        jTextField_BOAss = new javax.swing.JTextField();
-        jLabel_Reg = new javax.swing.JLabel();
-        jLabel_Comm = new javax.swing.JLabel();
-        jButton_Val = new javax.swing.JButton();
-        jScrollPane_Reg = new javax.swing.JScrollPane();
-        jTextArea_Reg = new javax.swing.JTextArea();
-        jScrollPane_Comm = new javax.swing.JScrollPane();
-        jTextArea_Comm = new javax.swing.JTextArea();
-        RemGui = new javax.swing.JFrame("Rimuovi");
-        jTextField_Cerca = new javax.swing.JTextField();
-        jButton_RimBR = new javax.swing.JButton();
-        jButton_Cerca = new javax.swing.JButton();
-        jTabbedPane_Dettagli = new javax.swing.JTabbedPane();
-        jPanel_DettInt = new javax.swing.JPanel();
-        jLabel_DNome = new javax.swing.JLabel();
-        jLabel_DBOAss = new javax.swing.JLabel();
-        jLabel_DReg = new javax.swing.JLabel();
-        jLabel_DComm = new javax.swing.JLabel();
-        jScrollPane_DReg = new javax.swing.JScrollPane();
-        jTextArea_DReg = new javax.swing.JTextArea();
-        jTextField_DBOAss = new javax.swing.JTextField();
-        jTextField_DNome = new javax.swing.JTextField();
-        jScrollPane_DComm = new javax.swing.JScrollPane();
-        jTextArea_DComm = new javax.swing.JTextArea();
-        list_BR = new java.awt.List();
-        jPassword_Password = new javax.swing.JPasswordField();
-        JText_Username = new javax.swing.JTextField();
-        jLabel_Username = new javax.swing.JLabel();
-        jLabel_Password = new javax.swing.JLabel();
-        jButton_Entra = new javax.swing.JButton();
+        Sandbox = new JFrame("Sandbox");
+        
+        /** Inizializzazione delle Componenti della Finestra SandBox*/
+        PannelloQuery = new JTabbedPane();
+        jScrollPane_Query = new JScrollPane();
+        TextAreaQuery = new JTextArea();
+        PannelloRisultati = new JTabbedPane();
+        jScrollPane_Ris = new JScrollPane();
+        TextAreaRisultati = new JTextArea();
+        jButton_Esegui = new JButton();
+        jSeparator = new JSeparator();
+        statusBar = new JLabel();
+        
+        //------------------------------------------------------
+    	/**
+    	 * Inizializzazione Finestra Inserimento Nuova Business Rule
+    	 * 
+    	 * @param InsertGui
+    	 **/
+        InsertGui = new JFrame("Inserisci");
+        
+        /** Inizializzazione delle Componenti della Finestra Inserimento */
+        jLabel_Nome = new JLabel();
+        jTextField_Nome = new JTextField();
+        jLabel_BOAss = new JLabel();
+        jTextField_BOAss = new JTextField();
+        jLabel_Reg = new JLabel();
+        jLabel_Comm = new JLabel();
+        jButton_Val = new JButton();
+        jScrollPane_Reg = new JScrollPane();
+        jTextArea_Reg = new JTextArea();
+        jScrollPane_Comm = new JScrollPane();
+        jTextArea_Comm = new JTextArea();
+        
+        //------------------------------------------------------
+    	/**
+    	 * Inizializzazione Finestra Rimozione Business Rule
+    	 * 
+    	 * @param RemGui
+    	 **/
+        
+        RemGui = new JFrame("Rimuovi");
+        
+        /** Inizializzazione delle Componenti della Finestra Rimozione */
+        jTextField_Cerca = new JTextField();
+        jButton_RimBR = new JButton();
+        jButton_Cerca = new JButton();
+        jTabbedPane_Dettagli = new JTabbedPane();
+        jPanel_DettInt = new JPanel();
+        jLabel_DNome = new JLabel();
+        jLabel_DBOAss = new JLabel();
+        jLabel_DReg = new JLabel();
+        jLabel_DComm = new JLabel();
+        jScrollPane_DReg = new JScrollPane();
+        jTextArea_DReg = new JTextArea();
+        jTextField_DBOAss = new JTextField();
+        jTextField_DNome = new JTextField();
+        jScrollPane_DComm = new JScrollPane();
+        jTextArea_DComm = new JTextArea();
+        list_BR = new List();
+        
+        //------------------------------------------------------
+    	/**
+    	 * Inizializzazione Finestra Login
+    	 **/
+        
+        /** Inizializzazione delle Componenti della Finestra di Login */
+        jPassword_Password = new JPasswordField();
+        JText_Username = new JTextField();
+        jLabel_Username = new JLabel();
+        jLabel_Password = new JLabel();
+        jButton_Entra = new JButton();
 
-    	setDefaultLookAndFeelDecorated(false);
-    	
-    	this.setResizable(false);
-    	MainGui.setResizable(false);
-    	RemGui.setResizable(false);
-    	InsertGui.setResizable(false);
-    	Sandbox.setResizable(false);
-    	
+        
+        
+        //------------------------------------------------------       
+        // MainGui
+        //------------------------------------------------------
+        /** Action Listener associato al tasto Inserisci */
+        
         jButton_Inserisci.setText("Inserisci Business Rule");
-        jButton_Inserisci.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton_Inserisci.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_InserisciActionPerformed(evt);
             }
         });
 
+        /** Action Listener associato al tasto Rimuovi */
+        
         jButton_Rimuovi.setText("Rimuovi Business Rule");
-        jButton_Rimuovi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton_Rimuovi.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_RimuoviActionPerformed(evt);
             }
         });
 
+        /** Action Listener associato al tasto Sandbox */
         jButton_Sandbox.setText("Sandbox");
-        jButton_Sandbox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton_Sandbox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_SandboxActionPerformed(evt);
             }
         });
+        
+        /** 
+         * Costruzione Di MainGui 
+         **/
 
-        jMenu_File.setText("File");
-
-        jMenuItem_Exit.setText("Exit");
-        jMenu_File.add(jMenuItem_Exit);
-
-        jMenuBar1.add(jMenu_File);
-
-        jMenu_Help.setText("Help");
-
-        jMenuItem1.setText("About");
-        jMenu_Help.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu_Help);
-
-        javax.swing.GroupLayout MainGuiLayout = new javax.swing.GroupLayout(MainGui.getContentPane());
+        GroupLayout MainGuiLayout = new GroupLayout(MainGui.getContentPane());
         MainGui.getContentPane().setLayout(MainGuiLayout);
         
         MainGuiLayout.setHorizontalGroup(
-            MainGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            MainGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(MainGuiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(MainGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton_Sandbox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MainGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton_Inserisci, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_Rimuovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(MainGuiLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_Sandbox, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addGroup(GroupLayout.Alignment.LEADING, MainGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButton_Inserisci, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton_Rimuovi, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainGuiLayout.setVerticalGroup(
-            MainGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            MainGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(MainGuiLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton_Inserisci)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton_Rimuovi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_Sandbox, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_Sandbox, GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
+        
+        //------------------------------------------------------       
+        // Sandbox
+        //------------------------------------------------------
+        
+        /** Action Listener associato al tasto Esegui */
+        jButton_Esegui.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton_EseguiActionPerformed(evt);
+            }
+        });
+        
+        /** 
+         * Costruzione Di Sandbox 
+         **/
+        
         Sandbox.setBackground(new java.awt.Color(184, 207, 215));
 
         PannelloQuery.setBackground(new java.awt.Color(184, 207, 215));
@@ -179,61 +225,55 @@ public class Gui extends javax.swing.JFrame {
 
         statusBar.setText("Waiting...");
         
-        javax.swing.GroupLayout SandboxLayout = new javax.swing.GroupLayout(Sandbox.getContentPane());
+        
+        GroupLayout SandboxLayout = new GroupLayout(Sandbox.getContentPane());
         Sandbox.getContentPane().setLayout(SandboxLayout);
         SandboxLayout.setHorizontalGroup(
-            SandboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PannelloQuery, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-            .addComponent(jButton_Esegui, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-            .addComponent(jSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-            .addComponent(PannelloRisultati, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-            .addComponent(statusBar, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            SandboxLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(PannelloQuery, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(jButton_Esegui, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(jSeparator, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(PannelloRisultati, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(statusBar, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
         );
         SandboxLayout.setVerticalGroup(
-            SandboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            SandboxLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(SandboxLayout.createSequentialGroup()
-                .addComponent(PannelloQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_Esegui, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PannelloRisultati, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PannelloQuery, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_Esegui, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PannelloRisultati, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusBar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 
         );
+        
+        //------------------------------------------------------       
+        // InsertGui
+        //------------------------------------------------------
 
-        jButton_Esegui.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_EseguiActionPerformed(evt);
+        /** Action Listener associato al tasto Valida */
+        jButton_Val.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton_ValActionPerformed(evt);
             }
         });
+        
+        /** 
+         * Costruzione Di InsertGui 
+         **/
         
         InsertGui.setBackground(new java.awt.Color(255, 255, 204));
 
         jLabel_Nome.setText("Nome");
-
-        jTextField_Nome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_NomeActionPerformed(evt);
-            }
-        });
-
         jLabel_BOAss.setText("BO Associato");
-
         jLabel_Reg.setText("Regola");
-
         jLabel_Comm.setText("Commento");
-
         jButton_Val.setText("VALIDA");
-        jButton_Val.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_ValActionPerformed(evt);
-            }
-        });
-
         jTextArea_Reg.setColumns(20);
         jTextArea_Reg.setRows(5);
         jScrollPane_Reg.setViewportView(jTextArea_Reg);
@@ -242,241 +282,253 @@ public class Gui extends javax.swing.JFrame {
         jTextArea_Comm.setRows(5);
         jScrollPane_Comm.setViewportView(jTextArea_Comm);
 
-        javax.swing.GroupLayout InsertGuiLayout = new javax.swing.GroupLayout(InsertGui.getContentPane());
+        GroupLayout InsertGuiLayout = new GroupLayout(InsertGui.getContentPane());
         InsertGui.getContentPane().setLayout(InsertGuiLayout);
         InsertGuiLayout.setHorizontalGroup(
-            InsertGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertGuiLayout.createSequentialGroup()
+            InsertGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, InsertGuiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(InsertGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton_Val, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                .addGroup(InsertGuiLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_Val, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
                     .addGroup(InsertGuiLayout.createSequentialGroup()
-                        .addGroup(InsertGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(InsertGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel_Nome)
                             .addComponent(jLabel_BOAss)
                             .addComponent(jLabel_Reg)
                             .addComponent(jLabel_Comm))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(InsertGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane_Reg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(jTextField_BOAss, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(jTextField_Nome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(jScrollPane_Comm, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(InsertGuiLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane_Reg, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                            .addComponent(jTextField_BOAss, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                            .addComponent(jTextField_Nome, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                            .addComponent(jScrollPane_Comm, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         InsertGuiLayout.setVerticalGroup(
-            InsertGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            InsertGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(InsertGuiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(InsertGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(InsertGuiLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Nome)
-                    .addComponent(jTextField_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InsertGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_Nome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InsertGuiLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_BOAss)
-                    .addComponent(jTextField_BOAss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InsertGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField_BOAss, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InsertGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_Reg)
-                    .addComponent(jScrollPane_Reg, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InsertGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_Reg, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InsertGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_Comm)
-                    .addComponent(jScrollPane_Comm, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_Val, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane_Comm, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_Val, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField_Cerca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_CercaActionPerformed(evt);
-            }
-        });
-
+        //------------------------------------------------------       
+        // RemGui
+        //------------------------------------------------------
+        
+        /** Action Listener associato al tasto RimBRAssociate */
         jButton_RimBR.setText("RIMUOVI SELEZIONATE");
-        jButton_RimBR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton_RimBR.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_RimBRActionPerformed(evt);
             }
         });
-
+        
+        /** Action Listener associato al tasto Valida */
         jButton_Cerca.setText("CERCA");
-        jButton_Cerca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton_Cerca.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_CercaActionPerformed(evt);
             }
         });
 
+        /** 
+         * Costruzione Di RemGui 
+         **/
+        
         jLabel_DNome.setText("Nome");
-
         jLabel_DBOAss.setText("BO Associato");
-
         jLabel_DReg.setText("Regola");
-
         jLabel_DComm.setText("Commento");
-
         jTextArea_DReg.setColumns(20);
         jTextArea_DReg.setRows(5);
         jScrollPane_DReg.setViewportView(jTextArea_DReg);
-
-        jTextField_DNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_DNomeActionPerformed(evt);
-            }
-        });
-
         jTextArea_DComm.setColumns(20);
         jTextArea_DComm.setRows(5);
         jScrollPane_DComm.setViewportView(jTextArea_DComm);
 
-        javax.swing.GroupLayout jPanel_DettIntLayout = new javax.swing.GroupLayout(jPanel_DettInt);
+        GroupLayout jPanel_DettIntLayout = new GroupLayout(jPanel_DettInt);
         jPanel_DettInt.setLayout(jPanel_DettIntLayout);
         jPanel_DettIntLayout.setHorizontalGroup(
-            jPanel_DettIntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_DettIntLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel_DettIntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_DReg)
                     .addComponent(jLabel_DBOAss)
                     .addComponent(jLabel_DNome)
                     .addComponent(jLabel_DComm))
                 .addGap(10, 10, 10)
-                .addGroup(jPanel_DettIntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane_DComm, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
-                    .addComponent(jScrollPane_DReg, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
-                    .addComponent(jTextField_DBOAss, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
-                    .addComponent(jTextField_DNome, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE))
+                .addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_DComm, GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                    .addComponent(jScrollPane_DReg, GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                    .addComponent(jTextField_DBOAss, GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                    .addComponent(jTextField_DNome, GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel_DettIntLayout.setVerticalGroup(
-            jPanel_DettIntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_DettIntLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel_DettIntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_DNome)
-                    .addComponent(jTextField_DNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_DettIntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_DNome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_DBOAss)
-                    .addComponent(jTextField_DBOAss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_DettIntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField_DBOAss, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_DReg)
-                    .addComponent(jScrollPane_DReg, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel_DettIntLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_DReg, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_DComm)
-                    .addComponent(jScrollPane_DComm, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane_DComm, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane_Dettagli.addTab("Details", jPanel_DettInt);
 
-        javax.swing.GroupLayout RemGuiLayout = new javax.swing.GroupLayout(RemGui.getContentPane());
+        GroupLayout RemGuiLayout = new GroupLayout(RemGui.getContentPane());
         RemGui.getContentPane().setLayout(RemGuiLayout);
         RemGuiLayout.setHorizontalGroup(
-            RemGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RemGuiLayout.createSequentialGroup()
+            RemGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, RemGuiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(RemGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(list_BR, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RemGuiLayout.createSequentialGroup()
-                        .addComponent(jTextField_Cerca, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton_Cerca, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton_RimBR, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
-                    .addComponent(jTabbedPane_Dettagli, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
+                .addGroup(RemGuiLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                    .addComponent(list_BR, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
+                    .addGroup(GroupLayout.Alignment.LEADING, RemGuiLayout.createSequentialGroup()
+                        .addComponent(jTextField_Cerca, GroupLayout.PREFERRED_SIZE, 347, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton_Cerca, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_RimBR, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane_Dettagli, GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
                 .addContainerGap())
         );
         RemGuiLayout.setVerticalGroup(
-            RemGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RemGuiLayout.createSequentialGroup()
+            RemGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, RemGuiLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(RemGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Cerca, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_Cerca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(list_BR, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane_Dettagli, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_RimBR, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(RemGuiLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Cerca, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Cerca, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(list_BR, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane_Dettagli, GroupLayout.PREFERRED_SIZE, 340, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_RimBR, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
 
-        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+
+        //------------------------------------------------------       
+        // LoginGui
+        //------------------------------------------------------
         
         setTitle("LoginGUI");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("LoginGUI"); 
         
-        jPassword_Password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPassword_PasswordActionPerformed(evt);
-            }
-        });
-
-        JText_Username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JText_UsernameActionPerformed(evt);
-            }
-        });
-
-        jLabel_Username.setText("Username");
-
-        jLabel_Password.setText("Password");
-
-        jButton_Entra.setText("Entra");
-        jButton_Entra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        /** Action Listener associato al tasto Entra */
+        jButton_Entra.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 jButton_EntraActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        /** 
+         * Costruzione Di LoginGui 
+         **/
+        
+        jLabel_Username.setText("Username");
+        jLabel_Password.setText("Password");
+        jButton_Entra.setText("Entra");
+
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton_Entra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton_Entra, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel_Username)
                             .addComponent(jLabel_Password))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                             .addComponent(JText_Username)
-                            .addComponent(jPassword_Password, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPassword_Password, GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Username)
-                    .addComponent(JText_Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JText_Username, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_Password)
-                    .addComponent(jPassword_Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPassword_Password, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton_Entra)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        //------------------------------------------------------
+        //------------------------------------------------------
+        
+        // Le Finestre hanno una visualizzazione di default dipendente dal sistema operativo
+        // sulle quali si fa girare l'applicazione
+    	setDefaultLookAndFeelDecorated(false);
+        
+        // Alla chiusura delle finestre non eseguire nessuna operazione per default
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+
+    	// Le finestre non sono più ridimensionabili
+    	this.setResizable(false);
+    	MainGui.setResizable(false);
+    	RemGui.setResizable(false);
+    	InsertGui.setResizable(false);
+    	Sandbox.setResizable(false);
+        
+    	// Imposto alcuni campi di testo come non modificabili
         jTextField_DNome.setEditable(false);
         jTextField_DBOAss.setEditable(false);
         jTextArea_DReg.setEditable(false);
         jTextArea_DComm.setEditable(false);
         
         // Cambio la gestione della chiusura delle finestre
-        MainGui.addWindowListener(new java.awt.event.WindowAdapter(){
-        	public void windowClosing(java.awt.event.WindowEvent e)
+        this.addWindowListener(new WindowAdapter(){
+        	public void windowClosing(WindowEvent e)
+        	{
+        		System.exit(1);
+        	}
+        });
+        
+        MainGui.addWindowListener(new WindowAdapter(){
+        	public void windowClosing(WindowEvent e)
         	{
         		MainGui.setVisible(false);
         		InsertGui.setVisible(false);
@@ -486,37 +538,39 @@ public class Gui extends javax.swing.JFrame {
         	}
         });
         
-        InsertGui.addWindowListener(new java.awt.event.WindowAdapter(){
-        	public void windowClosing(java.awt.event.WindowEvent e)
+        InsertGui.addWindowListener(new WindowAdapter(){
+        	public void windowClosing(WindowEvent e)
         	{
         		jButton_Inserisci.setEnabled(true);
         	}
         });
         
-        RemGui.addWindowListener(new java.awt.event.WindowAdapter(){
-        	public void windowClosing(java.awt.event.WindowEvent e)
+        RemGui.addWindowListener(new WindowAdapter(){
+        	public void windowClosing(WindowEvent e)
         	{
         		jButton_Rimuovi.setEnabled(true);
         		list_BR.removeAll();
         	}
         });
         
-        Sandbox.addWindowListener(new java.awt.event.WindowAdapter(){
-        	public void windowClosing(java.awt.event.WindowEvent e)
+        Sandbox.addWindowListener(new WindowAdapter(){
+        	public void windowClosing(WindowEvent e)
         	{
         		jButton_Sandbox.setEnabled(true);
         	}
         });
         
         pack();
-    }// </editor-fold>
+    }
+    
+    
+    /** 
+     * Definizioni dei vari eventi
+     **/
 
-    private void jPassword_PasswordActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-    	
-    }                                                  
-
-    //  ENTRA
-    private void jButton_EntraActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    
+    /** LoginGui:  Evento legato al pulsante Entra*/
+    private void jButton_EntraActionPerformed(ActionEvent evt) {                                              
                
         char[] inputP = jPassword_Password.getPassword();
         String inputU = JText_Username.getText();
@@ -536,8 +590,8 @@ public class Gui extends javax.swing.JFrame {
         } 	
 }                                             
     
-    //  RIMUOVI
-    private void jButton_RimuoviActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    /** MainGui:  Evento legato al pulsante Rimuovi*/
+    private void jButton_RimuoviActionPerformed(ActionEvent evt) {                                                
         
     	//appena apro la finestra di rimozione,aggiorno la lista con tutte
     	//le regole presenti nel repository.
@@ -551,27 +605,27 @@ public class Gui extends javax.swing.JFrame {
 
     	RemGui.pack();
         RemGui.setVisible(true);
+        RemGui.requestFocus();
         jButton_Rimuovi.setEnabled(false);
 }                                               
 
-    private void JText_UsernameActionPerformed(java.awt.event.ActionEvent evt) {                                               
-}                                              
-
-    //	INSERISCI
-    private void jButton_InserisciActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+    /** MainGui:  Evento legato al pulsante Inserisci*/
+    private void jButton_InserisciActionPerformed(ActionEvent evt) {                                                  
         InsertGui.pack();
         InsertGui.setVisible(true);
+        InsertGui.requestFocus();
         jButton_Inserisci.setEnabled(false);
 }                                                 
-    //	SANDBOX
-    private void jButton_SandboxActionPerformed(java.awt.event.ActionEvent evt) {                                                
+    /** MainGui:  Evento legato al pulsante Sandbox*/
+    private void jButton_SandboxActionPerformed(ActionEvent evt) {                                                
         Sandbox.pack();
         Sandbox.setVisible(true);
+        Sandbox.requestFocus();
         jButton_Sandbox.setEnabled(false);
     }                                               
     
-    //  VALIDA
-    private void jButton_ValActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    /** InsertGui:  Evento legato al pulsante Valida*/
+    private void jButton_ValActionPerformed(ActionEvent evt) {                                            
     	
     	String Nome=jTextField_Nome.getText();
     	String BOAss=jTextField_BOAss.getText();
@@ -587,8 +641,8 @@ public class Gui extends javax.swing.JFrame {
     			JOptionPane.showMessageDialog(this,"Business Rule inserita e validata correttamente","Message",JOptionPane.INFORMATION_MESSAGE);
     		}
     		else{
-    			//la regola ha un nome che ï¿½ giï¿½ presente nel repository.
-    			JOptionPane.showMessageDialog(this,"Business Rule giï¿½ presente nel repository","Message",JOptionPane.INFORMATION_MESSAGE);
+    			//la regola ha un nome che è già presente nel repository.
+    			JOptionPane.showMessageDialog(this,"Business Rule già presente nel repository","Message",JOptionPane.INFORMATION_MESSAGE);
     		}
     	}
     	catch (Exception ecc){
@@ -596,8 +650,8 @@ public class Gui extends javax.swing.JFrame {
     	}
 }                                           
 
-    //  CERCA
-    private void jButton_CercaActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    /** RemGui:  Evento legato al pulsante Cerca*/
+    private void jButton_CercaActionPerformed(ActionEvent evt) {                                              
     	//cerca il nome della business rule nella lista e lo seleziona,se presente.
     	String c=jTextField_Cerca.getText();
     	
@@ -619,7 +673,7 @@ public class Gui extends javax.swing.JFrame {
     		JOptionPane.showMessageDialog(this,"Business Rule Selezionata !","BR",JOptionPane.INFORMATION_MESSAGE);
     		// mostro le informazioni riguardanti la BR
     		int is=list_BR.getSelectedIndex();
-    		// sapendo quale indice ï¿½ selezionato so a quale BR mi riferisco.
+    		// sapendo quale indice è selezionato so a quale BR mi riferisco.
     		// ne estraggo i campi e li mostro negli appositi campi.
     		jTextField_DNome.setText(ArrayBR[is].name);
     		jTextField_DBOAss.setText(ArrayBR[is].associated);
@@ -627,14 +681,10 @@ public class Gui extends javax.swing.JFrame {
     		jTextArea_DComm.setText(ArrayBR[is].comment);
     	}else
     		JOptionPane.showMessageDialog(this,"Business Rule Non Trovata !","BR",JOptionPane.ERROR_MESSAGE);
-}                                             
-
-    private void jTextField_NomeActionPerformed(java.awt.event.ActionEvent evt) {                                                
-
-}                                               
+    }                                            
     
-    //  RIMUOVI SELEZIONATE
-    private void jButton_RimBRActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    /** RemGui:  Evento legato al pulsante RimBR*/
+    private void jButton_RimBRActionPerformed(ActionEvent evt) {                                              
         
     	//Messaggio per dare la conferma della cancellazione delle BR selezionate
     	int n=JOptionPane.showConfirmDialog(this,"Vuoi davvero eliminare le Business Rule selezionate?","Confirm",JOptionPane.YES_NO_OPTION);
@@ -655,34 +705,30 @@ public class Gui extends javax.swing.JFrame {
     	}
     }                                             
 
-    //  ESEGUI QUERY
-    private void jButton_EseguiActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    /** Sandbox:  Evento legato al pulsante Esegui*/
+    private void jButton_EseguiActionPerformed(ActionEvent evt) {                                              
     	
     	String Query=TextAreaQuery.getText();
     	try{
-    		java.util.Date d=new java.util.Date();
-    		long prima=d.getTime();
+    		long prima=java.lang.System.currentTimeMillis();
     		String risultato=queryService.makeQuery(Query);
-    		long dopo=d.getTime();
+    		long dopo=java.lang.System.currentTimeMillis();
     		TextAreaRisultati.setText(risultato);
-    		statusBar.setText("Impiegati:" + (dopo - prima) + " millisecondi");
+    		if(risultato.length()!=0){
+    			statusBar.setText("Impiegati:" + (dopo - prima) + " millisecondi");
+    		}
+    		else{
+    			statusBar.setText("Nessun Risultato Trovato");
+    		}
+    			
     	}
     	catch(Exception ecc){
     		JOptionPane.showMessageDialog(this,ecc.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
     	}
     }
     
-    private void jTextField_CercaActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-
-}                                                
-
-    private void jTextField_DNomeActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-
-}   
-    
-    
     /**
-     * @param args the command line arguments
+     * Main (Programma principale ) 
      */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -692,69 +738,70 @@ public class Gui extends javax.swing.JFrame {
         });
     }
     
-    //-------------------------------------------------------
-    // Dichiarazione variabili
-    //-------------------------------------------------------	
     
-    //  array delle business rules
+    /**
+     * Dichiarazione Variabili
+     * 
+     * @param ArrayBR -> array delle Business Rule nel repository
+     * @param compiler -> Validatore
+     * @param queryService -> GUICommunicator 
+     */
+
     private BusinessRule ArrayBR[];	
     
 	Validator compiler=null;
 	GUICommunicator queryService=null;
     
-    private javax.swing.JFrame InsertGui;
-    private javax.swing.JTextField JText_Username;
-    private javax.swing.JFrame MainGui;
-    private javax.swing.JTabbedPane PannelloQuery;
-    private javax.swing.JTabbedPane PannelloRisultati;
-    private javax.swing.JFrame RemGui;
-    private javax.swing.JFrame Sandbox;
-    private javax.swing.JTextArea TextAreaQuery;
-    private javax.swing.JTextArea TextAreaRisultati;
-    private javax.swing.JButton jButton_Cerca;
-    private javax.swing.JButton jButton_Entra;
-    private javax.swing.JButton jButton_Esegui;
-    private javax.swing.JButton jButton_Inserisci;
-    private javax.swing.JButton jButton_RimBR;
-    private javax.swing.JButton jButton_Rimuovi;
-    private javax.swing.JButton jButton_Sandbox;
-    private javax.swing.JButton jButton_Val;
-    private javax.swing.JLabel jLabel_BOAss;
-    private javax.swing.JLabel jLabel_Comm;
-    private javax.swing.JLabel jLabel_DBOAss;
-    private javax.swing.JLabel jLabel_DComm;
-    private javax.swing.JLabel jLabel_DNome;
-    private javax.swing.JLabel jLabel_DReg;
-    private javax.swing.JLabel jLabel_Nome;
-    private javax.swing.JLabel jLabel_Password;
-    private javax.swing.JLabel jLabel_Reg;
-    private javax.swing.JLabel jLabel_Username;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem_Exit;
-    private javax.swing.JMenu jMenu_File;
-    private javax.swing.JMenu jMenu_Help;
-    private javax.swing.JPanel jPanel_DettInt;
-    private javax.swing.JPasswordField jPassword_Password;
-    private javax.swing.JScrollPane jScrollPane_Comm;
-    private javax.swing.JScrollPane jScrollPane_DComm;
-    private javax.swing.JScrollPane jScrollPane_DReg;
-    private javax.swing.JScrollPane jScrollPane_Query;
-    private javax.swing.JScrollPane jScrollPane_Reg;
-    private javax.swing.JScrollPane jScrollPane_Ris;
-    private javax.swing.JTabbedPane jTabbedPane_Dettagli;
-    private javax.swing.JTextArea jTextArea_Comm;
-    private javax.swing.JTextArea jTextArea_DComm;
-    private javax.swing.JTextArea jTextArea_DReg;
-    private javax.swing.JTextArea jTextArea_Reg;
-    private javax.swing.JTextField jTextField_BOAss;
-    private javax.swing.JTextField jTextField_Cerca;
-    private javax.swing.JTextField jTextField_DBOAss;
-    private javax.swing.JTextField jTextField_DNome;
-    private javax.swing.JTextField jTextField_Nome;
+    /**
+     * Dichiarazione Componenti Grafiche 
+     */
+    private JFrame InsertGui;
+    private JTextField JText_Username;
+    private JFrame MainGui;
+    private JTabbedPane PannelloQuery;
+    private JTabbedPane PannelloRisultati;
+    private JFrame RemGui;
+    private JFrame Sandbox;
+    private JTextArea TextAreaQuery;
+    private JTextArea TextAreaRisultati;
+    private JButton jButton_Cerca;
+    private JButton jButton_Entra;
+    private JButton jButton_Esegui;
+    private JButton jButton_Inserisci;
+    private JButton jButton_RimBR;
+    private JButton jButton_Rimuovi;
+    private JButton jButton_Sandbox;
+    private JButton jButton_Val;
+    private JLabel jLabel_BOAss;
+    private JLabel jLabel_Comm;
+    private JLabel jLabel_DBOAss;
+    private JLabel jLabel_DComm;
+    private JLabel jLabel_DNome;
+    private JLabel jLabel_DReg;
+    private JLabel jLabel_Nome;
+    private JLabel jLabel_Password;
+    private JLabel jLabel_Reg;
+    private JLabel jLabel_Username;
+    private JPanel jPanel_DettInt;
+    private JPasswordField jPassword_Password;
+    private JScrollPane jScrollPane_Comm;
+    private JScrollPane jScrollPane_DComm;
+    private JScrollPane jScrollPane_DReg;
+    private JScrollPane jScrollPane_Query;
+    private JScrollPane jScrollPane_Reg;
+    private JScrollPane jScrollPane_Ris;
+    private JTabbedPane jTabbedPane_Dettagli;
+    private JTextArea jTextArea_Comm;
+    private JTextArea jTextArea_DComm;
+    private JTextArea jTextArea_DReg;
+    private JTextArea jTextArea_Reg;
+    private JTextField jTextField_BOAss;
+    private JTextField jTextField_Cerca;
+    private JTextField jTextField_DBOAss;
+    private JTextField jTextField_DNome;
+    private JTextField jTextField_Nome;
     private java.awt.List list_BR;
-    private javax.swing.JSeparator jSeparator;
-    private javax.swing.JLabel statusBar;
-    // End of variables declaration
+    private JSeparator jSeparator;
+    private JLabel statusBar;
     
 }
