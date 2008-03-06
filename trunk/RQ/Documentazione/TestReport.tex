@@ -625,11 +625,65 @@ Regola & uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7) \\ \hline
 \end{tabular} \\
 \end{center}
 
+\begin{Large}\textbf{VT11}\end{Large} \\
+Si testa una \br\ per verificare che siano supportato l'utilizzo dei numeri negativi.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=((((~2*((~3*~4)+(~4)-(~3*~5)-5)+3)/~2)*~3)+7) \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
+\begin{Large}\textbf{VT12a}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile effettuare operazioni tra le stringhe.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & ``ArticoloUno''\textgreater``ArticoloUno'' AND ``ArticoloUno''\textgreater=``ArticoloUno'' AND ``ArticoloUno''\textless``ArticoloUno'' AND ``ArticoloUno''\textless=``ArticoloUno'' AND ``ArticoloUno''*nome  AND ``ArticoloUno''-nome  AND ``ArticoloUno''/nome  AND ``ArticoloUno''+nome\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
-
-
-
+\begin{Large}\textbf{VT12b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile effettuare confronti semplici ('=', '!=')  tra le stringhe.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & nome=``ArticoloUno'' AND nome!=``ArticoloDue''\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
 
 
