@@ -51,8 +51,8 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
-0.11 & 06/03/2008 & \AT & Correzione documento. \\ \hline
-0.10 & 06/03/2008 & \AT & Aggiunta sezione ``Convenzioni usate''. \\ \hline
+1.1 & 06/03/2008 & \AT & Correzione documento. \\ \hline
+1.0 & 06/03/2008 & \AT & Aggiunta sezione ``Convenzioni usate''. \\ \hline
 0.9 & 05/03/2008 & \LA & Aggiunto Sommario.\\ \hline
 0.8 & 05/03/2008 & \MM & Evidenziazione dei termini contenuti nel documento \G .\\ \hline
 0.7 & 04/03/2008 & \MM & Aggiunta link ipertestuali all'indice del documento.\\ \hline
@@ -148,6 +148,15 @@ oltre alla funzione:
 \item[-] NOT (negazione logica). 
 \end{itemize}
 \textbf{String} permette invece solo operazioni di confronto.
+\subsection{Struttura message}
+Un message pu\`o formato da:
+\begin{itemize}
+\item tutte le lettere maiuscole dalla A alla Z;
+\item tutte le lettere minuscole dalla a alla z;
+\item tutti i numeri da 0 a 9;
+\item spazi vuoti;
+\item i seguenti caratteri di punteggiatura: . \textbar\ ? \textbar\ ! \textbar\ - \textbar\ ~ \textbar\ _ \textbar\ ^. 
+\end{itemize}
 \subsection{Esempi di business rules}
 Faremo ora, per una maggiore comprensione del linguaggio, alcuni esempi di business rules.
 \begin{itemize}
@@ -268,7 +277,7 @@ Una volta avviato, il sistema ``BR-jsys'' offre all'utente:
 \item[-] un linguaggio per la definizione di business rules;
 \item[-] un validatore che consenta l'accettazione di nuove business rules, soltanto se esse sono scritte secondo le specifiche del linguaggio creato;
 \item[-] un repository per immagazzinare le business rules;
-\item[-] una competa gestione del repository tramite interfacciamento ad ``eXist'';
+\item[-] una competa gestione del repository tramite interfacciamento ad ``eXist'';la Java Runtime Environmente (JRE) 1.6.
 \item[-] un aiuto agli utenti meno esperti attraverso  messaggi di errore;
 \item[-] una semplice interfaccia per operare su questo sistema.
 \end{itemize}
