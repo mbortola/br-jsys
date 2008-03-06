@@ -895,7 +895,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento \\ \hline
 Business object associato & Articolo \\ \hline
-Regola & scontato=true message(``abcABC .?!\^\_-\~'') \\ \hline
+Regola & scontato=true message(``abc.. ABC.. 0..9 .?!\^\_-\~'') \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -906,15 +906,45 @@ Regola & scontato=true message(``abcABC .?!\^\_-\~'') \\ \hline
 \end{tabular} \\
 \end{center}
 
+\begin{Large}\textbf{VT19}\end{Large} \\
+Si testa una \br\ per verificare che non siano ammessi altri caratteri nel message.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento \\ \hline
+Business object associato & Articolo \\ \hline
+Regola & scontato=true message(``\# []\{\}|\/=+-*\@\$\%'') \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
-
-
-
-
-
-
-
-
+\begin{Large}\textbf{VT20}\end{Large} \\
+Si testa una \br\ per verificare che non siano ammesse regole malformate.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento \\ \hline
+Business object associato & Articolo \\ \hline
+Regola & scontato=true + \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
 \subsection{Test sul comunicatore}
 La macrocomponente comunicatore verr\`a testata a scatola aperta (whitebox), inserendo in input al comunicatore un stringa contenente una query \underline{XPath} e confrontando l'output del comunicatore con l'output atteso.\\
@@ -941,6 +971,7 @@ Vengono di seguito riportati i test riguardanti le integrazioni delle varie comp
 
 \subsection{Integrazione validatore, comunicatore}
 L'integrazione tra 'validatore' e 'comunicatore' verr\`a testata a scatola aperta (whitebox), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
+
 \subsection{Integrazione gui, validatore}
 L'integrazione tra 'gui' e 'validatore' verr\`a testata a scatola aperta (whitebox), inserendo da gui  un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
 
