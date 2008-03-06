@@ -5,7 +5,7 @@ package brjsys.gui;
  * 
  * Interfaccia Grafica per il prodotto Brjsys
  * @author Filippo Carraro
- * @version 0.9 5 Mar 2008
+ * @version 5 Mar 2008
  * 
  */
 
@@ -16,7 +16,6 @@ import brjsys.businessrules.BusinessRule;
 import brjsys.communicator.GUICommunicator;
 import brjsys.validator.Validator;
 
-
 public class Gui extends javax.swing.JFrame {
     
     /** Creates new form GUI */
@@ -26,11 +25,11 @@ public class Gui extends javax.swing.JFrame {
     
     /**
      * Inizializzazione
-     */
+    */
  
     private void initComponents() {
     	
-    	MainGui = new javax.swing.JFrame();
+    	MainGui = new javax.swing.JFrame("Brjsys");
         jButton_Inserisci = new javax.swing.JButton();
         jButton_Rimuovi = new javax.swing.JButton();
         jButton_Sandbox = new javax.swing.JButton();
@@ -39,7 +38,7 @@ public class Gui extends javax.swing.JFrame {
         jMenuItem_Exit = new javax.swing.JMenuItem();
         jMenu_Help = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        Sandbox = new javax.swing.JFrame();
+        Sandbox = new javax.swing.JFrame("Sandbox");
         PannelloQuery = new javax.swing.JTabbedPane();
         jScrollPane_Query = new javax.swing.JScrollPane();
         TextAreaQuery = new javax.swing.JTextArea();
@@ -47,7 +46,11 @@ public class Gui extends javax.swing.JFrame {
         jScrollPane_Ris = new javax.swing.JScrollPane();
         TextAreaRisultati = new javax.swing.JTextArea();
         jButton_Esegui = new javax.swing.JButton();
-        InsertGui = new javax.swing.JFrame();
+        
+        jSeparator = new javax.swing.JSeparator();
+        statusBar = new javax.swing.JLabel();
+        
+        InsertGui = new javax.swing.JFrame("Inserisci");
         jLabel_Nome = new javax.swing.JLabel();
         jTextField_Nome = new javax.swing.JTextField();
         jLabel_BOAss = new javax.swing.JLabel();
@@ -59,7 +62,7 @@ public class Gui extends javax.swing.JFrame {
         jTextArea_Reg = new javax.swing.JTextArea();
         jScrollPane_Comm = new javax.swing.JScrollPane();
         jTextArea_Comm = new javax.swing.JTextArea();
-        RemGui = new javax.swing.JFrame();
+        RemGui = new javax.swing.JFrame("Rimuovi");
         jTextField_Cerca = new javax.swing.JTextField();
         jButton_RimBR = new javax.swing.JButton();
         jButton_Cerca = new javax.swing.JButton();
@@ -82,8 +85,14 @@ public class Gui extends javax.swing.JFrame {
         jLabel_Password = new javax.swing.JLabel();
         jButton_Entra = new javax.swing.JButton();
 
-        MainGui.setTitle("Brjsys");
-
+    	setDefaultLookAndFeelDecorated(false);
+    	
+    	this.setResizable(false);
+    	MainGui.setResizable(false);
+    	RemGui.setResizable(false);
+    	InsertGui.setResizable(false);
+    	Sandbox.setResizable(false);
+    	
         jButton_Inserisci.setText("Inserisci Business Rule");
         jButton_Inserisci.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +130,7 @@ public class Gui extends javax.swing.JFrame {
 
         javax.swing.GroupLayout MainGuiLayout = new javax.swing.GroupLayout(MainGui.getContentPane());
         MainGui.getContentPane().setLayout(MainGuiLayout);
+        
         MainGuiLayout.setHorizontalGroup(
             MainGuiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainGuiLayout.createSequentialGroup()
@@ -161,28 +171,38 @@ public class Gui extends javax.swing.JFrame {
         TextAreaRisultati.setColumns(20);
         TextAreaRisultati.setRows(5);
         jScrollPane_Ris.setViewportView(TextAreaRisultati);
+        TextAreaRisultati.setEditable(false);
 
         PannelloRisultati.addTab("Risultati", jScrollPane_Ris);
 
         jButton_Esegui.setText("Esegui");
 
+        statusBar.setText("Waiting...");
+        
         javax.swing.GroupLayout SandboxLayout = new javax.swing.GroupLayout(Sandbox.getContentPane());
         Sandbox.getContentPane().setLayout(SandboxLayout);
         SandboxLayout.setHorizontalGroup(
             SandboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PannelloRisultati, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
-            .addComponent(jButton_Esegui, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
-            .addComponent(PannelloQuery, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+            .addComponent(PannelloQuery, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(jButton_Esegui, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(jSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(PannelloRisultati, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(statusBar, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
         );
         SandboxLayout.setVerticalGroup(
             SandboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SandboxLayout.createSequentialGroup()
                 .addComponent(PannelloQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_Esegui, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                .addComponent(jButton_Esegui, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PannelloRisultati, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(statusBar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                
         );
 
         jButton_Esegui.addActionListener(new java.awt.event.ActionListener() {
@@ -385,11 +405,13 @@ public class Gui extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        
         setTitle("LoginGUI");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setName("LoginGUI"); // NOI18N
-
+        setName("LoginGUI"); 
+        
         jPassword_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPassword_PasswordActionPerformed(evt);
@@ -447,6 +469,45 @@ public class Gui extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTextField_DNome.setEditable(false);
+        jTextField_DBOAss.setEditable(false);
+        jTextArea_DReg.setEditable(false);
+        jTextArea_DComm.setEditable(false);
+        
+        // Cambio la gestione della chiusura delle finestre
+        MainGui.addWindowListener(new java.awt.event.WindowAdapter(){
+        	public void windowClosing(java.awt.event.WindowEvent e)
+        	{
+        		MainGui.setVisible(false);
+        		InsertGui.setVisible(false);
+        		RemGui.setVisible(false);
+        		Sandbox.setVisible(false);
+        		System.exit(1);
+        	}
+        });
+        
+        InsertGui.addWindowListener(new java.awt.event.WindowAdapter(){
+        	public void windowClosing(java.awt.event.WindowEvent e)
+        	{
+        		jButton_Inserisci.setEnabled(true);
+        	}
+        });
+        
+        RemGui.addWindowListener(new java.awt.event.WindowAdapter(){
+        	public void windowClosing(java.awt.event.WindowEvent e)
+        	{
+        		jButton_Rimuovi.setEnabled(true);
+        		list_BR.removeAll();
+        	}
+        });
+        
+        Sandbox.addWindowListener(new java.awt.event.WindowAdapter(){
+        	public void windowClosing(java.awt.event.WindowEvent e)
+        	{
+        		jButton_Sandbox.setEnabled(true);
+        	}
+        });
+        
         pack();
     }// </editor-fold>
 
@@ -454,6 +515,7 @@ public class Gui extends javax.swing.JFrame {
     	
     }                                                  
 
+    //  ENTRA
     private void jButton_EntraActionPerformed(java.awt.event.ActionEvent evt) {                                              
                
         char[] inputP = jPassword_Password.getPassword();
@@ -468,12 +530,13 @@ public class Gui extends javax.swing.JFrame {
             MainGui.setVisible(true);
         	this.setVisible(false);
         }
-        catch(Exception e)
+        catch(Exception ecc)
         {
-        	JOptionPane.showMessageDialog(this,"Username o Password errati.","Login error",JOptionPane.ERROR_MESSAGE);	
+        	JOptionPane.showMessageDialog(this,ecc.getMessage(),"Login error",JOptionPane.ERROR_MESSAGE);	
         } 	
 }                                             
-
+    
+    //  RIMUOVI
     private void jButton_RimuoviActionPerformed(java.awt.event.ActionEvent evt) {                                                
         
     	//appena apro la finestra di rimozione,aggiorno la lista con tutte
@@ -483,27 +546,31 @@ public class Gui extends javax.swing.JFrame {
 
     	for(int i=0;i<ArrayBR.length;i++){
     		String z=(ArrayBR[i].name);
-    		System.out.println(z);
     		list_BR.add(z);
     	}
 
     	RemGui.pack();
-        RemGui.setVisible(true); 
+        RemGui.setVisible(true);
+        jButton_Rimuovi.setEnabled(false);
 }                                               
 
     private void JText_UsernameActionPerformed(java.awt.event.ActionEvent evt) {                                               
 }                                              
 
+    //	INSERISCI
     private void jButton_InserisciActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         InsertGui.pack();
-        InsertGui.setVisible(true); 
+        InsertGui.setVisible(true);
+        jButton_Inserisci.setEnabled(false);
 }                                                 
-
+    //	SANDBOX
     private void jButton_SandboxActionPerformed(java.awt.event.ActionEvent evt) {                                                
         Sandbox.pack();
-        Sandbox.setVisible(true);  
+        Sandbox.setVisible(true);
+        jButton_Sandbox.setEnabled(false);
     }                                               
-
+    
+    //  VALIDA
     private void jButton_ValActionPerformed(java.awt.event.ActionEvent evt) {                                            
     	
     	String Nome=jTextField_Nome.getText();
@@ -520,16 +587,16 @@ public class Gui extends javax.swing.JFrame {
     			JOptionPane.showMessageDialog(this,"Business Rule inserita e validata correttamente","Message",JOptionPane.INFORMATION_MESSAGE);
     		}
     		else{
-    			//la regola ha un nome che è già presente nel repository.
-    			JOptionPane.showMessageDialog(this,"Business Rule già presente nel repository","Message",JOptionPane.INFORMATION_MESSAGE);
+    			//la regola ha un nome che ï¿½ giï¿½ presente nel repository.
+    			JOptionPane.showMessageDialog(this,"Business Rule giï¿½ presente nel repository","Message",JOptionPane.INFORMATION_MESSAGE);
     		}
     	}
-    	catch (Exception e1){
-    		//e1.printStackTrace();
-    		JOptionPane.showMessageDialog(this,e1.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
+    	catch (Exception ecc){
+    		JOptionPane.showMessageDialog(this,ecc.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
     	}
 }                                           
 
+    //  CERCA
     private void jButton_CercaActionPerformed(java.awt.event.ActionEvent evt) {                                              
     	//cerca il nome della business rule nella lista e lo seleziona,se presente.
     	String c=jTextField_Cerca.getText();
@@ -543,7 +610,6 @@ public class Gui extends javax.swing.JFrame {
     	
     	for(int i=0;i<ArrayBR.length;i++){
     		String h=list_BR.getItem(i);
-    		System.out.println(h);
     		if(c.equals(h)){
     			list_BR.select(i);
     			t=true;
@@ -553,7 +619,7 @@ public class Gui extends javax.swing.JFrame {
     		JOptionPane.showMessageDialog(this,"Business Rule Selezionata !","BR",JOptionPane.INFORMATION_MESSAGE);
     		// mostro le informazioni riguardanti la BR
     		int is=list_BR.getSelectedIndex();
-    		// sapendo quale indice è selezionato so a quale BR mi riferisco.
+    		// sapendo quale indice ï¿½ selezionato so a quale BR mi riferisco.
     		// ne estraggo i campi e li mostro negli appositi campi.
     		jTextField_DNome.setText(ArrayBR[is].name);
     		jTextField_DBOAss.setText(ArrayBR[is].associated);
@@ -566,7 +632,8 @@ public class Gui extends javax.swing.JFrame {
     private void jTextField_NomeActionPerformed(java.awt.event.ActionEvent evt) {                                                
 
 }                                               
-
+    
+    //  RIMUOVI SELEZIONATE
     private void jButton_RimBRActionPerformed(java.awt.event.ActionEvent evt) {                                              
         
     	//Messaggio per dare la conferma della cancellazione delle BR selezionate
@@ -580,11 +647,6 @@ public class Gui extends javax.swing.JFrame {
         	for(int i=0;i<int_sel.length;i++){
         		BR_sel[i]=list_BR.getItem(int_sel[i]);
         	}
-        	
-        	for(int i=0;i<BR_sel.length;i++){
-        		System.out.println(int_sel[i]);
-        		System.out.println(BR_sel[i]);
-        	}
 
         	for(int i=0;i<BR_sel.length;i++){
         		list_BR.remove(BR_sel[i]);
@@ -593,15 +655,20 @@ public class Gui extends javax.swing.JFrame {
     	}
     }                                             
 
+    //  ESEGUI QUERY
     private void jButton_EseguiActionPerformed(java.awt.event.ActionEvent evt) {                                              
     	
     	String Query=TextAreaQuery.getText();
     	try{
+    		java.util.Date d=new java.util.Date();
+    		long prima=d.getTime();
     		String risultato=queryService.makeQuery(Query);
+    		long dopo=d.getTime();
     		TextAreaRisultati.setText(risultato);
+    		statusBar.setText("Impiegati:" + (dopo - prima) + " millisecondi");
     	}
-    	catch(Exception errore){
-    		JOptionPane.showMessageDialog(this,"Query non valida !","ERROR",JOptionPane.ERROR_MESSAGE);
+    	catch(Exception ecc){
+    		JOptionPane.showMessageDialog(this,ecc.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
     	}
     }
     
@@ -620,19 +687,20 @@ public class Gui extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Gui().setVisible(true);
+            	new Gui().setVisible(true);
             }
         });
     }
     
+    //-------------------------------------------------------
     // Dichiarazione variabili
+    //-------------------------------------------------------	
     
-    private BusinessRule ArrayBR[];	//array delle business rules
+    //  array delle business rules
+    private BusinessRule ArrayBR[];	
     
 	Validator compiler=null;
 	GUICommunicator queryService=null;
-    
-    //private String ArrayBR[];
     
     private javax.swing.JFrame InsertGui;
     private javax.swing.JTextField JText_Username;
@@ -685,6 +753,8 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_DNome;
     private javax.swing.JTextField jTextField_Nome;
     private java.awt.List list_BR;
+    private javax.swing.JSeparator jSeparator;
+    private javax.swing.JLabel statusBar;
     // End of variables declaration
     
 }
