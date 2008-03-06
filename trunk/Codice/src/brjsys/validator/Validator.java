@@ -7,7 +7,7 @@ import brjsys.businessrules.BusinessRule;
 import brjsys.communicator.ValidatorCommunicator;
 
 /**
- * Consente la validazione di una business rule
+ * Consente la validazione di una business rule.
  * @author Michele  Bortolato
  * @version 0.9 3 Mar 2008
  * 
@@ -15,17 +15,26 @@ import brjsys.communicator.ValidatorCommunicator;
 
 public class Validator {
 	/**
-	 * Fa comunicare Validator con eXist
+	 * Fa comunicare Validator con eXist.
 	 */
 	private ValidatorCommunicator repository;
-
+	
+	/**
+	 * Costruttore.
+	 * 
+	 * @param username Username per connettrsi al DBMS. 
+	 * @param password Password per connettersi al DBMS.
+	 * 
+	 * @exception Exception Connessione fallita, contiene in che modo e' fallita
+	 *  la connessione. 
+	 * */
 	public Validator (String username, String password) throws Exception {
 
 		repository=new ValidatorCommunicator(username, password);
 	}
 
 	/**
-	 * Valida la business rule
+	 * Valida la business rule.
 	 * 
 	 * @param bRule La regola da validare.
 	 * 

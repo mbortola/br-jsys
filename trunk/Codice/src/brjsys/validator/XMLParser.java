@@ -13,13 +13,13 @@ import org.w3c.dom.*;
 import brjsys.businessrules.BusinessRule;
 
 /**
- * Consente di convertire un AST in un elemento analogo XML
+ * Consente di convertire un AST in un elemento analogo XML.
  * @author Michele  Bortolato
  * @version 0.9 3 Mar 2008
  * 
  */
 public class XMLParser {
-	/**Lista che associa l'identificativo del token al token stesso*/
+	/**Lista che associa l'identificativo del token al token stesso.*/
 	String[] tokenList;
 
 	/**
@@ -32,7 +32,7 @@ public class XMLParser {
 	}
 	
 	/**
-	 * Metodo interno per scorrere l'AST ed effetturare il parsing in XML
+	 * Metodo interno per scorrere l'AST ed effetturare il parsing in XML.
 	 * 
 	 * @param AST il nodo dell'albero sintattico da analizzare
 	 * @param root L'elemento padre al quale aggiungere i figli
@@ -78,11 +78,11 @@ public class XMLParser {
 	}
 
 	/**
-	 * Effettua il parsing da AST a XML
+	 * Effettua il parsing da AST a XML.
 	 *
-	 * @param 	AST		Rappresenta l'albero sintattico prodotto dal parser
-	 * @param	rule	Rappresenta la Business rule validats dal parser
-	 * @return  La stringa XML che rappresenta la Business rule
+	 * @param 	AST		Rappresenta l'albero sintattico prodotto dal parser.
+	 * @param	rule	Rappresenta la Business rule validata dal parser.
+	 * @return  La stringa XML che rappresenta la Business rule.
 	 * 
 	 */
 	public String parse(Tree AST, BusinessRule rule){
