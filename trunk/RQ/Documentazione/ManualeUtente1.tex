@@ -149,13 +149,22 @@ oltre alla funzione:
 \end{itemize}
 \textbf{String} permette invece solo operazioni di confronto.
 \subsection{Struttura message}
-Un message pu\`o formato da:
+Un message pu\`o essere formato da:
 \begin{itemize}
-\item tutte le lettere maiuscole dalla A alla Z;
-\item tutte le lettere minuscole dalla a alla z;
-\item tutti i numeri da 0 a 9;
+\item lettere maiuscole (A-Z);
+\item lettere minuscole (a-z);
+\item numeri (0-9);
 \item spazi vuoti;
-\item i seguenti caratteri di punteggiatura: . \textbar\ ? \textbar\ ! \textbar\ - \textbar\ ~ \textbar\ _ \textbar\ ^. 
+\item i seguenti caratteri di punteggiatura: 
+\begin{itemize}
+\item .
+\item ?
+\item !
+\item -
+\item \~
+\item \_
+\item \^
+\end{itemize} 
 \end{itemize}
 \subsection{Esempi di business rules}
 Faremo ora, per una maggiore comprensione del linguaggio, alcuni esempi di business rules.
@@ -191,7 +200,7 @@ X\textless Y & \textless Conf type=``\&lt''\textgreater \\
 &  Y \\ 
 & \textless /Conf\textgreater\\ \hline
 X\textgreater Y & \textless Conf type=``\&gt''\textgreater \\
-&  X \\
+&  X \\http://mail.google.com/mail/
 &  Y \\ 
 & \textless /Conf\textgreater\\ \hline
 X\textless=Y & \textless Conf type=``\&lt=''\textgreater \\
