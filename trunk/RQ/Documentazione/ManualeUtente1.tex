@@ -149,17 +149,17 @@ oltre alla funzione:
 \end{itemize}
 \textbf{String} permette invece solo operazioni di confronto.
 \subsection{Esempi di business rules}
-Per una maggiore comprensione della grammatica faremo ora alcuni esempi di business rules. 
+Faremo ora, per una maggiore comprensione del linguaggio, alcuni esempi di business rules.
 \begin{itemize}
 \item \textbf{ESEMPIO 1} \\
 \underline{REGOLA NEL LINGUAGGIO NATURALE:} \\
 L'azienda deve essere la IBM. La somma delle entrate deve essere maggiore di quella delle uscite altrimenti deve ritornare un messaggio con scritto ``errore nei calcoli''. \\
-\underline{REGOLA NELLA GRAMMATICA:} \\
+\underline{REGOLA NEL LINGUAGGIO CREATO:} \\
 azienda=``IBM'' AND SUM(entrate)\textgreater\ SUM(uscite) message(``errore nei calcoli'')
 \item \textbf{ESEMPI0 2} \\
 \underline{REGOLA NEL LINGUAGGIO NATURALE:} \\
 Il nome dello studente deve essere Lisa. I suoi crediti devono essere almeno 180 altrimenti deve ritornare un messaggio con scritto ``totale crediti sbagliato''. I suoi anni di corso devono essere non pi\`u di tre altrimenti torna un messaggio con scritto ``risulti fuori corso''.  \\
-\underline{REGOLA NELLA GRAMMATICA:} \\
+\underline{REGOLA NEL LINGUAGGIO CREATO:} \\
 nome=``Lisa'' AND SUM(crediti)\textgreater =180 message(``totale crediti sbagliato'') AND COUNT(anni)\textless =3 message(``risulti fuori corso'')
 \end{itemize}
 \subsection{Rappresentazione in XML}
@@ -256,32 +256,34 @@ NOT(X) & \textless BoFun type=``NOT''\textgreater \\
 & \\ \hline 
 4.0 & \textless FLOAT \textgreater4.0\textless /FLOAT\textgreater \\ \hline
 true & \textless BOOL \textgreater true\textless /BOOL\textgreater \\ \hline
-``stringa`` & \textless STRING \textgreater ''stringa'' \textless /STRING\textgreater \\ \hline
-'campo dati' &\textless FIELD \textgreater campo dati \textless /FIELD\textgreater \\ \hline
+``stringa'' & \textless STRING \textgreater ``stringa'' \textless /STRING\textgreater \\ \hline
+`campo dati' &\textless FIELD \textgreater campo dati \textless /FIELD\textgreater \\ \hline
 \end{tabular} \\
 \end{table}
 
 \section{Caratteristiche del servizio}
-\underline{BR-jsys} \`e destinato ad utenti che non necessariamente hanno competenze in ambito informatico. Una volta avviato, il sistema offre all'utente:
+Una volta avviato, il sistema ``BR-jsys'' offre all'utente:
 \begin{itemize}
-\item[-] un'elevata configurabilit\`a ed estendibilit\`a dei business objects, mantenendo il rispetto dei controlli cablati;
+\item[-] un'elevata configurabilit\`a ed estendibilit\`a dei business objects;
 \item[-] un linguaggio per la definizione di business rules;
-\item[-] un validatore che consenta l'accettazione di nuove business rules soltanto se esse sono scritte secondo le specifiche del linguaggio creato;
+\item[-] un validatore che consenta l'accettazione di nuove business rules, soltanto se esse sono scritte secondo le specifiche del linguaggio creato;
 \item[-] un repository per immagazzinare le business rules;
-\item[-] una competa gestione del repository tramite interfacciamento ad \underline{eXist};
+\item[-] una competa gestione del repository tramite interfacciamento ad ``eXist'';
 \item[-] un aiuto agli utenti meno esperti attraverso  messaggi di errore;
 \item[-] una semplice interfaccia per operare su questo sistema.
 \end{itemize}
 \section{Requisiti minimi}
 \subsection{Requisiti sofware}
-Sistema operativo:
 \begin{itemize}
-\item Linux: tutte le piattaforme con qualsiasi distribuzione.
-\item Windows: WindowsME, Windows2000 e WindowsXp home/professional.
-\item MacOSX: 10.4
-\item \underline{eXist} 1.2
+\item \underline{Sistema operativo:}
+\begin{itemize}
+\item[-] Linux: tutte le piattaforme con qualsiasi distribuzione.
+\item[-] Windows: WindowsME, Windows2000 e WindowsXp home/professional.
+\item[-] MacOSX: 10.4.
 \end{itemize}
-Per usufruire del servizio \`e necessario possedere una connessione con il \underline{DBMS} ``\underline{eXist}'', come gi\`a citato precedentemente e la presenza della Java SE Development Kit (JDK) dalla versione 1.4.
+\item \underline{eXist} 1.2.
+\end{itemize}
+Per usufruire del servizio \`e quindi necessario possedere una connessione con il DBMS ``eXist'', come gi\`a citato precedentemente, e la presenza della Java SE Development Kit (JDK) dalla versione 1.4.
 \subsection{Requisiti hardware}
 Per un corretto e scorrevole funzionamento del software sono richiesti:
 \begin{itemize}
@@ -292,22 +294,32 @@ Per un corretto e scorrevole funzionamento del software sono richiesti:
 
 \chapter{Istruzioni per l'uso}
 \section{Descrizione funzionale}
-Di seguito \`e riportata la descrizione delle funzioni del prodotto. Ad ogni passo \`e stata associata una figura, in modo da daterminare, senza amibiguit\`a il contesto dell'applicazione.
+Di seguito \`e riportata la descrizione delle funzioni del prodotto. Ad ogni passo \`e stata associata una figura, in modo da daterminare senza amibiguit\`a il contesto dell'applicazione.
 \subsection{Installazione}
-Per utilizzare il prodotto \`e necessario che questo sia installato sulla macchina server. La sua architettura prevede che venga usato \underline{eXist}, scaricabile liberamente al sito http://exist.sourceforge.net. Dopodich\`e da macchina:
+Per utilizzare il prodotto \`e necessario che questo sia installato sulla macchina server. La sua architettura prevede che venga usato ``eXist'', scaricabile liberamente al sito \textbf{http://exist.sourceforge.net}. Dopodich\`e da macchina:
 \begin{itemize}
-\item Linux o MacOSX: avviare il prompt dei comandi (shell), accedere alla cartella ``\underline{BR-jsys}'' fornita e digitare il comando ``sh install''.
+\item \underline{Linux o MacOSX:} 
+\begin{itemize}
+\item[-] avviare il prompt dei comandi (\textbf{shell});
+\item[-] accedere alla cartella ``\textbf{BR-jsys}'' fornita; 
+\item[-] digitare il comando ``\textbf{sh install}''.
+\end{itemize}
 % mettere una foto di come avviene l'installazione in linux
-\item Windows: avviare il prompt dei comandi (shell), accedere alla cartella ``\underline{BR-jsys}'' fornita e cliccare sulla sottocartella ``install.exe''.
+\item \underline{Windows:}
+\begin{itemize} 
+\item[-] avviare il prompt dei comandi (\textbf{shell});
+\item[-] accedere alla cartella ``\textbf{BR-jsys}'' fornita;
+\item[-] cliccare sulla sottocartella ``\textbf{install.exe}''.
+\end{itemize}
 % mettere una foto di come avviene l'installazione in Windows
 \end{itemize}
-Il tool automatico di installazione del nostro prodotto esegue in prima istanza l'installazione del framework necessario per le operazioni di conversione delle regole, Antlr 3.0.1.
+Il tool automatico di installazione del nostro prodotto esegue in prima istanza l'installazione del framework necessario per le operazioni di conversione delle regole, \underline{Antlr} 3.0.1.
 \subsection{Avvio dell'applicazione}
 Per avviare il programma, una volta terminata l' installazione, sia in Linux che in Windows che in MacOSX occorre:
 \begin{itemize}
-\item[-] avviare il prompt dei comandi (shell);
-\item[-] accedere alla cartella ``\underline{BR-jsys}'' fornita; 
-\item[-] digitare ``\underline{BR-jsys}.start''.
+\item[-] avviare il prompt dei comandi (\textbf{shell});
+\item[-] accedere alla cartella ``\textbf{BR-jsys}'' fornita; 
+\item[-] digitare ``\textbf{BR-jsys.start}''.
 \end{itemize}
 % mostrare una foto con i passi per avviare l'applicazione
  Dopo un breve periodo di caricamento apparir\`a la schermata di login (figura 3.0), nella quale l'utente che accede per la prima volta al servizio dovr\`a digitare i seguenti dati: 
@@ -319,7 +331,7 @@ Per avviare il programma, una volta terminata l' installazione, sia in Linux che
 \includegraphics[width=0.4\textwidth]{manuale_utente/login.eps}\\
  figura 3.0: schermata di login
 \end{center}
-I dati di autenticazione immessi sono quelli utilizzati per la registrazione al server ``\underline{eXist}''. Tutti i dati richiesti dovranno essere insieriti prestando attenzione alla scelta della password, la quale dovr\`a avere una complessit\`a elevata. 
+I dati di autenticazione immessi sono quelli utilizzati per la registrazione al server ``eXist''. Tutti i dati richiesti dovranno essere insieriti prestando attenzione alla scelta della password, la quale dovr\`a avere una complessit\`a elevata. 
 \section{Azioni richieste/permesse}
 \begin{center}
 \includegraphics[width=0.4\textwidth]{manuale_utente/schermata_principale.eps}\\
@@ -328,9 +340,9 @@ I dati di autenticazione immessi sono quelli utilizzati per la registrazione al 
 A questo punto verr\`a visualizzata la schermata principale (figura 3.1).
 Nella figura 3.1 vediamo illustrate le tre funzionalit\`a associate ai rispettivi bottoni:
 \begin{itemize}
-\item Inserisci \underline{Business Rule};
-\item Rimuovi \underline{Business Rule};
-\item \underline{Sandbox}.
+\item Inserisci Business Rule;
+\item Rimuovi Business Rule;
+\item Sandbox.
 \end{itemize}
 L'analisi dettagliata delle singole azioni verr\`a trattata nelle sottosezioni seguenti.
 \subsection{Inserisci \underline{Business Rule}}
