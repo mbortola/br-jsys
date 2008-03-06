@@ -76,16 +76,17 @@ Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel 
 \begin{tabular}{||p{3.0cm}||p{8.5cm}||} \hline
 \textbf{Abbreviazione} & \textbf{Significato} \\ \hline
 
-VT\textit{\#} & Con VT seguito da un numero intero sono indicati i test che riguardano la ``macrocomponente validatore''.\\ \hline
-CT\textit{\#} & Con CT seguito da un numero intero sono indicati i test che riguardano la ``macrocomponente comunicatore''.\\ \hline
-CV\textit{\#} & Con CV seguito da un numero intero sono indicati i test di integrazione tra 'validatore' e 'comunicatore'.\\ \hline
-GV\textit{\#} & Con GV seguito da un numero intero sono indicati i test integrazione tra 'gui' e 'validatore'.\\ \hline
+VT\textit{\#} & Con VT seguito da un numero intero sono indicati i test che riguardano la 'macrocomponente validatore'.\\ \hline
+CT\textit{\#} & Con CT seguito da un numero intero sono indicati i test che riguardano la 'macrocomponente comunicatore'.\\ \hline
+CVT\textit{\#} & Con CVT seguito da un numero intero sono indicati i test di integrazione tra 'validatore' e 'comunicatore'.\\ \hline
+GVT\textit{\#} & Con GVT seguito da un numero intero sono indicati i test integrazione tra 'gui' e 'validatore'.\\ \hline
 S\textit{\#} & Con S seguito da un numero intero sono indicati i test di integrazione del sistema.\\ \hline
+RT\textit{} & Con RT si intende la riesecuzione di un test (test di regressione) avvenuta a fronte di una modifica al codice.\\ \hline
 
 \end{tabular} \\
 \end{center}
 \subsection{Glossario}
-Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G.I termini presenti in questo documento la cui descrizione � riportata nel glossario sono evidenziati mediante sottolineatura.
+Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G.I termini presenti in questo documento la cui descrizione \`e riportata nel glossario sono evidenziati mediante sottolineatura.
 
 \chapter{Descrizione dei test case}
 Vengono di seguito presentati i \textit{test case}. Ogni test case \`e composto da un input, un output atteso. Ogni test case \`e inoltre accompagnato da un breve testo che identifica lo scopo del test, e dall'elenco dei requisiti soddisfatti dal test.
@@ -97,7 +98,7 @@ Vengono di seguito riportati i test riguardanti le macrocomponenti del sistema \
 La macrocomponente validatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso.\\
 \\
 \begin{Large}\textbf{VT1}\end{Large} \\
-Si cercher� di forzare etc....
+Si cercher\`a di forzare etc....
 Requisiti soddisfatti dall'esecuzione: F1 etc..
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
@@ -141,14 +142,16 @@ sdfdffd\\
 Vengono di seguito riportati i test riguardanti le integrazioni delle varie componenti. Questi test hanno come precondizione l'esecuzione dei test sulle singole macrocomponenti, di conseguenza sono mirati a scoprire difetti nell'interfacciamento e nell'interazione tra diverse componenti, nonch\`e di mostrare il soddisfacimento di alcuni requisiti.
 
 \subsection{Integrazione validatore, comunicatore}
-L'integrazione tra 'validatore' e 'comunicatore' verr\`a testata a scatola aperta ( whitebox ), inserendo in inputal validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
+L'integrazione tra 'validatore' e 'comunicatore' verr\`a testata a scatola aperta ( whitebox ), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
 \subsection{Integrazione gui, validatore}
-???
+L'integrazione tra 'gui' e 'validatore' verr\`a testata a scatola aperta ( whitebox ), inserendo da gui  un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
+
 \subsection{Integrazione del sistema}
-....
+L'integrazionedell'intero sistema verr\`a testata a scatola aperta ( whitebox ), testando le sole funzionalit\`a risultanti dalla completa integrazione del sistema.\\
 
 \section{Test di regressione}
 Con test di regressione si intende la riescuzione di alcuni test case a fronte di una o pi\`u modifiche nel codice software. Ogni qual volta una componente venga modificata vanno rieseguiti (mediante l'utilizzo del sistema di automazione dei test) tutti i test riguardanti la componente specifica nonch\`e i test riguardanti l'integrazione della componente sessa con altre componenti fino all'esecuzione dei test di integrazione del sistema.
+Negli esiti dei test, per non appesantire la lettura non vengono riportatitutti i test di regressione ma solo i test di regressione che abbiano prodotto un output o un esito differente.
 
 \section{Tracciamento requisiti - test}
 Nella seguente tabella vengono evidenziati i test necessari al soddisfacimento di ogni requisito. Gli identificativi dei test sono quelli riportati nel capitolo 'Descrizione dei test case'{link}. Mentre gli identificativi dei singoli requisiti sono quelli descritti nel documento \AR .
@@ -163,16 +166,14 @@ F1 & CT1, ED2 \\ \hline
 
 \chapter{Esiti dei test}
 \section{Automatizzazione dei test}
-Essendo la fase di test una fase costosa e laboriosa del processo software, si � deciso di automatizzare il pi� possibile l'esecuzione dei test. L'esecuzione dei test viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l'output prodotto con quello atteso.
+Essendo la fase di test una fase costosa e laboriosa del processo software, si \`e deciso di automatizzare il pi\`e possibile l'esecuzione dei test. L'esecuzione dei test viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l'output prodotto con quello atteso.
 Alcuni test si rende necessario eseguirli a mano, come ad esempio i test riguardanti la componente \textit{gui}, tali test sono comunque una parte minima di tutti i test da eseguire non incidendo eccessivamente sul costo dell'intera fase di test.
 \section{Esiti dei test dei difetti}
 I \textit{test dei difetti} servono ad individuare possibili difetti o errori del codice su cui vengono testati. Per questo l'esito di un test dei difetti \`e segnato come negativo ogni qual volta non evidenzia un difetto, viene altres\`i segnato come positivo l'esito di quei test che abbiano individuato dei difetti nel software.
-Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentati in forma tabellare, indicando il codice identificativo del test, seguito dall'esito del test.
+Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentati in forma tabellare, indicando il codice identificativo del test, seguito dall'esito del test. I test di regressione come illustrato precedentemente sono riportati solo dove abbiano prodotto un output o un esito differente dalla loro precedente esecuzione. I test di regressione sono evidenziati nelle tabelle sottostanti dalla sigla RT.
 
 
 \subsection{Test sul validatore}
-
-
 \begin{center}
 \begin{tabular}{|p{2cm}|p{4cm}|p{5cm}|} \hline
 \textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
@@ -186,7 +187,6 @@ VT1 & fallito & errore del picchio\\ \hline
 \subsection{Integrazione del sistema}
 
 \chapter{Esiti dei test di convalida}
-I \textit{test ddi convalida} servono ad dimostrare che tutti i requisiti sono stati soddisfatti. Per questo l'esito di un test di convalida \`e segnato come positivo ogni qual volta dimostra che un requisito \`e soddisfatto, viene altres\`i segnato come negativo l'esito di quei test che hanno fallito.
-
-.....
+I \textit{test di convalida} servono ad dimostrare che tutti i requisiti sono stati soddisfatti. Per questo l'esito di un test di convalida \`e segnato come positivo ogni qual volta dimostra che un requisito \`e soddisfatto, viene altres\`i segnato come negativo l'esito di quei test che hanno fallito.
+I test di convalida sono rimandati alla fase di verifica e validazione.
 \end{document}
