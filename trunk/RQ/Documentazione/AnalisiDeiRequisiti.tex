@@ -10,7 +10,7 @@
 \input{model/hyphenation.tex}%sillabazione
 \input{model/titlepage.tex}%pagina del titolo
 
- 
+
 \begin{center}
 \thispagestyle{plain}
 \begin{table}[htbp]
@@ -61,7 +61,6 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
-3.2 & 05/03/2208 & \LA & Aggiunto capitolo sommario\\ \hline
 3.1 & 05/03/2208 & \MM & Eliminazione sezione ''Descrizione del resto del documento`` perch\'e inutile.\\ \hline
 3.0 & 05/03/2008 & \MM & Evidenziazione dei termini contenuti nel documento \G .\\ \hline
 2.9 & 04/03/2008 & \MM & Aggiunta di link ipertestuali all'indice del documento.\\ \hline
@@ -91,11 +90,6 @@ Versione & Data & Autore & Descrizione \\ \hline
 \newpage
 
 \tableofcontents
-\chapter*{Sommario}
-\addcontentsline{toc}{chapter}{I Sommario}
-\chapter*{Glossario}
-\addcontentsline{toc}{chapter}{II Glossario}
-Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G. I termini che sono presenti nel \G sono sottolineati.
 
 \chapter{Introduzione}
 \section{Scopo del documento}
@@ -120,7 +114,8 @@ NQ\textit{\#} & Con NQ seguito da un numero intero sono indicati i requisiti di 
 
 \end{tabular} \\
 \end{center}
-
+\subsection{Glossario}
+Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G. I termini che sono presenti nel \G sono sottolineati.
 \section{Riferimenti}
 \begin{itemize}
 \item Capitolato d'appalto concorso per sistema ``\underline{BR-jsys}'';
@@ -239,30 +234,30 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di definire una nuova \underline{Business Rules} e una volta validata inserirla nel repository. Tale interfaccia dovr\`a inoltre consentire di cancellare \underline{Business Rules} dal repository. Tutto ci\`o servir\`a a testare in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
 \item[F9]{ DEPRECATO : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra \\underline{Business Rules}. Esso verificher\`a cio\`e se la \underline{Business Rule} da inserire nel repository entra in conflitto con le altre gi\`a presenti. Pi\`u dettagliatamente tale validatore dovr\`a verificare che le \\underline{Business Rules} presenti nel repository rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i business objects. [C04]}
 \item[F10]{Il validatore nel validare una \underline{Business Rule} deve poter accedere ai campi del business object ad essa associato, qualora la \underline{Business Rule} utilizzi tali campi. [I02]}
-\item[F11]{Ad ogni business rule \`e associato un business object nel quale vanno eventualmente ricercati i campi dati utilizzati nella business rule. [I02]}
+\item[F11]{Ad ogni \underline{business rule} \`e associato un business object nel quale vanno eventualmente ricercati i campi dati utilizzati nella \underline{business rule}. [I02]}
 \end{itemize}
 
 \section{Requisiti di usabilit\`a}
 \begin{itemize}
 \item[NU1]{Il linguaggio dovr\`a essere di alto livello. Dovr\`a cio\`e essere semplice da capire per un utente con bassa conoscenza informatica. [I01]}
 \item[NU2]{Il linguaggio deve fornire funzioni primitive per le operazioni base tra i dati, come la somma, la media aritmetica e la negazione logica. [I01]}
-\item[NU3]{Ad ognuno dei confronti presenti in una business rule deve essere possibile, da parte dell'utente, associare un messaggio che aiuti l'utente finale (ossia quello che chiede la validazione di un business object) a capire dove la validazione ha riscontrato problemi. [I02]}
+\item[NU3]{Ad ognuno dei confronti presenti in una \underline{business rule} deve essere possibile, da parte dell'utente, associare un messaggio che aiuti l'utente finale (ossia quello che chiede la validazione di un business object) a capire dove la validazione ha riscontrato problemi. [I02]}
 \end{itemize}
 
 \section{Requisiti di portabilit\`a}
 \begin{itemize}
-\item[NPo1]{Il formato di salvataggio delle business rules e del repository deve essere XML. [C04]}
+\item[NPo1]{Il formato di salvataggio delle \underline{business rules} e del repository deve essere XML. [C04]}
 \end{itemize}
 \section{Requisiti prestazionali}
 \begin{itemize}
  \item[NPr1]{Il \underline{DBMS} che andr\`a a interagire con il repository dovr\`a garantire una buona velocit\`a nell'interrogazione (mediante query) del file XML, anche in presenza di un consistente popolamento dello stesso. [I02]}
-\item[NPr2]{Ad ogni business rule deve venire associata una stringa identificativa univoca per consentire un'efficiente indicizzazione delle business rules nel repository. [I02]}
+\item[NPr2]{Ad ogni \underline{business rule} deve venire associata una stringa identificativa univoca per consentire un'efficiente indicizzazione delle \underline{business rules} nel repository. [I02]}
 \end{itemize}
 
 \section{Requisiti di qualit\`a}
 \begin{itemize}
 \item[NQ1]{Il linguaggio dovr\`a permettere tutte le operazioni consentite tra scalari e matrici. Il validatore di conseguenza valider\`a solo le operazioni consentite. [I01]}
-\item[NQ2]{Il progetto verr\`a accompagnato da un manuale che descriver\`a il linguaggio di definizione delle business rules. [C04]}
+\item[NQ2]{Il progetto verr\`a accompagnato da un manuale che descriver\`a il linguaggio di definizione delle \underline{business rules}. [C04]}
 \item[NQ3]{Il progetto verr\`a accompagnato dalla descrizione delle API relative al validatore e al \underline{DBMS}. [C04]}
 \end{itemize}
 \newpage
@@ -273,7 +268,7 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \large{
 \begin{tabular}{l}
 
-\textbf{Inserimento e cancellazione di business rule dal repository}\\ \\
+\textbf{Inserimento e cancellazione di \underline{business rule} dal repository}\\ \\
 
 \begin{tabular}{||p{8cm}||p{4cm}||} \hline
 \textbf{Use-case} & \textbf{Requisiti associati} \\ \hline
@@ -286,12 +281,12 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \textbf{Richiedi al \underline{DBMS} di cancellare dal repositiry} & F7 - F8 \\ \hline
 \end{tabular} \\ \\
 
-\textbf {Gestione di una richiesta di business rule}\\ \\
+\textbf {Gestione di una richiesta di \underline{business rule}}\\ \\
 
 \begin{tabular}{||p{8cm}||p{4cm}||} \hline
-\textbf{Gestisci la richiesta di business rule per un determinato business object} & F6 - F10 - F11 \\ \hline
-\textbf{Recupera business rule pertinenti al business object} & F5 - NPr1 - NPr2 \\ \hline
-\textbf{Manda la business rule all'interprete esterno} & F6 \\ \hline
+\textbf{Gestisci la richiesta di business rule per un determinato \underline{business object}} & F6 - F10 - F11 \\ \hline
+\textbf{Recupera \underline{business rule} pertinenti al business object} & F5 - NPr1 - NPr2 \\ \hline
+\textbf{Manda la \underline{business rule} all'interprete esterno} & F6 \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
