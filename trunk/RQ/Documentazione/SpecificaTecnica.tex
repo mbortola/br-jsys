@@ -60,13 +60,14 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+1.4 & 06/03/2008 & \LA & Aggiunto Sommario\\ \hline
 1.3 & 06/03/2008 & \MB & Aggiunta diagrammi di stato .\\ \hline
 1.2 & 05/03/2008 & \MM & Evidenziazione dei termini contenuti nel documento \G .\\ \hline
 1.1 & 04/03/2008 & \MM & Aggiunta di link ipertestuali all'indice del documento.\\ \hline
 1.0 & 16/02/2008 & \MB & Inserimento diagramma di collaborazione e diagramma di sequenza. \\ \hline
 0.9 & 15/02/2008 & \ET & Correzione grammaticale \\ \hline
-0.8 & 12/02/2008 & \MT & Modifiche ai diagrammi di attivit\`a e alle loro    descrizioni\\ \hline
-0.7 & 08/02/2008 & \MT & Aggiunta dei diagrammi di attivit\`a e rispettive    descrizioni\\ \hline
+0.8 & 12/02/2008 & \MT & Modifiche ai diagrammi di attivit\`a e alle loro descrizioni\\ \hline
+0.7 & 08/02/2008 & \MT & Aggiunta dei diagrammi di attivit\`a e rispettive descrizioni\\ \hline
 0.6 & 06/02/2008 & \MB & Aggiunta dei diagrammi delle componenti e loro descrizione\\ \hline
 0.5 & 05/02/2008 & \MT & Aggiunta del nome del file nel modello di documento\\ \hline
 0.4 & 22/01/2008 & \MT & Modifica al layout dei documenti\\ \hline
@@ -84,14 +85,20 @@ Versione & Data & Autore & Descrizione \\ \hline
 \newpage
 
 \tableofcontents
+\chapter*{Sommario}
+\addcontentsline{toc}{chapter}{ I Sommario}
+Il presente documento illustra l'architettura logica del prodotto BR-jsys.
+
+\chapter*{Glossario}
+\addcontentsline{toc}{chapter}{II Glossario}
+Viene fornito come documento esterno chiamato \G . I termini che sono presenti nel \G sono sottolineati.
 
 \chapter{Introduzione}
 \section{Scopo del documento}
 Il presente documento descriver\`a il sistema software ``\underline{BR-jsys}'' dal punto di vista architetturale e da noi implementato secondo le esigenze identificate nel documento ``Analisi dei Requisiti''. Attraverso l'uso di diagrammi \underline{UML}, nella fattispecie con alcuni diagrammi delle classi, identificheremo alcune componenti principali nel quale scomporre il sistema. Questo documento fornir\`a quindi una visione pi\`u dettagliata delle componenti da realizzare; verr\`a definito il contesto d'uso del sistema e fornita la decomposizione di questo in componenti principali.
 \section{Scopo del prodotto}
 Per lo scopo del prodotto si faccia riferimento al documento ``Analisi dei Requisiti''.
-\section{Glossario}
-Viene fornito come documento esterno chiamato \G . I termini che sono presenti nel \G sono sottolineati.
+
 \section{Riferimenti}
 \begin{itemize}
 \item Capitolato d'appalto concorso per sistema ``\underline{BR-jsys}'';
