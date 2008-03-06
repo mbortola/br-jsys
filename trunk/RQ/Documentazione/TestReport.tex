@@ -414,7 +414,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=(2+prezzoBase)+(prezzoBase*4)+(prezzoBase/4)+(prezzoBase-3) \\ \hline
+Regola & uscite=(2+prezzoBase) +(prezzoBase*4) +(prezzoBase/4) +(prezzoBase-3) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -434,7 +434,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (entrate+prezzoBase)+(prezzoBase*uscite)+(prezzoBase/entrate)+(prezzoBase-uscite) \\ \hline
+Regola & (entrate+prezzoBase) +(prezzoBase*uscite) +(prezzoBase/entrate) +(prezzoBase-uscite) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -454,7 +454,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (prezzoBase+prezzoBase)+(prezzoBase*prezzoBase)+(prezzoBase/prezzoBase)+(prezzoBase-prezzoBase) \\ \hline
+Regola & (prezzoBase+prezzoBase) +(prezzoBase*prezzoBase) +(prezzoBase/prezzoBase) +(prezzoBase-prezzoBase) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -474,7 +474,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+matricePrezzi)+(matricePrezzi*matricePrezzi)+(matricePrezzi/matricePrezzi)+(matricePrezzi-matricePrezzi) \\ \hline
+Regola & (matricePrezzi+matricePrezzi) +(matricePrezzi*matricePrezzi) +(matricePrezzi/matricePrezzi) +(matricePrezzi-matricePrezzi) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -494,7 +494,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+2)+(matricePrezzi*3)+(matricePrezzi/4)+(matricePrezzi-5) \\ \hline
+Regola & (matricePrezzi+2) +(matricePrezzi*3) +(matricePrezzi/4) +(matricePrezzi-5) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -514,7 +514,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+entrate)+(matricePrezzi*entrate)+(matricePrezzi/entrate)+(matricePrezzi-entrate) \\ \hline
+Regola & (matricePrezzi+entrate) +(matricePrezzi*entrate) +(matricePrezzi/entrate) +(matricePrezzi-entrate) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -534,7 +534,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+prezzoBase)+(matricePrezzi*prezzoBase)+(matricePrezzi/prezzoBase)+(matricePrezzi-prezzoBase) \\ \hline
+Regola & (matricePrezzi+prezzoBase) +(matricePrezzi*prezzoBase) +(matricePrezzi/prezzoBase) +(matricePrezzi-prezzoBase) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -554,7 +554,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+grafico)+(matricePrezzi*grafico)+(matricePrezzi/grafico)+(matricePrezzi-grafico) \\ \hline
+Regola & (matricePrezzi+grafico) +(matricePrezzi*grafico) +(matricePrezzi/grafico) +(matricePrezzi-grafico) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -685,8 +685,45 @@ Regola & nome=``ArticoloUno'' AND nome!=``ArticoloDue''\\ \hline
 \end{tabular} \\
 \end{center}
 
+\begin{Large}\textbf{VT13a}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile effettuare operazioni aritmetiche  tra booleani.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (scontato+3) - (scontato*4)/scontato\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
-
+\begin{Large}\textbf{VT13b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile effettuare operazioni aritmetiche  tra booleani.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (scontato+3) - (scontato*4)/scontato\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+...\\
+ \hline
+\end{tabular} \\
+\end{center}
 
 
 
