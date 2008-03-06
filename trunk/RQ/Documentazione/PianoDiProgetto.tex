@@ -85,7 +85,7 @@ Versione & Data & Autore & Descrizione \\ \hline
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Questo documento rappresenta il piano di progetto preliminare del capitolato d'appalto per il sistema ``\underline{Business Rule}s per sistemi gestionali in architettura \underline{J2EE} \underline{BR-jsys}''. Verr\`a qui riportata la suddivisione dei compiti e il costo complessivo del sistema, in base ai ruoli e alle ore impegnate.
+Questo documento rappresenta il piano di progetto preliminare/consuntivo del capitolato d'appalto per il sistema ``\underline{Business Rule} per sistemi gestionali in architettura \underline{J2EE} \underline{BR-jsys}''. Verr\`a qui riportata la suddivisione dei compiti e il costo complessivo del sistema, in base ai ruoli e alle ore impegnate.
 
 \section{Glossario}
 Il glossario viene fornito come file esterno chiamato \Glossario .
@@ -101,12 +101,19 @@ Il glossario viene fornito come file esterno chiamato \Glossario .
 \chapter{Ruoli}
 \section{Definizione ruoli}
 Nella tabella sottostante riportiamo l'impegno complessivo, in base ai ruoli di progetto, nelle quattro macrofasi previste dal ciclo di vita del nostro software. Quest'ultima
-\`e stata aggiornata al 15 febbraio, al termine della fase di progettazione. Inseriamo quindi il valore effettivo di ore impiegate, riportando tra parentesi la differenza rispetto a quanto preventivato relativamente alle prime due fasi.
+\`e stata aggiornata al 7 marzo, al termine della fase di sviluppo. Inseriamo quindi il valore effettivo di ore impiegate, riportando tra parentesi la differenza rispetto a quanto preventivato relativamente alle prime tre fasi. \\
 Rispetto alle previsioni in fase di analisi sono aumentate considerevolmente 
 le ore dei progettisti ed in fase di progettazione le ore 
-dei programmatori, a scapito di quelle dei progettisti. 
-Tutto ci\`o \`e avvenuto a seguito dell'utilizzo del generatore di parser che ha accelerato notevolmente i tempi, consentendoci di soffermarci di pi\`u sulla progettazione gi\`a in fase di analisi. Di conseguenza, in fase di progettazione abbiamo gi\`a a disposizione un piccolo prototipo software. 
-
+dei programmatori, a scapito di quelle dei progettisti. Tutto ci\`o \`e avvenuto a seguito dell'utilizzo del generatore di parser che ha accelerato notevolmente i tempi, consentendoci di soffermarci di pi\`u sulla progettazione gi\`a in fase di analisi. Di conseguenza, in fase di progettazione abbiamo gi\`a a disposizione un piccolo prototipo software. 
+\\In fase di sviluppo abbiamo quindi dovuto limitare il numero di ore per rientrare nei costi preventivati al cliente. Abbiamo deciso di limitare al minimo le ore di amministratore e responsabile (che sono tra i pi\`u costosi). Questo \`e stato possibile grazie al fatto che:
+\begin{itemize}
+\item il responsabile: ha delegato completamente all'amministratore l'aggiornamento del piano di progetto; 
+\\l'approvazione del codice \`e stata snellita dai dettagliati rapporti sui test forniti dai verificatori; 
+\\la pianificazione della qualit� in questa fase non ha subito particolari modifiche rispetto alle previsini fatte durante la fase precedente.
+\item l'amministratore: non ha dovuto in questa fase mettere mano alle norme di progetto gi\`a sufficientemente esposte in modo chiaro e dettagliato nella fase precedente; 
+\\ha ridotto al minimo la pianificazione di progetto che fatta eccezione per le modifiche ai ruoli di responsabile ed amministratore \`e rimasto pressoch\`e invariato rispetto all'ultima revisione;
+\end{itemize}
+Abbiamo altres\`i limitato le ore di verificatore in questa fase di sviluppo in quanto una parte dei test di verifica su interprete e GUI sono stati rimandati alla successiva fase di convalida quando le componenti saranno completate e pronte all'integrazione con il resto del prodotto.
 
 \begin{table}[hbtp]
 \large{
@@ -117,19 +124,19 @@ Tutto ci\`o \`e avvenuto a seguito dell'utilizzo del generatore di parser che ha
 \textbf{Ruoli} & \textbf{Analisi} & \textbf{Progett.} & \textbf{Sviluppo} & \textbf{Verifica}\\
 \hline
 
-{Responsabile}&10&10&10&9 \\ 
+{Responsabile}&10&10&7\footnotesize{(-3)} &9 \\ 
 \hline 
-{Amministratore} &10&10&10&10\\ 
+{Amministratore} &10&10&8\footnotesize{(-2)}&10\\ 
 \hline
 {Analista}& 60 \footnotesize{(-2)}&20&5&0 \\
 \hline
 {Progettista}&29 \footnotesize{(+24)}&6 \footnotesize{(-15)}&25&0 \\
 \hline
-{Programmatore}&0&10 \footnotesize{(+5)}&60&55 \\
+{Programmatore}&0&10 \footnotesize{(+5)}&59\footnotesize{(-1)}&55 \\
 \hline
-{Verificatore}& 30&30&90&95 \\
+{Verificatore}& 30&30&85\footnotesize{(-5)}&95 \\
 \hline
-{Totale}& 137 \footnotesize{(+22)}&140 \footnotesize{(-10)}&200&169 \\
+{Totale}& 137 \footnotesize{(+22)}&140 \footnotesize{(-10)}&189\footnotesize{(-11)}&169 \\
 \hline
 \end{tabular} \\
 
@@ -138,7 +145,7 @@ Tutto ci\`o \`e avvenuto a seguito dell'utilizzo del generatore di parser che ha
 
 \end{table}
 
-Il seguente grafico mostra in che misura incide ciascun ruolo per ogni macrofase. Abbiamo voluto mettere in evidenza le variazioni tra le nostre previsioni e il tempo effettivamente dedicato ad ogni ruolo, affiancando alle colonne con i colori pi\`u chiari (a destra, rappresentano i dati effettivi) le colonne che invece rappresentano i dati previsti (le abbiamo marcate con colori pi\`u scuri). Tale convenzione sar\`a usata anche nei grafici successivi. Per quanto riguarda le fasi di sviluppo e verifica le due colonne (dati previsti/effettivi) coincidono, in quanto non siamo in possesso ancora di dati effettivi, trattandosi di fasi che affronteremo nell'immediato futuro.
+Il seguente grafico mostra in che misura incide ciascun ruolo per ogni macrofase. Abbiamo voluto mettere in evidenza le variazioni tra le nostre previsioni e il tempo effettivamente dedicato ad ogni ruolo, affiancando alle colonne con i colori pi\`u chiari (a destra, rappresentano i dati effettivi) le colonne che invece rappresentano i dati previsti (le abbiamo marcate con colori pi\`u scuri). Tale convenzione sar\`a usata anche nei grafici successivi. Per quanto riguarda la fase di verifica le due colonne (dati previsti/effettivi) coincidono, in quanto non siamo in possesso ancora di dati effettivi, trattandosi di fasi che affronteremo nell'immediato futuro.
 
 \begin{center}
 \includegraphics [width=1\textwidth] {progetto/confronto-ruoli-fasi.eps}
@@ -176,7 +183,7 @@ complessive previste di realizzazione del prodotto. Le cifre tra parentesi indic
 }
 \end{table}
 
-Evidenziamo la distribuzione delle ore, aggiornata al 15 febbraio, tra i vari ruoli con un grafico. A differenza di prima abbiamo qui una visione globale riguardante tutto il ciclo di vita del software.
+Evidenziamo la distribuzione delle ore, aggiornata al 7 marzo, tra i vari ruoli con un grafico. A differenza di prima abbiamo qui una visione globale riguardante tutto il ciclo di vita del software.
 Anche in questo grafico a torta usiamo la convenzione che associa ai colori pi\`u scuri i dati previsti e a quelli pi\`u chiari i dati effettivi.
 
 
@@ -186,7 +193,7 @@ Anche in questo grafico a torta usiamo la convenzione che associa ai colori pi\`
 
 
 \section{Assegnazione dei ruoli e delle ore a ciascun membro}
-Nelle seguenti tabelle vediamo la ripartizione delle ore nelle quattro macro-fasi rispetto ai ruoli di progetto. Per le fasi gi\`a concluse (analisi e progettazione) riportiamo le ore effettive indicando tra parentesi in che misura si discostano dalle previsioni iniziali.
+Nelle seguenti tabelle vediamo la ripartizione delle ore nelle quattro macro-fasi rispetto ai ruoli di progetto. Per le fasi gi\`a concluse (analisi, progettazione e sviluppo) riportiamo le ore effettive indicando tra parentesi in che misura si discostano dalle previsioni iniziali.
 \begin{table}[hbtp]
 \large{
 \begin{tabular}{l}
@@ -307,18 +314,18 @@ Nelle seguenti tabelle vediamo la ripartizione delle ore nelle quattro macro-fas
 \begin{table}[hbtp]
 \large{
 \begin{tabular}{l}
-\Large{\textbf{\textsf{Fase di Sviluppo (Preventivo) - 1}}} \\
+\Large{\textbf{\textsf{Fase di Sviluppo (Consuntivo) - 1}}} \\
 \begin{tabular}{||p{3.5cm}||p{2cm}||p{2cm}||p{2cm}||p{2cm}||}
 \hline
 \textbf{Membro} & \textbf{Respon.} & \textbf{Ammin.} & \textbf{Analista} & \textbf{Progett.}\\ \hline
 {Appon Luca}&0&0&2&5 \\ \hline 
 {Bortolato Michele} &0&2&0&3\\ \hline
-{Carraro Filippo}&5&0&0&4 \\ \hline
-{Meroi Mattia}&0&0&3&4\\ \hline
-{Tessarotto Marco} &5&6&0&3\\ \hline
-{Trivellato Alessia} &0&2&0&3 \\ \hline
+{Carraro Filippo}&3\footnotesize{(-2)}&0&0&6\footnotesize{(+2)} \\ \hline
+{Meroi Mattia}&0&0&3&3\footnotesize{(-1)}\\ \hline
+{Tessarotto Marco} &2\footnotesize{(-3)}&2\footnotesize{(-4)}&0&2\footnotesize{(-1)}\\ \hline
+{Trivellato Alessia} &2\footnotesize{(+2)}&4\footnotesize{(+2)}&0&3 \\ \hline
 {Trivellato Elena} &0&0&0&3 \\ \hline
-{Totale}& 10&10&5&25 \\ \hline
+{Totale}& 7\footnotesize{(-3)}&8\footnotesize{(-2)}&5&25 \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -326,18 +333,18 @@ Nelle seguenti tabelle vediamo la ripartizione delle ore nelle quattro macro-fas
 \begin{table}[hbtp]
 \large{
 \begin{tabular}{l}
-\Large{\textbf{\textsf{Fase di Sviluppo (Preventivo) - 2}}} \\
+\Large{\textbf{\textsf{Fase di Sviluppo (Consuntivo) - 2}}} \\
 \begin{tabular}{||p{3.5cm}||p{2cm}||p{2cm}||p{2cm}||p{2cm}||}
 \hline
 \textbf{Membro} & \textbf{Program} & \textbf{Verif.} & \textbf{Totale}\\ \hline
-{Appon Luca}&10&12&29 \\ \hline 
-{Bortolato Michele} &12&10&27\\ \hline
-{Carraro Filippo}&8&12&29 \\ \hline
-{Meroi Mattia}&12&9&28\\ \hline
-{Tessarotto Marco} &4&11&29\\ \hline
-{Trivellato Alessia} &7&17&29 \\ \hline
-{Trivellato Elena} &7&19&29 \\ \hline
-{Totale}& 60&90&200 \\ \hline
+{Appon Luca}&10&9\footnotesize{(-3)}&26\footnotesize{(-3)} \\ \hline 
+{Bortolato Michele} &12&11\footnotesize{(+1)}&28\footnotesize{(+1)}\\ \hline
+{Carraro Filippo}&8&10\footnotesize{(-2)}&27\footnotesize{(-2)} \\ \hline
+{Meroi Mattia}&12&8\footnotesize{(-1)}&26\footnotesize{(-2)}\\ \hline
+{Tessarotto Marco} &4&18\footnotesize{(+7)}&28\footnotesize{(-1)}\\ \hline
+{Trivellato Alessia} &7&11\footnotesize{(-6)}&26\footnotesize{(-3)} \\ \hline
+{Trivellato Elena} &6\footnotesize{(-1)}&18\footnotesize{(-1)}&27\footnotesize{(-2)} \\ \hline
+{Totale}& 59\footnotesize{(-1)}&85\footnotesize{(-5)}&189\footnotesize{(-11)} \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -387,7 +394,7 @@ Nelle seguenti tabelle vediamo la ripartizione delle ore nelle quattro macro-fas
 \section{Carico totale di ore per ciascun componente}
 In questa sezione vediamo in che misura (numero di ore) ogni componente collabora alla 
 realizzazione del progetto in ogni macrofase e globalmente. Come prima, a fianco delle ore effettive indicheremo lo scostamento dalle previsioni.
-Il bilancio delle ore ``previste-effettive'' ha evidenziato un leggero aumento del carico complessivo di lavoro per ciascun membro del gruppo, quantificabile mediamente in 1-2 ore ciascuno.
+Il bilancio delle ore ``previste-effettive'' aveva evidenziato un leggero aumento del carico complessivo di lavoro per ciascun membro del gruppo al termine della fase precedente. In fase di sviluppo invece assistiamo alla forzata riduzione del numero globale delle ore, al fine rientrare nei costi pattuiti con il committente. Tale riduzione non \`e stata distribuita in maniera omogenea tra i componenti del gruppo, pertanto alcuni hanno beneficiato pi\`u di altri della diminuzione del carico di lavoro. La Happycode si impegna, per quanto possibile, a tenere conto di ci\`o nella fase di verifica, richiedendo maggior impegno a coloro che hanno dedicato alla fase di sviluppo un numero minore di ore e alleggerendo invece il carico di lavoro di coloro che hanno fin qui contribuito di pi\`u allo sviluppo del software.
 
 
 \begin{table}[hbtp]
@@ -404,17 +411,17 @@ Il bilancio delle ore ``previste-effettive'' ha evidenziato un leggero aumento d
 \hline 
 {Bortolato Michele} &6&7&11&18 \footnotesize{(+3)}\\ 
 \hline
-{Carraro Filippo}&5&5&12&17 \footnotesize{(+1)} \\
+{Carraro Filippo}&3\footnotesize{(-2)}&5&12&19 \footnotesize{(+3)} \\
 \hline
-{Meroi Mattia}&6&5&12 \footnotesize{(-1)}&15 \footnotesize{(+1)}\\
+{Meroi Mattia}&6&5&12 \footnotesize{(-1)}&14\\
 \hline
-{Tessarotto Marco} &5&6&13&19 \footnotesize{(+3)}\\
+{Tessarotto Marco} &2\footnotesize{(-3)}&2\footnotesize{(-4)}&13&18 \footnotesize{(+2)}\\
 \hline
-{Trivellato Alessia} &5&7&11&18 \\
+{Trivellato Alessia} &7\footnotesize{(+2)}&9\footnotesize{(+2)}&11&15\footnotesize{(-3)} \\
 \hline
-{Trivellato Elena} &6&5&12&16 \\
+{Trivellato Elena} &6&5&12&14\footnotesize{(-2)} \\
 \hline
-{Totale}& 39&40&83 \footnotesize{(-2)}&114 \footnotesize{(+9)} \\
+{Totale}& 36\footnotesize{(-3)}&38\footnotesize{(-2)}&83\footnotesize{(-2)}&114 \footnotesize{(+9)} \\
 \hline
 
 
@@ -433,21 +440,21 @@ Il bilancio delle ore ``previste-effettive'' ha evidenziato un leggero aumento d
 \hline
 \textbf{Membro} & \textbf{Program} & \textbf{Verif.} & \textbf{Totale}\\
 \hline
-{Appon Luca}&16&36&91 \\ 
+{Appon Luca}&16&33\footnotesize{(-3)}&88\footnotesize{(-3)} \\ 
 \hline 
-{Bortolato Michele} &17 \footnotesize{(+2)}&36&95 \footnotesize{(+5)}\\ 
+{Bortolato Michele} &17 \footnotesize{(+2)}&37\footnotesize{(+1)}&96 \footnotesize{(+6)}\\ 
 \hline
-{Carraro Filippo}&20 \footnotesize{(+2)}&34&93 \footnotesize{(+3)} \\
+{Carraro Filippo}&20 \footnotesize{(+2)}&32\footnotesize{(-2)}&91\footnotesize{(-23)} \\
 \hline
-{Meroi Mattia}&19&33&90\\
+{Meroi Mattia}&19&32\footnotesize{(-1)}&88\footnotesize{(-2)}\\
 \hline
-{Tessarotto Marco} &15 \footnotesize{(-1)}&35&93 \footnotesize{(+2)}\\
+{Tessarotto Marco} &15 \footnotesize{(-1)}&42\footnotesize{(+7)}&92 \footnotesize{(+1)}\\
 \hline
-{Trivellato Alessia} &19 \footnotesize{(+1)}&35&92 \footnotesize{(+1)} \\
+{Trivellato Alessia} &19 \footnotesize{(+1)}&29\footnotesize{(-6)}&90 \footnotesize{(-1)} \\
 \hline
-{Trivellato Elena} &19 \footnotesize{(+1)}&36&92 \footnotesize{(+1)} \\
+{Trivellato Elena} &18&35\footnotesize{(-1)}&90 \footnotesize{(-1)} \\
 \hline
-{Totale} &125 \footnotesize{(+5)}&245&646 \footnotesize{(+12)} \\
+{Totale} &124 \footnotesize{(+4)}&240\footnotesize{(-5)}&636 \footnotesize{(+2)} \\
 \hline
 
 \end{tabular} \\
@@ -487,7 +494,7 @@ Evidenziamo il costo orario di ciascun ruolo di progetto
 \end{table}
 
 \section{Costo totale per ogni ruolo}
-Evidenziamo il costo totale di ciascun ruolo di progetto e la sua incidenza percentuale sul totale di spesa prevista. Vediamo che l'incremento di ore effettive rispetto a quelle previste ha causato un aumento del costo complessivo del lavoro di euro 205,00.
+Evidenziamo il costo totale di ciascun ruolo di progetto e la sua incidenza percentuale sul totale di spesa prevista. Nella fase precedente il costo totale con i dati effettivi delle prime fasi superava di 205,00 euro la spesa prevista. A fase di sviluppo conclusa invece, il prezzo previsto per il prodotto finito, tenuto conto delle ore gi� dedicate a questo progetto, e di 11,00 euro inferiore alle previsioni iniziali.
 
 \begin{table}[hbtp]
 \large{
@@ -498,19 +505,19 @@ Evidenziamo il costo totale di ciascun ruolo di progetto e la sua incidenza perc
 \hline
 \textbf{Ruoli} & \textbf{Costo Totale}& \textbf{Costo Percentuale}\\
 \hline
-{Responsabile}&1.170,00&10 \footnotesize{(-0,3)}\\ 
+{Responsabile}&1.080,00\footnotesize{(-90,00)}&9 \footnotesize{(-1)}\\ 
 \hline 
-{Amministratore} &720,00&6\\ 
+{Amministratore} &684,00\footnotesize{(-36,00)}&6\\ 
 \hline
-{Analista} &2.075,00 \footnotesize{(-50,00)}&17 \footnotesize{(-0,7)} \\
+{Analista} &2.075,00 \footnotesize{(-50,00)}&18 \\
 \hline
-{Progettista} &2.280,00 \footnotesize{(+180,00)}&21 \footnotesize{(+3,5)} \\
+{Progettista} &2.280,00 \footnotesize{(+180,00)}&20 \footnotesize{(-2)} \\
 \hline
-{Programmatore} &1.875,00 \footnotesize{(+75,00)}&15 \footnotesize{(-1)}\\
+{Programmatore} &1.860,00 \footnotesize{(+60,00)}&16 \footnotesize{(+1)}\\
 \hline
-{Verificatore} &3.675,00&31 \footnotesize{(-1,5)} \\
+{Verificatore} &3.600,00\footnotesize{(-75,00)}&31 \footnotesize{(+1)} \\
 \hline
-{Totale} &11.795,00 \footnotesize{(+205,00)}&100 \\
+{Totale} &11.579,00 \footnotesize{(-11,00)}&100 \\
 \hline
 
 \end{tabular} \\
@@ -528,8 +535,8 @@ Evidenziamo, attraverso un grafico, come il costo di ciascun ruolo incida in per
 \chapter{Diagramma di Gantt}
 Alleghiamo due files denominati rispettivamente:
 \begin {itemize} 
-\item ganttRPD.png che rappresenta l'impiego delle risorse nel tempo visualizzate giorno per giorno;
-\item gantt\_settRPD.png che invece mostra l'impiego delle risorse pi\`u globalmente organizzato per settimane.
+\item ganttRQ.png che rappresenta l'impiego delle risorse nel tempo visualizzate giorno per giorno;
+\item gantt\_settRQ.png che invece mostra l'impiego delle risorse pi\`u globalmente organizzato per settimane.
 \end{itemize}
 
 
