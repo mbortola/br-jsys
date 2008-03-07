@@ -257,11 +257,11 @@ public class Gui extends JFrame {
 				.addGroup(mainGuiLayout.createSequentialGroup()
 						.addContainerGap()
 						.addGroup(mainGuiLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(jButton_sandbox, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-								.addGroup(GroupLayout.Alignment.LEADING, mainGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-										.addComponent(jButton_Inserisci, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(jButton_Rimuovi, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-										.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(jButton_sandbox,  GroupLayout.Alignment.LEADING,  GroupLayout.DEFAULT_SIZE,  139,  Short.MAX_VALUE)
+								.addGroup(GroupLayout.Alignment.LEADING,  mainGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING,  false)
+										.addComponent(jButton_Inserisci,  GroupLayout.DEFAULT_SIZE,  GroupLayout.DEFAULT_SIZE,  Short.MAX_VALUE)
+										.addComponent(jButton_Rimuovi,  GroupLayout.DEFAULT_SIZE,  GroupLayout.DEFAULT_SIZE,  Short.MAX_VALUE)))
+										.addContainerGap(GroupLayout.DEFAULT_SIZE,  Short.MAX_VALUE))
 		);
 		mainGuiLayout.setVerticalGroup(
 				mainGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -271,7 +271,7 @@ public class Gui extends JFrame {
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 						.addComponent(jButton_Rimuovi)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(jButton_sandbox, GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+						.addComponent(jButton_sandbox,  GroupLayout.DEFAULT_SIZE,  49,  Short.MAX_VALUE)
 						.addContainerGap())
 		);
 
@@ -288,26 +288,26 @@ public class Gui extends JFrame {
 
 		/*Costruzione Di sandbox */
 
-		sandbox.setBackground(new java.awt.Color(184, 207, 215));
+		sandbox.setBackground(new java.awt.Color(184,  207,  215));
 
-		pannelloQuery.setBackground(new java.awt.Color(184, 207, 215));
+		pannelloQuery.setBackground(new java.awt.Color(184,  207,  215));
 
-		textAreaQuery.setBackground(new java.awt.Color(255, 255, 204));
+		textAreaQuery.setBackground(new java.awt.Color(255,  255,  204));
 		textAreaQuery.setColumns(20);
 		textAreaQuery.setRows(5);
 		jScrollPane_Query.setViewportView(textAreaQuery);
 
-		pannelloQuery.addTab("Query", jScrollPane_Query);
+		pannelloQuery.addTab("Query",  jScrollPane_Query);
 
-		pannelloRisultati.setBackground(new java.awt.Color(184, 207, 215));
+		pannelloRisultati.setBackground(new java.awt.Color(184,  207,  215));
 
-		textAreaRisultati.setBackground(new java.awt.Color(255, 255, 204));
+		textAreaRisultati.setBackground(new java.awt.Color(255,  255,  204));
 		textAreaRisultati.setColumns(20);
 		textAreaRisultati.setRows(5);
 		jScrollPane_Ris.setViewportView(textAreaRisultati);
 		textAreaRisultati.setEditable(false);
 
-		pannelloRisultati.addTab("Risultati", jScrollPane_Ris);
+		pannelloRisultati.addTab("Risultati",  jScrollPane_Ris);
 
 		jButton_Esegui.setText("Esegui");
 
@@ -318,25 +318,25 @@ public class Gui extends JFrame {
 		sandbox.getContentPane().setLayout(sandboxLayout);
 		sandboxLayout.setHorizontalGroup(
 				sandboxLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addComponent(pannelloQuery, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-				.addComponent(jButton_Esegui, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-				.addComponent(jSeparator, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-				.addComponent(pannelloRisultati, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-				.addComponent(statusBar, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+				.addComponent(pannelloQuery,  GroupLayout.DEFAULT_SIZE,  468,  Short.MAX_VALUE)
+				.addComponent(jButton_Esegui,  GroupLayout.DEFAULT_SIZE,  468,  Short.MAX_VALUE)
+				.addComponent(jSeparator,  GroupLayout.DEFAULT_SIZE,  468,  Short.MAX_VALUE)
+				.addComponent(pannelloRisultati,  GroupLayout.DEFAULT_SIZE,  468,  Short.MAX_VALUE)
+				.addComponent(statusBar,  GroupLayout.DEFAULT_SIZE,  468,  Short.MAX_VALUE)
 		);
 		sandboxLayout.setVerticalGroup(
 				sandboxLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(sandboxLayout.createSequentialGroup()
-						.addComponent(pannelloQuery, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
+						.addComponent(pannelloQuery,  GroupLayout.PREFERRED_SIZE,  161,  GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(jButton_Esegui, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+						.addComponent(jButton_Esegui,  GroupLayout.PREFERRED_SIZE,  32,  GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(pannelloRisultati, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
+						.addComponent(pannelloRisultati,  GroupLayout.PREFERRED_SIZE,  161,  GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(jSeparator, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
+						.addComponent(jSeparator,  GroupLayout.PREFERRED_SIZE,  10,  GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 						.addComponent(statusBar)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addContainerGap(GroupLayout.DEFAULT_SIZE,  Short.MAX_VALUE))
 
 		);
 
@@ -353,7 +353,7 @@ public class Gui extends JFrame {
 
 		/* Costruzione Di insertGui */
 
-		insertGui.setBackground(new java.awt.Color(255, 255, 204));
+		insertGui.setBackground(new java.awt.Color(255,  255,  204));
 
 		jLabel_Nome.setText("Nome");
 		jLabel_BOAss.setText("BO Associato");
@@ -372,10 +372,10 @@ public class Gui extends JFrame {
 		insertGui.getContentPane().setLayout(insertGuiLayout);
 		insertGuiLayout.setHorizontalGroup(
 				insertGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(GroupLayout.Alignment.TRAILING, insertGuiLayout.createSequentialGroup()
+				.addGroup(GroupLayout.Alignment.TRAILING,  insertGuiLayout.createSequentialGroup()
 						.addContainerGap()
 						.addGroup(insertGuiLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(jButton_Val, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+								.addComponent(jButton_Val,  GroupLayout.Alignment.LEADING,  GroupLayout.DEFAULT_SIZE,  337,  Short.MAX_VALUE)
 								.addGroup(insertGuiLayout.createSequentialGroup()
 										.addGroup(insertGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 												.addComponent(jLabel_Nome)
@@ -384,10 +384,10 @@ public class Gui extends JFrame {
 												.addComponent(jLabel_Comm))
 												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 												.addGroup(insertGuiLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-														.addComponent(jScrollPane_Reg, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-														.addComponent(jTextField_BOAss, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-														.addComponent(jTextField_Nome, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-														.addComponent(jScrollPane_Comm, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))))
+														.addComponent(jScrollPane_Reg,  GroupLayout.Alignment.LEADING,  GroupLayout.DEFAULT_SIZE,  270,  Short.MAX_VALUE)
+														.addComponent(jTextField_BOAss,  GroupLayout.Alignment.LEADING,  GroupLayout.DEFAULT_SIZE,  270,  Short.MAX_VALUE)
+														.addComponent(jTextField_Nome,  GroupLayout.Alignment.LEADING,  GroupLayout.DEFAULT_SIZE,  270,  Short.MAX_VALUE)
+														.addComponent(jScrollPane_Comm,  GroupLayout.DEFAULT_SIZE,  270,  Short.MAX_VALUE))))
 														.addContainerGap())
 		);
 		insertGuiLayout.setVerticalGroup(
@@ -396,22 +396,22 @@ public class Gui extends JFrame {
 						.addContainerGap()
 						.addGroup(insertGuiLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(jLabel_Nome)
-								.addComponent(jTextField_Nome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(jTextField_Nome,  GroupLayout.PREFERRED_SIZE,  GroupLayout.DEFAULT_SIZE,  GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 								.addGroup(insertGuiLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 										.addComponent(jLabel_BOAss)
-										.addComponent(jTextField_BOAss, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(jTextField_BOAss,  GroupLayout.PREFERRED_SIZE,  GroupLayout.DEFAULT_SIZE,  GroupLayout.PREFERRED_SIZE))
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 										.addGroup(insertGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 												.addComponent(jLabel_Reg)
-												.addComponent(jScrollPane_Reg, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+												.addComponent(jScrollPane_Reg,  GroupLayout.PREFERRED_SIZE,  117,  GroupLayout.PREFERRED_SIZE))
 												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 												.addGroup(insertGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 														.addComponent(jLabel_Comm)
-														.addComponent(jScrollPane_Comm, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+														.addComponent(jScrollPane_Comm,  GroupLayout.PREFERRED_SIZE,  117,  GroupLayout.PREFERRED_SIZE))
 														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-														.addComponent(jButton_Val, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-														.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+														.addComponent(jButton_Val,  GroupLayout.PREFERRED_SIZE,  36,  GroupLayout.PREFERRED_SIZE)
+														.addContainerGap(GroupLayout.DEFAULT_SIZE,  Short.MAX_VALUE))
 		);
 
 		//------------------------------------------------------       
@@ -458,12 +458,12 @@ public class Gui extends JFrame {
 								.addComponent(jLabel_DBOAss)
 								.addComponent(jLabel_DNome)
 								.addComponent(jLabel_DComm))
-								.addGap(10, 10, 10)
+								.addGap(10,  10,  10)
 								.addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addComponent(jScrollPane_DComm, GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
-										.addComponent(jScrollPane_DReg, GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
-										.addComponent(jTextField_DBOAss, GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
-										.addComponent(jTextField_DNome, GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE))
+										.addComponent(jScrollPane_DComm,  GroupLayout.DEFAULT_SIZE,  413,  Short.MAX_VALUE)
+										.addComponent(jScrollPane_DReg,  GroupLayout.DEFAULT_SIZE,  413,  Short.MAX_VALUE)
+										.addComponent(jTextField_DBOAss,  GroupLayout.DEFAULT_SIZE,  413,  Short.MAX_VALUE)
+										.addComponent(jTextField_DNome,  GroupLayout.DEFAULT_SIZE,  413,  Short.MAX_VALUE))
 										.addContainerGap())
 		);
 		jPanel_DettIntLayout.setVerticalGroup(
@@ -472,54 +472,54 @@ public class Gui extends JFrame {
 						.addContainerGap()
 						.addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(jLabel_DNome)
-								.addComponent(jTextField_DNome, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(jTextField_DNome,  GroupLayout.PREFERRED_SIZE,  GroupLayout.DEFAULT_SIZE,  GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 								.addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 										.addComponent(jLabel_DBOAss)
-										.addComponent(jTextField_DBOAss, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(jTextField_DBOAss,  GroupLayout.PREFERRED_SIZE,  GroupLayout.DEFAULT_SIZE,  GroupLayout.PREFERRED_SIZE))
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 										.addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 												.addComponent(jLabel_DReg)
-												.addComponent(jScrollPane_DReg, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+												.addComponent(jScrollPane_DReg,  GroupLayout.PREFERRED_SIZE,  117,  GroupLayout.PREFERRED_SIZE))
 												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 												.addGroup(jPanel_DettIntLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 														.addComponent(jLabel_DComm)
-														.addComponent(jScrollPane_DComm, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
-														.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+														.addComponent(jScrollPane_DComm,  GroupLayout.PREFERRED_SIZE,  117,  GroupLayout.PREFERRED_SIZE))
+														.addContainerGap(GroupLayout.DEFAULT_SIZE,  Short.MAX_VALUE))
 		);
 
-		jTabbedPane_Dettagli.addTab("Details", jPanel_DettInt);
+		jTabbedPane_Dettagli.addTab("Details",  jPanel_DettInt);
 
 		GroupLayout remGuiLayout = new GroupLayout(remGui.getContentPane());
 		remGui.getContentPane().setLayout(remGuiLayout);
 		remGuiLayout.setHorizontalGroup(
 				remGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(GroupLayout.Alignment.TRAILING, remGuiLayout.createSequentialGroup()
+				.addGroup(GroupLayout.Alignment.TRAILING,  remGuiLayout.createSequentialGroup()
 						.addContainerGap()
 						.addGroup(remGuiLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(list_BR, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
-								.addGroup(GroupLayout.Alignment.LEADING, remGuiLayout.createSequentialGroup()
-										.addComponent(jTextField_Cerca, GroupLayout.PREFERRED_SIZE, 347, GroupLayout.PREFERRED_SIZE)
+								.addComponent(list_BR,  GroupLayout.Alignment.LEADING,  GroupLayout.DEFAULT_SIZE,  511,  Short.MAX_VALUE)
+								.addGroup(GroupLayout.Alignment.LEADING,  remGuiLayout.createSequentialGroup()
+										.addComponent(jTextField_Cerca,  GroupLayout.PREFERRED_SIZE,  347,  GroupLayout.PREFERRED_SIZE)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(jButton_Cerca, GroupLayout.PREFERRED_SIZE, 158, GroupLayout.PREFERRED_SIZE))
-										.addComponent(jButton_RimBR, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
-										.addComponent(jTabbedPane_Dettagli, GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
+										.addComponent(jButton_Cerca,  GroupLayout.PREFERRED_SIZE,  158,  GroupLayout.PREFERRED_SIZE))
+										.addComponent(jButton_RimBR,  GroupLayout.Alignment.LEADING,  GroupLayout.DEFAULT_SIZE,  511,  Short.MAX_VALUE)
+										.addComponent(jTabbedPane_Dettagli,  GroupLayout.DEFAULT_SIZE,  511,  Short.MAX_VALUE))
 										.addContainerGap())
 		);
 		remGuiLayout.setVerticalGroup(
 				remGuiLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(GroupLayout.Alignment.TRAILING, remGuiLayout.createSequentialGroup()
+				.addGroup(GroupLayout.Alignment.TRAILING,  remGuiLayout.createSequentialGroup()
 						.addContainerGap()
 						.addGroup(remGuiLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-								.addComponent(jButton_Cerca, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-								.addComponent(jTextField_Cerca, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+								.addComponent(jButton_Cerca,  GroupLayout.PREFERRED_SIZE,  39,  GroupLayout.PREFERRED_SIZE)
+								.addComponent(jTextField_Cerca,  GroupLayout.PREFERRED_SIZE,  30,  GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(list_BR, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
+								.addComponent(list_BR,  GroupLayout.PREFERRED_SIZE,  137,  GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(jTabbedPane_Dettagli, GroupLayout.PREFERRED_SIZE, 340, GroupLayout.PREFERRED_SIZE)
+								.addComponent(jTabbedPane_Dettagli,  GroupLayout.PREFERRED_SIZE,  340,  GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(jButton_RimBR, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-								.addGap(16, 16, 16))
+								.addComponent(jButton_RimBR,  GroupLayout.PREFERRED_SIZE,  40,  GroupLayout.PREFERRED_SIZE)
+								.addGap(16,  16,  16))
 		);
 
 
@@ -550,17 +550,17 @@ public class Gui extends JFrame {
 				layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(layout.createSequentialGroup()
 						.addContainerGap()
-						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-								.addComponent(jButton_Entra, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING,  false)
+								.addComponent(jButton_Entra,  GroupLayout.Alignment.LEADING,  GroupLayout.DEFAULT_SIZE,  GroupLayout.DEFAULT_SIZE,  Short.MAX_VALUE)
+								.addGroup(GroupLayout.Alignment.LEADING,  layout.createSequentialGroup()
 										.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 												.addComponent(jLabel_Username)
 												.addComponent(jLabel_Password))
 												.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-												.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+												.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING,  false)
 														.addComponent(JText_Username)
-														.addComponent(jPassword_Password, GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))))
-														.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+														.addComponent(jPassword_Password,  GroupLayout.DEFAULT_SIZE,  125,  Short.MAX_VALUE))))
+														.addContainerGap(GroupLayout.DEFAULT_SIZE,  Short.MAX_VALUE))
 		);
 		layout.setVerticalGroup(
 				layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -568,14 +568,14 @@ public class Gui extends JFrame {
 						.addContainerGap()
 						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(jLabel_Username)
-								.addComponent(JText_Username, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(JText_Username,  GroupLayout.PREFERRED_SIZE,  GroupLayout.DEFAULT_SIZE,  GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 								.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 										.addComponent(jLabel_Password)
-										.addComponent(jPassword_Password, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(jPassword_Password,  GroupLayout.PREFERRED_SIZE,  GroupLayout.DEFAULT_SIZE,  GroupLayout.PREFERRED_SIZE))
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 										.addComponent(jButton_Entra)
-										.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+										.addContainerGap(GroupLayout.DEFAULT_SIZE,  Short.MAX_VALUE))
 		);
 
 		//------------------------------------------------------
@@ -588,7 +588,7 @@ public class Gui extends JFrame {
 		// Alla chiusura delle finestre non eseguire nessuna operazione per default
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
-		// Le finestre non sono pi� ridimensionabili
+		// Le finestre non sono piu' ridimensionabili
 		this.setResizable(false);
 		mainGui.setResizable(false);
 		remGui.setResizable(false);
@@ -602,14 +602,14 @@ public class Gui extends JFrame {
 		jTextArea_DComm.setEditable(false);
 
 		// Cambio la gestione della chiusura delle finestre
-		this.addWindowListener(new WindowAdapter(){
+		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e)
 			{
 				System.exit(1);
 			}
 		});
 
-		mainGui.addWindowListener(new WindowAdapter(){
+		mainGui.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e)
 			{
 				mainGui.setVisible(false);
@@ -620,14 +620,14 @@ public class Gui extends JFrame {
 			}
 		});
 
-		insertGui.addWindowListener(new WindowAdapter(){
+		insertGui.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e)
 			{
 				jButton_Inserisci.setEnabled(true);
 			}
 		});
 
-		remGui.addWindowListener(new WindowAdapter(){
+		remGui.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e)
 			{
 				jButton_Rimuovi.setEnabled(true);
@@ -635,13 +635,12 @@ public class Gui extends JFrame {
 			}
 		});
 
-		sandbox.addWindowListener(new WindowAdapter(){
+		sandbox.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e)
 			{
 				jButton_sandbox.setEnabled(true);
 			}
 		});
-
 		pack();
 	}
 
@@ -657,28 +656,28 @@ public class Gui extends JFrame {
 
 		String inputPswd=new String(inputP);
 
-		try{
-			queryService=new GUICommunicator(inputU,inputPswd);
-			compiler=new Validator(inputU,inputPswd);
+		try {
+			queryService=new GUICommunicator(inputU,  inputPswd);
+			compiler=new Validator(inputU,  inputPswd);
 			mainGui.pack();
 			mainGui.setVisible(true);
 			this.setVisible(false);
 		}
-		catch(Exception ecc)
+		catch (Exception ecc)
 		{
-			JOptionPane.showMessageDialog(this,ecc.getMessage(),"Login error",JOptionPane.ERROR_MESSAGE);	
+			JOptionPane.showMessageDialog(this,  ecc.getMessage(),  "Login error",  JOptionPane.ERROR_MESSAGE);	
 		} 	
 	}                                             
 
 	/** Evento legato al pulsante Rimuovi.*/
 	private void jButton_RimuoviActionPerformed(ActionEvent evt) {                                                
 
-		//appena apro la finestra di rimozione,aggiorno la lista con tutte
+		//appena apro la finestra di rimozione,  aggiorno la lista con tutte
 		//le regole presenti nel repository.
 		arrayBR=queryService.getListRules();
 		list_BR.setMultipleMode(true);
 
-		for(int i=0;i<arrayBR.length;i++){
+		for (int i=0;i<arrayBR.length;i++) {
 			String z=(arrayBR[i].name);
 			list_BR.add(z);
 		}
@@ -713,47 +712,47 @@ public class Gui extends JFrame {
 		String Reg=jTextArea_Reg.getText();
 		String Comm=jTextArea_Comm.getText();
 
-		BusinessRule r=new BusinessRule(Nome,BOAss,Reg,Comm);
+		BusinessRule r=new BusinessRule(Nome,  BOAss,  Reg,  Comm);
 
 		try {
 			boolean v=compiler.validate(r);
-			if(v){
+			if (v) {
 				// business rule viene inserita
-				JOptionPane.showMessageDialog(this, 
-						"Business Rule inserita e validata correttamente", 
-						"Message", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this,  
+						"Business Rule inserita e validata correttamente",  
+						"Message",  JOptionPane.INFORMATION_MESSAGE);
 			}
-			else{
+			else {
 				//la regola ha un nome che e' gia' presente nel repository.
-				JOptionPane.showMessageDialog(this,"Business Rule gia' presente nel repository","Message",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this,  "Business Rule gia' presente nel repository",  "Message",  JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
-		catch (Exception ecc){
-			JOptionPane.showMessageDialog(this,ecc.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
+		catch (Exception ecc) {
+			JOptionPane.showMessageDialog(this,  ecc.getMessage(),  "ERROR",  JOptionPane.ERROR_MESSAGE);
 		}
 	}                                           
 
 	/** Evento legato al pulsante Cerca.*/
 	private void jButton_CercaActionPerformed(ActionEvent evt) {                                              
-		//cerca il nome della business rule nella lista e lo seleziona,se presente.
+		//cerca il nome della business rule nella lista e lo seleziona,  se presente.
 		String c=jTextField_Cerca.getText();
 
 		boolean t=false;
 
 		//deseleziono tutti
-		for(int i=0;i<arrayBR.length;i++){
+		for (int i=0;i<arrayBR.length;i++) {
 			list_BR.deselect(i);
 		}
 
-		for(int i=0;i<arrayBR.length;i++){
+		for (int i=0;i<arrayBR.length;i++) {
 			String h=list_BR.getItem(i);
-			if(c.equals(h)){
+			if (c.equals(h)) {
 				list_BR.select(i);
 				t=true;
 			}
 		}
-		if(t){
-			JOptionPane.showMessageDialog(this,"Business Rule Selezionata !","BR",JOptionPane.INFORMATION_MESSAGE);
+		if (t) {
+			JOptionPane.showMessageDialog(this,  "Business Rule Selezionata !",  "BR",  JOptionPane.INFORMATION_MESSAGE);
 			// mostro le informazioni riguardanti la BR
 			int is=list_BR.getSelectedIndex();
 			// sapendo quale indice e' selezionato so a quale BR mi riferisco.
@@ -762,26 +761,26 @@ public class Gui extends JFrame {
 			jTextField_DBOAss.setText(arrayBR[is].associated);
 			jTextArea_DReg.setText(arrayBR[is].rule);
 			jTextArea_DComm.setText(arrayBR[is].comment);
-		}else
-			JOptionPane.showMessageDialog(this,"Business Rule Non Trovata !","BR",JOptionPane.ERROR_MESSAGE);
+		} else
+			JOptionPane.showMessageDialog(this,  "Business Rule Non Trovata !",  "BR",  JOptionPane.ERROR_MESSAGE);
 	}                                            
 
 	/** Evento legato al pulsante RimBR.*/
 	private void jButton_RimBRActionPerformed(ActionEvent evt) {                                              
 
 		//Messaggio per dare la conferma della cancellazione delle BR selezionate
-		int n=JOptionPane.showConfirmDialog(this,"Vuoi davvero eliminare le Business Rule selezionate?","Confirm",JOptionPane.YES_NO_OPTION);
-		if(n==0){
+		int n=JOptionPane.showConfirmDialog(this,  "Vuoi davvero eliminare le Business Rule selezionate?",  "Confirm",  JOptionPane.YES_NO_OPTION);
+		if (n==0) {
 			// L'utente conferma la cancellazione
 
 			int[] int_sel=list_BR.getSelectedIndexes();
 			String[] BR_sel=new String[int_sel.length];
 
-			for(int i=0;i<int_sel.length;i++){
+			for (int i=0;i<int_sel.length;i++) {
 				BR_sel[i]=list_BR.getItem(int_sel[i]);
 			}
 
-			for(int i=0;i<BR_sel.length;i++){
+			for (int i=0;i<BR_sel.length;i++) {
 				list_BR.remove(BR_sel[i]);
 				queryService.deleteRuleByName(BR_sel[i]);
 			}
@@ -792,21 +791,21 @@ public class Gui extends JFrame {
 	private void jButton_EseguiActionPerformed(ActionEvent evt) {                                              
 
 		String Query=textAreaQuery.getText();
-		try{
+		try {
 			long prima=java.lang.System.currentTimeMillis();
 			String risultato=queryService.makeQuery(Query);
 			long dopo=java.lang.System.currentTimeMillis();
 			textAreaRisultati.setText(risultato);
-			if(risultato.length()!=0){
+			if (risultato.length()!=0) {
 				statusBar.setText("Impiegati:" + (dopo - prima) + " millisecondi");
 			}
-			else{
+			else {
 				statusBar.setText("Nessun Risultato Trovato");
 			}
 
 		}
-		catch(Exception ecc){
-			JOptionPane.showMessageDialog(this,ecc.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
+		catch (Exception ecc) {
+			JOptionPane.showMessageDialog(this,  ecc.getMessage(),  "ERROR",  JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
