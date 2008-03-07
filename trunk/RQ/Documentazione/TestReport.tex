@@ -1034,59 +1034,6 @@ Regola & uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7) \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=2*3*4+4-3*5-5+3/2*3''\textgreater \\
-\textless AstRuleVersion value=``(= uscite (+ (- (- (+ (* (* 2 3) 4) 4) (* 3 5)) 5) (* (/ 3 2) 3)))''/\textgreater \\
-\textless Bconf type=``=``\textgreater\\
- \textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
- \textless OFloat type=``+''\textgreater \\
-\textless OFloat type=``-''\textgreater \\
-\textless OFloat type=``-''\textgreater \\
-\textless OFloat type=``+''\textgreater \\
-\textless OFloat type=``*''\textgreater \\
-\textless OFloat type=``*''\textgreater \\
-\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
-\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater\\
- \textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater \\
-\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater \\
-\textless OFloat type=``*''\textgreater \\
-\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
-\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater \\
-\textless /OFloat\textgreater \\
-\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater \\
-\textless OFloat type=``*''\textgreater\\
- \textless OFloat type=``/''\textgreater \\
-\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
-\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater \\
-\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater\\
- \textless /OFloat\textgreater \\
-\textless /Bconf\textgreater \\
-\textless /BusinessRule\textgreater \\
- \hline
-\end{tabular} \\
-\end{center}
-
-\begin{Large}\textbf{VT12a}\end{Large} \\
-Si testa una \br\ per verificare che sia impossibile effettuare operazioni tra le stringhe.\\
-Requisiti soddisfatti dall'esecuzione:
-\begin{center}
-\begin{tabular}{|p{5cm}|p{6cm}|} \hline
-\textbf{Attributo \br} & \textbf{Valore} \\ \hline
-Nome & BR \\ \hline
-Commento & Commento\\ \hline
-Business object associato & Articolo \\ \hline
-Regola & ``ArticoloUno''\textgreater``ArticoloUno'' AND ``ArticoloUno''\textgreater=``ArticoloUno'' AND ``ArticoloUno''\textless``ArticoloUno'' AND ``ArticoloUno''\textless=``ArticoloUno'' AND ``ArticoloUno''*nome  AND ``ArticoloUno''-nome  AND ``ArticoloUno''/nome  AND ``ArticoloUno''+nome\\ \hline
-\end{tabular} \\
-\end{center}
-\begin{center}
-\begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
 \textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7)''\textgreater\\
  \textless AstRuleVersion value=``(= uscite (+ (* (/ (+ (* 2 (- (- (+ (* 3 4) 4) (* 3 5)) 5)) 3) 2) 3) 7))''/\textgreater\\
  \textless Bconf type=``=``\textgreater \\
@@ -1126,6 +1073,26 @@ Regola & ``ArticoloUno''\textgreater``ArticoloUno'' AND ``ArticoloUno''\textgrea
 \end{tabular} \\
 \end{center}
 
+\begin{Large}\textbf{VT12a}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile effettuare operazioni tra le stringhe.\\
+Requisiti soddisfatti dall'esecuzione:
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & ``ArticoloUno''\textgreater``ArticoloUno'' AND ``ArticoloUno''\textgreater=``ArticoloUno'' AND ``ArticoloUno''\textless``ArticoloUno'' AND ``ArticoloUno''\textless=``ArticoloUno'' AND ``ArticoloUno''*nome  AND ``ArticoloUno''-nome  AND ``ArticoloUno''/nome  AND ``ArticoloUno''+nome\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Operazione non consentita\\
+ \hline
+\end{tabular} \\
+\end{center}
+
 \begin{Large}\textbf{VT12b}\end{Large} \\
 Si testa una \br\ per verificare che sia possibile effettuare confronti semplici ('=', '!=') tra le stringhe.\\
 Requisiti soddisfatti dall'esecuzione:
@@ -1141,7 +1108,19 @@ Regola & nome=``ArticoloUno'' AND nome!=``ArticoloDue''\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``nome=\&quot;ArticoloUno\&quot;  AND nome!=\&quot;ArticoloDue\&quot;''\textgreater\\
+ \textless AstRuleVersion value=``(AND (= nome \&quot;ArticoloUno\&quot;) (!= nome \&quot;ArticoloDue\&quot;))''/\textgreater\\
+ \textless OpRule type=``AND''\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless FIELD\textgreater nome\textless /FIELD\textgreater\\
+ \textless STRING\textgreater ''ArticoloUno''\textless /STRING\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless Conf type=``!=``\textgreater\\
+ \textless FIELD\textgreater nome\textless /FIELD\textgreater\\
+ \textless STRING\textgreater ''ArticoloDue''\textless /STRING\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless /OpRule\textgreater\\
+ \textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
