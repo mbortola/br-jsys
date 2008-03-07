@@ -97,9 +97,9 @@ public class Gui extends JFrame {
 		list_BR = new List();
 
 		//------------------------------------------------------
-		/**
+		/*
 		 * Inizializzazione Finestra Login
-		 **/
+		 */
 
 		/* Inizializzazione delle Componenti della Finestra di Login */
 		jPassword_Password = new JPasswordField();
