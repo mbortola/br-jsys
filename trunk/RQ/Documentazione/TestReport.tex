@@ -981,40 +981,9 @@ Regola & uscite=2*3*4+4-3*5-5+3/2*3 \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=2*3*4+4-3*5-5+3/2*3''\textgreater\\
- \textless AstRuleVersion value=``(= uscite (+ (- (- (+ (* (* 2 3) 4) 4) (* 3 5)) 5) (* (/ 3 2) 3)))''/\textgreater\\
- \textless Bconf type=``=``\textgreater \\
-\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
-\textless OFloat type=``+''\textgreater \\
-\textless OFloat type=``-''\textgreater \\
-\textless OFloat type=``-''\textgreater \\
-\textless OFloat type=``+''\textgreater \\
-\textless OFloat type=``*''\textgreater\\
- \textless OFloat type=``*''\textgreater\\
- \textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
-\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater \\
-\textless FLOAT\textgreater 4\textless /FLOAT\textgreater\\
- \textless /OFloat\textgreater \\
-\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater \\
-\textless OFloat type=``*''\textgreater \\
-\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
-\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater \\
-\textless /OFloat\textgreater \\
-\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater\\
- \textless OFloat type=``*''\textgreater \\
-\textless OFloat type=``/''\textgreater \\
-\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
-\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater \\
-\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater\\
- \textless /OFloat\textgreater\\
- \textless /Bconf\textgreater \\
-\textless /BusinessRule\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=2*3*4+4-3*5-5+3/2*3''\textgreater
+ \textless AstRuleVersion value=``(= uscite (+ (- (- (+ (* (* 2 3) 4) 4) (* 3 5)) 5) (* (/ 3 2) 3)))''/\textgreater
+ \textless Bconf type=``=``\textgreater \textless FIELD\textgreater uscite\textless /FIELD\textgreater \textless OFloat type=``+''\textgreater \textless OFloat type=``-''\textgreater \textless OFloat type=``-''\textgreater \textless OFloat type=``+''\textgreater \textless OFloat type=``*''\textgreater \textless OFloat type=``*''\textgreater \textless FLOAT\textgreater 2\textless /FLOAT\textgreater \textless FLOAT\textgreater 3\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless FLOAT\textgreater 4\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless FLOAT\textgreater 4\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless OFloat type=``*''\textgreater \textless FLOAT\textgreater 3\textless /FLOAT\textgreater \textless FLOAT\textgreater 5\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless /OFloat\textgreater \textless FLOAT\textgreater 5\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless OFloat type=``*''\textgreater \textless OFloat type=``/''\textgreater \textless FLOAT\textgreater 3\textless /FLOAT\textgreater \textless FLOAT\textgreater 2\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless FLOAT\textgreater 3\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless /OFloat\textgreater \textless /Bconf\textgreater \textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1034,43 +1003,7 @@ Regola & uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7) \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7)''\textgreater\\
- \textless AstRuleVersion value=``(= uscite (+ (* (/ (+ (* 2 (- (- (+ (* 3 4) 4) (* 3 5)) 5)) 3) 2) 3) 7))''/\textgreater\\
- \textless Bconf type=``=``\textgreater\\
- \textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
-\textless OFloat type=``+''\textgreater\\
- \textless OFloat type=``*''\textgreater \\
-\textless OFloat type=``/''\textgreater \\
-\textless OFloat type=``+''\textgreater \\
-\textless OFloat type=``*''\textgreater\\
- \textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
- \textless OFloat type=``-''\textgreater\\
- \textless OFloat type=``-''\textgreater\\
-\textless OFloat type=``+''\textgreater\\
- \textless OFloat type=``*''\textgreater\\
- \textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
- \textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
-\textless /OFloat\textgreater\\
- \textless FLOAT\textgreater 4\textless /FLOAT\textgreater\\
- \textless /OFloat\textgreater\\
- \textless OFloat type=``*''\textgreater\\
- \textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
- \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
- \textless /OFloat\textgreater\\
- \textless /OFloat\textgreater\\
- \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
- \textless /OFloat\textgreater\\
- \textless /OFloat\textgreater\\
- \textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
- \textless /OFloat\textgreater\\
- \textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
- \textless /OFloat\textgreater\\
- \textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
- \textless /OFloat\textgreater\\
- \textless FLOAT\textgreater 7\textless /FLOAT\textgreater\\
- \textless /OFloat\textgreater\\
- \textless /Bconf\textgreater\\
- \textless /BusinessRule\textgreater \\
+...\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1090,7 +1023,7 @@ Regola & ``ArticoloUno''\textgreater``ArticoloUno'' AND ``ArticoloUno''\textgrea
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-Operazione non consentita\\
+...\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1110,19 +1043,7 @@ Regola & nome=``ArticoloUno'' AND nome!=``ArticoloDue''\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``nome=\&quot;ArticoloUno\&quot;  AND nome!=\&quot;ArticoloDue\&quot;''\textgreater\\
- \textless AstRuleVersion value=``(AND (= nome \&quot;ArticoloUno\&quot;) (!= nome \&quot;ArticoloDue\&quot;))''/\textgreater\\
- \textless OpRule type=``AND''\textgreater\\
- \textless Conf type=``=``\textgreater\\
- \textless FIELD\textgreater nome\textless /FIELD\textgreater\\
- \textless STRING\textgreater ''ArticoloUno''\textless /STRING\textgreater\\
- \textless /Conf\textgreater\\
- \textless Conf type=``!=``\textgreater\\
- \textless FIELD\textgreater nome\textless /FIELD\textgreater\\
- \textless STRING\textgreater ''ArticoloDue''\textless /STRING\textgreater\\
- \textless /Conf\textgreater\\
- \textless /OpRule\textgreater\\
- \textless /BusinessRule\textgreater \\
+...\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1142,7 +1063,7 @@ Regola & (scontato+3) - (scontato*4)/scontato\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-Operazione non consentita\\
+...\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1162,33 +1083,7 @@ Regola & ((scontato\textbar \textbar scontato)\&\& scontato) = true AND (true\te
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``((scontato||scontato) \&amp;\&amp; scontato) = true AND (true || false \&amp;\&amp; NOT(true))=scontato''\textgreater \\
-\textless AstRuleVersion value=``(AND (= (\&amp;\&amp; (|| scontato scontato) scontato) true) (= (\&amp;\&amp; (|| true false) (NOT true)) scontato))''/\textgreater\\
- \textless OpRule type=``AND''\textgreater\\
- \textless Conf type=``=``\textgreater\\
- \textless OBool type=``\&amp;\&amp;''\textgreater\\
- \textless OBool type=``||''\textgreater\\
- \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
- \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
- \textless /OBool\textgreater\\
- \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
- \textless /OBool\textgreater\\
- \textless BOOL\textgreater true\textless /BOOL\textgreater\\
- \textless /Conf\textgreater\\
- \textless Conf type=``=``\textgreater\\
- \textless OBool type=``\&amp;\&amp;''\textgreater\\
- \textless OBool type=``||''\textgreater\\
- \textless BOOL\textgreater true\textless /BOOL\textgreater\\
- \textless BOOL\textgreater false\textless /BOOL\textgreater\\
- \textless /OBool\textgreater\\
- \textless BoFun type=``NOT''\textgreater\\
- \textless BOOL\textgreater true\textless /BOOL\textgreater\\
- \textless /BoFun\textgreater\\
- \textless /OBool\textgreater\\
- \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
- \textless /Conf\textgreater\\
- \textless /OpRule\textgreater\\
- \textless /BusinessRule\textgreater \\
+...\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1548,10 +1443,18 @@ VT12a & negativo & \\ \hline
 VT12b & negativo & \\ \hline
 VT13a & negativo & \\ \hline
 VT13b & negativo & \\ \hline
+VT14 & negativo & \\ \hline
+VT15a & negativo & \\ \hline
+VT15b & negativo & \\ \hline
+VT15c & positivo & \\ \hline
+VT15d & positivo & \\ \hline
+VT15e & negativo & \\ \hline
+VT15f & negativo & \\ \hline
 VT & negativo & \\ \hline
 VT & negativo & \\ \hline
 VT & negativo & \\ \hline
-
+VT & negativo & \\ \hline
+VT & negativo & \\ \hline
 
 
 
