@@ -35,8 +35,8 @@
 \textbf{Approvazione:} & \MM \\ \hline
 \textbf{Revisione RQ} & \\ \hline
 \textbf{Redazione:} & \MT \\ \hline
-\textbf{Revisione:} &  \\ \hline
-\textbf{Approvazione:} &  \\ \hline
+\textbf{Revisione:} &  \ET\\ \hline
+\textbf{Approvazione:} &  \AT\\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -61,6 +61,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+2.7 & 07/03/2008 & \ET & Correzione documento.\\ \hline
 2.6 & 06/03/2008 & \LA & Aggiunto Sommario.\\ \hline
 2.5 & 05/03/2008 & \MT & Aggiunta della sottosezione 'Glossario'.\\ \hline
 2.4 & 05/03/2008 & \MM & Evidenziazione dei termini contenuti nel documento \G .\\ \hline
@@ -107,7 +108,7 @@ Questo documento ha lo scopo di fornire una lista di norme generali sia per il c
 \section{Riferimenti}
 \begin{itemize}
 \item ``Ingegneria del software'' 8a edizione - Ian Sommerville 
-\item Molte delle norme di codifica sono state scritte riferendosi alle convenzioni sul codice java della Sun Microsystems.
+\item Molte delle norme di codifica sono state scritte riferendosi alle convenzioni sul codice java della Sun Microsystems (http://java.sun.com/).
 \end{itemize}
 
 \chapter{Norme di Comportamento}
@@ -150,11 +151,12 @@ Ogni documento sar\`a composto di queste parti:
 \item Una prima pagina con il logo del gruppo, titolo del documento, versione e data ultima modifica;
 \item Una seconda parte composta da tre tabelle contenti:
 	{\begin{itemize}
-	\item Data creazione (anno,mese,giorno),versione, stato del documento, redazione,revisione,approvazione.
+	\item Data creazione (anno/mese/giorno), versione, stato del documento, redazione, revisione, approvazione.
 	\item Lista di Distribuzione
 	\item Diario delle modifiche (dalla versione pi\`u recente fino alla prima stesura del documento)
 	\end{itemize}}
 \item L'indice dei contenuti;
+\item Il sommario;
 \item I contenuti del documento;
 \end{enumerate}
 \`E fornito un modello di documento generale \textit{layout.tex}, nel quale sono state applicate le regole date precedentemente. Il modello va utilizzato  per la prima stesura di ogni nuovo documento includendolo all'interno del file \textit{tex} .
@@ -273,11 +275,11 @@ Nella codifica di classi ed interfacce dovranno essere seguite le seguenti regol
 
 \section{Statements}
 \subsection{Statements semplici}
-Ogni linea dovr\`a contenere un solo statement, per facilitare la lettura e la comprensione del codice, nonch\`e la sua commentazione.
+Ogni linea dovr\`a contenere un solo statement, per facilitare la lettura e la comprensione del codice, nonch\`e il suo commento.
 \subsection{Statements Composti}
 Uno statement composto conterr\`a una lista di statements racchiusi tra parentesi graffe. Per gli statements composti valgono le seguenti regole:
 \begin{itemize}
-\item Il livello di indentazione di ogni statement racchiuso tra parentesi grafe deve essere aumentato di uno rispetto al livello dello statement che lo contiene.
+\item Il livello di indentazione di ogni statement racchiuso tra parentesi graffe deve essere aumentato di uno rispetto al livello dello statement che lo contiene.
 \item La parentesi graffa di apertura deve essere alla fine della linea che inizia lo statement composto; la parentesi graffa di chiusura deve essere l'unico carattere di una linea indentata corrispondentemente all'inizio dello statement composto.\newline
 \end{itemize}
 Ad esempio:\newline
