@@ -1500,26 +1500,64 @@ Errore sintattico\\
 La macrocomponente comunicatore verr\`a testata a scatola aperta (whitebox), inserendo in input al comunicatore una stringa contenente una query \underline{XQuery} e verificando che la modifica sia stata effettuata nel repository. Non verranno testate le query non accettate dal linguaggio \underline{XQuery}, in quanto gia` garantite dal \underline{DBMS} \underline{eXist}.\\
 \\
 
-% for $br in //BusinessRule[starts-with(@name,'i')] return $br
+% 
 %update insert "<BusinessRule associated="Articolo" comment="Commento" name="BR" rule="12 = 2"><AstRuleVersion value="(= 12 2)"/><Bconf type="="><FLOAT>12</FLOAT><FLOAT>2</FLOAT></Bconf></BusinessRule>" into /BusinessRules
-%for $br in //BusinessRule[@name='prova'] return update delete $br;
-%for $br in //BusinessRule[@associated='Articolo' and not(@comment)] return concat($br[@name], $br[@rule])
+%
+%
+%
 \begin{Large}\textbf{CT1}\end{Large} \\
-Requisiti soddisfatti dall'esecuzione: F1 etc..
+Si testa il comunicatore con una query che ritorni tutte le \br\ che hanno l'attributo name che comincia con BR.
+Requisiti soddisfatti dall'esecuzione: 
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Query eseguita}\\ \hline
-Business object associato.\\ \hline
+for \$br in //BusinessRule[starts-with(\@name,'BR')] return \$br\\ \hline
 \end{tabular} \\
 \end{center}
+
+\begin{Large}\textbf{CT2}\end{Large} \\
+Si testa il comunicatore con una query che cancelli tutte le \br\ il cui nome \`e BR1.
+Requisiti soddisfatti dall'esecuzione: 
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
-\textbf{Output atteso}\\ \hline
-ewerafdjkofsdlkfjsdl;fjdlsjfdkfjdkfj\\
-sdfdffd\\
- \hline
+\textbf{Query eseguita}\\ \hline
+for \$br in //BusinessRule[\@name='BR1'] return update delete \$br;\\ \hline
 \end{tabular} \\
 \end{center}
+
+\begin{Large}\textbf{CT3}\end{Large} \\
+Si testa il comunicatore con una query che ritorni il nome e la regola associata di tutte le \br\  che sono associate al \bo\ 'Articolo' e non hanno il commento.
+Requisiti soddisfatti dall'esecuzione: 
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Query eseguita}\\ \hline
+for \$br in //BusinessRule[\@associated='Articolo' and not(\@comment)] return concat(\$br[\@name], \$br[\@rule])\\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{CT4}\end{Large} \\
+Si testa il comunicatore con una query che ritorni il nome e la regola associata di tutte le \br\  che non hanno il commento.
+Requisiti soddisfatti dall'esecuzione: 
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Query eseguita}\\ \hline
+for \$br in //BusinessRule[not(\@comment)]return concat(\$br[\@name], \$br[\@rule])\\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{CT5}\end{Large} \\
+Si testa il comunicatore con una query che inserisca una determinata \br .
+Requisiti soddisfatti dall'esecuzione: 
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Query eseguita}\\ \hline
+update insert "<BusinessRule associated="Articolo" comment="Commento" name="BR" rule="12 = 2"><AstRuleVersion value="(= 12 2)"/><Bconf type="="><FLOAT>12</FLOAT><FLOAT>2</FLOAT></Bconf></BusinessRule>" into /BusinessRules\\ \hline
+\end{tabular} \\
+\end{center}
+
+
+
+
 
 \subsection{Test sulla GUI}
 La macrocomponente gui verr\`a testata a scatola aperta (whitebox) e manualmente, verificando il funzionamento di ogni sua componente grafica. Non essendo ancora completa la componente ci riserviamo di effettuare i test nella fase di verifica e validazione.\\
@@ -1635,6 +1673,16 @@ VT20 & negativo & \\ \hline
 \end{center}
 
 \subsection{Test sul comunicatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+CT1 & negativo & \\ \hline
+CT2 & negativo & \\ \hline
+CT3 & negativo & \\ \hline
+CT4 & negativo & \\ \hline
+CT5 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
 \subsection{Integrazione validatore, comunicatore}
 \subsection{Integrazione gui, validatore}
 \subsection{Integrazione del sistema}
