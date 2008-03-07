@@ -148,12 +148,25 @@ Questa componente utilizza:
 Nessuna.
 \subsubsection{Attivit\`a svolte e dati trattati}
 Gui possiede i campi dato necessari per comunicare col validatore e col \underline{DBMS}.
+Dovr\`a operare nel seguente modo:
+\paragraph{Attivit\`a di login:}
+Verr\`a chiesto all'avvio di inserire l'username e la password per accedere ad \underline{eXist}, controllando eventuali errori.
+\paragraph{Attivit\`a di inserimento:}
+Si dovr\`a visualizzare una finestra che permetta la definizione di una nuova \br, mandarla al validatore ed inserirla nel \rp\ in caso di validazione corretta. Alternativamente si dovr\'a informare l'utente su cosa ha bloccato la procedura.
+\paragraph{Attivit\`a di cancellazione:}
+Verranno mostrate in un apposita sezione tutte le \br, l'utente potr\`a selezionarne quante ne vuole per procedere all` eliminazione delle stesse. Inoltre la finestra disporr\`a di un`apposita sezione dove potr\`a ricevere informazioni su una qualche \br\ nel \rp.
+\paragraph{Attivit\`a di querying:}
+Verr\`a visualizzata una finestra che permetter\`a di fare query al \rp\ in linguaggio \underline{XQuery}. Verr\`a visualizzato il risultato, il tempo di esecuzione ed in alternativa l'eventuale errore di scrittura. 
 \begin{center}
 
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Attributo & Descrizione \\  \hline
 -compiler:Validator & Rappresenta il validatore per le \br \\ \hline
 -repository:GUICommunicator & Collega la componente al \underline{DBMS} consentendogli di effettuare le query.\\ \hline
+-mainGui: JFrame & Frame principale che permette di accedere a tutte le funzionalit\`a. \\ \hline
+-remGui: JFrame & Frame che mette a disposizione le operazioni di cancellazione. \\ \hline
+-sandbox: JFrame & Frame che mette a disposizione le operazioni di querying. \\ \hline
+-insertGui: JFrame & Frame che mette a disposizione le operazioni di inserimento.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
