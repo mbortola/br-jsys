@@ -29,8 +29,8 @@
 \textbf{Approvazione:}  & \LA \\ \hline
 \textbf{Revisione RQ} &   \\ \hline
 \textbf{Redazione:} & \ET \\ \hline
-\textbf{Revisione:} &   \\ \hline
-\textbf{Approvazione:}  & \\ \hline
+\textbf{Revisione:} &  \LA \\ \hline
+\textbf{Approvazione:}  & \AT \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -56,6 +56,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+1.5 & 07/03/2008 & \ET & Correzione documento.\\ \hline
 1.4 & 06/03/2008 & \LA & Aggiunto sommario.\\ \hline
 1.3 & 05/03/2008 & \MM & Evidenziazione dei termini contenuti nel documento \G .\\ \hline
 1.2 & 04/03/2008 & \MM & Aggiunta di link ipertestuali all'indice del documento.\\ \hline
@@ -106,7 +107,7 @@ Per lo scopo del prodotto si faccia riferimento al documento ``Analisi dei Requi
 \item Norme di Progetto ``\NdP'';
 \item Specifica Tecnica ``\ST'';
 \item ``Ingegneria del Software'' 8a edizione - Ian Sommerville;
-\item ``The Definitive ANTLR Reference'';
+\item ``The Definitive ANTLR Reference'' 2007 - Terence Parr;
 \item Manuale di \underline{eXist} reperibile all'URL: \textit{exist.sourceforge.net}.
 \end{itemize}
 \chapter{Standard di progetto}
@@ -188,19 +189,19 @@ Attributo & Descrizione \\  \hline
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Metodo & Descrizione \\  \hline
 +Validator(username: String password: String) \textbraceleft throws Exception \textbraceright& Costruttore di Validator. Necessita in ingresso le credenziali dell'utente per accedere al \underline{DBMS}. Qualora fossero sbagliate verr\`a lanciata un'eccezione.\\ \hline
-+validate(rule:BusinessRule ):boolean \textbraceleft throws Exception \textbraceright& Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezione che verr\`a gestita dal chiamante. Se la \br\ viene inserita, il metodo ritorner\`a \textit{true}. Ritorner\`o invece \textit{false} se la regola ha un nome che \`e gi\`a presente nel \rp.\\ \hline
++validate(rule:BusinessRule ):boolean \textbraceleft throws Exception \textbraceright& Unico metodo della componente che ricevuto in ingresso una \br\ ne effettua la validazione. Qualora si verificassero errori in fase di compilazione si restituir\`a un eccezione che verr\`a gestita dal chiamante. Se la \br\ viene inserita, il metodo ritorner\`a \textit{true}. Ritorner\`a invece \textit{false} se la regola ha un nome che \`e gi\`a presente nel \rp.\\ \hline
 \end{tabular}
 \end{center}
 
 \subsection{BusinessRuleLexer}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una classe wrapper per la stringa che rappresenta la \br. Essa aggiunge funzionalit\`a alla stringa, necessarie per il successivo parsing.
+Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una classe \underline{wrapper} per la stringa che rappresenta la \br. Essa aggiunge funzionalit\`a alla stringa, necessarie per il successivo parsing.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente BusinessRuleParser necessita della componente BusinessRuleLexer. Quest'ultima verr\`a approfondita successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente, generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i tokens della grammatica, nonch\`e vari metodi per la loro gestione. In definitiva si dovr\`a usare solo il suo costruttore.
+La componente, generata tramite un generatore di parser, dispone di numerosi campi dato per identificare i \underline{token}s della grammatica, nonch\`e vari metodi per la loro gestione. In definitiva si dovr\`a usare solo il suo costruttore.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Metodo & Descrizione \\  \hline
@@ -217,18 +218,18 @@ Questa componente necessita di un TokenStream, fornitogli indirettamente da Busi
 \brp\ viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Questa componente, generata tramite un generatore automatico di parser, fornisce i campi dato per il riconoscimento dei token in appoggio a quelli gi\`a forniti dalla componente \brp. Contiene vari metodi privati per il controllo sintattico e semantico, per il parsing e contiene infine classi innestate incaricate di generare l'AST.
+Questa componente, generata tramite un generatore automatico di parser, fornisce i campi dato per il riconoscimento dei \underline{token} in appoggio a quelli gi\`a forniti dalla componente \brp. Contiene vari metodi privati per il controllo sintattico e semantico, per il parsing e contiene infine classi innestate incaricate di generare l'AST.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Attributo & Descrizione \\  \hline
-\underline{+tokenNames: String[]} & Array che associa ogni token ad un intero, Indispensabile per il parsing in XML dato che l'AST rappresenta i nodi token tramite gli interi che li rappresentano. \\ \hline
+\underline{+\underline{token}Names: String[]} & Array che associa ogni \underline{token} ad un intero, Indispensabile per il parsing in XML dato che l'AST rappresenta i nodi \underline{token} tramite gli interi che li rappresentano. \\ \hline
 +endParsing: BusinessRuleParser.start\_return & Campo dati che contiene l'AST da convertire in XML.\\ \hline 
 \end{tabular}
 \end{center}
 \begin{center}
  \begin{tabular}{||p{6cm}||p{6cm}||}\hline
 Metodo & Descrizione \\  \hline
-+BusinessRuleParser(input: CommonTokenStream, associated: String) \textbraceleft throws\phantom{c}RecognitionException \textbraceright & Costruttore della componente. Il primo parametro identifica lo stream generato nelle fasi precedenti, il secondo dice qual'\`e il \bo\ associato alla regola. Se associated non corrisponde a nessun busioness object verra sollevata un'eccezzione.\\ \hline
++BusinessRuleParser(input: CommonTokenStream, associated: String) \textbraceleft throws\phantom{c}RecognitionException \textbraceright & Costruttore della componente. Il primo parametro identifica lo stream generato nelle fasi precedenti, il secondo dice qual'\`e il \bo\ associato alla regola. Se associated non corrisponde a nessun \underline{business object} verr\`a sollevata un'eccezzione.\\ \hline
 
 +start(): BusinessRuleParser.start\_return \textbraceleft throws\phantom{c}RecognitionException \textbraceright & Risultato del parsing corretto di una \br. Contiene al suo interno l'AST. Nel caso di errore nella validazione il chiamante dovr\`a gestire opportunamente l'eccezione.\\ \hline
 \end{tabular}
@@ -275,20 +276,20 @@ XMLParser ha bisogno dell'AST prodotto da \brp, nonch\`e della componente \br\ p
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \rp.
 \subsubsection{Attivit\`a svolte e dati trattati}
-XMLParser contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML. Dispone inoltre di una struttura dati statica per associare i valori numerici che il parser usa per identificare i token ai nomi dei tokens definiti dall'utente.
+XMLParser contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML. Dispone inoltre di una struttura dati statica per associare i valori numerici che il parser usa per identificare i \underline{token} ai nomi dei \underline{token}s definiti dall'utente.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Attributo & Descrizione \\  \hline
-\underline{-tokenList:}\underline{ String[]}& Nell'AST il tipo di token viene rappresentato tramite un numero univoco. Questo numero corrisponde, per ogni token, all'indice che in tokenList contiene la rappresentazione testuale del token stesso. Per poter associare in maniera rapida i tokens ai numeri che li rappresentano \`e dunque necessario appoggiarsi a questa struttura dati proveniente direttamente da \brp.\\ \hline
+\underline{-\underline{token}List:}\underline{ String[]}& Nell'AST il tipo di \underline{token} viene rappresentato tramite un numero univoco. Questo numero corrisponde, per ogni \underline{token}, all'indice che in \underline{token}List contiene la rappresentazione testuale del \underline{token} stesso. Per poter associare in maniera rapida i \underline{token}s ai numeri che li rappresentano \`e dunque necessario appoggiarsi a questa struttura dati proveniente direttamente da \brp.\\ \hline
 \end{tabular}
 \end{center}
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Metodo & Descrizione \\  \hline
-+XMLParser(tList: String[]) & Costruttore. In ingresso riceve la struttora dati che associa i token ai numeri che li rappresentano.\\ \hline
++XMLParser(tList: String[]) & Costruttore. In ingresso riceve la struttura dati che associa i \underline{token} ai numeri che li rappresentano.\\ \hline
 +parse(AST:Tree, rule:BusinessRule): String & Metodo pubblico che si incarica di effettuare la conversione da AST a stringa che rappresenta l'elemento XML. Si dovr\`a seguire la procedura adeguata per la creazione di un elemento strutturato XML secondo le specifiche della libreria \textit{org.w3c.dom}\\ \hline
 
--scanAST(AST: Tree, root: Element, doc: Document) Element & Metodo privato che scorre ricorsivamente l'AST per convertirla in un elemento XML. La regola verr\`a successivamente inserita nel \rp. \\ \hline
+-scanAST(AST: Tree, root: Element, doc: Document) Element & Metodo privato che scorre ricorsivamente l'AST per convertire la regola in un elemento XML. Questa verr\`a successivamente inserita nel \rp. \\ \hline
 \end{tabular}
 \end{center}
 
@@ -316,7 +317,7 @@ Nessuna.
 La componente GUI utilizza \BR\ nel caso in cui l'utente voglia inserire una nuova \br.
 La componente Validator effettua la validazione di un'istanza di \BR, tramite la chiamata del suo metodo validate().
 \subsubsection{Attivit\`a svolte e dati trattati}
-La componente contiene i campi dato Stringa per rappresentare una \underline{business rule} ossia name, associatedObject, rule e comment, quest'ultima pu\`o non essere istanziata. Vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
+La componente contiene i campi dato Stringa per rappresentare una \underline{business} \underline{rule} ossia name, associatedObject, rule e comment, quest'ultima pu\`o non essere istanziata. Vengono inoltre messi a disposizione il costruttore e il metodo ridefinito toString().
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Attributo & Descrizione \\  \hline
@@ -347,11 +348,11 @@ Communicator necessita di interagire con la componente esterna \underline{DBMS} 
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 Le componenti GUICommunicator, InterpreterCommunicator e ValidatorCommunicator necessitano di Communicator per potergli passare le query specifiche. Le loro descrizioni verr\`anno trattate successivamente.
 \subsubsection{Attivit\`a svolte e dati trattati}
-Quando viene istanziata per la prima volta, Communicator inizializza la connessione al \underline{DBMS}, tramite la definizione di una variabile statica. Quest'ultima consentir\`a successivamente di interrogare il \rp direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche \underline{XQuery}.
+Quando viene istanziata per la prima volta, Communicator inizializza la connessione al \underline{DBMS}, tramite la definizione di una variabile statica. Quest'ultima consentir\`a successivamente di interrogare il \rp\ direttamente, passandogli la stringa che rappresenta la query composta secondo le specifiche \underline{XQuery}.
 \begin{center}
 \begin{tabular}{||p{6cm}||p{6cm}||} \hline
 Attributo & Descrizione \\  \hline
-\underline{-service:XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su \underline{eXist}. In particolare faremo in modo di configurarlo affinch\`e faccia query solamente nel \rp (posizionato in una posizione specifica nel \underline{DBMS}).\\ \hline
+\underline{-service:XPathQueryService} & Consente, se istanziato correttamente, di comunicare con risorse presenti su \underline{eXist}. In particolare faremo in modo di configurarlo affinch\`e faccia query solamente nel \rp\ (posizionato in una posizione specifica nel \underline{DBMS}).\\ \hline
 -correctUsername:String & Memorizza il corretto username utilizzato per l'accesso.\\ \hline
 -correctPassword:String & memorizza la corretta password utilizzata per l'accesso.\\ \hline
 \end{tabular}
