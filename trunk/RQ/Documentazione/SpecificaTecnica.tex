@@ -2,7 +2,7 @@
 \input{model/layout.tex}% layout
 \begin{document}
 %definizione variabili 
-\newcommand{\lv}{ 1.0 } % latest version
+\newcommand{\lv}{ 1.5 } % latest version
 \newcommand{\dt}{ Specifica Tecnica }% Document title
 \input{model/variables.tex}%altre variabili
 \input{model/document-latest-versions.tex}%nomi documenti
@@ -28,8 +28,8 @@
 \textbf{Approvazione:}  & \MM \\ \hline
 \textbf{Revisione RQ} &   \\ \hline
 \textbf{Redazione:} & \ET \\ \hline
-\textbf{Revisione:} & \\ \hline
-\textbf{Approvazione:}  & \\ \hline
+\textbf{Revisione:} & \FC \\ \hline
+\textbf{Approvazione:}  & \AT \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -60,6 +60,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+1.5 & 07/03/2008 & \ET & Correzione documento\\ \hline
 1.4 & 06/03/2008 & \LA & Aggiunto Sommario\\ \hline
 1.3 & 06/03/2008 & \MB & Aggiunta diagrammi di stato .\\ \hline
 1.2 & 05/03/2008 & \MM & Evidenziazione dei termini contenuti nel documento \G .\\ \hline
@@ -95,21 +96,21 @@ Viene fornito come documento esterno chiamato \G . I termini che sono presenti n
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il presente documento descriver\`a il sistema software ``\underline{BR-jsys}'' dal punto di vista architetturale e da noi implementato secondo le esigenze identificate nel documento ``Analisi dei Requisiti''. Attraverso l'uso di diagrammi \underline{UML}, nella fattispecie con alcuni diagrammi delle classi, identificheremo alcune componenti principali nel quale scomporre il sistema. Questo documento fornir\`a quindi una visione pi\`u dettagliata delle componenti da realizzare; verr\`a definito il contesto d'uso del sistema e fornita la decomposizione di questo in componenti principali.
+Il presente documento descriver\`a il sistema software ``\underline{BR-jsys}'' dal punto di vista architetturale e da noi implementato secondo le esigenze identificate nel documento ``\AR''. Attraverso l'uso di diagrammi \underline{UML}, nella fattispecie con alcuni diagrammi delle classi, identificheremo alcune componenti principali nel quale scomporre il sistema. Questo documento fornir\`a quindi una visione pi\`u dettagliata delle componenti da realizzare; verr\`a definito il contesto d'uso del sistema e fornita la decomposizione di questo in componenti principali.
 \section{Scopo del prodotto}
-Per lo scopo del prodotto si faccia riferimento al documento ``Analisi dei Requisiti''.
+Per lo scopo del prodotto si faccia riferimento al documento ``\AR''.
 
 \section{Riferimenti}
 \begin{itemize}
 \item Capitolato d'appalto concorso per sistema ``\underline{BR-jsys}'';
-\item ``Analisi dei Requisiti'';
-\item ``Norme di Progetto'';
+\item Analisi dei Requisiti ``\AR'';
+\item Norme di Progetto ``\NdP'';
 %\item \PdP
-\item ``Piano di Qualifica'';
-\item ``Piano di Progetto'';
+\item Piano di Qalifica ``\PdQ'';
+\item Piano di Progetto ``\PdP'';
 %\item \PdQ
 \item ``Ingegneria del software'' 8a edizione - Ian Sommerville;
-\item ``The Definitive ANTLR Reference'';
+\item ``The Definitive ANTLR Reference 2007 - Terence Parr'';
 \item Incontro con il proponente ``Incontro2008-01-17.pdf'';
 \item Incontro con il proponente ``Incontro2008-02-05.pdf''.
 \end{itemize}
@@ -177,7 +178,7 @@ Validator contiene solo il metodo validate(). Tale metodo effettua la validazion
 
 \subsection{BusinessRuleLexer}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una classe wrapper per la stringa che rappresenta la \br. Essa aggiunge funzionalit\`a alla stringa, necessarie per il successivo parsing.
+Questa componente, derivata da org.antlr.runtime.Lexer, non \`e altro che una classe \underline{wrapper} per la stringa che rappresenta la \br. Essa aggiunge funzionalit\`a alla stringa, necessarie per il successivo parsing.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -190,12 +191,12 @@ BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo dell
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questa componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua quindi il controllo sintattico della regola e il controllo semantico facendo un controllo sui tipi dei dati (siano essi costanti oppure campi dati di \bos). Mentre effettua la validazione, BusinessRuleParser genera l'albero di parsing secondo le specifiche presenti nel controllo semantico. \`E in grado infine di dare informazioni accurate riguardo eventuali errori in fase di validazione.
 \subsubsection{Relazioni d'uso di altre componenti}
-La componente BusinessRuleParser necessita di un TokenStream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects per effettuare il controllo sui tipi per il \bo\ associato. Per trattare gli errori in fase di validazione, ha bisogno infine della componente TypeCollisionException.
+La componente BusinessRuleParser necessita di un \underline{token}Stream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects per effettuare il controllo sui tipi per il \bo\ associato. Per trattare gli errori in fase di validazione, ha bisogno infine della componente TypeCollisionException.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 \brp\ viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
 \subsubsection{Attivit\`a svolte e dati trattati}
-\brp\ mette a disposizione vari metodi per effettuare il parsing e i test semantici. Dispone inoltre di numerosi campi dato per la ricognizione dei token.\\
+\brp\ mette a disposizione vari metodi per effettuare il parsing e i test semantici. Dispone inoltre di numerosi campi dato per la ricognizione dei \underline{token}.\\
 \textit{\textbf{Nota:}Questa classe \`e stata creata utilizzando uno strumento automatico per la generazione di parser data in input la specifica di una grammatica.}
 
 \subsection{TypeCollisionException}
@@ -214,18 +215,18 @@ La componente XMLParser si occupa di effettuare la conversione dell'albero sinta
 \begin{itemize}
  \item il nome della \br, che dovr\`a essere univoco;
  \item il nome del \bo\ associato alla regola;
- \item la struttura dell'AST della \br, scritta secondo la metodologia elemento-attributo tipica di XML;
- \item la struttura dell'AST della \br, scritta linearmente secondo la notazione prefissa rappresentata da un singolo attributo XML;
+ \item la struttura dell'\underline{AST} della \br, scritta secondo la metodologia elemento-attributo tipica di XML;
+ \item la struttura dell'\underline{AST} della \br, scritta linearmente secondo la notazione prefissa rappresentata da un singolo attributo XML;
  \item la \br\ effettivamente digitata dall'utente;
  \item eventuali commenti associati dall'utente alla \br.
 \end{itemize}
 XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade}. La creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessita di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
 \subsubsection{Relazioni d'uso di altre componenti}
-XMLParser ha bisogno dell'AST prodotto da \brp, nonch\`e necessita della componente \br\ per ricavare le informazioni da inserire nell'elemento XML.
+XMLParser ha bisogno dell'\underline{AST} prodotto da \brp, nonch\`e necessita della componente \br\ per ricavare le informazioni da inserire nell'elemento XML.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \rp.
 \subsubsection{Attivit\`a svolte e dati trattati}
-XMLParser contiene le operazioni per scorrere l'AST ed effettuare la traduzione in XML.
+XMLParser contiene le operazioni per scorrere l'\underline{AST} ed effettuare la traduzione in XML.
 
 \subsection{businessobjects}%è un package
 \subsubsection{Tipo, obiettivo e funzione del componente}
@@ -351,22 +352,22 @@ Nel diagramma queste tre attivit\`a sono rappresentate come delle \textit{sub-ac
  \includegraphics[width=1.1\textwidth, angle=-90]{activity-dia/InserisciBusinessRule.eps}
 \end{center}
 
-Una volta avviata la finestra di inserimento l'utente inserir\`a i campi dato per la \br\, verr\`a dunque costruito un oggetto \textit{\BR\ }. Quest'oggetto verr\`a inviato al parser che lo convertir\`a in un AST dopo aver contrto la validit\`a della regola (Vedi diagramma Conversione \br -AST), se la regola mostra errori verr\`a sollevata una eccezione, altrimenti si passer\`a alla fase di conversione da AST a stringa rappresentante un elemento XML (Vedi diagramma Conversione AST-XML). La fase successiva sar\`a quella di inserire la regola nel \rp\ (Vedi Diagramma Inserimento \br\ nel \rp). In caso di esito positivo dell'inserimento si dovr\`a uscire dalla finestra inserimento, altrimenti si informer\`a l'utente del errore e si ritorner\`a alla finestra iniziale.
+Una volta avviata la finestra di inserimento l'utente inserir\`a i campi dato per la \br\, verr\`a dunque costruito un oggetto \textit{\BR\ }. Quest'oggetto verr\`a inviato al parser che lo convertir\`a in un \underline{AST} dopo aver contrto la validit\`a della regola (Vedi diagramma Conversione \br -\underline{AST}), se la regola mostra errori verr\`a sollevata una eccezione, altrimenti si passer\`a alla fase di conversione da \underline{AST} a stringa rappresentante un elemento XML (Vedi diagramma Conversione \underline{AST}-XML). La fase successiva sar\`a quella di inserire la regola nel \rp\ (Vedi Diagramma Inserimento \br\ nel \rp). In caso di esito positivo dell'inserimento si dovr\`a uscire dalla finestra inserimento, altrimenti si informer\`a l'utente del errore e si ritorner\`a alla finestra iniziale.
 
-\subsubsection{Conversione \br -AST}
+\subsubsection{Conversione \br -\underline{AST}}
 \begin{center}
  \includegraphics[width=1\textwidth, angle=-90]{activity-dia/ConversioneBusinessRuleAST.eps}
 \end{center}
-Al parser arriva in ingresso una stringa rappresentante la \br\ da validare. Inizialmente si controller\` che la \br\ si riferisca ad un \bo\ valido, in caso contrario la validazione verr\`a subito bloccata. Dopodich\`e verranno fatti vari controlli con lo scopo di scorrere tutta la regola alla ricerca di errori sintattici, lessicali o logici, nel caso venissero trovati verranno invocate le opportune eccezioni che verranno gestite in maniera da ritornare al chiamante le struttura dell'errore che ne indicher\`a il tipo e la posizione nella \br\ dove \`e avvenuto. In caso di validazione senza errori verr\`a generato un opportuno AST che successivamente si convertira 
+Al parser arriva in ingresso una stringa rappresentante la \br\ da validare. Inizialmente si controller\` che la \br\ si riferisca ad un \bo\ valido, in caso contrario la validazione verr\`a subito bloccata. Dopodich\`e verranno fatti vari controlli con lo scopo di scorrere tutta la regola alla ricerca di errori sintattici, lessicali o logici, nel caso venissero trovati verranno invocate le opportune eccezioni che verranno gestite in maniera da ritornare al chiamante le struttura dell'errore che ne indicher\`a il tipo e la posizione nella \br\ dove \`e avvenuto. In caso di validazione senza errori verr\`a generato un opportuno \underline{AST} che successivamente si convertira 
 in una stringa in XML.
 
 
-\subsubsection{Conversione AST-XML}
+\subsubsection{Conversione \underline{AST}-XML}
 \begin{center}
  \includegraphics[width=1\textwidth, angle=-90]{activity-dia/ConversioneASTXML.eps}
 \end{center}
-Abbiamo ora a disposizione un AST che dovremo scorrere in maniera prefissa per generare l'elemento XML da inserire nel \rp. Innanzi tutto abbiamo bisogno di sapere come il parser identifica (tramite un numero intero univoco) i vari token. La struttura non \`e altro che un array che associa un intero univoco al token della grammatica. Dopodich\`e seguir\`o la prassi tipica del package \textit{org.w3c.dom} per la generazione di un elemento XML. Il L'elemento radice della \br\ scritta in XML conterr\`a il nome della regola, il \bo\ associato, il testo della regola e l'eventuale commento.
-Si scorrer\`a ricorsivamente l'AST percorrendo tutti i nodi aggiornando la struttura dell'Elemento XML. Una volta completata la scansione e la relativa generazione dell'elemento XML lo si dovr\`a convertire in stringa, infine si dovr\`a rimuovere l'intestazione che di consuetudine si trova in tutti i documenti XML (esempio \textit{\textless?xml version="1.0" encoding="UTF-8"?\textgreater}) che impedirebbe l'inserimento nel \rp\ tramite query.
+Abbiamo ora a disposizione un \underline{AST} che dovremo scorrere in maniera prefissa per generare l'elemento XML da inserire nel \rp. Innanzi tutto abbiamo bisogno di sapere come il parser identifica (tramite un numero intero univoco) i vari \underline{token}. La struttura non \`e altro che un array che associa un intero univoco al \underline{token} della grammatica. Dopodich\`e seguir\`o la prassi tipica del package \textit{org.w3c.dom} per la generazione di un elemento XML. Il L'elemento radice della \br\ scritta in XML conterr\`a il nome della regola, il \bo\ associato, il testo della regola e l'eventuale commento.
+Si scorrer\`a ricorsivamente l'\underline{AST} percorrendo tutti i nodi aggiornando la struttura dell'Elemento XML. Una volta completata la scansione e la relativa generazione dell'elemento XML lo si dovr\`a convertire in stringa, infine si dovr\`a rimuovere l'intestazione che di consuetudine si trova in tutti i documenti XML (esempio \textit{\textless?xml version="1.0" encoding="UTF-8"?\textgreater}) che impedirebbe l'inserimento nel \rp\ tramite query.
 
 \subsubsection{Inserimento \br\ nel \rp}
 \begin{center} 
@@ -384,7 +385,7 @@ La \textit{\underline{Sandbox}} \`e una finestra il cui scopo \`e permettere ad 
 \begin{center}
  \includegraphics[width=0.7\textwidth, angle=-90]{activity-dia/CancellazioneBusinessRule.eps}
 \end{center}
-Viene inizialmente effettuata una query sul \underline{DBMS} atta a recuperare un elenco completo delle \brs. Una volta recuperato l'elenco delle \brs\ presenti nel \rp\ queste vengono visualizzate sinteticamente in forma tabellare, accompagnate da una \textit{checkbox}. Si attende quindi la selezione/deselezione dell'utente. L'utente notifica al sistema (mediante un bottone) l'intenzione di cancellare le \brs\ selezionate.  Viene poi mostrato un riepilogo delle \brs\ che verranno eliminate; se l'utente non conferma, il sistema torna ad attendere la selezione. Se, al contrario, la rimozione viene confermata si formula allora la query di rimozione, la quale viene infine eseguita. Al termine della rimozione viene effettuata nuovamente una query di recupero per visualizzare le \brs\ rimaste nel \rp.
+Viene inizialmente effettuata una query sul \underline{DBMS} atta a recuperare un elenco completo delle \brs. Una volta recuperato l'elenco delle \brs\ presenti nel \rp\ queste vengono visualizzate sinteticamente in forma tabellare, accompagnate da una \textit{checkbox}. Si attende quindi la selezione/deselezione dell'utente. L'utente notifica al sistema (mediante un bottone) l'intenzione di cancellare le \brs\ selezionate.  Viene poi mostrato un riepilogo delle \brs\ che verranno eliminate; se l'utente non conferma, il sistema torna ad attendere la selezione. Se, al contrario, la rimozione viene confermata si formula allora la query di rimozione, la quale viene infine eseguita. Al termine della rimozione viene effettuata nuovamente una query di recupero per visualizzare le \brs\ rim\underline{AST}e nel \rp.
 
 \section{Diagrammi di collaborazione}
 Viene presentato di seguito un diagramma di collaborazione riguardante le relazioni tra le classi utilizzate nella cancellazione di una \br\ dal \rp.
@@ -409,11 +410,11 @@ L'interprete chiama \textit{getRule()} su un suo campo dati interno appartenente
 \begin{center}
  \includegraphics[width=0.9\textwidth, angle=-90]{state-dia/DBMS.eps}
 \end{center}
-Il server \underline{DBMS}, con il quale interagisce il prodotto ``\underline{BR-jsys}'', viene avviato. Una volta completata la procedura di avvio, entra in uno stato di attesa di richieste da parte del nostro prodotto. Ricevuta una richiesta di operazione(per esempio, una richiesta di connessione, di creazione del \rp\ o di accesso allo stesso), la dovr\`a valutarla, eseguirla e ritornare gli eventuali risultati. Il server successivamente torna in uno stato di attesa finch\`e eventualmente viene spento.
+Il server \underline{DBMS}, con il quale interagisce il prodotto ``\underline{BR-jsys}'', viene avviato. Una volta completata la procedura di avvio, entra in uno stato di attesa di richieste da parte del nostro prodotto. Ricevuta una richiesta di operazione(per esempio, una richiesta di connessione, di creazione del \rp\ o di accesso allo stesso), dovr\`a valutarla, eseguirla e ritornare gli eventuali risultati. Il server successivamente torna in uno stato di attesa finch\`e eventualmente viene spento.
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 Dopo aver analizzato il problema attraverso schemi progettuali sono state individuate le risorse necessarie per la realizzazione del prodotto. Con l'utilizzo di software open source siamo riusciti a contenere i costi e contemporaneamente a rendere disponibili tutte le risorse.
-Tutte le risorse necessarie ai nostri componenti per affrontare le varie problematiche di comunicazione, lo sviluppo del codice, la gestione degli archivi, la verifica dei documenti e del sistema, sono state descritte nel documento \PdQ.
+Tutte le risorse necessarie ai nostri componenti per affrontare le varie problematiche di comunicazione, lo sviluppo del codice, la gestione degli archivi, la verifica dei documenti e del sistema, sono state descritte nel documento ``\PdQ''.
 Nella fase di specifica tecnica e successivamente di progettazione verranno utilizzati diagrammi \underline{UML} realizzati con \textit{Poseidon for \underline{UML} Professional edition 6.0.2} (nella versione trial), in quanto pi\`u completo e usabile rispetto ad altri software simili, come ad esempio ArgoUML. Solo i diagrammi use case sono stati realizzati con Dia in quanto progettati prima di affidarsi a Poseidon.
 Il progetto sar\`a realizzato mediante il linguaggio java come da requisito implicito del capitolato. Useremo la versione 6 essendo quella di pi\`u recente sviluppo.
 Per la produzione della Gui e delle classi java abbiamo utilizzato Eclipse versione 3.3.1.1, un IDE in grado di fornire numerose funzionalit\`a per lo sviluppo del software.
@@ -422,7 +423,7 @@ Tutta la documentazione sar\`a redatta utilizzando Kile 2.0 un user-friendly Tex
 Lo sviluppo avr\`a luogo singolarmente o in piccoli gruppi a seconda della natura della problematica da affrontare.
 Il documento/codice avr\`a ad ogni modo un unico proprietario incaricato di renderlo pubblico tramite server SVN.
 Utilizzando queste risorse e visti i tempi di consegna del prodotto, la ditta HappyCode ritiene quindi soddisfacibili le richieste del proponente.
-Per tempistiche pi\`u dettagliate si rimanda al \PdP.
+Per tempistiche pi\`u dettagliate si rimanda al ``\PdP''.
 
 \chapter{Appendice}
 \section{Tracciamento della relazione componenti - ~requisiti}
