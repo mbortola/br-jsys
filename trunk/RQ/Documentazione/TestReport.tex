@@ -1499,6 +1499,11 @@ Errore sintattico\\
 \subsection{Test sul comunicatore}
 La macrocomponente comunicatore verr\`a testata a scatola aperta (whitebox), inserendo in input al comunicatore una stringa contenente una query \underline{XQuery} e verificando che la modifica sia stata effettuata nel repository. Non verranno testate le query non accettate dal linguaggio \underline{XQuery}, in quanto gia` garantite dal \underline{DBMS} \underline{eXist}.\\
 \\
+
+% for $br in //BusinessRule[starts-with(@name,'i')] return $br
+%update insert "<BusinessRule associated="Articolo" comment="Commento" name="BR" rule="12 = 2"><AstRuleVersion value="(= 12 2)"/><Bconf type="="><FLOAT>12</FLOAT><FLOAT>2</FLOAT></Bconf></BusinessRule>" into /BusinessRules
+%for $br in //BusinessRule[@name='prova'] return update delete $br;
+%for $br in //BusinessRule[@associated='Articolo' and not(@comment)] return concat($br[@name], $br[@rule])
 \begin{Large}\textbf{CT1}\end{Large} \\
 Requisiti soddisfatti dall'esecuzione: F1 etc..
 \begin{center}
