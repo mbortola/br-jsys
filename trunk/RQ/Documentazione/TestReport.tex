@@ -1498,9 +1498,71 @@ Errore sintattico\\
 \end{center}
 
 \subsection{Test sul comunicatore}
-La macrocomponente comunicatore verr\`a testata a scatola aperta (whitebox), inserendo in input al comunicatore una stringa contenente una query \underline{XQuery} e verificando che la modifica sia stata effettuata nel repository. Non verranno testate le query non accettate dal linguaggio \underline{XQuery}, in quanto gia` garantite dal \underline{DBMS} \underline{eXist}.\\
+La macrocomponente comunicatore verr\`a testata a scatola aperta (whitebox), inserendo in input al comunicatore una stringa contenente una query \underline{XQuery} e verificando che la modifica sia stata effettuata nel repository. Non verranno testate le query non accettate dal linguaggio \underline{XQuery}, in quanto gia` garantite dal \underline{DBMS} \underline{eXist}. Per un corretto esito dei test \`e necessario che il \textit{repository} abbia una determinata situazione iniziale, illustrata nel riquadro sottostante. \\
 \\
 
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
+ \textless OpRule type=``AND''\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0\textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+\textless BoFun type=``NOT''\textgreater \\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater \\
+\textless /BoFun\textgreater \\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OpRule\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR1'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
+ \textless OpRule type=``AND''\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0\textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+\textless BoFun type=``NOT''\textgreater \\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater \\
+\textless /BoFun\textgreater \\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OpRule\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR2'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
+ \textless OpRule type=``AND''\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0\textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+\textless BoFun type=``NOT''\textgreater \\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater \\
+\textless /BoFun\textgreater \\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OpRule\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
+\textless BusinessRule associated=``Archivio'' comment=``'' name=``BR3'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
+ \textless OpRule type=``AND''\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0\textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+\textless BoFun type=``NOT''\textgreater \\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater \\
+\textless /BoFun\textgreater \\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OpRule\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
 % 
 %update insert "<BusinessRule associated="Articolo" comment="Commento" name="BR" rule="12 = 2"><AstRuleVersion value="(= 12 2)"/><Bconf type="="><FLOAT>12</FLOAT><FLOAT>2</FLOAT></Bconf></BusinessRule>" into /BusinessRules
 %
@@ -1512,7 +1574,13 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Query eseguita}\\ \hline
-for \$br in //BusinessRule[starts-with(\@name,'BR')] return \$br\\ \hline
+ for \$br in //BusinessRule[starts-with(\@name,'BR')] return \$br\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output Atteso}\\ \hline
+L'elenco delle \br\ in \underline{xml} come scritte nell'esempio di \rp\ sopra illustrato. In particolare dovranno essere visibili le \br\ : BR, BR1, BR2, BR3.\\ \hline
 \end{tabular} \\
 \end{center}
 
@@ -1523,6 +1591,12 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Query eseguita}\\ \hline
 for \$br in //BusinessRule[\@name='BR1'] return update delete \$br;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output Atteso}\\ \hline
+La query BR1 deve essere rimossa dal \rp.\\ \hline
 \end{tabular} \\
 \end{center}
 
@@ -1559,12 +1633,35 @@ update insert "<BusinessRule associated="Articolo" comment="Commento" name="BR" 
 \subsection{Test sulla GUI}
 La macrocomponente gui verr\`a testata a scatola aperta (whitebox) e manualmente, verificando il funzionamento di ogni sua componente grafica. Verranno testati tutti i bottoni che lanciano nuove finestre. Si tester\`a che ogni bottone invochi il metodo appropiato.\\
 \\
+\begin{Large}\textbf{GT1a}\end{Large} \\
+Si testa il bottone 'Inserisci Business Rule' e si testa che la finestra 'Inserisci' venga aperta.
+Requisiti soddisfatti dall'esecuzione: 
+
+\begin{Large}\textbf{GT1b}\end{Large} \\
+Si testa il bottone 'Rimuovi Business Rule' e si testa che la finestra 'Rimuovi' venga aperta.
+Requisiti soddisfatti dall'esecuzione: 
+
+\begin{Large}\textbf{GT1c}\end{Large} \\
+Si testa il bottone 'Sandbox' e si testa che la finestra 'Sandbox' venga aperta.
+Requisiti soddisfatti dall'esecuzione: 
+
+\begin{Large}\textbf{GT2}\end{Large} \\
+Si testa che tutti i campi textbox siano scrivibili.
+Requisiti soddisfatti dall'esecuzione: 
+
+\begin{Large}\textbf{GT3}\end{Large} \\
+Si testa che ogni altro bottone della gui invochi il metodo corretto secondo le specifiche del sistema.
+Requisiti soddisfatti dall'esecuzione: 
 
 \section{Test di integrazione}
 Vengono di seguito riportati i test riguardanti le integrazioni delle varie componenti. Questi test hanno come precondizione l'esecuzione dei test sulle singole macrocomponenti, di conseguenza sono mirati a scoprire difetti nell'interfacciamento e nell'interazione tra diverse componenti, nonch\`e di mostrare il soddisfacimento di alcuni requisiti.
 
 \subsection{Integrazione validatore, comunicatore}
 L'integrazione tra 'validatore' e 'comunicatore' verr\`a testata a scatola aperta (whitebox), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
+
+\begin{Large}\textbf{GT3}\end{Large} \\
+Si testa che ogni altro bottone della gui invochi il metodo corretto secondo le specifiche del sistema.
+Requisiti soddisfatti dall'esecuzione: 
 
 \subsection{Integrazione gui, validatore}
 L'integrazione tra 'gui' e 'validatore' verr\`a testata a scatola aperta (whitebox), inserendo da gui  un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
@@ -1677,6 +1774,19 @@ CT2 & negativo & \\ \hline
 CT3 & negativo & \\ \hline
 CT4 & negativo & \\ \hline
 CT5 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Test sulla gui}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+GT1a & negativo & \\ \hline
+GT1b & negativo & \\ \hline
+GT1c & negativo & \\ \hline
+GT2 & negativo & \\ \hline
+GT3 & negativo & \\ \hline
+
 \end{tabular} \\
 \end{center}
 \subsection{Integrazione validatore, comunicatore}
