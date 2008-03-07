@@ -111,10 +111,6 @@ public class GUICommunicator {
 					+"$i/@comment,':',$i/@associated,':::')");
 
 			String[] numBR=informations.split(":::");
-			for(int i=0;i<numBR.length;i++){
-				System.out.println(numBR[i]);
-			}
-
 			String[] temp=new String[4];
 			BusinessRule[] result=new BusinessRule[numBR.length];
 			for(int index=0;index<numBR.length;index++){
