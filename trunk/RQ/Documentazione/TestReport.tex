@@ -89,6 +89,7 @@ Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel 
 
 VT\textit{\#} & Con VT seguito da un numero intero sono indicati i test che riguardano la 'macrocomponente validatore'.\\ \hline
 CT\textit{\#} & Con CT seguito da un numero intero sono indicati i test che riguardano la 'macrocomponente comunicatore'.\\ \hline
+GT\textit{\#} & Con GT seguito da un numero intero sono indicati i test che riguardano la 'macrocomponente gui'.\\ \hline
 CVT\textit{\#} & Con CVT seguito da un numero intero sono indicati i test di integrazione tra 'validatore' e 'comunicatore'.\\ \hline
 GVT\textit{\#} & Con GVT seguito da un numero intero sono indicati i test integrazione tra 'gui' e 'validatore'.\\ \hline
 S\textit{\#} & Con S seguito da un numero intero sono indicati i test di integrazione del sistema.\\ \hline
@@ -1555,12 +1556,8 @@ update insert "<BusinessRule associated="Articolo" comment="Commento" name="BR" 
 \end{tabular} \\
 \end{center}
 
-
-
-
-
 \subsection{Test sulla GUI}
-La macrocomponente gui verr\`a testata a scatola aperta (whitebox) e manualmente, verificando il funzionamento di ogni sua componente grafica. Non essendo ancora completa la componente ci riserviamo di effettuare i test nella fase di verifica e validazione.\\
+La macrocomponente gui verr\`a testata a scatola aperta (whitebox) e manualmente, verificando il funzionamento di ogni sua componente grafica. Verranno testati tutti i bottoni che lanciano nuove finestre. Si tester\`a che ogni bottone invochi il metodo appropiato.\\
 \\
 
 \section{Test di integrazione}
