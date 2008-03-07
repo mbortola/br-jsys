@@ -31,12 +31,12 @@ public class ValidatorTester {
 			BusinessRule[15] = new BusinessRule("BR","Articolo","uscite=(2+prezzoBase)+(prezzoBase*4) +(prezzoBase/4)+(prezzoBase-3)","Commento");
 			BusinessRule[16] = new BusinessRule("BR","Articolo","(entrate+prezzoBase) +(prezzoBase*uscite) +(prezzoBase/entrate)+(prezzoBase-uscite)","Commento");
 			BusinessRule[17] = new BusinessRule("BR","Articolo","(prezzoBase+prezzoBase)+(prezzoBase*prezzoBase)+(prezzoBase/prezzoBase)+(prezzoBase-prezzoBase)","Commento");
-			BusinessRule[18] = new BusinessRule("BR","(matricePrezzi+matricePrezzi)+(matricePrezzi*matricePrezzi)+(matricePrezzi/matricePrezzi)+(matricePrezzi-matricePrezzi)","Commento");
-			BusinessRule[19] = new BusinessRule("BR","(matricePrezzi+2) +(matricePrezzi*3) +(matricePrezzi/4) +(matricePrezzi-5)","Commento");
+			BusinessRule[18] = new BusinessRule("BR","Articolo","(matricePrezzi+matricePrezzi)+(matricePrezzi*matricePrezzi)+(matricePrezzi/matricePrezzi)+(matricePrezzi-matricePrezzi)","Commento");
+			BusinessRule[19] = new BusinessRule("BR","Articolo","(matricePrezzi+2) +(matricePrezzi*3) +(matricePrezzi/4) +(matricePrezzi-5)","Commento");
 			BusinessRule[20] = new BusinessRule("BR","Articolo","(matricePrezzi+entrate)+(matricePrezzi*entrate)+(matricePrezzi/entrate)+(matricePrezzi-entrate)","Commento");
 			BusinessRule[21] = new BusinessRule("BR","Articolo","(matricePrezzi+prezzoBase)+(matricePrezzi*prezzoBase)+(matricePrezzi/prezzoBase)+(matricePrezzi-prezzoBase)","Commento");
 			BusinessRule[22] = new BusinessRule("BR","Articolo","(matricePrezzi+grafico)+(matricePrezzi*grafico)+(matricePrezzi/grafico)+(matricePrezzi-grafico)","Commento");
-			BusinessRule[23] = new BusinessRule("BR","Articolo","matricePrezzi=“ArticoloUno” AND prezziScontati=3 OR uscite=true","Commento");
+			BusinessRule[23] = new BusinessRule("BR","Articolo","matricePrezzi=\"ArticoloUno\" AND prezziScontati=3 OR uscite=true","Commento");
 			BusinessRule[24] = new BusinessRule("BR","Articolo","uscite=2*3*4+4-3*5-5+3/2*3","Commento");
 			BusinessRule[25] = new BusinessRule("BR","Articolo","uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7)","Commento");
 			BusinessRule[26] = new BusinessRule("BR","Articolo","\"ArticoloUno\">\"ArticoloUno\" AND \"ArticoloUno\">=\"ArticoloUno\" AND \"ArticoloUno\"<\"ArticoloUno\" AND \"ArticoloUno\"<=\"ArticoloUno\" AND \"ArticoloUno\" *nome AND \"ArticoloUno\"-nome AND \"ArticoloUno\"/nome AND \"ArticoloUno\"+nome","Commento");
