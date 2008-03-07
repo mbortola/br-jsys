@@ -52,10 +52,12 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+0.7 & 07/03/2008 & \MT & Aggiunta dei 'test case' per le integrazioni di componenti.\\ \hline
+0.6 & 07/03/2008 & \MM & Aggiunta la tabella di tracciamento 'requisiti - test'.\\ \hline
 0.5 & 06/03/2008 & \LA & Aggiunto Sommario.\\ \hline
-0.4 & 05/03/2008 & \MT & Aggiunta delle tabelle per gli esiti e della tabella di tracciamento 'requisiti - test'.\\ \hline
+0.4 & 05/03/2008 & \MT & Aggiunta delle tabelle per contenere gli esiti, e dei 'test case' per il 'comunicatore' \\ \hline
 0.3 & 04/03/2008 & \MT & Modifica alla nomenclatura dei test.\\ \hline
-0.2 & 03/03/2008 & \MT & Aggiunta dei 'test case'.\\ \hline
+0.2 & 03/03/2008 & \MT & Aggiunta dei 'test case' per il 'validatore' .\\ \hline
 0.1 & 02/03/2008 & \MT & Stesura iniziale del documento.\\ \hline
 \end{tabular} \\
 \end{small}
@@ -470,10 +472,8 @@ Regola & uscite\textless2 AND uscite\textgreater 2 AND uscite\textless=2 AND usc
 \textbf{Output atteso}\\ \hline
 \textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite\&lt;2 AND uscite\&gt; 2 AND uscite\&lt;=2 AND uscite\&gt;=2 AND uscite=2 AND uscite!=2''\textgreater\\
  \textless AstRuleVersion value=``(AND (AND (AND (AND (AND (= uscite 2) (!= uscite 2)) (\&gt;= uscite 2)) (\&lt;= uscite 2)) (\&gt; uscite 2)) (\&lt; uscite 2))''/\textgreater \\
-\textless OBool type=``AND''\textgreater\\
-\textless OBool type=``AND''\textgreater\\
-\textless OBool type=``AND''\textgreater\\
-\textless OBool type=``AND''\textgreater\\
+\textless OBool type=``AND''\textgreater \textless OBool type=``AND''\textgreater\\
+\textless OBool type=``AND''\textgreater \textless OBool type=``AND''\textgreater\\
 \textless OBool type=``AND''\textgreater\\
 \textless Conf type=``=``\textgreater \\
 \textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
@@ -686,7 +686,7 @@ Regola & (entrate+prezzoBase) +(prezzoBase*uscite) +(prezzoBase/entrate) +(prezz
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(entrate+prezzoBase)+(prezzoBase*uscite)+(prezzoBase/entrate)+(prezzoBase-uscite)=0''\textgreater\\
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(entrate+prezzoBase)+ (prezzoBase*uscite)+ (prezzoBase/entrate)+ (prezzoBase-uscite)=0''\textgreater\\
 \textless AstRuleVersion value``(= (+ (+ (+ (+ entrate prezzoBase) (* prezzoBase prezzoBase)) (/ prezzoBase entrate)) (- prezzoBase prezzoBase)) 0)''/\textgreater\\
 \textless Bconf type````\textgreater\\
 \textless OFloat type``+''\textgreater\\
@@ -733,7 +733,7 @@ Regola & (prezzoBase+prezzoBase) +(prezzoBase*prezzoBase) +(prezzoBase/prezzoBas
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(prezzoBase+prezzoBase)+(prezzoBase*prezzoBase)+(prezzoBase/prezzoBase)+(prezzoBase-prezzoBase)=0''\textgreater\\
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(prezzoBase+prezzoBase)+ (prezzoBase*prezzoBase)+ (prezzoBase/prezzoBase)+ (prezzoBase-prezzoBase)=0''\textgreater\\
 \textless AstRuleVersion value``(= (+ (+ (+ (+ prezzoBase prezzoBase) (* prezzoBase prezzoBase)) (/ prezzoBase prezzoBase)) (- prezzoBase prezzoBase)) 0)''/\textgreater\\
 \textless Bconf type````\textgreater\\
 \textless OFloat type``+''\textgreater\\
@@ -780,7 +780,7 @@ Regola & (matricePrezzi+matricePrezzi) +(matricePrezzi*matricePrezzi) +(matriceP
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+matricePrezzi)+(matricePrezzi*matricePrezzi)+(matricePrezzi/matricePrezzi)+(matricePrezzi-matricePrezzi)=0''\textgreater\\
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+matricePrezzi)+ (matricePrezzi*matricePrezzi)+ (matricePrezzi/matricePrezzi)+ (matricePrezzi-matricePrezzi)=0''\textgreater\\
 \textless AstRuleVersion value``(= (+ (+ (+ (+ matricePrezzi matricePrezzi) (* matricePrezzi matricePrezzi)) (/ matricePrezzi matricePrezzi)) (- matricePrezzi matricePrezzi)) 0)''/\textgreater\\
 \textless Bconf type````\textgreater\\
 \textless OFloat type``+''\textgreater\\
@@ -827,7 +827,7 @@ Regola & (matricePrezzi+2) +(matricePrezzi*2) +(matricePrezzi/2) +(matricePrezzi
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+2)+(matricePrezzi*2)+(matricePrezzi/2)+(matricePrezzi-2)=0''\textgreater\\
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+2)+ (matricePrezzi*2)+ (matricePrezzi/2)+ (matricePrezzi-2)=0''\textgreater\\
 \textless AstRuleVersion value``(= (+ (+ (+ (+ matricePrezzi 2) (* matricePrezzi 2)) (/ matricePrezzi 2)) (- matricePrezzi 2)) 0)''/\textgreater\\
 \textless Bconf type````\textgreater\\
 \textless OFloat type``+''\textgreater\\
@@ -874,7 +874,7 @@ Regola & (matricePrezzi+entrate) +(matricePrezzi*entrate) +(matricePrezzi/entrat
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+entrate)+(matricePrezzi*entrate)+(matricePrezzi/entrate)+(matricePrezzi-entrate)=0''\textgreater\\
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+entrate)+ (matricePrezzi*entrate)+ (matricePrezzi/entrate)+ (matricePrezzi-entrate)=0''\textgreater\\
 \textless AstRuleVersion value``(= (+ (+ (+ (+ matricePrezzi entrate) (* matricePrezzi entrate)) (/ matricePrezzi entrate)) (- matricePrezzi entrate)) 0)''/\textgreater\\
 \textless Bconf type````\textgreater\\
 \textless OFloat type``+''\textgreater\\
@@ -1576,7 +1576,7 @@ Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentat
 
 \subsection{Test sul validatore}
 \begin{center}
-\begin{tabular}{|p{1cm}|p{2cm}|p{7cm}|} \hline
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
 \textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
 VT1a & negativo & \\ \hline
 VT1b & negativo & \\ \hline
@@ -1609,6 +1609,12 @@ VT12b & negativo & \\ \hline
 VT13a & negativo & \\ \hline
 VT13b & negativo & \\ \hline
 VT14 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
 VT15a & negativo & \\ \hline
 VT15b & negativo & \\ \hline
 VT15c & positivo & \\ \hline
@@ -1620,9 +1626,6 @@ VT17 & positivo & Le lettere accentate non sono ancora state aggiunte nella gram
 VT18 & positivo & I numeri non sono ancora stati aggiunti alla grammatica del linguaggio.\\ \hline
 VT19 & negativo & \\ \hline
 VT20 & negativo & \\ \hline
-
-
-
 \end{tabular} \\
 \end{center}
 
