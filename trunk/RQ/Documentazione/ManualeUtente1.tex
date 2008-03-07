@@ -342,6 +342,14 @@ Per avviare il programma, una volta terminata l' installazione, sia in Linux che
  figura 3.0: schermata di login
 \end{center}
 I dati di autenticazione immessi sono quelli utilizzati per la registrazione al server ``eXist''. Tutti i dati richiesti dovranno essere insieriti prestando attenzione alla scelta della password, la quale dovr\`a avere una complessit\`a elevata. 
+\subsection{Esiti}
+Nel caso di login eseguita correttamente, verr\`a lanciata la schermata principale (figura 3.1).
+\begin{center}
+\includegraphics[width=0.5\textwidth]{manuale_utente/errore_server_spento.eps}\\
+ figura 3.0.1: esempio di server spento
+\end{center} 
+Altrimenti (figura 3.0.1) viene mostrato un messaggio d'errore. In questo caso l'autenticazione non pu\`o essere effettuata in quanto il server eXist \`e irraggiungibile o spento.
+% mettere il caso di username o password errata
 \section{Azioni richieste/permesse}
 \begin{center}
 \includegraphics[width=0.4\textwidth]{manuale_utente/schermata_principale.eps}\\
@@ -373,9 +381,35 @@ Descrizione sintetica del comportamento della regola.
 \end{itemize}
 L'utente dovr\`a ora cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo. 
 \begin{center}
-\includegraphics[width=0.9\textwidth]{manuale_utente/schermata_esempio_inserimento.eps}\\
+\includegraphics[width=0.7\textwidth]{manuale_utente/schermata_esempio_inserimento.eps}\\
  figura 3.2.2: esempio di inserimento
-\end{center} % questo deve essere il disegno dei messaggi sia di esito positivo che di negativo: quindi 2 disegni
+\end{center} 
+\subsubsection{Esiti}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{manuale_utente/br_inserita.eps}\\
+ figura 3.2.3: esempio inserimento effettuato
+\end{center} 
+La figura 3.2.3 mostra l'esito di un corretto inserimento di business rules. La business rule \`e stata cos\`i validata e inserita nel repository.
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{manuale_utente/errore_bo_non_trovato.eps}\\
+ figura 3.2.4: esempio di bo non trovato
+\end{center} 
+La figura 3.2.4 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto il business object associato (in questo esempio ``fatture'') non \`e presente nel repository.
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{manuale_utente/errore_op_non_consentita.eps}\\
+ figura 3.2.5: esempio di br errata
+\end{center} 
+La figura 3.2.5 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto la regola immessa (in questo caso true=12) non \`e consentita.
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{manuale_utente/errore_br_gia_presente.eps}\\
+ figura 3.2.6: esempio di br gi\`a inserita
+\end{center} 
+La figura 3.2.6 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto vi \`e gi\`a un'occorrenza di questa nel repository.
+
+% questo deve essere il disegno dei messaggi sia di esito positivo che di negativo: quindi 2 disegni
 \subsection{Rimuovi \underline{Business Rule}}
 \begin{center}
 \includegraphics[width=0.9\textwidth]{manuale_utente/schermata_rimozione.eps}\\
