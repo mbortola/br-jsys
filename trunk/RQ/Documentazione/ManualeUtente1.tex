@@ -349,7 +349,12 @@ Nel caso di login eseguita correttamente, verr\`a lanciata la schermata principa
  figura 3.0.1: esempio di server spento
 \end{center} 
 Altrimenti (figura 3.0.1) viene mostrato un messaggio d'errore. In questo caso l'autenticazione non pu\`o essere effettuata in quanto il server eXist \`e irraggiungibile o spento.
-% mettere il caso di username o password errata
+
+% \begin{center}
+% \includegraphics[width=0.5\textwidth]{}\\
+%  figura 3.0.2: esempio di username o password errati
+% \end{center} 
+
 \section{Azioni richieste/permesse}
 \begin{center}
 \includegraphics[width=0.4\textwidth]{manuale_utente/schermata_principale.eps}\\
@@ -392,55 +397,89 @@ L'utente dovr\`a ora cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento
 La figura 3.2.3 mostra l'esito di un corretto inserimento di business rules. La business rule \`e stata cos\`i validata e inserita nel repository.
 
 \begin{center}
-\includegraphics[width=0.5\textwidth]{manuale_utente/errore_bo_non_trovato.eps}\\
- figura 3.2.4: esempio di bo non trovato
+\includegraphics[width=0.5\textwidth]{manuale_utente/errore_bo_inesistente.eps}\\
+ figura 3.2.4: esempio di bo associato non trovato
 \end{center} 
 La figura 3.2.4 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto il business object associato (in questo esempio ``fatture'') non \`e presente nel repository.
 
 \begin{center}
+\includegraphics[width=0.5\textwidth]{manuale_utente/errore_bo_non_trovato.eps}\\
+ figura 3.2.5: esempio di bo non trovato
+\end{center} 
+La figura 3.2.5 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto il business object immesso non \`e presente nel repository.
+
+\begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_op_non_consentita.eps}\\
- figura 3.2.5: esempio di br sintatticamente errata 
+ figura 3.2.6: esempio di br sintatticamente errata 
 \end{center} 
-La figura 3.2.5 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto la regola immessa (in questo caso true=12) non \`e consentita.
-
-\subsubsection{Esiti}
+La figura 3.2.6 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto la regola immessa (in questo caso true=12) non \`e consentita.
+\\
+\\
 \begin{center}
-\includegraphics[width=0.7\textwidth]{manuale_utente/errore_sintattico.eps}\\
- figura 3.2.6: esempio br errata
+\includegraphics[width=0.5\textwidth]{manuale_utente/errore_sintattico.eps}\\
+ figura 3.2.7: esempio di br errata
 \end{center} 
-La figura 3.2.6 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto la regola immessa \`e scritta in maniera errata.
+La figura 3.2.7 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto la regola immessa \`e scritta in maniera errata.
 
 \begin{center}
-\includegraphics[width=0.7\textwidth]{manuale_utente/errore_br_gia_presente.eps}\\
- figura 3.2.7: esempio di br gi\`a inserita
+\includegraphics[width=0.6\textwidth]{manuale_utente/errore_br_gia_presente.eps}\\
+ figura 3.2.8: esempio di br gi\`a inserita
 \end{center} 
-La figura 3.2.7 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto vi \`e gi\`a un'occorrenza di questa nel repository.
+La figura 3.2.8 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel repository in quanto vi \`e gi\`a un'occorrenza di questa nel repository.
 
-% questo deve essere il disegno dei messaggi sia di esito positivo che di negativo: quindi 2 disegni
 \subsection{Rimuovi \underline{Business Rule}}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{manuale_utente/schermata_rimozione.eps}\\
+\includegraphics[width=0.7\textwidth]{manuale_utente/schermata_rimozione.eps}\\
  figura 3.3: schermata di rimozione
 \end{center}
-Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una \underline{business rule}. 
+Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una \underline{business rule}.
 \begin{itemize}
 \item Per procedere all'eliminazione l'utente avr\`a 2 modi:
 \begin{enumerate}
-\item inserire nell'appostito campo (TextBox) il nome della \underline{business rule} che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}'';
+\item inserire nell'appostito campo (TextBox) il nome della \underline{business rule} che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''.
 \item selezionare una o pi\`u \underline{business rules} dalla lista sottostante.
 \end{enumerate}
 
-\item Se la business rule risulta presente nel repository, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento). 
+\item Se la business rule risulta presente nel repository figura 3.3.1, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 3.3.2. 
 
-\item A questo punto baster\`a cliccare sul pulsante ``\textbf{Rimuovi Selezionate}''.  
+\begin{center}
+\includegraphics[width=0.5\textwidth]{manuale_utente/br_selezionata.eps}\\
+ figura 3.3.1: messaggio di br trovata
+\end{center} 
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{manuale_utente/rimozione_br_trovata.eps}\\
+ figura 3.3.2: esempio di br selezionata
+\end{center} 
+
+\item A questo punto baster\`a cliccare sul pulsante ``\textbf{Rimuovi Selezionate}'' e dare conferma di rimozione figura 3.3.3.  
 \end{itemize}
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{manuale_utente/conferma_rimozione.eps}\\
+ figura 3.3.3 messaggio di conferma
+\end{center} 
+
 Se la cancellazione viene effettuata con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
 \subsubsection{Esiti}
+
+% 
+% \begin{center}
+% \includegraphics[width=0.5\textwidth]{}\\
+%  figura 3.3.4 messaggio di br rimossa
+% \end{center} 
+% La figura 3.3.4 mostra la conferma di rimozione di business rules. La business rule \`e stata trovata dal repository.
+
+\begin{center}
+\includegraphics[width=0.5\textwidth]{manuale_utente/br_non_trovata.eps}\\
+ figura 3.3.5 messaggio di br non trovata
+\end{center} 
+La figura 3.3.5 mostra l'esito di un'errata rimozione di business rules. La business rule non pu\`o essere rimossa nel repository in quanto non \`e stata trovata nel repository.
 
 % occorre inserire il messaggio dei due esiti
 \subsection{Sandbox}
 \begin{center}
- \includegraphics[width=0.9\textwidth]{manuale_utente/schermata_sandbox.eps} \\
+ \includegraphics[width=0.7\textwidth]{manuale_utente/schermata_sandbox.eps} \\
  figura 3.4: schermata sandbox
 \end{center}
 Nella figura 3.4 vediamo illustrata la schermata di sandbox. Per procedere con l'interrogazione del database, l'utente dovr\`a:
@@ -448,7 +487,20 @@ Nella figura 3.4 vediamo illustrata la schermata di sandbox. Per procedere con l
 \item inserire la query (scritta in linguaggio Xquery) nell'appostito campo dati ``Query'';
 \item cliccare sul pulsante ``\textbf{Esegui}''.
 \end{itemize}
-A questo punto verr\`a visualizzato nel campo dati ``Risultati'' l'esito della query.
+
+\subsubsection{Esiti}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{manuale_utente/sandbox_di_query.eps}\\
+ figura 3.4.1 esempio di querying corretta
+\end{center}
+La figura 3.4.1 mostra l'esito positivo di una query e in particolare verr\`a visualizzato nel campo dati ``Risultati'' l'esito della query e nella barra sottostante il tempo di risposta (in millisecondi) impiegato da eXist. 
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{manuale_utente/esempio_errore_sandbox_query_errata.eps}\\
+figura 3.4.2 eccezione di querying errata
+\end{center}
+La figura 3.4.2 mostra un'eccezione lanciata in caso di esito negativo di una query.
+
 \chapter{Appendice}
 \section{Messaggi di errore e loro significato}
 \begin{table}[htbp]
