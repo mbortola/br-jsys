@@ -30,7 +30,7 @@ public class ValidatorTester {
 			BusinessRule[14] = new BusinessRule("BR","Articolo","uscite=(uscite+entrate-(uscite*entrate))/entrate","Commento");
 			BusinessRule[15] = new BusinessRule("BR","Articolo","uscite=(2+prezzoBase)+(prezzoBase*4) +(prezzoBase/4)+(prezzoBase-3)","Commento");
 			BusinessRule[16] = new BusinessRule("BR","Articolo","(entrate+prezzoBase) +(prezzoBase*uscite) +(prezzoBase/entrate)+(prezzoBase-uscite)","Commento");
-			BusinessRule[17] = new BusinessRule("BR","Articolo","(prezzoBase+prezzoBase)+(prezzoBase*prezzoBase)+(prezzoBase/prezzoBase)+(prezzoBase-prezzoBase)","Commento");
+			BusinessRule[17] = new BusinessRule("BR","Articolo","(prezzoBase+prezzoBase)+(prezzoBase*prezzoBase)+(prezzoBase/prezzoBase)+(prezzoBase-prezzoBase) = 0","Commento");
 			BusinessRule[18] = new BusinessRule("BR","Articolo","(matricePrezzi+matricePrezzi)+(matricePrezzi*matricePrezzi)+(matricePrezzi/matricePrezzi)+(matricePrezzi-matricePrezzi)","Commento");
 			BusinessRule[19] = new BusinessRule("BR","Articolo","(matricePrezzi+2) +(matricePrezzi*3) +(matricePrezzi/4) +(matricePrezzi-5)","Commento");
 			BusinessRule[20] = new BusinessRule("BR","Articolo","(matricePrezzi+entrate)+(matricePrezzi*entrate)+(matricePrezzi/entrate)+(matricePrezzi-entrate)","Commento");

@@ -525,7 +525,25 @@ Regola & uscite=(2+2-(3*4))/5 \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+2-(3*4))/5''\textgreater \\
+\textless AstRuleVersion value=``(= uscite (/ (- (+ 2 2) (* 3 4)) 5))''/\textgreater \\
+ \textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless OFloat type=``/''\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -545,7 +563,25 @@ Regola & uscite=(2+entrate-(uscite*4))/entrate \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+entrate-(uscite*4))/entrate''\textgreater\\
+ \textless AstRuleVersion value=``(= uscite (/ (- (+ 2 entrate) (* uscite 4)) entrate))''/\textgreater\\
+ \textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless OFloat type=``/''\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater\\
+ \textless /OFloat\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater\\
+ \textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -565,7 +601,25 @@ Regola & uscite=(uscite+entrate-(uscite*entrate))/entrate \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(uscite+entrate-(uscite*entrate))/entrate''\textgreater\\
+ \textless AstRuleVersion value=``(= uscite (/ (- (+ uscite entrate) (* uscite entrate)) entrate))''/\textgreater \\
+\textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless OFloat type=``/''\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -585,7 +639,34 @@ Regola & uscite=(2+prezzoBase) +(prezzoBase*4) +(prezzoBase/4) +(prezzoBase-3) \
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+prezzoBase)+(prezzoBase*4) +(prezzoBase/4)+(prezzoBase-3)''\textgreater\\
+ \textless AstRuleVersion value=``(= uscite (+ (+ (+ (+ 2 prezzoBase) (* prezzoBase 4)) (/ prezzoBase 4)) (- prezzoBase 3)))''/\textgreater \\
+\textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``/''\textgreater\\
+ \textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -599,7 +680,7 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (entrate+prezzoBase) +(prezzoBase*uscite) +(prezzoBase/entrate) +(prezzoBase-uscite) \\ \hline
+Regola & (entrate+prezzoBase) +(prezzoBase*uscite) +(prezzoBase/entrate) +(prezzoBase-uscite) = 0 \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
