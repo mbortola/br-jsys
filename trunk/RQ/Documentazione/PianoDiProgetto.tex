@@ -2,7 +2,7 @@
 \input{model/layout.tex}% layout
 \begin{document}
 %definizione variabili 
-\newcommand{\lv}{ 1.8 } % latest version
+\newcommand{\lv}{ 2.3 } % latest version
 \newcommand{\dt}{ Piano Di Progetto }% Document title
 \newcommand{\Glossario}{ Glossario.1.8.pdf }
 %fine definizione variabili
@@ -33,8 +33,8 @@
 \textbf{Approvazione:}  & \MM \\  \hline
 \textbf{Revisione RQ} &    \\ \hline
 \textbf{Redazione:} & \ET \\ \hline
-\textbf{Revisione:} & \\ \hline
-\textbf{Approvazione:}  & \\  \hline
+\textbf{Revisione:} & \LA \\ \hline
+\textbf{Approvazione:}  & \MT \\  \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -60,23 +60,24 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
-2.2 & 06/03/2008 & \ET & Aggiornamento diagrammi di Gantt\\ \hline
+2.3 & 07/03/2008 & \LA & Correzione documento\\ \hline
+2.2 & 06/03/2008 & \ET & Aggiornamento diagrammi di Gantt e introduzione sommario\\ \hline
 2.1 & 06/03/2008 & \MT & Aggiornamento grafici con dati effettivi della fase di sviluppo\\ \hline
-2.0 & 06/03/2008 & \ET & Aggiornamento tabelle con dati effettivi della fase di sviluppo\\ \hline
+2.0 & 06/03/2008 & \AT & Aggiornamento tabelle con dati effettivi della fase di sviluppo\\ \hline
 1.9 & 05/03/2008 & \MM & Introduzione sottolineatura ai termini definiti nel glossario\\ \hline
 1.8 & 04/03/2008 & \MT & Modifica al layout, introduzione totale pagine e autori nel diario delle modifiche.\\ \hline
 1.7 & 14/02/2008 & \MM & Modifica ai grafici.\\ \hline
-1.6 & 13/02/2008 & \MM & Aggiornamento tabelle con dati effettivi della fase di progettazione.\\ \hline
+1.6 & 13/02/2008 & \MB & Aggiornamento tabelle con dati effettivi della fase di progettazione.\\ \hline
 1.5 & 11/02/2008 & \MM & Modifica layout tabelle.\\ \hline 
 1.4 & 05/02/2008 & \MT & Aggiunta del nome del file nel modello di documento.\\ \hline
 1.3 & 25/01/2008 & \MM & Aggiornamento tabelle con dati effettivi della fase di analisi \\ \hline
-1.2 & 23/01/2008 & \MM & Aggiunto carico totale delle risorse preventivo \\ \hline
+1.2 & 23/01/2008 & \FC & Aggiunto carico totale delle risorse preventivo \\ \hline
 1.1 & 22/01/2008 & \MT & Modifica al layout dei documenti.\\ \hline
 1.0 & 21/12/2007 & \MT & Documento sottoposto a revisionamento automatico.\\ \hline
 0.5 & 05/12/2007 & \ET & Aggiunto riferimento diagramma di Gantt \\ \hline
-0.4 & 29/11/2007 & \ET & Stesura completa del documento. \\ \hline
+0.4 & 29/11/2007 & \LA & Stesura completa del documento. \\ \hline
 0.3 & 25/11/2007 & \ET & Assegnazione dei ruoli ai componenti del gruppo. \\ \hline
-0.2 & 23/11/2007 & \ET & Riviste al ribasso le ore di programmazione. \\ \hline
+0.2 & 23/11/2007 & \AT & Riviste al ribasso le ore di programmazione. \\ \hline
 0.1 & 21/11/2007 & \ET & Stesura preliminare del documento. \\ \hline
 
 \end{tabular} \\
@@ -86,7 +87,8 @@ Versione & Data & Autore & Descrizione \\ \hline
 \end{table}
 \end{center}
 
-
+\section {Sommario}
+Indichiamo in questo documento i ruoli assunti dai vari componenti ed il tempo impiegato da ciascuno per lo sviluppo del sistema software oggetto del capitolato d'appalto C04 ``BR-jsys''.
 \tableofcontents 
 
 
@@ -116,7 +118,7 @@ dei programmatori, a scapito di quelle dei progettisti. Tutto ci\`o \`e avvenuto
 \begin{itemize}
 \item il responsabile: ha delegato completamente all'amministratore l'aggiornamento del piano di progetto; 
 \\l'approvazione del codice \`e stata snellita dai dettagliati rapporti sui test forniti dai verificatori; 
-\\la pianificazione della qualit� in questa fase non ha subito particolari modifiche rispetto alle previsini fatte durante la fase precedente.
+\\la pianificazione della qualit\`a in questa fase non ha subito particolari modifiche rispetto alle previsioni fatte durante la fase precedente.
 \item l'amministratore: non ha dovuto in questa fase mettere mano alle norme di progetto gi\`a sufficientemente esposte in modo chiaro e dettagliato nella fase precedente; 
 \\ha ridotto al minimo la pianificazione di progetto che fatta eccezione per le modifiche ai ruoli di responsabile ed amministratore \`e rimasto pressoch\`e invariato rispetto all'ultima revisione;
 \end{itemize}
@@ -152,7 +154,7 @@ Abbiamo altres\`i limitato le ore di verificatore in questa fase di sviluppo in 
 
 \end{table}
 
-Il seguente grafico mostra in che misura incide ciascun ruolo per ogni macrofase. Abbiamo voluto mettere in evidenza le variazioni tra le nostre previsioni e il tempo effettivamente dedicato ad ogni ruolo, affiancando alle colonne con i colori pi\`u chiari (a destra, rappresentano i dati effettivi) le colonne che invece rappresentano i dati previsti (le abbiamo marcate con colori pi\`u scuri). Tale convenzione sar\`a usata anche nei grafici successivi. Per quanto riguarda la fase di verifica le due colonne (dati previsti/effettivi) coincidono, in quanto non siamo in possesso ancora di dati effettivi, trattandosi di fasi che affronteremo nell'immediato futuro.
+Il seguente grafico mostra in che misura incide ciascun ruolo per ogni macrofase. Abbiamo voluto mettere in evidenza le variazioni tra le nostre previsioni e il tempo effettivamente dedicato ad ogni ruolo, affiancando alle colonne con i colori pi\`u chiari (a destra, rappresentano i dati effettivi) le colonne che invece rappresentano i dati previsti (le abbiamo marcate con colori pi\`u scuri). Tale convenzione sar\`a usata anche nei grafici successivi. Per quanto riguarda la fase di verifica le due colonne (dati previsti/effettivi) coincidono, in quanto non siamo in possesso ancora di dati effettivi, trattandosi della fase che affronteremo nell'immediato futuro.
 
 \begin{center}
 \includegraphics [width=1\textwidth] {progetto/confronto.eps}
@@ -336,7 +338,7 @@ Nelle seguenti tabelle vediamo la ripartizione delle ore nelle quattro macro-fas
 \end{tabular} \\
 \end{tabular}
 }
-\end{table}
+\end{table}  
 \begin{table}[hbtp]
 \large{
 \begin{tabular}{l}
@@ -349,7 +351,7 @@ Nelle seguenti tabelle vediamo la ripartizione delle ore nelle quattro macro-fas
 {Carraro Filippo}&8&10\footnotesize{(-2)}&27\footnotesize{(-2)} \\ \hline
 {Meroi Mattia}&12&8\footnotesize{(-1)}&26\footnotesize{(-2)}\\ \hline
 {Tessarotto Marco} &4&18\footnotesize{(+7)}&28\footnotesize{(-1)}\\ \hline
-{Trivellato Alessia} &7&11\footnotesize{(-6)}&26\footnotesize{(-3)} \\ \hline
+{Trivellato Alessia} &7&11\footnotesize{(-6)}&26\footnotesize{(-2)} \\ \hline
 {Trivellato Elena} &6\footnotesize{(-1)}&18\footnotesize{(-1)}&27\footnotesize{(-2)} \\ \hline
 {Totale}& 59\footnotesize{(-1)}&85\footnotesize{(-5)}&189\footnotesize{(-11)} \\ \hline
 \end{tabular} \\
@@ -451,7 +453,7 @@ Il bilancio delle ore ``previste-effettive'' aveva evidenziato un leggero aument
 \hline 
 {Bortolato Michele} &17 \footnotesize{(+2)}&37\footnotesize{(+1)}&96 \footnotesize{(+6)}\\ 
 \hline
-{Carraro Filippo}&20 \footnotesize{(+2)}&32\footnotesize{(-2)}&91\footnotesize{(-23)} \\
+{Carraro Filippo}&20 \footnotesize{(+2)}&32\footnotesize{(-2)}&91\footnotesize{(+1)} \\
 \hline
 {Meroi Mattia}&19&32\footnotesize{(-1)}&88\footnotesize{(-2)}\\
 \hline
