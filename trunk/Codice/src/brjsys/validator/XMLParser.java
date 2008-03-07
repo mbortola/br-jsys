@@ -24,7 +24,7 @@ public class XMLParser {
 
 	/**
 	 * Costruttore
-	 * @param tList Array che associa il nome dei token al intero che li 
+	 * @param tList Array che associa il nome dei token al numero che li 
 	 * identifica
 	 * */
 	public XMLParser (String[]tList) {
