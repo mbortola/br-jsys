@@ -105,7 +105,7 @@ Vengono di seguito presentati i \textit{test case}. Ogni test case \`e composto 
 Vengono di seguito riportati i test riguardanti le macrocomponenti del sistema \underline{br-jsys}. Questi test si occupano di testare il corretto funzionamento della componente, nonch\`e di mostrare il soddisfacimento di alcuni requisiti.
 
 \subsection{Test sul validatore}
-La macrocomponente validatore verr\`a testata a scatola aperta ( whitebox ), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso.\\
+La macrocomponente validatore verr\`a testata a scatola aperta (\underline{whitebox}), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso.\\
 \\
 \begin{Large}\textbf{VT1a}\end{Large} \\
 Si testa una \br\ semplice per verificare che siano accettati tutti i campi dati.\\
@@ -1498,7 +1498,7 @@ Errore sintattico\\
 \end{center}
 
 \subsection{Test sul comunicatore}
-La macrocomponente comunicatore verr\`a testata a scatola aperta (whitebox), inserendo in input al comunicatore una stringa contenente una query \underline{XQuery} e verificando che la modifica sia stata effettuata nel repository. Non verranno testate le query non accettate dal linguaggio \underline{XQuery}, in quanto gia` garantite dal \underline{DBMS} \underline{eXist}. Per un corretto esito dei test \`e necessario che il \textit{repository} abbia una determinata situazione iniziale, illustrata nel riquadro sottostante. \`E importante che la situazione iniziale del repository sia quella descritta di seguito, e che i test sul comunicatore siano eseguiti nell'ordine descritto. Per i motivi sopra elencati \`e molto importante che venga utilizzata l'apposita classe di test. \\
+La macrocomponente comunicatore verr\`a testata a scatola aperta (\underline{whitebox}), inserendo in input al comunicatore una stringa contenente una query \underline{XQuery} e verificando che la modifica sia stata effettuata nel repository. Non verranno testate le query non accettate dal linguaggio \underline{XQuery}, in quanto gia` garantite dal \underline{DBMS} \underline{eXist}. Per un corretto esito dei test \`e necessario che il \textit{repository} abbia una determinata situazione iniziale, illustrata nel riquadro sottostante. \`E importante che la situazione iniziale del repository sia quella descritta di seguito, e che i test sul comunicatore siano eseguiti nell'ordine descritto. Per i motivi sopra elencati \`e molto importante che venga utilizzata l'apposita classe di test. \\
 \\
 
 \begin{center}
@@ -1661,7 +1661,7 @@ update insert "\textless BusinessRule associated=``Archivio'' comment=``'' name=
 \end{center}
 
 \subsection{Test sulla GUI}
-La macrocomponente gui verr\`a testata a scatola aperta (whitebox) e manualmente, verificando il funzionamento di ogni sua componente grafica. Verranno testati tutti i bottoni che lanciano nuove finestre. Si tester\`a che ogni bottone invochi il metodo appropiato.\\
+La macrocomponente gui verr\`a testata a scatola aperta (\underline{whitebox}) e manualmente, verificando il funzionamento di ogni sua componente grafica. Verranno testati tutti i bottoni che lanciano nuove finestre. Si tester\`a che ogni bottone invochi il metodo appropiato.\\
 \\
 \begin{Large}\textbf{GT1a}\end{Large} \\
 Si testa il bottone 'Inserisci Business Rule' e si testa che la finestra 'Inserisci' venga aperta.
@@ -1687,7 +1687,7 @@ Requisiti soddisfatti dall'esecuzione: F4,F8,NU3\\
 Vengono di seguito riportati i test riguardanti le integrazioni delle varie componenti. Questi test hanno come precondizione l'esecuzione dei test sulle singole macrocomponenti, di conseguenza sono mirati a scoprire difetti nell'interfacciamento e nell'interazione tra diverse componenti, nonch\`e di mostrare il soddisfacimento di alcuni requisiti.
 
 \subsection{Integrazione validatore, comunicatore}
-L'integrazione tra 'validatore' e 'comunicatore' verr\`a testata a scatola aperta (whitebox), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
+L'integrazione tra 'validatore' e 'comunicatore' verr\`a testata a scatola aperta (\underline{whitebox}), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
 
 \begin{Large}\textbf{CVT1a}\end{Large} \\
 Si testa che una \br\ non presente nel \rp\ venga inserita ritornando 'true'.
@@ -1706,11 +1706,11 @@ Requisiti soddisfatti dall'esecuzione: \\
 \end{center}
 
 \begin{Large}\textbf{CVT1b}\end{Large} \\
-Si testa che ogni \br\ gi\`a inserita non possa essere inserita con lo stesso nome. Per fare ci\`o si riesegue l'inserimento della \br\ sopra illustrata e si testa che il valore ritornato sia 'false'.
+Si deve testare l'impedimento da parte del validatore di inserire nel \rp\ \br\ con lo stesso nome. Per fare ci\`o si riesegue l'inserimento della \br\ sopra illustrata e si testa che il valore ritornato sia 'false'.
 Requisiti soddisfatti dall'esecuzione: \\
  \\
 \subsection{Integrazione gui, validatore}
-L'integrazione tra 'gui' e 'validatore' verr\`a testata a scatola aperta (whitebox), inserendo da gui  un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
+L'integrazione tra 'gui' e 'validatore' verr\`a testata a scatola aperta (\underline{whitebox}), inserendo da gui  un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le due componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
 
 \begin{Large}\textbf{GVT1}\end{Large} \\
 Si testa che il bottone 'Valida' invochi la validazione della \br\ appena inserita.
@@ -1730,11 +1730,11 @@ Requisiti soddisfatti dall'esecuzione: \\
 
 
 \subsection{Integrazione del sistema}
-L'integrazionedell'intero sistema verr\`a testata a scatola aperta (whitebox), testando le sole funzionalit\`a risultanti dalla completa integrazione del sistema.\\
+L'integrazione dell'intero sistema verr\`a testata a scatola aperta (\underline{whitebox}), testando le sole funzionalit\`a risultanti dalla completa integrazione del sistema.\\
 
 \section{Test di regressione}
-Con test di regressione si intende la riescuzione di alcuni test case a fronte di una o pi\`u modifiche nel codice software. Ogni qual volta una componente venga modificata vanno rieseguiti (mediante l'utilizzo del sistema di automazione dei test) tutti i test riguardanti la componente specifica nonch\`e i test riguardanti l'integrazione della componente sessa con altre componenti fino all'esecuzione dei test di integrazione del sistema.
-Negli esiti dei test, per non appesantire la lettura non vengono riportatitutti i test di regressione ma solo i test di regressione che abbiano prodotto un output o un esito differente.
+Con test di regressione si intende la ripetizione di alcuni test case a fronte di una o pi\`u modifiche nel software. Ogniqualvolta una componente venga modificata vanno ripetuti (mediante l'utilizzo del sistema di automazione dei test) tutti i test riguardanti la componente specifica nonch\`e i test per la sua integrazione con altre componenti fino all'esecuzione dei test di integrazione del sistema.
+Negli esiti dei test, per non appesantire la lettura, non vengono riportati tutti i test di regressione ma soltanto quelli che abbiano prodotto un output o un esito differente.
 
 \section{Tracciamento requisiti - test}
 Nella seguente tabella vengono evidenziati i test necessari al soddisfacimento di ogni requisito. Gli identificativi dei test sono quelli riportati nel capitolo 'Descrizione dei test case'{link}. Mentre gli identificativi dei singoli requisiti sono quelli descritti nel documento \AR .
@@ -1767,10 +1767,10 @@ NQ3 &  \\ \hline
 \chapter{Esiti dei test}
 \section{Automatizzazione dei test}
 Essendo la fase di test una fase costosa e laboriosa del processo software, si \`e deciso di automatizzare il pi\`e possibile l'esecuzione dei test. L'esecuzione dei test viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l'output prodotto con quello atteso.
-Alcuni test si rende necessario eseguirli a mano, come ad esempio i test riguardanti la componente \textit{gui}, tali test sono comunque una parte minima di tutti i test da eseguire non incidendo eccessivamente sul costo dell'intera fase di test.
+Alcuni test si rende necessario eseguirli a mano, come ad esempio i test riguardanti la componente \textit{gui}, tali test sono comunque una parte minima di tutti i test da eseguire e non incidono eccessivamente sul costo dell'intera fase di test.
 \section{Esiti dei test dei difetti}
-I \textit{test dei difetti} servono ad individuare possibili difetti o errori del codice su cui vengono testati. Per questo l'esito di un test dei difetti \`e segnato come negativo ogni qual volta non evidenzia un difetto, viene altres\`i segnato come positivo l'esito di quei test che abbiano individuato dei difetti nel software.
-Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentati in forma tabellare, indicando il codice identificativo del test, seguito dall'esito del test. I test di regressione come illustrato precedentemente sono riportati solo dove abbiano prodotto un output o un esito differente dalla loro precedente esecuzione. I test di regressione sono evidenziati nelle tabelle sottostanti dalla sigla RT.
+I \textit{test dei difetti} servono ad individuare possibili difetti o errori del codice su cui vengono testati. Per questo l'esito di un test dei difetti \`e segnato come negativo ogniqualvolta non evidenzia un difetto, viene altres\`i segnato come positivo l'esito di quei test che abbiano individuato dei difetti nel software.
+Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentati in forma tabulare, indicando il codice identificativo del test, seguito dal suo esito. I test di regressione, come illustrato precedentemente, sono riportati solo dove abbiano prodotto un output o un esito differente dalla loro precedente esecuzione. I test di regressione sono evidenziati nelle tabelle sottostanti dalla sigla RT.
 
 
 \subsection{Test sul validatore}
@@ -1857,6 +1857,6 @@ GT3 & negativo & \\ \hline
 \subsection{Integrazione del sistema}
 
 \chapter{Esiti dei test di convalida}
-I \textit{test di convalida} servono ad dimostrare che tutti i requisiti sono stati soddisfatti. Per questo l'esito di un test di convalida \`e segnato come positivo ogniqualvolta dimostra che un requisito \`e soddisfatto, viene altres\`i segnato come negativo l'esito di quei test che hanno fallito.
+I \textit{test di convalida} servono a dimostrare che tutti i requisiti sono stati soddisfatti. Per questo l'esito di un test di convalida \`e segnato come positivo ogniqualvolta dimostra che un requisito \`e soddisfatto, viene altres\`i segnato come negativo l'esito dwi test che hanno fallito.
 I test di convalida sono rimandati alla fase di verifica e validazione.
 \end{document}
