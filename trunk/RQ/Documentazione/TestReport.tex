@@ -1419,7 +1419,13 @@ Regola & scontato=true \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``\&agrave; \&egrave; \&igrave; \&ograve; \&ugrave; \&Agrave; \&Egrave; \&Igrave; \&Ograve; \&Ugrave; \&quot;test\&quot;, 'test', \&amp;, \&gt;, \&lt;'' name=``\&agrave; \&egrave; \&igrave; \&ograve; \&ugrave; \&Agrave; \&Egrave; \&Igrave; \&Ograve; \&Ugrave; \&quot;test\&quot;, 'test', \&amp;, \&gt;, \&lt;'' rule=``scontato=true''\textgreater\\
+ \textless AstRuleVersion value=``(= scontato true)''/\textgreater\\
+\textless Bconf type=``=``\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater\\
+ \textless /Bconf\textgreater\\
+ \textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1566,7 +1572,7 @@ Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentat
 
 \subsection{Test sul validatore}
 \begin{center}
-\begin{tabular}{|p{2cm}|p{4cm}|p{5cm}|} \hline
+\begin{tabular}{|p{1cm}|p{3cm}|p{7cm}|} \hline
 \textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
 VT1a & negativo & \\ \hline
 VT1b & negativo & \\ \hline
@@ -1605,8 +1611,8 @@ VT15c & positivo & \\ \hline
 VT15d & positivo & \\ \hline
 VT15e & negativo & \\ \hline
 VT15f & negativo & \\ \hline
-VT & negativo & \\ \hline
-VT & negativo & \\ \hline
+VT16 & negativo & \\ \hline
+VT17 & positivo & Le lettere accentate non sono ancora state aggiunte nella grammatica del linguaggio\\ \hline
 VT & negativo & \\ \hline
 VT & negativo & \\ \hline
 VT & negativo & \\ \hline
