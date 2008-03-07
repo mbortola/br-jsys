@@ -32,8 +32,8 @@
 \textbf{Approvazione:}  & \ET \\ \hline
 \textbf{Revisione RQ} &   \\ \hline
 \textbf{Redazione:} & \ET \\ \hline
-\textbf{Revisione:} & \\ \hline
-\textbf{Approvazione:}  & \\ \hline
+\textbf{Revisione:} & \MM \\ \hline
+\textbf{Approvazione:}  & \MT \\ \hline
 %------------------------------------------------------------------------------
 
 \end{tabular} \\
@@ -61,6 +61,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+3.3 & 07/03/2208 & \ET & Correzione documento\\ \hline
 3.2 & 06/03/2208 & \LA & Aggiunto sommario\\ \hline
 3.1 & 05/03/2208 & \MM & Eliminazione sezione ''Descrizione del resto del documento`` perch\'e inutile.\\ \hline
 3.0 & 05/03/2008 & \MM & Evidenziazione dei termini contenuti nel documento \G .\\ \hline
@@ -95,18 +96,18 @@ Versione & Data & Autore & Descrizione \\ \hline
 \addcontentsline{toc}{chapter}{I Sommario}
 Il presente documento contiene una descrizione del prodotto oggetto del capitolato d'appalto designato dalla sigla BR-jsys. Tale descrizione
 comprende le sue funzionalit\`a, la tipologia di utenti ed il contesto d'uso. Prosegue con la descrizione e l'analisi dettagliata dei requisiti del prodotto in questione con l'ausilio di un formalismo grafico: i diagrammi use-case UML. Vengono infine elencati tutti i requisiti individuati dalla
-HappyCode.
+HappyCode ed i relativi tracciamenti use case-requisiti e requisiti use-case.
 
 \chapter*{Glossario}
 \addcontentsline{toc}{chapter}{II Glossario}
-Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G. I termini che sono presenti nel \G sono sottolineati.
+Per i termini non citati nella tabella soprastante si fa riferimento al file esterno \G. I termini presenti nel \G sono sottolineati.
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il presente documento viene redatto al fine di identificare i requisiti presenti nel capitolato d'appalto denominato \underline{BR-jsys}, conseguire il raggiungimento dell'obiettivo richiesto e soddisfare le esigenze di tutti gli stakeholders coinvolti nella realizzazione del progetto di cui sopra.
+Il presente documento viene redatto al fine di identificare i requisiti presenti nel capitolato d'appalto denominato \underline{BR-jsys}, conseguire il raggiungimento dell'obiettivo richiesto e soddisfare le esigenze di tutti gli \underline{stakeholders} coinvolti nella realizzazione del progetto di cui sopra.
 \section{Scopo del prodotto}
 Il prodotto andr\`a inserito in un progetto pi\`u ampio. Il suo obiettivo \`e quello di testare la consistenza di \underline{business objects}, altrimenti difficilmente verificabile tramite vincoli relazionali.
-Verr\`a creato quindi un linguaggio per la definizione di \underline{Business Rules}. Quest'ultime verranno immagazzinate in un \textit{file repository}; nel momento in cui l'utente avr\`a bisogno di verificare la consistenza di un \underline{business object}, un interprete si preoccuper\`a di invocare ed eseguire le regole che lo riguardano, stabilendo cos\`i se esso le rispetta tutte o meno.
+Verr\`a creato quindi un linguaggio per la definizione di \underline{Business Rules}. Quest'ultime verranno immagazzinate in un \textit{file \underline{repository}}; nel momento in cui l'utente avr\`a bisogno di verificare la consistenza di un \underline{business object}, un interprete si preoccuper\`a di invocare ed eseguire le regole che lo riguardano, stabilendo cos\`i se esso le rispetta tutte o meno.
 Il progetto dovr\`a integrarsi infine con le componenti gi\`a sviluppate dall'azienda proponente. In particolare dovr\`a interfacciarsi con il loro interprete, il quale dovr\`a poi applicare le regole ai \underline{business objects}.
 \section{Definizioni, acronimi, abbreviazioni}
 Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel documento, comprese le sigle utilizzate per il tracciamento dei requisiti.
@@ -137,7 +138,7 @@ NQ\textit{\#} & Con NQ seguito da un numero intero sono indicati i requisiti di 
 \section{Prospettiva del prodotto}
 Il sistema va a collocarsi all'interno di un progetto globale di automazione nella generazione del codice per la produzione di software gestionale. In particolare si occuper\`a della gestione delle \underline{Business Rules}, definendo un linguaggio con cui descriverle, oltre ad un sistema di archiviazione-recupero delle stesse.
 \section{Funzioni del prodotto}
-Il sistema si occupa di definire un linguaggio con cui descrivere \underline{Business Rules}. Pi\`u concretamente dovr\`a verificare che le \underline{Business Rules} inserite dall'utente rispettino il linguaggio sopra citato. In caso di esito positivo dovranno essere inserite in un repository, dal quale potranno poi essere recuperate nel momento in cui si desideri verificare la consistenza di un \underline{business object}.
+Il sistema si occupa di definire un linguaggio con cui descrivere \underline{Business Rules}. Pi\`u concretamente dovr\`a verificare che le \underline{Business Rules} inserite dall'utente rispettino il linguaggio sopra citato. In caso di esito positivo dovranno essere inserite in un \underline{repository}, dal quale potranno poi essere recuperate nel momento in cui si desideri verificare la consistenza di un \underline{business object}.
 \section{Caratteristiche utente}
 Il sistema andr\`a inserito all'interno di un progetto pi\`u ampio, il cui utente finale \`e un individuo esperto in ambito commerciale e gestionale, ma non necessariamente in ambito informatico.
 \section{Vincoli generali}
@@ -155,12 +156,12 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 
 
 \section{Inserimento e cancellazione di \underline{Business Rule}.}
-\begin{center}
+\begin{center}- Nascondi testo tra virgolette -
  \includegraphics[width=1\textwidth]{use-case/Inserisci-regola.eps}
 \end{center}
 
 \subsection{Inserisci nuova \underline{Business Rule}.}
-\textbf{Attori coinvolti:} L'utente finale che desidera inserire nel repository una nuova \underline{Business Rule}.\\
+\textbf{Attori coinvolti:} L'utente finale che desidera inserire nel \underline{repository} una nuova \underline{Business Rule}.\\
 \textbf{Scopo e descrizione sintetica:} Il sistema riceve in ingresso una nuova \underline{Business Rule} che dovr\`a essere validata.\\
 \textbf{Flusso di eventi:} Il sistema acquisisce la nuova \underline{Business Rule} appena inserita dall'utente e la invia successivamente al validatore.\\
 \textbf{Precondizioni:} L'utente ha inserito una nuova \underline{Business Rule}.\\
@@ -180,9 +181,9 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 
 \subsection{Controlla la semantica.}
 \textbf{Scopo e descrizione sintetica:} Si controllano i tipi nella nuova \underline{Business Rule} e si verifica che i campi dati utilizzati siano realmente presenti nel \underline{business object} associato.\\
-\textbf{Flusso di eventi:} Vengono controllati i tipi nella \underline{Business Rule} e la corrispondenza tra i campi dati usati nella \textbf{Business Rule} e quelli presenti nel \underline{business object} ad essa associato.\\
+\textbf{Flusso di eventi:} Vengono controllati i tipi nella \underline{Business Rule} e la corrispondenza tra i campi dati usati nella \underline{Business Rule} e quelli presenti nel \underline{business object} ad essa associato.\\
 \textbf{Precondizioni:} Il validatore ha inviato la \underline{Business Rule} al controllo semantico.\\
-\textbf{Postcondizioni} La \underline{Business Rule} \`e pronta per essere inserita nel \textit{repository}.
+\textbf{Postcondizioni} La \underline{Business Rule} \`e pronta per essere inserita nel \textit{\underline{repository}}.
 
 \subsection{Restituisci messaggio di errore.}
 \textbf{Attori coinvolti:} L'utente finale che ha cercato di inserire una nuova \underline{Business Rule} e non ci \`e riuscito.\\
@@ -191,19 +192,19 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \textbf{Precondizioni:} La validazione non \`e andata a buon fine.\\
 \textbf{Postcondizioni} L'utente riceve un messaggio che lo informa dell'errore commesso nella creazione della nuova \underline{Business Rule}.
 
-\subsection{Richiedi al \underline{DBMS} di inserire nel repository.}
-\textbf{Attori coinvolti:} Il \underline{DBMS} che si preoccuper\`a di inserire la regola nel repository.\\
-\textbf{Scopo e descrizione sintetica:} Il sistema comunica al \underline{DBMS} che la \underline{Business Rule} \`e stata validata e pu\`o essere inserita nel repository.\\
-\textbf{Flusso di eventi:} Il sistema  terminata la validazione invia la \underline{Business Rule} al \underline{DBMS} che si preoccuper\`a di inserirla nel \textit{repository}.\\
+\subsection{Richiedi al \underline{DBMS}  di inserire nel \underline{repository}.}
+\textbf{Attori coinvolti:} Il \underline{DBMS} che si preoccuper\`a di inserire la regola nel \underline{repository}.\\
+\textbf{Scopo e descrizione sintetica:} Il sistema comunica al \underline{DBMS} che la \underline{Business Rule} \`e stata validata e pu\`o essere inserita nel \underline{repository}.\\
+\textbf{Flusso di eventi:} Il sistema  terminata la validazione invia la \underline{Business Rule} al \underline{DBMS} che si preoccuper\`a di inserirla nel \textit{\underline{repository}}.\\
 \textbf{Precondizioni:} La validazione \`e terminata senza errori.\\
-\textbf{Postcondizioni} Il \underline{DBMS} inserir\`a la \underline{Business Rule} nel \textit{repository}.
+\textbf{Postcondizioni} Il \underline{DBMS} inserir\`a la \underline{Business Rule} nel \textit{\underline{repository}}.
 
-\subsection{Richiedi al \underline{DBMS} di cancellare dal repository.}
-\textbf{Attori coinvolti:} L'utente finale che richiede al sistema di cancellare una \underline{Business Rule} dal repository e il \underline{DBMS} che si preoccuper\`a di cancellarla.\\
+\subsection{Richiedi al \underline{DBMS}  di cancellare dal \underline{repository}.}
+\textbf{Attori coinvolti:} L'utente finale che richiede al sistema di cancellare una \underline{Business Rule} dal \underline{repository} e il \underline{DBMS} che si preoccuper\`a di cancellarla.\\
 \textbf{Scopo e descrizione sintetica:} Il sistema mette in comunicazione l'utente finale col \underline{DBMS} richiedendo al \underline{DBMS} la cancellazione della \underline{Business Rule} indicata dall'utente\\
 \textbf{Flusso di eventi:} Il sistema riceve la richiesta di cancellazione di una \underline{Business Rule} e la comunica al \underline{DBMS}.\\
 \textbf{Precondizioni:} L'utente ha chiesto che una determinata \underline{Business Rule} venga cancellata.\\
-\textbf{Postcondizioni} Il \underline{DBMS} canceller\`a la \underline{Business Rule} dal \textit{repository}.
+\textbf{Postcondizioni} Il \underline{DBMS} canceller\`a la \underline{Business Rule} dal \textit{\underline{repository}}.
 
 
 \section{Recupera \underline{Business Rules}.}
@@ -220,13 +221,13 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 
 \subsection{Recupera \underline{Business Rules} pertinenti.}
 \textbf{Attori coinvolti:} Il \underline{DBMS} che si occuper\`a di recuperare le regole\\
-\textbf{Scopo e descrizione sintetica:} Il sistema chiede al \underline{DBMS} di recuperare le regole dal repository.\\
-\textbf{Flusso di eventi:} Il sistema richiede al \underline{DBMS} di estrarre dal repository tutte le regole riguardanti quel \underline{business object}.\\
+\textbf{Scopo e descrizione sintetica:} Il sistema chiede al \underline{DBMS} di recuperare le regole dal \underline{repository}.\\
+\textbf{Flusso di eventi:} Il sistema richiede al \underline{DBMS} di estrarre dal \underline{repository} tutte le regole riguardanti quel \underline{business object}.\\
 \textbf{Precondizioni:} Il sistema ha acquisito la richiesta di validazione per un determinato \underline{business object}.\\
-\textbf{Postcondizioni} Il \underline{DBMS} riceve la richiesta di recuperare delle \underline{Business Rules} dal repository.
+\textbf{Postcondizioni} Il \underline{DBMS} riceve la richiesta di recuperare delle \underline{Business Rules} dal \underline{repository}.
 \subsection{Manda le \underline{Business Rules} all'interprete.}
 \textbf{Attori coinvolti:} L'interprete esterno fornito dall'azienda che riceve le \underline{Business Rules} per poter validare il suo \underline{business object}.\\
-\\textbf{Scopo e descrizione sintetica:} Il sistema ricevute le regole dal \underline{DBMS} le invia all'interprete esterno.\\
+\textbf{Scopo e descrizione sintetica:} Il sistema ricevute le regole dal \underline{DBMS} le invia all'interprete esterno.\\
 \textbf{Flusso di eventi:} Il sistema ricevute dal \underline{DBMS} tutte le regole riguardanti un determinato \underline{business object} le invia all'interprete esterno.\\
 \textbf{Precondizioni:} Il \underline{DBMS} ha terminato il recupero di tutte le \underline{Business Rules} che riguardano il \underline{business object} dato.\\
 \textbf{Postcondizioni} L'interprete utilizzer\`a le \underline{Business Rules} appena ricevute.
@@ -235,38 +236,38 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \begin{itemize}
 \item[F1]{Si dovr\`a creare un linguaggio per la rappresentazione di \underline{Business Rules}. [C04]}
 \item[F2]{Il sistema dovr\`a fornire un validatore che consenta l'accettazione di nuove \underline{Business Rules} soltanto se esse sono scritte secondo le specifiche del linguaggio creato. [C04]}
-\item[F3]{Il sistema dov\`a inserire nel repository la nuova \underline{Business Rule} dopo la sua accettazione da parte del validatore. [C04]}
+\item[F3]{Il sistema dov\`a inserire nel \underline{repository} la nuova \underline{Business Rule} dopo la sua accettazione da parte del validatore. [C04]}
 \item[F4]{Il sistema deve informare l'utente dell'esito della validazione di una nuova \underline{Business Rule}. Se la validazione \`e andata a buon fine l'utente deve essere informato in maniera chiara del buon esito e del tempo di risposta della validazione. Se la regola non viene accettata l'utente deve essere informato in maniera chiara di dove la sua regola non rispetta le specifiche del linguaggio. [C04]}
-\item[F5]{Nell'interagire col repository il sistema dovr\'a appoggiarsi ad un \underline{DBMS} esterno. [I02]}
+\item[F5]{Nell'interagire col \underline{repository} il sistema dovr\'a appoggiarsi ad un \underline{DBMS} esterno. [I02]}
 \item[F6]{Il sistema deve essere in grado di interfacciarsi con l'interprete esterno fornito dall'azienda proponente provvedendo ad esso le regole business da eseguire. [I02]}
-\item[F7]{Il sistema dovr\`a consentire la cancellazione di \underline{Business Rules} all'interno del repository. [I02]}
-\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di definire una nuova \underline{Business Rules} e una volta validata inserirla nel repository. Tale interfaccia dovr\`a inoltre consentire di cancellare \underline{Business Rules} dal repository. Tutto ci\`o servir\`a a testare in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
-\item[F9]{ DEPRECATO : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra \underline{Business Rules}. Esso verificher\`a cio\`e se la \underline{Business Rule} da inserire nel repository entra in conflitto con le altre gi\`a presenti. Pi\`u dettagliatamente tale validatore dovr\`a verificare che le \underline{Business Rules} presenti nel repository rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i \underline{business objects}. [C04]}
+\item[F7]{Il sistema dovr\`a consentire la cancellazione di \underline{Business Rules} all'interno del \underline{repository}. [I02]}
+\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di definire una nuova \underline{Business Rules} e una volta validata inserirla nel \underline{repository}. Tale interfaccia dovr\`a inoltre consentire di cancellare \underline{Business Rules} dal \underline{repository}. Tutto ci\`o servir\`a a testare in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
+\item[F9]{ DEPRECATO : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra \underline{Business Rules}. Esso verificher\`a cio\`e se la \underline{Business Rule} da inserire nel \underline{repository} entra in conflitto con le altre gi\`a presenti. Pi\`u dettagliatamente tale validatore dovr\`a verificare che le \underline{Business Rules} presenti nel \underline{repository} rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i \underline{business objects}. [C04]}
 \item[F10]{Il validatore nel validare una \underline{Business Rule} deve poter accedere ai campi del \underline{business object} ad essa associato, qualora la \underline{Business Rule} utilizzi tali campi. [I02]}
-\item[F11]{Ad ogni \underline{business rule} \`e associato un \underline{business object} nel quale vanno eventualmente ricercati i campi dati utilizzati nella \underline{business rule}. [I02]}
+\item[F11]{Ad ogni \underline{Business Rule} \`e associato un \underline{business object} nel quale vanno eventualmente ricercati i campi dati utilizzati nella \underline{Business Rule}. [I02]}
 \end{itemize}
 
 \section{Requisiti di usabilit\`a}
 \begin{itemize}
 \item[NU1]{Il linguaggio dovr\`a essere di alto livello. Dovr\`a cio\`e essere semplice da capire per un utente con bassa conoscenza informatica. [I01]}
 \item[NU2]{Il linguaggio deve fornire funzioni primitive per le operazioni base tra i dati, come la somma, la media aritmetica e la negazione logica. [I01]}
-\item[NU3]{Ad ognuno dei confronti presenti in una \underline{business rule} deve essere possibile, da parte dell'utente, associare un messaggio che aiuti l'utente finale (ossia quello che chiede la validazione di un \underline{business object}) a capire dove la validazione ha riscontrato problemi. [I02]}
+\item[NU3]{Ad ognuno dei confronti presenti in una \underline{Business Rule} deve essere possibile, da parte dell'utente, associare un messaggio che aiuti l'utente finale (ossia quello che chiede la validazione di un \underline{business object}) a capire dove la validazione ha riscontrato problemi. [I02]}
 \end{itemize}
 
 \section{Requisiti di portabilit\`a}
 \begin{itemize}
-\item[NPo1]{Il formato di salvataggio delle \underline{business rules} e del repository deve essere XML. [C04]}
+\item[NPo1]{Il formato di salvataggio delle \underline{Business Rules} e del \underline{repository} deve essere XML. [C04]}
 \end{itemize}
 \section{Requisiti prestazionali}
 \begin{itemize}
- \item[NPr1]{Il \underline{DBMS} che andr\`a a interagire con il repository dovr\`a garantire una buona velocit\`a nell'interrogazione (mediante query) del file XML, anche in presenza di un consistente popolamento dello stesso. [I02]}
-\item[NPr2]{Ad ogni \underline{business rule} deve venire associata una stringa identificativa univoca per consentire un'efficiente indicizzazione delle \underline{business rules} nel repository. [I02]}
+ \item[NPr1]{Il \underline{DBMS} che andr\`a a interagire con il \underline{repository} dovr\`a garantire una buona velocit\`a nell'interrogazione (mediante query) del file XML, anche in presenza di un consistente popolamento dello stesso. [I02]}
+\item[NPr2]{Ad ogni \underline{Business Rule} deve venire associata una stringa identificativa univoca per consentire un'efficiente indicizzazione delle \underline{Business Rules} nel \underline{repository}. [I02]}
 \end{itemize}
 
 \section{Requisiti di qualit\`a}
 \begin{itemize}
 \item[NQ1]{Il linguaggio dovr\`a permettere tutte le operazioni consentite tra scalari e matrici. Il validatore di conseguenza valider\`a solo le operazioni consentite. [I01]}
-\item[NQ2]{Il progetto verr\`a accompagnato da un manuale che descriver\`a il linguaggio di definizione delle \underline{business rules}. [C04]}
+\item[NQ2]{Il progetto verr\`a accompagnato da un manuale che descriver\`a il linguaggio di definizione delle \underline{Business Rules}. [C04]}
 \item[NQ3]{Il progetto verr\`a accompagnato dalla descrizione delle API relative al validatore e al \underline{DBMS}. [C04]}
 \end{itemize}
 \newpage
@@ -277,25 +278,25 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \large{
 \begin{tabular}{l}
 
-\textbf{Inserimento e cancellazione di \underline{business rule} dal repository}\\ \\
+\textbf{Inserimento e cancellazione di \underline{Business Rule} dal \underline{repository}}\\ \\
 
 \begin{tabular}{||p{8cm}||p{4cm}||} \hline
 \textbf{Use-case} & \textbf{Requisiti associati} \\ \hline
-\textbf{Inserisci nuova business rule} & F2 - F8 - NU1 \\ \hline
-\textbf{Valida business rule} & F2 - F3 - F4 - F5 - F8 - NPr1 - NQ1 \\ \hline
+\textbf{Inserisci nuova Business Rule} & F2 - F8 - NU1 \\ \hline
+\textbf{Valida Business Rule} & F2 - F3 - F4 - F5 - F8 - NPr1 - NQ1 \\ \hline
 \textbf{Controlla la semantica} & F2 - F4 - F10 - NQ1\\ \hline
 \textbf{Controlla sintassi} & F2 - F4 - NU2 - NQ1\\ \hline
-\textbf{Richiedi al \underline{DBMS} di inserire nel repository} & F3 -  F5 -  NPo1 \\ \hline
+\textbf{Richiedi al \underline{DBMS} di inserire nel \underline{repository}} & F3 -  F5 -  NPo1 \\ \hline
 \textbf{Restituisci messaggio di errore} & F2 - F4 - F10 - NU3 \\ \hline
 \textbf{Richiedi al \underline{DBMS} di cancellare dal repositiry} & F7 - F8 \\ \hline
 \end{tabular} \\ \\
 
-\textbf {Gestione di una richiesta di \underline{business rule}}\\ \\
+\textbf {Gestione di una richiesta di \underline{Business Rule}}\\ \\
 
 \begin{tabular}{||p{8cm}||p{4cm}||} \hline
-\textbf{Gestisci la richiesta di business rule per un determinato \underline{business object}} & F6 - F10 - F11 \\ \hline
-\textbf{Recupera \underline{business rule} pertinenti al \underline{business object}} & F5 - NPr1 - NPr2 \\ \hline
-\textbf{Manda la \underline{business rule} all'interprete esterno} & F6 \\ \hline
+\textbf{Gestisci la richiesta di Business Rule per un determinato \underline{business object}} & F6 - F10 - F11 \\ \hline
+\textbf{Recupera \underline{Business Rule} pertinenti al \underline{business object}} & F5 - NPr1 - NPr2 \\ \hline
+\textbf{Manda la \underline{Business Rule} all'interprete esterno} & F6 \\ \hline
 \end{tabular} \\
 \end{tabular}
 }
@@ -306,30 +307,30 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \begin{tabular}{||p{2cm}||p{10cm}||} \hline
 \textbf{Requisito} & \textbf{Use-case associato} \\ \hline
 \textbf {F2} & \begin{itemize}
-\item Inserisci nuova business rule
-\item Valida busness rule
+\item Inserisci nuova \underline{Business Rule}
+\item Valida \underline{Business Rule}
 \item Controlla la semantica
 \item Controlla sintassi
-\item restituisci messaggio di errore
+\item Restituisci messaggio di errore
 \end{itemize} \\ \hline
 \textbf{F3} & \begin{itemize}
-\item Valida business rule
-\item Richiedi al \underline{DBMS} di inserire nel repository
+\item Valida \underline{Business Rule}
+\item Richiedi al \underline{DBMS} di inserire nel \underline{repository}
 \end{itemize} \\ \hline
 \textbf{F4} & \begin{itemize}
-\item Valida business rule
+\item Valida \underline{Business Rule}
 \item Controlla la semantica
 \item Cotrolla sintassi
 \item Restituisci messaggio di errore
 \end{itemize} \\ \hline
 \textbf{F5} & \begin{itemize}
-\item Valida business rule
-\item Richiedi al \underline{DBMS} di inserire nel repository
-\item Recupera business rule pertinenti al business object
+\item Valida \underline{Business Rule}
+\item Richiedi al \underline{DBMS} di inserire nel \underline{repository}
+\item Recupera \underline{Business Rule} pertinenti al business object
 \end{itemize} \\ \hline
 \textbf{F6} & \begin{itemize}
-\item Gestisci la richiesta di business rule per un determinato business object
-\item Manda la business rule all'interprete esterno
+\item Gestisci la richiesta di \underline{Business Rule} per un determinato \underline{business object}
+\item Manda la \underline{Business Rule} all'interprete esterno
 \end{itemize} \\ \hline
 \end{tabular}
 \end{tabular}
@@ -337,25 +338,25 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \begin{tabular}{l}
 \begin{tabular}{||p{2cm}||p{10cm}||} \hline
 \textbf{F7} & \begin{itemize}
-\item Richiedi al \underline{DBMS} di cancellare dal repository
+\item Richiedi al \underline{DBMS} di cancellare dal \underline{repository}
 \end{itemize}\\ \hline
 
 
 \textbf{F8} & \begin{itemize}
-\item Inserisci nuova business rule
-\item Valida business rule
-\item Richiedi al \underline{DBMS} di cancellare dal repository
+\item Inserisci nuova \underline{Business Rule}
+\item Valida \underline{Business Rule}
+\item Richiedi al \underline{DBMS} di cancellare dal \underline{repository}
 \end{itemize} \\ \hline
 \textbf{F10} & \begin{itemize}
 \item Controlla la semantica
 \item Restituisci messaggio di errore
-\item Gestisci la richiesta di business rule per un determinato business object
+\item Gestisci la richiesta di \underline{Business Rule} per un determinato \underline{business object}
 \end{itemize} \\ \hline
 \textbf{F11} & \begin{itemize}
-\item Gestisci la richiesta di business rule per un determinato business object
+\item Gestisci la richiesta di \underline{Business Rule} per un determinato \underline{business object}
 \end{itemize} \\ \hline
 \textbf{NU1} & \begin{itemize}
-\item Inserisci nuova business rule
+\item Inserisci nuova \underline{Business Rule}
 \end{itemize} \\ \hline
 \textbf{NU2} & \begin{itemize}
 \item Controlla sintassi
@@ -364,11 +365,11 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \item Restituisci messaggio di errore
 \end{itemize} \\ \hline
 \textbf{NPo1} & \begin{itemize}
-\item Richiedi al \underline{DBMS} di inserire nel repository
+\item Richiedi al \underline{DBMS} di inserire nel \underline{repository}
 \end{itemize} \\ \hline
 \textbf{NPr1} & \begin{itemize}
-\item Valida business rule
-\item Recupera business rule pertinenti al business object
+\item Valida \underline{Business Rule}
+\item Recupera \underline{Business Rule} pertinenti al \underline{business object}
 \end{itemize} \\ \hline
 
 \end{tabular}
@@ -379,11 +380,11 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 
 
 \textbf{NPr2} & \begin{itemize}
-\item Recupera business rule pertinenti al business object
+\item Recupera \underline{Business Rule} pertinenti al \underline{business object}
 \end{itemize} \\ \hline
 
 \textbf{NQ1} & \begin{itemize}
-\item Valida business rule
+\item Valida Business Rule
 \item Controlla la semantica
 \item Controlla sintassi
 \end{itemize} \\ \hline
