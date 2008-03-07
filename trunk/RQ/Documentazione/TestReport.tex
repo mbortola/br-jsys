@@ -1563,11 +1563,10 @@ La macrocomponente comunicatore verr\`a testata a scatola aperta (whitebox), ins
 \textless /Conf\textgreater \\
 \textless /OpRule\textgreater \\
 \textless /BusinessRule\textgreater \\ \hline
-% 
-%update insert "<BusinessRule associated="Articolo" comment="Commento" name="BR" rule="12 = 2"><AstRuleVersion value="(= 12 2)"/><Bconf type="="><FLOAT>12</FLOAT><FLOAT>2</FLOAT></Bconf></BusinessRule>" into /BusinessRules
-%
-%
-%
+\end{tabular} \\
+\end{center}
+
+
 \begin{Large}\textbf{CT1}\end{Large} \\
 Si testa il comunicatore con una query che ritorni tutte le \br\ che hanno l'attributo name che comincia con BR.
 Requisiti soddisfatti dall'esecuzione: 
@@ -1607,6 +1606,12 @@ Requisiti soddisfatti dall'esecuzione:
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Query eseguita}\\ \hline
 for \$br in //BusinessRule[\@associated='Articolo' and not(\@comment)] return concat(\$br[\@name], \$br[\@rule])\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output Atteso}\\ \hline
+Deve essere visibile la concatenazione del nome della regola seguito dalla regola stessa\\ \hline
 \end{tabular} \\
 \end{center}
 
