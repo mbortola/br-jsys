@@ -1533,6 +1533,11 @@ La macrocomponente comunicatore verr\`a testata a scatola aperta (whitebox), ins
 \textless /Conf\textgreater \\
 \textless /OpRule\textgreater \\
 \textless /BusinessRule\textgreater \\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
 \textless BusinessRule associated=``Articolo'' comment=``'' name=``BR2'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
 \textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
  \textless OpRule type=``AND''\textgreater \\
@@ -1611,7 +1616,7 @@ for \$br in //BusinessRule[\@associated='Articolo' and not(\@comment)] return co
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output Atteso}\\ \hline
-Deve essere visibile la concatenazione del nome della regola seguito dalla regola stessa\\ \hline
+Deve essere visibile la concatenazione del nome della regola seguito dalla regola stessa. In particolare ci\`o deve essere vero per le \br: BR, BR1.\\ \hline
 \end{tabular} \\
 \end{center}
 
@@ -1624,6 +1629,12 @@ Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2
 for \$br in //BusinessRule[not(\@comment)]return concat(\$br[\@name], \$br[\@rule])\\ \hline
 \end{tabular} \\
 \end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output Atteso}\\ \hline
+Deve essere visibile la concatenazione del nome della regola seguito dalla regola stessa. In particolare ci\`o deve essere vero per le \br: BR2, BR3.\\ \hline
+\end{tabular} \\
+\end{center}
 
 \begin{Large}\textbf{CT5}\end{Large} \\
 Si testa il comunicatore con una query che inserisca una determinata \br .
@@ -1631,7 +1642,21 @@ Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Query eseguita}\\ \hline
-update insert "<BusinessRule associated="Articolo" comment="Commento" name="BR" rule="12 = 2"><AstRuleVersion value="(= 12 2)"/><Bconf type="="><FLOAT>12</FLOAT><FLOAT>2</FLOAT></Bconf></BusinessRule>" into /BusinessRules\\ \hline
+update insert "\textless BusinessRule associated=``Archivio'' comment=``'' name=``BR3'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater 
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater 
+ \textless OpRule type=``AND''\textgreater
+ \textless Conf type=``=''\textgreater 
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater 
+ \textless FLOAT\textgreater 0\textless /FLOAT\textgreater 
+ \textless /Conf\textgreater 
+ \textless Conf type=``=''\textgreater 
+\textless BoFun type=``NOT''\textgreater 
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater 
+\textless /BoFun\textgreater 
+ \textless BOOL\textgreater true\textless /BOOL\textgreater 
+\textless /Conf\textgreater 
+\textless /OpRule\textgreater 
+\textless /BusinessRule\textgreater " into /BusinessRules\\ \hline
 \end{tabular} \\
 \end{center}
 
