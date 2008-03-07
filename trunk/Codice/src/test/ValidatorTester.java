@@ -19,8 +19,8 @@ public class ValidatorTester {
 			BusinessRule[3] = new BusinessRule("BR","","entrate=3 OR uscite=5","Commento");
 			BusinessRule[4] = new BusinessRule("BR","Articolo","","Commento");
 			BusinessRule[5] = new BusinessRule("","","","");
-			BusinessRule[6] = new BusinessRule("BR","Articolo","uscite=5 AND uscite=5 OR uscite=5 AND ( uscite=5 OR uscite=5 AND ( uscite=5 OR (uscite=5 AND uscite=5 AND uscite=5 AND uscite=5) OR uscite=5) OR uscite=5 AND ( uscite=5 OR uscite=5) OR uscite=5) AND uscite=5","Commento");
-			BusinessRule[7] = new BusinessRule("BR","Articolo","uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 AND uscite=5 AND uscite=5 OR uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 OR uscite=5 AND uscite=5 ","Commento");
+			BusinessRule[6] = new BusinessRule("BR","Articolo","(uscite=5 OR uscite=5)  AND ( uscite=5 OR uscite=5)","Commento");
+			BusinessRule[7] = new BusinessRule("BR","Articolo","uscite=5 OR uscite=5  AND  uscite=5 OR uscite=5","Commento");
 			BusinessRule[8] = new BusinessRule("BR","Articolo","entrate=5+2","Commento");
 			BusinessRule[9] = new BusinessRule("BR","Articolo","entrate=SUM(prezzoBase)","Commento");
 			BusinessRule[10] = new BusinessRule("BR","Articolo","entrate=AVG(prezzoBase)+2 message(\"errore nel confronto\")","Commento");
