@@ -72,7 +72,7 @@ public class Validator {
 			/*Evito di far conoscere al validatore le operazioni interne, 
 			 * comprese le eccezioni.
 			*/
-			throw new Exception(e.getMessage());
+			throw new Exception(e);
 		}
 	}
 		
