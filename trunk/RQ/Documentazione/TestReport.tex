@@ -868,13 +868,40 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+entrate) +(matricePrezzi*entrate) +(matricePrezzi/entrate) +(matricePrezzi-entrate) \\ \hline
+Regola & (matricePrezzi+entrate) +(matricePrezzi*entrate) +(matricePrezzi/entrate) +(matricePrezzi-entrate)=0 \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+entrate)+(matricePrezzi*entrate)+(matricePrezzi/entrate)+(matricePrezzi-entrate)=0''\textgreater\\
+\textless AstRuleVersion value``(= (+ (+ (+ (+ matricePrezzi entrate) (* matricePrezzi entrate)) (/ matricePrezzi entrate)) (- matricePrezzi entrate)) 0)''/\textgreater\\
+\textless Bconf type````\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``*''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``/''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``-''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless FLOAT\textgreater0\textless /FLOAT\textgreater\\
+\textless /Bconf\textgreater\\
+\textless /BusinessRule\textgreater\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -894,7 +921,7 @@ Regola & (matricePrezzi+prezzoBase) +(matricePrezzi*prezzoBase) +(matricePrezzi/
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+Operazione non consentita\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -914,7 +941,7 @@ Regola & (matricePrezzi+grafico) +(matricePrezzi*grafico) +(matricePrezzi/grafic
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+Operazione non consentita\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -934,7 +961,7 @@ Regola & matricePrezzi=``ArticoloUno'' AND prezziScontati=3 OR uscite=true \\ \h
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+Operazione non consentita\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -954,7 +981,9 @@ Regola & uscite=2*3*4+4-3*5-5+3/2*3 \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=2*3*4+4-3*5-5+3/2*3''\textgreater
+ \textless AstRuleVersion value=``(= uscite (+ (- (- (+ (* (* 2 3) 4) 4) (* 3 5)) 5) (* (/ 3 2) 3)))''/\textgreater
+ \textless Bconf type=``=``\textgreater \textless FIELD\textgreater uscite\textless /FIELD\textgreater \textless OFloat type=``+''\textgreater \textless OFloat type=``-''\textgreater \textless OFloat type=``-''\textgreater \textless OFloat type=``+''\textgreater \textless OFloat type=``*''\textgreater \textless OFloat type=``*''\textgreater \textless FLOAT\textgreater 2\textless /FLOAT\textgreater \textless FLOAT\textgreater 3\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless FLOAT\textgreater 4\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless FLOAT\textgreater 4\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless OFloat type=``*''\textgreater \textless FLOAT\textgreater 3\textless /FLOAT\textgreater \textless FLOAT\textgreater 5\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless /OFloat\textgreater \textless FLOAT\textgreater 5\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless OFloat type=``*''\textgreater \textless OFloat type=``/''\textgreater \textless FLOAT\textgreater 3\textless /FLOAT\textgreater \textless FLOAT\textgreater 2\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless FLOAT\textgreater 3\textless /FLOAT\textgreater \textless /OFloat\textgreater \textless /OFloat\textgreater \textless /Bconf\textgreater \textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1403,21 +1432,20 @@ VT6a & negativo & \\ \hline
 VT6b & negativo & \\ \hline
 VT7 & negativo & \\ \hline
 VT8a & negativo & \\ \hline
-
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
-VT1a & negativo & \\ \hline
+VT8b & negativo & \\ \hline
+VT8c & negativo & \\ \hline
+VT9a & negativo & \\ \hline
+VT9b & negativo & \\ \hline
+VT9c & negativo & \\ \hline
+VT & negativo & \\ \hline
+VT & negativo & \\ \hline
+VT & negativo & \\ \hline
+VT & negativo & \\ \hline
+VT & negativo & \\ \hline
+VT & negativo & \\ \hline
+VT & negativo & \\ \hline
+VT & negativo & \\ \hline
+VT & negativo & \\ \hline
 
 
 
