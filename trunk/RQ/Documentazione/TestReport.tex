@@ -1103,7 +1103,23 @@ Regola & SUM(prezzoBase) = 12 AND COUNT(entrate)=1, AND AVG(prezzoBase)=4\\ \hli
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``SUM(prezzoBase) = 12 AND COUNT(entrate)=1, AND AVG(prezzoBase)=4 ''\textgreater\\
+ \textless AstRuleVersion value=``(AND (= (SUM prezzoBase) 12) (= (COUNT entrate) 1))''/\textgreater\\
+ \textless OpRule type=``AND''\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless FlFun type=``SUM''\textgreater\\
+ \textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+ \textless /FlFun\textgreater\\
+ \textless FLOAT\textgreater 12\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless Count type=``COUNT''\textgreater\\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+ \textless /Count\textgreater\\
+ \textless FLOAT\textgreater 1\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless /OpRule\textgreater\\
+ \textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1123,7 +1139,7 @@ Regola & SUM(prezzoBase)\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+Errore sintattico\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1143,7 +1159,7 @@ Regola & SUM(prezzoBase)=\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+Errore sintattico\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1164,7 +1180,7 @@ Regola & 12 = 2entrate\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+Errore sintattico\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1184,7 +1200,7 @@ Regola & uscite = 2 entrate\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+Errore sintattico\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1204,7 +1220,7 @@ Regola & uscite = 2 AND\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+Errore sintattico\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1224,7 +1240,7 @@ Regola & ((2+4)=uscite\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+Errore sintattico\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1238,13 +1254,49 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=((((~2*((~3*~4)+(~4)-(~3*~5)-5)+3)/~2)*~3)+7) \\ \hline
+Regola & uscite=((((\~2*((\~3*\~4)+(\~4)-(\~3*\~5)-5)+3)/\~2)*\~3)+7) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(((( 2*(( 3* 4)+( 4)-( 3* 5)-5)+3)/ 2)* 3)+7)''\textgreater \\
+\textless AstRuleVersion value=``(= uscite (+ (* (/ (+ (* 2 (- (- (+ (* 3 4) 4) (* 3 5)) 5)) 3) 2) 3) 7))''/\textgreater\\ 
+\textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless OFloat type=``/''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 7\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}

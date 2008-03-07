@@ -50,7 +50,7 @@ public class ValidatorTester {
 			BusinessRule[34] = new BusinessRule("BR","Articolo","uscite = 2 entrate","Commento");
 			BusinessRule[35] = new BusinessRule("BR","Articolo","uscite = 2 AND","Commento");
 			BusinessRule[36] = new BusinessRule("BR","Articolo","((2+4)=uscite","Commento");
-			BusinessRule[37] = new BusinessRule("BR","Articolo","uscite=(((( 2*(( 3* 4)+( 4)-( 3* 5)-5)+3)/ 2)* 3)+7)","Commento");
+			BusinessRule[37] = new BusinessRule("BR","Articolo","uscite=((((~2*((~3*~4)+(~4)-(~3*\~5)-5)+3)/~2)*~3)+7)","Commento");
 			BusinessRule[38] = new BusinessRule("a` e` i` o` u` A` E` I` O` U` \"test\", 'test', &, >, <","Articolo","scontato=true","a` e` i` o` u` A` E` I` O` U` \"test\", 'test', &, >, <");
 			BusinessRule[39] = new BusinessRule("BR","Articolo","scontato=true message(\"abc.. ABC.. 0..9 .?!^_-\")","Commento");
 			BusinessRule[40] = new BusinessRule("BR","Articolo","scontato=true message(\"#[]{}—=+-*$%\")","Commento");
