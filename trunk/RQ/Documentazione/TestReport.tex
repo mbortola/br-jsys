@@ -686,7 +686,34 @@ Regola & (entrate+prezzoBase) +(prezzoBase*uscite) +(prezzoBase/entrate) +(prezz
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(entrate+prezzoBase)+(prezzoBase*uscite)+(prezzoBase/entrate)+(prezzoBase-uscite)=0''\textgreater\\
+\textless AstRuleVersion value``(= (+ (+ (+ (+ entrate prezzoBase) (* prezzoBase prezzoBase)) (/ prezzoBase entrate)) (- prezzoBase prezzoBase)) 0)''/\textgreater\\
+\textless Bconf type````\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``*''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``/''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``-''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless FLOAT\textgreater0\textless /FLOAT\textgreater\\
+\textless /Bconf\textgreater\\
+\textless /BusinessRule\textgreater\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -700,13 +727,40 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (prezzoBase+prezzoBase) +(prezzoBase*prezzoBase) +(prezzoBase/prezzoBase) +(prezzoBase-prezzoBase) \\ \hline
+Regola & (prezzoBase+prezzoBase) +(prezzoBase*prezzoBase) +(prezzoBase/prezzoBase) +(prezzoBase-prezzoBase) =0 \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(prezzoBase+prezzoBase)+(prezzoBase*prezzoBase)+(prezzoBase/prezzoBase)+(prezzoBase-prezzoBase)=0''\textgreater\\
+\textless AstRuleVersion value``(= (+ (+ (+ (+ prezzoBase prezzoBase) (* prezzoBase prezzoBase)) (/ prezzoBase prezzoBase)) (- prezzoBase prezzoBase)) 0)''/\textgreater\\
+\textless Bconf type````\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``*''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``/''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``-''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless FLOAT\textgreater0\textless /FLOAT\textgreater\\
+\textless /Bconf\textgreater\\
+\textless /BusinessRule\textgreater\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -720,13 +774,40 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+matricePrezzi) +(matricePrezzi*matricePrezzi) +(matricePrezzi/matricePrezzi) +(matricePrezzi-matricePrezzi) \\ \hline
+Regola & (matricePrezzi+matricePrezzi) +(matricePrezzi*matricePrezzi) +(matricePrezzi/matricePrezzi) +(matricePrezzi-matricePrezzi) =0 \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+matricePrezzi)+(matricePrezzi*matricePrezzi)+(matricePrezzi/matricePrezzi)+(matricePrezzi-matricePrezzi)=0''\textgreater\\
+\textless AstRuleVersion value``(= (+ (+ (+ (+ matricePrezzi matricePrezzi) (* matricePrezzi matricePrezzi)) (/ matricePrezzi matricePrezzi)) (- matricePrezzi matricePrezzi)) 0)''/\textgreater\\
+\textless Bconf type````\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``*''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``/''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``-''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless FLOAT\textgreater0\textless /FLOAT\textgreater\\
+\textless /Bconf\textgreater\\
+\textless /BusinessRule\textgreater\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -740,13 +821,40 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+2) +(matricePrezzi*3) +(matricePrezzi/4) +(matricePrezzi-5) \\ \hline
+Regola & (matricePrezzi+2) +(matricePrezzi*2) +(matricePrezzi/2) +(matricePrezzi-2) =0 \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+2)+(matricePrezzi*2)+(matricePrezzi/2)+(matricePrezzi-2)=0''\textgreater\\
+\textless AstRuleVersion value``(= (+ (+ (+ (+ matricePrezzi 2) (* matricePrezzi 2)) (/ matricePrezzi 2)) (- matricePrezzi 2)) 0)''/\textgreater\\
+\textless Bconf type````\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``*''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``/''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``-''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless FLOAT\textgreater0\textless /FLOAT\textgreater\\
+\textless /Bconf\textgreater\\
+\textless /BusinessRule\textgreater\\
  \hline
 \end{tabular} \\
 \end{center}
