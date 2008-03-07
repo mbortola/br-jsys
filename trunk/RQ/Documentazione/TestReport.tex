@@ -1142,7 +1142,7 @@ Regola & (scontato+3) - (scontato*4)/scontato\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+Operazione non consentita\\
  \hline
 \end{tabular} \\
 \end{center}
@@ -1162,7 +1162,33 @@ Regola & ((scontato\textbar \textbar scontato)\&\& scontato) = true AND (true\te
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``((scontato||scontato) \&amp;\&amp; scontato) = true AND (true || false \&amp;\&amp; NOT(true))=scontato''\textgreater \\
+\textless AstRuleVersion value=``(AND (= (\&amp;\&amp; (|| scontato scontato) scontato) true) (= (\&amp;\&amp; (|| true false) (NOT true)) scontato))''/\textgreater\\
+ \textless OpRule type=``AND''\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless OBool type=``\&amp;\&amp;''\textgreater\\
+ \textless OBool type=``||''\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless OBool type=``\&amp;\&amp;''\textgreater\\
+ \textless OBool type=``||''\textgreater\\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater\\
+ \textless BOOL\textgreater false\textless /BOOL\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless BoFun type=``NOT''\textgreater\\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater\\
+ \textless /BoFun\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless /OpRule\textgreater\\
+ \textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
