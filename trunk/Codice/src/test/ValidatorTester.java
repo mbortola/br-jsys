@@ -24,7 +24,7 @@ public class ValidatorTester {
 			BusinessRule[8] = new BusinessRule("BR","Articolo","entrate=5+2","Commento");
 			BusinessRule[9] = new BusinessRule("BR","Articolo","entrate=SUM(prezzoBase)","Commento");
 			BusinessRule[10] = new BusinessRule("BR","Articolo","entrate=AVG(prezzoBase)+2 message(\"errore nel confronto\")","Commento");
-			BusinessRule[11] = new BusinessRule("BR","Articolo","uscite<2 AND entrate>3 OR (uscite<=2 AND entrate>=3 OR (uscite=5 AND entrate!=2) )","Commento");
+			BusinessRule[11] = new BusinessRule("BR","Articolo","uscite<2 AND uscite>2 AND uscite<=2 AND uscite>=2 AND uscite=2 AND uscite!=2","Commento");
 			BusinessRule[12] = new BusinessRule("BR","Articolo","uscite=(2+2-(3*4))/5","Commento");
 			BusinessRule[13] = new BusinessRule("BR","Articolo","uscite=(2+entrate-(uscite*4))/entrate","Commento");
 			BusinessRule[14] = new BusinessRule("BR","Articolo","uscite=(uscite+entrate-(uscite*entrate))/entrate","Commento");

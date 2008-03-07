@@ -297,8 +297,16 @@ Regola & (uscite=5 OR uscite=5)  AND ( uscite=5 OR uscite=5)  \\ \hline
 \textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
  \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
  \textless /Conf\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
 \textless /OBool\textgreater \\
 \textless OBool type=``OR''\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
 \textless Conf type=``=``\textgreater \\
 \textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
  \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
@@ -325,7 +333,31 @@ Regola & uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 AND uscite=5
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=5 OR uscite=5  AND  uscite=5 OR uscite=5''\textgreater\\
+ \textless AstRuleVersion value=``(OR (AND (OR (= uscite 5) (= uscite 5)) (= uscite 5)) (= uscite 5))''/\textgreater \\
+\textless OBool type=``OR''\textgreater\\
+\textless OBool type=``AND''\textgreater\\
+\textless OBool type=``OR''\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -345,7 +377,16 @@ Regola & entrate=5+2\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=5+2''\textgreater \\
+\textless AstRuleVersion value=``(= entrate (+ 5 2))''/\textgreater \\
+\textless Bconf type=``=``\textgreater\\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+ \textless /OFloat\textgreater \\
+\textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -365,7 +406,15 @@ Regola & entrate=SUM(prezzoBase)\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=SUM(prezzoBase)''\textgreater \\
+\textless AstRuleVersion value=``(= entrate (SUM prezzoBase))''/\textgreater \\
+\textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless FlFun type=``SUM''\textgreater \\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless /FlFun\textgreater \\
+\textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -385,7 +434,21 @@ Regola & entrate=AVG(prezzoBase)+2 message(``errore nel confronto'')\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=AVG(prezzoBase)+2 message(\&quot;errore nel confronto\&quot;)''\textgreater \\
+\textless AstRuleVersion value=``(= entrate (+ (AVG prezzoBase) 2) (message \&quot;errore nel confronto\&quot;))''/\textgreater\\
+ \textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FlFun type=``AVG''\textgreater \\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless /FlFun\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless Msg type=``message''\textgreater \\
+\textless STRING\textgreater ``errore nel confronto''\textless /STRING\textgreater\\
+ \textless /Msg\textgreater\\
+ \textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
@@ -399,13 +462,49 @@ Requisiti soddisfatti dall'esecuzione:
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite\textless2 AND entrate\textgreater 3 OR (uscite\textless=2 AND entrate\textgreater =3 OR (uscite=5 AND entrate!=2) )\\ \hline
+Regola & uscite\textless2 AND uscite\textgreater 2 AND uscite\textless=2 AND uscite\textgreater =2 AND uscite=2 AND uscite!=2\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-...\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite\&lt;2 AND uscite\&gt; 2 AND uscite\&lt;=2 AND uscite\&gt;=2 AND uscite=2 AND uscite!=2''\textgreater\\
+ \textless AstRuleVersion value=``(AND (AND (AND (AND (AND (= uscite 2) (!= uscite 2)) (\&gt;= uscite 2)) (\&lt;= uscite 2)) (\&gt; uscite 2)) (\&lt; uscite 2))''/\textgreater \\
+\textless OBool type=``AND''\textgreater\\
+\textless OBool type=``AND''\textgreater\\
+\textless OBool type=``AND''\textgreater\\
+\textless OBool type=``AND''\textgreater\\
+\textless OBool type=``AND''\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless Conf type=``!=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``\&gt;=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``\&lt;=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``&gt;``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``&lt;``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\
  \hline
 \end{tabular} \\
 \end{center}
