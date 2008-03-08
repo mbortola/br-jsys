@@ -56,9 +56,7 @@ public class InterpreterCommunicator {
 			//la inglobo tutta dentro ad un unico tag
 			ResourceIterator i;
 			i = set.getIterator();
-			String val="";
 			XMLResource r = (XMLResource)i.nextResource();
-			val=((String)r.getContent());
 			Node node=r.getContentAsDOM();
 
 			NodeList list=node.getChildNodes();

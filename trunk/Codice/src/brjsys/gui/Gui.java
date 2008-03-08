@@ -665,6 +665,7 @@ public class Gui extends JFrame {
 		}
 		catch (Exception ecc)
 		{
+			ecc.printStackTrace();
 			JOptionPane.showMessageDialog(this,  ecc.getMessage(),  "Login error",  JOptionPane.ERROR_MESSAGE);	
 		} 	
 	}                                             

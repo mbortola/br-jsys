@@ -14,15 +14,15 @@ import org.xmldb.api.modules.*;
  * 
  */
 public class Communicator {
-	
+
 	/**Consente di interrogare il repository tramite XQuery*/
 	private static XPathQueryService service=null;
 
 	/**Dopo una corretta autenticazione conterra' l'username d'accesso*/
-	private String correctUsername=null;
-	
+	private static String correctUsername=null;
+
 	/**Dopo una corretta autenticazione conterra' la password d'accesso*/
-	private String correctPassword=null;
+	private static String correctPassword=null;
 
 	/**
 	 * Costruttore. Controlla inoltre che il repository sia presente nel DBMS, 
@@ -34,12 +34,12 @@ public class Communicator {
 	 */	
 	public Communicator(String username, String password) throws XMLDBException{
 		if(service!=null){//sono gia' connesso
-			if (username!=correctUsername || password!=correctPassword) {
+			if (!username.equals(correctUsername) ||! password.equals(correctPassword)) {
 				//username sbagliato!
 				//devo lanciare una eccezzione
 				throw new XMLDBException(ErrorCodes.VENDOR_ERROR);
 			}
-		}else{
+		}else {
 			//prima connessione, procedura di connessione
 			String driver = "org.exist.xmldb.DatabaseImpl";
 			Class cl;
@@ -58,22 +58,22 @@ public class Communicator {
 				//controllo se c'e repository
 				if (cpointer.getChildCollection("BR-jsys")==null) {
 					//se non c'e' lo creo
-					
+
 					CollectionManagementServiceImpl co=
 						(CollectionManagementServiceImpl)cpointer.getService(
 								"CollectionManagementService", "1.0");
-					
+
 					co.createCollection(XmldbURI.create("BR-jsys"));
-					
+
 					cpointer =cpointer.getChildCollection("BR-jsys");
-					
-					
+
+
 					XMLResource document= 
 						(XMLResource)cpointer.createResource(
 								"Repository.xml","XMLResource");
 
 					document.setContent("<BusinessRules/>");
-				
+
 					cpointer.storeResource(document);
 					//aggiungo la XMLResource alla Collezione BR-jsys
 				}else{cpointer =cpointer.getChildCollection("BR-jsys");}
@@ -84,6 +84,8 @@ public class Communicator {
 				service.setProperty("indent", "yes");
 				//XPathQueryService e' un servizio 
 				//che consente di fare query con eXist
+				correctUsername=username;
+				correctPassword=password;
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -104,6 +106,6 @@ public class Communicator {
 	 * @exception XMLDBException Query mal posta.
 	 * */
 	public ResourceSet makeQuery(String query)throws XMLDBException {
-			return service.query(query);		
+		return service.query(query);		
 	}
 }
