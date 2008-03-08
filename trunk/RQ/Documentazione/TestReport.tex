@@ -1517,7 +1517,7 @@ La macrocomponente comunicatore verr\`a testata a scatola aperta (\underline{whi
  \textless BOOL\textgreater true\textless /BOOL\textgreater \\
 \textless /Conf\textgreater \\
 \textless /OBool\textgreater \\
-\textless /BusinessRule\textgreater\\
+\textless /BusinessRule\textgreater\\ \hline
 \end{tabular} \\
 \end{center}
 
@@ -1557,7 +1557,7 @@ La macrocomponente comunicatore verr\`a testata a scatola aperta (\underline{whi
  \textless BOOL\textgreater true\textless /BOOL\textgreater \\
 \textless /Conf\textgreater \\
 \textless /OBool\textgreater \\
-\textless /BusinessRule\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
 \end{tabular} \\
 \end{center}
 
@@ -1583,7 +1583,7 @@ La macrocomponente comunicatore verr\`a testata a scatola aperta (\underline{whi
 
 
 \begin{Large}\textbf{CT1}\end{Large} \\
-Si testa il comunicatore con una query che ritorni tutte le \br\ che hanno l'attributo name che comincia con BR.
+Si testa il comunicatore con una query che ritorni tutte le \br\ che hanno l'attributo name che comincia con BR.\\
 Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
@@ -1599,7 +1599,7 @@ L'elenco delle \br\ in \underline{xml} come scritte nell'esempio di \rp\ sopra i
 \end{center}
 
 \begin{Large}\textbf{CT2}\end{Large} \\
-Si testa il comunicatore con una query che cancelli tutte le \br\ il cui nome \`e BR1.
+Si testa il comunicatore con una query che cancelli tutte le \br\ il cui nome \`e BR1.\\
 Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
@@ -1615,7 +1615,7 @@ La query BR1 deve essere rimossa dal \rp.\\ \hline
 \end{center}
 
 \begin{Large}\textbf{CT3}\end{Large} \\
-Si testa il comunicatore con una query che ritorni il nome e la regola associata di tutte le \br\  che sono associate al \bo\ 'Articolo' e non hanno il commento.
+Si testa il comunicatore con una query che ritorni il nome e la regola associata di tutte le \br\  che sono associate al \bo\ 'Articolo' e non hanno il commento.\\
 Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
@@ -1631,7 +1631,7 @@ Deve essere visibile la concatenazione del nome della regola seguito dalla regol
 \end{center}
 
 \begin{Large}\textbf{CT4}\end{Large} \\
-Si testa il comunicatore con una query che ritorni il nome e la regola associata di tutte le \br\  che non hanno il commento.
+Si testa il comunicatore con una query che ritorni il nome e la regola associata di tutte le \br\  che non hanno il commento.\\
 Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
@@ -1647,7 +1647,7 @@ Deve essere visibile la concatenazione del nome della regola seguito dalla regol
 \end{center}
 
 \begin{Large}\textbf{CT5}\end{Large} \\
-Si testa il comunicatore con una query che inserisca una determinata \br .
+Si testa il comunicatore con una query che inserisca una determinata \br .\\
 Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
@@ -1741,21 +1741,32 @@ Requisiti soddisfatti dall'esecuzione: \\
 
 \subsection{Integrazione del sistema}
 L'integrazione dell'intero sistema verr\`a testata a scatola aperta (\underline{whitebox}), testando le sole funzionalit\`a risultanti dalla completa integrazione del sistema.\\
+ \\
 \begin{Large}\textbf{S1}\end{Large} \\
 Si testa che la maschera di login della gui accetti username e password corretti, stabilendo la connessione col \rp.
 Requisiti soddisfatti dall'esecuzione: \\
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
-\textbf{Business rule da inserire}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR5'' rule=``entrate=0''\textgreater \\
-\textless AstRuleVersion value=``(= entrate 0)''/\textgreater \\
- \textless Conf type=``=''\textgreater \\
- \textless FIELD\textgreater entrate \textless /FIELD\textgreater \\
- \textless FLOAT\textgreater 0 \textless /FLOAT\textgreater \\
- \textless /Conf\textgreater \\
-\textless /BusinessRule\textgreater \\ \hline
+\textbf{Input previsto}\\ \hline
+Username e password corretti.\\ \hline
+\textbf{Output Atteso}\\ \hline
+Visualizzazione della finestra principale della gui.\\ \hline
 \end{tabular} \\
 \end{center}
+
+\begin{Large}\textbf{S2}\end{Large} \\
+Si testa che la maschera di login della gui  non accetti username e password errati, impedendo la connessione col \rp\ e riportando un messaggio di errore.
+Requisiti soddisfatti dall'esecuzione: \\
+ \\
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Input previsto}\\ \hline
+Username e password errati.\\ \hline
+\textbf{Output Atteso}\\ \hline
+Visualizzazione di un messaggio d'errore.\\ \hline
+\end{tabular} \\
+\end{center}
+
 \section{Test di regressione}
 Con test di regressione si intende la ripetizione di alcuni test case a fronte di una o pi\`u modifiche nel software. Ogniqualvolta una componente venga modificata vanno ripetuti (mediante l'utilizzo del sistema di automazione dei test) tutti i test riguardanti la componente specifica nonch\`e i test per la sua integrazione con altre componenti fino all'esecuzione dei test di integrazione del sistema.
 Negli esiti dei test, per non appesantire la lettura, non vengono riportati tutti i test di regressione ma soltanto quelli che abbiano prodotto un output o un esito differente.
@@ -1846,7 +1857,7 @@ VT15e & negativo & \\ \hline
 VT15f & negativo & \\ \hline
 VT16 & negativo & \\ \hline
 VT17 & positivo & Le lettere accentate non sono ancora state aggiunte nella grammatica del linguaggio.\\ \hline
-VT18 & positivo & Le stringhe contenti numeri non sono ancora state aggiunte alla grammatica del linguaggio.\\ \hline
+VT18 & positivo & La grammatica del linguaggio non prevede ancora l'utilizzo di numeri da 0 a 9 nelle stringhe.\\ \hline
 VT19 & negativo & \\ \hline
 VT20 & negativo & \\ \hline
 \end{tabular} \\
@@ -1873,12 +1884,35 @@ GT1b & negativo & \\ \hline
 GT1c & negativo & \\ \hline
 GT2 & negativo & \\ \hline
 GT3 & negativo & \\ \hline
-
 \end{tabular} \\
 \end{center}
+
 \subsection{Integrazione validatore, comunicatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+CVT1a & negativo & \\ \hline
+CVT1b & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
 \subsection{Integrazione gui, validatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+GVT1 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
 \subsection{Integrazione del sistema}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+S1 & negativo & \\ \hline
+S2 & positivo & In sitemi unix permette di accedere al \rp\ anche inserendo username e password errati.\\ \hline
+\end{tabular} \\
+\end{center}
+
 
 \chapter{Esiti dei test di convalida}
 I \textit{test di convalida} servono a dimostrare che tutti i requisiti sono stati soddisfatti. Per questo l'esito di un test di convalida \`e segnato come positivo ogniqualvolta dimostra che un requisito \`e soddisfatto, viene altres\`i segnato come negativo l'esito dwi test che hanno fallito.
