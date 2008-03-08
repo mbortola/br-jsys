@@ -13,7 +13,7 @@ import brjsys.validator.Validator;
  * 
  * Interfaccia Grafica per il prodotto Brjsys
  * @author Filippo Carraro
- * @version 0.9 5 Mar 2008
+ * @version 0.9 6 Mar 2008
  * 
  */
 
@@ -318,20 +318,20 @@ public class Gui extends JFrame {
 		sandbox.getContentPane().setLayout(sandboxLayout);
 		sandboxLayout.setHorizontalGroup(
 				sandboxLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addComponent(pannelloQuery,  GroupLayout.DEFAULT_SIZE,  468,  Short.MAX_VALUE)
-				.addComponent(jButton_Esegui,  GroupLayout.DEFAULT_SIZE,  468,  Short.MAX_VALUE)
-				.addComponent(jSeparator,  GroupLayout.DEFAULT_SIZE,  468,  Short.MAX_VALUE)
-				.addComponent(pannelloRisultati,  GroupLayout.DEFAULT_SIZE,  468,  Short.MAX_VALUE)
-				.addComponent(statusBar,  GroupLayout.DEFAULT_SIZE,  468,  Short.MAX_VALUE)
+				.addComponent(pannelloQuery,  GroupLayout.DEFAULT_SIZE,  800,  Short.MAX_VALUE)
+				.addComponent(jButton_Esegui,  GroupLayout.DEFAULT_SIZE, 800,  Short.MAX_VALUE)
+				.addComponent(jSeparator,  GroupLayout.DEFAULT_SIZE,  800,  Short.MAX_VALUE)
+				.addComponent(pannelloRisultati,  GroupLayout.DEFAULT_SIZE,  800,  Short.MAX_VALUE)
+				.addComponent(statusBar,  GroupLayout.DEFAULT_SIZE,  800,  Short.MAX_VALUE)
 		);
 		sandboxLayout.setVerticalGroup(
 				sandboxLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(sandboxLayout.createSequentialGroup()
-						.addComponent(pannelloQuery,  GroupLayout.PREFERRED_SIZE,  161,  GroupLayout.PREFERRED_SIZE)
+						.addComponent(pannelloQuery,  GroupLayout.PREFERRED_SIZE,  250,  GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 						.addComponent(jButton_Esegui,  GroupLayout.PREFERRED_SIZE,  32,  GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(pannelloRisultati,  GroupLayout.PREFERRED_SIZE,  161,  GroupLayout.PREFERRED_SIZE)
+						.addComponent(pannelloRisultati,  GroupLayout.PREFERRED_SIZE,  250,  GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 						.addComponent(jSeparator,  GroupLayout.PREFERRED_SIZE,  10,  GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -817,5 +817,4 @@ public class Gui extends JFrame {
 			}
 		});
 	}
-
 }
