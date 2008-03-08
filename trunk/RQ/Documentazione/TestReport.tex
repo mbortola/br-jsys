@@ -1741,7 +1741,21 @@ Requisiti soddisfatti dall'esecuzione: \\
 
 \subsection{Integrazione del sistema}
 L'integrazione dell'intero sistema verr\`a testata a scatola aperta (\underline{whitebox}), testando le sole funzionalit\`a risultanti dalla completa integrazione del sistema.\\
-
+\begin{Large}\textbf{S1}\end{Large} \\
+Si testa che la maschera di login della gui accetti username e password corretti, stabilendo la connessione col \rp.
+Requisiti soddisfatti dall'esecuzione: \\
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Business rule da inserire}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR5'' rule=``entrate=0''\textgreater \\
+\textless AstRuleVersion value=``(= entrate 0)''/\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate \textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0 \textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
+\end{tabular} \\
+\end{center}
 \section{Test di regressione}
 Con test di regressione si intende la ripetizione di alcuni test case a fronte di una o pi\`u modifiche nel software. Ogniqualvolta una componente venga modificata vanno ripetuti (mediante l'utilizzo del sistema di automazione dei test) tutti i test riguardanti la componente specifica nonch\`e i test per la sua integrazione con altre componenti fino all'esecuzione dei test di integrazione del sistema.
 Negli esiti dei test, per non appesantire la lettura, non vengono riportati tutti i test di regressione ma soltanto quelli che abbiano prodotto un output o un esito differente.
