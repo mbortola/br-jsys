@@ -94,8 +94,8 @@ Versione & Data & Autore & Descrizione \\ \hline
 \tableofcontents
 \chapter*{Sommario}
 \addcontentsline{toc}{chapter}{I Sommario}
-Il presente documento contiene una descrizione del prodotto oggetto del capitolato d'appalto designato dalla sigla BR-jsys. Tale descrizione
-comprende le sue funzionalit\`a, la tipologia di utenti ed il contesto d'uso. Prosegue con la descrizione e l'analisi dettagliata dei requisiti del prodotto in questione con l'ausilio di un formalismo grafico: i diagrammi use-case UML. Vengono infine elencati tutti i requisiti individuati dalla
+Il presente documento contiene una descrizione del prodotto oggetto del capitolato d'appalto designato dalla sigla \underline{BR-jsys}. Tale descrizione
+comprende le sue funzionalit\`a, la tipologia di utenti ed il contesto d'uso. Prosegue con la descrizione e l'analisi dettagliata dei requisiti del prodotto in questione con l'ausilio di un formalismo grafico: i diagrammi use-case \underline{UML}. Vengono infine elencati tutti i requisiti individuati dalla
 HappyCode ed i relativi tracciamenti use case-requisiti e requisiti use-case.
 
 \chapter*{Glossario}
@@ -104,11 +104,11 @@ Per i termini non citati nella tabella soprastante si fa riferimento al file est
 
 \chapter{Introduzione}
 \section{Scopo del documento}
-Il presente documento viene redatto al fine di identificare i requisiti presenti nel capitolato d'appalto denominato \underline{BR-jsys}, conseguire il raggiungimento dell'obiettivo richiesto e soddisfare le esigenze di tutti gli \underline{stakeholders} coinvolti nella realizzazione del progetto di cui sopra.
+Il presente documento viene redatto al fine di identificare i requisiti presenti nel capitolato d'appalto denominato \underline{BR-jsys}, conseguire il raggiungimento dell'obiettivo richiesto e soddisfare le esigenze di tutti gli \underline{stakeholder} coinvolti nella realizzazione del progetto di cui sopra.
 \section{Scopo del prodotto}
-Il prodotto andr\`a inserito in un progetto pi\`u ampio. Il suo obiettivo \`e quello di testare la consistenza di \underline{business objects}, altrimenti difficilmente verificabile tramite vincoli relazionali.
-Verr\`a creato quindi un linguaggio per la definizione di \underline{business rules}. Quest'ultime verranno immagazzinate in un \textit{file \underline{repository}}; nel momento in cui l'utente avr\`a bisogno di verificare la consistenza di un \underline{business object}, un interprete si preoccuper\`a di invocare ed eseguire le regole che lo riguardano, stabilendo cos\`i se esso le rispetta tutte o meno.
-Il progetto dovr\`a integrarsi infine con le componenti gi\`a sviluppate dall'azienda proponente. In particolare dovr\`a interfacciarsi con il loro interprete, il quale dovr\`a poi applicare le regole ai \underline{business objects}.
+Il prodotto andr\`a inserito in un progetto pi\`u ampio. Il suo obiettivo \`e quello di testare la consistenza di \underline{business object}, altrimenti difficilmente verificabile tramite vincoli relazionali.
+Verr\`a creato quindi un linguaggio per la definizione di \underline{business rule}. Quest'ultime verranno immagazzinate in un \textit{file \underline{repository}}; nel momento in cui l'utente avr\`a bisogno di verificare la consistenza di un \underline{business object}, un interprete si preoccuper\`a di invocare ed eseguire le regole che lo riguardano, stabilendo cos\`i se esso le rispetta tutte o meno.
+Il progetto dovr\`a integrarsi infine con le componenti gi\`a sviluppate dall'azienda proponente. In particolare dovr\`a interfacciarsi con il loro interprete, il quale dovr\`a poi applicare le regole ai \underline{business object}.
 \section{Definizioni, acronimi, abbreviazioni}
 Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel documento, comprese le sigle utilizzate per il tracciamento dei requisiti.
 \begin{center}
@@ -136,17 +136,17 @@ NQ\textit{\#} & Con NQ seguito da un numero intero sono indicati i requisiti di 
 %----------------------------------------------------------------------------------
 \chapter{Descrizione generale}
 \section{Prospettiva del prodotto}
-Il sistema va a collocarsi all'interno di un progetto globale di automazione nella generazione del codice per la produzione di software gestionale. In particolare si occuper\`a della gestione delle \underline{business rules}, definendo un linguaggio con cui descriverle, oltre ad un sistema di archiviazione-recupero delle stesse.
+Il sistema va a collocarsi all'interno di un progetto globale di automazione nella generazione del codice per la produzione di software gestionale. In particolare si occuper\`a della gestione delle \underline{business rule}, definendo un linguaggio con cui descriverle, oltre ad un sistema di archiviazione-recupero delle stesse.
 \section{Funzioni del prodotto}
-Il sistema si occupa di definire un linguaggio con cui descrivere \underline{business rules}. Pi\`u concretamente dovr\`a verificare che le \underline{business rules} inserite dall'utente rispettino il linguaggio sopra citato. In caso di esito positivo dovranno essere inserite in un \underline{repository}, dal quale potranno poi essere recuperate nel momento in cui si desideri verificare la consistenza di un \underline{business object}.
+Il sistema si occupa di definire un linguaggio con cui descrivere \underline{business rule}. Pi\`u concretamente dovr\`a verificare che le \underline{business rule} inserite dall'utente rispettino il linguaggio sopra citato. In caso di esito positivo dovranno essere inserite in un \underline{repository}, dal quale potranno poi essere recuperate nel momento in cui si desideri verificare la consistenza di un \underline{business object}.
 \section{Caratteristiche utente}
 Il sistema andr\`a inserito all'interno di un progetto pi\`u ampio, il cui utente finale \`e un individuo esperto in ambito commerciale e gestionale, ma non necessariamente in ambito informatico.
 \section{Vincoli generali}
 Il linguaggio di programmazione adottato per lo sviluppo del prodotto sar\`a Java. Il sistema dovr\`a inoltre potersi interfacciare con le componenti gi\`a sviluppate dall'azienda proponente. 
 \section{Presupposti e dipendenze}
 \begin{itemize}
-\item{Le \underline{business rules} su cui si opera saranno di tipo \textit{\underline{Rejector}}. Una \underline{business rule} deve essere composta da uno o pi\`u confronti tra espressioni dello stesso tipo (eventualmente complesse).}
-\item{I \underline{business objects} che manipoleremo sono generalmente costituiti da campi dati semplici (numeri reali, booleani, stringhe), da un insieme di array o vettori omogenei tutti della stessa lunghezza (derivanti da tabelle) e da riferimenti ad altri \underline{business objects} (ma non da array di \underline{business objects}).
+\item{Le \underline{business rule} su cui si opera saranno di tipo \textit{\underline{Rejector}}. Una \underline{business rule} deve essere composta da uno o pi\`u confronti tra espressioni dello stesso tipo (eventualmente complesse).}
+\item{I \underline{business object} che manipoleremo sono generalmente costituiti da campi dati semplici (numeri reali, booleani, stringhe), da un insieme di array o vettori omogenei tutti della stessa lunghezza (derivanti da tabelle) e da riferimenti ad altri \underline{business object} (ma non da array di \underline{business object}).
 }
 \item{La virtual machine utilizzata  per sviluppare gli oggetti richiesti \`e Java 1.6.}
 \end{itemize}
@@ -219,29 +219,29 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 \textbf{Precondizioni:} L'utente ha richiesto di validare un \underline{business object}.\\
 \textbf{Postcondizioni} Recupero delle regole pertinenti dal \underline{DBMS} .
 
-\subsection{Recupera \underline{business rules} pertinenti.}
+\subsection{Recupera \underline{business rule} pertinenti.}
 \textbf{Attori coinvolti:} Il \underline{DBMS} che si occuper\`a di recuperare le regole\\
 \textbf{Scopo e descrizione sintetica:} Il sistema chiede al \underline{DBMS} di recuperare le regole dal \underline{repository}.\\
 \textbf{Flusso di eventi:} Il sistema richiede al \underline{DBMS} di estrarre dal \underline{repository} tutte le regole riguardanti quel \underline{business object}.\\
 \textbf{Precondizioni:} Il sistema ha acquisito la richiesta di validazione per un determinato \underline{business object}.\\
-\textbf{Postcondizioni} Il \underline{DBMS} riceve la richiesta di recuperare delle \underline{business rules} dal \underline{repository}.
-\subsection{Manda le \underline{business rules} all'interprete.}
-\textbf{Attori coinvolti:} L'interprete esterno fornito dall'azienda che riceve le \underline{business rules} per poter validare il suo \underline{business object}.\\
+\textbf{Postcondizioni} Il \underline{DBMS} riceve la richiesta di recuperare delle \underline{business rule} dal \underline{repository}.
+\subsection{Manda le \underline{business rule} all'interprete.}
+\textbf{Attori coinvolti:} L'interprete esterno fornito dall'azienda che riceve le \underline{business rule} per poter validare il suo \underline{business object}.\\
 \textbf{Scopo e descrizione sintetica:} Il sistema ricevute le regole dal \underline{DBMS} le invia all'interprete esterno.\\
 \textbf{Flusso di eventi:} Il sistema ricevute dal \underline{DBMS} tutte le regole riguardanti un determinato \underline{business object} le invia all'interprete esterno.\\
-\textbf{Precondizioni:} Il \underline{DBMS} ha terminato il recupero di tutte le \underline{business rules} che riguardano il \underline{business object} dato.\\
-\textbf{Postcondizioni} L'interprete utilizzer\`a le \underline{business rules} appena ricevute.
+\textbf{Precondizioni:} Il \underline{DBMS} ha terminato il recupero di tutte le \underline{business rule} che riguardano il \underline{business object} dato.\\
+\textbf{Postcondizioni} L'interprete utilizzer\`a le \underline{business rule} appena ricevute.
 
 \section{Requisiti funzionali}
 \begin{itemize}
-\item[F1]{Si dovr\`a creare un linguaggio per la rappresentazione di \underline{business rules}. [C04]}
-\item[F2]{Il sistema dovr\`a fornire un validatore che consenta l'accettazione di nuove \underline{business rules} soltanto se esse sono scritte secondo le specifiche del linguaggio creato. [C04]}
-\item[F3]{Il sistema dov\`a inserire nel \underline{repository} la nuova \underline{business rule} dopo la sua accettazione da parte del validatore. [C04]}
+\item[F1]{Si dovr\`a creare un linguaggio per la rappresentazione di \underline{business rule}. [C04]}
+\item[F2]{Il sistema dovr\`a fornire un validatore che consenta l'accettazione di nuove \underline{business rule} soltanto se esse sono scritte secondo le specifiche del linguaggio creato. [C04]}
+\item[F3]{Il sistema dovr\`a inserire nel \underline{repository} la nuova \underline{business rule} dopo la sua accettazione da parte del validatore. [C04]}
 \item[F4]{Il sistema deve informare l'utente dell'esito della validazione di una nuova \underline{business rule}. Se la validazione \`e andata a buon fine l'utente deve essere informato in maniera chiara del buon esito e del tempo di risposta della validazione. Se la regola non viene accettata l'utente deve essere informato in maniera chiara di dove la sua regola non rispetta le specifiche del linguaggio. [C04]}
-\item[F5]{Nell'interagire col \underline{repository} il sistema dovr\'a appoggiarsi ad un \underline{DBMS} esterno. [I02]}
+\item[F5]{Nell'interagire col \underline{repository} il sistema dovr\`a appoggiarsi ad un \underline{DBMS} esterno. [I02]}
 \item[F6]{Il sistema deve essere in grado di interfacciarsi con l'interprete esterno fornito dall'azienda proponente provvedendo ad esso le regole business da eseguire. [I02]}
-\item[F7]{Il sistema dovr\`a consentire la cancellazione di \underline{business rules} all'interno del \underline{repository}. [I02]}
-\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di definire una nuova \underline{business rules} e una volta validata inserirla nel \underline{repository}. Tale interfaccia dovr\`a inoltre consentire di cancellare \underline{business rules} dal \underline{repository}. Tutto ci\`o servir\`a a testare in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
+\item[F7]{Il sistema dovr\`a consentire la cancellazione di \underline{business rule} all'interno del \underline{repository}. [I02]}
+\item[F8]{Il sistema dovr\`a essere dotato di un'interfaccia grafica minimale che consenta di definire una nuova \underline{business rule} e una volta validata inserirla nel \underline{repository}. Tale interfaccia dovr\`a inoltre consentire di cancellare \underline{business rule} dal \underline{repository}. Tutto ci\`o servir\`a a testare in modo rapido e chiaro il corretto funzionamento del prodotto. [I02]}
 \item[F9]{ DEPRECATO : Il validatore deve essere dotato di un metodo per il controllo di coerenza tra \underline{business rules}. Esso verificher\`a cio\`e se la \underline{business rule} da inserire nel \underline{repository} entra in conflitto con le altre gi\`a presenti. Pi\`u dettagliatamente tale validatore dovr\`a verificare che le \underline{business rules} presenti nel \underline{repository} rappresentino un insieme soddisfacibile e non rigettino un qualunque insieme di valori possibili per i \underline{business objects}. [C04]
 \textit{Nota: La rimozione di questo requisito modificher\`a sostanzialmente il carico di lavoro, in particolare la fase di inserimento risulter\`a meno laboriosa permettendoci di concentrarci maggiormente sul soddisfacimento degli altri requisiti.}
 }
@@ -258,18 +258,18 @@ Per illustrare e rendere pi\`u chiaro il sistema e le sue componenti, verranno q
 
 \section{Requisiti di portabilit\`a}
 \begin{itemize}
-\item[NPo1]{Il formato di salvataggio delle \underline{business rules} e del \underline{repository} deve essere XML. [C04]}
+\item[NPo1]{Il formato di salvataggio delle \underline{business rule} e del \underline{repository} deve essere XML. [C04]}
 \end{itemize}
 \section{Requisiti prestazionali}
 \begin{itemize}
  \item[NPr1]{Il \underline{DBMS} che andr\`a a interagire con il \underline{repository} dovr\`a garantire una buona velocit\`a nell'interrogazione (mediante query) del file XML, anche in presenza di un consistente popolamento dello stesso. [I02]}
-\item[NPr2]{Ad ogni \underline{business rule} deve venire associata una stringa identificativa univoca per consentire un'efficiente indicizzazione delle \underline{business rules} nel \underline{repository}. [I02]}
+\item[NPr2]{Ad ogni \underline{business rule} deve venire associata una stringa identificativa univoca per consentire un'efficiente indicizzazione delle \underline{business rule} nel \underline{repository}. [I02]}
 \end{itemize}
 
 \section{Requisiti di qualit\`a}
 \begin{itemize}
 \item[NQ1]{Il linguaggio dovr\`a permettere tutte le operazioni consentite tra scalari e matrici. Il validatore di conseguenza valider\`a solo le operazioni consentite. [I01]}
-\item[NQ2]{Il progetto verr\`a accompagnato da un manuale che descriver\`a il linguaggio di definizione delle \underline{business rules}. [C04]}
+\item[NQ2]{Il progetto verr\`a accompagnato da un manuale che descriver\`a il linguaggio di definizione delle \underline{business rule}. [C04]}
 \item[NQ3]{Il progetto verr\`a accompagnato dalla descrizione delle API relative al validatore e al \underline{DBMS}. [C04]}
 \end{itemize}
 \newpage
