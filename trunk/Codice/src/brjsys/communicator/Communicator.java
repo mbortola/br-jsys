@@ -37,6 +37,7 @@ public class Communicator {
 			if (username!=correctUsername || password!=correctPassword) {
 				//username sbagliato!
 				//devo lanciare una eccezzione
+				throw new XMLDBException(ErrorCodes.VENDOR_ERROR);
 			}
 		}else{
 			//prima connessione, procedura di connessione

@@ -29,13 +29,13 @@ public class InterpreterCommunicator {
 		try{
 			queryService=new Communicator(username, password);
 		} catch (XMLDBException error){
-			int er=error.errorCode;
-			switch (er){
-			case ErrorCodes.PERMISSION_DENIED: 
+			switch (error.errorCode){
+			case ErrorCodes.INVALID_COLLECTION: 
+				throw new Exception("Server eXist spento.");
+			case ErrorCodes.VENDOR_ERROR:
 				throw new Exception("Autenticazione fallita");
-
 			default:
-				throw new Exception("Server eXist spento.");	
+				throw new Exception("Errore Inaspettato!");
 			}
 		}
 	}

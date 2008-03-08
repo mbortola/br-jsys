@@ -27,13 +27,13 @@ public class GUICommunicator {
 		try{
 			queryService=new Communicator(username, password);
 		} catch (XMLDBException error){
-			int er=error.errorCode;
-			switch (er){
-			case ErrorCodes.PERMISSION_DENIED: 
+			switch (error.errorCode){
+			case ErrorCodes.INVALID_COLLECTION: 
+				throw new Exception("Server eXist spento.");
+			case ErrorCodes.VENDOR_ERROR:
 				throw new Exception("Autenticazione fallita");
-
 			default:
-				throw new Exception("Server eXist spento.");	
+				throw new Exception("Errore Inaspettato!");
 			}
 		}
 	}
@@ -56,9 +56,9 @@ public class GUICommunicator {
 				//Non esiste nel repository una regola con questo nome
 				return false;
 			}
-		//Cancello la regola con questo id
-		queryService.makeQuery("for $i in //BusinessRule[@name='"+id
-				+"'] return update delete $i");
+			//Cancello la regola con questo id
+			queryService.makeQuery("for $i in //BusinessRule[@name='"+id
+					+"'] return update delete $i");
 		} catch (XMLDBException e) {
 			//non dovrebbe mai accadere
 			e.printStackTrace();
