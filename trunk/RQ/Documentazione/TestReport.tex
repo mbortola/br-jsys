@@ -1358,14 +1358,14 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=((((\~2*((\~3*\~4)+(\~4)-(\~3*\~5)-5)+3)/\~2)*\~3)+7) \\ \hline
+Regola & uscite=((((\textasciitilde2*((\textasciitilde3*\textasciitilde4)+(\textasciitilde4)-(\textasciitilde3*\textasciitilde5)-5)+3)/\textasciitilde2)*\textasciitilde3)+7) \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=((((\~2*((\~3 *\~4)+(\~4)-(\~3*\~5) -5)+3)/\~2)*\~3)+7)''\textgreater \\
-\textless AstRuleVersion value=``(= uscite (+ (* (/ (+ (* \~2 (- (- (+ (* \~3 \~4) \~4) (* \~3 \~5)) 5)) 3) \~2) \~3) 7))''/\textgreater\\ 
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=((((\textasciitilde2*((\textasciitilde3 *\textasciitilde4)+(\textasciitilde4)-(\textasciitilde3*\textasciitilde5) -5)+3)/\textasciitilde2)*\textasciitilde3)+7)''\textgreater \\
+\textless AstRuleVersion value=``(= uscite (+ (* (/ (+ (* \textasciitilde2 (- (- (+ (* \textasciitilde3 \textasciitilde4) \textasciitilde4) (* \textasciitilde3 \textasciitilde5)) 5)) 3) \textasciitilde2) \textasciitilde3) 7))''/\textgreater\\ 
 \textless Bconf type=``=``\textgreater \\
 \textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
 \textless OFloat type=``+''\textgreater \\
@@ -1373,19 +1373,19 @@ Regola & uscite=((((\~2*((\~3*\~4)+(\~4)-(\~3*\~5)-5)+3)/\~2)*\~3)+7) \\ \hline
 \textless OFloat type=``/''\textgreater \\
 \textless OFloat type=``+''\textgreater \\
 \textless OFloat type=``*''\textgreater \\
-\textless FLOAT\textgreater \~2\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater \textasciitilde2\textless /FLOAT\textgreater \\
 \textless OFloat type=``-''\textgreater \\
 \textless OFloat type=``-''\textgreater \\
 \textless OFloat type=``+''\textgreater \\
 \textless OFloat type=``*''\textgreater \\
-\textless FLOAT\textgreater \~3\textless /FLOAT\textgreater \\
-\textless FLOAT\textgreater \~4\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater \textasciitilde3\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater \textasciitilde4\textless /FLOAT\textgreater \\
 \textless /OFloat\textgreater \\
-\textless FLOAT\textgreater \~4\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater \textasciitilde4\textless /FLOAT\textgreater \\
 \textless /OFloat\textgreater \\
 \textless OFloat type=``*''\textgreater \\
-\textless FLOAT\textgreater \~3\textless /FLOAT\textgreater \\
-\textless FLOAT\textgreater \~5\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater \textasciitilde3\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater \textasciitilde5\textless /FLOAT\textgreater \\
 \textless /OFloat\textgreater \\
 \textless /OFloat\textgreater \\
 \textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
@@ -1393,9 +1393,9 @@ Regola & uscite=((((\~2*((\~3*\~4)+(\~4)-(\~3*\~5)-5)+3)/\~2)*\~3)+7) \\ \hline
 \textless /OFloat\textgreater \\
 \textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
 \textless /OFloat\textgreater \\
-\textless FLOAT\textgreater \~2\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater \textasciitilde2\textless /FLOAT\textgreater \\
 \textless /OFloat\textgreater \\
-\textless FLOAT\textgreater \~3\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater \textasciitilde3\textless /FLOAT\textgreater \\
 \textless /OFloat\textgreater \\
 \textless FLOAT\textgreater 7\textless /FLOAT\textgreater \\
 \textless /OFloat\textgreater \\
@@ -1440,7 +1440,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU3
 Nome & BR \\ \hline
 Commento & Commento \\ \hline
 Business object associato & Articolo \\ \hline
-Regola & scontato=true message(``abc.. ABC.. 0..9 .?!\^\_-\~'') \\ \hline
+Regola & scontato=true message(``abc.. ABC.. 0..9 .?!\^\_-\textasciitilde'') \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1517,7 +1517,12 @@ La macrocomponente comunicatore verr\`a testata a scatola aperta (\underline{whi
  \textless BOOL\textgreater true\textless /BOOL\textgreater \\
 \textless /Conf\textgreater \\
 \textless /OBool\textgreater \\
-\textless /BusinessRule\textgreater \\ \hline
+\textless /BusinessRule\textgreater\\
+\end{tabular} \\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
 \textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR1'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
 \textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
  \textless OBool type=``AND''\textgreater \\
@@ -1552,7 +1557,12 @@ La macrocomponente comunicatore verr\`a testata a scatola aperta (\underline{whi
  \textless BOOL\textgreater true\textless /BOOL\textgreater \\
 \textless /Conf\textgreater \\
 \textless /OBool\textgreater \\
-\textless /BusinessRule\textgreater \\ \hline
+\textless /BusinessRule\textgreater \\
+\end{tabular} \\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
 \textless BusinessRule associated=``Archivio'' comment=``'' name=``BR3'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
 \textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
  \textless OBool type=``AND''\textgreater \\
