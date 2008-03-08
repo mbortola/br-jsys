@@ -129,7 +129,7 @@ Lo schema generale del prodotto \`e specificato nell'immagine sottostante.
 \end{center}
 Il prodotto \`e stato suddiviso in quattro macrocomponenti:
 \begin{enumerate}
- \item \textbf{GUI}: Fornisce all'utente un interfaccia grafica minimale, consentendogli di effettuare operazioni di cancellazione e interrogazione del repository in maniera user-friendly.
+ \item \textbf{GUI}: Fornisce all'utente un interfaccia grafica minimale, consentendogli di effettuare operazioni di cancellazione e interrogazione del \re\ in maniera user-friendly.
 \item \textbf{Business Rule}: Rappresenta la \br\ che l'utente dichiara e che deve essere passata al validatore per la compilazione.
 \item \textbf{Validatore}: Accetta in input una \br, la valida e la inserisce, se scritta correttamente, nel \rp.
 \item \textbf{Comunicatore}: Si connette al \underline{DBMS} esterno e comunica con esso tramite i formalismi del linguaggio \underline{XQuery}.
@@ -222,15 +222,15 @@ La componente XMLParser si occupa di effettuare la conversione dell'albero sinta
 \end{itemize}
 XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade}. La creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessita di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
 \subsubsection{Relazioni d'uso di altre componenti}
-XMLParser ha bisogno dell'\underline{AST} prodotto da \brp, nonch\`e necessita della componente \br\ per ricavare le informazioni da inserire nell'elemento XML.
+XMLParser ha bisogno dell'\underline{AST} prodotto da \brp, nonch\`e  della componente \br\ per ricavare le informazioni da inserire nell'elemento XML.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
-La componente ValidatorCommunicator ha bisogno dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \rp.
+La componente ValidatorCommunicator necessita dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \rp.
 \subsubsection{Attivit\`a svolte e dati trattati}
 XMLParser contiene le operazioni per scorrere l'\underline{AST} ed effettuare la traduzione in XML.
 
 \subsection{businessobjects}%è un package
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente businessobjects si occupa di offrire un namespace comune a tutti i \bos\ che durante la validazione di una \br\ vengono interpellati richiedendo accesso ai suoi campi dato o sottocampi dato.
+La componente businessobjects si occupa di offrire un namespace comune a tutti i \bos\ che durante la validazione di una \br\ vengono interpellati richiedendo accesso ai relativi campi dato o sottocampi dato.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -309,7 +309,7 @@ La componente offre il metodo insertRule() per inserire la \br\ nel \rp. L'inser
 \end{center}
 \section{Interprete}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questo componente si incarica di eseguire le \brs\ associate ad un determinato \bo. Per ottenere le \brs, deve poter interrogare il \underline{DBMS} attraverso un opportuna interfaccia col sistema \underline{BR-jsys} che risolver\`a per lui la richiesta.
+Questo componente si incarica di eseguire le \brs\ associate ad un determinato \bo. Per ottenere le \br, deve poter interrogare il \underline{DBMS} attraverso un opportuna interfaccia col sistema \underline{BR-jsys} che risolver\`a per lui la richiesta.
 \subsubsection{Relazioni d'uso di altre componenti}
 La componente Interprete utilizza la componente InterpreterCommunicator per comunicare col \underline{DBMS}.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -344,7 +344,7 @@ L'interprete invia la richiesta al sistema, il quale formula la query da inviare
 \end{center}
 All'avvio della GUI viene visualizzato un messaggio in cui vengono richiesti \textit{login} e \textit{password}. Si cerca quindi di stabilire una connessione qualificata al DB. 
 Si controlla quindi l'esito del tentativo di connessione; se il tentativo ha dato esito negativo si richiede la \textit{login} e la
- \textit{password} all'utente. Se, al contrario, l'esito e positivo, ossia si ha disposizione una connessione, viene visualizzata la schermata della GUI dalla quale  possono essere lanciati :\textit{ l'inserimento di una \br}, \textit{l'avvio di una \underline{Sandbox}}, \textit{la cancellazione di una \br}.
+ \textit{password} all'utente. Se, al contrario, l'esito \`e positivo, ossia si ha disposizione una connessione, viene visualizzata la schermata della GUI dalla quale  possono essere lanciati :\textit{ l'inserimento di una \br}, \textit{l'avvio di una \underline{Sandbox}}, \textit{la cancellazione di una \br}.
 Nel diagramma queste tre attivit\`a sono rappresentate come delle \textit{sub-activity} che vengono illustrate di seguito. Al termine di ogni operazione l'utente viene riportato alla finestra principale dove pu\`o effettuare una nuova operazione oppure terminare l'esecuzione della GUI stessa.
 
 \subsection{Inserisci \br}
@@ -352,13 +352,13 @@ Nel diagramma queste tre attivit\`a sono rappresentate come delle \textit{sub-ac
  \includegraphics[width=1.1\textwidth, angle=-90]{activity-dia/InserisciBusinessRule.eps}
 \end{center}
 
-Una volta avviata la finestra di inserimento l'utente inserir\`a i campi dato per la \br\, verr\`a dunque costruito un oggetto \textit{\BR\ }. Quest'oggetto verr\`a inviato al parser che lo convertir\`a in un \underline{AST} dopo aver contrto la validit\`a della regola (Vedi diagramma Conversione \br -\underline{AST}), se la regola mostra errori verr\`a sollevata una eccezione, altrimenti si passer\`a alla fase di conversione da \underline{AST} a stringa rappresentante un elemento XML (Vedi diagramma Conversione \underline{AST}-XML). La fase successiva sar\`a quella di inserire la regola nel \rp\ (Vedi Diagramma Inserimento \br\ nel \rp). In caso di esito positivo dell'inserimento si dovr\`a uscire dalla finestra inserimento, altrimenti si informer\`a l'utente del errore e si ritorner\`a alla finestra iniziale.
+Una volta avviata la finestra di inserimento l'utente inserir\`a i campi dato per la \br\, verr\`a dunque costruito un oggetto \textit{\BR\ }. Quest'oggetto verr\`a inviato al parser che lo convertir\`a in un \underline{AST} dopo aver controllato la validit\`a della regola (Vedi diagramma Conversione \br -\underline{AST}), se la regola mostra errori verr\`a sollevata una eccezione, altrimenti si passer\`a alla fase di conversione da \underline{AST} a stringa rappresentante un elemento XML (Vedi diagramma Conversione \underline{AST}-XML). La fase successiva sar\`a quella di inserire la regola nel \rp\ (Vedi Diagramma Inserimento \br\ nel \rp). In caso di esito positivo dell'inserimento si dovr\`a uscire dalla finestra inserimento, altrimenti si informer\`a l'utente del errore e si ritorner\`a alla finestra iniziale.
 
 \subsubsection{Conversione \br -\underline{AST}}
 \begin{center}
  \includegraphics[width=1\textwidth, angle=-90]{activity-dia/ConversioneBusinessRuleAST.eps}
 \end{center}
-Al parser arriva in ingresso una stringa rappresentante la \br\ da validare. Inizialmente si controller\` che la \br\ si riferisca ad un \bo\ valido, in caso contrario la validazione verr\`a subito bloccata. Dopodich\`e verranno fatti vari controlli con lo scopo di scorrere tutta la regola alla ricerca di errori sintattici, lessicali o logici, nel caso venissero trovati verranno invocate le opportune eccezioni che verranno gestite in maniera da ritornare al chiamante le struttura dell'errore che ne indicher\`a il tipo e la posizione nella \br\ dove \`e avvenuto. In caso di validazione senza errori verr\`a generato un opportuno \underline{AST} che successivamente si convertira 
+Al parser arriva in ingresso una stringa rappresentante la \br\ da validare. Inizialmente si controller\`a che la \br\ si riferisca ad un \bo\ valido, in caso contrario la validazione verr\`a subito bloccata. Dopodich\`e verranno fatti vari controlli con lo scopo di scorrere tutta la regola alla ricerca di errori sintattici, lessicali o logici, nel caso venissero trovati verranno invocate le opportune eccezioni che verranno gestite in maniera da ritornare al chiamante la struttura dell'errore che ne indicher\`a il tipo e la posizione nella \br\ dove \`e avvenuto. In caso di validazione senza errori verr\`a generato un opportuno \underline{AST} che successivamente si convertir\`a 
 in una stringa in XML.
 
 
