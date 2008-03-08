@@ -1701,7 +1701,7 @@ L'integrazione tra 'validatore' e 'comunicatore' verr\`a testata a scatola apert
 
 \begin{Large}\textbf{CVT1a}\end{Large} \\
 Si testa che una \br\ non presente nel \rp\ venga inserita ritornando 'true'.
-Requisiti soddisfatti dall'esecuzione: \\
+Requisiti soddisfatti dall'esecuzione: NPr2. \\
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Business rule da inserire}\\ \hline
@@ -1717,14 +1717,14 @@ Requisiti soddisfatti dall'esecuzione: \\
 
 \begin{Large}\textbf{CVT1b}\end{Large} \\
 Si deve testare l'impedimento da parte del validatore di inserire nel \rp\ \br\ con lo stesso nome. Per fare ci\`o si riesegue l'inserimento della \br\ sopra illustrata e si testa che il valore ritornato sia 'false'.
-Requisiti soddisfatti dall'esecuzione: \\
+Requisiti soddisfatti dall'esecuzione: NPr2.\\
  \\
 \subsection{Integrazione gui, validatore}
 L'integrazione tra 'gui' e 'validatore' verr\`a testata a scatola aperta (\underline{whitebox}), inserendo da gui  un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le due componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
 
 \begin{Large}\textbf{GVT1}\end{Large} \\
 Si testa che il bottone 'Valida' invochi la validazione della \br\ appena inserita.
-Requisiti soddisfatti dall'esecuzione: \\
+Requisiti soddisfatti dall'esecuzione: F2, F8.\\
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Business rule da inserire}\\ \hline
@@ -1756,7 +1756,7 @@ Visualizzazione della finestra principale della gui.\\ \hline
 
 \begin{Large}\textbf{S2}\end{Large} \\
 Si testa che la maschera di login della gui  non accetti username e password errati, impedendo la connessione col \rp\ e riportando un messaggio di errore.
-Requisiti soddisfatti dall'esecuzione: \\
+Requisiti soddisfatti dall'esecuzione: F5. \\
  \\
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
@@ -1777,24 +1777,24 @@ Nella seguente tabella vengono evidenziati i test necessari al soddisfacimento d
 \begin{tabular}{|p{3cm}|p{8cm}|} \hline
 \textbf{Requisito} & \textbf{Test che lo soddisfano}\\ \hline
 F1  & VT1a, VT1b, VT1c, VT1d, VT1e, VT1f, VT2a, VT2b, VT2c, VT3a, VT3b, VT4, VT5a, VT5b, VT5c, VT6a, VT6b, VT7, VT8a, VT8b, VT8c, VT9a, VT9b, VT9c, VT10, VT11, VT12a, VT12b, VT13a, VT13b, VT14, VT15a, VT15b, VT15c, VT15d, VT15e, VT15f, VT16, VT17, VT18, VT19, VT20\\ \hline
-F2  & VT1a, VT1b, VT1c, VT1d, VT1e, VT1f, VT2a, VT2b, VT2c, VT3a, VT3b, VT4, VT5a, VT5b, VT5c, VT6a, VT6b, VT7, VT8a, VT8b, VT8c, VT9a, VT9b, VT9c, VT10, VT11, VT12a, VT12b, VT13a, VT13b, VT14, VT15a, VT15b, VT15c, VT15d, VT15e, VT15f, VT16, VT17, VT18, VT19, VT20\\ \hline
+F2  & GVT1, VT1a, VT1b, VT1c, VT1d, VT1e, VT1f, VT2a, VT2b, VT2c, VT3a, VT3b, VT4, VT5a, VT5b, VT5c, VT6a, VT6b, VT7, VT8a, VT8b, VT8c, VT9a, VT9b, VT9c, VT10, VT11, VT12a, VT12b, VT13a, VT13b, VT14, VT15a, VT15b, VT15c, VT15d, VT15e, VT15f, VT16, VT17, VT18, VT19, VT20\\ \hline
 F3  & CT1, CT2, CT3, CT4, CT5 \\ \hline
 F4  & GT1a, GT1b, GT1c, GT2, GT3\\ \hline
-F5  & CT1, CT2, CT3, CT4, CT5 \\ \hline
-F6  &  \\ \hline
+F5  & S1, S2, CT1, CT2, CT3, CT4, CT5 \\ \hline
+F6  &  - \\ \hline
 F7  & CT1, CT2, CT3, CT4, CT5  \\ \hline
-F8  & CT1, CT2, CT3, CT4, CT5, GT1a, GT1b, GT1c, GT2, GT3  \\ \hline
-F9  &  \\ \hline
+F8  & GVT1, CT1, CT2, CT3, CT4, CT5, GT1a, GT1b, GT1c, GT2, GT3  \\ \hline
+F9  &  DEPRECATO\\ \hline
 F10 & VT1a,VT1b,VT1c,VT1d, VT2a, VT2b, VT2c, VT3a, VT3b, VT4, VT5a, VT5b, VT5c, VT6a, VT6b, VT7, VT8a, VT8b, VT8c, VT9a, VT9b, VT9c, VT10, VT11, VT12a, VT12b, VT13a, VT13b, VT14, VT15a, VT15b, VT15c, VT15d, VT15e, VT15f, VT16, VT17, VT18, VT19, VT20 \\ \hline
 F11 & VT1a,VT1d \\ \hline
 NU1 & VT6a, VT6b, VT7, VT8a, VT8c, VT9a\\ \hline
 NU2 & VT14\\ \hline
 NU3 & VT1a, VT3b, VT18, GT1a, GT1b, GT1c, GT2, GT3\\ \hline
 NPo1 &  VT17, CT1, CT2, CT3, CT4, CT5 \\ \hline
-NPr2 &  VT8b, VT8c, CT1, CT2, CT3, CT4, CT5 \\ \hline
+NPr2 &  CVT1a, CVT1b,VT8b, VT8c, CT1, CT2, CT3, CT4, CT5 \\ \hline
 NQ1 & VT8b, VT8c  \\ \hline
-NQ2 &  \\ \hline
-NQ3 &  \\ \hline
+NQ2 &  - \\ \hline
+NQ3 &  - \\ \hline
 \end{tabular} \\
 \end{center}
 
