@@ -40,7 +40,7 @@
 \begin{table}[hbtp]
 \large{
 \begin{tabular}{l}
-\large{\textbf{\textsf{Lista di distribuzione}}} \\
+\Large{\textbf{\textsf{Lista di distribuzione}}} \\
 \begin{tabular}{|p{6cm}|p{6cm}|} \hline
 %  -------------------------------------------------------------lista di distribuzione
 {HappyCode inc}& Gruppo di lavoro\\ \hline
@@ -106,11 +106,11 @@ Per lo scopo del prodotto si faccia riferimento al documento ``\AR''.
 \item Analisi dei Requisiti ``\AR'';
 \item Norme di Progetto ``\NdP'';
 %\item \PdP
-\item Piano di Qualifica ``\PdQ'';
+\item Piano di Qalifica ``\PdQ'';
 \item Piano di Progetto ``\PdP'';
 %\item \PdQ
 \item ``Ingegneria del software'' 8a edizione - Ian Sommerville;
-\item ``The Definitive ANTLR Reference 2007 - Terence Parr'';
+\item ``The Definitive ANTLR Reference'' 2007 - Terence Parr;
 \item Incontro con il proponente ``Incontro2008-01-17.pdf'';
 \item Incontro con il proponente ``Incontro2008-02-05.pdf''.
 \end{itemize}
@@ -191,7 +191,7 @@ BusinessRuleLexer mette a disposizione vari metodi per la lettura del testo dell
 \subsubsection{Tipo, obiettivo e funzione del componente}
 Questa componente, derivata da org.antlr.runtime.Parser, effettua il parsing della stringa che rappresenta la \br. Effettua quindi il controllo sintattico della regola e il controllo semantico facendo un controllo sui tipi dei dati (siano essi costanti oppure campi dati di \bos). Mentre effettua la validazione, BusinessRuleParser genera l'albero di parsing secondo le specifiche presenti nel controllo semantico. \`E in grado infine di dare informazioni accurate riguardo eventuali errori in fase di validazione.
 \subsubsection{Relazioni d'uso di altre componenti}
-La componente BusinessRuleParser necessita di un \underline{token}Stream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects per effettuare il controllo sui tipi per il \bo\ associato. Per trattare gli errori in fase di validazione, ha bisogno infine della componente TypeCollisionException.
+La componente BusinessRuleParser necessita di un tokenStream, fornitogli indirettamente da BusinessRuleLexer. Deve riferirsi poi alla componente BusinessObjects per effettuare il controllo sui tipi per il \bo\ associato. Per trattare gli errori in fase di validazione, ha bisogno infine della componente TypeCollisionException.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 \brp\ viene messa in relazione con XMLParser che verr\`a trattata successivamente.
 \`E utilizzata inoltre dalla componente Validator.
@@ -209,7 +209,7 @@ La componente TypeCollisionException \`e utilizzata da \brp\ per sollevare eccez
 \subsubsection{Attivit\`a svolte e dati trattati}
 Viene ridefinito il metodo printStackTrace() e messo a disposizione un costruttore per avere informazioni sui tipi che si sono rivelati incompatibili.
 
-\subsection{XMLParser}%probabilmente è un facade anche questo
+\subsection{XMLParser} 
 \subsubsection{Tipo, obiettivo e funzione del componente}
 La componente XMLParser si occupa di effettuare la conversione dell'albero sintattico prodotto dalla componente \brp\ in un elemento XML rappresentante la \br. L'elemento XML risultante conterr\`a:
 \begin{itemize}
@@ -222,15 +222,15 @@ La componente XMLParser si occupa di effettuare la conversione dell'albero sinta
 \end{itemize}
 XMLParser ha in questo contesto il ruolo del design pattern \textit{fa\c{c}ade}. La creazione di un elemento XML tramite il package java \textit{org.w3c.dom} necessita di operazioni sequenziali che coinvolgono numerose classi e numerosi metodi. Implementare tutte queste procedure direttamente nella classe Validator renderebbe il codice meno leggibile e meno manipolabile.
 \subsubsection{Relazioni d'uso di altre componenti}
-XMLParser ha bisogno dell'\underline{AST} prodotto da \brp, nonch\`e  della componente \br\ per ricavare le informazioni da inserire nell'elemento XML.
+XMLParser ha bisogno dell'\underline{AST} prodotto da \brp, nonch\`e della componente \br\ per ricavare le informazioni da inserire nell'elemento XML.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
 La componente ValidatorCommunicator necessita dell'elemento XML prodotto da XMLParser per avviare la procedura di inserimento nel \rp.
 \subsubsection{Attivit\`a svolte e dati trattati}
 XMLParser contiene le operazioni per scorrere l'\underline{AST} ed effettuare la traduzione in XML.
 
-\subsection{businessobjects}%è un package
+\subsection{businessobjects}%� un package
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente businessobjects si occupa di offrire un namespace comune a tutti i \bos\ che durante la validazione di una \br\ vengono interpellati richiedendo accesso ai relativi campi dato o sottocampi dato.
+La componente businessobjects si occupa di offrire un namespace comune a tutti i \bos\ che durante la validazione di una \br\ vengono interpellati per aver accesso ai relativi campi dato o sottocampi dato.
 \subsubsection{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -271,7 +271,7 @@ Quando viene istanziata per la prima volta, Communicator inizializza la connessi
 %
 \subsection{GUICommunicator}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-La componente GUICommunicator contiene metodi necessari per modellare query di cancellazione (tramite operazioni \underline{XQuery} Update) e query di semplice interrogazione.
+La componente GUICommunicator contiene metodi necessari per modellare query di cancellazione (tramite operazioni \underline{XQuery Update}) e query di semplice interrogazione.
 \subsubsection{Relazioni d'uso di altre componenti}
 GUICommunicator utilizza la componente Communicator per accedere al \rp\ ed interrogarlo.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -309,7 +309,7 @@ La componente offre il metodo insertRule() per inserire la \br\ nel \rp. L'inser
 \end{center}
 \section{Interprete}
 \subsubsection{Tipo, obiettivo e funzione del componente}
-Questo componente si incarica di eseguire le \brs\ associate ad un determinato \bo. Per ottenere le \br, deve poter interrogare il \underline{DBMS} attraverso un opportuna interfaccia col sistema \underline{BR-jsys} che risolver\`a per lui la richiesta.
+Questo componente si incarica di eseguire le \br\ associate ad un determinato \bo. Per ottenere le \br, deve poter interrogare il \underline{DBMS} attraverso un opportuna interfaccia col sistema \underline{BR-jsys} che risolver\`a per lui la richiesta.
 \subsubsection{Relazioni d'uso di altre componenti}
 La componente Interprete utilizza la componente InterpreterCommunicator per comunicare col \underline{DBMS}.
 \subsubsection{Interfacce con e relazioni di uso da altre componenti}
@@ -352,7 +352,7 @@ Nel diagramma queste tre attivit\`a sono rappresentate come delle \textit{sub-ac
  \includegraphics[width=1.1\textwidth, angle=-90]{activity-dia/InserisciBusinessRule.eps}
 \end{center}
 
-Una volta avviata la finestra di inserimento l'utente inserir\`a i campi dato per la \br\, verr\`a dunque costruito un oggetto \textit{\BR\ }. Quest'oggetto verr\`a inviato al parser che lo convertir\`a in un \underline{AST} dopo aver controllato la validit\`a della regola (Vedi diagramma Conversione \br -\underline{AST}), se la regola mostra errori verr\`a sollevata una eccezione, altrimenti si passer\`a alla fase di conversione da \underline{AST} a stringa rappresentante un elemento XML (Vedi diagramma Conversione \underline{AST}-XML). La fase successiva sar\`a quella di inserire la regola nel \rp\ (Vedi Diagramma Inserimento \br\ nel \rp). In caso di esito positivo dell'inserimento si dovr\`a uscire dalla finestra inserimento, altrimenti si informer\`a l'utente del errore e si ritorner\`a alla finestra iniziale.
+Una volta avviata la finestra di inserimento l'utente inserir\`a i campi dato per la \br\, verr\`a dunque costruito un oggetto \textit{\BR\ }. Quest'oggetto verr\`a inviato al parser che lo convertir\`a in un \underline{AST} dopo aver controllato la validit\`a della regola (Vedi diagramma Conversione \br -\underline{AST}), se la regola mostra errori verr\`a sollevata una eccezione, altrimenti si passer\`a alla fase di conversione da \underline{AST} a stringa rappresentante un elemento XML (Vedi diagramma Conversione AST-XML). La fase successiva sar\`a quella di inserire la regola nel \rp\ (Vedi Diagramma Inserimento \br\ nel \rp). In caso di esito positivo dell'inserimento si dovr\`a uscire dalla finestra inserimento, altrimenti si informer\`a l'utente dell'errore e si ritorner\`a alla finestra iniziale.
 
 \subsubsection{Conversione \br -\underline{AST}}
 \begin{center}
@@ -418,7 +418,7 @@ Tutte le risorse necessarie ai nostri componenti per affrontare le varie problem
 Nella fase di specifica tecnica e successivamente di progettazione verranno utilizzati diagrammi \underline{UML} realizzati con \textit{Poseidon for \underline{UML} Professional edition 6.0.2} (nella versione trial), in quanto pi\`u completo e usabile rispetto ad altri software simili, come ad esempio ArgoUML. Solo i diagrammi use case sono stati realizzati con Dia in quanto progettati prima di affidarsi a Poseidon.
 Il progetto sar\`a realizzato mediante il linguaggio java come da requisito implicito del capitolato. Useremo la versione 6 essendo quella di pi\`u recente sviluppo.
 Per la produzione della Gui e delle classi java abbiamo utilizzato Eclipse versione 3.3.1.1, un IDE in grado di fornire numerose funzionalit\`a per lo sviluppo del software.
-Per la parte riguardante la grammatica, dopo varie ricerche e confronti, ci siamo affidati invece ad \underline{Antlr} 3.0.1 come generatore di parser e AntlrWorks 1.1.5 come ambiente grafico di sviluppo in quanto offrivano la maggior chiarezza e risposta alle nostre aspettative.
+Per la parte riguardante la grammatica, dopo varie ricerche e confronti, ci siamo affidati invece ad \underline{Antlr} 3.0.1 come generatore di parser e AntlrWorks 1.1.7 come ambiente grafico di sviluppo in quanto offrivano la maggior chiarezza e risposta alle nostre aspettative.
 Tutta la documentazione sar\`a redatta utilizzando Kile 2.0 un user-friendly Tex/Latex editor completo e chiaro nelle sue funzionalit\`a.
 Lo sviluppo avr\`a luogo singolarmente o in piccoli gruppi a seconda della natura della problematica da affrontare.
 Il documento/codice avr\`a ad ogni modo un unico proprietario incaricato di renderlo pubblico tramite server SVN.
@@ -475,8 +475,8 @@ Comunicatore & Communicator & F3, F5, F6, NPr1\\ \hline
 \textbf{F6} & Communicator, InterpreterCommunicator \\ \hline
 \textbf{F7} & GUI, GUICommunicator \\ \hline
 \textbf{F8} & GUI, Validator, GUICommunicator \\ \hline
-\textbf{F10} & BusinessRuleParser, TypeCollisionException, businessobject, \underline{Business Rule} \\ \hline
-\textbf{F11} & businessobject, \underline{Business Rule} \\ \hline
+\textbf{F10} & BusinessRuleParser, TypeCollisionException, businessobject, Business Rule \\ \hline
+\textbf{F11} & businessobject, Business Rule \\ \hline
 \textbf{NU1} & BusinessRule \\ \hline
 \textbf{NU2} & BusinessRule \\ \hline
 \textbf{NU3} & BusinessRule \\ \hline
