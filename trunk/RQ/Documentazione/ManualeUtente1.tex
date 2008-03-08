@@ -158,8 +158,8 @@ Un message pu\`o essere formato da:
 \item lettere minuscole (a-z);
 \item numeri (0-9);
 \item spazi vuoti;
-\item i seguenti caratteri di punteggiatura: '.'  '?'  '!'  '\_'  '-'  '\~'
-\item i seguenti caratteri speciali \^ e \~ \\
+\item i seguenti caratteri di punteggiatura: '.'  '?'  '!'  '\_'  '-'  '\~\ '
+\item i seguenti caratteri speciali \^\ e \~ \\
 \end{itemize}
 \subsection{Esempi di \underline{business rules}}
 Faremo ora, per una maggiore comprensione del linguaggio, alcuni esempi di \underline{business rules}.
@@ -195,7 +195,7 @@ X\textless Y & \textless Conf type=``\&lt''\textgreater \\
 &  Y \\ 
 & \textless /Conf\textgreater\\ \hline
 X\textgreater Y & \textless Conf type=``\&gt''\textgreater \\
-&  X \\http://mail.google.com/mail/
+&  X \\
 &  Y \\ 
 & \textless /Conf\textgreater\\ \hline
 X\textless=Y & \textless Conf type=``\&lt=''\textgreater \\
@@ -345,12 +345,12 @@ Per avviare il programma, una volta terminata l' installazione, sia in Linux che
 \includegraphics[width=0.4\textwidth]{manuale_utente/login.eps}\\
  figura 3.0: schermata di login
 \end{center}
-I dati di autenticazione immessi sono quelli utilizzati per la registrazione al server ``\underline{eXist}''. Tutti i dati richiesti dovranno essere insieriti prestando attenzione alla scelta della password, la quale dovr\`a avere una complessit\`a elevata. 
+I dati di autenticazione immessi sono quelli utilizzati per la registrazione al server ``\underline{eXist}''.
 \subsubsection{Esiti}
-Nel caso di login eseguita correttamente, verr\`a lanciata la schermata principale (figura 3.1).
+In caso di login eseguito correttamente, verr\`a lanciata la schermata principale (figura 3.1).
 Altrimenti viene mostrato un messaggio d'errore:
 \begin{itemize}
-\item Errore server eXsit spento (figura 3.0.1)
+\item Errore server \underline{eXist} spento (figura 3.0.1)
 \item Errore di autenticazione (figura 3.0.2)
 \end{itemize}
 
@@ -385,11 +385,11 @@ L'analisi dettagliata delle singole azioni verr\`a trattata nelle sottosezioni s
 Nella figura 3.2 vediamo illustrata la schermata di inserimento di una nuova \underline{business rule}. L'utente dovr\`a inserire negli appositi spazi i campi dati richiesti:
 \begin{itemize}
 \item \underline{Nome:} \\
-Il nome della \underline{business rule} che l'utente intende inserire (il nome dovr\`a essere significativo);
+Il nome della \underline{business rule} che l'utente intende inserire;
 \item \underline{BO Associato:} \\
-Il nome della classe del business object alla quale si vuole associare la regola;
+Il \underline{business object} al quale si vuole associare la regola;
 \item \underline{Regola:} \\
- La regola scritta secondo la grammatica spiegata nel paragrafo \Grammatica;
+ La regola scritta secondo la grammatica spiegata nel paragrafo 'Descrizione del Linguaggio';
 \item \underline{Commento:} \\
 Descrizione sintetica del comportamento della regola. 
 \end{itemize}
@@ -403,38 +403,38 @@ L'utente dovr\`a ora cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento
 \includegraphics[width=0.7\textwidth]{manuale_utente/br_inserita.eps}\\
  figura 3.2.3: esempio inserimento effettuato
 \end{center} 
-La figura 3.2.3 mostra l'esito di un corretto inserimento di \underline{business rules}. La \underline{business rule} \`e stata cos\`i validata e inserita nel repository.
+La figura 3.2.3 mostra l'esito di un corretto inserimento di \underline{business rules}. La \underline{business rule} \`e stata cos\`i validata e inserita nel \rp.
 
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/errore_bo_inesistente.eps}\\
- figura 3.2.4: esempio di bo associato non trovato
+ figura 3.2.4: esempio di \bo associato non trovato
 \end{center} 
-La figura 3.2.4 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel repository in quanto il business object associato (in questo esempio ``fatture'') non \`e presente nel repository.
+La figura 3.2.4 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto il \bo associato (in questo esempio ``fatture'') non \`e presente nel \rp.
 
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/errore_bo_non_trovato.eps}\\
- figura 3.2.5: esempio di bo non trovato
+ figura 3.2.5: esempio di \bo non trovato
 \end{center} 
-La figura 3.2.5 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel repository in quanto il business object immesso non \`e presente nel repository.
+La figura 3.2.5 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto il \underline{business object} immesso non \`e presente nel \rp.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_op_non_consentita.eps}\\
- figura 3.2.6: esempio di br sintatticamente errata 
+ figura 3.2.6: esempio di regola sintatticamente errata 
 \end{center} 
-La figura 3.2.6 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel repository in quanto la regola immessa (in questo caso true=12) non \`e consentita.
+La figura 3.2.6 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa (in questo caso true=12) non \`e consentita.
 \\
 \\
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/errore_sintattico.eps}\\
- figura 3.2.7: esempio di br errata
+ figura 3.2.7: esempio di regola errata
 \end{center} 
-La figura 3.2.7 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel repository in quanto la regola immessa \`e scritta in maniera errata.
+La figura 3.2.7 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa \`e scritta in maniera errata.
 
 \begin{center}
 \includegraphics[width=0.6\textwidth]{manuale_utente/errore_br_gia_presente.eps}\\
- figura 3.2.8: esempio di br gi\`a inserita
+ figura 3.2.8: esempio di regola gi\`a inserita
 \end{center} 
-La figura 3.2.8 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel repository in quanto vi \`e gi\`a un'occorrenza di questa nel repository.
+La figura 3.2.8 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un'occorrenza di questa nel \rp.
 
 
 \subsection{Rimuovi \underline{business rule}}
@@ -450,21 +450,21 @@ Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una \underl
 \item selezionare una o pi\`u \underline{business rule} dalla lista sottostante.
 \end{enumerate}
 
-\item Se la \underline{business rule} risulta presente nel repository (figura 3.3.1), comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 3.3.2. 
+\item Se la \underline{business rule} risulta presente nel \rp\ (figura 3.3.1), comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 3.3.2. 
 
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/br_selezionata.eps}\\
- figura 3.3.1: messaggio di br trovata
+ figura 3.3.1: messaggio di regola trovata.
 \end{center} 
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/rimozione_br_trovata.eps}\\
- figura 3.3.2: esempio di br selezionata
+ figura 3.3.2: esempio di regola selezionata.
 \end{center} 
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/selezione_multipla.eps}\\
- figura 3.3.3: esempio di selezione multipla
+ figura 3.3.3: esempio di selezione multipla.
 \end{center} 
 
 \item A questo punto baster\`a cliccare sul pulsante ``\textbf{Rimuovi Selezionate}'' e dare conferma di rimozione figura 3.3.4.  
@@ -472,7 +472,7 @@ Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una \underl
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/conferma_rimozione.eps}\\
- figura 3.3.4 messaggio di conferma
+ figura 3.3.4 messaggio di conferma.
 \end{center} 
 
 Se la cancellazione viene effettuata con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
@@ -480,15 +480,15 @@ Se la cancellazione viene effettuata con successo verr\`a visualizzato un messag
  
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/cancellazione_riuscita.eps}\\
-figura 3.3.5 messaggio di br rimossa
+figura 3.3.5 messaggio di regola rimossa.
 \end{center} 
-La figura 3.3.5 mostra la conferma di rimozione di \underline{business rules}. La \underline{business rule} \`e stata trovata dal repository.
+La figura 3.3.5 mostra la conferma di rimozione di \underline{business rules}. La \underline{business rule} \`e stata trovata dal \rp.
 
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/br_non_trovata.eps}\\
- figura 3.3.6 messaggio di br non trovata
+ figura 3.3.6 messaggio di regola non trovata.
 \end{center} 
-La figura 3.3.6 mostra l'esito di un'errata rimozione di \underline{business rules}. La \underline{business rule} non pu\`o essere rimossa dal repository in quanto non \`e stata trovata al suo interno.
+La figura 3.3.6 mostra l'esito di un'errata rimozione di \underline{business rules}. La \underline{business rule} non pu\`o essere rimossa dal \rp\ in quanto non \`e stata trovata al suo interno.
 
 % occorre inserire il messaggio dei due esiti
 \subsection{Sandbox}
@@ -496,22 +496,22 @@ La figura 3.3.6 mostra l'esito di un'errata rimozione di \underline{business rul
  \includegraphics[width=0.7\textwidth]{manuale_utente/schermata_sandbox.eps} \\
  figura 3.4: schermata sandbox
 \end{center}
-Nella figura 3.4 vediamo illustrata la schermata di sandbox. Per procedere con l'interrogazione del database, l'utente dovr\`a:
+Nella figura 3.4 vediamo illustrata la schermata di \underline{sandbox}. Per procedere con l'interrogazione del \underline{DBMS}, l'utente dovr\`a:
 \begin{itemize}
-\item inserire la query (scritta in linguaggio Xquery) nell'appostito campo dati ``Query'';
+\item inserire la query (scritta in linguaggio \underline{XQuery}) nell'appostito campo dati ``Query'';
 \item cliccare sul pulsante ``\textbf{Esegui}''.
 \end{itemize}
 
 \subsubsection{Esiti}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/sandbox_di_query.eps}\\
- figura 3.4.1 esempio di querying corretta
+ figura 3.4.1 esempio di querying corretto.
 \end{center}
 La figura 3.4.1 mostra l'esito positivo di una query e in particolare verr\`a visualizzato nel campo dati ``Risultati'' l'esito della query e nella barra sottostante il tempo di risposta (in millisecondi) impiegato da \underline{eXist}. 
 
 \begin{center}
 \includegraphics[width=1.1\textwidth]{manuale_utente/esempio_errore_sandbox_query_errata.eps}\\
-figura 3.4.2 eccezione di querying errata
+figura 3.4.2 Inserimento query errata.
 \end{center}
 La figura 3.4.2 mostra un'eccezione lanciata in caso di esito negativo di una query scritta in maniera errata.
 
@@ -528,7 +528,7 @@ Campo dati \textless nome campo dati\textgreater\ non trovato: validazione inter
 Operazione non consentita! \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta! & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
 Errore sintattico \textless tutta la \underline{business rule} scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella \underline{business rule}. La validazione viene interrotta. \\ \hline
 Regola \textless nome regola\textgreater\  gi\`a presente: inserimento fallito! & La regola ha un nome gi\`a presente nel repository. Non verr\`a quindi inserita. \\ \hline
-\underline{business rule} non trovata! & La \underline{business rule} cercata non \`e stata trovata nel repository. \\ \hline
+\underline{business rule} non trovata! & La \underline{business rule} cercata non \`e stata trovata nel \rp. \\ \hline
 \end{tabular} \\
 \end{table}
 
