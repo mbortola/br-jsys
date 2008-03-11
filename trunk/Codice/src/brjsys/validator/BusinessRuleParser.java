@@ -1,32 +1,25 @@
-
+//$ANTLR 3.0.1 /../../media/sda1/ids/src/compiler/BusinessRule.g 2008-03-11 22:45:29
 package brjsys.validator;
 
 
 import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+
 
 import org.antlr.runtime.tree.*;
-/**
- * Parser per business rules, generato in automatico tramite antlr.
- * @author Michele  Bortolato
- * @version 0.9 3 Mar 2008
- * 
- */
 
 public class BusinessRuleParser extends Parser {
-
-	/**Mostra come ai token viene associato un intero identificativo*/
 	public static final String[] tokenNames = new String[] {
-		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "OpRule", "Conf", 
-		"Bconf", "Msg", "STRING", "OpA", "OpM", "OpBool", "FIELD", 
-		"FLOAT", "BOOL", "BoFun", "FlFun", "Count", "CHAR", "OTHERCHAR", 
-		"SUBFIELD", "WHITESPACE", "'('", "')'"
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "OpRule", "Conf", "Bconf", "Msg", "STRING", "OpA", "OpM", "OpBool", "FIELD", "FLOAT", "BOOL", "BoFun", "FlFun", "Count", "CHAR", "OTHERCHAR", "NUMBER", "UNFLOAT", "SUBFIELD", "WHITESPACE", "'('", "')'"
 	};
-
 	public static final int Count=17;
 	public static final int OpRule=4;
+	public static final int NUMBER=20;
 	public static final int BOOL=14;
 	public static final int CHAR=18;
-	public static final int WHITESPACE=21;
+	public static final int WHITESPACE=23;
 	public static final int Conf=5;
 	public static final int FLOAT=13;
 	public static final int OTHERCHAR=19;
@@ -34,32 +27,31 @@ public class BusinessRuleParser extends Parser {
 	public static final int OpBool=11;
 	public static final int Msg=7;
 	public static final int Bconf=6;
-	public static final int SUBFIELD=20;
+	public static final int SUBFIELD=22;
 	public static final int FlFun=16;
 	public static final int FIELD=12;
 	public static final int OpM=10;
 	public static final int BoFun=15;
 	public static final int OpA=9;
+	public static final int UNFLOAT=21;
 	public static final int STRING=8;
 
-	
+	public BusinessRuleParser(TokenStream input) {
+		super(input);
+	}
+
 	protected TreeAdaptor adaptor = new CommonTreeAdaptor();
 
 	public void setTreeAdaptor(TreeAdaptor adaptor) {
 		this.adaptor = adaptor;
 	}
-	
 	public TreeAdaptor getTreeAdaptor() {
 		return adaptor;
 	}
 
-	public String[] getTokenNames() { 
-		return tokenNames; 
-	}
-	
-	public String getGrammarFileName() { 
-		return "/../../media/sda1/ids/src/compiler/BusinessRule.g"; 
-	}
+	public String[] getTokenNames() { return tokenNames; }
+	public String getGrammarFileName() { return "/../../media/sda1/ids/src/compiler/BusinessRule.g"; }
+
 
 	/**Rappresenta il tipo del business object associato*/
 	static private Class env=null;
@@ -73,7 +65,7 @@ public class BusinessRuleParser extends Parser {
 			RecognitionException e,	BitSet follow)throws RecognitionException {
 		throw e;
 	}
-	
+
 	/**Ritorna il tipo di un campo dati del business object associato al quale
 	 * viene fatto riferimento nella business rule
 	 * 
@@ -136,7 +128,7 @@ public class BusinessRuleParser extends Parser {
 		return (index==-1?0:(inputString.length()-index)/2);
 	}
 
-	
+
 	/**
 	 * Confronta due tipi in ingresso e dice se sono di tipo cmpatibile per una 
 	 * operazione.
@@ -174,7 +166,7 @@ public class BusinessRuleParser extends Parser {
 		}
 		throw new TypeCollisionException("Operazione non consentita:\n"+input+
 				" != "+confronto+":\n "+printTSNew(stream, 0, stream.index()-1)+
-				"\nValidazione interrotta");
+		"\nValidazione interrotta");
 	}
 	/**
 	 * Dato un oggetto Class ritorno il tipo base ossia:
@@ -228,13 +220,14 @@ public class BusinessRuleParser extends Parser {
 	}
 
 
+
 	public static class start_return extends ParserRuleReturnScope {
 		CommonTree tree;
 		public Object getTree() { return tree; }
 	};
 
 	// $ANTLR start start
-	// /../../media/sda1/ids/src/compiler/BusinessRule.g:124:1: start : rule ( OpRule rule )* ;
+	// /../../media/sda1/ids/src/compiler/BusinessRule.g:196:1: start : rule ( OpRule rule )* ;
 	public final start_return start() throws RecognitionException {
 		start_return retval = new start_return();
 		retval.start = input.LT(1);
@@ -250,8 +243,8 @@ public class BusinessRuleParser extends Parser {
 		CommonTree OpRule2_tree=null;
 
 		try {
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:124:7: ( rule ( OpRule rule )* )
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:125:2: rule ( OpRule rule )*
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:196:7: ( rule ( OpRule rule )* )
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:197:2: rule ( OpRule rule )*
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -260,7 +253,7 @@ public class BusinessRuleParser extends Parser {
 				_fsp--;
 
 				adaptor.addChild(root_0, rule1.getTree());
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:126:2: ( OpRule rule )*
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:198:2: ( OpRule rule )*
 				loop1:
 					do {
 						int alt1=2;
@@ -273,7 +266,7 @@ public class BusinessRuleParser extends Parser {
 
 						switch (alt1) {
 						case 1 :
-							// /../../media/sda1/ids/src/compiler/BusinessRule.g:126:3: OpRule rule
+							// /../../media/sda1/ids/src/compiler/BusinessRule.g:198:3: OpRule rule
 						{
 							OpRule2=(Token)input.LT(1);
 							match(input,OpRule,FOLLOW_OpRule_in_start55); 
@@ -320,7 +313,7 @@ public class BusinessRuleParser extends Parser {
 	};
 
 	// $ANTLR start rule
-	// /../../media/sda1/ids/src/compiler/BusinessRule.g:130:1: rule returns [Class value] : e= exp ( conf e2= exp ) ( message )? -> ^( conf $e $e2 ( message )? ) ;
+	// /../../media/sda1/ids/src/compiler/BusinessRule.g:202:1: rule returns [Class value] : e= exp ( conf e2= exp ) ( message )? -> ^( conf $e $e2 ( message )? ) ;
 	public final rule_return rule() throws RecognitionException {
 		rule_return retval = new rule_return();
 		retval.start = input.LT(1);
@@ -340,16 +333,16 @@ public class BusinessRuleParser extends Parser {
 		RewriteRuleSubtreeStream stream_exp=new RewriteRuleSubtreeStream(adaptor,"rule exp");
 		RewriteRuleSubtreeStream stream_conf=new RewriteRuleSubtreeStream(adaptor,"rule conf");
 		try {
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:130:26: (e= exp ( conf e2= exp ) ( message )? -> ^( conf $e $e2 ( message )? ) )
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:131:2: e= exp ( conf e2= exp ) ( message )?
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:202:26: (e= exp ( conf e2= exp ) ( message )? -> ^( conf $e $e2 ( message )? ) )
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:203:2: e= exp ( conf e2= exp ) ( message )?
 			{
 				pushFollow(FOLLOW_exp_in_rule77);
 				e=exp();
 				_fsp--;
 
 				stream_exp.add(e.getTree());
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:132:2: ( conf e2= exp )
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:132:3: conf e2= exp
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:204:2: ( conf e2= exp )
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:204:3: conf e2= exp
 				{
 					pushFollow(FOLLOW_conf_in_rule82);
 					conf4=conf();
@@ -367,7 +360,7 @@ public class BusinessRuleParser extends Parser {
 
 				}
 
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:135:3: ( message )?
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:207:3: ( message )?
 				int alt2=2;
 				int LA2_0 = input.LA(1);
 
@@ -376,7 +369,7 @@ public class BusinessRuleParser extends Parser {
 				}
 				switch (alt2) {
 				case 1 :
-					// /../../media/sda1/ids/src/compiler/BusinessRule.g:135:3: message
+					// /../../media/sda1/ids/src/compiler/BusinessRule.g:207:3: message
 				{
 					pushFollow(FOLLOW_message_in_rule94);
 					message5=message();
@@ -391,27 +384,27 @@ public class BusinessRuleParser extends Parser {
 
 
 				// AST REWRITE
-				// elements: e, message, e2, conf
+				// elements: message, e2, conf, e
 				// token labels: 
-				// rule labels: retval, e2, e
+				// rule labels: retval, e, e2
 				// token list labels: 
 				// rule list labels: 
 				retval.tree = root_0;
 				RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
-				RewriteRuleSubtreeStream stream_e2=new RewriteRuleSubtreeStream(adaptor,"token e2",e2!=null?e2.tree:null);
 				RewriteRuleSubtreeStream stream_e=new RewriteRuleSubtreeStream(adaptor,"token e",e!=null?e.tree:null);
+				RewriteRuleSubtreeStream stream_e2=new RewriteRuleSubtreeStream(adaptor,"token e2",e2!=null?e2.tree:null);
 
 				root_0 = (CommonTree)adaptor.nil();
-				// 135:12: -> ^( conf $e $e2 ( message )? )
+				// 207:12: -> ^( conf $e $e2 ( message )? )
 				{
-					// /../../media/sda1/ids/src/compiler/BusinessRule.g:135:14: ^( conf $e $e2 ( message )? )
+					// /../../media/sda1/ids/src/compiler/BusinessRule.g:207:14: ^( conf $e $e2 ( message )? )
 					{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot(stream_conf.nextNode(), root_1);
 
 						adaptor.addChild(root_1, stream_e.next());
 						adaptor.addChild(root_1, stream_e2.next());
-						// /../../media/sda1/ids/src/compiler/BusinessRule.g:135:28: ( message )?
+						// /../../media/sda1/ids/src/compiler/BusinessRule.g:207:28: ( message )?
 						if ( stream_message.hasNext() ) {
 							adaptor.addChild(root_1, stream_message.next());
 
@@ -449,7 +442,7 @@ public class BusinessRuleParser extends Parser {
 	};
 
 	// $ANTLR start conf
-	// /../../media/sda1/ids/src/compiler/BusinessRule.g:138:1: conf : ( Conf | Bconf );
+	// /../../media/sda1/ids/src/compiler/BusinessRule.g:210:1: conf : ( Conf | Bconf );
 	public final conf_return conf() throws RecognitionException {
 		conf_return retval = new conf_return();
 		retval.start = input.LT(1);
@@ -461,7 +454,7 @@ public class BusinessRuleParser extends Parser {
 		CommonTree set6_tree=null;
 
 		try {
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:138:6: ( Conf | Bconf )
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:210:6: ( Conf | Bconf )
 			// /../../media/sda1/ids/src/compiler/BusinessRule.g:
 			{
 				root_0 = (CommonTree)adaptor.nil();
@@ -503,7 +496,7 @@ public class BusinessRuleParser extends Parser {
 	};
 
 	// $ANTLR start message
-	// /../../media/sda1/ids/src/compiler/BusinessRule.g:140:1: message : Msg '(' STRING ')' ;
+	// /../../media/sda1/ids/src/compiler/BusinessRule.g:212:1: message : Msg '(' STRING ')' ;
 	public final message_return message() throws RecognitionException {
 		message_return retval = new message_return();
 		retval.start = input.LT(1);
@@ -521,8 +514,8 @@ public class BusinessRuleParser extends Parser {
 		CommonTree char_literal10_tree=null;
 
 		try {
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:140:9: ( Msg '(' STRING ')' )
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:140:11: Msg '(' STRING ')'
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:212:9: ( Msg '(' STRING ')' )
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:212:11: Msg '(' STRING ')'
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -532,14 +525,14 @@ public class BusinessRuleParser extends Parser {
 				root_0 = (CommonTree)adaptor.becomeRoot(Msg7_tree, root_0);
 
 				char_literal8=(Token)input.LT(1);
-				match(input,22,FOLLOW_22_in_message131); 
+				match(input,24,FOLLOW_24_in_message131); 
 				STRING9=(Token)input.LT(1);
 				match(input,STRING,FOLLOW_STRING_in_message133); 
 				STRING9_tree = (CommonTree)adaptor.create(STRING9);
 				adaptor.addChild(root_0, STRING9_tree);
 
 				char_literal10=(Token)input.LT(1);
-				match(input,23,FOLLOW_23_in_message134); 
+				match(input,25,FOLLOW_25_in_message134); 
 
 			}
 
@@ -566,7 +559,7 @@ public class BusinessRuleParser extends Parser {
 	};
 
 	// $ANTLR start exp
-	// /../../media/sda1/ids/src/compiler/BusinessRule.g:142:1: exp returns [Class value] : e= opA ( OpA e= opA )* ;
+	// /../../media/sda1/ids/src/compiler/BusinessRule.g:214:1: exp returns [Class value] : e= opA ( OpA e= opA )* ;
 	public final exp_return exp() throws RecognitionException {
 		exp_return retval = new exp_return();
 		retval.start = input.LT(1);
@@ -580,8 +573,8 @@ public class BusinessRuleParser extends Parser {
 		CommonTree OpA11_tree=null;
 
 		try {
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:142:27: (e= opA ( OpA e= opA )* )
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:143:2: e= opA ( OpA e= opA )*
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:214:27: (e= opA ( OpA e= opA )* )
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:215:2: e= opA ( OpA e= opA )*
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -591,7 +584,7 @@ public class BusinessRuleParser extends Parser {
 
 				adaptor.addChild(root_0, e.getTree());
 				retval.value =e.value;
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:144:2: ( OpA e= opA )*
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:216:2: ( OpA e= opA )*
 				loop3:
 					do {
 						int alt3=2;
@@ -604,7 +597,7 @@ public class BusinessRuleParser extends Parser {
 
 						switch (alt3) {
 						case 1 :
-							// /../../media/sda1/ids/src/compiler/BusinessRule.g:144:3: OpA e= opA
+							// /../../media/sda1/ids/src/compiler/BusinessRule.g:216:3: OpA e= opA
 						{
 							OpA11=(Token)input.LT(1);
 							match(input,OpA,FOLLOW_OpA_in_exp159); 
@@ -652,7 +645,7 @@ public class BusinessRuleParser extends Parser {
 	};
 
 	// $ANTLR start opA
-	// /../../media/sda1/ids/src/compiler/BusinessRule.g:148:1: opA returns [Class value] : e= opB ( OpM e= opB )* ;
+	// /../../media/sda1/ids/src/compiler/BusinessRule.g:220:1: opA returns [Class value] : e= opB ( OpM e= opB )* ;
 	public final opA_return opA() throws RecognitionException {
 		opA_return retval = new opA_return();
 		retval.start = input.LT(1);
@@ -666,8 +659,8 @@ public class BusinessRuleParser extends Parser {
 		CommonTree OpM12_tree=null;
 
 		try {
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:148:25: (e= opB ( OpM e= opB )* )
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:149:2: e= opB ( OpM e= opB )*
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:220:25: (e= opB ( OpM e= opB )* )
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:221:2: e= opB ( OpM e= opB )*
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -677,7 +670,7 @@ public class BusinessRuleParser extends Parser {
 
 				adaptor.addChild(root_0, e.getTree());
 				retval.value =e.value;
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:150:2: ( OpM e= opB )*
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:222:2: ( OpM e= opB )*
 				loop4:
 					do {
 						int alt4=2;
@@ -690,7 +683,7 @@ public class BusinessRuleParser extends Parser {
 
 						switch (alt4) {
 						case 1 :
-							// /../../media/sda1/ids/src/compiler/BusinessRule.g:150:3: OpM e= opB
+							// /../../media/sda1/ids/src/compiler/BusinessRule.g:222:3: OpM e= opB
 						{
 							OpM12=(Token)input.LT(1);
 							match(input,OpM,FOLLOW_OpM_in_opA191); 
@@ -723,7 +716,7 @@ public class BusinessRuleParser extends Parser {
 		}
 		catch (RecognitionException error) {
 			if(error instanceof TypeCollisionException){}
-			else{throw new TypeCollisionException("Errore sintattico\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+			else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
 			}
 			throw error;}    finally {
 			}
@@ -738,7 +731,7 @@ public class BusinessRuleParser extends Parser {
 	};
 
 	// $ANTLR start opB
-	// /../../media/sda1/ids/src/compiler/BusinessRule.g:154:1: opB returns [Class value] : e= atom ( OpBool e= atom )* ;
+	// /../../media/sda1/ids/src/compiler/BusinessRule.g:226:1: opB returns [Class value] : e= atom ( OpBool e= atom )* ;
 	public final opB_return opB() throws RecognitionException {
 		opB_return retval = new opB_return();
 		retval.start = input.LT(1);
@@ -752,8 +745,8 @@ public class BusinessRuleParser extends Parser {
 		CommonTree OpBool13_tree=null;
 
 		try {
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:154:27: (e= atom ( OpBool e= atom )* )
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:155:2: e= atom ( OpBool e= atom )*
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:226:27: (e= atom ( OpBool e= atom )* )
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:227:2: e= atom ( OpBool e= atom )*
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -763,7 +756,7 @@ public class BusinessRuleParser extends Parser {
 
 				adaptor.addChild(root_0, e.getTree());
 				retval.value =e.value;
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:156:2: ( OpBool e= atom )*
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:228:2: ( OpBool e= atom )*
 				loop5:
 					do {
 						int alt5=2;
@@ -776,7 +769,7 @@ public class BusinessRuleParser extends Parser {
 
 						switch (alt5) {
 						case 1 :
-							// /../../media/sda1/ids/src/compiler/BusinessRule.g:156:3: OpBool e= atom
+							// /../../media/sda1/ids/src/compiler/BusinessRule.g:228:3: OpBool e= atom
 						{
 							OpBool13=(Token)input.LT(1);
 							match(input,OpBool,FOLLOW_OpBool_in_opB227); 
@@ -809,7 +802,7 @@ public class BusinessRuleParser extends Parser {
 		}
 		catch (RecognitionException error) {
 			if(error instanceof TypeCollisionException){}
-			else{throw new TypeCollisionException("Errore sintattico\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+			else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
 			}
 			throw error;}    finally {
 			}
@@ -824,7 +817,7 @@ public class BusinessRuleParser extends Parser {
 	};
 
 	// $ANTLR start atom
-	// /../../media/sda1/ids/src/compiler/BusinessRule.g:159:1: atom returns [Class value] : ( FIELD | FLOAT | BOOL | STRING | '(' e= exp ')' -> exp | z= fun -> fun );
+	// /../../media/sda1/ids/src/compiler/BusinessRule.g:231:1: atom returns [Class value] : ( FIELD | FLOAT | BOOL | STRING | '(' e= exp ')' -> exp | z= fun -> fun );
 	public final atom_return atom() throws RecognitionException {
 		atom_return retval = new atom_return();
 		retval.start = input.LT(1);
@@ -848,12 +841,12 @@ public class BusinessRuleParser extends Parser {
 		CommonTree STRING17_tree=null;
 		CommonTree char_literal18_tree=null;
 		CommonTree char_literal19_tree=null;
-		RewriteRuleTokenStream stream_22=new RewriteRuleTokenStream(adaptor,"token 22");
-		RewriteRuleTokenStream stream_23=new RewriteRuleTokenStream(adaptor,"token 23");
+		RewriteRuleTokenStream stream_24=new RewriteRuleTokenStream(adaptor,"token 24");
+		RewriteRuleTokenStream stream_25=new RewriteRuleTokenStream(adaptor,"token 25");
 		RewriteRuleSubtreeStream stream_exp=new RewriteRuleSubtreeStream(adaptor,"rule exp");
 		RewriteRuleSubtreeStream stream_fun=new RewriteRuleSubtreeStream(adaptor,"rule fun");
 		try {
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:159:28: ( FIELD | FLOAT | BOOL | STRING | '(' e= exp ')' -> exp | z= fun -> fun )
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:231:28: ( FIELD | FLOAT | BOOL | STRING | '(' e= exp ')' -> exp | z= fun -> fun )
 			int alt6=6;
 			switch ( input.LA(1) ) {
 			case FIELD:
@@ -876,7 +869,7 @@ public class BusinessRuleParser extends Parser {
 				alt6=4;
 			}
 			break;
-			case 22:
+			case 24:
 			{
 				alt6=5;
 			}
@@ -890,14 +883,14 @@ public class BusinessRuleParser extends Parser {
 			break;
 			default:
 				NoViableAltException nvae =
-					new NoViableAltException("159:1: atom returns [Class value] : ( FIELD | FLOAT | BOOL | STRING | '(' e= exp ')' -> exp | z= fun -> fun );", 6, 0, input);
+					new NoViableAltException("231:1: atom returns [Class value] : ( FIELD | FLOAT | BOOL | STRING | '(' e= exp ')' -> exp | z= fun -> fun );", 6, 0, input);
 
 			throw nvae;
 			}
 
 			switch (alt6) {
 			case 1 :
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:160:2: FIELD
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:232:2: FIELD
 				{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -911,7 +904,7 @@ public class BusinessRuleParser extends Parser {
 				}
 				break;
 			case 2 :
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:161:3: FLOAT
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:233:3: FLOAT
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -925,7 +918,7 @@ public class BusinessRuleParser extends Parser {
 			}
 			break;
 			case 3 :
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:162:3: BOOL
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:234:3: BOOL
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -939,7 +932,7 @@ public class BusinessRuleParser extends Parser {
 			}
 			break;
 			case 4 :
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:163:3: STRING
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:235:3: STRING
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -953,11 +946,11 @@ public class BusinessRuleParser extends Parser {
 			}
 			break;
 			case 5 :
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:164:3: '(' e= exp ')'
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:236:3: '(' e= exp ')'
 			{
 				char_literal18=(Token)input.LT(1);
-				match(input,22,FOLLOW_22_in_atom282); 
-				stream_22.add(char_literal18);
+				match(input,24,FOLLOW_24_in_atom282); 
+				stream_24.add(char_literal18);
 
 				pushFollow(FOLLOW_exp_in_atom285);
 				e=exp();
@@ -965,8 +958,8 @@ public class BusinessRuleParser extends Parser {
 
 				stream_exp.add(e.getTree());
 				char_literal19=(Token)input.LT(1);
-				match(input,23,FOLLOW_23_in_atom286); 
-				stream_23.add(char_literal19);
+				match(input,25,FOLLOW_25_in_atom286); 
+				stream_25.add(char_literal19);
 
 				retval.value =e.value;
 
@@ -980,7 +973,7 @@ public class BusinessRuleParser extends Parser {
 							RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
 							root_0 = (CommonTree)adaptor.nil();
-							// 164:33: -> exp
+							// 236:33: -> exp
 							{
 								adaptor.addChild(root_0, stream_exp.next());
 
@@ -991,7 +984,7 @@ public class BusinessRuleParser extends Parser {
 			}
 			break;
 			case 6 :
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:165:3: z= fun
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:237:3: z= fun
 			{
 				pushFollow(FOLLOW_fun_in_atom296);
 				z=fun();
@@ -1010,7 +1003,7 @@ public class BusinessRuleParser extends Parser {
 				RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"token retval",retval!=null?retval.tree:null);
 
 				root_0 = (CommonTree)adaptor.nil();
-				// 165:28: -> fun
+				// 237:28: -> fun
 				{
 					adaptor.addChild(root_0, stream_fun.next());
 
@@ -1030,7 +1023,7 @@ public class BusinessRuleParser extends Parser {
 		}
 		catch (RecognitionException error) {
 			if(error instanceof TypeCollisionException){}
-			else{throw new TypeCollisionException("Errore sintattico\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+			else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
 			}
 			throw error;}    finally {
 			}
@@ -1045,7 +1038,7 @@ public class BusinessRuleParser extends Parser {
 	};
 
 	// $ANTLR start fun
-	// /../../media/sda1/ids/src/compiler/BusinessRule.g:169:1: fun returns [Class value] : ( BoFun '(' e= exp ')' | FlFun '(' e= exp ')' | Count '(' e= exp ')' );
+	// /../../media/sda1/ids/src/compiler/BusinessRule.g:241:1: fun returns [Class value] : ( BoFun '(' e= exp ')' | FlFun '(' e= exp ')' | Count '(' e= exp ')' );
 	public final fun_return fun() throws RecognitionException {
 		fun_return retval = new fun_return();
 		retval.start = input.LT(1);
@@ -1075,7 +1068,7 @@ public class BusinessRuleParser extends Parser {
 		CommonTree char_literal28_tree=null;
 
 		try {
-			// /../../media/sda1/ids/src/compiler/BusinessRule.g:169:26: ( BoFun '(' e= exp ')' | FlFun '(' e= exp ')' | Count '(' e= exp ')' )
+			// /../../media/sda1/ids/src/compiler/BusinessRule.g:241:26: ( BoFun '(' e= exp ')' | FlFun '(' e= exp ')' | Count '(' e= exp ')' )
 			int alt7=3;
 			switch ( input.LA(1) ) {
 			case BoFun:
@@ -1095,14 +1088,14 @@ public class BusinessRuleParser extends Parser {
 			break;
 			default:
 				NoViableAltException nvae =
-					new NoViableAltException("169:1: fun returns [Class value] : ( BoFun '(' e= exp ')' | FlFun '(' e= exp ')' | Count '(' e= exp ')' );", 7, 0, input);
+					new NoViableAltException("241:1: fun returns [Class value] : ( BoFun '(' e= exp ')' | FlFun '(' e= exp ')' | Count '(' e= exp ')' );", 7, 0, input);
 
 			throw nvae;
 			}
 
 			switch (alt7) {
 			case 1 :
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:170:2: BoFun '(' e= exp ')'
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:242:2: BoFun '(' e= exp ')'
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -1112,20 +1105,20 @@ public class BusinessRuleParser extends Parser {
 				root_0 = (CommonTree)adaptor.becomeRoot(BoFun20_tree, root_0);
 
 				char_literal21=(Token)input.LT(1);
-				match(input,22,FOLLOW_22_in_fun323); 
+				match(input,24,FOLLOW_24_in_fun323); 
 				pushFollow(FOLLOW_exp_in_fun328);
 				e=exp();
 				_fsp--;
 
 				adaptor.addChild(root_0, e.getTree());
 				char_literal22=(Token)input.LT(1);
-				match(input,23,FOLLOW_23_in_fun330); 
+				match(input,25,FOLLOW_25_in_fun330); 
 				retval.value =compare(input,e.value,new Boolean(true).getClass(),false);
 
 			}
 			break;
 			case 2 :
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:171:3: FlFun '(' e= exp ')'
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:243:3: FlFun '(' e= exp ')'
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -1135,20 +1128,20 @@ public class BusinessRuleParser extends Parser {
 				root_0 = (CommonTree)adaptor.becomeRoot(FlFun23_tree, root_0);
 
 				char_literal24=(Token)input.LT(1);
-				match(input,22,FOLLOW_22_in_fun341); 
+				match(input,24,FOLLOW_24_in_fun341); 
 				pushFollow(FOLLOW_exp_in_fun346);
 				e=exp();
 				_fsp--;
 
 				adaptor.addChild(root_0, e.getTree());
 				char_literal25=(Token)input.LT(1);
-				match(input,23,FOLLOW_23_in_fun348); 
+				match(input,25,FOLLOW_25_in_fun348); 
 				retval.value =compare(input,e.value,new Float(0).getClass(),true);
 
 			}
 			break;
 			case 3 :
-				// /../../media/sda1/ids/src/compiler/BusinessRule.g:172:3: Count '(' e= exp ')'
+				// /../../media/sda1/ids/src/compiler/BusinessRule.g:244:3: Count '(' e= exp ')'
 			{
 				root_0 = (CommonTree)adaptor.nil();
 
@@ -1158,14 +1151,14 @@ public class BusinessRuleParser extends Parser {
 				root_0 = (CommonTree)adaptor.becomeRoot(Count26_tree, root_0);
 
 				char_literal27=(Token)input.LT(1);
-				match(input,22,FOLLOW_22_in_fun359); 
+				match(input,24,FOLLOW_24_in_fun359); 
 				pushFollow(FOLLOW_exp_in_fun364);
 				e=exp();
 				_fsp--;
 
 				adaptor.addChild(root_0, e.getTree());
 				char_literal28=(Token)input.LT(1);
-				match(input,23,FOLLOW_23_in_fun367); 
+				match(input,25,FOLLOW_25_in_fun367); 
 				retval.value =new Float(0).getClass();
 
 			}
@@ -1180,7 +1173,7 @@ public class BusinessRuleParser extends Parser {
 		}
 		catch (RecognitionException error) {
 			if(error instanceof TypeCollisionException){}
-			else{throw new TypeCollisionException("Errore sintattico\n"+printTSNew(input,0,input.index()-1)+"\n:Validazione interrotta!");
+			else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
 			}
 			throw error;}    finally {
 			}
@@ -1191,49 +1184,46 @@ public class BusinessRuleParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_rule_in_start51 = new BitSet(new long[] {
-			0x0000000000000012L}
-	);
-	
-	public static final BitSet FOLLOW_OpRule_in_start55 = new BitSet(new long[]{0x000000000043F100L});
+	public static final BitSet FOLLOW_rule_in_start51 = new BitSet(new long[]{0x0000000000000012L});
+	public static final BitSet FOLLOW_OpRule_in_start55 = new BitSet(new long[]{0x000000000103F100L});
 	public static final BitSet FOLLOW_rule_in_start58 = new BitSet(new long[]{0x0000000000000012L});
 	public static final BitSet FOLLOW_exp_in_rule77 = new BitSet(new long[]{0x0000000000000060L});
-	public static final BitSet FOLLOW_conf_in_rule82 = new BitSet(new long[]{0x000000000043F100L});
+	public static final BitSet FOLLOW_conf_in_rule82 = new BitSet(new long[]{0x000000000103F100L});
 	public static final BitSet FOLLOW_exp_in_rule86 = new BitSet(new long[]{0x0000000000000082L});
 	public static final BitSet FOLLOW_message_in_rule94 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_set_in_conf0 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Msg_in_message129 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_message131 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_STRING_in_message133 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_message134 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Msg_in_message129 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_24_in_message131 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_STRING_in_message133 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_message134 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_opA_in_exp151 = new BitSet(new long[]{0x0000000000000202L});
-	public static final BitSet FOLLOW_OpA_in_exp159 = new BitSet(new long[]{0x000000000043F100L});
+	public static final BitSet FOLLOW_OpA_in_exp159 = new BitSet(new long[]{0x000000000103F100L});
 	public static final BitSet FOLLOW_opA_in_exp164 = new BitSet(new long[]{0x0000000000000202L});
 	public static final BitSet FOLLOW_opB_in_opA184 = new BitSet(new long[]{0x0000000000000402L});
-	public static final BitSet FOLLOW_OpM_in_opA191 = new BitSet(new long[]{0x000000000043F100L});
+	public static final BitSet FOLLOW_OpM_in_opA191 = new BitSet(new long[]{0x000000000103F100L});
 	public static final BitSet FOLLOW_opB_in_opA196 = new BitSet(new long[]{0x0000000000000402L});
 	public static final BitSet FOLLOW_atom_in_opB220 = new BitSet(new long[]{0x0000000000000802L});
-	public static final BitSet FOLLOW_OpBool_in_opB227 = new BitSet(new long[]{0x000000000043F100L});
+	public static final BitSet FOLLOW_OpBool_in_opB227 = new BitSet(new long[]{0x000000000103F100L});
 	public static final BitSet FOLLOW_atom_in_opB232 = new BitSet(new long[]{0x0000000000000802L});
 	public static final BitSet FOLLOW_FIELD_in_atom251 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_FLOAT_in_atom259 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_BOOL_in_atom267 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_STRING_in_atom275 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_22_in_atom282 = new BitSet(new long[]{0x000000000043F100L});
-	public static final BitSet FOLLOW_exp_in_atom285 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_atom286 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_24_in_atom282 = new BitSet(new long[]{0x000000000103F100L});
+	public static final BitSet FOLLOW_exp_in_atom285 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_atom286 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_fun_in_atom296 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BoFun_in_fun320 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_fun323 = new BitSet(new long[]{0x000000000043F100L});
-	public static final BitSet FOLLOW_exp_in_fun328 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_fun330 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FlFun_in_fun338 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_fun341 = new BitSet(new long[]{0x000000000043F100L});
-	public static final BitSet FOLLOW_exp_in_fun346 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_fun348 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Count_in_fun356 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_fun359 = new BitSet(new long[]{0x000000000043F100L});
-	public static final BitSet FOLLOW_exp_in_fun364 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_23_in_fun367 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BoFun_in_fun320 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_24_in_fun323 = new BitSet(new long[]{0x000000000103F100L});
+	public static final BitSet FOLLOW_exp_in_fun328 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_fun330 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FlFun_in_fun338 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_24_in_fun341 = new BitSet(new long[]{0x000000000103F100L});
+	public static final BitSet FOLLOW_exp_in_fun346 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_fun348 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Count_in_fun356 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_24_in_fun359 = new BitSet(new long[]{0x000000000103F100L});
+	public static final BitSet FOLLOW_exp_in_fun364 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_fun367 = new BitSet(new long[]{0x0000000000000002L});
 
 }

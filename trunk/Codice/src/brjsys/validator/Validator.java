@@ -32,7 +32,7 @@ public class Validator {
 
 		repository=new ValidatorCommunicator(username, password);
 	}
-
+	
 	/**
 	 * Valida la business rule.
 	 * 
@@ -49,6 +49,15 @@ public class Validator {
 		CommonTokenStream tokens=null;
 
 		try {
+			
+			if (bRule.name.equals("")) {
+				throw new Exception("Nome regola inaccettabile.");
+			}
+			
+			if (repository.findSameRule(bRule.rule)) {
+				throw new Exception("Testo regola gia' presente.");
+			}
+			
 			input = new ANTLRStringStream(bRule.rule);
 
 			BusinessRuleLexer lexer = new BusinessRuleLexer(input);

@@ -41,8 +41,6 @@ public class XMLParser {
 	 * @see org.w3c.dom
 	 * */
 	private void scanAST(Tree AST, Element root, Document doc){
-		//root e' gia stato inserito la chiamata precedente, 
-		//ora devo impostargli il suo valore interno
 		int childs=AST.getChildCount();
 		String tag=null;
 		Element e=null;
@@ -58,15 +56,7 @@ public class XMLParser {
 				//tag diventa il nome del Token secondo il linguaggio
 				tag=tokenList[treeChild.getType()];
 				//operazioin per unificare alcuni tags
-				if(tag.equals("OpRule")||tag.equals("OpBool")){
-					tag="OBool";
-				}
-				if(tag.equals("Bconf")){
-					tag="Conf";
-				}
-				if(tag.equals("OpA")||tag.equals("OpM")){
-					tag="OFloat";
-				}
+				tag=handleTagName(tag);
 				//creo un elemento
 				e=doc.createElement(tag);
 				root.appendChild(e);
@@ -77,6 +67,19 @@ public class XMLParser {
 		}
 	}
 
+	private static String handleTagName(String input) {
+		if(input.equals("OpRule")||input.equals("OpBool")){
+			input="OBool";
+		}
+		if(input.equals("Bconf")){
+			input="Conf";
+		}
+		if(input.equals("OpA")||input.equals("OpM")){
+			input="OFloat";
+		}
+		return input;
+	} 
+	
 	/**
 	 * Effettua il parsing da AST a XML.
 	 *
@@ -106,17 +109,19 @@ public class XMLParser {
 		base.setAttribute("associated",rule.associated);
 		base.setAttribute("rule",rule.rule);
 		//Controllo se la regola ha un commento
-		if(rule.comment!=null){
+		if(rule.comment!=""){
 			base.setAttribute("comment",rule.comment);
 		}
 		doc.appendChild(base);
-		Element root=doc.createElement(tokenList[AST.getType()]);
+		Element root=doc.createElement(handleTagName(tokenList[AST.getType()]));
 		Element astRule=doc.createElement("AstRuleVersion");
 		astRule.setAttribute("value",AST.toStringTree());
 
 		//appendChild pone alla fine!!!
 		base.appendChild(astRule);
 		base.appendChild(root);
+
+		//creo un elemento
 		scanAST(AST,root,doc);
 
 		TransformerFactory tranFactory = TransformerFactory.newInstance();
