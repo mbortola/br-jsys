@@ -19,9 +19,7 @@ import brjsys.validator.Validator;
 
 public class Gui extends JFrame {
 
-	/**
-	 * 
-	 */
+	/***/
 	private static final long serialVersionUID = 1L;
 	
 	/**Array delle Business Rule nel repository*/
