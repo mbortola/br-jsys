@@ -309,8 +309,54 @@ Per un corretto e scorrevole funzionamento del software sono richiesti:
 \chapter{Istruzioni per l'uso}
 \section{Descrizione funzionale}
 Di seguito \`e riportata la descrizione delle funzioni del prodotto. Ad ogni passo \`e stata associata una figura, in modo da daterminare senza amibiguit\`a il contesto dell'applicazione.
+\subsection{Installazione eXist}
+Per utilizzare il prodotto \`e necessario che venga installato sulla macchina il server eXist.
+Ecco come installare passo per passo eXist:
+\begin{itemize}
+\item[1-] Entrare nella directory contenente il file di installazione \textbf{eXist-setup-1.2.0-rev7233.jar} (METTERE NOME DIRECTORY CHE ORA NON SO)
+\item[2-] Cliccare con il tasto destro del mouse sul file di installazione e aprirlo con Java 6 Runtime come mostrato in figura.
+\begin{center}
+\includegraphics[width=0.5\textwidth]{manuale_utente/installazione_Exist0.eps}\\
+\end{center}
+\item[3-] A questo punto inizier\'a l'installazione vera e propria. Cliccare sul tasto ``Next`` per proseguire o su ''Quit`` per terminare l'installazione.
+\begin{center}
+\includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist1.eps}\\
+\end{center}
+\item[4-] Selezionare i pacchetti che si desidera installare (\'e consigliabile lasciare quelli  di default) e premere sul tasto ``Next`` per proseguire, su ''Previous`` per tornare al passo precedente o su ''Quit`` per terminare l'installazione.
+\begin{center}
+\includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist2.eps}\\
+\end{center}
+\item[5-] Selezionare la directory nella quale si desidera installare eXist (o lasciare quella di default) e premere sul tasto ``Next`` per proseguire, su ''Previous`` per tornare al passo precedente o su ''Quit`` per terminare l'installazione.
+\begin{center}
+\includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist3.eps}\\
+\end{center}
+\item[6-] Scrivere la propria password per l'autenticazione al server negli appositi campi dati e premere sul tasto ``Next`` per proseguire, su ''Previous`` per tornare al passo precedente o su ''Quit`` per terminare l'installazione.
+\begin{center}
+\includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist4.eps}\\
+\end{center}
+\item[7-] Partir\'a l'installazione dei pacchetti selezionati precedentemente. Una volta terminata la procedura, eXist sar\'a a tutti gli effetti installato sul vostro sistema e vi comparir\'a la schermata sottostante. Premere sul tasto ``Next`` per proseguire o su ''Quit`` per terminare l'installazione.
+\begin{center}
+\includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist5.eps}\\
+\end{center}
+\item[8-] A questo punto si possono selezionare i collegamenti (links) e stabilire un nome per l'avvio rapido di eXist. Se non si ha particolari esigenze si consiglia di mantenere la selezione di default. Premere quindi sul tasto ``Next`` per proseguire, su ''Previous`` per tornare al passo precedente o su ''Quit`` per terminare l'installazione.
+\begin{center}
+\includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist6.eps}\\
+\end{center}
+\item[9-] Comparir\'a la schermata di inizializzazione completata. Premere sul tasto ``Next`` per proseguire o su ''Quit`` per terminare l'installazione.
+\begin{center}
+\includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist7.eps}\\
+\end{center}
+\item[10-] Per concludere, verr\'a visualizzata una schermata con alcune informazioni riguardanti il prodotto. Premere su ''Quit`` per completare l'installazione.
+\begin{center}
+\includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist8.eps}\\
+\end{center}
+\end{itemize}
+\subsection{Avvio di eXist}
+
+
 \subsection{Installazione}
-Per utilizzare il prodotto \`e necessario che questo sia installato sulla macchina server. La sua architettura prevede che venga usato ``eXist'', scaricabile liberamente al sito \textbf{http://exist.sourceforge.net}. Dopodich\`e da macchina:
+Una volta installato eXist si pu\'o procedere con l'installazione del br-jsys.
+Da macchina:
 \begin{itemize}
 \item \underline{Linux o MacOSX:} 
 \begin{itemize}
@@ -381,13 +427,14 @@ Per ottenere maggiori informazioni sul prodotto viene messo a disposizione un ``
 \includegraphics[width=0.\textwidth]{manuale_utente/schermata_help.eps}\\
  figura 3.1.1: Help
 \end{center}
+\\
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/schermata_about.eps}\\
  figura 3.1.2: About us
 \end{center}
 Per uscire dal programma baster\'a cliccare su ``File'' e successivamente su ``Esci'' (figura 3.1.3) 
 \begin{center}
-\includegraphics[width=0.4\textwidth]{manuale_utente/schermata_1esci.eps}\\
+\includegraphics[width=0.4\textwidth]{manuale_utente/schermata_esci.eps}\\
  figura 3.1.3: Esci
 \end{center}
 L'analisi dettagliata delle singole azioni verr\`a trattata nelle sottosezioni seguenti.
