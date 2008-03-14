@@ -309,19 +309,7 @@ Regola & entrate=5; AND uscite=3;\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``'' rule=``entrate=5 AND uscite=3''\textgreater \\
-\textless AstRuleVersion value=``(AND (= entrate 5) (= uscite 3))''/\textgreater \\
-\textless OBool type=``AND''\textgreater \\
-\textless Conf type=``=``\textgreater \\
-\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
-\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
-\textless /Conf\textgreater\\
- \textless Conf type=``=``\textgreater \\
-\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
-\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
-\textless /Conf\textgreater \\
-\textless /OBool\textgreater \\
-\textless /BusinessRule\textgreater \\
+Errore sintattico
  \hline
 \end{tabular} \\
 \end{center}
@@ -341,19 +329,7 @@ Regola & entrate=3; OR uscite=5;\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=3 OR uscite=5''\textgreater\\
- \textless AstRuleVersion value=``(OR (= entrate 3) (= uscite 5))''/\textgreater\\
- \textless OBool type=``OR''\textgreater \\
-\textless Conf type=``=``\textgreater\\
- \textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
- \textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
- \textless /Conf\textgreater\\
- \textless Conf type=``=``\textgreater\\
- \textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
- \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
- \textless /Conf\textgreater\\
- \textless /OBool\textgreater\\
- \textless /BusinessRule\textgreater \\
+Errore sintattico
  \hline
 \end{tabular} \\
 \end{center}
@@ -1993,7 +1969,7 @@ Alcuni test si rende necessario eseguirli a mano, come ad esempio i test riguard
 
 \section{Esiti dei test dei difetti}
 I \textit{test dei difetti} servono ad individuare possibili difetti o errori del codice su cui vengono testati. Per questo l'esito di un test dei difetti \`e segnato come negativo ogniqualvolta non evidenzia un difetto, viene altres\`i segnato come positivo l'esito di quei test che abbiano individuato dei difetti nel software.
-Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentati in forma tabulare, indicando il codice identificativo del test, seguito dal suo esito. I test di regressione, come illustrato precedentemente, sono riportati solo dove abbiano prodotto un output o un esito differente dalla loro precedente esecuzione. I test di regressione sono evidenziati nelle tabelle sottostanti dalla sigla RT.
+Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentati in forma tabulare, indicando il codice identificativo del test, seguito dal suo esito. I test risultati positivi sono evidenziati in colore \textcolor{err}{rosso}. I test di regressione, come illustrato precedentemente, sono riportati solo dove abbiano prodotto un output o un esito differente dalla loro precedente esecuzione. I test di regressione sono evidenziati nelle tabelle sottostanti dalla sigla RT e sono colorati in \textcolor{rt}{blu} .
 
 
 \subsection{Test sul validatore}
@@ -2002,7 +1978,8 @@ Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentat
 \textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
 VT1a & negativo & \\ \hline
 VT1b & negativo & \\ \hline
-VT1c & negativo & \\ \hline
+VT1c & \textcolor{err}{positivo} & Vengono inserite \br\ con nome=''.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  Viene effettuato un controllo per evitare stringhe vuote.\\ \hline
 VT1d & negativo & \\ \hline
 VT1e & negativo & \\ \hline
 VT1f & negativo & \\ \hline
