@@ -1920,6 +1920,10 @@ NQ3 &  - \\ \hline
 \section{Automatizzazione dei test}
 Essendo la fase di test una fase costosa e laboriosa del processo software, si \`e deciso di automatizzare il pi\`u possibile l'esecuzione dei test. L'esecuzione dei test viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l'output prodotto con quello atteso.
 Alcuni test si rende necessario eseguirli a mano, come ad esempio i test riguardanti la componente \textit{gui}, tali test sono comunque una parte minima di tutti i test da eseguire e non incidono eccessivamente sul costo dell'intera fase di test.
+
+\section{JUnit}
+\subsection{Test sul Validatore}
+
 \section{Esiti dei test dei difetti}
 I \textit{test dei difetti} servono ad individuare possibili difetti o errori del codice su cui vengono testati. Per questo l'esito di un test dei difetti \`e segnato come negativo ogniqualvolta non evidenzia un difetto, viene altres\`i segnato come positivo l'esito di quei test che abbiano individuato dei difetti nel software.
 Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentati in forma tabulare, indicando il codice identificativo del test, seguito dal suo esito. I test di regressione, come illustrato precedentemente, sono riportati solo dove abbiano prodotto un output o un esito differente dalla loro precedente esecuzione. I test di regressione sono evidenziati nelle tabelle sottostanti dalla sigla RT.
@@ -2036,9 +2040,6 @@ S2 & \textcolor{err}{positivo} & In sitemi unix permette di accedere al \rp\ anc
 & negativo & RT Esito errato del pprecedente test. I dati di autenticazione accettati sono sempre quelli inseriti durante l'installazione di \underline{eXist} \\ \hline
 \end{tabular} \\
 \end{center}
-
-\subsection{JUnit}
-\subsubsection{Test sul Validatore}
 
 
 \chapter{Esiti dei test di convalida}
