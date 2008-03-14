@@ -12,6 +12,7 @@ import org.xmldb.api.base.*;
 public class ValidatorCommunicator {
 	/**Interfaccia con eXist*/
 	private Communicator queryService=null;
+	
 	/**
 	 * Costruttore
 	 * 
@@ -67,6 +68,25 @@ public class ValidatorCommunicator {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Cerca nel repository business rule con lo stesso testo.
+	 * 
+	 * @param rule Testo da controllare.
+	 * */
+	public boolean findSameRule (String rule) {
+		try {
+			long value=
+				queryService.makeQuery("let $i := //BusinessRule[@rule='"+
+						rule+"'] return $i").getSize();
+			return value>0;
+		} catch (XMLDBException e) {
+			//non dovrebbe mai accadere
+			e.printStackTrace();
+			System.exit(1);
+		}
+		return false;
 	}
 
 }

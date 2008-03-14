@@ -66,7 +66,12 @@ public class XMLParser {
 			root.setTextContent(AST.getText());
 		}
 	}
-
+	/**
+	 * Gestisce la ridenominazione di alcuni tag per rendere l'XML finale piu' 
+	 * uniforme
+	 * 
+	 * @param input Nome del token da controllare.
+	 * */
 	private static String handleTagName(String input) {
 		if(input.equals("OpRule")||input.equals("OpBool")){
 			input="OBool";
@@ -90,7 +95,8 @@ public class XMLParser {
 	 */
 	public String parse(Tree AST, BusinessRule rule){
 		//Eseguo il parsing in XML
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilderFactory factory = 
+			DocumentBuilderFactory.newInstance();
 		//Get the DocumentBuilder
 		DocumentBuilder docBuilder = null;
 		try {
@@ -113,7 +119,9 @@ public class XMLParser {
 			base.setAttribute("comment",rule.comment);
 		}
 		doc.appendChild(base);
-		Element root=doc.createElement(handleTagName(tokenList[AST.getType()]));
+		Element root= 
+			doc.createElement(handleTagName(tokenList[AST.getType()]));
+		
 		Element astRule=doc.createElement("AstRuleVersion");
 		astRule.setAttribute("value",AST.toStringTree());
 
