@@ -8,7 +8,7 @@ import org.xmldb.api.modules.XMLResource;
  * Consente all'interprete di disporre dei metodi necessari per comunicare
  *  con eXist
  * @author Michele  Bortolato
- * @version 0.9 3 Mar 2008
+ * @version 1.2 14 Mar 2008
  * 
  */
 public class InterpreterCommunicator {

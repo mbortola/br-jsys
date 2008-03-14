@@ -5,7 +5,7 @@ import org.antlr.runtime.RecognitionException;
 /**
  * Eccezione in fase di validazione. 
  * @author Michele  Bortolato
- * @version 0.9 6 Mar 2008
+ * @version 1.2 14 Mar 2008
  * 
  */
 public class TypeCollisionException extends RecognitionException{

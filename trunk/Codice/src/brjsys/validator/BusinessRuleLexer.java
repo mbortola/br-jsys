@@ -2,10 +2,13 @@
 package brjsys.validator;
 
 import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
 
+/**
+ * Lexer per il linguaggio di business rule.
+ * @author Michele  Bortolato
+ * @version 1.2 14 Mar 2008
+ * 
+ */
 public class BusinessRuleLexer extends Lexer {
     public static final int Count=17;
     public static final int OpRule=4;

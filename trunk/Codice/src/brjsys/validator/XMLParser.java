@@ -15,7 +15,7 @@ import brjsys.businessrules.BusinessRule;
 /**
  * Consente di convertire un AST in un elemento analogo XML.
  * @author Michele  Bortolato
- * @version 0.9 3 Mar 2008
+ * @version 1.2 14 Mar 2008
  * 
  */
 public class XMLParser {

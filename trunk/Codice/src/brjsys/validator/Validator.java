@@ -9,7 +9,7 @@ import brjsys.communicator.ValidatorCommunicator;
 /**
  * Consente la validazione di una business rule.
  * @author Michele  Bortolato
- * @version 0.9 3 Mar 2008
+ * @version 1.2 14 Mar 2008
  * 
  */
 

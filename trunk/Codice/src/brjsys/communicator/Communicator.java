@@ -10,7 +10,7 @@ import org.xmldb.api.modules.*;
  * Classe che si interfaccia ad eXist e comunica col repository tramite
  *  linguaggio XQuery 
  * @author Michele  Bortolato
- * @version 0.9 3 Mar 2008
+ * @version 1.2 14 Mar 2008
  * 
  */
 public class Communicator {

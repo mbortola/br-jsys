@@ -1,13 +1,17 @@
 package brjsys.communicator;
 
-import org.xmldb.api.base.*;
+import org.xmldb.api.base.ErrorCodes;
+import org.xmldb.api.base.Resource;
+import org.xmldb.api.base.ResourceIterator;
+import org.xmldb.api.base.ResourceSet;
+import org.xmldb.api.base.XMLDBException;
 
 import brjsys.businessrules.BusinessRule;
 
 /**
  * Consente alla gui di disporre dei metodi necessari per comunicare con eXist
  * @author Michele  Bortolato
- * @version 0.9 3 Mar 2008
+ * @version 1.2 14 Mar 2008
  * 
  */
 public class GUICommunicator {
@@ -49,7 +53,8 @@ public class GUICommunicator {
 	public boolean deleteRuleByName(String id){
 		//Guardo se esiste la regola con questo nome
 		try {
-			long test=queryService.makeQuery("let $i:=//BusinessRule[@name='"
+			long test= 
+				queryService.makeQuery("let $i:=//BusinessRule[@name='"
 					+id+"'] return $i").getSize();
 
 			if (test<=0) {
@@ -115,7 +120,8 @@ public class GUICommunicator {
 			BusinessRule[] result=new BusinessRule[numBR.length];
 			for(int index=0;index<numBR.length;index++){
 				temp=numBR[index].split(":");
-				result[index]=new BusinessRule(temp[0],temp[3],temp[1],temp[2]);
+				result[index]=
+					new BusinessRule(temp[0],temp[3],temp[1],temp[2]);
 			}
 			return result;
 		} catch (Exception e) {

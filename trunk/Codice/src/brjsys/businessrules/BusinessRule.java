@@ -3,7 +3,7 @@ package brjsys.businessrules;
 /**
  * Classe per rappresentare una business rule
  * @author Michele  Bortolato
- * @version 0.9 3 Mar 2008
+ * @version 1.2 14 Mar 2008
  * 
  */
 public class BusinessRule {
@@ -23,7 +23,8 @@ public class BusinessRule {
 	 * @param ruleR Regola inserita.
 	 * @param commentR Commento.
 	 * */
-	public BusinessRule(String nameR, String associatedR, String ruleR,String commentR) {
+	public BusinessRule(String nameR, String associatedR, String ruleR, 
+			String commentR) {
 		name=nameR;
 		associated=associatedR;
 		rule=ruleR;

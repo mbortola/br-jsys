@@ -3,13 +3,16 @@ package brjsys.validator;
 
 
 import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
-
 
 import org.antlr.runtime.tree.*;
 
+
+/**
+ *  Parser per il linguaggio di business rule.
+ * @author Michele  Bortolato
+ * @version 1.2 14 Mar 2008
+ * 
+ */
 public class BusinessRuleParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "OpRule", "Conf", "Bconf", "Msg", "STRING", "OpA", "OpM", "OpBool", "FIELD", "FLOAT", "BOOL", "BoFun", "FlFun", "Count", "CHAR", "OTHERCHAR", "NUMBER", "UNFLOAT", "SUBFIELD", "WHITESPACE", "';'", "'('", "')'"
