@@ -215,6 +215,8 @@ SubArch.java:1 Rule(1037) No @author javadoc tag found.\\ \hline
 
 Tali errori nel codice sorgente sono stati tutti corretti. 
 
+\chapter{Analisi Dinamica}
+\section{JUnit}
 
 \chapter{Descrizione dei test case}
 Vengono di seguito presentati i \textit{test case}. Ogni test case \`e composto da un input, un output atteso. Ogni test case \`e inoltre accompagnato da un breve testo che identifica lo scopo del test, e dall'elenco dei requisiti soddisfatti dal test.
@@ -234,7 +236,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,F11,NU3
 Nome & BR\\ \hline
 Commento & UnCommento\\ \hline
 Business object associato & Articolo\\ \hline
-Regola & entrate=0 AND NOT(scontato)=true\\ \hline
+Regola & entrate=0; AND NOT(scontato)=true;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -268,7 +270,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR\\ \hline
 Commento & \\ \hline
 Business object associato & Articolo\\ \hline
-Regola & entrate=3 AND uscite=4\\ \hline
+Regola & entrate=3; AND uscite=4;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -300,7 +302,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo\\ \hline
-Regola & entrate=5 AND uscite=3\\ \hline
+Regola & entrate=5; AND uscite=3;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -332,7 +334,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,F11
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & \\ \hline
-Regola & entrate=3 OR uscite=5\\ \hline
+Regola & entrate=3; OR uscite=5;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -404,7 +406,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (uscite=5 OR uscite=5)  AND ( uscite=5 OR uscite=5)  \\ \hline
+Regola & (uscite=5; OR uscite=5;)  AND ( uscite=5; OR uscite=5;)  \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -448,7 +450,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 AND uscite=5 AND uscite=5 AND uscite=5 OR uscite=5 OR uscite=5 AND uscite=5 OR uscite=5 OR uscite=5 AND uscite=5 \\ \hline
+Regola & uscite=5; AND uscite=5; OR uscite=5; AND uscite=5; OR uscite=5; AND uscite=5; OR uscite=5; AND uscite=5; AND uscite=5; AND uscite=5; OR uscite=5; OR uscite=5; AND uscite=5; OR uscite=5; OR uscite=5; AND uscite=5; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -492,7 +494,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & entrate=5+2\\ \hline
+Regola & entrate=5+2;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -521,7 +523,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & entrate=SUM(prezzoBase)\\ \hline
+Regola & entrate=SUM(prezzoBase);\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -549,7 +551,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU3
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & entrate=AVG(prezzoBase)+2 message(``errore nel confronto'')\\ \hline
+Regola & entrate=AVG(prezzoBase)+2 message(``errore nel confronto'');\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -583,7 +585,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite\textless2 AND uscite\textgreater 2 AND uscite\textless=2 AND uscite\textgreater =2 AND uscite=2 AND uscite!=2\\ \hline
+Regola & uscite\textless2; AND uscite\textgreater 2; AND uscite\textless=2; AND uscite\textgreater =2; AND uscite=2; AND uscite!=2;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -638,7 +640,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=(2+2-(3*4))/5 \\ \hline
+Regola & uscite=(2+2-(3*4))/5; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -676,7 +678,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=(2+entrate-(uscite*4))/entrate \\ \hline
+Regola & uscite=(2+entrate-(uscite*4))/entrate; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -714,7 +716,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=(uscite+entrate-(uscite*entrate))/entrate \\ \hline
+Regola & uscite=(uscite+entrate-(uscite*entrate))/entrate; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -752,7 +754,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=(2+prezzoBase) +(prezzoBase*4) +(prezzoBase/4) +(prezzoBase-3) \\ \hline
+Regola & uscite=(2+prezzoBase) +(prezzoBase*4) +(prezzoBase/4) +(prezzoBase-3); \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -799,7 +801,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (entrate+prezzoBase) +(prezzoBase*uscite) +(prezzoBase/entrate) +(prezzoBase-uscite) = 0 \\ \hline
+Regola & (entrate+prezzoBase) +(prezzoBase*uscite) +(prezzoBase/entrate) +(prezzoBase-uscite) = 0;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -846,7 +848,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (prezzoBase+prezzoBase) +(prezzoBase*prezzoBase) +(prezzoBase/prezzoBase) +(prezzoBase-prezzoBase) =0 \\ \hline
+Regola & (prezzoBase+prezzoBase) +(prezzoBase*prezzoBase) +(prezzoBase/prezzoBase) +(prezzoBase-prezzoBase) =0; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -893,7 +895,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+matricePrezzi) +(matricePrezzi*matricePrezzi) +(matricePrezzi/matricePrezzi) +(matricePrezzi-matricePrezzi) =0 \\ \hline
+Regola & (matricePrezzi+matricePrezzi) +(matricePrezzi*matricePrezzi) +(matricePrezzi/matricePrezzi) +(matricePrezzi-matricePrezzi) =0; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -940,7 +942,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NPr2,NQ1
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+2) +(matricePrezzi*2) +(matricePrezzi/2) +(matricePrezzi-2) =0 \\ \hline
+Regola & (matricePrezzi+2) +(matricePrezzi*2) +(matricePrezzi/2) +(matricePrezzi-2) =0; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -987,7 +989,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1,NPr2,NQ1
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+entrate) +(matricePrezzi*entrate) +(matricePrezzi/entrate) +(matricePrezzi-entrate)=0 \\ \hline
+Regola & (matricePrezzi+entrate) +(matricePrezzi*entrate) +(matricePrezzi/entrate) +(matricePrezzi-entrate)=0; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1034,7 +1036,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+prezzoBase) +(matricePrezzi*prezzoBase) +(matricePrezzi/prezzoBase) +(matricePrezzi-prezzoBase) \\ \hline
+Regola & (matricePrezzi+prezzoBase) +(matricePrezzi*prezzoBase) +(matricePrezzi/prezzoBase) +(matricePrezzi-prezzoBase); \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1054,7 +1056,7 @@ Requisiti soddisfatti dall'esecuzione:F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (matricePrezzi+grafico) +(matricePrezzi*grafico) +(matricePrezzi/grafico) +(matricePrezzi-grafico) \\ \hline
+Regola & (matricePrezzi+grafico) +(matricePrezzi*grafico) +(matricePrezzi/grafico) +(matricePrezzi-grafico); \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1074,7 +1076,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & matricePrezzi=``ArticoloUno'' AND prezziScontati=3 OR uscite=true \\ \hline
+Regola & matricePrezzi=``ArticoloUno''; AND prezziScontati=3 OR uscite=true; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1094,7 +1096,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=2*3*4+4-3*5-5+3/2*3 \\ \hline
+Regola & uscite=2*3*4+4-3*5-5+3/2*3; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1147,7 +1149,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7) \\ \hline
+Regola & uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7); \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1201,7 +1203,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & ``ArticoloUno''\textgreater``ArticoloUno'' AND ``ArticoloUno''\textgreater=``ArticoloUno'' AND ``ArticoloUno''\textless``ArticoloUno'' AND ``ArticoloUno''\textless=``ArticoloUno'' AND ``ArticoloUno''*nome  AND ``ArticoloUno''-nome  AND ``ArticoloUno''/nome  AND ``ArticoloUno''+nome\\ \hline
+Regola & ``ArticoloUno''\textgreater``ArticoloUno''; AND ``ArticoloUno''\textgreater=``ArticoloUno''; AND ``ArticoloUno''\textless``ArticoloUno''; AND ``ArticoloUno''\textless=``ArticoloUno''; AND ``ArticoloUno''*nome;  AND ``ArticoloUno''-nome;  AND ``ArticoloUno''/nome;  AND ``ArticoloUno''+nome;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1253,7 +1255,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & (scontato+3) - (scontato*4)/scontato\\ \hline
+Regola & (scontato+3) - (scontato*4)/scontato;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1273,7 +1275,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & ((scontato\textbar \textbar scontato)\&\& scontato) = true AND (true\textbar \textbar false\&\& NOT(true))=scontato\\ \hline
+Regola & ((scontato\textbar \textbar scontato)\&\& scontato) = true; AND (true\textbar \textbar false\&\& NOT(true))=scontato;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1319,7 +1321,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU2
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & SUM(prezzoBase) = 12 AND COUNT(entrate)=1, AND AVG(prezzoBase)=4\\ \hline
+Regola & SUM(prezzoBase) = 12; AND COUNT(entrate)=1; AND AVG(prezzoBase)=4;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1355,7 +1357,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & SUM(prezzoBase)\\ \hline
+Regola & SUM(prezzoBase);\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1375,7 +1377,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & SUM(prezzoBase)=\\ \hline
+Regola & SUM(prezzoBase)=;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1396,7 +1398,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & 12 = 2entrate\\ \hline
+Regola & 12 = 2entrate;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1416,7 +1418,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite = 2 entrate\\ \hline
+Regola & uscite = 2 entrate;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1436,7 +1438,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite = 2 AND\\ \hline
+Regola & uscite = 2 AND;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1456,7 +1458,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & ((2+4)=uscite\\ \hline
+Regola & ((2+4)=uscite;\\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1476,7 +1478,7 @@ Requisiti soddisfatti dall'esecuzione: F1, F2, F10.
 Nome & BR \\ \hline
 Commento & Commento\\ \hline
 Business object associato & Articolo \\ \hline
-Regola & uscite=((((\textasciitilde2*((\textasciitilde3*\textasciitilde4)+(\textasciitilde4)-(\textasciitilde3*\textasciitilde5)-5)+3)/\textasciitilde2)*\textasciitilde3)+7) \\ \hline
+Regola & uscite=((((\textasciitilde2*((\textasciitilde3*\textasciitilde4)+(\textasciitilde4)-(\textasciitilde3*\textasciitilde5)-5)+3)/\textasciitilde2)*\textasciitilde3)+7); \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1532,7 +1534,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NPo1
 Nome & \`a \`e \`i \`o \`u \`A \`E \`I \`O \`U ``test'' , 'test', \& , \textgreater , \textless \\ \hline
 Commento & \`a \`e \`i \`o \`u \`A \`E \`I \`O \`U ``test'' , 'test', \& , \textgreater , \textless \\ \hline
 Business object associato & Articolo \\ \hline
-Regola & scontato=true \\ \hline
+Regola & scontato=true; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1558,7 +1560,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU3
 Nome & BR \\ \hline
 Commento & Commento \\ \hline
 Business object associato & Articolo \\ \hline
-Regola & scontato=true message(``abc.. ABC.. 0..9 .?!\^\_-\textasciitilde'') \\ \hline
+Regola & scontato=true message(``abc.. ABC.. 0..9 .?!\^\_-\textasciitilde''); \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1584,7 +1586,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento \\ \hline
 Business object associato & Articolo \\ \hline
-Regola & scontato=true message(``\# []\{\}|\/=+-*\@\$\%'') \\ \hline
+Regola & scontato=true message(``\# []\{\}|\/=+-*\@\$\%''); \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
@@ -1604,7 +1606,7 @@ Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 Nome & BR \\ \hline
 Commento & Commento \\ \hline
 Business object associato & Articolo \\ \hline
-Regola & scontato=true + \\ \hline
+Regola & scontato=true +; \\ \hline
 \end{tabular} \\
 \end{center}
 \begin{center}
