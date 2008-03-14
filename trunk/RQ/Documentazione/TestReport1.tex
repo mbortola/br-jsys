@@ -1,0 +1,2039 @@
+
+\input{model/layout.tex}% layout
+\begin{document}
+%definizione variabili 
+\newcommand{\lv}{ 0.7 } % latest version
+\newcommand{\dt}{ Test Report }% Document title
+\input{model/variables.tex}%altre variabili
+\input{model/document-latest-versions.tex}%nomi documenti
+%fine definizione variabili
+\input{model/hyphenation.tex}%sillabazione
+\input{model/titlepage.tex}%pagina del titolo
+
+
+\begin{center}
+\thispagestyle{plain}
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
+\begin{tabular}{|p{6cm}|p{6cm}|}
+\hline
+\textbf{Data creazione:} & 02/03/2008 \\ \hline
+\textbf{Versione:} & \lv \\ \hline
+\textbf{Stato del documento:} & Formale, esterno \\ \hline
+% ----------------------------------------------------------------------------autori
+& \\ \hline
+\textbf{Revisione RQ} & \\ \hline
+\textbf{Redazione:} & \MT \\ \hline
+\textbf{Revisione:} & \MB \\ \hline
+\textbf{Approvazione:}  & \AT  \\ \hline
+& \\ \hline
+\textbf{Revisione RA} & \\ \hline
+\textbf{Redazione:} & \ET \\ \hline
+\textbf{Revisione:} & \AT \\ \hline
+\textbf{Approvazione:}  & \MT  \\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Lista di distribuzione}}} \\
+\begin{tabular}{|p{6cm}|p{6cm}|} \hline
+%  -------------------------------------------------------------lista di distribuzione
+{HappyCode inc}& Gruppo di lavoro \\ \hline
+{Tullio Vardanega, Renato Conte}& Committenti \\ \hline 
+{Zucchetti S.r.l}& Azienda proponente\\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+\begin{table}[hbtp]
+
+\Large{\textbf{\textsf{Diario delle modifiche}}} \\
+\begin{small}
+\begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
+Versione & Data & Autore & Descrizione \\ \hline
+%-------------------------------------------------------------------------------diario modifiche
+0.8 & 11/03/2008 & \ET & Aggiunta sezione ``Analisi statica'' e tabelle degli errori. \\ \hline
+0.7 & 07/03/2008 & \MT & Aggiunta dei 'test case' per le integrazioni di componenti. Aggiunta esiti dei test.\\ \hline
+0.6 & 07/03/2008 & \MM & Aggiunta la tabella di tracciamento 'requisiti - test'.\\ \hline
+0.5 & 06/03/2008 & \LA & Aggiunto Sommario.\\ \hline
+0.4 & 05/03/2008 & \MT & Aggiunta delle tabelle per contenere gli esiti, e dei 'test case' per il 'comunicatore' \\ \hline
+0.3 & 04/03/2008 & \MT & Modifica alla nomenclatura dei test.\\ \hline
+0.2 & 03/03/2008 & \MT & Aggiunta dei 'test case' per il 'validatore' .\\ \hline
+0.1 & 02/03/2008 & \MT & Stesura iniziale del documento.\\ \hline
+\end{tabular} \\
+\end{small}
+
+
+\end{table}
+\end{center}
+\newpage
+\tableofcontents
+
+\chapter*{Sommario}
+\addcontentsline{toc}{chapter}{I Sommario}
+Il presente documento illustra le strategie utilizzate per testare il prodotto BR-jsys in ogni sua componente.
+
+\chapter*{Glossario}
+\addcontentsline{toc}{chapter}{II Glossario}
+Per gli altri termini non citati nella tabella soprastante si fa riferimento al file esterno \G. I termini presenti in questo documento la cui descrizione \`e riportata nel glossario sono evidenziati mediante sottolineatura.
+
+\chapter{Introduzione}
+
+\section{Scopo del documento}
+Il presente documento viene redatto al fine di illustrare la progettazione dei \textit{test case} nel dettaglio indicando un insieme di input e il corrispondente insieme di \textit{output attesi}. Verranno inoltre riportati nel presente documento gli esiti dei test eseguiti sul sistema ``Br-jsys'' al fine di non appesantire la lettura del documento \PdQ .
+
+\section{Definizioni, acronimi, abbreviazioni}
+Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel documento, comprese le sigle utilizzate per l'identificazione dei test.
+\begin{center}
+\begin{tabular}{||p{3.0cm}||p{8.5cm}||} \hline
+\textbf{Abbreviazione} & \textbf{Significato} \\ \hline
+
+VT\textit{\#} & Con VT seguito da un numero intero sono indicati i test che riguardano la 'macrocomponente validatore'.\\ \hline
+CT\textit{\#} & Con CT seguito da un numero intero sono indicati i test che riguardano la 'macrocomponente comunicatore'.\\ \hline
+GT\textit{\#} & Con GT seguito da un numero intero sono indicati i test che riguardano la 'macrocomponente gui'.\\ \hline
+CVT\textit{\#} & Con CVT seguito da un numero intero sono indicati i test di integrazione tra 'validatore' e 'comunicatore'.\\ \hline
+GVT\textit{\#} & Con GVT seguito da un numero intero sono indicati i test integrazione tra 'gui' e 'validatore'.\\ \hline
+S\textit{\#} & Con S seguito da un numero intero sono indicati i test di integrazione del sistema.\\ \hline
+RT\textit{} & Con RT si intende la riesecuzione di un test (test di regressione) avvenuta a fronte di una modifica al codice.\\ \hline
+
+\end{tabular} \\
+\end{center}
+
+\chapter{Analisi Statica del codice}
+
+L'analisi statica automatica sui file Java \`e stata effettuata con l'utilizzo di JiveLint 1.21, uno strumento in grado di trovare codice e variabili inutilizzate oltre ad altri bugs/errori nel codice.
+Di seguito riportiamo gli errori riscontrati nel nostro codice.
+
+Per rendere le tabelle pi\`u leggibili gli stessi errori in righe diverse dello stesso file.java seguiranno la seguente notazione: \\
+NomeClasse.java:riga1-riga2-..-rigan Rule(codice) Errore. \\
+
+\textbf{BusinessRule.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+BusinessRule.java:26 Rule(1022) Line is too long. Prefer lines no longer than 80 characters. \\ \hline
+BusinessRule.java:26 Rule(1038) Declare parameters final. \\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{Communicator.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+Communicator.java:6-7-8 Rule(1002) Wildcard import declaration. \\ \hline
+Communicator.java:53-91-93-95 Rule(1011) Output on System.out or System.err. \\ \hline
+Communicator.java:35-108 Rule(1038) Declare parameters final. \\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{GUICommunicator.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+GUICommunicator.java:3 Rule(1002) Wildcard import declaration. \\ \hline
+GUICommunicator.java:121 Rule(1005) Type in catch clause too general. \\ \hline
+GUICommunicator.java:64-123 Rule(1011) Output on System.out or System.err. \\ \hline
+GUICommunicator.java:25-49-77 Rule(1038) Declare parameters final. \\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{InterpreterCommunicator.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+InterpreterCommunicator.java:3-4 Rule(1002) Wildcard import declaration. \\ \hline
+InterpreterCommunicator.java:69 Rule(1011) Output on System.out or System.err. \\ \hline
+InterpreterCommunicator.java:27-51 Rule(1038) Declare parameters final.\\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{ValidatorCommunicator.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+ValidatorCommunicator.java:3 Rule(1002) Wildcard import declaration. \\ \hline
+ValidatorCommunicator.java:65 Rule(1011) Output on System.out or System.err. \\ \hline
+ValidatorCommunicator.java:23-48 Rule(1038) Declare parameters final. \\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{Gui.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+Gui.java:4-5-6 Rule(1002) Wildcard import declaration.\\ \hline
+Gui.java:666-731-808 Rule(1005) Type in catch clause too general.\\ \hline
+Gui.java:668 Rule(1011) Output on System.out or System.err.\\ \hline
+Gui.java:652-674-693-701-709-737-770-792-814 Rule(1038) Declare parameters final.\\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{Validator.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+Validator.java:3 Rule(1002) Wildcard import declaration.\\ \hline
+Validator.java:31-46 Rule(1038) Declare parameters final.\\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{TypeCollisionExceptions.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+TypeCollisionException.java:18 Rule(1038) Declare parameters final.\\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{XMLParser.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+XMLParser.java:3-5-6-11 Rule(1002) Wildcard import declaration.\\ \hline
+XMLParser.java:96-128-138 Rule(1011) Output on System.out or System.err.\\ \hline
+XMLParser.java:30-43-88 Rule(1038) Declare parameters final.\\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{Archivio.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+Archivio.java:1 Rule(1037) No @author javadoc tag found.\\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{Articolo.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+Articolo.java:1 Rule(1037) No @author javadoc tag found.\\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{SubArch.java}
+\begin{center}
+\begin{tabular}{||p{12cm}||} \hline
+SubArch.java:1 Rule(1037) No @author javadoc tag found.\\ \hline
+\end{tabular}
+\end{center}
+
+Tali errori nel codice sorgente sono stati tutti corretti. 
+
+\chapter{Descrizione dei test case}
+Vengono di seguito presentati i \textit{test case}. Ogni test case \`e composto da un input, un output atteso. Ogni test case \`e inoltre accompagnato da un breve testo che identifica lo scopo del test, e dall'elenco dei requisiti soddisfatti dal test.
+
+\section{Test sulle componenti}
+Vengono di seguito riportati i test riguardanti le macrocomponenti del sistema \underline{br-jsys}. Questi test si occupano di testare il corretto funzionamento della componente, nonch\`e di mostrare il soddisfacimento di alcuni requisiti.
+
+\subsection{Test sul validatore}
+La macrocomponente validatore verr\`a testata a scatola aperta (\underline{whitebox}), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso.\\
+\\
+\begin{Large}\textbf{VT1a}\end{Large} \\
+Si testa una \br\ semplice per verificare che siano accettati tutti i campi dati.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,F11,NU3
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR\\ \hline
+Commento & UnCommento\\ \hline
+Business object associato & Articolo\\ \hline
+Regola & entrate=0; AND NOT(scontato)=true;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
+ \textless OBool type=``AND''\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0\textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+\textless BoFun type=``NOT''\textgreater \\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater \\
+\textless /BoFun\textgreater \\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT1b}\end{Large} \\
+Si testa una \br\ semplice per verificare che il commento pu\`o non essere inserito.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR\\ \hline
+Commento & \\ \hline
+Business object associato & Articolo\\ \hline
+Regola & entrate=3; AND uscite=4;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR'' rule=``entrate=3 AND uscite=4''\textgreater \\
+ \textless AstRuleVersion value=``(AND (= entrate 3) (= uscite 4))''/\textgreater \\
+\textless OBool type=``AND''\textgreater \\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless /Conf\textgreater \\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT1c}\end{Large} \\
+Si testa una \br\ semplice per verificare che il nome non \`e opzionale.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo\\ \hline
+Regola & entrate=5; AND uscite=3;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``'' rule=``entrate=5 AND uscite=3''\textgreater \\
+\textless AstRuleVersion value=``(AND (= entrate 5) (= uscite 3))''/\textgreater \\
+\textless OBool type=``AND''\textgreater \\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
+\textless /Conf\textgreater\\
+ \textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT1d}\end{Large} \\
+Si testa una \br\ semplice per verificare che il \bo\ non \`e opzionale.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,F11
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & \\ \hline
+Regola & entrate=3; OR uscite=5;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=3 OR uscite=5''\textgreater\\
+ \textless AstRuleVersion value=``(OR (= entrate 3) (= uscite 5))''/\textgreater\\
+ \textless OBool type=``OR''\textgreater \\
+\textless Conf type=``=``\textgreater\\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT1e}\end{Large} \\
+Si testa una \br\ semplice per verificare che la regola stessa non \`e opzionale.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Errore sintattico\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT1f}\end{Large} \\
+Si testa una \br\ semplice per verificare che non vengano accettate \br\ vuote.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome &  \\ \hline
+Commento & \\ \hline
+Business object associato &  \\ \hline
+Regola & \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Errore sintattico\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT2a}\end{Large} \\
+Si testa una \br\ per verificare che vengano ben interpretate le parentesi tra 'AND' e 'OR'.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (uscite=5; OR uscite=5;)  AND ( uscite=5; OR uscite=5;)  \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``(uscite=5 OR uscite=5)  AND ( uscite=5 OR uscite=5)''\textgreater\\
+ \textless AstRuleVersion value=``(AND (OR (= uscite 5) (= uscite 5)) (OR (= uscite 5) (= uscite 5)))''/\textgreater \\
+\textless OBool type=``AND''\textgreater\\
+\textless OBool type=``OR''\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless OBool type=``OR''\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT2b}\end{Large} \\
+Si testa una \br\ per verificare che vengano corretamente riportato il susseguirsi di 'AND' e 'OR'.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=5; AND uscite=5; OR uscite=5; AND uscite=5; OR uscite=5; AND uscite=5; OR uscite=5; AND uscite=5; AND uscite=5; AND uscite=5; OR uscite=5; OR uscite=5; AND uscite=5; OR uscite=5; OR uscite=5; AND uscite=5; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=5 OR uscite=5  AND  uscite=5 OR uscite=5''\textgreater\\
+ \textless AstRuleVersion value=``(OR (AND (OR (= uscite 5) (= uscite 5)) (= uscite 5)) (= uscite 5))''/\textgreater \\
+\textless OBool type=``OR''\textgreater\\
+\textless OBool type=``AND''\textgreater\\
+\textless OBool type=``OR''\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT2c}\end{Large} \\
+Si testa una \br\ per verificare che possano essere assenti 'AND' e 'OR'.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & entrate=5+2;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=5+2''\textgreater \\
+\textless AstRuleVersion value=``(= entrate (+ 5 2))''/\textgreater \\
+\textless Bconf type=``=``\textgreater\\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+ \textless /OFloat\textgreater \\
+\textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT3a}\end{Large} \\
+Si testa una \br\ per verificare che il 'message' sia opzionale.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & entrate=SUM(prezzoBase);\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=SUM(prezzoBase)''\textgreater \\
+\textless AstRuleVersion value=``(= entrate (SUM prezzoBase))''/\textgreater \\
+\textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless FlFun type=``SUM''\textgreater \\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless /FlFun\textgreater \\
+\textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT3b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile inserire un 'message'.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU3
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & entrate=AVG(prezzoBase)+2 message(``errore nel confronto'');\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=AVG(prezzoBase)+2 message(\&quot;errore nel confronto\&quot;)''\textgreater \\
+\textless AstRuleVersion value=``(= entrate (+ (AVG prezzoBase) 2) (message \&quot;errore nel confronto\&quot;))''/\textgreater\\
+ \textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FlFun type=``AVG''\textgreater \\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless /FlFun\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless Msg type=``message''\textgreater \\
+\textless STRING\textgreater ``errore nel confronto''\textless /STRING\textgreater\\
+ \textless /Msg\textgreater\\
+ \textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT4}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare confronti del tipo '\textless', '\textgreater', '\textless =', '\textgreater =', '=', '!='.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite\textless2; AND uscite\textgreater 2; AND uscite\textless=2; AND uscite\textgreater =2; AND uscite=2; AND uscite!=2;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite\&lt;2 AND uscite\&gt; 2 AND uscite\&lt;=2 AND uscite\&gt;=2 AND uscite=2 AND uscite!=2''\textgreater\\
+ \textless AstRuleVersion value=``(AND (AND (AND (AND (AND (= uscite 2) (!= uscite 2)) (\&gt;= uscite 2)) (\&lt;= uscite 2)) (\&gt; uscite 2)) (\&lt; uscite 2))''/\textgreater \\
+\textless OBool type=``AND''\textgreater \textless OBool type=``AND''\textgreater\\
+\textless OBool type=``AND''\textgreater \textless OBool type=``AND''\textgreater\\
+\textless OBool type=``AND''\textgreater\\
+\textless Conf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless Conf type=``!=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``\&gt;=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``\&lt;=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``\&gt;``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless Conf type=``\&lt;``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+
+\begin{Large}\textbf{VT5a}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare operazioni aritmetiche semplici tra scalari.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=(2+2-(3*4))/5; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+2-(3*4))/5''\textgreater \\
+\textless AstRuleVersion value=``(= uscite (/ (- (+ 2 2) (* 3 4)) 5))''/\textgreater \\
+ \textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless OFloat type=``/''\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT5b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare operazioni aritmetiche semplici tra scalari e campi dati scalari.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=(2+entrate-(uscite*4))/entrate; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+entrate-(uscite*4))/entrate''\textgreater\\
+ \textless AstRuleVersion value=``(= uscite (/ (- (+ 2 entrate) (* uscite 4)) entrate))''/\textgreater\\
+ \textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless OFloat type=``/''\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater\\
+ \textless /OFloat\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater\\
+ \textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT5c}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare operazioni aritmetiche semplici tra campi dati scalari.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=(uscite+entrate-(uscite*entrate))/entrate; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(uscite+entrate-(uscite*entrate))/entrate''\textgreater\\
+ \textless AstRuleVersion value=``(= uscite (/ (- (+ uscite entrate) (* uscite entrate)) entrate))''/\textgreater \\
+\textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless OFloat type=``/''\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT6a}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare le operazioni aritmetiche semplici tra scalare e vettore.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=(2+prezzoBase) +(prezzoBase*4) +(prezzoBase/4) +(prezzoBase-3); \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+prezzoBase)+(prezzoBase*4) +(prezzoBase/4)+(prezzoBase-3)''\textgreater\\
+ \textless AstRuleVersion value=``(= uscite (+ (+ (+ (+ 2 prezzoBase) (* prezzoBase 4)) (/ prezzoBase 4)) (- prezzoBase 3)))''/\textgreater \\
+\textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``/''\textgreater\\
+ \textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT6b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare le operazioni aritmetiche semplici tra campi dati scalari e vettori.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (entrate+prezzoBase) +(prezzoBase*uscite) +(prezzoBase/entrate) +(prezzoBase-uscite) = 0;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(entrate+prezzoBase)+ (prezzoBase*uscite)+ (prezzoBase/entrate)+ (prezzoBase-uscite)=0''\textgreater\\
+\textless AstRuleVersion value``(= (+ (+ (+ (+ entrate prezzoBase) (* prezzoBase prezzoBase)) (/ prezzoBase entrate)) (- prezzoBase prezzoBase)) 0)''/\textgreater\\
+\textless Bconf type````\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``*''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``/''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``-''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless FLOAT\textgreater0\textless /FLOAT\textgreater\\
+\textless /Bconf\textgreater\\
+\textless /BusinessRule\textgreater\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT7}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare le operazioni aritmetiche semplici tra vettori omogenei.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (prezzoBase+prezzoBase) +(prezzoBase*prezzoBase) +(prezzoBase/prezzoBase) +(prezzoBase-prezzoBase) =0; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(prezzoBase+prezzoBase)+ (prezzoBase*prezzoBase)+ (prezzoBase/prezzoBase)+ (prezzoBase-prezzoBase)=0''\textgreater\\
+\textless AstRuleVersion value``(= (+ (+ (+ (+ prezzoBase prezzoBase) (* prezzoBase prezzoBase)) (/ prezzoBase prezzoBase)) (- prezzoBase prezzoBase)) 0)''/\textgreater\\
+\textless Bconf type````\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``*''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``/''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``-''\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless FLOAT\textgreater0\textless /FLOAT\textgreater\\
+\textless /Bconf\textgreater\\
+\textless /BusinessRule\textgreater\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT8a}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare le operazioni aritmetiche semplici tra matrici omogenee.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (matricePrezzi+matricePrezzi) +(matricePrezzi*matricePrezzi) +(matricePrezzi/matricePrezzi) +(matricePrezzi-matricePrezzi) =0; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+matricePrezzi)+ (matricePrezzi*matricePrezzi)+ (matricePrezzi/matricePrezzi)+ (matricePrezzi-matricePrezzi)=0''\textgreater\\
+\textless AstRuleVersion value``(= (+ (+ (+ (+ matricePrezzi matricePrezzi) (* matricePrezzi matricePrezzi)) (/ matricePrezzi matricePrezzi)) (- matricePrezzi matricePrezzi)) 0)''/\textgreater\\
+\textless Bconf type````\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``*''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``/''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``-''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless FLOAT\textgreater0\textless /FLOAT\textgreater\\
+\textless /Bconf\textgreater\\
+\textless /BusinessRule\textgreater\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT8b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare le operazioni aritmetiche semplici tra matrici e scalari.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NPr2,NQ1
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (matricePrezzi+2) +(matricePrezzi*2) +(matricePrezzi/2) +(matricePrezzi-2) =0; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+2)+ (matricePrezzi*2)+ (matricePrezzi/2)+ (matricePrezzi-2)=0''\textgreater\\
+\textless AstRuleVersion value``(= (+ (+ (+ (+ matricePrezzi 2) (* matricePrezzi 2)) (/ matricePrezzi 2)) (- matricePrezzi 2)) 0)''/\textgreater\\
+\textless Bconf type````\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``*''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``/''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``-''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless FLOAT\textgreater0\textless /FLOAT\textgreater\\
+\textless /Bconf\textgreater\\
+\textless /BusinessRule\textgreater\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT8c}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile fare le operazioni aritmetiche semplici tra matrici e campi dati scalari.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1,NPr2,NQ1
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (matricePrezzi+entrate) +(matricePrezzi*entrate) +(matricePrezzi/entrate) +(matricePrezzi-entrate)=0; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated``Articolo'' comment``Comment'' name``BR'' rule``(matricePrezzi+entrate)+ (matricePrezzi*entrate)+ (matricePrezzi/entrate)+ (matricePrezzi-entrate)=0''\textgreater\\
+\textless AstRuleVersion value``(= (+ (+ (+ (+ matricePrezzi entrate) (* matricePrezzi entrate)) (/ matricePrezzi entrate)) (- matricePrezzi entrate)) 0)''/\textgreater\\
+\textless Bconf type````\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless OFloat type``+''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``*''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``/''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless OFloat type``-''\textgreater\\
+\textless FIELD\textgreater matricePrezzi\textless /FIELD\textgreater\\
+\textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+\textless /OFloat\textgreater\\
+\textless /OFloat\textgreater\\
+\textless FLOAT\textgreater0\textless /FLOAT\textgreater\\
+\textless /Bconf\textgreater\\
+\textless /BusinessRule\textgreater\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT9a}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile fare le operazioni aritmetiche semplici tra matrici e vettori.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU1
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (matricePrezzi+prezzoBase) +(matricePrezzi*prezzoBase) +(matricePrezzi/prezzoBase) +(matricePrezzi-prezzoBase); \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Operazione non consentita\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT9b}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile fare le operazioni aritmetiche semplici tra matrici non omogenee.\\
+Requisiti soddisfatti dall'esecuzione:F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (matricePrezzi+grafico) +(matricePrezzi*grafico) +(matricePrezzi/grafico) +(matricePrezzi-grafico); \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Operazione non consentita\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT9c}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile fare le operazioni aritmetiche semplici tra matrici, vettori e scalari di tipo diverso.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & matricePrezzi=``ArticoloUno''; AND prezziScontati=3 OR uscite=true; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Operazione non consentita\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT10}\end{Large} \\
+Si testa una \br\ per verificare che sia ben intepretata la precedenza tra gli operatori.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=2*3*4+4-3*5-5+3/2*3; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=2*3*4+4-3*5-5+3/2*3''\textgreater\\
+ \textless AstRuleVersion value=``(= uscite (+ (- (- (+ (* (* 2 3) 4) 4) (* 3 5)) 5) (* (/ 3 2) 3)))''/\textgreater\\
+ \textless Bconf type=``=``\textgreater\\
+ \textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless OFloat type=``+''\textgreater\\
+ \textless OFloat type=``-''\textgreater\\
+ \textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``*''\textgreater\\
+ \textless OFloat type=``*''\textgreater\\
+ \textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+ \textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless FLOAT\textgreater 4\textless /FLOAT\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless FLOAT\textgreater 4\textless /FLOAT\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless OFloat type=``*''\textgreater\\
+ \textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless FLOAT\textgreater 5\textless /FLOAT\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless OFloat type=``*''\textgreater\\
+ \textless OFloat type=``/''\textgreater\\
+ \textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
+ \textless FLOAT\textgreater 2\textless /FLOAT\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless /OFloat\textgreater\\
+ \textless /Bconf\textgreater\\
+ \textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT11}\end{Large} \\
+Si testa una \br\ per verificare che siano ben intepretate le parentesi.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7); \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7)''\textgreater\\
+ \textless AstRuleVersion value=``(= uscite (+ (* (/ (+ (* 2 (- (- (+ (* 3 4) 4) (* 3 5)) 5)) 3) 2) 3) 7))''/\textgreater\\
+ \textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
+ \textless OFloat type=``+''\textgreater\\
+ \textless OFloat type=``*''\textgreater \\
+\textless OFloat type=``/''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``+''\textgreater\\
+ \textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 2\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater\\
+ \textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 7\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /Bconf\textgreater\\
+ \textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT12a}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile effettuare operazioni tra le stringhe.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & ``ArticoloUno''\textgreater``ArticoloUno''; AND ``ArticoloUno''\textgreater=``ArticoloUno''; AND ``ArticoloUno''\textless``ArticoloUno''; AND ``ArticoloUno''\textless=``ArticoloUno''; AND ``ArticoloUno''*nome;  AND ``ArticoloUno''-nome;  AND ``ArticoloUno''/nome;  AND ``ArticoloUno''+nome;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Operazione non consentita\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT12b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile effettuare confronti semplici ('=', '!=') tra le stringhe.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & nome=``ArticoloUno'' AND nome!=``ArticoloDue''\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``nome=\&quot;ArticoloUno\&quot;  AND nome!=\&quot;ArticoloDue\&quot;''\textgreater\\
+ \textless AstRuleVersion value=``(AND (= nome \&quot;ArticoloUno\&quot;) (!= nome \&quot;ArticoloDue\&quot;))''/\textgreater\\
+ \textless OBool type=``AND''\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless FIELD\textgreater nome\textless /FIELD\textgreater\\
+ \textless STRING\textgreater ''ArticoloUno''\textless /STRING\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless Conf type=``!=``\textgreater\\
+ \textless FIELD\textgreater nome\textless /FIELD\textgreater\\
+ \textless STRING\textgreater ''ArticoloDue''\textless /STRING\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT13a}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile effettuare operazioni aritmetiche tra booleani.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & (scontato+3) - (scontato*4)/scontato;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Operazione non consentita\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT13b}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile effettuare operazioni logiche tra booleani.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & ((scontato\textbar \textbar scontato)\&\& scontato) = true; AND (true\textbar \textbar false\&\& NOT(true))=scontato;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``((scontato||scontato) \&amp;\&amp; scontato) = true AND (true || false \&amp;\&amp; NOT(true))=scontato''\textgreater \\
+\textless AstRuleVersion value=``(AND (= (\&amp;\&amp; (|| scontato scontato) scontato) true) (= (\&amp;\&amp; (|| true false) (NOT true)) scontato))''/\textgreater\\
+ \textless OBool type=``AND''\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless OBool type=``\&amp;\&amp;''\textgreater \\
+\textless OBool type=``||''\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless OBool type=``\&amp;\&amp;''\textgreater\\
+ \textless OBool type=``||''\textgreater\\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater\\
+ \textless BOOL\textgreater false\textless /BOOL\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless BoFun type=``NOT''\textgreater\\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater\\
+ \textless /BoFun\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT14}\end{Large} \\
+Si testa una \br\ per verificare che sia possibile effettuare funzioni aritmetiche semplici come 'AVG', 'COUNT', 'SUM'.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU2
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & SUM(prezzoBase) = 12; AND COUNT(entrate)=1; AND AVG(prezzoBase)=4;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``SUM(prezzoBase) = 12 AND COUNT(entrate)=1, AND AVG(prezzoBase)=4 ''\textgreater\\
+ \textless AstRuleVersion value=``(AND (= (SUM prezzoBase) 12) (= (COUNT entrate) 1))''/\textgreater\\
+ \textless OBool type=``AND''\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless FlFun type=``SUM''\textgreater\\
+ \textless FIELD\textgreater prezzoBase\textless /FIELD\textgreater\\
+ \textless /FlFun\textgreater\\
+ \textless FLOAT\textgreater 12\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless Conf type=``=``\textgreater\\
+ \textless Count type=``COUNT''\textgreater\\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater\\
+ \textless /Count\textgreater\\
+ \textless FLOAT\textgreater 1\textless /FLOAT\textgreater\\
+ \textless /Conf\textgreater\\
+ \textless /OBool\textgreater\\
+ \textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT15a}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire regole prive di un operatore di confronto.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & SUM(prezzoBase);\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Errore sintattico\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT15b}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire regole prive di uno dei due elementi da confrontare\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & SUM(prezzoBase)=;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Errore sintattico\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+
+\begin{Large}\textbf{VT15c}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire espressioni prive di operandi\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & 12 = 2entrate;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Errore sintattico\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT15d}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire espressioni prive di operandi\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite = 2 entrate;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Errore sintattico\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT15e}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire regole non complete.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite = 2 AND;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Errore sintattico\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT15f}\end{Large} \\
+Si testa una \br\ per verificare che sia impossibile inserire parentesizzazioni errate.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & ((2+4)=uscite;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Errore sintattico\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT16}\end{Large} \\
+Si testa una \br\ per verificare che sia supportato l'utilizzo dei numeri negativi.\\
+Requisiti soddisfatti dall'esecuzione: F1, F2, F10.
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento\\ \hline
+Business object associato & Articolo \\ \hline
+Regola & uscite=((((\textasciitilde2*((\textasciitilde3*\textasciitilde4)+(\textasciitilde4)-(\textasciitilde3*\textasciitilde5)-5)+3)/\textasciitilde2)*\textasciitilde3)+7); \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=((((\textasciitilde2*((\textasciitilde3 *\textasciitilde4)+(\textasciitilde4)-(\textasciitilde3*\textasciitilde5) -5)+3)/\textasciitilde2)*\textasciitilde3)+7)''\textgreater \\
+\textless AstRuleVersion value=``(= uscite (+ (* (/ (+ (* \textasciitilde2 (- (- (+ (* \textasciitilde3 \textasciitilde4) \textasciitilde4) (* \textasciitilde3 \textasciitilde5)) 5)) 3) \textasciitilde2) \textasciitilde3) 7))''/\textgreater\\ 
+\textless Bconf type=``=``\textgreater \\
+\textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless OFloat type=``/''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater \textasciitilde2\textless /FLOAT\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``-''\textgreater \\
+\textless OFloat type=``+''\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater \textasciitilde3\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater \textasciitilde4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater \textasciitilde4\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless OFloat type=``*''\textgreater \\
+\textless FLOAT\textgreater \textasciitilde3\textless /FLOAT\textgreater \\
+\textless FLOAT\textgreater \textasciitilde5\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 5\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 3\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater \textasciitilde2\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater \textasciitilde3\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless FLOAT\textgreater 7\textless /FLOAT\textgreater \\
+\textless /OFloat\textgreater \\
+\textless /Bconf\textgreater \\
+\textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT17}\end{Large} \\
+Si testa una \br\ per verificare che siano ben tradotti tutti i caratteri non ammessi in un documento xml.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NPo1
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & \`a \`e \`i \`o \`u \`A \`E \`I \`O \`U ``test'' , 'test', \& , \textgreater , \textless \\ \hline
+Commento & \`a \`e \`i \`o \`u \`A \`E \`I \`O \`U ``test'' , 'test', \& , \textgreater , \textless \\ \hline
+Business object associato & Articolo \\ \hline
+Regola & scontato=true; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``\&agrave; \&egrave; \&igrave; \&ograve; \&ugrave; \&Agrave; \&Egrave; \&Igrave; \&Ograve; \&Ugrave; \&quot;test\&quot;, 'test', \&amp;, \&gt;, \&lt;'' name=``\&agrave; \&egrave; \&igrave; \&ograve; \&ugrave; \&Agrave; \&Egrave; \&Igrave; \&Ograve; \&Ugrave; \&quot;test\&quot;, 'test', \&amp;, \&gt;, \&lt;'' rule=``scontato=true''\textgreater\\
+ \textless AstRuleVersion value=``(= scontato true)''/\textgreater\\
+\textless Bconf type=``=``\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater\\
+ \textless /Bconf\textgreater\\
+ \textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT18}\end{Large} \\
+Si testa una \br\ per verificare che siano ammessi solo alcuni caratteri nel message.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10,NU3
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento \\ \hline
+Business object associato & Articolo \\ \hline
+Regola & scontato=true message(``abc.. ABC.. 0..9 .?!\^\_-\textasciitilde''); \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``Comment'' name=``BR'' rule=``scontato=true message(\&quote;abc.. ABC.. 0..9 .?!\&\#94; \&\#95;- \&\#126;\&quote;)''\textgreater\\
+ \textless AstRuleVersion value=``(= scontato true) message(\&quote;abc.. ABC.. 0..9 .?!\&\#94; \&\#95;- \&\#126; \&quote;)''/\textgreater\\
+\textless Bconf type=``=``\textgreater\\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater\\
+ \textless /Bconf\textgreater\\
+ \textless /BusinessRule\textgreater \\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT19}\end{Large} \\
+Si testa una \br\ per verificare che non siano ammessi altri caratteri nel message.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento \\ \hline
+Business object associato & Articolo \\ \hline
+Regola & scontato=true message(``\# []\{\}|\/=+-*\@\$\%''); \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Errore sintattico\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{VT20}\end{Large} \\
+Si testa una \br\ per verificare che non siano ammesse regole malformate.\\
+Requisiti soddisfatti dall'esecuzione: F1,F2,F10
+\begin{center}
+\begin{tabular}{|p{5cm}|p{6cm}|} \hline
+\textbf{Attributo \br} & \textbf{Valore} \\ \hline
+Nome & BR \\ \hline
+Commento & Commento \\ \hline
+Business object associato & Articolo \\ \hline
+Regola & scontato=true +; \\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output atteso}\\ \hline
+Errore sintattico\\
+ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Test sul comunicatore}
+La macrocomponente comunicatore verr\`a testata a scatola aperta (\underline{whitebox}), inserendo in input al comunicatore una stringa contenente una query \underline{XQuery} e verificando che la modifica sia stata effettuata nel repository. Non verranno testate le query non accettate dal linguaggio \underline{XQuery}, in quanto gia` garantite dal \underline{DBMS} \underline{eXist}. Per un corretto esito dei test \`e necessario che il \textit{repository} abbia una determinata situazione iniziale, illustrata nel riquadro sottostante. \`E importante che la situazione iniziale del repository sia quella descritta di seguito, e che i test sul comunicatore siano eseguiti nell'ordine descritto. Per i motivi sopra elencati \`e molto importante che venga utilizzata l'apposita classe di test. \\
+\\
+
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
+ \textless OBool type=``AND''\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0\textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+\textless BoFun type=``NOT''\textgreater \\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater \\
+\textless /BoFun\textgreater \\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater\\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR1'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
+ \textless OBool type=``AND''\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0\textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+\textless BoFun type=``NOT''\textgreater \\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater \\
+\textless /BoFun\textgreater \\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR2'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
+ \textless OBool type=``AND''\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0\textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+\textless BoFun type=``NOT''\textgreater \\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater \\
+\textless /BoFun\textgreater \\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textless BusinessRule associated=``Archivio'' comment=``'' name=``BR3'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
+ \textless OBool type=``AND''\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0\textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+\textless BoFun type=``NOT''\textgreater \\
+ \textless FIELD\textgreater scontato\textless /FIELD\textgreater \\
+\textless /BoFun\textgreater \\
+ \textless BOOL\textgreater true\textless /BOOL\textgreater \\
+\textless /Conf\textgreater \\
+\textless /OBool\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
+\end{tabular} \\
+\end{center}
+
+
+\begin{Large}\textbf{CT1}\end{Large} \\
+Si testa il comunicatore con una query che ritorni tutte le \br\ che hanno l'attributo name che comincia con BR.\\
+Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Query eseguita}\\ \hline
+ for \$br in //BusinessRule[starts-with(\@name,'BR')] return \$br\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output Atteso}\\ \hline
+L'elenco delle \br\ in \underline{xml} come scritte nell'esempio di \rp\ sopra illustrato. In particolare dovranno essere visibili le \br\ : BR, BR1, BR2, BR3.\\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{CT2}\end{Large} \\
+Si testa il comunicatore con una query che cancelli tutte le \br\ il cui nome \`e BR1.\\
+Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Query eseguita}\\ \hline
+for \$br in //BusinessRule[\@name='BR1'] return update delete \$br;\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output Atteso}\\ \hline
+La query BR1 deve essere rimossa dal \rp.\\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{CT3}\end{Large} \\
+Si testa il comunicatore con una query che ritorni il nome e la regola associata di tutte le \br\  che sono associate al \bo\ 'Articolo' e non hanno il commento.\\
+Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Query eseguita}\\ \hline
+for \$br in //BusinessRule[\@associated='Articolo' and not(\@comment)] return concat(\$br[\@name], \$br[\@rule])\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output Atteso}\\ \hline
+Deve essere visibile la concatenazione del nome della regola seguito dalla regola stessa. In particolare ci\`o deve essere vero per le \br: BR, BR1.\\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{CT4}\end{Large} \\
+Si testa il comunicatore con una query che ritorni il nome e la regola associata di tutte le \br\  che non hanno il commento.\\
+Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Query eseguita}\\ \hline
+for \$br in //BusinessRule[not(\@comment)]return concat(\$br[\@name], \$br[\@rule])\\ \hline
+\end{tabular} \\
+\end{center}
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Output Atteso}\\ \hline
+Deve essere visibile la concatenazione del nome della regola seguito dalla regola stessa. In particolare ci\`o deve essere vero per le \br: BR2, BR3.\\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{CT5}\end{Large} \\
+Si testa il comunicatore con una query che inserisca una determinata \br .\\
+Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Query eseguita}\\ \hline
+update insert "\textless BusinessRule associated=``Archivio'' comment=``'' name=``BR3'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater 
+\textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater 
+ \textless OBool type=``AND''\textgreater 
+ \textless Conf type=``=''\textgreater 
+ \textless FIELD\textgreater entrate \textless /FIELD\textgreater 
+ \textless FLOAT\textgreater 0 \textless /FLOAT\textgreater 
+ \textless /Conf\textgreater 
+ \textless Conf type=``='' \textgreater 
+\textless BoFun type=``NOT'' \textgreater 
+ \textless FIELD\textgreater scontato \textless /FIELD\textgreater 
+\textless /BoFun\textgreater 
+ \textless BOOL\textgreater true \textless /BOOL\textgreater 
+\textless /Conf\textgreater 
+\textless /OBool\textgreater 
+\textless /BusinessRule\textgreater " into /BusinessRules\\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Test sulla GUI}
+La macrocomponente gui verr\`a testata a scatola aperta (\underline{whitebox}) e manualmente, verificando il funzionamento di ogni sua componente grafica. Verranno testati tutti i bottoni che lanciano nuove finestre. Si tester\`a che ogni bottone invochi il metodo appropiato.\\
+\\
+\begin{Large}\textbf{GT1a}\end{Large} \\
+Si testa il bottone 'Inserisci Business Rule' e si testa che la finestra 'Inserisci' venga aperta.
+Requisiti soddisfatti dall'esecuzione: F4,F8,NU3 \\
+ \\
+\begin{Large}\textbf{GT1b}\end{Large} \\
+Si testa il bottone 'Rimuovi Business Rule' e si testa che la finestra 'Rimuovi' venga aperta.
+Requisiti soddisfatti dall'esecuzione: F4,F8,NU3\\
+ \\
+\begin{Large}\textbf{GT1c}\end{Large} \\
+Si testa il bottone 'Sandbox' e si testa che la finestra 'Sandbox' venga aperta.
+Requisiti soddisfatti dall'esecuzione: F4,F8,NU3\\
+ \\
+\begin{Large}\textbf{GT2}\end{Large} \\
+Si testa che tutti i campi textbox siano scrivibili.
+Requisiti soddisfatti dall'esecuzione: F4,F8,NU3\\
+ \\
+\begin{Large}\textbf{GT3}\end{Large} \\
+Si testa che ogni altro bottone della gui invochi il metodo corretto secondo le specifiche del sistema.
+Requisiti soddisfatti dall'esecuzione: F4,F8,NU3\\
+ \\
+\section{Test di integrazione}
+Vengono di seguito riportati i test riguardanti le integrazioni delle varie componenti. Questi test hanno come precondizione l'esecuzione dei test sulle singole macrocomponenti, di conseguenza sono mirati a scoprire difetti nell'interfacciamento e nell'interazione tra diverse componenti, nonch\`e di mostrare il soddisfacimento di alcuni requisiti.
+
+\subsection{Integrazione validatore, comunicatore}
+L'integrazione tra 'validatore' e 'comunicatore' verr\`a testata a scatola aperta (\underline{whitebox}), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
+
+\begin{Large}\textbf{CVT1a}\end{Large} \\
+Si testa che una \br\ non presente nel \rp\ venga inserita ritornando 'true'.
+Requisiti soddisfatti dall'esecuzione: NPr2. \\
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Business rule da inserire}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``'' name=``BRUnique'' rule=``entrate=0''\textgreater \\
+\textless AstRuleVersion value=``(= entrate 0)''/\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate \textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0 \textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{CVT1b}\end{Large} \\
+Si deve testare l'impedimento da parte del validatore di inserire nel \rp\ \br\ con lo stesso nome. Per fare ci\`o si riesegue l'inserimento della \br\ sopra illustrata e si testa che il valore ritornato sia 'false'.
+Requisiti soddisfatti dall'esecuzione: NPr2.\\
+ \\
+\subsection{Integrazione gui, validatore}
+L'integrazione tra 'gui' e 'validatore' verr\`a testata a scatola aperta (\underline{whitebox}), inserendo da gui  un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le due componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
+
+\begin{Large}\textbf{GVT1}\end{Large} \\
+Si testa che il bottone 'Valida' invochi la validazione della \br\ appena inserita.
+Requisiti soddisfatti dall'esecuzione: F2, F8.\\
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Business rule da inserire}\\ \hline
+\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR5'' rule=``entrate=0''\textgreater \\
+\textless AstRuleVersion value=``(= entrate 0)''/\textgreater \\
+ \textless Conf type=``=''\textgreater \\
+ \textless FIELD\textgreater entrate \textless /FIELD\textgreater \\
+ \textless FLOAT\textgreater 0 \textless /FLOAT\textgreater \\
+ \textless /Conf\textgreater \\
+\textless /BusinessRule\textgreater \\ \hline
+\end{tabular} \\
+\end{center}
+
+
+\subsection{Integrazione del sistema}
+L'integrazione dell'intero sistema verr\`a testata a scatola aperta (\underline{whitebox}), testando le sole funzionalit\`a risultanti dalla completa integrazione del sistema.\\
+ \\
+\begin{Large}\textbf{S1}\end{Large} \\
+Si testa che la maschera di login della gui accetti username e password corretti, stabilendo la connessione col \rp.
+Requisiti soddisfatti dall'esecuzione: \\
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Input previsto}\\ \hline
+Username e password corretti.\\ \hline
+\textbf{Output Atteso}\\ \hline
+Visualizzazione della finestra principale della gui.\\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{Large}\textbf{S2}\end{Large} \\
+Si testa che la maschera di login della gui  non accetti username e password errati, impedendo la connessione col \rp\ e riportando un messaggio di errore.
+Requisiti soddisfatti dall'esecuzione: F5. \\
+ \\
+\begin{center}
+\begin{tabular}{|p{11cm}|} \hline
+\textbf{Input previsto}\\ \hline
+Username e password errati.\\ \hline
+\textbf{Output Atteso}\\ \hline
+Visualizzazione di un messaggio d'errore.\\ \hline
+\end{tabular} \\
+\end{center}
+
+\section{Test di regressione}
+Con test di regressione si intende la ripetizione di alcuni test case a fronte di una o pi\`u modifiche nel software. Ogniqualvolta una componente venga modificata vanno ripetuti (mediante l'utilizzo del sistema di automazione dei test) tutti i test riguardanti la componente specifica nonch\`e i test per la sua integrazione con altre componenti fino all'esecuzione dei test di integrazione del sistema.
+Negli esiti dei test, per non appesantire la lettura, non vengono riportati tutti i test di regressione ma soltanto quelli che abbiano prodotto un output o un esito differente.
+
+\section{Tracciamento requisiti - test}
+Nella seguente tabella vengono evidenziati i test necessari al soddisfacimento di ogni requisito. Gli identificativi dei test sono quelli riportati nel capitolo 'Descrizione dei test case'{link}. Mentre gli identificativi dei singoli requisiti sono quelli descritti nel documento ``\AR'' .
+ \begin{center}
+\begin{tabular}{|p{3cm}|p{8cm}|} \hline
+\textbf{Requisito} & \textbf{Test che lo soddisfano}\\ \hline
+F1  & VT1a, VT1b, VT1c, VT1d, VT1e, VT1f, VT2a, VT2b, VT2c, VT3a, VT3b, VT4, VT5a, VT5b, VT5c, VT6a, VT6b, VT7, VT8a, VT8b, VT8c, VT9a, VT9b, VT9c, VT10, VT11, VT12a, VT12b, VT13a, VT13b, VT14, VT15a, VT15b, VT15c, VT15d, VT15e, VT15f, VT16, VT17, VT18, VT19, VT20\\ \hline
+F2  & GVT1, VT1a, VT1b, VT1c, VT1d, VT1e, VT1f, VT2a, VT2b, VT2c, VT3a, VT3b, VT4, VT5a, VT5b, VT5c, VT6a, VT6b, VT7, VT8a, VT8b, VT8c, VT9a, VT9b, VT9c, VT10, VT11, VT12a, VT12b, VT13a, VT13b, VT14, VT15a, VT15b, VT15c, VT15d, VT15e, VT15f, VT16, VT17, VT18, VT19, VT20\\ \hline
+F3  & CT1, CT2, CT3, CT4, CT5 \\ \hline
+F4  & GT1a, GT1b, GT1c, GT2, GT3\\ \hline
+F5  & S1, S2, CT1, CT2, CT3, CT4, CT5 \\ \hline
+F6  &  - \\ \hline
+F7  & CT1, CT2, CT3, CT4, CT5  \\ \hline
+F8  & GVT1, CT1, CT2, CT3, CT4, CT5, GT1a, GT1b, GT1c, GT2, GT3  \\ \hline
+F9  &  DEPRECATO\\ \hline
+F10 & VT1a,VT1b,VT1c,VT1d, VT2a, VT2b, VT2c, VT3a, VT3b, VT4, VT5a, VT5b, VT5c, VT6a, VT6b, VT7, VT8a, VT8b, VT8c, VT9a, VT9b, VT9c, VT10, VT11, VT12a, VT12b, VT13a, VT13b, VT14, VT15a, VT15b, VT15c, VT15d, VT15e, VT15f, VT16, VT17, VT18, VT19, VT20 \\ \hline
+F11 & VT1a,VT1d \\ \hline
+NU1 & VT6a, VT6b, VT7, VT8a, VT8c, VT9a\\ \hline
+NU2 & VT14\\ \hline
+NU3 & VT1a, VT3b, VT18, GT1a, GT1b, GT1c, GT2, GT3\\ \hline
+NPo1 &  VT17, CT1, CT2, CT3, CT4, CT5 \\ \hline
+NPr2 &  CVT1a, CVT1b,VT8b, VT8c, CT1, CT2, CT3, CT4, CT5 \\ \hline
+NQ1 & VT8b, VT8c  \\ \hline
+NQ2 &  - \\ \hline
+NQ3 &  - \\ \hline
+\end{tabular} \\
+\end{center}
+
+
+\chapter{Esiti dei test}
+\section{Automatizzazione dei test}
+Essendo la fase di test una fase costosa e laboriosa del processo software, si \`e deciso di automatizzare il pi\`u possibile l'esecuzione dei test. L'esecuzione dei test viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l'output prodotto con quello atteso.
+Alcuni test si rende necessario eseguirli a mano, come ad esempio i test riguardanti la componente \textit{gui}, tali test sono comunque una parte minima di tutti i test da eseguire e non incidono eccessivamente sul costo dell'intera fase di test.
+\section{Esiti dei test dei difetti}
+I \textit{test dei difetti} servono ad individuare possibili difetti o errori del codice su cui vengono testati. Per questo l'esito di un test dei difetti \`e segnato come negativo ogniqualvolta non evidenzia un difetto, viene altres\`i segnato come positivo l'esito di quei test che abbiano individuato dei difetti nel software.
+Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentati in forma tabulare, indicando il codice identificativo del test, seguito dal suo esito. I test di regressione, come illustrato precedentemente, sono riportati solo dove abbiano prodotto un output o un esito differente dalla loro precedente esecuzione. I test di regressione sono evidenziati nelle tabelle sottostanti dalla sigla RT.
+
+
+\subsection{Test sul validatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+VT1a & negativo & \\ \hline
+VT1b & negativo & \\ \hline
+VT1c & negativo & \\ \hline
+VT1d & negativo & \\ \hline
+VT1e & negativo & \\ \hline
+VT1f & negativo & \\ \hline
+VT2a & \textcolor{err}{positivo} & La parentesizzazione che coinvolge un intera operazione di confronto non \`e ancora stata introdotta nella grammatica del linguaggio. \\ \hline
+VT2b & \textcolor{err}{positivo} & Non devono comparire nel codice \underline{XML} tag 'OpRule'.\\ \hline
+VT2c & negativo & \\ \hline
+VT3a & negativo & \\ \hline
+VT3b & negativo & \\ \hline
+VT4 & negativo & \\ \hline
+VT5a & negativo & \\ \hline
+VT5b & negativo & \\ \hline
+VT5c & negativo & \\ \hline
+VT6a & negativo & \\ \hline
+VT6b & negativo & \\ \hline
+VT7 & negativo & \\ \hline
+VT8a & negativo & \\ \hline
+VT8b & negativo & \\ \hline
+VT8c & negativo & \\ \hline
+VT9a & negativo & \\ \hline
+VT9b & negativo & \\ \hline
+VT9c & negativo & \\ \hline
+VT10 & negativo & \\ \hline
+VT11 & negativo & \\ \hline
+VT12a & negativo & \\ \hline
+VT12b & negativo & \\ \hline
+VT13a & negativo & \\ \hline
+VT13b & negativo & \\ \hline
+VT14 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+VT15a & negativo & \\ \hline
+VT15b & negativo & \\ \hline
+VT15c & \textcolor{err}{positivo} & \\ \hline
+VT15d & \textcolor{err}{positivo} & \\ \hline
+VT15e & negativo & \\ \hline
+VT15f & negativo & \\ \hline
+VT16 & negativo & \\ \hline
+VT17 & \textcolor{err}{positivo} & Le lettere accentate non sono ancora state aggiunte alla grammatica del linguaggio.\\ \hline
+VT18 & \textcolor{err}{positivo} & La grammatica del linguaggio non prevede ancora l'utilizzo di numeri da 0 a 9 nelle stringhe.\\ \hline
+VT19 & negativo & \\ \hline
+VT20 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Test sul comunicatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+CT1 & negativo & \\ \hline
+CT2 & negativo & \\ \hline
+CT3 & negativo & \\ \hline
+CT4 & negativo & \\ \hline
+CT5 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Test sulla gui}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+GT1a & negativo & \\ \hline
+GT1b & negativo & \\ \hline
+GT1c & negativo & \\ \hline
+GT2 & negativo & \\ \hline
+GT3 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Integrazione validatore, comunicatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+CVT1a & negativo & \\ \hline
+CVT1b & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Integrazione gui, validatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+GVT1 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Integrazione del sistema}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+S1 & negativo & \\ \hline
+S2 & \textcolor{err}{positivo} & In sitemi unix permette di accedere al \rp\ anche inserendo username e password errati.\\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{JUnit}
+\subsubsection{Test sul Validatore}
+
+
+\chapter{Esiti dei test di convalida}
+I \textit{test di convalida} servono a dimostrare che tutti i requisiti sono stati soddisfatti. Per questo l'esito di un test di convalida \`e segnato come positivo ogniqualvolta dimostra che un requisito \`e soddisfatto, viene altres\`i segnato come negativo l'esito dei test che hanno fallito.
+\end{document}
