@@ -29,5 +29,6 @@ public class BusinessRule {
 		associated=associatedR;
 		rule=ruleR;
 		comment=commentR;
+		
 	}
 }
