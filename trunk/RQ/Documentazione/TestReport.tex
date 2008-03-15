@@ -2,7 +2,7 @@
 \input{model/layout.tex}% layout
 \begin{document}
 %definizione variabili 
-\newcommand{\lv}{ 1.3 } % latest version
+\newcommand{\lv}{ 1.5 } % latest version
 \newcommand{\dt}{ Test Report }% Document title
 \input{model/variables.tex}%altre variabili
 \input{model/document-latest-versions.tex}%nomi documenti
@@ -60,10 +60,10 @@ Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
 1.5 & 15/03/2008 & \AT & Completamento sezione``Junit'' e correzione del documento. \\ \hline
 1.4 & 14/03/2008 & \AT & Prima correzione al documento. \\ \hline
-1.3 & 14/03/2008 & \MT & Esiti dei test di convalida. \\ \hline
+1.3 & 14/03/2008 & \MT & Esiti dei test di convalida.  \\ \hline
 1.2 & 14/03/2008 & \ET & Aggiunta degli esiti di JUnit. \\ \hline
 1.1 & 14/03/2008 & \MT & Esiti dei test di regressione. \\ \hline
-1.0 & 13/03/2008 & \MT & Correzione dei test errati. \\ \hline
+1.0 & 13/03/2008 & \MT & Correzione dei test errati. Aggiunta del test CVT1c \\ \hline
 0.9 & 12/03/2008 & \AT & Modifiche ai test case dopo l'introduzione del ';' nella nuova grammatica. \\ \hline
 0.8 & 11/03/2008 & \ET & Aggiunta sezione ``Analisi statica'' e tabelle degli errori. \\ \hline
 0.7 & 07/03/2008 & \MT & Aggiunta dei 'test case' per le integrazioni di componenti. Aggiunta esiti dei test.\\ \hline
@@ -1820,7 +1820,12 @@ Requisiti soddisfatti dall'esecuzione: NPr2. \\
 \end{center}
 
 \begin{Large}\textbf{CVT1b}\end{Large} \\
-Si deve testare l'impedimento da parte del validatore di inserire nel \rp\ \br\ con lo stesso nome. Per fare ci\`o si riesegue l'inserimento della \br\ sopra illustrata e si testa che il valore ritornato sia 'false'.
+Si deve testare l'impedimento da parte del validatore di inserire nel \rp\ una \br\ con lo stesso nome. Per fare ci\`o si riesegue l'inserimento della \br\ sopra illustrata e si testa che il valore ritornato sia 'false'.
+Requisiti soddisfatti dall'esecuzione: NPr2.\\
+ \\
+
+\begin{Large}\textbf{CVT1c}\end{Large} \\
+Si deve testare l'impedimento da parte del validatore di inserire nel \rp\ una \br\ con lo stesso regola nell'attributo \textit{rule}. Per fare ci\`o si riesegue l'inserimento della \br\ sopra illustrata sostituendo il nome e si testa che il valore ritornato sia 'false'.
 Requisiti soddisfatti dall'esecuzione: NPr2.\\
  \\
 \subsection{Integrazione gui, validatore}
@@ -1895,7 +1900,7 @@ NU1 & VT6a, VT6b, VT7, VT8a, VT8c, VT9a\\ \hline
 NU2 & VT14\\ \hline
 NU3 & VT1a, VT3b, VT18, GT1a, GT1b, GT1c, GT2, GT3\\ \hline
 NPo1 &  VT17, CT1, CT2, CT3, CT4, CT5 \\ \hline
-NPr2 &  CVT1a, CVT1b,VT8b, VT8c, CT1, CT2, CT3, CT4, CT5 \\ \hline
+NPr2 &  CVT1a, CVT1b, CVT1c, VT8b, VT8c, CT1, CT2, CT3, CT4, CT5 \\ \hline
 NQ1 & VT8b, VT8c  \\ \hline
 NQ2 &  - \\ \hline
 NQ3 &  - \\ \hline
@@ -2118,6 +2123,8 @@ GT3 & negativo & \\ \hline
 \textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
 CVT1a & negativo & \\ \hline
 CVT1b & negativo & \\ \hline
+CVT1c & \textcolor{err}{positivo} & Possono essere inserite \br\ identiche ma con nome differente e vengono accettate.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT Viene efffettuato un controllo sulla regola prima dell'inserimento. \\ \hline
 \end{tabular} \\
 \end{center}
 
