@@ -130,7 +130,7 @@ Per un corretto e scorrevole funzionamento del software sono richiesti:
 \end{itemize}
 
 \chapter{Installazione}
-\subsection{Installazione eXist}
+\section{Installazione eXist}
 Per utilizzare il prodotto \`e necessario che venga installato sulla macchina il server eXist. L'installazione di eXist, essendo questo realizzato in Java, risulta essere la stessa su ogni sistema operativo.
 Il \underline{DBMS} eXist \`e reperible all'indirizzo web \textit{\texttt{http://exist.sourceforge.net/download.html}}, per chi, al momento dell'installazione del prodotto, non possedesse una connessione a internet attiva, \`e stato inserito il file di installazione \textbf{eXist-setup-1.2.0-rev7233.jar} nella cartella ``eXist'' all'interno del cd di installazione.
 \begin{enumerate}
@@ -138,63 +138,48 @@ Il \underline{DBMS} eXist \`e reperible all'indirizzo web \textit{\texttt{http:/
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/installazione_Exist0.eps}\\
 \end{center}
-\item Comparir\'a la schermata di installazione di eXist. Cliccare sul tasto ``Next`` per proseguire;
+\item Comparir\'a la schermata di installazione di eXist. Cliccare sul tasto ``Next'' per proseguire;
 \begin{center}
 \includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist1.eps}\\
 \end{center}
-\item Comparir\'a una schermata che rende disponibile la selezione dei pacchetti da installare. Lasciare quelli  di default e premere sul tasto ``Next`` per proseguire;
+\item Comparir\'a una schermata che rende disponibile la selezione dei pacchetti da installare. Lasciare quelli  di default e premere sul tasto ``Next'' per proseguire;
 \begin{center}
 \includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist2.eps}\\
 \end{center}
-\item vi verr\'a chiesto dove installare eXist. Lasciate la directory di default (generalmente C:\/Programmi\/ eXist per windows e \textbackslash home\textbackslash \$USERNAME\textbackslash eXist per sistemi linux). Premete il tasto ``Next`` per proseguire;
-
-
-
-
-
+\item Vi verr\'a chiesto dove installare eXist. Lasciate la directory di default (generalmente C:/Programmi/eXist per windows e \textbackslash home\textbackslash \$USERNAME\textbackslash eXist per sistemi linux). Premete il tasto ``Next'' per proseguire;
 \begin{center}
 \includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist3.eps}\\
 \end{center}
-\item[6-] Scrivere la propria password per l'autenticazione al server negli appositi campi dati e premere sul tasto ``Next`` per proseguire, su ''Previous`` per tornare al passo precedente o su ''Quit`` per terminare l'installazione;
+\item Scrivere un nome utente e una password per l'autenticazione al server \underline{DBMS} negli appositi campi dati e premere sul tasto ``Next'' per proseguire. Attenzione i dati di autenticazine inseriti vi verranno richiesti all'avvio del prodotto ``\underline{BR-jsys}''.
 \begin{center}
 \includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist4.eps}\\
 \end{center}
-\item[7-] Partir\'a l'installazione dei pacchetti selezionati precedentemente. Una volta terminata la procedura, eXist sar\'a a tutti gli effetti installato sul vostro sistema e vi comparir\'a la schermata sottostante. Premere sul tasto ``Next`` per proseguire o su ''Quit`` per terminare l'installazione;
-\begin{center}
-\includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist5.eps}\\
-\end{center}
-\item[8-] A questo punto si possono selezionare i collegamenti (links) e stabilire un nome per l'avvio rapido di eXist. Se non si ha particolari esigenze si consiglia di mantenere la selezione di default. Premere quindi sul tasto ``Next`` per proseguire, su ''Previous`` per tornare al passo precedente o su ''Quit`` per terminare l'installazione;
+\item Premete ill tasto ``Next'' per iniziare l'installazione dei pacchetti precedentemente selezionati;
+\item A questo punto \'e possibile selzionare alcune opzioni per la creazione di \textit{shortcut} . Si consiglia di mantenere la selezione di default. Premere quindi sul tasto ``Next'' per proseguire, su ``Previous'' per tornare al passo precedente o su ``Quit'' per terminare l'installazione;
 \begin{center}
 \includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist6.eps}\\
 \end{center}
-\item[9-] Comparir\'a la schermata di inizializzazione completata. Premere sul tasto ``Next`` per proseguire o su ''Quit`` per terminare l'installazione;
-\begin{center}
-\includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist7.eps}\\
-\end{center}
-\item[10-] Per concludere, verr\'a visualizzata una schermata con alcune informazioni riguardanti il prodotto. Premere su ''Quit`` per completare l'installazione;
+\item Proseguite premendo il tasto ``Next'' , fino a terminare l'installazione di eXist, verr\'a visualizzata una schermata con alcune informazioni riguardanti il prodotto. Premere su ``Quit'' per completare l'installazione;
 \begin{center}
 \includegraphics[width=0.9\textwidth]{manuale_utente/installazione_Exist8.eps}\\
 \end{center}
 \end{enumerate}
 
-\subsection{Installazione del prodotto}
+\section{Installazione del prodotto}
 Una volta installato eXist si pu\'o procedere con l'installazione del br-jsys.
-Da macchina:
-\begin{itemize}
-\item \underline{Linux o MacOSX:} 
-\begin{itemize}
-\item[-] avviare il prompt dei comandi (\textbf{shell});
-\item[-] accedere alla cartella ``\textbf{BR-jsys}'' fornita; 
-\item[-] digitare il comando ``\textbf{sh install}''.
-\end{itemize}
-% mettere una foto di come avviene l'installazione in linux
-\item \underline{Windows:}
+L'installazione del prodotto segue procedure diverse da sistema operativo a sistema operativo.
+\subsection{Sistemi Linux o MacOSX}
+L'installazione in sistemi Linux e MacOSX avviene attraverso uno script bash. Bisogna quindi  accedere alla cartella del cd di installazione,  tramite un terminale (\textbf{shell}). Avviare lo script di installazione tramite il comando \textbf{sh install.sh}.
+\begin{center}
+\includegraphics[width=1\textwidth]{manuale_utente/install.sh.eps}\\
+\end{center}
+
+
+\subsection{Windows:}
 \begin{itemize} 
 \item[-] avviare il prompt dei comandi (\textbf{shell});
 \item[-] accedere alla cartella ``\textbf{BR-jsys}'' fornita;
 \item[-] cliccare su ``\textbf{install.exe}''.
-\end{itemize}
-% mettere una foto di come avviene l'installazione in Windows
 \end{itemize}
 L'installazione si preoccuer\`a di sistemare le dipendenze per il corretto funzionamento del programma.
 
