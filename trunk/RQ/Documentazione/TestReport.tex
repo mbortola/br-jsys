@@ -233,7 +233,7 @@ Vengono di seguito riportati i test riguardanti le macrocomponenti del sistema \
 
 \subsection{Test sul validatore} 
 % white box è una tecnica di progettazione non di esecuzione dei test i test si eseguono sul codice. la loro progettazione può essere fatta alla cazzo black box o basandosi sulla conoscenza del sorgente whitebox
-La macrocomponente validatore verr\`a testata inserendo in input al validatore un oggetto \br\  con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso. Attraverso questi test verr\`a valutato il corretto comportamento del programma difronte a situazioni limite. I test di seguito illustrati sono stati progettati a a scatola aperta (\underline{whitebox}), basandosi sull'analisi del codice sorgente.\\
+Questa componente verr\`a testata inserendo in input al validatore un oggetto \br\,  con gli attributi di seguito specificati, e confrontando l'output del validatore con l'output atteso. Attraverso questi test verr\`a valutato il corretto comportamento del programma dinnanzi situazioni limite. I test di seguito illustrati sono stati progettati a a scatola aperta (\underline{whitebox}), basandosi sull'analisi del codice sorgente.\\
 \\
 \begin{Large}\textbf{VT1a}\end{Large} \\
 Si testa una \br\ semplice per verificare che siano accettati tutti i campi dati.\\
@@ -1911,13 +1911,13 @@ NQ3 &  - \\ \hline
 Essendo la fase di test una fase costosa e laboriosa del processo software, si \`e deciso di automatizzare il pi\`u possibile l’esecuzione dei test, anche mediante l'utilizzo  di tools come \underline{JUnit}.
 Per fare questo ci siamo in parte appoggiati ad un framework di lavoro denominato \textit{JUnit}, il quale ci ha permesso di costruire batterie di test strutturalmente omogenei  con i quali invocare metodi e funzionalit\`a di una o pi\`u componenti, pi\`u o meno integrate tra loro. 
 L’esecuzione dei \textit{test case} viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l’output prodotto con quello atteso. 
-Per alcuni test \`e stato necessario l'intervento manuale del verificatore il quale, interagendo direttamente con l'interfaccia grafica del programma, ne ha testato le diverse funzionalit\`a, tali test sono comunque una parte minima di tutti i test da eseguire e non incidono eccessivamente sul costo dell’intera fase di test.
+Per alcuni test \`e stato necessario l'intervento manuale del verificatore il quale, interagendo direttamente con l'interfaccia grafica del programma, ne ha testato le diverse funzionalit\`a. Tali test sono comunque una parte minima di tutti i test da eseguire e non incidono eccessivamente sul costo dell'intera fase di test.
 
 \section{Dettaglio dei Test eseguiti con \underline{JUnit}}
 Riportiamo di seguito i test eseguiti con \underline{JUnit} e gli eventuali errors o failures emersi.
-Per ogni classe sono stati eseguiti i test indicati di default da JUnit ed i test relativi alle funzionalit\`a proprie.
+Per ogni classe sono stati eseguiti i test indicati di default da JUnit ed i test relativi alle funzionalit\`a.
 \begin{center}
-\textbf{Test sulla classe BusinessRule}\\
+\textbf{Test sulla classe BusinessRule} \\
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 BusinessRuleTest(String) & nessuno \\ \hline
