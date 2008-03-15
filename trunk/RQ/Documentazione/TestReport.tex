@@ -58,6 +58,8 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+1.5 & 15/03/2008 & \AT & Completamento sezione``Junit'' e correzione del documento. \\ \hline
+1.4 & 14/03/2008 & \AT & Prima correzione al documento. \\ \hline
 1.3 & 14/03/2008 & \MT & Esiti dei test di convalida. \\ \hline
 1.2 & 14/03/2008 & \ET & Aggiunta degli esiti di JUnit. \\ \hline
 1.1 & 14/03/2008 & \MT & Esiti dei test di regressione. \\ \hline
@@ -1907,11 +1909,11 @@ Essendo la fase di test una fase costosa e laboriosa del processo software, si \
 Per fare questo ci siamo appoggiati ad un framework di lavoro denominato \textit{JUnit}, il quale ci ha permesso di costruire batterie di test strutturalmente omogenei  con i quali invocare metodi e funzionalit\`a di una o pi\`u componenti, pi\`u o meno integrate tra loro. 
 Per alcuni test \`e stato necessario l'intervento manuale del verificatore il quale, interagendo direttamente con l'interfaccia grafica del programma, ne ha guidato la corretta esecuzione.  
 
-\section{Dettaglio dei Test eseguiti con \textit{JUnit}}
-Riportiamo di seguito i test eseguiti con \textit{JUnit} e gli eventuali errors o failures emersi.
+\section{Dettaglio dei Test eseguiti con \underline{JUnit}}
+Riportiamo di seguito i test eseguiti con \underline{JUnit} e gli eventuali errors o failures emersi.
 Per ogni classe sono stati eseguiti i test indicati di default da JUnit ed i test relativi alle funzionalit\`a proprie.
 \begin{center}
-\textbf{Test sulla classe BusinessRule}
+\textbf{Test sulla classe BusinessRule}\\
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 BusinessRuleTest(String) & nessuno \\ \hline
@@ -1922,7 +1924,7 @@ tearDown() & nessuno \\ \hline
 \end{center}
 
 \begin{center}
-\textbf{Test sulla classe Communicator}
+\textbf{Test sulla classe Communicator}\\
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 CommunicatorTester(String) & nessuno \\ \hline
@@ -1934,7 +1936,7 @@ tearDown() & nessuno \\ \hline
 \end{center}
 
 \begin{center}
-\textbf{Test sulla classe GUICommunicator}
+\textbf{Test sulla classe GUICommunicator}\\
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 GUICommunicatorTester(String) & nessuno \\ \hline
@@ -1948,7 +1950,7 @@ tearDown() & nessuno \\ \hline
 \end{center}
 
 \begin{center}
-\textbf{Test sulla classe InterpreterCommunicator}
+\textbf{Test sulla classe InterpreterCommunicator}\\
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 InterpreterCommunicatorTester(String) & nessuno \\ \hline
@@ -1960,7 +1962,7 @@ tearDown() & nessuno \\ \hline
 \end{center}
 
 \begin{center}
-\textbf{Test sulla classe ValidatorCommunicator}
+\textbf{Test sulla classe ValidatorCommunicator}\\
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 ValidatorCommunicatorTester(String) & nessuno \\ \hline
@@ -1972,7 +1974,7 @@ tearDown() & nessuno \\ \hline
 \end{center}
 
 \begin{center}
-\textbf{Test sulla classe Gui}
+\textbf{Test sulla classe Gui}\\
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 GuiTest(String) & nessuno \\ \hline
@@ -1984,7 +1986,7 @@ tearDown() & nessuno \\ \hline
 \end{center}
 
 \begin{center}
-\textbf{Test sulla classe Validator}
+\textbf{Test sulla classe Validator}\\
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 ValidatorTest(String, String) & nessuno \\ \hline
@@ -1995,7 +1997,7 @@ tearDown() & nessuno \\ \hline
 \end{center}
 
 \begin{center}
-\textbf{Test sulla classe TypeCollisionException}
+\textbf{Test sulla classe TypeCollisionException}\\
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 TypeCollisionExceptionTest(String) & nessuno \\ \hline
@@ -2006,7 +2008,7 @@ tearDown() & nessuno \\ \hline
 \end{center}
 
 \begin{center}
-\textbf{Test sulla classe XMLParser}
+\textbf{Test sulla classe XMLParser}\\
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 XMLParserTest(String[]) & nessuno \\ \hline
