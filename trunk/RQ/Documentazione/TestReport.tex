@@ -250,7 +250,7 @@ Regola & entrate=0; AND NOT(scontato)=true;\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=0; AND NOT(scontato)=true;''\textgreater \\
 \textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
  \textless OBool type=``AND''\textgreater \\
  \textless Conf type=``=''\textgreater \\
@@ -284,7 +284,7 @@ Regola & entrate=3; AND uscite=4;\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR'' rule=``entrate=3 AND uscite=4''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR'' rule=``entrate=3; AND uscite=4;''\textgreater \\
  \textless AstRuleVersion value=``(AND (= entrate 3) (= uscite 4))''/\textgreater \\
 \textless OBool type=``AND''\textgreater \\
 \textless Conf type=``=``\textgreater \\
@@ -396,7 +396,7 @@ Regola & (uscite=5; OR uscite=5;)  AND ( uscite=5; OR uscite=5;)  \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``(uscite=5 OR uscite=5)  AND ( uscite=5 OR uscite=5)''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``(uscite=5; OR uscite=5;)  AND ( uscite=5; OR uscite=5;)''\textgreater\\
  \textless AstRuleVersion value=``(AND (OR (= uscite 5) (= uscite 5)) (OR (= uscite 5) (= uscite 5)))''/\textgreater \\
 \textless OBool type=``AND''\textgreater\\
 \textless OBool type=``OR''\textgreater\\
@@ -440,7 +440,7 @@ Regola & uscite=5; AND uscite=5; OR uscite=5; AND uscite=5; OR uscite=5; AND usc
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=5 OR uscite=5  AND  uscite=5 OR uscite=5''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=5; OR uscite=5;  AND  uscite=5; OR uscite=5;''\textgreater\\
  \textless AstRuleVersion value=``(OR (AND (OR (= uscite 5) (= uscite 5)) (= uscite 5)) (= uscite 5))''/\textgreater \\
 \textless OBool type=``OR''\textgreater\\
 \textless OBool type=``AND''\textgreater\\
@@ -484,7 +484,7 @@ Regola & entrate=5+2;\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=5+2''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=5+2;''\textgreater \\
 \textless AstRuleVersion value=``(= entrate (+ 5 2))''/\textgreater \\
 \textless Bconf type=``=``\textgreater\\
  \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
@@ -513,7 +513,7 @@ Regola & entrate=SUM(prezzoBase);\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=SUM(prezzoBase)''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=SUM(prezzoBase);''\textgreater \\
 \textless AstRuleVersion value=``(= entrate (SUM prezzoBase))''/\textgreater \\
 \textless Bconf type=``=``\textgreater \\
 \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
@@ -541,7 +541,7 @@ Regola & entrate=AVG(prezzoBase)+2 message(``errore nel confronto'');\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=AVG(prezzoBase)+2 message(\&quot;errore nel confronto\&quot;)''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=AVG(prezzoBase)+2 message(\&quot;errore nel confronto\&quot;);''\textgreater \\
 \textless AstRuleVersion value=``(= entrate (+ (AVG prezzoBase) 2) (message \&quot;errore nel confronto\&quot;))''/\textgreater\\
  \textless Bconf type=``=``\textgreater \\
 \textless FIELD\textgreater entrate\textless /FIELD\textgreater \\
@@ -575,7 +575,7 @@ Regola & uscite\textless2; AND uscite\textgreater 2; AND uscite\textless=2; AND 
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite\&lt;2 AND uscite\&gt; 2 AND uscite\&lt;=2 AND uscite\&gt;=2 AND uscite=2 AND uscite!=2''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite\&lt;2; AND uscite\&gt; 2; AND uscite\&lt;=2; AND uscite\&gt;=2; AND uscite=2; AND uscite!=2;''\textgreater\\
  \textless AstRuleVersion value=``(AND (AND (AND (AND (AND (= uscite 2) (!= uscite 2)) (\&gt;= uscite 2)) (\&lt;= uscite 2)) (\&gt; uscite 2)) (\&lt; uscite 2))''/\textgreater \\
 \textless OBool type=``AND''\textgreater \textless OBool type=``AND''\textgreater\\
 \textless OBool type=``AND''\textgreater \textless OBool type=``AND''\textgreater\\
@@ -630,7 +630,7 @@ Regola & uscite=(2+2-(3*4))/5; \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+2-(3*4))/5''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+2-(3*4))/5;''\textgreater \\
 \textless AstRuleVersion value=``(= uscite (/ (- (+ 2 2) (* 3 4)) 5))''/\textgreater \\
  \textless Bconf type=``=``\textgreater \\
 \textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
@@ -668,7 +668,7 @@ Regola & uscite=(2+entrate-(uscite*4))/entrate; \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+entrate-(uscite*4))/entrate''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+entrate-(uscite*4))/entrate;''\textgreater\\
  \textless AstRuleVersion value=``(= uscite (/ (- (+ 2 entrate) (* uscite 4)) entrate))''/\textgreater\\
  \textless Bconf type=``=``\textgreater \\
 \textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
@@ -706,7 +706,7 @@ Regola & uscite=(uscite+entrate-(uscite*entrate))/entrate; \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(uscite+entrate-(uscite*entrate))/entrate''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(uscite+entrate-(uscite*entrate))/entrate;''\textgreater\\
  \textless AstRuleVersion value=``(= uscite (/ (- (+ uscite entrate) (* uscite entrate)) entrate))''/\textgreater \\
 \textless Bconf type=``=``\textgreater \\
 \textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
@@ -744,7 +744,7 @@ Regola & uscite=(2+prezzoBase) +(prezzoBase*4) +(prezzoBase/4) +(prezzoBase-3); 
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+prezzoBase)+(prezzoBase*4) +(prezzoBase/4)+(prezzoBase-3)''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=(2+prezzoBase)+(prezzoBase*4) +(prezzoBase/4)+(prezzoBase-3);''\textgreater\\
  \textless AstRuleVersion value=``(= uscite (+ (+ (+ (+ 2 prezzoBase) (* prezzoBase 4)) (/ prezzoBase 4)) (- prezzoBase 3)))''/\textgreater \\
 \textless Bconf type=``=``\textgreater \\
 \textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
@@ -1086,7 +1086,7 @@ Regola & uscite=2*3*4+4-3*5-5+3/2*3; \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=2*3*4+4-3*5-5+3/2*3''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=2*3*4+4-3*5-5+3/2*3;''\textgreater\\
  \textless AstRuleVersion value=``(= uscite (+ (- (- (+ (* (* 2 3) 4) 4) (* 3 5)) 5) (* (/ 3 2) 3)))''/\textgreater\\
  \textless Bconf type=``=``\textgreater\\
  \textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
@@ -1139,7 +1139,7 @@ Regola & uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7); \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7)''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=((((2*((3*4)+(4)-(3*5)-5)+3)/2)*3)+7);''\textgreater\\
  \textless AstRuleVersion value=``(= uscite (+ (* (/ (+ (* 2 (- (- (+ (* 3 4) 4) (* 3 5)) 5)) 3) 2) 3) 7))''/\textgreater\\
  \textless Bconf type=``=``\textgreater \\
 \textless FIELD\textgreater uscite\textless /FIELD\textgreater\\
@@ -1213,7 +1213,7 @@ Regola & nome=``ArticoloUno'' AND nome!=``ArticoloDue''\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``nome=\&quot;ArticoloUno\&quot;  AND nome!=\&quot;ArticoloDue\&quot;''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``nome=\&quot;ArticoloUno\&quot;;  AND nome!=\&quot;ArticoloDue\&quot;;''\textgreater\\
  \textless AstRuleVersion value=``(AND (= nome \&quot;ArticoloUno\&quot;) (!= nome \&quot;ArticoloDue\&quot;))''/\textgreater\\
  \textless OBool type=``AND''\textgreater\\
  \textless Conf type=``=``\textgreater\\
@@ -1265,7 +1265,7 @@ Regola & ((scontato\textbar \textbar scontato)\&\& scontato) = true; AND (true\t
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``((scontato||scontato) \&amp;\&amp; scontato) = true AND (true || false \&amp;\&amp; NOT(true))=scontato''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``((scontato||scontato) \&amp;\&amp; scontato) = true; AND (true || false \&amp;\&amp; NOT(true))=scontato;''\textgreater \\
 \textless AstRuleVersion value=``(AND (= (\&amp;\&amp; (|| scontato scontato) scontato) true) (= (\&amp;\&amp; (|| true false) (NOT true)) scontato))''/\textgreater\\
  \textless OBool type=``AND''\textgreater\\
  \textless Conf type=``=``\textgreater\\
@@ -1311,7 +1311,7 @@ Regola & SUM(prezzoBase) = 12; AND COUNT(entrate)=1; AND AVG(prezzoBase)=4;\\ \h
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``SUM(prezzoBase) = 12 AND COUNT(entrate)=1, AND AVG(prezzoBase)=4 ''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``SUM(prezzoBase) = 12; AND COUNT(entrate)=1; AND AVG(prezzoBase)=4; ''\textgreater\\
  \textless AstRuleVersion value=``(AND (= (SUM prezzoBase) 12) (= (COUNT entrate) 1))''/\textgreater\\
  \textless OBool type=``AND''\textgreater\\
  \textless Conf type=``=``\textgreater\\
@@ -1468,7 +1468,7 @@ Regola & uscite=((((\textasciitilde2*((\textasciitilde3*\textasciitilde4)+(\text
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=((((\textasciitilde2*((\textasciitilde3 *\textasciitilde4)+(\textasciitilde4)-(\textasciitilde3*\textasciitilde5) -5)+3)/\textasciitilde2)*\textasciitilde3)+7)''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``uscite=((((\textasciitilde2*((\textasciitilde3 *\textasciitilde4)+(\textasciitilde4)-(\textasciitilde3*\textasciitilde5) -5)+3)/\textasciitilde2)*\textasciitilde3)+7);''\textgreater \\
 \textless AstRuleVersion value=``(= uscite (+ (* (/ (+ (* \textasciitilde2 (- (- (+ (* \textasciitilde3 \textasciitilde4) \textasciitilde4) (* \textasciitilde3 \textasciitilde5)) 5)) 3) \textasciitilde2) \textasciitilde3) 7))''/\textgreater\\ 
 \textless Bconf type=``=``\textgreater \\
 \textless FIELD\textgreater uscite\textless /FIELD\textgreater \\
@@ -1524,7 +1524,7 @@ Regola & scontato=true; \\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``\&agrave; \&egrave; \&igrave; \&ograve; \&ugrave; \&Agrave; \&Egrave; \&Igrave; \&Ograve; \&Ugrave; \&quot;test\&quot;, 'test', \&amp;, \&gt;, \&lt;'' name=``\&agrave; \&egrave; \&igrave; \&ograve; \&ugrave; \&Agrave; \&Egrave; \&Igrave; \&Ograve; \&Ugrave; \&quot;test\&quot;, 'test', \&amp;, \&gt;, \&lt;'' rule=``scontato=true''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``\&agrave; \&egrave; \&igrave; \&ograve; \&ugrave; \&Agrave; \&Egrave; \&Igrave; \&Ograve; \&Ugrave; \&quot;test\&quot;, 'test', \&amp;, \&gt;, \&lt;'' name=``\&agrave; \&egrave; \&igrave; \&ograve; \&ugrave; \&Agrave; \&Egrave; \&Igrave; \&Ograve; \&Ugrave; \&quot;test\&quot;, 'test', \&amp;, \&gt;, \&lt;'' rule=``scontato=true;''\textgreater\\
  \textless AstRuleVersion value=``(= scontato true)''/\textgreater\\
 \textless Bconf type=``=``\textgreater\\
  \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
@@ -1550,7 +1550,7 @@ Regola & scontato=true message(``abc.. ABC.. 0..9 .?!\^\_-\textasciitilde''); \\
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``Comment'' name=``BR'' rule=``scontato=true message(\&quote;abc.. ABC.. 0..9 .?!\&\#94; \&\#95;- \&\#126;\&quote;)''\textgreater\\
+\textless BusinessRule associated=``Articolo'' comment=``Comment'' name=``BR'' rule=``scontato=true message(\&quote;abc.. ABC.. 0..9 .?!\&\#94; \&\#95;- \&\#126;\&quote;);''\textgreater\\
  \textless AstRuleVersion value=``(= scontato true) message(\&quote;abc.. ABC.. 0..9 .?!\&\#94; \&\#95;- \&\#126; \&quote;)''/\textgreater\\
 \textless Bconf type=``=``\textgreater\\
  \textless FIELD\textgreater scontato\textless /FIELD\textgreater\\
@@ -1607,7 +1607,7 @@ La macrocomponente comunicatore verr\`a testata inserendo in input al comunicato
 
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR'' rule=``entrate=0; AND NOT(scontato)=true;''\textgreater \\
 \textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
  \textless OBool type=``AND''\textgreater \\
  \textless Conf type=``=''\textgreater \\
@@ -1627,7 +1627,7 @@ La macrocomponente comunicatore verr\`a testata inserendo in input al comunicato
 
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
-\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR1'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``Commento'' name=``BR1'' rule=``entrate=0; AND NOT(scontato)=true;''\textgreater \\
 \textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
  \textless OBool type=``AND''\textgreater \\
  \textless Conf type=``=''\textgreater \\
@@ -1647,7 +1647,7 @@ La macrocomponente comunicatore verr\`a testata inserendo in input al comunicato
 
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
-\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR2'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR2'' rule=``entrate=0; AND NOT(scontato)=true;''\textgreater \\
 \textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
  \textless OBool type=``AND''\textgreater \\
  \textless Conf type=``=''\textgreater \\
@@ -1667,7 +1667,7 @@ La macrocomponente comunicatore verr\`a testata inserendo in input al comunicato
 
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
-\textless BusinessRule associated=``Archivio'' comment=``'' name=``BR3'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater \\
+\textless BusinessRule associated=``Archivio'' comment=``'' name=``BR3'' rule=``entrate=0; AND NOT(scontato)=true;''\textgreater \\
 \textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater \\
  \textless OBool type=``AND''\textgreater \\
  \textless Conf type=``=''\textgreater \\
@@ -1756,7 +1756,7 @@ Requisiti soddisfatti dall'esecuzione: F3,F5,F7,F8,NPo1,NPr2,NU3
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Query eseguita}\\ \hline
-update insert "\textless BusinessRule associated=``Archivio'' comment=``'' name=``BR3'' rule=``entrate=0 AND NOT(scontato)=true''\textgreater 
+update insert "\textless BusinessRule associated=``Archivio'' comment=``'' name=``BR3'' rule=``entrate=0; AND NOT(scontato)=true;''\textgreater 
 \textless AstRuleVersion value=``(AND (= entrate 0) (= (NOT scontato) true))''/\textgreater 
  \textless OBool type=``AND''\textgreater 
  \textless Conf type=``=''\textgreater 
@@ -1809,7 +1809,7 @@ Requisiti soddisfatti dall'esecuzione: NPr2. \\
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Business rule da inserire}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``'' name=``BRUnique'' rule=``entrate=0''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``'' name=``BRUnique'' rule=``entrate=0;''\textgreater \\
 \textless AstRuleVersion value=``(= entrate 0)''/\textgreater \\
  \textless Conf type=``=''\textgreater \\
  \textless FIELD\textgreater entrate \textless /FIELD\textgreater \\
@@ -1832,7 +1832,7 @@ Requisiti soddisfatti dall'esecuzione: F2, F8.\\
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Business rule da inserire}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR5'' rule=``entrate=0''\textgreater \\
+\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR5'' rule=``entrate=0;''\textgreater \\
 \textless AstRuleVersion value=``(= entrate 0)''/\textgreater \\
  \textless Conf type=``=''\textgreater \\
  \textless FIELD\textgreater entrate \textless /FIELD\textgreater \\
