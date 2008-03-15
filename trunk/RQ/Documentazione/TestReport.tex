@@ -232,10 +232,8 @@ Ogni \textit{test case} \`e documentato con descrizione d'uso e un elenco di req
 Vengono di seguito riportati i test riguardanti le macrocomponenti del sistema \underline{br-jsys}. Questi test si occupano di testare il corretto funzionamento della componente, nonch\`e di mostrare il soddisfacimento di alcuni requisiti.
 
 \subsection{Test sul validatore} 
-% DA CONTOLLARE :
-Con l'ausilio di test funzionali (\underline{blackbox}) si analizzer\`a il flusso di esecuzione del codice, inserendo dati in input (gli attributi di seguito elencati), capaci di provocare l'esito atteso.  Attraverso questa tecnica abbiamo valutato il corretto comportamento del programma attraverso situazioni limite. 
-%PRIMA ERA SCRITTO COSI': La macrocomponente validatore verr\`a testata a scatola aperta (\underline{whitebox}), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso.\\
-%MA QUESTA E' LA DEFINIZIONE DEI TEST FUNZIONALI (BLACK BOX)
+% white box è una tecnica di progettazione non di esecuzione dei test i test si eseguono sul codice. la loro progettazione può essere fatta alla cazzo black box o basandosi sulla conoscenza del sorgente whitebox
+La macrocomponente validatore verr\`a testata inserendo in input al validatore un oggetto \br\  con gli attributi di seguito specificati e confrontando l'output del validatore con l'output atteso. Attraverso questi test verr\`a valutato il corretto comportamento del programma difronte a situazioni limite. I test di seguito illustrati sono stati progettati a a scatola aperta (\underline{whitebox}), basandosi sull'analisi del codice sorgente.\\
 \\
 \begin{Large}\textbf{VT1a}\end{Large} \\
 Si testa una \br\ semplice per verificare che siano accettati tutti i campi dati.\\
@@ -1604,7 +1602,7 @@ Errore sintattico\\
 \end{center}
 
 \subsection{Test sul comunicatore}
-La macrocomponente comunicatore verr\`a testata a scatola aperta (\underline{whitebox}), inserendo in input al comunicatore una stringa contenente una query \underline{XQuery} e verificando che la modifica sia stata effettuata nel repository. Non verranno testate le query non accettate dal linguaggio \underline{XQuery}, in quanto gia` garantite dal \underline{DBMS} \underline{eXist}. Per un corretto esito dei test \`e necessario che il \textit{repository} abbia una determinata situazione iniziale, illustrata nel riquadro sottostante. \`E importante che la situazione iniziale del repository sia quella descritta di seguito, e che i test sul comunicatore siano eseguiti nell'ordine descritto. Per i motivi sopra elencati \`e molto importante che venga utilizzata l'apposita classe di test. \\
+La macrocomponente comunicatore verr\`a testata inserendo in input al comunicatore una stringa contenente una query \underline{XQuery} e verificando che la modifica sia stata effettuata nel repository. Non verranno testate le query non accettate dal linguaggio \underline{XQuery}, in quanto gia` garantite dal \underline{DBMS} \underline{eXist}. Attraverso questi test verr\`a valutato il corretto comportamento del programma difronte a situazioni limite. I test di seguito illustrati sono stati progettati a a scatola aperta (\underline{whitebox}), basandosi sull'analisi del codice sorgente. Per un corretto esito dei test \`e necessario che il \rp\ abbia una determinata situazione iniziale, illustrata nel riquadro sottostante. \`E importante che la situazione iniziale del repository sia quella descritta di seguito, e che i test sul comunicatore siano eseguiti nell'ordine descritto. Per i motivi sopra elencati \`e molto importante che venga utilizzata l'apposita classe di test. \\
 \\
 
 \begin{center}
@@ -1777,7 +1775,7 @@ update insert "\textless BusinessRule associated=``Archivio'' comment=``'' name=
 \end{center}
 
 \subsection{Test sulla GUI}
-La macrocomponente gui verr\`a testata a scatola aperta (\underline{whitebox}) e manualmente, verificando il funzionamento di ogni sua componente grafica. Verranno testati tutti i bottoni che lanciano nuove finestre. Si tester\`a che ogni bottone invochi il metodo appropiato.\\
+La macrocomponente gui verr\`a testata manualmente, verificando il funzionamento di ogni sua componente grafica. Verranno testati tutti i bottoni che lanciano nuove finestre. Si tester\`a che ogni bottone invochi il metodo appropiato.\\
 \\
 \begin{Large}\textbf{GT1a}\end{Large} \\
 Si testa il bottone 'Inserisci Business Rule' e si testa che la finestra 'Inserisci' venga aperta.
@@ -1803,7 +1801,7 @@ Requisiti soddisfatti dall'esecuzione: F4,F8,NU3\\
 Vengono di seguito riportati i test riguardanti le integrazioni delle varie componenti. Questi test hanno come precondizione l'esecuzione dei test sulle singole macrocomponenti, di conseguenza sono mirati a scoprire difetti nell'interfacciamento e nell'interazione tra diverse componenti, nonch\`e di mostrare il soddisfacimento di alcuni requisiti.
 
 \subsection{Integrazione validatore, comunicatore}
-L'integrazione tra 'validatore' e 'comunicatore' verr\`a testata a scatola aperta (\underline{whitebox}), inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
+L'integrazione tra 'validatore' e 'comunicatore' verr\`a testata inserendo in input al validatore un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le 2 componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
 
 \begin{Large}\textbf{CVT1a}\end{Large} \\
 Si testa che una \br\ non presente nel \rp\ venga inserita ritornando 'true'.
@@ -1826,7 +1824,7 @@ Si deve testare l'impedimento da parte del validatore di inserire nel \rp\ \br\ 
 Requisiti soddisfatti dall'esecuzione: NPr2.\\
  \\
 \subsection{Integrazione gui, validatore}
-L'integrazione tra 'gui' e 'validatore' verr\`a testata a scatola aperta (\underline{whitebox}), inserendo da gui  un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le due componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
+L'integrazione tra 'gui' e 'validatore' verr\`a testata inserendo da gui  un oggetto \textit{\br\ } con gli attributi di seguito specificati e verificando che l'output sia quello atteso. Essendo gi\`a state testate separatamente le due componenti ci si limiter\`a a testare le sole funzionalit\`a risultanti dalla loro integrazione.\\
 
 \begin{Large}\textbf{GVT1}\end{Large} \\
 Si testa che il bottone 'Valida' invochi la validazione della \br\ appena inserita.
@@ -1846,7 +1844,7 @@ Requisiti soddisfatti dall'esecuzione: F2, F8.\\
 
 
 \subsection{Integrazione del sistema}
-L'integrazione dell'intero sistema verr\`a testata a scatola aperta (\underline{whitebox}), testando le sole funzionalit\`a risultanti dalla completa integrazione del sistema.\\
+Nell'integrazione dell'intero sistema verranno testate le sole funzionalit\`a risultanti dalla completa integrazione del sistema.\\
  \\
 \begin{Large}\textbf{S1}\end{Large} \\
 Si testa che la maschera di login della gui accetti username e password corretti, stabilendo la connessione col \rp.
@@ -1905,9 +1903,10 @@ NQ3 &  - \\ \hline
 \end{center}
 
 \chapter{Automatizzazione dei test}
-Essendo la fase di test una fase costosa e laboriosa del processo software, si \`e deciso di utilizzare tools automatici per l'esecuzione dei test.
-Per fare questo ci siamo appoggiati ad un framework di lavoro denominato \textit{JUnit}, il quale ci ha permesso di costruire batterie di test strutturalmente omogenei  con i quali invocare metodi e funzionalit\`a di una o pi\`u componenti, pi\`u o meno integrate tra loro. 
-Per alcuni test \`e stato necessario l'intervento manuale del verificatore il quale, interagendo direttamente con l'interfaccia grafica del programma, ne ha guidato la corretta esecuzione.  
+Essendo la fase di test una fase costosa e laboriosa del processo software, si \`e deciso di automatizzare il pi\`u possibile l’esecuzione dei test, anche mediante l'utilizzo  di tools come \underline{JUnit}.
+Per fare questo ci siamo in parte appoggiati ad un framework di lavoro denominato \textit{JUnit}, il quale ci ha permesso di costruire batterie di test strutturalmente omogenei  con i quali invocare metodi e funzionalit\`a di una o pi\`u componenti, pi\`u o meno integrate tra loro. 
+L’esecuzione dei \textit{test case} viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l’output prodotto con quello atteso. 
+Per alcuni test \`e stato necessario l'intervento manuale del verificatore il quale, interagendo direttamente con l'interfaccia grafica del programma, ne ha testato le diverse funzionalit\`a, tali test sono comunque una parte minima di tutti i test da eseguire e non incidono eccessivamente sul costo dell’intera fase di test.
 
 \section{Dettaglio dei Test eseguiti con \underline{JUnit}}
 Riportiamo di seguito i test eseguiti con \underline{JUnit} e gli eventuali errors o failures emersi.
