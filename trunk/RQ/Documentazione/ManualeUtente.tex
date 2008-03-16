@@ -402,15 +402,18 @@ La figura 3.4.2 mostra un'eccezione lanciata in caso di esito negativo di una qu
 
 
 \chapter{Descrizione del linguaggio}
-In questa sezione faremo una descrizione dettagliata della grammatica da noi generata per rappresentare le \underline{business rules}. 
-\section{Struttura \br}
+In questo capitolo viene descritto il linguaggio di formulazione di \br. Una \br\ serve a definire vincoli e regole da rispettare per un determinato \bo. Per questo il linguaggio di definizione delle \br\ \`e incentrato soprattutto sul confronto tra campi dati dei \bo\ ed espressioni algebrica o valori costanti. In una \br\ quindi si possono ottenere valori attraverso l'utilizzo di espressioni algebriche, definire confronti tra questi valori e campi dati dei \bo\ e collegare questi confronti con operatori logici. L'insieme delle funzionalit\`a del linguaggio garantisce una buona espressivit\`a.
+\section{Una \br semplice}
+Ogni singola regola \`e formata da \textbf{espressioni} collegate tra loro attaverso operatori di confronto (= \textbar\ != \textbar\ \textless\ \textbar\ \textgreater\ \textbar\ \textless= \textbar\ \textgreater=). Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della \underline{business rule}. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
+
+\section{Struttura di una \br}
 Una \underline{business rule} pu\`o essere formata da:
 \begin{itemize}
 \item una \textbf{regola} atomica;
 \item un insieme di \textbf{regole} collegate tra loro attraverso operatori booleani (AND \textbar OR).
 \end{itemize}
-\section{Struttura regola}
-Ogni singola regola \`e formata da \textbf{espressioni} collegate tra loro attaverso operatori di confronto (= \textbar\ != \textbar\ \textless\ \textbar\ \textgreater\ \textbar\ \textless= \textbar\ \textgreater=). Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della \underline{business rule}. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
+
+
 \section{Struttura espressione}
 Un'espressione \`e formata da campi dati che posso essere di 3 tipi:
 \begin{itemize}
