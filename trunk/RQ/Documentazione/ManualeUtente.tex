@@ -183,6 +183,7 @@ Il \underline{DBMS} eXist \`e reperible all'indirizzo web \textit{\texttt{http:/
 \section{Installazione del prodotto}
 Una volta installato eXist si pu\`o procedere con l'installazione del br-jsys.
 L'installazione del prodotto segue procedure diverse da sistema operativo a sistema operativo.
+
 \subsection{Sistemi Linux o MacOSX}
 L'installazione in sistemi Linux e MacOSX avviene attraverso uno script bash. Bisogna quindi  accedere alla cartella del cd di installazione,  tramite un terminale (shell). Avviare lo script di installazione tramite il comando \textbf{sh install.sh} , il quale eseguir\`a lo script.
 Lo script si occupa di psizionare corretamente i file del prodotto e di creare un link di avvio al prodotto.
@@ -271,17 +272,20 @@ L'analisi dettagliata delle singole azioni verr\`a trattata nelle sezioni seguen
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_inserimento.eps}\\
  figura 3.2: schermata di inserimento
 \end{center}
-Nella figura 3.2 vediamo illustrata la schermata di inserimento di una nuova \underline{business rule}. L'utente dovr\`a inserire negli appositi spazi i campi dati richiesti:
-\begin{itemize}
-\item \underline{Nome:} \\
-Il nome della \underline{business rule} che l'utente intende inserire;
-\item \underline{BO Associato:} \\
-Il \underline{business object} al quale si vuole associare la regola;
-\item \underline{Regola:} \\
- La regola scritta secondo la grammatica spiegata nel paragrafo `Descrizione del Linguaggio';
-\item \underline{Commento:} \\
-Descrizione sintetica del comportamento della regola. 
-\end{itemize}
+Nella figura 3.2 vediamo illustrata la schermata di inserimento di una nuova \br. Per inserire una nuova \br\ e popolare quindi il database bisogna inserire negli appositi spazi i campi dati richiesti.
+\subsection{Nome}
+Il nome della \br che l'utente intende inserire. Il nome della \br deve essere univoco all'interno del repository
+
+\subsection{Business Object Associato}
+Il \bo al quale si vuole associare la regola.
+
+\subsection{Regola}
+ La regola scritta secondo la grammatica spiegata nel paragrafo `Descrizione del Linguaggio'.
+
+\subsection{Commento}
+Descrizione sintetica del comportamento della regola.
+
+\subsection{Validazione e inserimento}
 L'utente dovr\`a ora cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo. 
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_esempio_inserimento.eps}\\
