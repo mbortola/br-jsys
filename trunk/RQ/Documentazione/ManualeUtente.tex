@@ -332,16 +332,10 @@ Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una \underl
 \begin{itemize}
 \item Per procedere all'eliminazione l'utente avr\`a 2 modi:
 \begin{enumerate}
-\item inserire nell'appostito campo (TextBox) il nome della \underline{business rule} che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''.
-\item selezionare una o pi\`u \underline{business rule} dalla lista sottostante.
+\item inserire nell'appostito campo (TextBox) il nome della \underline{business rule} che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''. Se l'utente opera una o pi\`u ricerche, le \br  trovate verranno selezionate nel campo ``Business Rules Selezionate'' mentre in ``Lista Completa'' sar\`a evidenziata solo l'ultima di queste. Si possono eventualmente deselezionare le \br attraverso il tasto ``Deseleziona''. Viene infine introdotto l'uso di espressioni regolari per raffinare la ricerca, in questo caso invitiamo l'utente a consultare la documentazione fornita all' url:\\ \textit{http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html}.
+\item selezionare una o pi\`u \underline{business rule} dalle liste sottostanti.
 \end{enumerate}
-
-\item Se la \underline{business rule} risulta presente nel \rp\ (figura 3.3.1), comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 3.3.2. 
-\begin{center}
-\includegraphics[width=0.7\textwidth]{manuale_utente/br_selezionata.eps}\\
- figura 3.3.1: messaggio di regola trovata.
-\end{center} 
-
+\item Se la \underline{business rule} risulta presente nel \rp\ , comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 3.3.2. 
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/rimozione_br_trovata.eps}\\
  figura 3.3.2: esempio di regola selezionata.
@@ -363,12 +357,6 @@ Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una \underl
 Se la cancellazione viene effettuata con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
 \subsection{Esiti}
  
-\begin{center}
-\includegraphics[width=0.7\textwidth]{manuale_utente/cancellazione_riuscita.eps}\\
-figura 3.3.5 messaggio di regola rimossa.
-\end{center} 
-La figura 3.3.5 mostra la conferma di rimozione di \underline{business rules}. La \underline{business rule} \`e stata trovata dal \rp.
-
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/br_non_trovata.eps}\\
  figura 3.3.6 messaggio di regola non trovata.
@@ -405,7 +393,7 @@ La figura 3.4.2 mostra un'eccezione lanciata in caso di esito negativo di una qu
 In questo capitolo viene descritto il linguaggio di formulazione di \br. Una \br\ serve a definire vincoli e regole da rispettare per un determinato \bo. Per questo il linguaggio di definizione delle \br\ \`e incentrato soprattutto sul confronto tra campi dati dei \bo\ ed espressioni algebrica o valori costanti. In una \br\ quindi si possono ottenere valori attraverso l'utilizzo di espressioni algebriche, definire confronti tra questi valori e campi dati dei \bo\ e collegare questi confronti con operatori logici. L'insieme delle funzionalit\`a del linguaggio garantisce una buona espressivit\`a.
 \`E molto importante chiarire l'utilizzo delle \br. Le \br\ sono concepite per verificare che un oggetto rispetti determinati vincoli. I vincoli che si definiscono con una \br\ sono vincoli oggettivi ad esempio ``\texttt{se un valore è maggiore di 10 non deve essere minore di 10}'' e non vincoli soggettivi come ``\texttt{le entrate devono essere maggiori delle uscite}'' mentre per la prima regola non \`e possibile che avvenga il contrario, per la seconda ci\`o \`e possibile per quanto negativo possa essere per una azienda.
 
-\section{Una \br semplice}
+\section{Una \br  semplice}
 Una \br semplice \`e costituita da un singolo confronto. Ad esempio: ``prezzo\textgreater0;'' . La regola appena scritta serve a verificare che ogni oggetto abbia un prezzo maggiore di zero. Nella regola ``prezzo'' \`e il nome di un campo dati dell'oggetto. Una regola minimale \`e quindi definita dal comfronto tra un campo dati dell'oggetto e un valore. \\
 Ogni confronto va terminato da un ``;''. \\
 Gli operatori di confronto ammessi dal linguaggio sono : = (uguale), != (diverso), \textless\ (strettamente minore), \textgreater\ (strettamente maggiore),  \textless= (minore o uguale), \textgreater= (maggiore o uguale).
