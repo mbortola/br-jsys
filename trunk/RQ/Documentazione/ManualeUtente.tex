@@ -280,7 +280,12 @@ Il nome della \br\ che l'utente intende inserire. Il nome della \br\ deve essere
 Il \bo\ al quale si vuole associare la regola. Il linguaggio di definizione delle \br\ offre la possibilit\`a di effettuare operazioni e controlli sui campi dati dei \bo\ da validare. Per questo ad ogni \br\ \`e necessario associare un \bo. Per facilitare l'inserimento di una nuova \br\ (evitando cos\`i errori dovuti ad una digitazione errata del nome del \bo) il campo \bo\ associato \`e una \textit{combobox} che permette di scegliere uno dei \bo\ realmente presenti.
 
 \subsection{Regola}
-La regola scritta secondo la grammatica spiegata nel capitolo `Descrizione del Linguaggio'. Per ovviare all'inserimento di \br\ con il campo regola identico, \`e possibile selezionare una delle \br\ della lista e visualizzare il campo `regola' nella \textit{statusbar}.
+La regola scritta secondo la grammatica spiegata nel capitolo `Descrizione del Linguaggio'. Per ovviare all'inserimento di \br\ con il campo regola identico, \`e possibile selezionare una delle \br\ della lista e visualizzare il campo `regola' nella \textit{statusbar} figura 3.2.1.
+
+\begin{center}
+\includegraphics[width=1\textwidth]{manuale_utente/schermata_esempio_regola_selezionata.eps}\\
+ figura 3.2.1: campo dati regola selezionata
+\end{center} 
 
 \subsection{Commento}
 Descrizione sintetica del comportamento della regola. Il commento \`e opzionale e serve a fornire una descrizione pi\`u chiara e leggibile della regola stessa.
@@ -296,25 +301,26 @@ L'utente dovr\`a poi cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento
 \includegraphics[width=0.7\textwidth]{manuale_utente/br_inserita.eps}\\
  figura 3.2.3: esempio inserimento effettuato
 \end{center} 
-La figura 3.2.3 mostra l'esito di un corretto inserimento di una \br. La \br\ \`e stata cos\`i validata e inserita nel \rp.\\
+La figura 3.2.3 mostra l'esito di un corretto inserimento di una \br. La \br\ \`e stata cos\`i validata e inserita nel \rp.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_op_non_consentita.eps}\\
  figura 3.2.6: esempio di regola sintatticamente errata 
 \end{center} 
-La figura 3.2.6 mostra l'esito di un errato inserimento di \br. La \br\ non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa (in questo caso true=12) non \`e consentita.\\
-
+La figura 3.2.6 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa (in questo caso true=12) non \`e consentita.
+\\
+\\
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_sintattico.eps}\\
  figura 3.2.7: esempio di regola errata
 \end{center} 
-La figura 3.2.7 mostra l'esito di un errato inserimento di \br. La \br\ non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa \`e scritta in maniera errata.
+La figura 3.2.7 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa \`e scritta in maniera errata.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_br_gia_presente.eps}\\
  figura 3.2.8: esempio di regola gi\`a inserita
 \end{center} 
-La figura 3.2.8 mostra l'esito di un errato inserimento di \br. La \br\ non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un'occorrenza di questa nel \rp. In casi come questo è possibile verificare tramite un raffronto dei campi dati `nome' e `regola' con la lista e la statusbar, dove la \br\ sia identica ad un'altra \br\ gi\`a presente nel \rp.
+La figura 3.2.8 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un'occorrenza di questa nel \rp.
 
 
 \section{Rimuovi \br}
@@ -560,8 +566,6 @@ true & \textless BOOL \textgreater true\textless /BOOL\textgreater \\ \hline
 
 \chapter{Disinstallazione}
 \section{Sistemi Linux e MacOSX}
-Per rimuovere in modo completo il sistema \underline{BR-jsys} in sistemi Linux e MacOSX basta rimuovere la cartella `br-jsys' e l'eventuale collegamento creato durante l'installazione. la catella `br-jsys' \`e posizionata nella stessa directory che contene `eXist' (generalmente \textasciitilde/).
-
 \section{Sistemi Windows}
 
 
