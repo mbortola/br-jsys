@@ -121,8 +121,10 @@ Ogni capitolo verr\`a accompagnato da illustrazioni che rendano il pi\`u possibi
  \item Nel capitolo 2 vengono illustrati i requisiti (softwaree e hardware) necessari ad una corretta installazione del prodotto.
 \item Nel capitolo 3 viene illustrata la procedura di installazione del prodotto nei diversi sistemi operativi.
 \item Nel capitolo 4 vengono descritti i passsaggi per un corretto avvio del sistema.
-\item Nel capitolo 5 viene illustrato il sistema nelle sue funzionalit\`a.
-\item Nel capitolo 6 viene presentato il linguaggio che definisce una \br.
+\item Nel capitolo 5 vengono analizzate e descritte le varie funzionalit\`a del sistema.
+\item Nel capitolo 6 viene presentato il linguaggio che definisce le \br.
+\item Nel captolo 7 viene spiegato come disinstallare il prodotto nei diversi sistemi operativi.
+\item Nel capitolo 8 vengono riassunti i messaggi di errore.
  \end{itemize}
 
 
@@ -189,8 +191,7 @@ Nell'illustrazione che segue potete vedere un corretto output dello script.\\
 \includegraphics[width=1\textwidth]{manuale_utente/install.sh.eps}\\
 \end{center}
 
-
-\subsection{Windows:}
+\subsection{Sistemi Windows}
 L'installazione in sistemi Windows avviene attraverso un installer. Bisogna quindi accedere al cd rom di installazione e fare doppio clik sul file  \textbf{install.exe}, il quale avvier\`a un wizard di installazione.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/benvento.eps}\\
@@ -286,7 +287,7 @@ L'utente dovr\`a ora cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_esempio_inserimento.eps}\\
  figura 3.2.2: esempio di inserimento
 \end{center} 
-\subsubsection{Esiti}
+\subsection{Esiti}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/br_inserita.eps}\\
  figura 3.2.3: esempio inserimento effettuato
@@ -363,7 +364,7 @@ Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una \underl
 \end{center} 
 
 Se la cancellazione viene effettuata con successo verr\`a visualizzato un messaggio che ne conferma l'esito positivo, in caso contrario uno negativo.
-\subsubsection{Esiti}
+\subsection{Esiti}
  
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/cancellazione_riuscita.eps}\\
@@ -389,7 +390,7 @@ Nella figura 3.4 vediamo illustrata la schermata di \underline{sandbox}. Per pro
 \item cliccare sul pulsante ``\textbf{Esegui}''.
 \end{itemize}
 
-\subsubsection{Esiti}
+\subsection{Esiti}
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/sandbox_di_query.eps}\\
  figura 3.4.1 esempio di querying corretto.
@@ -405,15 +406,15 @@ La figura 3.4.2 mostra un'eccezione lanciata in caso di esito negativo di una qu
 
 \chapter{Descrizione del linguaggio}
 In questa sezione faremo una descrizione dettagliata della grammatica da noi generata per rappresentare le \underline{business rules}. 
-\subsection{Struttura \br}
+\section{Struttura \br}
 Una \underline{business rule} pu\`o essere formata da:
 \begin{itemize}
 \item una \textbf{regola} atomica;
 \item un insieme di \textbf{regole} collegate tra loro attraverso operatori booleani (AND \textbar OR).
 \end{itemize}
-\subsection{Struttura regola}
+\section{Struttura regola}
 Ogni singola regola \`e formata da \textbf{espressioni} collegate tra loro attaverso operatori di confronto (= \textbar\ != \textbar\ \textless\ \textbar\ \textgreater\ \textbar\ \textless= \textbar\ \textgreater=). Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della \underline{business rule}. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
-\subsection{Struttura espressione}
+\section{Struttura espressione}
 Un'espressione \`e formata da campi dati che posso essere di 3 tipi:
 \begin{itemize}
 \item Float;
@@ -443,7 +444,7 @@ oltre alla funzione:
 \item[-] NOT (negazione logica). 
 \end{itemize}
 \textbf{String} permette invece solo operazioni di confronto.
-\subsection{Struttura message}
+\section{Struttura message}
 Un message pu\`o essere formato da:
 \begin{itemize}
 \item lettere maiuscole (A-Z);
@@ -453,7 +454,7 @@ Un message pu\`o essere formato da:
 \item i seguenti caratteri di punteggiatura: `.'  `?'  `!'  `\_'  `-'  `\~\ '
 \item i seguenti caratteri speciali \^\ e \~ \\
 \end{itemize}
-\subsection{Esempi di \underline{business rules}}
+\section{Esempi di \underline{business rules}}
 Faremo ora, per una maggiore comprensione del linguaggio, alcuni esempi di \underline{business rules}.
 \begin{itemize}
 \item \textbf{ESEMPIO 1} \\
@@ -467,7 +468,7 @@ Il nome dello studente deve essere Lisa. I suoi crediti devono essere almeno 180
 \underline{REGOLA NEL LINGUAGGIO CREATO:} \\
 nome=``Lisa'' AND SUM(crediti)\textgreater =180 message(``totale crediti sbagliato'') AND COUNT(anni)\textless =3 message(``risulti fuori corso'')
 \end{itemize}
-\subsection{Rappresentazione in XML}
+\section{Rappresentazione in XML}
 Mostriamo ora come vengono rappresentati i vari simboli e operatori della grammatica nella loro rappresentazione in XML.
 \begin{table}[htbp]
 \begin{tabular}{||p{3cm}||p{6.5cm}||}
@@ -566,10 +567,12 @@ true & \textless BOOL \textgreater true\textless /BOOL\textgreater \\ \hline
 \end{tabular} \\
 \end{table}
 
+\chapter{Disinstallazione}
+\section{Sistemi Linux e MacOSX}
+\section{Sistemi Windows}
 
 
-
-\chapter{Appendice}
+\chapter{Messaggi d'errore}
 \section{Come riportare problemi e malfunzionamenti}
 Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivio fornisce una sezione ``issues'' all'URL: \\ 
 \textbf{``http://code.google.com/p/br-jsys/issues/list''}, che visualizza in qualsiasi momento la lista aggiornata di tutti i problemi e malfunzionamenti da noi riscontrati. Attraverso questo sistema ogni componente del gruppo potr\`a creare un ``new issue'', assegnandogli una priorit\`a che varier\`a a seconda della gravit\`a del problema. Ogni issue conterr\`a inoltre il nome dell'utente che lo ha aggiunto nella lista, oltre ad uno status (new, accepted, started, verified, etc...) che in qualsiasi momento ogni membro del gruppo potr\`a aggiornare. 
