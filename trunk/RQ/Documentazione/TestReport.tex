@@ -270,7 +270,7 @@ Regola & entrate=0; AND NOT(scontato)=true;\\ \hline
 \end{center}
 
 \begin{Large}\textbf{VT1b}\end{Large} \\
-Si testa una \br\ semplice per verificare che il commento pu\`o non essere inserito.\\
+Si testa una \br\ semplice per verificare che il commento pu\`o non essere inserito. E se non inserito non compare come attributo vuoto nell' \underline{XML}.\\
 Requisiti soddisfatti dall'esecuzione: F1,F2,F10
 \begin{center}
 \begin{tabular}{|p{5cm}|p{6cm}|} \hline
@@ -284,7 +284,7 @@ Regola & entrate=3; AND uscite=4;\\ \hline
 \begin{center}
 \begin{tabular}{|p{11cm}|} \hline
 \textbf{Output atteso}\\ \hline
-\textless BusinessRule associated=``Articolo'' comment=``'' name=``BR'' rule=``entrate=3; AND uscite=4;''\textgreater \\
+\textless BusinessRule associated=``Articolo'' name=``BR'' rule=``entrate=3; AND uscite=4;''\textgreater \\
  \textless AstRuleVersion value=``(AND (= entrate 3) (= uscite 4))''/\textgreater \\
 \textless OBool type=``AND''\textgreater \\
 \textless Conf type=``=``\textgreater \\
@@ -2036,7 +2036,8 @@ Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentat
 \begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
 \textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
 VT1a & negativo & \\ \hline
-VT1b & negativo & \\ \hline
+VT1b & \textcolor{err}{positivo} & Vengono inserite \br\ con comment=''.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  Se il commento \`e vuoto non viene inserito come attributo nell'\underline{XML}.\\ \hline
 VT1c & \textcolor{err}{positivo} & Vengono inserite \br\ con nome=''.\\ \cline{2-3}
 & \textcolor{rt}{negativo} & RT  Viene effettuato un controllo per evitare stringhe vuote.\\ \hline
 VT1d & negativo & \\ \hline
