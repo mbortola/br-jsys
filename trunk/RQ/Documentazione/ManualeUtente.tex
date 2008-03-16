@@ -99,6 +99,18 @@ Il prodotto \`e rivolto ad un utente al quale non sono richieste particolari con
 \item il presente manuale che illustra le funzionalit\`a del linguaggio, e accompagna l'utente nell'installazione, nell'avvio e nell'utilizzo del prodotto ``\underline{BR-jsys}'';
 \end{itemize}
 
+\section{Caratteristiche del servizio}
+Una volta avviato, il sistema ``\underline{BR-jsys}'' offre all'utente:
+\begin{itemize}
+\item[-] un'elevata configurabilit\`a ed estendibilit\`a dei business objects;
+\item[-] un linguaggio per la definizione di \br;
+\item[-] un validatore che consenta l'accettazione di nuove \br, soltanto se esse sono scritte secondo le specifiche del linguaggio creato;
+\item[-] un repository per immagazzinare le \br;
+\item[-] una completa gestione del repository tramite interfacciamento ad ``eXist'';
+\item[-] un aiuto agli utenti meno esperti attraverso  messaggi di errore;
+\item[-] una semplice interfaccia per operare sul sistema.
+\end{itemize}
+
 \section{Come leggere il manuale}
  Questo manuale presenta il sistema ``\underline{BR-jsys}'' illustrandone in modo completo le procedure di installazione, avvio e utilizzo 
 Ogni capitolo verr\`a accompagnato da illustrazioni che rendano il pi\`u possibile chiarai e semplici i passaggi descritti.
@@ -176,7 +188,7 @@ Nell'illustrazione che segue potete vedere un corretto output dello script.\\
 
 
 \subsection{Windows:}
-L'installazione in sistemi Windows avviene attraverso un installer. Bisogna quindi accedere al cd rom di installazione e fare doppi clik sul file  \textbf{install.exe}, il quale avvier\`a un wizard di installazione.
+L'installazione in sistemi Windows avviene attraverso un installer. Bisogna quindi accedere al cd rom di installazione e fare doppio clik sul file  \textbf{install.exe}, il quale avvier\`a un wizard di installazione.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/benvento.eps}\\
 \end{center}
@@ -205,51 +217,34 @@ Per lanciare eXist manualmente:
 Per avviare il programma, una volta terminato l'avvio del server eXist, bisogna:
 \begin{itemize}
  \item Nei sitemi Linux cliccare col tasto destro del mouse su brjsys.jar e selezionare ``apri con Java 6 Runtime Environment''
-\item Nei sistemi Windows fare doppio click sul collegamento brjsys.jar 
+\item Nei sistemi Windows accedere alla cartella in cui si installato il prodotto (generalmente \texttt{C:\textbackslash Programmi\textbackslash BR-jsys} ) e fare doppio click su brjsys.jar 
 \end{itemize}
- Dopo un breve periodo di caricamento apparir\`a la schermata di login (figura 3.0), nella quale l'utente che accede per la prima volta al servizio dovr\`a digitare i seguenti dati: 
-\begin{itemize}
-\item username
-\item password
-\end{itemize}
+Apparir\`a la schermata di login (figura 3.0), nella quale l'utente dovr\`a inserire l'\textit{username} e la \textit{password} di connessione a eXist.
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/login.eps}\\
  figura 3.0: schermata di login
 \end{center}
-I dati di autenticazione immessi sono quelli utilizzati per la registrazione al server ``\underline{eXist}''.
-\subsubsection{Esiti}
+I dati di autenticazione da immettere sono quelli utilizzati per la registrazione al server ``\underline{eXist}''.
 In caso di login eseguito correttamente, verr\`a lanciata la schermata principale (figura 3.1).
-Altrimenti viene mostrato un messaggio d'errore:
-\begin{itemize}
-\item Errore server \underline{eXist} spento (figura 3.0.1)
-\item Errore di autenticazione (figura 3.0.2)
-\end{itemize}
-
+\begin{center}
+\includegraphics[width=0.5\textwidth]{manuale_utente/schermata_principale.eps}\\
+ figura 3.1: schermata principale corretamente avviata
+\end{center}
+Se eXist non \`e stato avviato correttamente o pi\`u semplicemente non \`e stato avviato, verr\`a mostrato all'utente un messaggio di errore indicando che il server eXist \`e spento (figura 3.0.1). \`E necessario quindi chiudere il prodotto avviare il server eXist e riavviare il ``\underline{BR-jsys}''.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_server_spento.eps}\\
  figura 3.0.1: esempio di server spento
 \end{center} 
-
+Se l'username e la password non sono stati inseriti corretamente verr\`a mostrato un messaggio d'errore (figura 3.0.2). Reinserite quindi username e password corretti.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/autenticazione_fallita.eps}\\
 figura 3.0.2: esempio di username e/o password errati
-\end{center} 
+\end{center}
 
-\chapter{Istruzioni per l'uso}
+
+\chapter{Funzionalit\`a del sistema}
 \section{Descrizione funzionale}
 Di seguito \`e riportata la descrizione delle funzioni del prodotto. Ad ogni passo \`e stata associata una figura, in modo da daterminare senza amibiguit\`a il contesto dell'applicazione.
-
-\section{Caratteristiche del servizio}
-Una volta avviato, il sistema ``\underline{BR-jsys}'' offre all'utente:
-\begin{itemize}
-\item[-] un'elevata configurabilit\`a ed estendibilit\`a dei business objects;
-\item[-] un linguaggio per la definizione di \underline{business rules};
-\item[-] un validatore che consenta l'accettazione di nuove \underline{business rules}, soltanto se esse sono scritte secondo le specifiche del linguaggio creato;
-\item[-] un repository per immagazzinare le \underline{business rules};
-\item[-] una competa gestione del repository tramite interfacciamento ad ``eXist'';
-\item[-] un aiuto agli utenti meno esperti attraverso  messaggi di errore;
-\item[-] una semplice interfaccia per operare su questo sistema.
-\end{itemize}
 
 
 \section{Azioni richieste/permesse}
