@@ -389,6 +389,7 @@ Nella figura 3.4 vediamo illustrata la schermata di \underline{sandbox}. Per pro
 \begin{itemize}
 \item inserire la query (scritta in linguaggio \underline{XQuery}) nell'appostito campo dati ``Query'';
 \item cliccare sul pulsante ``\textbf{Esegui}''.
+\item cliccare sul pulsante ``\textbf{Cancella}'' se invece si vuole cancellare il testo della query scritta.
 \end{itemize}
 
 \subsection{Esiti}
@@ -409,7 +410,7 @@ La figura 3.4.2 mostra un'eccezione lanciata in caso di esito negativo di una qu
 In questo capitolo viene descritto il linguaggio di formulazione di \br. Una \br\ serve a definire vincoli e regole da rispettare per un determinato \bo. Per questo il linguaggio di definizione delle \br\ \`e incentrato soprattutto sul confronto tra campi dati dei \bo\ ed espressioni algebrica o valori costanti. In una \br\ quindi si possono ottenere valori attraverso l'utilizzo di espressioni algebriche, definire confronti tra questi valori e campi dati dei \bo\ e collegare questi confronti con operatori logici. L'insieme delle funzionalit\`a del linguaggio garantisce una buona espressivit\`a.
 \`E molto importante chiarire l'utilizzo delle \br. Le \br\ sono concepite per verificare che un oggetto rispetti determinati vincoli. I vincoli che si definiscono con una \br\ sono vincoli oggettivi ad esempio ``\texttt{se un valore è maggiore di 10 non deve essere minore di 10}'' e non vincoli soggettivi come ``\texttt{le entrate devono essere maggiori delle uscite}'' mentre per la prima regola non \`e possibile che avvenga il contrario, per la seconda ci\`o \`e possibile per quanto negativo possa essere per una azienda.
 
-\section{Una \br  semplice}
+\section{Una \br\ semplice}
 Una \br semplice \`e costituita da un singolo confronto. Ad esempio: ``prezzo\textgreater0;'' . La regola appena scritta serve a verificare che ogni oggetto abbia un prezzo maggiore di zero. Nella regola ``prezzo'' \`e il nome di un campo dati dell'oggetto. Una regola minimale \`e quindi definita dal comfronto tra un campo dati dell'oggetto e un valore. \\
 Ogni confronto va terminato da un ``;''. \\
 Gli operatori di confronto ammessi dal linguaggio sono : = (uguale), != (diverso), \textless\ (strettamente minore), \textgreater\ (strettamente maggiore),  \textless= (minore o uguale), \textgreater= (maggiore o uguale).
