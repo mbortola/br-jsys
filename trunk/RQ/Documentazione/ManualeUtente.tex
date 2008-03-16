@@ -198,13 +198,21 @@ L'installazione in sistemi Windows avviene attraverso un installer. Bisogna quin
 \includegraphics[width=1\textwidth]{manuale_utente/benvento.eps}\\
 \end{center}
 Leggere e seguire le istruzioni fornite dal wizard di installazione e premere il tasto ``Avanti'' per continuare.
-Giunti alla schermata sottostante inserire la directory in cui installare il br-jsys (di default generalmente C:\textbackslash Programmi\textbackslash BR-jsys).
+Giunti alla schermata sottostante inserire la directory in cui installare il br-jsys (generalmente C:\textbackslash Programmi\textbackslash BR-jsys).
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/cartella_installazione.eps}\\
 \end{center}
 Cliccare su ``Avanti'' finch\`e non compare la schermata di installazione completata e poi su ``Fine''.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/fine_installazione.eps}\\
+\end{center}
+Per rimuovere il programma sar\`a sufficiente cliccare su ``Uninstall BR-jsys'' creato nella directory del BR-jsys al momento dell'installazione.
+\begin{center}
+\includegraphics[width=1\textwidth]{manuale_utente/disinstalla_br-jsys_win.eps}\\
+\end{center}
+Al completamento cliccare su ``Fine''.
+\begin{center}
+\includegraphics[width=1\textwidth]{manuale_utente/disinstalla_br-jsys_win1.eps}\\
 \end{center}
 
 \chapter{Avvio del sistema}
@@ -273,6 +281,7 @@ L'analisi dettagliata delle singole azioni verr\`a trattata nelle sezioni seguen
  figura 3.2: schermata di inserimento
 \end{center}
 Nella figura 3.2 vediamo illustrata la schermata di inserimento di una nuova \br. Per inserire una nuova \br\ e popolare quindi il database bisogna inserire negli appositi spazi i campi dati richiesti.
+Nel campo ``Regole Presenti'' l'utente pu\`o ricercare le \br gi\`a presenti nel repository.
 \subsection{Nome}
 Il nome della \br\ che l'utente intende inserire. Il nome della \br\ deve essere univoco all'interno del \rp. Per questo motivo \`e importante prestare attenzione al nome scelto. \`E consigliabile definire all'interno dell'azienda che utilizza il prodotto delle regole di nomenclatura per il nome delle \br. Per facilitare un corretto inserimento della \br\ \`e presente una lista delle \br\ inserite nel \rp. \`E cos\`i possibile visualizzare in modo rapido le \br\ gi\`a inseirte evitando di inseire una \br\ con un nome gi\`a inseirto nel \rp.
 
@@ -335,7 +344,9 @@ Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una \underl
 \item inserire nell'appostito campo (TextBox) il nome della \underline{business rule} che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''. Se l'utente opera una o pi\`u ricerche, le \br  trovate verranno selezionate nel campo ``Business Rules Selezionate'' mentre in ``Lista Completa'' sar\`a evidenziata solo l'ultima di queste. Si possono eventualmente deselezionare le \br attraverso il tasto ``Deseleziona''. Viene infine introdotto l'uso di espressioni regolari per raffinare la ricerca, in questo caso invitiamo l'utente a consultare la documentazione fornita all' url:\\ \textit{http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html}.
 \item selezionare una o pi\`u \underline{business rule} dalle liste sottostanti.
 \end{enumerate}
-\item Se la \underline{business rule} risulta presente nel \rp\ , comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 3.3.2. 
+
+\item Se la \underline{business rule} risulta presente nel \rp\, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 3.3.2. 
+
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/rimozione_br_trovata.eps}\\
  figura 3.3.2: esempio di regola selezionata.
@@ -362,6 +373,12 @@ Se la cancellazione viene effettuata con successo verr\`a visualizzato un messag
  figura 3.3.6 messaggio di regola non trovata.
 \end{center} 
 La figura 3.3.6 mostra l'esito di un'errata rimozione di \underline{business rules}. La \underline{business rule} non pu\`o essere rimossa dal \rp\ in quanto non \`e stata trovata al suo interno.
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{manuale_utente/errore_repository_vuoto.eps}\\
+ figura 3.3.7 messaggio di repository vuoto.
+\end{center} 
+La figura 3.3.7 mostra l'esito di un'errata rimozione di \underline{business rules}. La \underline{business rule} non pu\`o essere rimossa dal \rp\ in quanto il repository non contiene alcuna.
 
 % occorre inserire il messaggio dei due esiti
 \section{Sandbox}
