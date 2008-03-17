@@ -51,6 +51,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+2.2 & 17/03/2008 & \LA & Aggiunti codici errori, immagini aggiornate con didascalie. \\ \hline
 2.1 & 15/03/2008 & \LA & Correzioni e aggiunte immagini installazione br-jsys in windows. \\ \hline
 2.0 & 15/03/2008 & \MT & Modifica all'organizzazione dei capitoli e ai capitoli stessi. \\ \hline
 1.4 & 14/03/2008 & \LA & Aggiornamento del documento della sezione riguardante la GUI. \\ \hline
@@ -437,7 +438,7 @@ Nella figura 5.4 vediamo illustrata la schermata di \underline{sandbox}. Per pro
 La figura 5.4.1 mostra l'esito positivo di una query e in particolare verr\`a visualizzato nel campo dati ``Risultati'' l'esito della query e nella barra sottostante il tempo di risposta (in millisecondi) impiegato da eXist.
 
 \begin{center}
-\includegraphics[width=1.1\textwidth]{manuale_utente/esempio_errore_sandbox_query_errata.eps}\\
+\includegraphics[width=0.7\textwidth]{manuale_utente/esempio_errore_sandbox_query_errata.eps}\\
 figura 5.4.2 Inserimento query errata.
 \end{center}
 La figura 5.4.2 mostra un'eccezione lanciata in caso di esito negativo di una query scritta in maniera errata.
@@ -629,19 +630,14 @@ Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivi
 \begin{tabular}{|p{2cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{ID:} & \textbf{Messaggio:} & \textbf{Descrizione:} \\ \hline
-ERR00 & Server eXist spento. & Il server eXist non \`e avviato. \\ \hline
-ERR01 & Autenticazione fallita & Nome utente e/o password non inseriti correttamente.\\ \hline
-ERR02 & query errata & \`E stata inserita una query errata. \\ \hline
-ERR03 & Campo dati regola non trovato. validazione interrotta! & Riferimento ad un campo dati sbagliato. La validazione viene interrotta. \\ \hline
-ERR04 & Operazione non consentita: \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
-ERR05 & Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
-ERR06 & Nome regola inaccettabile & La business rule \`e senza nome. \\ \hline
-ERR07 & Testo regola gi\`a presente & La regola ha un nome gi\`a presente nel repository. Non verr\`a quindi inserita. \\ \hline
-ERR08 & Manuale non trovato & Manuale assente. \\ \hline
-ERR09 & Javadoc non trovato & Javadoc assente.\\ \hline
-ERR10 & business rule gi\`a presente &  La business rule inserita \`e gi\`a presente nel \rp.\\ \hline
-ERR11 & business rule non trovata! & La business rule cercata non \`e stata trovata nel \rp. \\ \hline
-ERR12 & Repository vuoto! & Il repository \`e vuoto. \\ \hline
+ERR00 & Autenticazione fallita & Nome utente e/o password non inseriti correttamente..\\ \hline
+ERR & Server eXist spento. & Il server eXist non \`e avviato. \\ \hline
+ERR & Campo dati regola non trovato. validazione interrotta! & Riferimento ad un campo dati sbagliato. La validazione viene interrotta. \\ \hline
+ERR & Operazione non consentita: \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
+ERR & Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
+ERR & Testo regola gi\`a presente & La regola ha un nome gi\`a presente nel repository. Non verr\`a quindi inserita. \\ \hline
+ERR & business rule non trovata! & La business rule cercata non \`e stata trovata nel \rp. \\ \hline
+ERR & Repository vuoto! & Il repository \`e vuoto \\ \hline
 \end{tabular} \\
 \end{table}
 
