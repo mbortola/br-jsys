@@ -20,7 +20,7 @@
 \Large{\textbf{\textsf{Capitolato: ``BR-jsys''}}} \\
 \begin{tabular}{|p{6cm}|p{6cm}|} \hline
 \textbf{Data creazione:} & 2008/02/25 \\ \hline
-\textbf{Versione:} & \lv \\ \hline
+\textbf{Versione:} 2.3 & \lv \\ \hline
 \textbf{Stato del documento:} & Formale, esterno \\ \hline
 % ----------------------------------------------------------------------------autori
 \textbf{Redazione:} &  \AT, \LA \\ \hline
@@ -51,6 +51,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+2.3 & 17/03/2008 & \LA & Correzioni. \\ \hline
 2.2 & 17/03/2008 & \LA & Aggiunti codici errori, immagini aggiornate con didascalie. \\ \hline
 2.1 & 15/03/2008 & \LA & Correzioni e aggiunte immagini installazione br-jsys in windows. \\ \hline
 2.0 & 15/03/2008 & \MT & Modifica all'organizzazione dei capitoli e ai capitoli stessi. \\ \hline
@@ -203,7 +204,7 @@ Nell'illustrazione che segue potete vedere un corretto output dello script.\\
 \end{center}
 
 \subsection{Sistemi Windows}
-L'installazione in sistemi Windows avviene attraverso un installer. Bisogna quindi accedere al cd rom di installazione e fare doppio clik sul file  \textbf{install.exe}, il quale avvier\`a un wizard di installazione.
+L'installazione in sistemi Windows avviene attraverso un installer. Bisogna quindi accedere al cd rom di installazione e fare doppio click sul file  \textbf{install.exe}, il quale avvier\`a un wizard di installazione.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/benvento.eps}\\
  figura 3.2.2: schermata iniziale in Windows
@@ -253,7 +254,7 @@ I dati di autenticazione da immettere sono quelli utilizzati per la registrazion
 In caso di login eseguito correttamente, verr\`a lanciata la schermata principale (figura 4.2.1).
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/schermata_principale.eps}\\
- figura 4.2.1: schermata principale corretamente avviata
+ figura 4.2.1: schermata principale correttamente avviata
 \end{center}
 Se eXist non \`e stato avviato correttamente o pi\`u semplicemente non \`e stato avviato, verr\`a mostrato all'utente un messaggio di errore indicando che il server eXist \`e spento (figura 4.2.2). \`E necessario quindi chiudere il prodotto avviare il server eXist e riavviare il ``Br-jsys''.
 \begin{center}
@@ -298,7 +299,7 @@ L'analisi dettagliata delle singole azioni verr\`a trattata nelle sezioni seguen
 Nella figura 5.2.0 vediamo illustrata la schermata di inserimento di una nuova \br. Per inserire una nuova \br\ e popolare quindi il database bisogna inserire negli appositi spazi i campi dati richiesti.
 Nel campo ``Regole Presenti'' l'utente pu\`o ricercare le \br gi\`a presenti nel repository.
 \subsection{Nome}
-Il nome della \br\ che l'utente intende inserire. Il nome della \br\ deve essere univoco all'interno del \rp. Per questo motivo \`e importante prestare attenzione al nome scelto. \`E consigliabile definire all'interno dell'azienda che utilizza il prodotto delle regole di nomenclatura per il nome delle \br. Per facilitare un corretto inserimento della \br\ \`e presente una lista delle \br\ inserite nel \rp. \`E cos\`i possibile visualizzare in modo rapido le \br\ gi\`a inseirte evitando di inseire una \br\ con un nome gi\`a inseirto nel \rp.
+Il nome della \br\ che l'utente intende inserire. Il nome della \br\ deve essere univoco all'interno del \rp. Per questo motivo \`e importante prestare attenzione al nome scelto. \`E consigliabile definire all'interno dell'azienda che utilizza il prodotto delle regole di nomenclatura per il nome delle \br. Per facilitare un corretto inserimento della \br\ \`e presente una lista delle \br\ inserite nel \rp. \`E cos\`i possibile visualizzare in modo rapido le \br\ gi\`a inserite evitando di inseire una \br\ con un nome gi\`a inserito nel \rp.
 
 \subsection{Business Object Associato}
 Il \bo\ al quale si vuole associare la regola. Il linguaggio di definizione delle \br\ offre la possibilit\`a di effettuare operazioni e controlli sui campi dati dei \bo\ da validare. Per questo ad ogni \br\ \`e necessario associare un \bo. Per facilitare l'inserimento di una nuova \br\ (evitando cos\`i errori dovuti ad una digitazione errata del nome del \bo) il campo \bo\ associato \`e una \textit{combobox} che permette di scegliere uno dei \bo\ realmente presenti.
@@ -479,15 +480,15 @@ Una \br\ pu\`o contenere confronti tra booleani. Ad esempio ``difettoso=false;''
 \subsection{La funzione NOT()}
 La funzione NOT() \`e una funzione propria dei booleani e serve a permettere la negazione di un valore booleano o di un espressione booleana. Per cui \`e possibile scrivere ``NOT(difettoso)=true;''. Non \`e invece possibile scrivere ``NOT(totale=prezzo*numero);''. a funzione not si applica solo a un valore o espressione booleana non a un confronto.
 \section{Operatori logici}
-Il pi\`u delle volte una regola non \`e costituata da un singolo valore booleano ma da pi\`u valori concatenati da \textit{and} e \textit{or}. Il linguaggio permette di congiungere o disgiungere valori booleani in modo da ottenere espressioni booleane. Ad esempio \`e possibile scrivere ``difettoso \textbar \textbar\ (scontato \&\& venduto)=false;'' . Gli operatori logici tra booleani sono solo due: \&\& (congiunzione, \textit{and}) e \textbar \textbar\ (disgiunzione , \textit{or}).
+Il pi\`u delle volte una regola non \`e costituita da un singolo valore booleano ma da pi\`u valori concatenati da \textit{and} e \textit{or}. Il linguaggio permette di congiungere o disgiungere valori booleani in modo da ottenere espressioni booleane. Ad esempio \`e possibile scrivere ``difettoso \textbar \textbar\ (scontato \&\& venduto)=false;'' . Gli operatori logici tra booleani sono solo due: \&\& (congiunzione, \textit{and}) e \textbar \textbar\ (disgiunzione , \textit{or}).
 
 \section{Confronti tra stringhe}
 Nel linguaggio \`e possibile inserire stringhe ma le operazioni tra stringhe sono limitate ai solo confronti semplici. \`E quindi possibile scrivere ``nome=``prodotto'';'' oppure ``nomeAzienda!=``IBM'';'' . I confronti ammessi sono = (uguale) e != (diverso).
 
 \section{Connettori logici}
-Il linguaggio fin qui descritto non garanrtisce una buona espressivit\`a, risulta difficile esprimere concetti complessi ocn un singolo confronto. Per questo \`e possibile nel linguaggio connettere pi\`u confronti con dei connettori logici \textit{AND} e \textit{OR}. I connettori logici permettono di collegare pi\`u confronti fra loro.\\
-\`E possibile quindi scrivere regole come ``nomeProdotto=``Pc1''; AND prezzoProdotto=800; AND scontato=true; OR scontato=flase;''
- Attenzione iconnetori logici tra i confronti non vanno confusi con gli operatori logici tra booleani.
+Il linguaggio fin qui descritto non garantisce una buona espressivit\`a, risulta difficile esprimere concetti complessi con un singolo confronto. Per questo \`e possibile nel linguaggio connettere pi\`u confronti con dei connettori logici \textit{AND} e \textit{OR}. I connettori logici permettono di collegare pi\`u confronti fra loro.\\
+\`E possibile quindi scrivere regole come ``nomeProdotto=``Pc1''; AND prezzoProdotto=800; AND scontato=true; OR scontato=false;''
+ Attenzione i connetori logici tra i confronti non vanno confusi con gli operatori logici tra booleani.
 
 \section{Il ``message''}
 Il message \`e un modo per aiutare il debugging delle \br. Ad ogni confronto \`e possibile associare un messaggio in formato stringa con la keyword \textit{message(``testo del messaggio'')}. Il message serve al momento dell'interpretazione dell \br, nel momento in cui si cerca di validare un \bo\ questo potrebbe non rispettare delle uno dei confronti di una regola. Nel caso ci\`o avvenga all'utente verr\`a mostrato il message riguardante il primo confronto fallito. Un message pu\`o quindi essere aggiunto al termine di ogni singolo confronto, includendo un messaggio chiaro che identifichi in modo chiaro per l'utente dove il \bo\ non rispetta una parte della \br. Ad esempio \`e possibile scrivere: ``nomeProdotto=``Pc1'' message(``nome errato''); AND prezzoProdotto\textless1800 message(``prezzo non competitivo'');'' in questo modo se il \bo\ a cui si applica la regola dovesse avere un nome diverso da ``Pc1'' o un prezzo maggiore di 1800, verrebbe segnalato all'utente con un messaggio contenente il testo del message. I caratteri ammessi in un message sono: lettere dell'alfabeto maiuscole minuscole, numeri, spazi, simboli di punteggiatura come : `.' (punto),  `?' (punto di domanda),  `!' (punto esclamativo),  `\_' (underscore),  `-' (trattino, simbolo di sottrazione),  `\~' (tilde), `\^' (apice).
