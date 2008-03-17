@@ -50,7 +50,7 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
-0.1 & 15/03/2008 & \MT & Prima stesura del documento \\ \hline
+0.3 & 17/03/2008 & \AT & Modifiche della \ST \\ \hline
 0.2 & 15/03/2008 & \AT & Modifiche apportate ai vari documenti \\ \hline
 0.1 & 15/03/2008 & \MT & Prima stesura del documento \\ \hline
 
@@ -68,25 +68,26 @@ Versione & Data & Autore & Descrizione \\ \hline
 Il presente documento contiene la descrizione delle modifiche apportate ai precedenti documenti consegnati alla Revisione di Qualifica sostenuta marted\`i 11 marzo. In generale, per quanto riguarda tutti i documenti, \`e stata sottolineata solo la prima occorrenza dei termini riportati nel ``\G''.
 \section*{Come leggere il documento}
 Ogni capitolo qui presente rappresenta il nome del documento a cui si riferisce. L'ultimo capitolo presenta invece i miglioramenti che potrebbero essere apportati in futuro al documento ``BR-jsys''.
-\chapter{Glossario}
+\chapter{Modifiche ai documenti}
+\section{Glossario}
 Sono stati aggiunti i seguenti due termini: \\
 \begin{itemize}
 \item \textbf{Jivelint}: Strumento che esegue l'analisi statica su codice sorgente Java. Esso trover\`a il codice e le variabili inutilizzate, oltre a molti altri errori. \\
 \item \textbf{JUnit}: Struttura di supporto alla procedura usata per verificare singole parti di codice sorgente. Viene utilizzato per il linguaggio di programmazione Java. 
 \end{itemize}
 
-\chapter{Analisi dei Requisiti}
+\section{Analisi dei Requisiti}
 Essendo deprecato, il requisito F9 non verr\`a soddisfatto in questa sede. La struttura del nostro codice sorgente non preclude per\`o la possibilit\`a di aggiungere questa funzionalit\`a successivamente al nostro prodotto.
-\chapter{Norme di Progetto}
+\section{Norme di Progetto}
 La tabella ``Diario delle modifiche'' prensente a pag 2, \`e stata spezzata al fine di migliorare la formattazione.
-\chapter{Piano di Qualifica}
+\section{Piano di Qualifica}
 Nel ``Piano di qualifica'' \`e stata aggiunta una sezione contenente gli esiti dei test (dei difetti e di convalida), come da richiesta. La sezione inserita \`e visibile nel documento ``TestReportDelta.1.0.pdf'' .
 
 
-\chapter{Piano di Progetto}
+\section{Piano di Progetto}
 Il documento ``\PdP'' precedentemente consegnato, \`e stato sostituito dal documento ``PianoConsuntivo.0.1.pdf''.
 Per quanto riguarda gli errori segnalati a questo documento, la mancanza dei dati a consuntivo in ingresso alla Revisione di Qualifica sono da attribuirsi solo a un mancato aggiornamento della data delle tabelle relative alla fase di sviluppo. 
-\chapter{Specifica Tecnica}
+\section{Specifica Tecnica}
 Sono state apportate correzioni:
 \begin{itemize}
 \item ai vizi di forma presenti nel paragrafo 1.1;
@@ -94,15 +95,15 @@ Sono state apportate correzioni:
 \item sono state aggiunte le sottolineature ai nomi degli oggetti contenuti nei diagrammi delle attivit\`a.
 \end{itemize}
 \begin{center} 
-\section{Inserimento business rule nel repository}
+\subsection{Inserimento business rule nel repository}
 \includegraphics[width=0.9\textwidth, angle=-90]{activity-dia/InserimentoXMLnelrepository.eps}
 \end{center}
 Si dovr\`a prima di tutto controllare che il nome della regola si vuole inserire non sia gi\`a presente nel \rp. Se \`e gi\`a presente si troncher\`a immediatamente l'operazione di inserimento, altrimenti sar\`a formulata la query adatta per inserire la \br . La query verr\`a inviata al DBMS eXist dal quale si attender\`a poi l'esito dell'inserimento (si \`e scelto di utilizzare i blocchi di ``invio segnale'' e ``ricezione segnale'' per evidenziare una situazione di attesa). Si indicher\`a solo successivamente al chiamante che l'operazione \`e riuscita con successo.
-\chapter{Manuale Utente}
+\section{Manuale Utente}
 Il documento ``\MU'' \`e gi\`a stato allegato in versione definitiva.
-\chapter{Test Report}
+\section{Test Report}
 Il documento ``TestReportDelta.1.0.pdf'' integra il ``\TR'' precedentemente consegnato e approvato.
-\chapter{Miglioramenti desderabili}
+\chapter{Miglioramenti desiderabili}
 In questo capitolo elencheremo i miglioramenti che potrebbero essere apportati al prodotto ``BR-jsys'', ma che non siamo riusciti a implementare per motivi di tempo e costi. 
 \begin{itemize}
 \item \textbf{Normalizzazione di business rules:} rendere possibile la normalizzazione delle business rule, ovvero ogni qualvolta si riscontra un tab, uno spazio, un \textbackslash t, un \textbackslash r, \textbackslash n si devono trasformare in un singolo spazio. 
