@@ -443,21 +443,28 @@ Le \br\ (e di conseguenza i \bo) possono contenere campi dati e valori di tre ti
 Una \br\ in genere non si limita a confrontare un campo dati con un valore, ma il pi\`u delle volte confronta un campo dati con un ``valore derivato''. Per valore derivato si intende un valore ottenuto algebricamente da altri valori. Ad esempio ``totale=prezzoBase*pezziVenduti;'' . Le operazioni algebriche consentite sono quelle base: + (somma), - (sottrazione), / (divisione), * (moltiplicazione).
 
 \section{Funzioni algebriche}
-Per rendere pi\`u semplice il linguaggio, pi\`u espressivo e chiaro, sono state introdotte alcune funzioni elementari, come la somma di un gruppo di valori, la media aritmetica e il conteggio di un gruppo di valori. Ad esempio \`e possibile scrivere regole come ``totale=SUM(listaPrezzi);'' \textit{SUM()} \`e la funzione e \textit{listaPrezzi} \`e un array di prezzi. Si pu\`o poi scrivere ``prezzoMedio=AVG(listaPrezzi);'' per la media aritmetica   o ancora ``totale=prezzoBase* COUNT(listaPrezzi);'' per il cnteggio degli elementi.
+Per rendere pi\`u semplice il linguaggio, pi\`u espressivo e chiaro, sono state introdotte alcune funzioni elementari, come la somma di un gruppo di valori, la media aritmetica e il conteggio di un gruppo di valori. Ad esempio \`e possibile scrivere regole come ``totale=SUM(listaPrezzi);'' \textit{SUM()} \`e la funzione e \textit{listaPrezzi} \`e un array di prezzi. Si pu\`o poi scrivere ``prezzoMedio=AVG(listaPrezzi);'' per la media aritmetica   o ancora ``totale=prezzoBase* COUNT(listaPrezzi);'' per il cnteggio degli elementi.\\
+Le espressioni algebriche ammettono parentesizzazioni, \`e quindi possibile scrivere ``prezzo=costo*(ore/(produzione+3));'' .
 \`E possibile introdurre nuove funzioni nel linguaggio a patto che queste siano supportate e riconosciute come tali dall'interprete del linguaggio. Nulla vieta infatti di introdurre funzioni come \textit{RADQ()} e introdurre una funzione per la radice quadrata nel linguaggio.
 
 \section{Vettori e matrici}
-Il linguaggio ammette operazioni tra vettori matrici e scalari. Tali operazioni sono inoltre rese semplici nel linguaggio per garantire una buona espressivit\`a. \`E possibile quindi scrivere ``vettoreUno*3=vettoreDue'' e ancora ``matriceUno*matriceDue*entrate=matriceTotale''. Le operazioni tra vetori matrici e scalari seguono per\`o regole ben precise.\\
+Il linguaggio ammette operazioni tra vettori matrici e scalari. Tali operazioni sono inoltre rese semplici nel linguaggio per garantire una buona espressivit\`a. \`E possibile quindi scrivere ``vettoreUno*3=vettoreDue;'' e ancora ``matriceUno*matriceDue*entrate=matriceTotale;''. Le operazioni tra vetori matrici e scalari seguono per\`o regole ben precise.\\
 \`E possibile effettuare operazioni tra scalati e vettori, tra scalari e matrici, tra scalare e scalare a patto che entrambi gli operandi siano di tipo float.\\
 \`E possibile effettuare operazioni tra matrici a patto che siano matrici omogenee.
 
 \section{Confronti tra booleani}
-Una \br\ pu\`o contenere confronti tra booleani. Ad esempio ``difettoso=false''. Il campo dati deve essere un booleano e pu\`o essere confrontato solo con altri campi dati booleani o con valori come `true' e `false'.% da finire
-
+Una \br\ pu\`o contenere confronti tra booleani. Ad esempio ``difettoso=false;''. Il campo dati deve essere un booleano e pu\`o essere confrontato solo con altri campi dati booleani o con valori come `true' e `false'. 
 \subsection{La funzione NOT()}
-\section{Operatori logici} tra booleani
+La funzione NOT() \`e una funzione propria dei booleani e serve a permettere la negazione di un valore booleano o di un espressione booleana. Per cui \`e possibile scrivere ``NOT(difettoso)=true;''. Non \`e invece possibile scrivere ``NOT(totale=prezzo*numero);''. a funzione not si applica solo a un valore o espressione booleana non a un confronto.
+\section{Operatori logici}
+Il pi\`u delle volte una regola non \`e costituata da un singolo valore booleano ma da pi\`u valori concatenati da \textit{and} e \textit{or}. Il linguaggio permette di congiungere o disgiungere valori booleani in modo da ottenere espressioni booleane. Ad esempio \`e possibile scrivere ``difettoso || (scontato && venduto)=false;'' . Gli operatori logici tra booleani sono solo due: && (congiunzione, \textit{and}) e || (disgiunzione , \textit{or}).
+
 \section{Confronti tra stringhe}
-\section{Connettori logici} AND OR
+Nel linguaggio \`e possibile inserire stringhe ma le operazioni tra stringhe sono limitate ai solo confronti semplici. \`E quindi possibile scrivere ``nome=``prodotto'';'' oppure ``nomeAzienda!=``IBM'';'' . I confronti ammessi sono = (uguale) e != (diverso).
+
+\section{Connettori logici}
+Il linguaggio fin qui descritto non garanrtisce una buona espressivit\`a, risulta difficile esprimere concetti complessi ocn un singolo confronto. Per questo \`e possibile nel linguaggio connettere pi\`u confronti con dei connettori logici \textit{AND} e \textit{OR}. I connettori logici permettono di collegare pi\`u confronti fra loro.\\
+\`E possibile quindi scrivere regole come ``nomeProdotto=``Pc1''; AND prezzoProdotto=800; AND scontato Attenzione non vanno confusi con gli operatori logici tra booleani.
 \section{Il ``message''}
 
 Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della \underline{business rule}. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
