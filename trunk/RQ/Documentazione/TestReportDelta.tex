@@ -190,7 +190,7 @@ Ogni \textit{test case} \`e documentato con descrizione d'uso e un elenco di req
 Viene di seguito riportato il nuovo test riguardante l'integrazione tra la componente ``validatore'' e la componente ``comunicatore''. \\
 
 \textbf{CVT1c} \\
-Si deve testare l'impedimento da parte del validatore di inserire nel \rp\ una \br\ con lo stesso regola nell'attributo \textit{rule}. Per fare ci\`o si riesegue l'inserimento della \br\ sopra illustrata sostituendo il nome e si testa che il valore ritornato sia 'false'.
+Si deve testare l'impedimento da parte del validatore di inserire nel \rp\ una \br\ con la stessa regola nell'attributo \textit{rule}. Per fare ci\`o si riesegue l'inserimento della \br\ sopra illustrata sostituendo il nome e si testa che il valore ritornato sia 'false'.
 Requisiti soddisfatti dall'esecuzione: NPr2.\\
  \\
 
@@ -204,7 +204,7 @@ Visualizzazione di un messaggio d'errore.\\ \hline
 Il nuovo test effettuato (\textbf{CVT1c}) soddisfa il requisito \textbf{NPr2} presente nel documento ``\AR'' 
 \chapter{Automatizzazione dei test}
 Essendo la fase di test una fase costosa e laboriosa del processo software, si \`e deciso di automatizzare il pi\`u possibile l'esecuzione dei test, anche mediante l'utilizzo  di tools come \underline{JUnit}. Quest'ultimo ci ha permesso di costruire batterie di test strutturalmente omogenei  con i quali invocare metodi e funzionalit\`a di una o pi\`u componenti, pi\`u o meno integrate tra loro. 
-L'esecuzione dei \textit{test case} viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l’output prodotto con quello atteso. 
+L'esecuzione dei \textit{test case} viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l'output prodotto con quello atteso. 
 Per alcuni test \`e stato necessario l'intervento manuale del verificatore il quale, interagendo direttamente con l'interfaccia grafica del programma, ne ha testato le diverse funzionalit\`a. Tali test sono comunque una parte minima di tutti i test da eseguire e non incidono eccessivamente sul costo dell'intera fase di test.
 \section{Dettaglio dei Test eseguiti con JUnit}
 Riportiamo di seguito i test eseguiti con JUnit e gli eventuali errors o failures emersi.
@@ -620,7 +620,7 @@ I \textit{test di convalida} servono a dimostrare che tutti i requisiti sono sta
 
 \chapter{Maturit\`a di prodotto}
 Verr\`a di seguito rappresentato il grafico riportante l'andamento dei difetti del software nel periodo di test.
-La linea indica il rapporto tra difetti trovati e test eseguiti. Una analisi complessiva del grafo mostra 
+La linea indica il rapporto tra difetti trovati e test eseguiti. Una analisi complessiva del grafo mostra il progressivo diminuir dei test individuati nel codice. In particolare lo i difetti trovati in data 07/03/2008 (Revisione di qualifica) erano 10 su 57 test eseguiti. In data 15/03/2008 non vi sono test dei difetti, risultati positivi.
 \begin{center}
 \includegraphics[width=1\textwidth] {MaturitaDiProdotto.eps}
 \end{center}
