@@ -74,11 +74,10 @@ Versione & Data & Autore & Descrizione \\ \hline
 
 \chapter*{Sommario}
 \addcontentsline{toc}{chapter}{I Sommario}
-Il presente documento vuole essere un'integrazione al documento ``TestReport.pdf'' precedentemente consegnato alla Revisione di Qualifica sostenuta marted\`i 11 marzo. Conterr\`a quindi solamente gli ultimi aggiornamenti.
+Il presente documento vuole essere un'integrazione al documento ``\TR'' precedentemente consegnato alla Revisione di Qualifica sostenuta marted\`i 11 marzo. Conterr\`a quindi solamente gli ultimi aggiornamenti.
 \chapter{Analisi Statica del codice}
-L'analisi statica automatica sui file Java \`e stata effettuata con l'utilizzo di JiveLint 1.21, uno strumento in grado di trovare codice e variabili inutilizzate oltre ad altri bugs/errori nel codice.
+Oltre al processo di ispezione, gi\`a trattato nel documento ``\PdQ'', l'analisi statica automatica sui file Java \`e stata effettuata con l'utilizzo di \underline{JiveLint} 1.21; uno strumento in grado di trovare codice e variabili inutilizzate oltre ad altri bugs/errori nel codice.
 Di seguito riportiamo gli errori riscontrati nel nostro codice.
-
 Per rendere le tabelle pi\`u leggibili gli stessi errori in righe diverse dello stesso file.java seguiranno la seguente notazione: \\
 NomeClasse.java:riga1-riga2-..-rigan Rule(codice) Errore. \\
 
@@ -181,7 +180,6 @@ Articolo.java:1 Rule(1037) No @author javadoc tag found.\\ \hline
 SubArch.java:1 Rule(1037) No @author javadoc tag found.\\ \hline
 \end{tabular}
 \end{center}
-
 Tali errori nel codice sorgente sono stati tutti corretti. Una nuova esecuzione del programma non ha rilevato ulteriori difetti nel codice.
 
 \chapter{Analisi dinamica}
@@ -209,7 +207,7 @@ Essendo la fase di test una fase costosa e laboriosa del processo software, si \
 L'esecuzione dei \textit{test case} viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l’output prodotto con quello atteso. 
 Per alcuni test \`e stato necessario l'intervento manuale del verificatore il quale, interagendo direttamente con l'interfaccia grafica del programma, ne ha testato le diverse funzionalit\`a. Tali test sono comunque una parte minima di tutti i test da eseguire e non incidono eccessivamente sul costo dell'intera fase di test.
 \section{Dettaglio dei Test eseguiti con JUnit}
-Riportiamo di seguito i test eseguiti con \underline{JUnit} e gli eventuali errors o failures emersi.
+Riportiamo di seguito i test eseguiti con JUnit e gli eventuali errors o failures emersi.
 Per ogni classe sono stati eseguiti i test indicati di default da JUnit ed i test relativi alle funzionalit\`a.
 
 \textbf{Test sulla classe BusinessRule} \\
