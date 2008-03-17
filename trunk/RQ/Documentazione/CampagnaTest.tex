@@ -2,8 +2,8 @@
 \input{model/layout.tex}% layout
 \begin{document}
 %definizione variabili 
-\newcommand{\lv}{ 2.8 } % latest version
-\newcommand{\dt}{ Norme Di Progetto }% Document title
+\newcommand{\lv}{ 0.2 } % latest version
+\newcommand{\dt}{ Campagna di Test }% Document title
 \input{model/variables.tex}%altre variabili
 \input{model/document-latest-versions.tex}%nomi documenti
 %fine definizione variabili
@@ -59,8 +59,60 @@ Versione & Data & Autore & Descrizione \\ \hline
 \end{small}
 \end{table}
 \end{center}
-
-
 \newpage
 \tableofcontents 
+\chapter{Scopo del documento}
+Il presente documento descrive la campagna dei test che effettueremo in sede di collaudo mercoled\`i 19 marzo.
+\chapter{Avvio dell'applicazione}
+Essendo l'installazione del prodotto ``BR-jsys'' gi\`a effettuata nel pc con cui ci presenteremo al collaudo, procederemo direttamente con l'avvio dell'applicazione. 
+\begin{itemize}
+\item Avvio del prodotto ``Br-jsys'': l'operazione non avr\`a successo in quanto manca la connessione con il DBMS eXist;
+\item Avvio di eXist;
+\item Avvio del prodotto ``Br-jsys''.
+\end{itemize}
+A questo punto comparir\`a la schermata di login. 
+\section{Procedura di login}
+Le credenziali per accedere al programma verranno qui inserite.
+\begin{itemize}
+\item \textbf{username:} inseriremo lo username utilizzato per la registrazione ad eXist
+\item \textbf{password:}  inseriremo la password utilizzata per la registrazione ad eXist
+Prima di fare ci\`o proveremo ad accedere con dati di login errati per mostrare il relativo messaggio di errore.
+\end{itemize}
+\chapter{Inserimento}
+A questo punto, essendo il repository ancora vuoto, l'unica operazione consentita sar\`a l'inserimento di una o pi\`u business rules.
+Verranno effettuati i seguenti inserimenti:
+\begin{itemize}
+\item inserimento di una business rule lasciando tutti i campi vuoti;
+\item inserimento di una business rule sintatticamente corretta;
+\item inserimento di una business rule, lasciando il campo nome vuoto;
+\item inserimento di una business rule, lasciando il campo message vuoto;
+\item inserimento di una business rule con lo stesso nome di un'altra presente nel repository;
+\item inserimento di una business rule con lo stesso testo, ma nome diverso, di un'altra regola presente nel repository;
+\item inserimento di una business rule, lasciando vuoto il campo del \bo associato;
+\item inserimento di una business rule contente gli operatori logici AND e OR;
+\item inserimento di una business rule che non contiene gli operatori logici AND e/o OR;
+\item inserimento di una business rule contenente uno o pi\`u operatori di confronto;
+\item inserimento di una business rule contenenti operazioni tra scalari;
+\item inserimento di una business rule contenenti operazioni tra campi dati scalari;
+\item inserimento di una business rule contenenti espressioni matematiche tra parentesi;
+\item inserimento di una business rule contenente l'operatore di uguaglianza tra stringhe;
+\item inserimento di una business rule contenente operazioni tra booleani;
+\item inserimento di una business rule contenente le funzioni del nostro linguaggio (SUM(), AVG(), COUNT());
+\item inserimento di una business rule non completa.
+\end{itemize}
+\chapter{Rimozione}
+\begin{itemize}
+\item rimozione di una business rule selezionata dalla lista;
+\item rimozione di una business rule cercata per nome;
+\item rimozione di business rules cercate attraverso espressioni regolari;
+\item rimozione multipla di business rules selezionate dalla lista.
+\end{itemize}
+\chapter{Sandbox}
+\begin{itemize}
+\item ricerca di business rule il cui nome inzia con una determinata stringa; 
+\item ricerca di business rule dato l'oggetto associato e prive di commento;
+\item ricerca di business rules senza commento;
+\end{itemize}
+
+
 \end{document}
