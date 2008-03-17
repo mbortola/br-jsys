@@ -1,0 +1,76 @@
+
+
+\input{model/layout.tex}% layout
+\begin{document}
+%definizione variabili 
+\newcommand{\lv}{ 2.0 } % latest version
+\newcommand{\dt}{ Modifiche ai documenti }% Document title
+\newcommand{\Grammatica}{} % paragrafo dove si trova la spiegazione della grammatica
+\input{model/variables.tex}%altre variabili
+\input{model/document-latest-versions.tex}%nomi documenti
+%fine definizione variabili
+\input{model/hyphenation.tex}%sillabazione
+\input{model/titlepage.tex}%pagina del titolo
+
+\begin{center}
+\thispagestyle{plain}
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Capitolato: ``BR-jsys''}}} \\
+\begin{tabular}{|p{6cm}|p{6cm}|} \hline
+\textbf{Data creazione:} & 15/03/2008 \\ \hline
+\textbf{Versione:} & \lv \\ \hline
+\textbf{Stato del documento:} & Formale, esterno \\ \hline
+% ----------------------------------------------------------------------------autori
+\textbf{Redazione:} &  \ET \\ \hline
+\textbf{Revisione:} & \MT \\ \hline
+\textbf{Approvazione:} & \MM \\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Lista di distribuzione}}} \\
+
+\begin{tabular}{|p{6cm}|p{6cm}|} \hline
+{HappyCode inc}& Gruppo di lavoro\\ \hline
+{Tullio Vardanega, Renato Conte}& Rappresentanti del committente \\ \hline
+{Zucchetti S.r.l}& Azienda committente\\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+\begin{table}[hbtp]
+
+\Large{\textbf{\textsf{Diario delle modifiche}}} \\
+\begin{small}
+\begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
+Versione & Data & Autore & Descrizione \\ \hline
+%-------------------------------------------------------------------------------diario modifiche
+0.1 & 15/03/2008 & \MT & Prima stesura del documento \\ \hline
+
+
+\end{tabular} \\
+\end{small}
+
+\end{table}
+\end{center}
+\newpage
+
+\tableofcontents 
+\chapter*{Sommario}
+\addcontentsline{toc}{chapter}{I Sommario}
+Il presente documento contiene la descrizione d'uso del sistema \underline{Br-jsys}, con raffinamento della descrizione delle singole operazioni eseguibili su tale sistema. Per un corretto funzionamento del prodotto invitiamo l'utente a seguire le specifiche di questo documento.
+
+\chapter*{Glossario}
+\addcontentsline{toc}{chapter}{II Glossario}
+Viene fornito come documento esterno chiamato \G. 
+\section*{Convenzioni usate}
+Per permetterne una facile individuazione, i termini contenuti nel ``\G'' sono sottolineati nei vari documenti da noi consegnati la prima volta in cui appaiono.
+
+
+\end{document}
