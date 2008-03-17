@@ -81,41 +81,41 @@ Versione & Data & Autore & Descrizione \\ \hline
 \tableofcontents 
 \chapter*{Sommario}
 \addcontentsline{toc}{chapter}{I Sommario}
-Il presente documento contiene la descrizione d'uso del sistema \underline{BR-jsys}, con raffinamento della descrizione delle singole operazioni eseguibili su tale sistema. Per un corretto funzionamento del prodotto invitiamo l'utente a seguire le specifiche di questo documento.
+Il presente documento contiene la descrizione d'uso del sistema \underline{Br-jsys}, con raffinamento della descrizione delle singole operazioni eseguibili su tale sistema. Per un corretto funzionamento del prodotto invitiamo l'utente a seguire le specifiche di questo documento.
 
 \chapter*{Glossario}
 \addcontentsline{toc}{chapter}{II Glossario}
 Viene fornito come documento esterno chiamato \G. 
 \section*{Convenzioni usate}
-Per permetterne una facile individuazione, i termini contenuti nel ``\G'' sono sottolineati nei vari documenti da noi consegnati.
+Per permetterne una facile individuazione, i termini contenuti nel ``\G'' sono sottolineati nei vari documenti da noi consegnati la prima volta in cui appaiono.
 
 \chapter{Introduzione}
-Il presente documento fornisce informazioni su come installare avviare e utilizzare il sistema ``\underline{BR-jsys}''.
+Il presente documento fornisce informazioni su come installare avviare e utilizzare il sistema ``Br-jsys''.
 \section{Definizione dell'utente del prodotto}
 Il prodotto \`e rivolto ad un utente al quale non sono richieste particolari conoscenze nel campo informatico. A tale scopo il software mette a dispozione:
 \begin{itemize}
 \item un'interfaccia grafica user-friendly;
-\item messaggi di testo che informino l'utente dando sullo stato del prodotto ``\underline{BR-jsys}'';
-\item il presente manuale che illustra le funzionalit\`a del linguaggio, e accompagna l'utente nell'installazione, nell'avvio e nell'utilizzo del prodotto ``\underline{BR-jsys}'';
+\item messaggi di testo che informino l'utente dando sullo stato del prodotto ``Br-jsys'';
+\item il presente manuale che illustra le funzionalit\`a del linguaggio, e accompagna l'utente nell'installazione, nell'avvio e nell'utilizzo del prodotto ``Br-jsys'';
 \end{itemize}
 
 \section{Descrizione del sistema}
-Il prodotto ``\underline{BR-jsys}'' permette di testare la consistenza di \bo. A tale scopo il software mette a disposizione, attraverso la propria interfaccia grafica, la possibilit\`a di inserimento di \br validate, cancellazione e querying nel \rp.
+Il prodotto ``Br-jsys'' permette di testare la consistenza di \underline{\bo}. A tale scopo il software mette a disposizione, attraverso la propria interfaccia grafica, la possibilit\`a di inserimento di \br,  validazione, cancellazione e querying nel \underline{\rp}.
 
 \section{Caratteristiche del servizio}
-Una volta avviato, il sistema ``\underline{BR-jsys}'' offre all'utente:
+Una volta avviato, il sistema ``Br-jsys'' offre all'utente:
 \begin{itemize}
 \item[-] un'elevata configurabilit\`a ed estendibilit\`a dei business objects;
 \item[-] un linguaggio per la definizione di \br;
 \item[-] un validatore che consenta l'accettazione di nuove \br, soltanto se esse sono scritte secondo le specifiche del linguaggio creato;
 \item[-] un repository per immagazzinare le \br;
-\item[-] una completa gestione del repository tramite interfacciamento ad ``eXist'';
+\item[-] una completa gestione del repository tramite interfacciamento ad ``\underline{eXist}'';
 \item[-] un aiuto agli utenti meno esperti attraverso  messaggi di errore;
 \item[-] una semplice interfaccia per operare sul sistema.
 \end{itemize}
 
 \section{Come leggere il manuale}
- Questo manuale presenta il sistema ``\underline{BR-jsys}'' illustrandone in modo completo le procedure di installazione, avvio e utilizzo 
+ Questo manuale presenta il sistema ``Br-jsys'' illustrandone in modo completo le procedure di installazione, avvio e utilizzo 
 Ogni capitolo verr\`a accompagnato da illustrazioni che rendano il pi\`u possibile chiarai e semplici i passaggi descritti.
  \begin{itemize}
  \item Nel capitolo 2 vengono illustrati i requisiti (softwaree e hardware) necessari ad una corretta installazione del prodotto.
@@ -131,7 +131,7 @@ Ogni capitolo verr\`a accompagnato da illustrazioni che rendano il pi\`u possibi
 \chapter{Requisiti minimi}
 \section{Requisiti sofware }
 \subsection{Sistema operativo}
-Il ``\underline{BR-jsys}'' \`e sviluppato con tecnologia Java ed \`e quindi utilizzabile dai seguenti sistemi operativi.
+Il ``Br-jsys'' \`e sviluppato con tecnologia Java ed \`e quindi utilizzabile dai seguenti sistemi operativi.
 \begin{itemize}
 \item[-] Linux: qualsiasi distribuzione.
 \item[-] Windows: Windows2000 e WindowsXp home/professional.
@@ -140,7 +140,7 @@ Il ``\underline{BR-jsys}'' \`e sviluppato con tecnologia Java ed \`e quindi util
 \subsection{Java Runtime Environment (JRE)}
 Essendo il prodotto realizzato con la tecnolgia Java necessita di un ambiente Java Runtime Environment (JRE) in versione 1.6 per essere installato ed eseguito.
 \subsection{eXist}
-Il prodotto ``\underline{BR-jsys}'' utilizza il \underline{DBMS} eXist come sistema di gestione del \rp. \`E quindi necessario aver installato eXist in versione 1.2 prima di procedere all'installazione del ``\underline{BR-jsys}''. L'installazione di eXist viene presa in esame nel capitolo successivo.
+Il prodotto ``Br-jsys'' utilizza il \underline{DBMS} eXist come sistema di gestione del \rp. \`E quindi necessario aver installato eXist in versione 1.2 prima di procedere all'installazione del ``Br-jsys''. L'installazione di eXist viene presa in esame nel capitolo successivo.
 \section{Requisiti hardware}
 Per un corretto e scorrevole funzionamento del software sono richiesti:
 \begin{itemize}
@@ -151,7 +151,7 @@ Per un corretto e scorrevole funzionamento del software sono richiesti:
 \chapter{Installazione}
 \section{Installazione eXist}
 Per utilizzare il prodotto \`e necessario che venga installato sulla macchina il server eXist. L'installazione di eXist, essendo questo realizzato in Java, risulta essere la stessa su ogni sistema operativo.
-Il \underline{DBMS} eXist \`e reperible all'indirizzo web \textit{\texttt{http://exist.sourceforge.net/download.html}}, per chi, al momento dell'installazione del prodotto, non possedesse una connessione a internet attiva, \`e stato inserito il file di installazione \textbf{eXist-setup-1.2.0-rev7233.jar} nella cartella ``eXist'' all'interno del cd di installazione.
+Il DBMS eXist \`e reperible all'indirizzo web \textit{\texttt{http://exist.sourceforge.net/download.html}}, per chi, al momento dell'installazione del prodotto, non possedesse una connessione a internet attiva, \`e stato inserito il file di installazione \textbf{eXist-setup-1.2.0-rev7233.jar} nella cartella ``eXist'' all'interno del cd di installazione.
 \begin{enumerate}
 \item Cliccare con il tasto destro del mouse sul file di installazione e aprirlo con Java 6 Runtime come mostrato in figura;
 \begin{center}
@@ -165,12 +165,12 @@ Il \underline{DBMS} eXist \`e reperible all'indirizzo web \textit{\texttt{http:/
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/installazione_Exist3.eps}\\
 \end{center}
-\item Scrivere un nome utente e una password per l'autenticazione al server \underline{DBMS} negli appositi campi dati e premere sul tasto ``Next'' per proseguire. Attenzione i dati di autenticazine inseriti vi verranno richiesti all'avvio del prodotto ``\underline{BR-jsys}''.
+\item Scrivere un nome utente e una password per l'autenticazione al server DBMS negli appositi campi dati e premere sul tasto ``Next'' per proseguire. Attenzione i dati di autenticazine inseriti vi verranno richiesti all'avvio del prodotto ``Br-jsys''.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/installazione_Exist4.eps}\\
 \end{center}
 \item Premere il tasto ``Next'' per iniziare l'installazione dei pacchetti precedentemente selezionati;
-\item A questo punto \`e possibile selzionare alcune opzioni per la creazione di \textit{shortcut} . Si consiglia di mantenere la selezione di default. Premere quindi sul tasto ``Next'' per proseguire, su ``Previous'' per tornare al passo precedente o su ``Quit'' per terminare l'installazione;
+\item A questo punto \`e possibile selzionare alcune opzioni per la creazione di \textit{shortcut}. Si consiglia di mantenere la selezione di default. Premere quindi sul tasto ``Next'' per proseguire, su ``Previous'' per tornare al passo precedente o su ``Quit'' per terminare l'installazione;
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/installazione_Exist6.eps}\\
 \end{center}
@@ -238,7 +238,7 @@ In caso di login eseguito correttamente, verr\`a lanciata la schermata principal
 \includegraphics[width=0.5\textwidth]{manuale_utente/schermata_principale.eps}\\
  figura 3.0.1: schermata principale corretamente avviata
 \end{center}
-Se eXist non \`e stato avviato correttamente o pi\`u semplicemente non \`e stato avviato, verr\`a mostrato all'utente un messaggio di errore indicando che il server eXist \`e spento (figura 3.0.2). \`E necessario quindi chiudere il prodotto avviare il server eXist e riavviare il ``\underline{BR-jsys}''.
+Se eXist non \`e stato avviato correttamente o pi\`u semplicemente non \`e stato avviato, verr\`a mostrato all'utente un messaggio di errore indicando che il server eXist \`e spento (figura 3.0.2). \`E necessario quindi chiudere il prodotto avviare il server eXist e riavviare il ``Br-jsys''.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_server_spento.eps}\\
  figura 3.0.2: esempio di server spento
@@ -252,7 +252,7 @@ figura 3.0.3: esempio di username e/o password errati
 
 \chapter{Funzionalit\`a del sistema}
 \section{Descrizione funzionale}
-Di seguito \`e riportata la descrizione delle funzioni del prodotto. Ad ogni passo \`e stata associata una figura, in modo da daterminare senza amibiguit\`a il contesto dell'applicazione. Una volta avviato il prodotto ed essersi autenticati presso il \underline{DBMS} verr\`a visualizzata la schermata principale (vedi figura 3.0.1).
+Di seguito \`e riportata la descrizione delle funzioni del prodotto. Ad ogni passo \`e stata associata una figura, in modo da daterminare senza amibiguit\`a il contesto dell'applicazione. Una volta avviato il prodotto ed essersi autenticati presso il DBMS verr\`a visualizzata la schermata principale (vedi figura 3.0.1).
 Da questa schermata si possono avviare le tre funzionalit\`a associate ai rispettivi bottoni:
 \begin{itemize}
 \item Inserisci \br;
@@ -307,43 +307,43 @@ La figura 3.2.3 mostra l'esito di un corretto inserimento di una \br. La \br\ \`
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_op_non_consentita.eps}\\
  figura 3.2.4: esempio di regola sintatticamente errata 
 \end{center} 
-La figura 3.2.4 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa (in questo caso true=12) non \`e consentita.
+La figura 3.2.4 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa (in questo caso true=12) non \`e consentita.
 \\
 \\
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/errore_sintattico.eps}\\
  figura 3.2.5: esempio di regola errata
 \end{center} 
-La figura 3.2.5 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa \`e scritta in maniera errata.
+La figura 3.2.5 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa \`e scritta in maniera errata.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_br_gia_presente.eps}\\
  figura 3.2.6: esempio di regola gi\`a inserita
 \end{center} 
-La figura 3.2.6 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un'occorrenza di questa nel \rp.
+La figura 3.2.6 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un'occorrenza di questa nel \rp.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_testo_gia_presente.eps}\\
  figura 3.2.7: esempio testo regola gi\`a presente
 \end{center} 
-La figura 3.2.7 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto il testo della \br\ \`e gi\`a presente.
+La figura 3.2.7 mostra l'esito di un errato inserimento di \underline{business rules}. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il testo della \br\ \`e gi\`a presente.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_nome_regola_inaccettabile.eps}\\
  figura 3.2.8: esempio inserimento nome vuoto
 \end{center} 
-La figura 3.2.8 mostra l'esito di un errato inserimento di \underline{business rules}. La \underline{business rule} non pu\`o essere validata e inserita nel \rp\ in quanto il nome inserito  della \br\ \`e vuoto.
+La figura 3.2.8 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il nome inserito  della \br\ \`e vuoto.
 
 \section{Rimuovi \br}
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_rimozione.eps}\\
  figura 3.3: schermata di rimozione
 \end{center}
-Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una \underline{business rule}.
+Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una business rule.
 \begin{itemize}
 \item Per procedere all'eliminazione l'utente avr\`a 2 modi:
 \begin{enumerate}
-\item inserire nell'appostito campo (TextBox) il nome della \underline{business rule} che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''. Se l'utente opera una o pi\`u ricerche, le \br  trovate verranno selezionate nel campo ``Business Rules Selezionate'' mentre in ``Lista Completa'' sar\`a evidenziata solo l'ultima di queste. Si possono eventualmente deselezionare le \br attraverso il tasto ``Deseleziona''. Viene infine introdotto l'uso di espressioni regolari per raffinare la ricerca, in questo caso invitiamo l'utente a consultare la documentazione fornita all' url:\\ \textit{http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html}.
+\item inserire nell'appostito campo (TextBox) il nome della business rule che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''. Se l'utente opera una o pi\`u ricerche, le \br  trovate verranno selezionate nel campo ``Business Rules Selezionate'' mentre in ``Lista Completa'' sar\`a evidenziata solo l'ultima di queste. Si possono eventualmente deselezionare le \br attraverso il tasto ``Deseleziona''. Viene infine introdotto l'uso di espressioni regolari per raffinare la ricerca, in questo caso invitiamo l'utente a consultare la documentazione fornita all' url:\\ \textit{http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html}.
 \item selezionare una o pi\`u \underline{business rule} dalle liste sottostanti.
 \end{enumerate}
 
@@ -374,21 +374,20 @@ Se la cancellazione viene effettuata con successo verr\`a visualizzato un messag
 \includegraphics[width=0.7\textwidth]{manuale_utente/br_non_trovata.eps}\\
  figura 3.3.4 messaggio di regola non trovata.
 \end{center} 
-La figura 3.3.4 mostra l'esito di un'errata rimozione di \underline{business rules}. La \underline{business rule} non pu\`o essere rimossa dal \rp\ in quanto non \`e stata trovata al suo interno.
+La figura 3.3.4 mostra l'esito di un'errata rimozione di business rules. La business rule non pu\`o essere rimossa dal \rp\ in quanto non \`e stata trovata al suo interno.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_repository_vuoto.eps}\\
  figura 3.3.5 messaggio di repository vuoto.
 \end{center} 
-La figura 3.3.5 mostra l'esito di un'errata rimozione di \underline{business rules}. La \underline{business rule} non pu\`o essere rimossa dal \rp\ in quanto il repository non contiene alcuna.
+La figura 3.3.5 mostra l'esito di un'errata rimozione di business rules. La business rule non pu\`o essere rimossa dal \rp\ in quanto il repository non contiene alcuna.
 
-% occorre inserire il messaggio dei due esiti
 \section{Sandbox}
 \begin{center}
  \includegraphics[width=1\textwidth]{manuale_utente/schermata_sandbox.eps} \\
  figura 3.4: schermata sandbox
 \end{center}
-Nella figura 3.4 vediamo illustrata la schermata di \underline{sandbox}. Per procedere con l'interrogazione del \underline{DBMS}, l'utente dovr\`a:
+Nella figura 3.4 vediamo illustrata la schermata di \underline{sandbox}. Per procedere con l'interrogazione del DBMS, l'utente dovr\`a:
 \begin{itemize}
 \item inserire la query (scritta in linguaggio \underline{XQuery}) nell'appostito campo dati ``Query'';
 \item cliccare sul pulsante ``\textbf{Esegui}''.
@@ -400,7 +399,7 @@ Nella figura 3.4 vediamo illustrata la schermata di \underline{sandbox}. Per pro
 \includegraphics[width=1\textwidth]{manuale_utente/sandbox_di_query.eps}\\
  figura 3.4.1 esempio di querying corretto.
 \end{center}
-La figura 3.4.1 mostra l'esito positivo di una query e in particolare verr\`a visualizzato nel campo dati ``Risultati'' l'esito della query e nella barra sottostante il tempo di risposta (in millisecondi) impiegato da \underline{eXist}.
+La figura 3.4.1 mostra l'esito positivo di una query e in particolare verr\`a visualizzato nel campo dati ``Risultati'' l'esito della query e nella barra sottostante il tempo di risposta (in millisecondi) impiegato da eXist.
 
 \begin{center}
 \includegraphics[width=1.1\textwidth]{manuale_utente/esempio_errore_sandbox_query_errata.eps}\\
@@ -447,15 +446,15 @@ Una \br\ pu\`o contenere confronti tra booleani. Ad esempio ``difettoso=false''.
 \section{Connettori logici} AND OR
 \section{Il ``message''}
 
-%  Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della \underline{business rule}. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
-% 
-% \section{Struttura di una \br}
-% Una \underline{business rule} pu\`o essere formata da:
-% \begin{itemize}
-% \item una \textbf{regola} atomica;
-% \item un insieme di \textbf{regole} collegate tra loro attraverso operatori booleani (AND \textbar OR).
-% \end{itemize}
-% 
+Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della \underline{business rule}. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
+
+ \section{Struttura di una \br}
+ Una \underline{business rule} pu\`o essere formata da:
+ \begin{itemize}
+ \item una \textbf{regola} atomica;
+ \item un insieme di \textbf{regole} collegate tra loro attraverso operatori booleani (AND \textbar OR).
+ \end{itemize}
+ 
 
 
 Queste possono essere accompagnate da funzioni quali:
@@ -485,7 +484,7 @@ Un message pu\`o essere formato da:
 \item i seguenti caratteri speciali \^\ e \~ \\
 \end{itemize}
 \section{Esempi di \underline{business rules}}
-Faremo ora, per una maggiore comprensione del linguaggio, alcuni esempi di \underline{business rules}.
+Faremo ora, per una maggiore comprensione del linguaggio, alcuni esempi di business rules.
 \begin{itemize}
 \item \textbf{ESEMPIO 1} \\
 \underline{REGOLA NEL LINGUAGGIO NATURALE:} \\
@@ -625,12 +624,12 @@ Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivi
 \textbf{Messaggio:} & \textbf{Descrizione:} \\ \hline
 Autenticazione fallita! & Nome utente e/o password non inseriti correttamente..\\ \hline
 Server eXist spento! & Il server eXist non \`e avviato. \\ \hline
-Oggetto associato \textless nome associato\textgreater\ inesistente! & Inserimento di una \underline{business rule} con un business object associato non valido. \\ \hline
+Oggetto associato \textless nome associato\textgreater\ inesistente! & Inserimento di una business rule con un business object associato non valido. \\ \hline
 Campo dati \textless nome campo dati\textgreater\ non trovato: validazione interrotta! & Riferimento ad un campo dati sbagliato. La validazione viene interrotta. \\ \hline
 Operazione non consentita! \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta! & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
-Errore sintattico \textless tutta la \underline{business rule} scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella \underline{business rule}. La validazione viene interrotta. \\ \hline
+Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
 Regola \textless nome regola\textgreater\  gi\`a presente: inserimento fallito! & La regola ha un nome gi\`a presente nel repository. Non verr\`a quindi inserita. \\ \hline
-\underline{business rule} non trovata! & La \underline{business rule} cercata non \`e stata trovata nel \rp. \\ \hline
+business rule non trovata! & La business rule cercata non \`e stata trovata nel \rp. \\ \hline
 \end{tabular} \\
 \end{table}
 
