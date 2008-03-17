@@ -2,7 +2,7 @@
 \input{model/layout.tex}% layout
 \begin{document}
 %definizione variabili 
-\newcommand{\lv}{ 2.4 } % latest version
+\newcommand{\lv}{ 1.0 } % latest version
 \newcommand{\dt}{ Test Report Delta }% Document title
 \input{model/variables.tex}%altre variabili
 \input{model/document-latest-versions.tex}%nomi documenti
@@ -53,13 +53,13 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
-2.4 & 17/03/2008 & \AT & Correzione documento e aggiunta grafico ``MaturitaDiProdotto''. \\ \hline
-2.3 & 15/03/2008 & \AT & Completamento sezione``Junit'' e correzione del documento. \\ \hline
-2.2 & 14/03/2008 & \AT & Prima correzione al documento. \\ \hline
-2.1 & 14/03/2008 & \MT & Esiti dei test di convalida.  \\ \hline
-2.0 & 14/03/2008 & \ET & Aggiunta degli esiti di JUnit. \\ \hline
-1.1 & 14/03/2008 & \MT & Esiti dei test di regressione. \\ \hline
-1.0 & 13/03/2008 & \MT & Correzione dei test errati. Aggiunta del test CVT1c \\ \hline
+1.0 & 17/03/2008 & \AT & Correzione documento e aggiunta grafico ``MaturitaDiProdotto''. \\ \hline
+0.9 & 15/03/2008 & \AT & Completamento sezione``Junit'' e correzione del documento. \\ \hline
+0.8 & 14/03/2008 & \AT & Prima correzione al documento. \\ \hline
+0.7 & 14/03/2008 & \MT & Esiti dei test di convalida.  \\ \hline
+0.6 & 14/03/2008 & \ET & Aggiunta degli esiti di JUnit. \\ \hline
+0.5 & 14/03/2008 & \MT & Esiti dei test di regressione. \\ \hline
+0.4 & 13/03/2008 & \MT & Correzione dei test errati. Aggiunta del test CVT1c \\ \hline
 0.3 & 12/03/2008 & \AT & Modifiche ai test case dopo l'introduzione del ';' nella nuova grammatica. \\ \hline
 0.2 & 12/03/2008 & \ET & Aggiunta sezione ``Analisi statica'' e tabelle errori. \\ \hline
 0.1 & 11/03/2008 & \ET & Stesura preliminare del documento. \\ \hline
@@ -184,7 +184,7 @@ Tali errori nel codice sorgente sono stati tutti corretti. Una nuova esecuzione 
 
 \chapter{Analisi dinamica}
 Per analizzare il comportamento del prodotto durante la sua fase di esecuzione, abbiamo progettato alcune batterie di test atte a valutarne la correttezza di avanzamento, attraverso dati di input prestabiliti che dovevano produrre risultati attesi.
-Ogni \textit{test case} \`e formato da una tripla <ingresso,uscita,ambiente>, dove l'ambiente \`e costituito dalla funzionalit\`a da testare.
+Ogni \textit{test case} \`e formato da una tripla \textless ingresso,uscita,ambiente \textgreater , dove l'ambiente \`e costituito dalla funzionalit\`a da testare.
 Ogni \textit{test case} \`e documentato con descrizione d'uso e un elenco di requisiti soddisfatti. 
 \section{Test di integrazione}
 Viene di seguito riportato il nuovo test riguardante l'integrazione tra la componente ``validatore'' e la componente ``comunicatore''. \\
@@ -323,20 +323,128 @@ tearDown() & nessuno \\ \hline
 \chapter{Esiti dei test}
 
 \section{Esiti dei test dei difetti}
-L'esito di un test dei difetti \`e segnato come negativo ogniqualvolta non evidenzia un difetto, viene altres\`i segnato come positivo l'esito di quei test che abbiano individuato dei difetti nel software.
-Il test \`e presentato in forma tabulare, indicandone il codice identificativo del test, seguito dal suo esito. I test risultati positivi sono evidenziati in colore \textcolor{err}{rosso}. 
- \textcolor{rt}{blu} .
+I \textit{test dei difetti} servono ad individuare possibili difetti o errori del codice su cui vengono testati. Per questo l'esito di un test dei difetti \`e segnato come negativo ogniqualvolta non evidenzia un difetto, viene altres\`i segnato come positivo l'esito di quei test che abbiano individuato dei difetti nel software.
+Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentati in forma tabulare, indicando il codice identificativo del test, seguito dal suo esito. I test risultati positivi sono evidenziati in colore \textcolor{err}{rosso}. I test di regressione, come illustrato precedentemente, sono riportati solo dove abbiano prodotto un output o un esito differente dalla loro precedente esecuzione. I test di regressione sono evidenziati nelle tabelle sottostanti dalla sigla RT e sono colorati in \textcolor{rt}{blu} .
+
+
+\subsection{Test sul validatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+VT1a & negativo & \\ \hline
+VT1b & \textcolor{err}{positivo} & Vengono inserite \br\ con comment=''.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  Se il commento \`e vuoto non viene inserito come attributo nell'\underline{XML}.\\ \hline
+VT1c & \textcolor{err}{positivo} & Vengono inserite \br\ con nome=''.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  Viene effettuato un controllo per evitare stringhe vuote.\\ \hline
+VT1d & negativo & \\ \hline
+VT1e & negativo & \\ \hline
+VT1f & negativo & \\ \hline
+VT2a & \textcolor{err}{positivo} & La parentesizzazione che coinvolge un intera operazione di confronto non \`e ancora stata introdotta nella grammatica del linguaggio.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  \\ \hline
+VT2b & \textcolor{err}{positivo} & Non devono comparire nel codice \underline{XML} tag 'OpRule'.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  \\ \hline
+VT2c & negativo & \\ \hline
+VT3a & negativo & \\ \hline
+VT3b & negativo & \\ \hline
+VT4 & negativo & \\ \hline
+VT5a & negativo & \\ \hline
+VT5b & negativo & \\ \hline
+VT5c & negativo & \\ \hline
+VT6a & negativo & \\ \hline
+VT6b & negativo & \\ \hline
+VT7 & negativo & \\ \hline
+VT8a & negativo & \\ \hline
+VT8b & negativo & \\ \hline
+VT8c & negativo & \\ \hline
+VT9a & negativo & \\ \hline
+VT9b & negativo & \\ \hline
+VT9c & negativo & \\ \hline
+VT10 & negativo & \\ \hline
+VT11 & negativo & \\ \hline
+VT12a & negativo & \\ \hline
+VT12b & negativo & \\ \hline
+VT13a & negativo & \\ \hline
+VT13b & negativo & \\ \hline
+VT14 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+VT15a & negativo & \\ \hline
+VT15b & negativo & \\ \hline
+VT15c & \textcolor{err}{positivo} &  \\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT Introduzione dei ';' nella grammatica del linguaggio \\ \hline
+VT15d & \textcolor{err}{positivo} & \\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT Introduzione dei ';' nella grammatica del linguaggio \\ \hline
+VT15e & negativo & \\ \hline
+VT15f & negativo & \\ \hline
+VT16 & negativo & \\ \hline
+VT17 & \textcolor{err}{positivo} & Le lettere accentate non sono ancora state aggiunte alla grammatica del linguaggio.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  \\ \hline
+VT18 & \textcolor{err}{positivo} & La grammatica del linguaggio non prevede ancora l'utilizzo di numeri da 0 a 9 nelle stringhe.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  \\ \hline
+VT19 & negativo & \\ \hline
+VT20 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Test sul comunicatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+CT1 & negativo & \\ \hline
+CT2 & negativo & \\ \hline
+CT3 & negativo & \\ \hline
+CT4 & negativo & \\ \hline
+CT5 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Test sulla gui}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+GT1a & negativo & \\ \hline
+GT1b & negativo & \\ \hline
+GT1c & negativo & \\ \hline
+GT2 & negativo & \\ \hline
+GT3 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
 
 \subsection{Integrazione validatore, comunicatore}
 \begin{center}
 \begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
 \textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+CVT1a & negativo & \\ \hline
+CVT1b & negativo & \\ \hline
 CVT1c & \textcolor{err}{positivo} & Possono essere inserite \br\ identiche ma con nome differente e vengono accettate.\\ \cline{2-3}
 & \textcolor{rt}{negativo} & RT Viene efffettuato un controllo sulla regola prima dell'inserimento. \\ \hline
 \end{tabular} \\
 \end{center}
 
-\chapter{Esiti dei test di convalida}
+\subsection{Integrazione gui, validatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+GVT1 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Integrazione del sistema}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+S1 & negativo & \\ \hline
+S2 & \textcolor{err}{positivo} & In sitemi unix permette di accedere al \rp\ anche inserendo username e password errati.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT Esito errato del pprecedente test. I dati di autenticazione accettati sono sempre quelli inseriti durante l'installazione di \underline{eXist} \\ \hline
+\end{tabular} \\
+\end{center}
+
+
+\section{Esiti dei test di convalida}
 I \textit{test di convalida} servono a dimostrare che tutti i requisiti sono stati soddisfatti. Per questo l'esito di un test di convalida \`e segnato come positivo ogniqualvolta dimostra che un requisito \`e soddisfatto, viene altres\`i segnato come negativo l'esito dei test che hanno fallito. 
  \begin{center}
 \begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
@@ -510,19 +618,9 @@ I \textit{test di convalida} servono a dimostrare che tutti i requisiti sono sta
 \end{tabular} \\
 \end{center}
 
- \begin{center}
-\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
-\textbf{NQ2} &  - & -\\ \hline
-\end{tabular} \\
-\end{center}
-
- \begin{center}
-\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
-\textbf{NQ3} &  - & -\\ \hline
-\end{tabular} \\
-\end{center}
 \chapter{Maturit\`a di prodotto}
 Verr\`a di seguito rappresentato il grafico riportante l'andamento dei difetti del software nel periodo di test.
+La linea indica il rapporto tra difetti trovati e test eseguiti. Una analisi complessiva del grafo mostra 
 \begin{center}
 \includegraphics[width=1\textwidth] {MaturitaDiProdotto.eps}
 \end{center}
