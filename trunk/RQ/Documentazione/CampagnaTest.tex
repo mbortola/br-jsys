@@ -1,0 +1,66 @@
+
+\input{model/layout.tex}% layout
+\begin{document}
+%definizione variabili 
+\newcommand{\lv}{ 2.8 } % latest version
+\newcommand{\dt}{ Norme Di Progetto }% Document title
+\input{model/variables.tex}%altre variabili
+\input{model/document-latest-versions.tex}%nomi documenti
+%fine definizione variabili
+\input{model/hyphenation.tex}%sillabazione
+\input{model/titlepage.tex}%pagina del titolo
+
+
+
+\begin{center}
+\thispagestyle{plain}
+\begin{table}[htbp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
+\begin{tabular}{|p{6cm}|p{6cm}|}
+\hline
+\textbf{Data creazione:} & 17/03/2008 \\
+\hline
+\textbf{Versione:} & \lv \\ \hline
+% ----------------------------------------------------------------------------autori
+\textbf{Stato del documento:} & Formale ad uso Interno \\ \hline
+\textbf{Revisione RA} & \\ \hline
+\textbf{Redazione:} & \AT \\ \hline
+\textbf{Revisione:} &  \ET\\ \hline
+\textbf{Approvazione:} &  \MT\\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+\large{
+\begin{tabular}{l}
+\Large{\textbf{\textsf{Lista di distribuzione}}} \\
+\begin{tabular}{|p{6cm}|p{6cm}|} \hline
+%  -------------------------------------------------------------lista di distribuzione
+{Tutta la HappyCode inc}& Gruppo di lavoro \\ \hline
+\end{tabular} \\
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[hbtp]
+
+\Large{\textbf{\textsf{Diario delle modifiche}}} \\
+\begin{small}
+\begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
+Versione & Data & Autore & Descrizione \\ \hline
+%-------------------------------------------------------------------------------diario modifiche
+0.2 & 17/03/2008 & \ET & Correzione documento. \\ \hline
+0.1 & 17/03/2008 & \AT & Stesura preliminare del documento. \\ \hline
+\end{tabular} \\
+\end{small}
+\end{table}
+\end{center}
+
+
+\newpage
+\tableofcontents 
+\end{document}
