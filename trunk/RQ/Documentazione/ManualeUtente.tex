@@ -473,48 +473,11 @@ Il linguaggio fin qui descritto non garanrtisce una buona espressivit\`a, risult
  Attenzione iconnetori logici tra i confronti non vanno confusi con gli operatori logici tra booleani.
 
 \section{Il ``message''}
-Il message \`e un modo per aiutare il debugging delle \br. Ad ogni confronto 
+Il message \`e un modo per aiutare il debugging delle \br. Ad ogni confronto \`e possibile associare un messaggio in formato stringa con la keyword \textit{message(``testo del messaggio'')}. Il message serve al momento dell'interpretazione dell \br, nel momento in cui si cerca di validare un \bo\ questo potrebbe non rispettare delle uno dei confronti di una regola. Nel caso ci\`o avvenga all'utente verr\`a mostrato il message riguardante il primo confronto fallito. Un message pu\`o quindi essere aggiunto al termine di ogni singolo confronto, includendo un messaggio chiaro che identifichi in modo chiaro per l'utente dove il \bo\ non rispetta una parte della \br. Ad esempio \`e possibile scrivere: ``nomeProdotto=``Pc1'' message(``nome errato''); AND prezzoProdotto\textless1800 message(``prezzo non competitivo'');'' in questo modo se il \bo\ a cui si applica la regola dovesse avere un nome diverso da ``Pc1'' o un prezzo maggiore di 1800, verrebbe segnalato all'utente con un messaggio contenente il testo del message. I caratteri ammessi in un message sono: lettere dell'alfabeto maiuscole minuscole, numeri, spazi, simboli di punteggiatura come : `.' (punto),  `?' (punto di domanda),  `!' (punto esclamativo),  `\_' (underscore),  `-' (trattino, simbolo di sottrazione),  `\~' (tilde), `\^' (apice).
 
 
-Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della \underline{business rule}. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
-
- \section{Struttura di una \br}
- Una \underline{business rule} pu\`o essere formata da:
- \begin{itemize}
- \item una \textbf{regola} atomica;
- \item un insieme di \textbf{regole} collegate tra loro attraverso operatori booleani (AND \textbar OR).
- \end{itemize}
- 
-
-
-Queste possono essere accompagnate da funzioni quali:
-\begin{itemize}
-\item[-] AVG (media aritmetica);
-\item[-] COUNT (contatore);
-\item[-] SUM (somma). 
-\end{itemize}
-\textbf{Bool} permette operazioni quali:
-\begin{itemize}
-\item[-] \&\& (congiunzione logica);
-\item[-] \textbar\textbar\ (disgiunzione logica).
-\end{itemize}
-oltre alla funzione:
-\begin{itemize}
-\item[-] NOT (negazione logica). 
-\end{itemize}
-\textbf{String} permette invece solo operazioni di confronto.
-% \section{Struttura message}
-% Un message pu\`o essere formato da:
-% \begin{itemize}
-% \item lettere maiuscole (A-Z);
-% \item lettere minuscole (a-z);
-% \item numeri (0-9);
-% \item spazi vuoti;
-% \item i seguenti caratteri di punteggiatura: `.'  `?'  `!'  `\_'  `-'  `\~\ '
-% \item i seguenti caratteri speciali \^\ e \~ \\
-% \end{itemize}
-\section{Esempi di \underline{business rules}}
-Faremo ora, per una maggiore comprensione del linguaggio, alcuni esempi di business rules.
+\section{Esempi di \br}
+Per una maggiore comprensione del linguaggio, vengono riportati alcuni esempi di \br.
 \begin{itemize}
 \item \textbf{ESEMPIO 1} \\
 \underline{REGOLA NEL LINGUAGGIO NATURALE:} \\
