@@ -482,7 +482,9 @@ Per una maggiore comprensione del linguaggio, vengono riportati alcuni esempi di
 \item \textbf{Esempio 1} \\
 L'azienda deve essere la IBM e il totale delle entrate deve essere uguale alla somma dei prezzi dei singoli prodotti pi\`u i guadagni derivati dall'assistenza, altrimenti torna un messaggio con scritto ``errore nei calcoli''. \\
 \underline{Regola:} \\
-azienda=``IBM''; AND totaleEntrate=SUM(prezziProdotti)+SUM(prezziComputer)+SUM(guadagniAssistenza) message(``errore nei calcoli'');
+azienda=``IBM''; AND totaleEntrate = SUM(prezziProdotti)\\
+ + SUM(prezziComputer) + SUM(guadagniAssistenza)\\
+ message(``errore nei calcoli'');
 \item \textbf{Esempio 2} \\
 Il nome dello studente deve essere Lisa. I suoi crediti devono essere almeno 180 altrimenti deve ritornare un messaggio con scritto ``totale crediti sbagliato''. I suoi anni di corso devono essere non pi\`u di tre altrimenti torna un messaggio con scritto ``risulti fuori corso''.  \\
 \underline{Regola:} \\
@@ -603,20 +605,15 @@ Al completamento cliccare su ``Fine''.
 Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivio fornisce una sezione ``issues'' all'URL: \\ 
 \href{http://code.google.com/p/br-jsys/issues/list}{http://code.google.com/p/br-jsys/issues/list}, che visualizza in qualsiasi momento la lista aggiornata di tutti i problemi e malfunzionamenti da noi riscontrati. Attraverso questo sistema ogni componente del gruppo potr\`a creare un ``new issue'', assegnandogli una priorit\`a che varier\`a a seconda della gravit\`a del problema. Ogni issue conterr\`a inoltre il nome dell'utente che lo ha aggiunto nella lista, oltre ad uno status (new, accepted, started, verified, etc...) che in qualsiasi momento ogni membro del gruppo potr\`a aggiornare. 
 
-
+\newpage
 \section{Messaggi di errore e loro significato}
 \begin{table}[htbp]
-\begin{tabular}{|p{6.5cm}|p{6.5cm}|}
+\begin{tabular}{|p{5cm}|p{6cm}|}
 \hline
 \textbf{Messaggio:} & \textbf{Descrizione:} \\ \hline
 Autenticazione fallita! & Nome utente e/o password non inseriti correttamente..\\ \hline
 Server eXist spento! & Il server eXist non \`e avviato. \\ \hline
 Oggetto associato \textless nome associato\textgreater\ inesistente! & Inserimento di una business rule con un business object associato non valido. \\ \hline
-\end{tabular} \\
-\end{table}
-
-\begin{table}[htbp]
-\begin{tabular}{|p{6.5cm}|p{6.5cm}|}\hline
 Campo dati \textless nome campo dati\textgreater\ non trovato: validazione interrotta! & Riferimento ad un campo dati sbagliato. La validazione viene interrotta. \\ \hline
 Operazione non consentita! \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta! & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
 Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
