@@ -107,13 +107,13 @@ Il documento ``TestReportDelta.1.0.pdf'' integra il ``\TR'' precedentemente cons
 \chapter{Miglioramenti desiderabili}
 In questo capitolo elencheremo i miglioramenti che potrebbero essere apportati al prodotto ``BR-jsys'', ma che non siamo riusciti a implementare per motivi di tempo e costi. 
 \begin{itemize}
-\item \textbf{Normalizzazione di business rules:} rendere possibile la normalizzazione delle business rule, ovvero ogni qualvolta si riscontra un tab, uno spazio, un \textbackslash t, un \textbackslash r, \textbackslash n si devono trasformare in un singolo spazio. 
+\item \textbf{Normalizzazione di business rules:} rendere possibile la normalizzazione delle business rule, ovvero ogni qualvolta si riscontra un tab, uno spazio, un \textbackslash t, un \textbackslash r, \textbackslash n si devono trasformare in un singolo spazio. Questo per impedire l'inserimento di \br\ gi\`a presenti nel \rp. Grazie alla normalizzazione infatti due \br\ che differiscono per spazi o caratteri di spazio, risultano invece identiche al momento dell'inserimento. 
 \item \textbf{Operazioni tra stringhe:} rendere possibili altre operazioni, oltre al confronto, sulle stringhe. Ad esempio la concatenazione e le operazioni di confronto tra stringhe (\textless, \textgreater); 
 \item \textbf{Parentesi tra AND/OR:} rendere possibile la parentesizzazione tra AND e/o OR. Allo stato attuale \`e possibile inserire le parentesi nel nostro linguaggio solo:
 \begin{itemize}
 \item nelle funzioni matematiche, ad es. SUM(..), COUNT(..), AVG(..);
 \item tra espressioni matematiche, ad es (a+b)*c.
 \end{itemize}
-\item \textbf{Aggiunta di espressioni FLOWR:} rendere possibile la formulazione di query complesse, in stile FLOWR.
+\item \textbf{Aggiunta di espressioni FLOWR:} rendere possibile la formulazione di query complesse, in stile \underline{FLOWR}.
 \end{itemize}
 \end{document}
