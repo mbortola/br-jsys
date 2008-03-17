@@ -479,24 +479,21 @@ Il message \`e un modo per aiutare il debugging delle \br. Ad ogni confronto \`e
 \section{Esempi di \br}
 Per una maggiore comprensione del linguaggio, vengono riportati alcuni esempi di \br.
 \begin{itemize}
-\item \textbf{ESEMPIO 1} \\
-\underline{REGOLA NEL LINGUAGGIO NATURALE:} \\
-L'azienda deve essere la IBM. La somma delle entrate deve essere maggiore di quella delle uscite altrimenti deve ritornare un messaggio con scritto ``errore nei calcoli''. \\
-\underline{REGOLA NEL LINGUAGGIO CREATO:} \\
-azienda=``IBM'' AND SUM(entrate)\textgreater\ SUM(uscite) message(``errore nei calcoli'')
-\item \textbf{ESEMPI0 2} \\
-\underline{REGOLA NEL LINGUAGGIO NATURALE:} \\
+\item \textbf{Esempio 1} \\
+L'azienda deve essere la IBM e il totale delle entrate deve essere uguale alla somma dei prezzi dei singoli prodotti pi\`u i guadagni derivati dall'assistenza, altrimenti torna un messaggio con scritto ``errore nei calcoli''. \\
+\underline{Regola:} \\
+azienda=``IBM''; AND totaleEntrate=SUM(prezziProdotti)+SUM(prezziComputer)+SUM(guadagniAssistenza) message(``errore nei calcoli'');
+\item \textbf{Esempio 2} \\
 Il nome dello studente deve essere Lisa. I suoi crediti devono essere almeno 180 altrimenti deve ritornare un messaggio con scritto ``totale crediti sbagliato''. I suoi anni di corso devono essere non pi\`u di tre altrimenti torna un messaggio con scritto ``risulti fuori corso''.  \\
-\underline{REGOLA NEL LINGUAGGIO CREATO:} \\
-nome=``Lisa'' AND SUM(crediti)\textgreater =180 message(``totale crediti sbagliato'') AND COUNT(anni)\textless =3 message(``risulti fuori corso'')
+\underline{Regola:} \\
+nome=``Lisa'' AND SUM(crediti)\textgreater =180 message(``totale crediti sbagliato'') AND COUNT(anni)\textless =3 message(``risulti fuori corso'');
 \end{itemize}
+
 \section{Rappresentazione in XML}
 Mostriamo ora come vengono rappresentati i vari simboli e operatori della grammatica nella loro rappresentazione in XML.
 \begin{table}[htbp]
-\begin{tabular}{||p{3cm}||p{6.5cm}||}
-\hline
+\begin{tabular}{|p{3cm}|p{6.5cm}|}\hline
 \textbf{REGOLA:} & \textbf{XML:} \\ \hline
-& \\ \hline
 X=Y & \textless Conf type=``=''\textgreater \\
 &   X \\
 &   Y \\ 
@@ -521,13 +518,11 @@ X\textgreater =Y &  \textless Conf type=``\&gt=''\textgreater \\
 &  X \\
 &  Y \\ 
 & \textless /Conf\textgreater\\ \hline
-& \\ \hline
 \end{tabular} \\
 \end{table}
 
 \begin{table}[htbp]
-\begin{tabular}{||p{3cm}||p{6.5cm}||}
-\hline
+\begin{tabular}{|p{3cm}|p{6.5cm}|}\hline
 X AND Y & \textless ORule type=``AND''\textgreater \\
 &  X \\
 &  Y \\
@@ -576,8 +571,7 @@ X \&\& Y & \textless OBool type=``\&amp;\&amp;''\textgreater \\
 \end{table}
 
 \begin{table}[htbp]
-\begin{tabular}{||p{3cm}||p{6.5cm}||}
-\hline
+\begin{tabular}{|p{3cm}|p{6.5cm}|}\hline
 NOT(X) & \textless BoFun type=``NOT''\textgreater \\
 &  Y \\
 & \textless /BoFun\textgreater \\ \hline
@@ -612,12 +606,17 @@ Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivi
 
 \section{Messaggi di errore e loro significato}
 \begin{table}[htbp]
-\begin{tabular}{||p{6.5cm}||p{6.5cm}||}
+\begin{tabular}{|p{6.5cm}|p{6.5cm}|}
 \hline
 \textbf{Messaggio:} & \textbf{Descrizione:} \\ \hline
 Autenticazione fallita! & Nome utente e/o password non inseriti correttamente..\\ \hline
 Server eXist spento! & Il server eXist non \`e avviato. \\ \hline
 Oggetto associato \textless nome associato\textgreater\ inesistente! & Inserimento di una business rule con un business object associato non valido. \\ \hline
+\end{tabular} \\
+\end{table}
+
+\begin{table}[htbp]
+\begin{tabular}{|p{6.5cm}|p{6.5cm}|}\hline
 Campo dati \textless nome campo dati\textgreater\ non trovato: validazione interrotta! & Riferimento ad un campo dati sbagliato. La validazione viene interrotta. \\ \hline
 Operazione non consentita! \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta! & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
 Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
