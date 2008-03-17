@@ -53,7 +53,7 @@ Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
 2.1 & 15/03/2008 & \LA & Correzioni e aggiunte immagini installazione br-jsys in windows. \\ \hline
 2.0 & 15/03/2008 & \MT & Modifica all'organizzazione dei capitoli e ai capitoli stessi. \\ \hline
-1.4 & 14/03/2008 & \LA & Aggiornamento del documento nella sezione riguardante la GUI. \\ \hline
+1.4 & 14/03/2008 & \LA & Aggiornamento del documento della sezione riguardante la GUI. \\ \hline
 1.3 & 08/03/2008 & \MM & Correzione del documento. \\ \hline
 1.2 & 07/03/2008 & \LA & Aggiunta delle immagini. \\ \hline
 1.1 & 06/03/2008 & \AT & Correzione documento. \\ \hline
@@ -213,7 +213,7 @@ Perch\`e il prodotto sia avviato e funzioni correttamente \`e necessario che sia
 Per lanciare eXist manualmente:
 \begin{itemize}
 \item[1-] Aprire la shell di Linux o il prompt dei comandi (Dos) di Windows;
-\item[2-] Accedere alla directory in cui \`e installato eXist e successivamente dentro la cartella ``bin'';
+\item[2-] Accedere alla directory in cui \`e installato eXist e successivamente dentro la cartella `bin';
 \item[3-] Da shell di Linux digitate:  \textbf{startup.sh} . Dal prompt dei comandi di Windows digitate: \textbf{startup.bat};
 \end{itemize}	
 Apparir\`a cos\`i una schermata simile alla seguente.
@@ -290,7 +290,7 @@ Il nome della \br\ che l'utente intende inserire. Il nome della \br\ deve essere
 Il \bo\ al quale si vuole associare la regola. Il linguaggio di definizione delle \br\ offre la possibilit\`a di effettuare operazioni e controlli sui campi dati dei \bo\ da validare. Per questo ad ogni \br\ \`e necessario associare un \bo. Per facilitare l'inserimento di una nuova \br\ (evitando cos\`i errori dovuti ad una digitazione errata del nome del \bo) il campo \bo\ associato \`e una \textit{combobox} che permette di scegliere uno dei \bo\ realmente presenti.
 
 \subsection{Regola}
-La regola scritta secondo la grammatica spiegata nel capitolo ``Descrizione del Linguaggio''. Per ovviare all'inserimento di \br\ con il campo regola identico, \`e possibile selezionare una delle \br\ della lista e visualizzare il campo ``regola'' nella \textit{statusbar} figura 3.2.1.
+La regola scritta secondo la grammatica spiegata nel capitolo `Descrizione del Linguaggio'. Per ovviare all'inserimento di \br\ con il campo regola identico, \`e possibile selezionare una delle \br\ della lista e visualizzare il campo `regola' nella \textit{statusbar} figura 3.2.1.
 
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_esempio_regola_selezionata.eps}\\
@@ -448,21 +448,22 @@ Il linguaggio ammette operazioni tra vettori matrici e scalari. Tali operazioni 
 \`E possibile effettuare operazioni tra matrici a patto che siano matrici omogenee.
 
 \section{Confronti tra booleani}
-Una \br\ pu\`o contenere confronti tra booleani. Ad esempio ``difettoso=false''. Il campo dati deve essere un booleano e pu\`o essere confrontato solo con altri campi dati dello stesso tipo o con valori come ``true'' e ``false''.
-%controllare qusta parte
+Una \br\ pu\`o contenere confronti tra booleani. Ad esempio ``difettoso=false''. Il campo dati deve essere un booleano e pu\`o essere confrontato solo con altri campi dati booleani o con valori come `true' e `false'.% da finire
+
 \subsection{La funzione NOT()}
 \section{Operatori logici} tra booleani
 \section{Confronti tra stringhe}
 \section{Connettori logici} AND OR
-% da controllare fino qui
 \section{Il ``message''}
+
 Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della \underline{business rule}. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
-\section{Struttura di una \br}
+
+ \section{Struttura di una \br}
  Una \underline{business rule} pu\`o essere formata da:
-\begin{itemize}
-\item una \textbf{regola} atomica;
-\item un insieme di \textbf{regole} collegate tra loro attraverso operatori booleani (AND \textbar OR).
-\end{itemize}
+ \begin{itemize}
+ \item una \textbf{regola} atomica;
+ \item un insieme di \textbf{regole} collegate tra loro attraverso operatori booleani (AND \textbar OR).
+ \end{itemize}
  
 
 
@@ -489,7 +490,7 @@ Un message pu\`o essere formato da:
 \item lettere minuscole (a-z);
 \item numeri (0-9);
 \item spazi vuoti;
-\item i seguenti caratteri di punteggiatura: ``.''  ``?''  ``!''  ``\_''  ``-''  ``\~\''
+\item i seguenti caratteri di punteggiatura: `.'  `?'  `!'  `\_'  `-'  `\~\ '
 \item i seguenti caratteri speciali \^\ e \~ \\
 \end{itemize}
 \section{Esempi di \underline{business rules}}
@@ -601,14 +602,14 @@ NOT(X) & \textless BoFun type=``NOT''\textgreater \\
 4.0 & \textless FLOAT \textgreater4.0\textless /FLOAT\textgreater \\ \hline
 true & \textless BOOL \textgreater true\textless /BOOL\textgreater \\ \hline
 ``stringa'' & \textless STRING \textgreater ``stringa'' \textless /STRING\textgreater \\ \hline
-``campo dati'' &\textless FIELD \textgreater campo dati \textless /FIELD\textgreater \\ \hline
+`campo dati' &\textless FIELD \textgreater campo dati \textless /FIELD\textgreater \\ \hline
 \end{tabular} \\
 \end{table}
 
 \chapter{Disinstallazione}
 \section{Sistemi Linux e MacOSX}
-Per rimuovere in modo completo il sistema BR-jsys in sistemi Linux e \\ MacOSX basta rimuovere la cartella ``br-jsys'' e l'eventuale collegamento creato durante l'installazione. La catella ``br-jsys'' \`e posizionata nella stessa directory
-che contene ``eXist'' (generalmente \textasciitilde/).
+Per rimuovere in modo completo il sistema BR-jsys in sistemi Linux e \\ MacOSX basta rimuovere la cartella `br-jsys' e l'eventuale collegamento creato durante l'installazione. La catella `br-jsys' \`e posizionata nella stessa directory
+che contene `eXist' (generalmente \textasciitilde/).
 
 \section{Sistemi Windows}
 Per rimuovere il programma sar\`a sufficiente cliccare su ``Uninstall BR-jsys'' creato nella directory del BR-jsys al momento dell'installazione. Comparir\`a la seguente schermata premere su ``Avanti'' per far partire la rimozione.
