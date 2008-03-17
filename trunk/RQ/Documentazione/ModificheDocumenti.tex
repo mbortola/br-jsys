@@ -1,5 +1,4 @@
 
-
 \input{model/layout.tex}% layout
 \begin{document}
 %definizione variabili 
@@ -23,8 +22,8 @@
 \textbf{Versione:} & \lv \\ \hline
 \textbf{Stato del documento:} & Formale, esterno \\ \hline
 % ----------------------------------------------------------------------------autori
-\textbf{Redazione:} &  \ET \\ \hline
-\textbf{Revisione:} & \MT \\ \hline
+\textbf{Redazione:} &  \MT \\ \hline
+\textbf{Revisione:} & \FC \\ \hline
 \textbf{Approvazione:} & \MM \\ \hline
 \end{tabular} \\
 \end{tabular}
@@ -64,13 +63,334 @@ Versione & Data & Autore & Descrizione \\ \hline
 \tableofcontents 
 \chapter*{Sommario}
 \addcontentsline{toc}{chapter}{I Sommario}
-Il presente documento contiene la descrizione d'uso del sistema \underline{Br-jsys}, con raffinamento della descrizione delle singole operazioni eseguibili su tale sistema. Per un corretto funzionamento del prodotto invitiamo l'utente a seguire le specifiche di questo documento.
+Il presente documento contiene la descrizione delle modifiche apportate ai precedenti documenti consegnati alla Revisione di Qualifica sostenuta marted\`i 11 marzo. In generale, per quanto riguarda tutti i documenti, \`e stata sottolineata solo la prima occorrenza dei termini riportati nel ``\Glossario''.
+\section*{Come leggere il documento}
+Ogni capitolo qui presente rappresenta il nome del documento a cui si riferisce.
+\chapter{Glossario}
+Sono stati aggiunti i seguenti due termini:
+\textbf{Jivelint}: Strumento che esegue l'analisi statica su codice sorgente Java. Esso trover\`a il codice e le variabili inutilizzate, oltre a molti altri errori.
+\textbf{JUnit}: Struttura di supporto alla procedura usata per verificare singole parti di codice sorgente. Viene utilizzato per il linguaggio di programmazione Java. 
+\chapter{Analisi dei Requisiti}
+Essendo deprecato, il requisito F9 non verr\`a soddisfatto in questa sede. La struttura del nostro codice sorgente non preclude per\`o la possibilit\`a di aggiungere questa funzionalit\`a successivamente al nostro prodotto.
+\chapter{Piano di Qualifica}
+\section{Esiti dei test}
+I test  sono presentati in forma tabulare, indicando il codice identificativo del test, seguito dal suo esito. I test risultati positivi sono evidenziati in colore \textcolor{err}{rosso}. I test di regressione, come illustrato precedentemente, sono riportati solo dove abbiano prodotto un output o un esito differente dalla loro precedente esecuzione. I test di regressione sono evidenziati nelle tabelle sottostanti dalla sigla RT e sono colorati in \textcolor{rt}{blu} .
+\subsection{Test sul validatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+VT1a & negativo & \\ \hline
+VT1b & \textcolor{err}{positivo} & Vengono inserite \br\ con comment=''.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  Se il commento \`e vuoto non viene inserito come attributo nell'\underline{XML}.\\ \hline
+VT1c & \textcolor{err}{positivo} & Vengono inserite \br\ con nome=''.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  Viene effettuato un controllo per evitare stringhe vuote.\\ \hline
+VT1d & negativo & \\ \hline
+VT1e & negativo & \\ \hline
+VT1f & negativo & \\ \hline
+VT2a & \textcolor{err}{positivo} & La parentesizzazione che coinvolge un intera operazione di confronto non \`e ancora stata introdotta nella grammatica del linguaggio.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  \\ \hline
+VT2b & \textcolor{err}{positivo} & Non devono comparire nel codice \underline{XML} tag 'OpRule'.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  \\ \hline
+VT2c & negativo & \\ \hline
+VT3a & negativo & \\ \hline
+VT3b & negativo & \\ \hline
+VT4 & negativo & \\ \hline
+VT5a & negativo & \\ \hline
+VT5b & negativo & \\ \hline
+VT5c & negativo & \\ \hline
+VT6a & negativo & \\ \hline
+VT6b & negativo & \\ \hline
+VT7 & negativo & \\ \hline
+VT8a & negativo & \\ \hline
+VT8b & negativo & \\ \hline
+VT8c & negativo & \\ \hline
+VT9a & negativo & \\ \hline
+VT9b & negativo & \\ \hline
+VT9c & negativo & \\ \hline
+VT10 & negativo & \\ \hline
+VT11 & negativo & \\ \hline
+VT12a & negativo & \\ \hline
+VT12b & negativo & \\ \hline
+VT13a & negativo & \\ \hline
+VT13b & negativo & \\ \hline
+VT14 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
 
-\chapter*{Glossario}
-\addcontentsline{toc}{chapter}{II Glossario}
-Viene fornito come documento esterno chiamato \G. 
-\section*{Convenzioni usate}
-Per permetterne una facile individuazione, i termini contenuti nel ``\G'' sono sottolineati nei vari documenti da noi consegnati la prima volta in cui appaiono.
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+VT15a & negativo & \\ \hline
+VT15b & negativo & \\ \hline
+VT15c & \textcolor{err}{positivo} &  \\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT Introduzione dei ';' nella grammatica del linguaggio \\ \hline
+VT15d & \textcolor{err}{positivo} & \\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT Introduzione dei ';' nella grammatica del linguaggio \\ \hline
+VT15e & negativo & \\ \hline
+VT15f & negativo & \\ \hline
+VT16 & negativo & \\ \hline
+VT17 & \textcolor{err}{positivo} & Le lettere accentate non sono ancora state aggiunte alla grammatica del linguaggio.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  \\ \hline
+VT18 & \textcolor{err}{positivo} & La grammatica del linguaggio non prevede ancora l'utilizzo di numeri da 0 a 9 nelle stringhe.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT  \\ \hline
+VT19 & negativo & \\ \hline
+VT20 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
 
+\subsection{Test sul comunicatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+CT1 & negativo & \\ \hline
+CT2 & negativo & \\ \hline
+CT3 & negativo & \\ \hline
+CT4 & negativo & \\ \hline
+CT5 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Test sulla gui}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+GT1a & negativo & \\ \hline
+GT1b & negativo & \\ \hline
+GT1c & negativo & \\ \hline
+GT2 & negativo & \\ \hline
+GT3 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Integrazione validatore, comunicatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+CVT1a & negativo & \\ \hline
+CVT1b & negativo & \\ \hline
+CVT1c & \textcolor{err}{positivo} & Possono essere inserite \br\ identiche ma con nome differente e vengono accettate.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT Viene efffettuato un controllo sulla regola prima dell'inserimento. \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Integrazione gui, validatore}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+GVT1 & negativo & \\ \hline
+\end{tabular} \\
+\end{center}
+
+\subsection{Integrazione del sistema}
+\begin{center}
+\begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
+\textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
+S1 & negativo & \\ \hline
+S2 & \textcolor{err}{positivo} & In sitemi unix permette di accedere al \rp\ anche inserendo username e password errati.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT Esito errato del pprecedente test. I dati di autenticazione accettati sono sempre quelli inseriti durante l'installazione di \underline{eXist} \\ \hline
+\end{tabular} \\
+\end{center}
+
+
+\section{Esiti dei test di convalida}
+I \textit{test di convalida} servono a dimostrare che tutti i requisiti sono stati soddisfatti. Per questo l'esito di un test di convalida \`e segnato come positivo ogniqualvolta dimostra che un requisito \`e soddisfatto, viene altres\`i segnato come negativo l'esito dei test che hanno fallito. 
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{Requisito} & \textbf{Test che lo soddisfano} & \textbf{Esito}\\ \hline
+\textbf{F1}  & VT1a, VT1b, VT1c, VT1d, VT1e, VT1f & positivi\\ \cline{2-3}
+& VT2a, VT2b, VT2c, VT3a, VT3b & positivi\\ \cline{2-3}
+& VT4 & positivo\\ \cline{2-3}
+& VT5a, VT5b, VT5c & positivi\\ \cline{2-3}
+&  VT6a, VT6b & positivi\\ \cline{2-3}
+&  VT7 & positivo\\ \cline{2-3}
+&  VT8a, VT8b, VT8c & positivi\\ \cline{2-3}
+&  VT9a, VT9b, VT9c & positivi\\ \cline{2-3}
+&  VT10 & positivo\\ \cline{2-3}
+&  VT11 & positivo\\ \cline{2-3}
+&  VT12a, VT12b & positivi\\ \cline{2-3}
+&  VT13a, VT13b & positivi\\ \cline{2-3}
+&  VT14 & positivo\\ \cline{2-3}
+&  VT15a, VT15b, VT15c, VT15d, VT15e, VT15f & positivi\\ \cline{2-3}
+&  VT16 & positivo\\ \cline{2-3}
+&  VT17 & positivo\\ \cline{2-3}
+&  VT18 & positivo\\ \cline{2-3}
+&  VT19 & positivo\\ \cline{2-3}
+&  VT20 & positivo\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{F2}  & GVT1 & positivo\\ \cline{2-3}
+&  VT1a, VT1b, VT1c, VT1d, VT1e, VT1f & positivi\\ \cline{2-3}
+&  VT2a, VT2b, VT2c & positivi\\ \cline{2-3}
+&  VT3a, VT3b & positivi\\ \cline{2-3}
+&  VT4 & positivo\\ \cline{2-3}
+&  VT5a, VT5b, VT5c & positivi\\ \cline{2-3}
+&  VT6a, VT6b & positivi\\ \cline{2-3}
+&  VT7 & positivo\\ \cline{2-3}
+&  VT8a, VT8b, VT8c & positivi\\ \cline{2-3}
+&  VT9a, VT9b, VT9c & positivi\\ \cline{2-3}
+&  VT10 & positivo\\ \cline{2-3}
+&  VT11 & positivo\\ \cline{2-3}
+&  VT12a, VT12b & positivi\\ \cline{2-3}
+&  VT13a, VT13b & positivi\\ \cline{2-3}
+&  VT14 & positivo\\ \cline{2-3}
+&  VT15a, VT15b, VT15c, VT15d, VT15e, VT15f & positivi\\ \cline{2-3}
+&  VT16 & positivo\\ \cline{2-3}
+&  VT17 & positivo\\ \cline{2-3}
+&  VT18 & positivo\\ \cline{2-3}
+&  VT19 & positivo\\ \cline{2-3}
+&  VT20 & positivo\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{F3 } & CT1, CT2, CT3, CT4, CT5 & positivi \\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{F4}  & GT1a, GT1b, GT1c, GT2, GT3 & positivi\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{F5}  & S1, S2 & positivi\\ \cline{2-3}
+& CT1, CT2, CT3, CT4, CT5 & positivi\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{F6}  &  - & -\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{F7}  & CT1, CT2, CT3, CT4, CT5 & positivi \\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{F8}  & GVT1 & positivo\\ \cline{2-3}
+&  CT1, CT2, CT3, CT4, CT5 & positivi\\ \cline{2-3}
+&  GT1a, GT1b, GT1c, GT2, GT3 & positivi \\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{F9}  &  DEPRECATO & -\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{F10} & VT1a,VT1b,VT1c,VT1d & positivi\\ \cline{2-3}
+&  VT2a, VT2b, VT2c & positivi\\ \cline{2-3}
+&  VT3a, VT3b & positivi\\ \cline{2-3}
+&  VT4 & positivo\\ \cline{2-3}
+&  VT5a, VT5b, VT5c & positivi\\ \cline{2-3}
+&  VT6a, VT6b & positivi\\ \cline{2-3}
+&  VT7 & positivo\\ \cline{2-3}
+&  VT8a, VT8b, VT8c & positivi\\ \cline{2-3}
+&  VT9a, VT9b, VT9c & positivi\\ \cline{2-3}
+&  VT10 & positivo\\ \cline{2-3}
+&  VT11 & positivo\\ \cline{2-3}
+&  VT12a, VT12b & positivi\\ \cline{2-3}
+&  VT13a, VT13b & positivi\\ \cline{2-3}
+&  VT14 & positivo\\ \cline{2-3}
+&  VT15a, VT15b, VT15c, VT15d, VT15e, VT15f & positivi\\ \cline{2-3}
+&  VT16 & positivo\\ \cline{2-3}
+&  VT17 & positivo\\ \cline{2-3}
+&  VT18 & positivo\\ \cline{2-3}
+&  VT19 & positivo\\ \cline{2-3}
+&  VT20 & positivo \\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{F11} & VT1a,VT1d & positivi\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{NU1} & VT6a, VT6b& positivi\\ \cline{2-3}
+& VT7& positivo\\ \cline{2-3}
+&  VT8a, VT8c& positivi\\ \cline{2-3}
+&  VT9a & positivo \\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{NU2} & VT14 & positivo\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{NU3} & VT1a& positivo\\ \cline{2-3}
+&  VT3b& positivo\\ \cline{2-3}
+&  VT18& positivo\\ \cline{2-3}
+&  GT1a, GT1b, GT1c, GT2, GT3 & positivi\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{NPo1} &  VT17& positivo\\ \cline{2-3}
+&  CT1, CT2, CT3, CT4, CT5 & positivi\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{NPr2} &  CVT1a, CVT1b& positivi\\ \cline{2-3}
+& VT8b, VT8c & positivi\\ \cline{2-3}
+&  CT1, CT2, CT3, CT4, CT5 & positivi \\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{NQ1} & VT8b, VT8c & positivi \\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{NQ2} &  - & -\\ \hline
+\end{tabular} \\
+\end{center}
+
+ \begin{center}
+\begin{tabular}{|p{2cm}|p{7cm}|p{2cm}|} \hline
+\textbf{NQ3} &  - & -\\ \hline
+\end{tabular} \\
+\end{center}
+
+\chapter{Manuale Utente}
+Il documento ``\MU'' \`e gi\`a stato allegato in versione definitiva.
+\chapter{Test Report}
+Il documento ``TestReportDelta.1.0.pdf'' integra il ``\TR'' precedentemente consegnato e approvato.
+\chapter{Piano di Progetto}
+Il documento ``\PdP'' precedentemente consegnato, \`e stato sostituito dal documento ``PianoConsuntivo.0.1.pdf''.
+Per quanto riguarda gli errori segnalati a questo documento, la mancanza dei dati a consuntivo in ingresso alla Revisione di Qualifica sono da attribuirsi a un mancato aggiornamento della data delle tabelle relative alla fase di sviluppo. 
+\chapter{Specifica Tecnica}
+Sono state apportate correzioni a:
+\begin{itemize}
+\item i vizi di forma presenti nel paragrafo 1.1;
+\item \`e stata tolta la sottolineatura alla parola ``Tokenstream'';
+\itemize sono state aggiunte le sottolineature ai nomi degli oggetti contenuti nei diagrammi delle attivit\`a.
+\end{itemize}
 
 \end{document}
