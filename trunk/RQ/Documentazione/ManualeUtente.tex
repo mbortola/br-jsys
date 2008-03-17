@@ -243,22 +243,11 @@ Se eXist non \`e stato avviato correttamente o pi\`u semplicemente non \`e stato
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_server_spento.eps}\\
  figura 3.0.2: esempio di server spento
 \end{center} 
-Se l'username e la password non sono stati inseriti corretamente verr\`a mostrato un messaggio d'errore (figura 3.0.3). Reinserite quindi username e password corretti.
+Se l'username e la password non sono stati inseriti correttamente verr\`a mostrato un messaggio d'errore (figura 3.0.3). Reinserite quindi username e password corretti.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/autenticazione_fallita.eps}\\
 figura 3.0.3: esempio di username e/o password errati
 \end{center}
-Se l'utente cerca di consultare il Manuale o il Javadoc ma essi risultano assenti, verranno sollevati i seguenti errori.
-\begin{center}
-\includegraphics[width=0.7\textwidth]{manuale_utente/errore_manuale.eps}\\
-figura 3.0.4: esempio di Manuale non trovato
-\end{center}
-
-\begin{center}
-\includegraphics[width=0.7\textwidth]{manuale_utente/errore_javadoc.eps}\\
-figura 3.0.5: esempio di Javadoc non trovato
-\end{center}
-
 
 \chapter{Funzionalit\`a del sistema}
 \section{Descrizione funzionale}
@@ -274,7 +263,15 @@ Per ottenere maggiori informazioni sul prodotto viene messo a disposizione un ``
 \includegraphics[width=0.5\textwidth]{manuale_utente/schermata_help.eps}\\
  figura 3.1: Help
 \end{center}
-
+Se l'utente cerca di consultare il Manuale o il Javadoc ma essi risultano assenti, verranno sollevati i seguenti errori.
+\begin{center}
+\includegraphics[width=0.7\textwidth]{manuale_utente/errore_manuale.eps}\\
+figura 3.0.4: esempio di Manuale non trovato
+\end{center}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{manuale_utente/errore_javadoc.eps}\\
+figura 3.0.5: esempio di Javadoc non trovato
+\end{center}
 L'analisi dettagliata delle singole azioni verr\`a trattata nelle sezioni seguenti.
 \section{Inserisci \br}
 \begin{center}
@@ -301,7 +298,7 @@ La regola scritta secondo la grammatica spiegata nel capitolo `Descrizione del L
 Descrizione sintetica del comportamento della regola. Il commento \`e opzionale e serve a fornire una descrizione pi\`u chiara e leggibile della regola stessa.
 
 \subsection{Validazione e inserimento}
-L'utente dovr\`a poi cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio di conferma. In caso contrario un messaggio d'errore indicher\`a all'utente cosa va modificato nella \br\ affinch\`e venga validata correttamente.
+L'utente dovr\`a poi cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio di conferma. In caso contrario un messaggio d'errore indicher\`a all'utente cosa va modificato nella \br\ affinch\`e venga validata correttamente. In alternativa potr\`a cliccare sul tasto ``Cancella'' per rimuovere i dati immessi.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_esempio_inserimento.eps}\\
  figura 3.2.2: esempio di inserimento
@@ -330,19 +327,26 @@ La figura 3.2.5 mostra l'esito di un errato inserimento di business rules. La bu
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_br_gia_presente.eps}\\
  figura 3.2.6: esempio di regola gi\`a inserita
 \end{center} 
-La figura 3.2.6 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un'occorrenza di questa nel \rp.
+La figura 3.2.6 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un'occorrenza di questa nel \rp. In questo caso viene selezionata la \br\ trovata nella lista ``Regole Presenti'' e visualizzato il corrispondente campo `regola' nella \textit{statusbar}.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_testo_gia_presente.eps}\\
  figura 3.2.7: esempio testo regola gi\`a presente
 \end{center} 
-La figura 3.2.7 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il testo della \br\ \`e gi\`a presente.
+La figura 3.2.7 mostra l'esito di un errato inserimento di \underline{business rules}. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un \br\ con quel campo . In questo caso viene selezionata tale \br\ nella lista ``Regole Presenti'' e visualizzato il corrispondente campo `regola' nella \textit{statusbar}.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_nome_regola_inaccettabile.eps}\\
  figura 3.2.8: esempio inserimento nome vuoto
 \end{center} 
 La figura 3.2.8 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il nome inserito  della \br\ \`e vuoto.
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{manuale_utente/errore_campodati.eps}\\
+ figura 3.2.9: esempio inserimento campo dati non presente nel \bo associato
+\end{center} 
+La figura 3.2.9 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il campo dati della \br\ non \`e presente nel \bo associato.
+
 
 \section{Rimuovi \br}
 \begin{center}
@@ -354,10 +358,10 @@ Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una busines
 \item Per procedere all'eliminazione l'utente avr\`a 2 modi:
 \begin{enumerate}
 \item inserire nell'appostito campo (TextBox) il nome della business rule che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''. Se l'utente opera una o pi\`u ricerche, le \br  trovate verranno selezionate nel campo ``Business Rules Selezionate'' mentre in ``Lista Completa'' sar\`a evidenziata solo l'ultima di queste. Si possono eventualmente deselezionare le \br attraverso il tasto ``Deseleziona''. Viene infine introdotto l'uso di espressioni regolari per raffinare la ricerca, in questo caso invitiamo l'utente a consultare la documentazione fornita all' url:\\ \textit{http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html}.
-\item selezionare una o pi\`u business rule dalle liste sottostanti.
+\item selezionare una o pi\`u \underline{business rule} dalle liste sottostanti.
 \end{enumerate}
 
-\item Se la business rule risulta presente nel \rp\, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 3.3.1. 
+\item Se la \underline{business rule} risulta presente nel \rp\, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 3.3.1. 
 
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/rimozione_br_trovata.eps}\\
@@ -456,10 +460,10 @@ Una \br\ pu\`o contenere confronti tra booleani. Ad esempio ``difettoso=false''.
 \section{Connettori logici} AND OR
 \section{Il ``message''}
 
-Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della business rule. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
+Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della \underline{business rule}. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
 
  \section{Struttura di una \br}
- Una business rule pu\`o essere formata da:
+ Una \underline{business rule} pu\`o essere formata da:
  \begin{itemize}
  \item una \textbf{regola} atomica;
  \item un insieme di \textbf{regole} collegate tra loro attraverso operatori booleani (AND \textbar OR).
@@ -493,7 +497,7 @@ Un message pu\`o essere formato da:
 \item i seguenti caratteri di punteggiatura: `.'  `?'  `!'  `\_'  `-'  `\~\ '
 \item i seguenti caratteri speciali \^\ e \~ \\
 \end{itemize}
-\section{Esempi di business rules}
+\section{Esempi di \underline{business rules}}
 Faremo ora, per una maggiore comprensione del linguaggio, alcuni esempi di business rules.
 \begin{itemize}
 \item \textbf{ESEMPIO 1} \\
@@ -614,11 +618,11 @@ che contene `eXist' (generalmente \textasciitilde/).
 \section{Sistemi Windows}
 Per rimuovere il programma sar\`a sufficiente cliccare su ``Uninstall BR-jsys'' creato nella directory del BR-jsys al momento dell'installazione. Comparir\`a la seguente schermata premere su ``Avanti'' per far partire la rimozione.
 \begin{center}
-\includegraphics[width=1\textwidth]{manuale_utente/disinstalla_br-jsys_win.eps}\\
+\includegraphics[width=0.5\textwidth]{manuale_utente/disinstalla_br-jsys_win.eps}\\
 \end{center}
 Al completamento cliccare su ``Fine''.
 \begin{center}
-\includegraphics[width=1\textwidth]{manuale_utente/disinstalla_br-jsys_win1.eps}\\
+\includegraphics[width=0.5\textwidth]{manuale_utente/disinstalla_br-jsys_win1.eps}\\
 \end{center}
 
 \chapter{Messaggi d'errore}
