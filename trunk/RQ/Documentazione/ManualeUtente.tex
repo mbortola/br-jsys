@@ -151,7 +151,7 @@ Per un corretto e scorrevole funzionamento del software sono richiesti:
 \chapter{Installazione}
 \section{Installazione eXist}
 Per utilizzare il prodotto \`e necessario che venga installato sulla macchina il server eXist. L'installazione di eXist, essendo questo realizzato in Java, risulta essere la stessa su ogni sistema operativo.
-Il DBMS eXist \`e reperible all'indirizzo web \textit{\texttt{http://exist.sourceforge.net/download.html}}, per chi, al momento dell'installazione del prodotto, non possedesse una connessione a internet attiva, \`e stato inserito il file di installazione \textbf{eXist-setup-1.2.0-rev7233.jar} nella cartella ``eXist'' all'interno del cd di installazione.
+Il DBMS eXist \`e reperible all'indirizzo web \href{http://exist.sourceforge.net/download.html}{http://exist.sourceforge.net/download.html} , per chi, al momento dell'installazione del prodotto, non possedesse una connessione a internet attiva, \`e stato inserito il file di installazione \textbf{eXist-setup-1.2.0-rev7233.jar} nella cartella ``eXist'' all'interno del cd di installazione.
 \begin{enumerate}
 \item Cliccare con il tasto destro del mouse sul file di installazione e aprirlo con Java 6 Runtime come mostrato in figura;
 \begin{center}
@@ -179,6 +179,8 @@ Il DBMS eXist \`e reperible all'indirizzo web \textit{\texttt{http://exist.sourc
 \includegraphics[width=1\textwidth]{manuale_utente/installazione_Exist8.eps}\\
 \end{center}
 \end{enumerate}
+Per ulteriori informazioni visitare il sito\\
+ \href{http://exist.sourceforge.net/quickstart.html\#sect2}{ http://exist.sourceforge.net/quickstart.html\#sect2}
 
 \section{Installazione del prodotto}
 Una volta installato eXist si pu\`o procedere con l'installazione del br-jsys.
@@ -220,6 +222,9 @@ Apparir\`a cos\`i una schermata simile alla seguente.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/avvio-exist.eps}\\
 \end{center}
+Per ulteriori informazioni visitare il sito\\
+ \href{http://exist.sourceforge.net/quickstart.html\#sect3}{ http://exist.sourceforge.net/quickstart.html\#sect3}
+
 
 \section{Avvio dell'applicazione}
 Per avviare il programma, una volta terminato l'avvio del server eXist, bisogna:
@@ -342,7 +347,7 @@ La figura 3.2.7 mostra l'esito di un errato inserimento di \underline{business r
 La figura 3.2.8 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il nome inserito  della \br\ \`e vuoto.
 
 \begin{center}
-\includegraphics[width=0.7\textwidth]{manuale_utente/errore_campodati.eps}\\
+\includegraphics[width=0.7\textwidth]{manuale_utente/errore_nome_regola_inaccettabile.eps}\\
  figura 3.2.9: esempio inserimento campo dati non presente nel business object associato
 \end{center} 
 La figura 3.2.9 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il campo dati della \br\ non \`e presente nel business object associato.
@@ -357,7 +362,7 @@ Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una busines
 \begin{itemize}
 \item Per procedere all'eliminazione l'utente avr\`a 2 modi:
 \begin{enumerate}
-\item inserire nell'appostito campo (TextBox) il nome della business rule che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''. Se l'utente opera una o pi\`u ricerche, le \br  trovate verranno selezionate nel campo ``Business Rules Selezionate'' mentre in ``Lista Completa'' sar\`a evidenziata solo l'ultima di queste. Si possono eventualmente deselezionare le \br attraverso il tasto ``Deseleziona''. Viene infine introdotto l'uso di espressioni regolari per raffinare la ricerca, in questo caso invitiamo l'utente a consultare la documentazione fornita all' url:\\ \textit{http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html}.
+\item inserire nell'appostito campo (TextBox) il nome della business rule che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''. Se l'utente opera una o pi\`u ricerche, le \br  trovate verranno selezionate nel campo ``Business Rules Selezionate'' mentre in ``Lista Completa'' sar\`a evidenziata solo l'ultima di queste. Si possono eventualmente deselezionare le \br attraverso il tasto ``Deseleziona''. Viene infine introdotto l'uso di espressioni regolari per raffinare la ricerca, in questo caso invitiamo l'utente a consultare la documentazione fornita all' url:\\ \href{http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html}{http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html}.
 \item selezionare una o pi\`u \underline{business rule} dalle liste sottostanti.
 \end{enumerate}
 
@@ -635,7 +640,7 @@ Al completamento cliccare su ``Fine''.
 \chapter{Messaggi d'errore}
 \section{Come riportare problemi e malfunzionamenti}
 Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivio fornisce una sezione ``issues'' all'URL: \\ 
-\textbf{``http://code.google.com/p/br-jsys/issues/list''}, che visualizza in qualsiasi momento la lista aggiornata di tutti i problemi e malfunzionamenti da noi riscontrati. Attraverso questo sistema ogni componente del gruppo potr\`a creare un ``new issue'', assegnandogli una priorit\`a che varier\`a a seconda della gravit\`a del problema. Ogni issue conterr\`a inoltre il nome dell'utente che lo ha aggiunto nella lista, oltre ad uno status (new, accepted, started, verified, etc...) che in qualsiasi momento ogni membro del gruppo potr\`a aggiornare. 
+\href{http://code.google.com/p/br-jsys/issues/list}{http://code.google.com/p/br-jsys/issues/list}, che visualizza in qualsiasi momento la lista aggiornata di tutti i problemi e malfunzionamenti da noi riscontrati. Attraverso questo sistema ogni componente del gruppo potr\`a creare un ``new issue'', assegnandogli una priorit\`a che varier\`a a seconda della gravit\`a del problema. Ogni issue conterr\`a inoltre il nome dell'utente che lo ha aggiunto nella lista, oltre ad uno status (new, accepted, started, verified, etc...) che in qualsiasi momento ogni membro del gruppo potr\`a aggiornare. 
 
 
 \section{Messaggi di errore e loro significato}
