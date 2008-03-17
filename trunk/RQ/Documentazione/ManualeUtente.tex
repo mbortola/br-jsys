@@ -469,8 +469,12 @@ Nel linguaggio \`e possibile inserire stringhe ma le operazioni tra stringhe son
 
 \section{Connettori logici}
 Il linguaggio fin qui descritto non garanrtisce una buona espressivit\`a, risulta difficile esprimere concetti complessi ocn un singolo confronto. Per questo \`e possibile nel linguaggio connettere pi\`u confronti con dei connettori logici \textit{AND} e \textit{OR}. I connettori logici permettono di collegare pi\`u confronti fra loro.\\
-\`E possibile quindi scrivere regole come ``nomeProdotto=``Pc1''; AND prezzoProdotto=800; AND scontato Attenzione non vanno confusi con gli operatori logici tra booleani.
+\`E possibile quindi scrivere regole come ``nomeProdotto=``Pc1''; AND prezzoProdotto=800; AND scontato=true; OR scontato=flase;''
+ Attenzione iconnetori logici tra i confronti non vanno confusi con gli operatori logici tra booleani.
+
 \section{Il ``message''}
+Il message \`e un modo per aiutare il debugging delle \br. Ad ogni confronto 
+
 
 Alla regola pu\`o venire associato un ``\textbf{message}'' (opzionale), col compito di fornire informazioni aggiuntive sullo stato di validazione della \underline{business rule}. In particolare, il testo di tale messaggio verr\`a visualizzato quando si cerca di validare un business object che non rispetta una o pi\`u regole presenti nel \rp.
 
@@ -499,16 +503,16 @@ oltre alla funzione:
 \item[-] NOT (negazione logica). 
 \end{itemize}
 \textbf{String} permette invece solo operazioni di confronto.
-\section{Struttura message}
-Un message pu\`o essere formato da:
-\begin{itemize}
-\item lettere maiuscole (A-Z);
-\item lettere minuscole (a-z);
-\item numeri (0-9);
-\item spazi vuoti;
-\item i seguenti caratteri di punteggiatura: `.'  `?'  `!'  `\_'  `-'  `\~\ '
-\item i seguenti caratteri speciali \^\ e \~ \\
-\end{itemize}
+% \section{Struttura message}
+% Un message pu\`o essere formato da:
+% \begin{itemize}
+% \item lettere maiuscole (A-Z);
+% \item lettere minuscole (a-z);
+% \item numeri (0-9);
+% \item spazi vuoti;
+% \item i seguenti caratteri di punteggiatura: `.'  `?'  `!'  `\_'  `-'  `\~\ '
+% \item i seguenti caratteri speciali \^\ e \~ \\
+% \end{itemize}
 \section{Esempi di \underline{business rules}}
 Faremo ora, per una maggiore comprensione del linguaggio, alcuni esempi di business rules.
 \begin{itemize}
