@@ -65,7 +65,7 @@ Versione & Data & Autore & Descrizione \\ \hline
 \addcontentsline{toc}{chapter}{I Sommario}
 Il presente documento contiene la descrizione delle modifiche apportate ai precedenti documenti consegnati alla Revisione di Qualifica sostenuta marted\`i 11 marzo. In generale, per quanto riguarda tutti i documenti, \`e stata sottolineata solo la prima occorrenza dei termini riportati nel ``\G''.
 \section*{Come leggere il documento}
-Ogni capitolo qui presente rappresenta il nome del documento a cui si riferisce.
+Ogni capitolo qui presente rappresenta il nome del documento a cui si riferisce. L'ultimo capitolo presenta invece i miglioramenti che potrebbero essere apportati in futuro al documento ``BR-jsys''.
 \chapter{Glossario}
 Sono stati aggiunti i seguenti due termini: \\
 \textbf{Jivelint}: Strumento che esegue l'analisi statica su codice sorgente Java. Esso trover\`a il codice e le variabili inutilizzate, oltre a molti altri errori. \\
@@ -399,4 +399,16 @@ Si dovr\`a prima di tutto controllare che il nome della regola si vuole inserire
 Il documento ``\MU'' \`e gi\`a stato allegato in versione definitiva.
 \chapter{Test Report}
 Il documento ``TestReportDelta.1.0.pdf'' integra il ``\TR'' precedentemente consegnato e approvato.
+\chapter{Miglioramenti desderabili}
+In questo capitolo elencheremo i miglioramenti che potrebbero essere apportati al prodotto ``BR-jsys'', ma che non siamo riusciti a implementare per motivi di tempo e costi. 
+\begin{itemize}
+\item \textbf{Normalizzazione di business rules:} rendere possibile la normalizzazione delle business rule, ovvero ogni qualvolta si riscontra un tab, uno spazio, un \t, un \r, \n si devono trasformare in un singolo spazio. 
+\item \textbf{Operazioni tra stringhe:} rendere possibili altre operazioni, oltre al confronto, sulle stringhe. Ad esempio la concatenazione e le operazioni di confronto tra stringhe (\textless, \textgreater); 
+\item \textbf{Parentesi tra AND/OR:} rendere possibile la parentesizzazione tra AND e/o OR. Allo stato attuale \`e possibile inserire le parentesi nel nostro linguaggio solo:
+\begin{itemize}
+\item nelle funzioni matematiche, ad es. SUM(..), COUNT(..), AVG(..);
+\item tra espressioni matematiche, ad es (a+b)*c.
+\end{itemize}
+\item \textbf{Aggiunta di espressioni FLOWR:} rendere possibile la formulazione di query complesse, in stile FLOWR.
+\end{itemize}
 \end{document}
