@@ -2,8 +2,8 @@
 \input{model/layout.tex}% layout
 \begin{document}
 %definizione variabili 
-\newcommand{\lv}{ 1.5 } % latest version
-\newcommand{\dt}{ Test Report }% Document title
+\newcommand{\lv}{ 2.4 } % latest version
+\newcommand{\dt}{ Test Report Delta }% Document title
 \input{model/variables.tex}%altre variabili
 \input{model/document-latest-versions.tex}%nomi documenti
 %fine definizione variabili
@@ -19,7 +19,7 @@
 \Large{\textbf{\textsf{Capitolato: ''BR-jsys``}}} \\
 \begin{tabular}{|p{6cm}|p{6cm}|}
 \hline
-\textbf{Data creazione:} & 16/03/2008 \\ \hline
+\textbf{Data creazione:} & 11/03/2008 \\ \hline
 \textbf{Versione:} & \lv \\ \hline
 \textbf{Stato del documento:} & Formale, esterno \\ \hline
 % ----------------------------------------------------------------------------autori
@@ -53,23 +53,16 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
-1.7 & 17/03/2008 & \AT & Correzione documento e aggiunta grafico ``MaturitaDiProdotto''. \\ \hline
-1.6 & 16/03/2008 & \ET & Creazione del documento ``TestReportDelta'' e stesura. \\ \hline
-1.5 & 15/03/2008 & \AT & Completamento sezione``Junit'' e correzione del documento. \\ \hline
-1.4 & 14/03/2008 & \AT & Prima correzione al documento. \\ \hline
-1.3 & 14/03/2008 & \MT & Esiti dei test di convalida.  \\ \hline
-1.2 & 14/03/2008 & \ET & Aggiunta degli esiti di JUnit. \\ \hline
+2.4 & 17/03/2008 & \AT & Correzione documento e aggiunta grafico ``MaturitaDiProdotto''. \\ \hline
+2.3 & 15/03/2008 & \AT & Completamento sezione``Junit'' e correzione del documento. \\ \hline
+2.2 & 14/03/2008 & \AT & Prima correzione al documento. \\ \hline
+2.1 & 14/03/2008 & \MT & Esiti dei test di convalida.  \\ \hline
+2.0 & 14/03/2008 & \ET & Aggiunta degli esiti di JUnit. \\ \hline
 1.1 & 14/03/2008 & \MT & Esiti dei test di regressione. \\ \hline
 1.0 & 13/03/2008 & \MT & Correzione dei test errati. Aggiunta del test CVT1c \\ \hline
-0.9 & 12/03/2008 & \AT & Modifiche ai test case dopo l'introduzione del ';' nella nuova grammatica. \\ \hline
-0.8 & 11/03/2008 & \ET & Aggiunta sezione ``Analisi statica'' e tabelle degli errori. \\ \hline
-0.7 & 07/03/2008 & \MT & Aggiunta dei 'test case' per le integrazioni di componenti. Aggiunta esiti dei test.\\ \hline
-0.6 & 07/03/2008 & \MM & Aggiunta la tabella di tracciamento 'requisiti - test'.\\ \hline
-0.5 & 06/03/2008 & \LA & Aggiunto Sommario.\\ \hline
-0.4 & 05/03/2008 & \MT & Aggiunta delle tabelle per contenere gli esiti, e dei 'test case' per il 'comunicatore' \\ \hline
-0.3 & 04/03/2008 & \MT & Modifica alla nomenclatura dei test.\\ \hline
-0.2 & 03/03/2008 & \MT & Aggiunta dei 'test case' per il 'validatore' .\\ \hline
-0.1 & 02/03/2008 & \MT & Stesura iniziale del documento.\\ \hline
+0.3 & 12/03/2008 & \AT & Modifiche ai test case dopo l'introduzione del ';' nella nuova grammatica. \\ \hline
+0.2 & 12/03/2008 & \ET & Aggiunta sezione ``Analisi statica'' e tabelle errori. \\ \hline
+0.1 & 11/03/2008 & \ET & Stesura preliminare del documento. \\ \hline
 \end{tabular} \\
 \end{small}
 
@@ -87,22 +80,7 @@ L'analisi statica automatica sui file Java \`e stata effettuata con l'utilizzo d
 Di seguito riportiamo gli errori riscontrati nel nostro codice.
 
 Per rendere le tabelle pi\`u leggibili gli stessi errori in righe diverse dello stesso file.java seguiranno la seguente notazione: \\
-NomeClasse.java:riga1-riga2-..-rigan Rule(codic\section{Definizioni, acronimi, abbreviazioni}
-Nella tabella di seguito vengono riportate tutte le abbreviazioni utlizzate nel documento, comprese le sigle utilizzate per l'identificazione dei test.
-\begin{center}
-\begin{tabular}{|p{3.0cm}|p{8.5cm}|} \hline
-\textbf{Abbreviazione} & \textbf{Significato} \\ \hline
-
-VT\textit{\#} & Con VT seguito da un numero intero sono indicati i test che riguardano la ``macrocomponente validatore''.\\ \hline
-CT\textit{\#} & Con CT seguito da un numero intero sono indicati i test che riguardano la ``macrocomponente comunicatore''.\\ \hline
-GT\textit{\#} & Con GT seguito da un numero intero sono indicati i test che riguardano la ``macrocomponente gui''.\\ \hline
-CVT\textit{\#} & Con CVT seguito da un numero intero sono indicati i test di integrazione tra ``validatore'' e 'comunicatore'.\\ \hline
-GVT\textit{\#} & Con GVT seguito da un numero intero sono indicati i test integrazione tra ``gui'' e ``validatore''.\\ \hline
-S\textit{\#} & Con S seguito da un numero intero sono indicati i test di integrazione del sistema.\\ \hline
-RT\textit{} & Con RT si intende la riesecuzione di un test (test di regressione) avvenuta a fronte di una modifica al codice.\\ \hline
-
-\end{tabular} \\
-\end{center}e) Errore. \\
+NomeClasse.java:riga1-riga2-..-rigan Rule(codice) Errore. \\
 
 \textbf{BusinessRule.java}
 \begin{center}
@@ -172,7 +150,7 @@ Validator.java:31-46 Rule(1038) Declare parameters final.\\ \hline
 \begin{tabular}{|p{12cm}|} \hline
 TypeCollisionException.java:18 Rule(1038) Declare parameters final.\\ \hline
 \end{tabular}
-\end{center}210.96
+\end{center}
 
 \textbf{XMLParser.java}
 \begin{center}
@@ -211,8 +189,9 @@ Per analizzare il comportamento del prodotto durante la sua fase di esecuzione, 
 Ogni \textit{test case} \`e formato da una tripla <ingresso,uscita,ambiente>, dove l'ambiente \`e costituito dalla funzionalit\`a da testare.
 Ogni \textit{test case} \`e documentato con descrizione d'uso e un elenco di requisiti soddisfatti. 
 \section{Test di integrazione}
-Viene di seguito riportato il nuovo test riguardante l'integrazione tra la componente ``validatore'' e la componente ``comunicatore''. 
-\begin{Large}\textbf{CVT1c}\end{Large} \\
+Viene di seguito riportato il nuovo test riguardante l'integrazione tra la componente ``validatore'' e la componente ``comunicatore''. \\
+
+\textbf{CVT1c} \\
 Si deve testare l'impedimento da parte del validatore di inserire nel \rp\ una \br\ con lo stesso regola nell'attributo \textit{rule}. Per fare ci\`o si riesegue l'inserimento della \br\ sopra illustrata sostituendo il nome e si testa che il valore ritornato sia 'false'.
 Requisiti soddisfatti dall'esecuzione: NPr2.\\
  \\
@@ -223,18 +202,18 @@ Username e password errati.\\ \hline
 \textbf{Output Atteso}\\ \hline
 Visualizzazione di un messaggio d'errore.\\ \hline
 \end{tabular} \\
-\end{center}
 \section{Tracciamento requisiti - test}
 Il nuovo test effettuato (\textbf{CVT1c}) soddisfa il requisito \textbf{NPr2} presente nel documento ``\AR'' 
 \chapter{Automatizzazione dei test}
 Essendo la fase di test una fase costosa e laboriosa del processo software, si \`e deciso di automatizzare il pi\`u possibile l'esecuzione dei test, anche mediante l'utilizzo  di tools come \underline{JUnit}. Quest'ultimo ci ha permesso di costruire batterie di test strutturalmente omogenei  con i quali invocare metodi e funzionalit\`a di una o pi\`u componenti, pi\`u o meno integrate tra loro. 
 L'esecuzione dei \textit{test case} viene automatizzata mediante del semplice codice che si limita a invocare metodi e funzionalit\`a di una componente (o di alcune componenti integrate fra loro). Tale codice inizialmente si occupa di passare ai metodi delle componenti da testare degli opportuni parametri (alcuni errati ed altri corretti secondo gli input dei test case), confrontando poi l’output prodotto con quello atteso. 
 Per alcuni test \`e stato necessario l'intervento manuale del verificatore il quale, interagendo direttamente con l'interfaccia grafica del programma, ne ha testato le diverse funzionalit\`a. Tali test sono comunque una parte minima di tutti i test da eseguire e non incidono eccessivamente sul costo dell'intera fase di test.
-\section{Dettaglio dei Test eseguiti con \underline{JUnit}}
+\section{Dettaglio dei Test eseguiti con JUnit}
 Riportiamo di seguito i test eseguiti con \underline{JUnit} e gli eventuali errors o failures emersi.
 Per ogni classe sono stati eseguiti i test indicati di default da JUnit ed i test relativi alle funzionalit\`a.
-\begin{center}
+
 \textbf{Test sulla classe BusinessRule} \\
+\begin{center}
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 BusinessRuleTest(String) & nessuno \\ \hline
@@ -244,8 +223,8 @@ tearDown() & nessuno \\ \hline
 \end{tabular}
 \end{center}
 
-\begin{center}
 \textbf{Test sulla classe Communicator}\\
+\begin{center}
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 CommunicatorTester(String) & nessuno \\ \hline
@@ -256,8 +235,9 @@ tearDown() & nessuno \\ \hline
 \end{tabular}
 \end{center}
 
-\begin{center}
+
 \textbf{Test sulla classe GUICommunicator}\\
+\begin{center}
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 GUICommunicatorTester(String) & nessuno \\ \hline
@@ -270,8 +250,8 @@ tearDown() & nessuno \\ \hline
 \end{tabular}
 \end{center}
 
-\begin{center}
 \textbf{Test sulla classe InterpreterCommunicator}\\
+\begin{center}
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 InterpreterCommunicatorTester(String) & nessuno \\ \hline
@@ -282,8 +262,8 @@ tearDown() & nessuno \\ \hline
 \end{tabular}
 \end{center}
 
-\begin{center}
 \textbf{Test sulla classe ValidatorCommunicator}\\
+\begin{center}
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 ValidatorCommunicatorTester(String) & nessuno \\ \hline
@@ -294,8 +274,9 @@ tearDown() & nessuno \\ \hline
 \end{tabular}
 \end{center}
 
-\begin{center}
+
 \textbf{Test sulla classe Gui}\\
+\begin{center}
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 GuiTest(String) & nessuno \\ \hline
@@ -306,8 +287,8 @@ tearDown() & nessuno \\ \hline
 \end{tabular}
 \end{center}
 
-\begin{center}
 \textbf{Test sulla classe Validator}\\
+\begin{center}
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 ValidatorTest(String, String) & nessuno \\ \hline
@@ -317,8 +298,8 @@ tearDown() & nessuno \\ \hline
 \end{tabular}
 \end{center}
 
-\begin{center}
 \textbf{Test sulla classe TypeCollisionException}\\
+\begin{center}
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 TypeCollisionExceptionTest(String) & nessuno \\ \hline
@@ -328,8 +309,8 @@ tearDown() & nessuno \\ \hline
 \end{tabular}
 \end{center}
 
-\begin{center}
 \textbf{Test sulla classe XMLParser}\\
+\begin{center}
 \begin{tabular}{|p{6,5 cm}|p{3 cm}|} \hline
 \textbf{Metodo/Costruttore} & \textbf{Failure/Errors} \\ \hline
 XMLParserTest(String[]) & nessuno \\ \hline
@@ -344,10 +325,9 @@ tearDown() & nessuno \\ \hline
 \chapter{Esiti dei test}
 
 \section{Esiti dei test dei difetti}
-I \textit{test dei difetti} servono ad individuare possibili difetti o errori del codice su cui vengono testati. Per questo l'esito di un test dei difetti \`e segnato come negativo ogniqualvolta non evidenzia un difetto, viene altres\`i segnato come positivo l'esito di quei test che abbiano individuato dei difetti nel software.
-Vengono di seguito elencati gli esiti dei test effetuati. I test  sono presentati in forma tabulare, indicando il codice identificativo del test, seguito dal suo esito. I test risultati positivi sono evidenziati in colore \textcolor{err}{rosso}. I test di regressione, come illustrato precedentemente, sono riportati solo dove abbiano prodotto un output o un esito differente dalla loro precedente esecuzione. I test di regressione sono evidenziati nelle tabelle sottostanti dalla sigla RT e sono colorati in \textcolor{rt}{blu} .
-
-
+L'esito di un test dei difetti \`e segnato come negativo ogniqualvolta non evidenzia un difetto, viene altres\`i segnato come positivo l'esito di quei test che abbiano individuato dei difetti nel software.
+Il test \`e presentato in forma tabulare, indicandone il codice identificativo del test, seguito dal suo esito. I test risultati positivi sono evidenziati in colore \textcolor{err}{rosso}. 
+ \textcolor{rt}{blu} .
 
 \subsection{Integrazione validatore, comunicatore}
 \begin{center}
