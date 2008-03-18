@@ -1,0 +1,49 @@
+\documentclass[11pt,titlepage,a4paper]{report}
+
+\usepackage[italian]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+%\usepackage{lastpage} % total page count
+
+\usepackage{color}
+\usepackage{lastpage} % total page count
+
+\graphicspath{{./pics/}} % cartella di salvataggio immagini
+
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\lhead{\nouppercase{\rightmark}}
+\rhead{\nouppercase{\leftmark}}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+
+\fancypagestyle{plain}{%
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\cfoot{\thepage\ / \pageref{LastPage}}
+	\rfoot{\dt - \lv}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+}
+	\lhead{\includegraphics[height=50pt]{logo.eps}}
+	\chead{}
+	\rhead{HappyCode inc \\ happycodeinc@gmail.com}
+	\lfoot{BR-jsys}
+	\cfoot{\thepage\ / \pageref{LastPage}}
+	\rfoot{\dt - \lv}
+	\renewcommand{\headrulewidth}{1pt}
+	\renewcommand{\footrulewidth}{1pt}
+
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+   linkcolor=[rgb]{0.11,0.55,0.83},          % color of internal links
+    urlcolor=cyan           % color of external links
+}
+\definecolor{err}{rgb}{0.9,0.1,0.1}
+\definecolor{rt}{rgb}{0.1,0.6,0.8}
+% fine layout
