@@ -3,7 +3,7 @@
 \input{model/layout.tex}% layout
 \begin{document}
 %definizione variabili 
-\newcommand{\lv}{ 2.1 } % latest version
+\newcommand{\lv}{ 2.3 } % latest version
 \newcommand{\dt}{ Manuale Utente }% Document title
 \newcommand{\Grammatica}{} % paragrafo dove si trova la spiegazione della grammatica
 \input{model/variables.tex}%altre variabili
@@ -51,6 +51,8 @@
 \begin{tabular}[t]{|p{1,2cm}|p{1.9cm}|p{2.9cm}|p{5cm}|} \hline
 Versione & Data & Autore & Descrizione \\ \hline
 %-------------------------------------------------------------------------------diario modifiche
+2.3 & 17/03/2008 & \LA & Correzioni. \\ \hline
+2.2 & 17/03/2008 & \LA & Aggiunti codici errori, immagini aggiornate con didascalie. \\ \hline
 2.1 & 15/03/2008 & \LA & Correzioni e aggiunte immagini installazione br-jsys in windows. \\ \hline
 2.0 & 15/03/2008 & \MT & Modifica all'organizzazione dei capitoli e ai capitoli stessi. \\ \hline
 1.4 & 14/03/2008 & \LA & Aggiornamento del documento della sezione riguardante la GUI. \\ \hline
@@ -156,27 +158,33 @@ Il DBMS eXist \`e reperible liberamente all'indirizzo web \href{http://exist.sou
 \item Cliccare con il tasto destro del mouse sul file di installazione e aprirlo con Java 6 Runtime come mostrato in figura;
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/installazione_Exist0.eps}\\
+ figura 3.1.0: come lanciare l'installazione di eXist
 \end{center}
 \item Comparir\`a la schermata di installazione di eXist. proseguite l'installazione premendo il tasto ``Next'' ;
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/installazione_Exist1.eps}\\
+ figura 3.1.1: schermata iniziale
 \end{center}
 \item Vi verr\`a chiesto dove installare eXist. Lasciate la directory di default (generalmente C:\textbackslash Programmi\textbackslash eXist per windows e  /home/\$USERNAME/eXist per sistemi linux). Premete il tasto ``Next'' per proseguire;
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/installazione_Exist3.eps}\\
+ figura 3.1.2: scelta della directory
 \end{center}
 \item Scrivere un nome utente e una password per l'autenticazione al server DBMS negli appositi campi dati e premere sul tasto ``Next'' per proseguire. Attenzione i dati di autenticazione inseriti verranno richiesti all'avvio del prodotto ``Br-jsys''.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/installazione_Exist4.eps}\\
+ figura 3.1.3: inserimento password
 \end{center}
 \item Premere il tasto ``Next'' per iniziare l'installazione dei pacchetti precedentemente selezionati;
 \item A questo punto \`e possibile selzionare alcune opzioni per la creazione di \textit{shortcut}. Si consiglia di mantenere la selezione di default. Premere quindi sul tasto ``Next'' per proseguire, su ``Previous'' per tornare al passo precedente o su ``Quit'' per terminare l'installazione;
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/installazione_Exist6.eps}\\
+ figura 3.1.4: creazione degli \textit{shortcut}
 \end{center}
 \item Proseguite premendo il tasto ``Next'' , fino a terminare l'installazione di eXist, verr\`a visualizzata una schermata con alcune informazioni riguardanti il prodotto. Premere su ``Quit'' per completare l'installazione;
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/installazione_Exist8.eps}\\
+ figura 3.1.5: schermata finale
 \end{center}
 \end{enumerate}
 Per ulteriori informazioni visitare il sito\\
@@ -192,21 +200,25 @@ Lo script si occupa di posizionare corretamente i file e creare un link di avvio
 Nell'illustrazione che segue potete vedere un corretto output dello script.\\
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/install.sh.eps}\\
+ figura 3.2.1: installazione in Linux/MacOS
 \end{center}
 
 \subsection{Sistemi Windows}
-L'installazione in sistemi Windows avviene attraverso un installer. Bisogna quindi accedere al cd rom di installazione e fare doppio clik sul file  \textbf{install.exe}, il quale avvier\`a un wizard di installazione.
+L'installazione in sistemi Windows avviene attraverso un installer. Bisogna quindi accedere al cd rom di installazione e fare doppio click sul file  \textbf{install.exe}, il quale avvier\`a un wizard di installazione.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/benvento.eps}\\
+ figura 3.2.2: schermata iniziale in Windows
 \end{center}
 Leggere e seguire le istruzioni fornite dal wizard di installazione e premere il tasto ``Avanti'' per continuare.
 Giunti alla schermata sottostante inserire la directory in cui installare il br-jsys (generalmente C:\textbackslash Programmi\textbackslash BR-jsys).
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/cartella_installazione.eps}\\
+ figura 3.2.3: scelta della directory
 \end{center}
 Cliccare su ``Avanti'' finch\`e non compare la schermata di installazione completata e poi su ``Fine''.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/fine_installazione.eps}\\
+figura 3.2.4: schermata finale
 \end{center}
 
 \chapter{Avvio del sistema}
@@ -221,6 +233,7 @@ Per lanciare eXist manualmente:
 Apparir\`a cos\`i una schermata simile alla seguente.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/avvio-exist.eps}\\
+figura 3.4.1: schermata di avvio di eXist
 \end{center}
 Per ulteriori informazioni visitare il sito\\
  \href{http://exist.sourceforge.net/quickstart.html\#sect3}{ http://exist.sourceforge.net/quickstart.html\#sect3}
@@ -232,31 +245,31 @@ Per avviare il programma, una volta terminato l'avvio del server eXist, bisogna:
  \item Nei sitemi Linux cliccare col tasto destro del mouse su brjsys.jar e selezionare ``apri con Java 6 Runtime Environment''.
 \item Nei sistemi Windows accedere alla cartella in cui si \`e installato il prodotto (generalmente \texttt{C:\textbackslash Programmi\textbackslash BR-jsys} ) e fare doppio click su brjsys.jar 
 \end{itemize}
-Apparir\`a la schermata di login (figura 3.0), nella quale l'utente dovr\`a inserire l'\textit{username} e la \textit{password} di connessione a eXist.
+Apparir\`a la schermata di login (figura 4.2.0), nella quale l'utente dovr\`a inserire l'\textit{username} e la \textit{password} di connessione a eXist.
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/login.eps}\\
- figura 3.0: schermata di login
+ figura 4.2.0: schermata di login
 \end{center}
 I dati di autenticazione da immettere sono quelli utilizzati per la registrazione al server ``eXist''.
-In caso di login eseguito correttamente, verr\`a lanciata la schermata principale (figura 3.0.1).
+In caso di login eseguito correttamente, verr\`a lanciata la schermata principale (figura 4.2.1).
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/schermata_principale.eps}\\
- figura 3.0.1: schermata principale corretamente avviata
+ figura 4.2.1: schermata principale correttamente avviata
 \end{center}
-Se eXist non \`e stato avviato correttamente o pi\`u semplicemente non \`e stato avviato, verr\`a mostrato all'utente un messaggio di errore indicando che il server eXist \`e spento (figura 3.0.2). \`E necessario quindi chiudere il prodotto, avviare il server eXist e riavviare ``Br-jsys''.
+Se eXist non \`e stato avviato correttamente o pi\`u semplicemente non \`e stato avviato, verr\`a mostrato all'utente un messaggio di errore indicando che il server eXist \`e spento (figura 4.2.2). \`E necessario quindi chiudere il prodotto avviare il server eXist e riavviare il ``Br-jsys''.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_server_spento.eps}\\
- figura 3.0.2: esempio di server spento
+ figura 4.2.2: esempio di server spento
 \end{center} 
-Se l'username e la password non sono stati inseriti correttamente verr\`a mostrato un messaggio d'errore (figura 3.0.3). Reinserite quindi username e password corretti.
+Se l'username e la password non sono stati inseriti correttamente verr\`a mostrato un messaggio d'errore (figura 4.2.3). Reinserite quindi username e password corretti.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/autenticazione_fallita.eps}\\
-figura 3.0.3: esempio di username e/o password errati
+figura 4.2.3: esempio di username e/o password errati
 \end{center}
 
 \chapter{Funzionalit\`a del sistema}
 \section{Descrizione funzionale}
-Di seguito \`e riportata la descrizione delle funzionalit\`a del prodotto. Ad ogni passo \`e stata associata una figura, in modo da daterminare senza amibiguit\`a il contesto dell'applicazione. Una volta avviato il prodotto ed essersi autenticati presso il DBMS eXist, verr\`a visualizzata la schermata principale (vedi figura 3.0.1).
+Di seguito \`e riportata la descrizione delle funzionalit\`a del prodotto. Ad ogni passo \`e stata associata una figura, in modo da daterminare senza amibiguit\`a il contesto dell'applicazione. Una volta avviato il prodotto ed essersi autenticati presso il DBMS eXist, verr\`a visualizzata la schermata principale (vedi figura 4.2.1).
 Da questa schermata si possono avviare le tre funzionalit\`a associate ai rispettivi bottoni:
 \begin{itemize}
 \item Inserisci \br;
@@ -281,9 +294,9 @@ L'analisi dettagliata delle singole azioni verr\`a trattata nelle sezioni seguen
 \section{Inserisci \br}
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_inserimento.eps}\\
- figura 3.1: schermata di inserimento
+ figura 5.2.0: schermata di inserimento
 \end{center}
-Nella figura 3.1 vediamo illustrata la schermata di inserimento di una nuova \br. Per inserire una nuova \br\ e popolare quindi il database bisogna inserire negli appositi spazi i campi dati richiesti.
+Nella figura 5.2.0 vediamo illustrata la schermata di inserimento di una nuova \br. Per inserire una nuova \br\ e popolare quindi il database bisogna inserire negli appositi spazi i campi dati richiesti.
 Nel campo ``Regole Presenti'' l'utente pu\`o ricercare le \br gi\`a presenti nel repository.
 \subsection{Nome}
 Rappresenta il nome della \br\ che l'utente intende inserire. Il nome della \br\ deve essere univoco all'interno del \rp. Per questo motivo \`e importante prestare attenzione al nome scelto. \`E consigliabile definire all'interno dell'azienda che utilizza il prodotto delle regole di nomenclatura per il nome delle \br. Per facilitare un corretto inserimento \`e presente una lista delle \br\ inserite nel \rp. \`E cos\`i possibile visualizzare in modo rapido le \br\ gi\`a inserite, evitandone l'inserimento di una con un nome gi\`a inserito.
@@ -292,73 +305,73 @@ Rappresenta il nome della \br\ che l'utente intende inserire. Il nome della \br\
 Rappresenta il \bo\ al quale si vuole associare la regola. Il linguaggio di definizione delle \br\ offre la possibilit\`a di effettuare operazioni e controlli sui campi dati dei \bo\ da validare. Per questo, ad ogni \br\ \`e necessario associare un \bo. Per facilitare l'inserimento di una nuova \br\ (evitando cos\`i errori dovuti ad una digitazione errata del nome del \bo), il campo \bo\ associato \`e una \textit{combobox} che permette di scegliere uno dei \bo\ realmente presenti.
 
 \subsection{Regola}
-Rappresenta la regola scritta secondo la grammatica spiegata nel capitolo `Descrizione del Linguaggio'. Per ovviare all'inserimento di \br\ con il campo regola identico, \`e possibile selezionare una delle \br\ della lista e visualizzare il campo ``regola'' nella \textit{statusbar} figura 3.2.
+Rappresenta la regola scritta secondo la grammatica spiegata nel capitolo `Descrizione del Linguaggio'. Per ovviare all'inserimento di \br\ con il campo regola identico, \`e possibile selezionare una delle \br\ della lista e visualizzare il campo ``regola'' nella \textit{statusbar} figura 5.2.3.
 
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_esempio_regola_selezionata.eps}\\
- figura 3.2: campo dati regola selezionata
+ figura 5.2.3: campo dati regola selezionata
 \end{center} 
 
 \subsection{Commento}
 Rappresenta una descrizione sintetica del comportamento della regola. Il commento \`e opzionale e serve solo a fornire una descrizione pi\`u chiara e leggibile della regola stessa all'utente.
 
 \subsection{Validazione e inserimento}
-L'utente dovr\`a cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio di conferma. In caso contrario un messaggio d'errore indicher\`a all'utente cosa va modificato nella \br\ affinch\`e venga validata correttamente. In alternativa potr\`a cliccare sul tasto ``Cancella'' per rimuovere i dati immessi.\\
-La figura 3.2.1 mostra un semplice esempio di inserimento di una business rule.
+L'utente dovr\`a poi cliccare sul pulsante ``\textbf{Valida}''. Se l'inserimento viene effettuato con successo verr\`a visualizzato un messaggio di conferma. In caso contrario un messaggio d'errore indicher\`a all'utente cosa va modificato nella \br\ affinch\`e venga validata correttamente. In alternativa potr\`a cliccare sul tasto ``Cancella'' per rimuovere i dati immessi.
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_esempio_inserimento.eps}\\
- figura 3.2.1: esempio di inserimento
+ figura 5.2.5: esempio di inserimento
 \end{center} 
 \subsection{Esiti}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/br_inserita.eps}\\
- figura 3.2.2: esempio inserimento effettuato
+ figura 5.2.6: esempio inserimento effettuato
 \end{center} 
-La figura 3.2.2 mostra l'esito di un corretto inserimento di una \br. La \br\ \`e stata cos\`i validata e inserita nel \rp.
+La figura 5.2.6 mostra l'esito di un corretto inserimento di una \br. La \br\ \`e stata cos\`i validata e inserita nel \rp.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_op_non_consentita.eps}\\
- figura 3.2.3: esempio di regola sintatticamente errata 
+ figura 5.2.6.1: esempio di regola sintatticamente errata 
 \end{center} 
-La figura 3.2.3 mostra l'esito di un errato inserimento di una business rule. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa (in questo caso true=12) non \`e consentita.
+La figura 5.2.6.1 mostra l'esito di un errato inserimento di \br. La \br\ non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa (in questo caso true=12) non \`e consentita.
 \\
 \\
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/errore_sintattico.eps}\\
- figura 3.2.4: esempio di regola errata
+ figura 5.2.6.2: esempio di regola errata
 \end{center} 
-La figura 3.2.4 mostra l'esito di un errato inserimento di una business rule. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa \`e scritta in maniera errata.
+La figura 5.2.6.2 mostra l'esito di un errato inserimento di \br. La \br\ non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa \`e scritta in maniera errata.
+
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_br_gia_presente.eps}\\
- figura 3.2.5: esempio di regola gi\`a inserita
+ figura 5.2.6.3: esempio di regola gi\`a inserita
 \end{center} 
-La figura 3.2.5 mostra l'esito di un errato inserimento di una business rule. La business rule non pu\`o essere validata e inserita, in quanto vi \`e gi\`a un'occorrenza di questa nel \rp. In questo caso viene selezionata la \br\ trovata nella lista ``Regole Presenti'' e visualizzato il corrispondente campo ``regola'' nella \textit{statusbar}.
+La figura 5.2.6.3 mostra l'esito di un errato inserimento di \br. La \br\ non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un'occorrenza di questa nel \rp. In questo caso viene selezionata la \br\ trovata nella lista ``Regole Presenti'' e visualizzato il corrispondente campo `regola' nella \textit{statusbar}.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_testo_gia_presente.eps}\\
- figura 3.2.6: esempio testo regola gi\`a presente
+ figura 5.2.6.4: esempio testo regola gi\`a presente
 \end{center} 
-La figura 3.2.6 mostra l'esito di un errato inserimento di una business rule. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un \br\ con quel campo . In questo caso viene selezionata tale \br\ nella lista ``Regole Presenti'' e visualizzato il corrispondente campo ``regola'' nella \textit{statusbar}.
+La figura 5.2.6.4 mostra l'esito di un errato inserimento di \br. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto vi \`e gi\`a un \br\ con quel campo . In questo caso viene selezionata tale \br\ nella lista ``Regole Presenti'' e visualizzato il corrispondente campo `regola' nella \textit{statusbar}.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_nome_regola_inaccettabile.eps}\\
- figura 3.2.7: esempio inserimento nome vuoto
+ figura 5.2.6.5: esempio inserimento nome vuoto
 \end{center} 
-La figura 3.2.7 mostra l'esito di un errato inserimento di business rule. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il nome inserito \`e vuoto.
+La figura 5.2.6.5 mostra l'esito di un errato inserimento di business rules. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il nome inserito  della \br\ \`e vuoto.
 
 \begin{center}
-\includegraphics[width=0.7\textwidth]{manuale_utente/errore_nome_regola_inaccettabile.eps}\\
- figura 3.2.8: esempio inserimento campo dati non presente nel business object associato
+\includegraphics[width=0.7\textwidth]{manuale_utente/errore_campodati.eps}\\
+ figura 5.2.6.6: esempio inserimento campo dati non presente nel business object associato
 \end{center} 
-La figura 3.2.8 mostra l'esito di un errato inserimento di una business rule. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il campo dati della \br\ non \`e presente nel business object associato.
+La figura 5.2.6.6 mostra l'esito di un errato inserimento di una \br. La business rule non pu\`o essere validata e inserita nel \rp\ in quanto il campo dati della \br\ non \`e presente nel business object associato.
 
 
 \section{Rimuovi \br}
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_rimozione.eps}\\
- figura 3.3: schermata di rimozione
+ figura 5.3.0: schermata di rimozione
 \end{center}
-Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una business rule.
+Nella figura 5.3.0 vediamo illustrata la schermata di cancellazione di una business rule.
 \begin{itemize}
 \item Per procedere all'eliminazione l'utente avr\`a 2 modi:
 \begin{enumerate}
@@ -366,29 +379,29 @@ Nella figura 3.3 vediamo illustrata la schermata di cancellazione di una busines
 \item selezionare una o pi\`u business rule dalle liste sottostanti.
 \end{enumerate}
 
-\item Se la business rule risulta gi\`a presente nel \rp\, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 3.3.1. 
+\item Se la \br\ risulta presente nel \rp, comparir\`a  nel campo ``Details'' i suoi dettagli (Nome, BO Associato, Regola, Commento) figura 5.3.0.1. 
 
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/rimozione_br_trovata.eps}\\
- figura 3.3.1: esempio di regola selezionata.
+ figura 5.3.0.1: esempio di regola selezionata.
 \end{center} 
 
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/selezione_multipla.eps}\\
- figura 3.3.2: esempio di selezione multipla.
+ figura 5.3.0.2: esempio di selezione multipla.
 \end{center} 
 
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/schermata_rimozione_multipla.eps}\\
- figura 3.3.3: esempio di selezione con espressioni regolari.
+ figura 5.3.0.3: esempio di selezione con espressioni regolari.
 \end{center} 
 
-\item A questo punto baster\`a cliccare sul pulsante ``\textbf{Rimuovi Selezionate}'' e dare conferma di rimozione figura 3.3.3.  
+\item A questo punto baster\`a cliccare sul pulsante ``\textbf{Rimuovi Selezionate}'' e dare conferma di rimozione figura 5.3.0.4  
 \end{itemize}
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/conferma_rimozione.eps}\\
- figura 3.3.3 messaggio di conferma.
+ figura 5.3.0.4 messaggio di conferma.
 \end{center} 
 
 Se la cancellazione viene effettuata con successo verr\`a visualizzato un messaggio nella \textit{statusbar} che ne conferma l'esito positivo, in caso contrario uno negativo.
@@ -396,22 +409,22 @@ Se la cancellazione viene effettuata con successo verr\`a visualizzato un messag
  
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/br_non_trovata.eps}\\
- figura 3.3.4 messaggio di regola non trovata.
+ figura 5.3.1 messaggio di regola non trovata.
 \end{center} 
-La figura 3.3.4 mostra l'esito di errata rimozione di una business rule. La business rule non pu\`o essere rimossa dal \rp\ in quanto non \`e stata trovata al suo interno.
+La figura 5.3.1 mostra l'esito di un'errata rimozione di una \br. La \br non pu\`o essere rimossa dal \rp\ in quanto non \`e stata trovata al suo interno.
 
 \begin{center}
 \includegraphics[width=0.7\textwidth]{manuale_utente/errore_repository_vuoto.eps}\\
- figura 3.3.5 messaggio di repository vuoto.
+ figura 5.3.2 messaggio di repository vuoto.
 \end{center} 
-La figura 3.3.5 mostra l'esito di errata rimozione di una business rule. La business rule non pu\`o essere rimossa dal \rp\ in quanto il repository non ne contiene alcuna.
+La figura 5.3.2 mostra l'esito di un'errata rimozione di una \br. La \br non pu\`o essere rimossa dal \rp\ in quanto il repository non ne contiene alcuna.
 
 \section{Sandbox}
 \begin{center}
  \includegraphics[width=1\textwidth]{manuale_utente/schermata_sandbox.eps} \\
- figura 3.4: schermata sandbox
+ figura 5.4: schermata sandbox
 \end{center}
-Nella figura 3.4 vediamo illustrata la schermata di sandbox. Per procedere con l'interrogazione del DBMS, l'utente dovr\`a:
+Nella figura 5.4 vediamo illustrata la schermata di sandbox. Per procedere con l'interrogazione del DBMS, l'utente dovr\`a:
 \begin{itemize}
 \item inserire la query (scritta in linguaggio \underline{XQuery}) nell'appostito campo dati ``Query'';
 \item cliccare sul pulsante ``\textbf{Esegui}''.
@@ -421,15 +434,15 @@ Nella figura 3.4 vediamo illustrata la schermata di sandbox. Per procedere con l
 \subsection{Esiti}
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/sandbox_di_query.eps}\\
- figura 3.4.1 esempio di querying corretto.
+ figura 5.4.1 esempio di querying corretto.
 \end{center}
-La figura 3.4.1 mostra l'esito positivo di una query e in particolare verr\`a visualizzato nel campo dati ``Risultati'' l'esito della query e nella barra sottostante il tempo di risposta (in millisecondi) impiegato da eXist.
+La figura 5.4.1 mostra l'esito positivo di una query e in particolare verr\`a visualizzato nel campo dati ``Risultati'' l'esito della query e nella barra sottostante il tempo di risposta (in millisecondi) impiegato da eXist.
 
 \begin{center}
-\includegraphics[width=1.1\textwidth]{manuale_utente/esempio_errore_sandbox_query_errata.eps}\\
-figura 3.4.2 Inserimento query errata.
+\includegraphics[width=0.7\textwidth]{manuale_utente/esempio_errore_sandbox_query_errata.eps}\\
+figura 5.4.2 Inserimento query errata.
 \end{center}
-La figura 3.4.2 mostra un'eccezione lanciata in caso di esito negativo di una query scritta in maniera scorrettamente.
+La figura 5.4.2 mostra un'eccezione lanciata in caso di esito negativo di una query scritta in maniera errata.
 
 
 \chapter{Descrizione del linguaggio}
@@ -467,15 +480,15 @@ Una \br\ pu\`o contenere confronti tra booleani. Ad esempio ``difettoso=false;''
 \subsection{La funzione NOT()}
 La funzione NOT() \`e una funzione propria dei booleani e serve a permettere la negazione di un valore booleano o di un espressione booleana. Per cui \`e possibile scrivere ``NOT(difettoso)=true;''. Non \`e invece possibile scrivere ``NOT(totale=prezzo*numero);''. a funzione not si applica solo a un valore o espressione booleana non a un confronto.
 \section{Operatori logici}
-Il pi\`u delle volte una regola non \`e costituata da un singolo valore booleano ma da pi\`u valori concatenati da \textit{and} e \textit{or}. Il linguaggio permette di congiungere o disgiungere valori booleani in modo da ottenere espressioni booleane. Ad esempio \`e possibile scrivere ``difettoso \textbar \textbar\ (scontato \&\& venduto)=false;'' . Gli operatori logici tra booleani sono solo due: \&\& (congiunzione, \textit{and}) e \textbar \textbar\ (disgiunzione , \textit{or}).
+Il pi\`u delle volte una regola non \`e costituita da un singolo valore booleano ma da pi\`u valori concatenati da \textit{and} e \textit{or}. Il linguaggio permette di congiungere o disgiungere valori booleani in modo da ottenere espressioni booleane. Ad esempio \`e possibile scrivere ``difettoso \textbar \textbar\ (scontato \&\& venduto)=false;'' . Gli operatori logici tra booleani sono solo due: \&\& (congiunzione, \textit{and}) e \textbar \textbar\ (disgiunzione , \textit{or}).
 
 \section{Confronti tra stringhe}
 Nel linguaggio \`e possibile inserire stringhe ma le operazioni tra stringhe sono limitate ai solo confronti semplici. \`E quindi possibile scrivere ``nome=``prodotto'';'' oppure ``nomeAzienda!=``IBM'';'' . I confronti ammessi sono = (uguale) e != (diverso).
 
 \section{Connettori logici}
-Il linguaggio fin qui descritto non garanrtisce una buona espressivit\`a, risulta difficile esprimere concetti complessi ocn un singolo confronto. Per questo \`e possibile nel linguaggio connettere pi\`u confronti con dei connettori logici \textit{AND} e \textit{OR}. I connettori logici permettono di collegare pi\`u confronti fra loro.\\
-\`E possibile quindi scrivere regole come ``nomeProdotto=``Pc1''; AND prezzoProdotto=800; AND scontato=true; OR scontato=flase;''
- Attenzione iconnetori logici tra i confronti non vanno confusi con gli operatori logici tra booleani.
+Il linguaggio fin qui descritto non garantisce una buona espressivit\`a, risulta difficile esprimere concetti complessi con un singolo confronto. Per questo \`e possibile nel linguaggio connettere pi\`u confronti con dei connettori logici \textit{AND} e \textit{OR}. I connettori logici permettono di collegare pi\`u confronti fra loro.\\
+\`E possibile quindi scrivere regole come ``nomeProdotto=``Pc1''; AND prezzoProdotto=800; AND scontato=true; OR scontato=false;''
+ Attenzione i connetori logici tra i confronti non vanno confusi con gli operatori logici tra booleani.
 
 \section{Il ``message''}
 Il message \`e un modo per aiutare il debugging delle \br. Ad ogni confronto \`e possibile associare un messaggio in formato stringa con la keyword \textit{message(``testo del messaggio'')}. Il message serve al momento dell'interpretazione dell \br, nel momento in cui si cerca di validare un \bo\ questo potrebbe non rispettare delle uno dei confronti di una regola. Nel caso ci\`o avvenga all'utente verr\`a mostrato il message riguardante il primo confronto fallito. Un message pu\`o quindi essere aggiunto al termine di ogni singolo confronto, includendo un messaggio chiaro che identifichi in modo chiaro per l'utente dove il \bo\ non rispetta una parte della \br. Ad esempio \`e possibile scrivere: ``nomeProdotto=``Pc1'' message(``nome errato''); AND prezzoProdotto\textless1800 message(``prezzo non competitivo'');'' in questo modo se il \bo\ a cui si applica la regola dovesse avere un nome diverso da ``Pc1'' o un prezzo maggiore di 1800, verrebbe segnalato all'utente con un messaggio contenente il testo del message. I caratteri ammessi in un message sono: lettere dell'alfabeto maiuscole minuscole, numeri, spazi, simboli di punteggiatura come : `.' (punto),  `?' (punto di domanda),  `!' (punto esclamativo),  `\_' (underscore),  `-' (trattino, simbolo di sottrazione),  `\~' (tilde), `\^' (apice).
@@ -596,13 +609,15 @@ Per rimuovere in modo completo il sistema BR-jsys in sistemi Linux e \\ MacOSX b
 che contene `eXist' (generalmente \textasciitilde/).
 
 \section{Sistemi Windows}
-Per rimuovere il programma sar\`a sufficiente cliccare su ``Uninstall BR-jsys'' creato nella directory del BR-jsys al momento dell'installazione. Comparir\`a la seguente schermata premere su ``Avanti'' per far partire la rimozione.
+Per rimuovere il programma sar\`a sufficiente cliccare su ``Uninstall BR-jsys'' nella directory del BR-jsys o su uno degli \textit{shortcuts} creati al momento dell'installazione. Alla seguente schermata premere su ``Avanti'' per far partire la rimozione.
 \begin{center}
-\includegraphics[width=0.5\textwidth]{manuale_utente/disinstalla_br-jsys_win.eps}\\
+\includegraphics[width=0.8\textwidth]{manuale_utente/disinstalla_br-jsys_win.eps}\\
+ figura 7.2: schermata iniziale
 \end{center}
 Al completamento cliccare su ``Fine''.
 \begin{center}
-\includegraphics[width=0.5\textwidth]{manuale_utente/disinstalla_br-jsys_win1.eps}\\
+\includegraphics[width=0.8\textwidth]{manuale_utente/disinstalla_br-jsys_win1.eps}\\
+ figura 7.2.1: schermata finale
 \end{center}
 
 \chapter{Messaggi d'errore}
@@ -613,17 +628,22 @@ Il prodotto software \`e dotato di un sistema di archiviazione svn. Tale archivi
 \newpage
 \section{Messaggi di errore e loro significato}
 \begin{table}[htbp]
-\begin{tabular}{|p{5cm}|p{6cm}|}
+\begin{tabular}{|p{2cm}|p{5cm}|p{5cm}|}
 \hline
-\textbf{Messaggio:} & \textbf{Descrizione:} \\ \hline
-Autenticazione fallita! & Nome utente e/o password non inseriti correttamente..\\ \hline
-Server eXist spento! & Il server eXist non \`e avviato. \\ \hline
-Oggetto associato \textless nome associato\textgreater\ inesistente! & Inserimento di una business rule con un business object associato non valido. \\ \hline
-Campo dati \textless nome campo dati\textgreater\ non trovato: validazione interrotta! & Riferimento ad un campo dati sbagliato. La validazione viene interrotta. \\ \hline
-Operazione non consentita! \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta! & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
-Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
-Regola \textless nome regola\textgreater\  gi\`a presente: inserimento fallito! & La regola ha un nome gi\`a presente nel repository. Non verr\`a quindi inserita. \\ \hline
-business rule non trovata! & La business rule cercata non \`e stata trovata nel \rp. \\ \hline
+ID & Messaggio & Descrizione \\ \hline
+ERR00 & Server eXist spento. & Il server eXist non \`e avviato. \\ \hline
+ERR01 & Autenticazione fallita & Nome utente e/o password non inseriti correttamente.\\ \hline
+ERR02 & query errata & \`E stata inserita una query errata. \\ \hline
+ERR03 & Campo dati regola non trovato. validazione interrotta! & Riferimento ad un campo dati sbagliato. La validazione viene interrotta. \\ \hline
+ERR04 & Operazione non consentita: \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
+ERR05 & Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
+ERR06 & Nome regola inaccettabile & La business. \\ \hline
+ERR07 & Testo regola gi\`a presente & La regola ha un nome gi\`a presente nel repository. Non verr\`a quindi inserita. \\ \hline
+ERR08 & Manuale non trovato & Manuale assente. \\ \hline
+ERR09 & Javadoc non trovato & Javadoc assente.\\ \hline
+ERR10 & business rule gi\`a presente &  La business rule inserita \`e gi\`a presente nel \rp.\\ \hline
+ERR11 & business rule non trovata! & La business rule cercata non \`e stata trovata nel \rp. \\ \hline
+ERR12 & Repository vuoto! & Il repository \`e vuoto. \\ \hline
 \end{tabular} \\
 \end{table}
 
