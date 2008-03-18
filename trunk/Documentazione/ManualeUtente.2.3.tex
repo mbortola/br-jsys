@@ -97,7 +97,7 @@ Il presente documento fornisce informazioni su come installare avviare e utilizz
 Il prodotto \`e rivolto ad un utente al quale non sono richieste particolari conoscenze nel campo informatico. A tale scopo il software mette a dispozione:
 \begin{itemize}
 \item un'interfaccia grafica user-friendly;
-\item messaggi di testo che informino l'utente dando sullo stato del prodotto ``Br-jsys'';
+\item messaggi di testo che informino l'utente dello stato del prodotto ``Br-jsys'';
 \item il presente manuale che illustra le funzionalit\`a del linguaggio, e accompagna l'utente nell'installazione, nell'avvio e nell'utilizzo del prodotto ``Br-jsys'';
 \end{itemize}
 
@@ -120,7 +120,7 @@ Una volta avviato, il sistema ``Br-jsys'' offre all'utente:
  Questo manuale presenta il sistema ``Br-jsys'' illustrandone in modo completo le procedure di installazione, avvio e utilizzo. 
 Ogni capitolo verr\`a accompagnato da illustrazioni, allo scopo di rendere il pi\`u chiaro e semplice possibile i passaggi descritti.
  \begin{itemize}
- \item Nel capitolo 2 vengono illustrati i requisiti (softwaree e hardware) necessari ad una corretta installazione del prodotto.
+ \item Nel capitolo 2 vengono illustrati i requisiti (software e hardware) necessari ad una corretta installazione del prodotto.
 \item Nel capitolo 3 viene illustrata la procedura di installazione del prodotto nei diversi sistemi operativi.
 \item Nel capitolo 4 vengono descritti i passsaggi per un corretto avvio del sistema.
 \item Nel capitolo 5 vengono analizzate e descritte le varie funzionalit\`a del sistema.
@@ -152,7 +152,7 @@ Per un corretto e scorrevole funzionamento del software sono richiesti:
 \chapter{Installazione}
 \section{Installazione eXist}
 Per utilizzare il prodotto \`e necessario che venga installato sulla macchina il server eXist. L'installazione di eXist, essendo questo realizzato in Java, risulta essere la stessa su ogni sistema operativo.
-Il DBMS eXist \`e reperible liberamente all'indirizzo web \href{http://exist.sourceforge.net/download.html}{http://exist.sourceforge.net/download.html} , per chi, al momento dell'installazione del prodotto, non possedesse una connessione a internet attiva, \`e stato inserito ul file di installazione \textbf{eXist-setup-1.2.0-rev7233.jar} nella cartella ``eXist'' all'interno del cd di installazione.
+Il DBMS eXist \`e reperible liberamente all'indirizzo web \href{http://exist.sourceforge.net/download.html}{http://exist.sourceforge.net/download.html} , per chi, al momento dell'installazione del prodotto, non possedesse una connessione a internet attiva, \`e stato inserito il file di installazione \textbf{eXist-setup-1.2.0-rev7233.jar} nella cartella ``eXist'' all'interno del cd di installazione.
 \begin{enumerate}
 \item Cliccare con il tasto destro del mouse sul file di installazione e aprirlo con Java 6 Runtime come mostrato in figura;
 \begin{center}
@@ -195,7 +195,7 @@ L'installazione del prodotto segue procedure diverse da sistema operativo a sist
 
 \subsection{Sistemi Linux}
 L'installazione in sistemi Linux avviene attraverso uno script bash. Bisogna quindi  accedere alla cartella del cd di installazione,  tramite un terminale (shell). Avviare lo script di installazione tramite il comando \textbf{sh install.sh}, il quale eseguir\`a lo script.
-Lo script si occupa di posizionare corretamente i file e creare un link di avvio al prodotto.
+Lo script si occupa di posizionare correttamente i file e creare un link di avvio al prodotto.
 Nell'illustrazione che segue potete vedere un corretto output dello script.\\
 \begin{center}
 \includegraphics[width=1\textwidth]{manuale_utente/install.sh.eps}\\
@@ -228,7 +228,7 @@ Per l'installazione in sistemi operativi non descritti nelle precedenti sezioni,
 \item Aprite il cd rom di installazione e muovetevi dentro la cartella ``data'';
 \item Copiate il contenuto della cartella ``data'' (\textbf{brjsys.jar} e \textbf{antlr-runtime-3.0.1.jar}) nella cartella ``brjsys'' che avete appena creato nel vostro filesystem;
 \end{enumerate}
-Il prodotto \`e ora installato correttamente e per avviarlo utilizzate ifile ``brjsys.jar''.
+Il prodotto \`e ora installato correttamente e per avviarlo utilizzate il file ``brjsys.jar''.
 
 
 \chapter{Avvio del sistema}
@@ -307,9 +307,9 @@ L'analisi dettagliata delle singole azioni verr\`a trattata nelle sezioni seguen
  figura 5.2.0: schermata di inserimento
 \end{center}
 Nella figura 5.2.0 vediamo illustrata la schermata di inserimento di una nuova \br. Per inserire una nuova \br\ e popolare quindi il database bisogna inserire negli appositi spazi i campi dati richiesti.
-Nel campo ``Regole Presenti'' l'utente pu\`o ricercare le \br gi\`a presenti nel repository.
+Nel campo ``Regole Presenti'' l'utente pu\`o ricercare le \br\ gi\`a presenti nel repository.
 \subsection{Nome}
-Rappresenta il nome della \br\ che l'utente intende inserire. Il nome della \br\ deve essere univoco all'interno del \rp. Per questo motivo \`e importante prestare attenzione al nome scelto. \`E consigliabile definire all'interno dell'azienda che utilizza il prodotto delle regole di nomenclatura per il nome delle \br. Per facilitare un corretto inserimento \`e presente una lista delle \br\ inserite nel \rp. \`E cos\`i possibile visualizzare in modo rapido le \br\ gi\`a inserite, evitandone l'inserimento di una con un nome gi\`a inserito.
+Rappresenta il nome della \br\ che l'utente intende inserire. Il nome della \br\ deve essere univoco all'interno del \rp. Per questo motivo \`e importante prestare attenzione al nome scelto. \`E consigliabile definire all'interno dell'azienda che utilizza il prodotto delle regole di nomenclatura per il nome delle \br. Per facilitare un corretto inserimento \`e presente una lista delle \br\ inserite nel \rp. \`E cos\`i possibile visualizzare in modo rapido le \br\ gi\`a inserite, evitando l'inserimento di una con un nome gi\`a inserito.
 
 \subsection{Business Object Associato}
 Rappresenta il \bo\ al quale si vuole associare la regola. Il linguaggio di definizione delle \br\ offre la possibilit\`a di effettuare operazioni e controlli sui campi dati dei \bo\ da validare. Per questo, ad ogni \br\ \`e necessario associare un \bo. Per facilitare l'inserimento di una nuova \br\ (evitando cos\`i errori dovuti ad una digitazione errata del nome del \bo), il campo \bo\ associato \`e una \textit{combobox} che permette di scegliere uno dei \bo\ realmente presenti.
@@ -343,7 +343,6 @@ La figura 5.2.6 mostra l'esito di un corretto inserimento di una \br. La \br\ \`
  figura 5.2.6.1: esempio di regola sintatticamente errata 
 \end{center} 
 La figura 5.2.6.1 mostra l'esito di un errato inserimento di \br. La \br\ non pu\`o essere validata e inserita nel \rp\ in quanto la regola immessa (in questo caso true=12) non \`e consentita.
-\\
 \\
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/errore_sintattico.eps}\\
@@ -385,7 +384,7 @@ Nella figura 5.3.0 vediamo illustrata la schermata di cancellazione di una busin
 \begin{itemize}
 \item Per procedere all'eliminazione l'utente avr\`a 2 modi:
 \begin{enumerate}
-\item inserire nell'appostito campo (TextBox) il nome della business rule si che intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''. Se l'utente opera una o pi\`u ricerche, le \br\ trovate verranno selezionate nel campo ``Business Rules Selezionate'' mentre in ``Lista Completa'' sar\`a evidenziata solo l'ultima di queste. Si possono eventualmente deselezionare le \br\ attraverso il tasto ``Deseleziona''. Viene infine introdotto l'uso di espressioni regolari per raffinare la ricerca, in questo caso invitiamo l'utente a consultare la documentazione fornita all' url:\\ \href{http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html}{http://java.sun.com/.../Pattern.html}.
+\item inserire nell'appostito campo (TextBox) il nome della business rule che si intende rimuovere e cliccare sul pulsante ``\textbf{Cerca}''. Se l'utente opera una o pi\`u ricerche, le \br\ trovate verranno selezionate nel campo ``Business Rules Selezionate'' mentre in ``Lista Completa'' sar\`a evidenziata solo l'ultima di queste. Si possono eventualmente deselezionare le \br\ attraverso il tasto ``Deseleziona''. Viene infine introdotto l'uso di espressioni regolari per raffinare la ricerca, in questo caso invitiamo l'utente a consultare la documentazione fornita all' url:\\ \href{http://java.sun.com/j2se/1.4.2/docs/api/java/util/regex/Pattern.html}{http://java.sun.com/.../Pattern.html}.
 \item selezionare una o pi\`u business rule dalle liste sottostanti.
 \end{enumerate}
 
@@ -421,13 +420,13 @@ Se la cancellazione viene effettuata con successo verr\`a visualizzato un messag
 \includegraphics[width=0.5\textwidth]{manuale_utente/err11diventa09.eps}\\
  figura 5.3.1 messaggio di regola non trovata.
 \end{center} 
-La figura 5.3.1 mostra l'esito di un'errata rimozione di una \br. La \br non pu\`o essere rimossa dal \rp\ in quanto non \`e stata trovata al suo interno.
+La figura 5.3.1 mostra l'esito di un'errata rimozione di una \br. La \br\ non pu\`o essere rimossa dal \rp\ in quanto non \`e stata trovata al suo interno.
 
 \begin{center}
 \includegraphics[width=0.5\textwidth]{manuale_utente/12diventa10.eps}\\
  figura 5.3.2 messaggio di repository vuoto.
 \end{center} 
-La figura 5.3.2 mostra l'esito di un'errata rimozione di una \br. La \br non pu\`o essere rimossa dal \rp\ in quanto il repository non ne contiene alcuna.
+La figura 5.3.2 mostra l'esito di un'errata rimozione di una \br. La \br\ non pu\`o essere rimossa dal \rp\ in quanto il repository non ne contiene alcuna.
 
 \section{Sandbox}
 \begin{center}
@@ -460,7 +459,7 @@ In questo capitolo viene descritto il linguaggio di formulazione di \br. Una \br
 \`E molto importante chiarire l'utilizzo delle \br. Esse sono concepite per verificare che un oggetto rispetti determinati vincoli. I vincoli che si definiscono con una \br\ sono vincoli oggettivi ad esempio ``\texttt{se un valore è maggiore di 10 non deve essere minore di 10}'' e non vincoli soggettivi come ``\texttt{le entrate devono essere maggiori delle uscite}'' mentre per la prima regola non \`e possibile che avvenga il contrario, per la seconda ci\`o \`e possibile per quanto negativo possa essere per una azienda.
 
 \section{Una \br\ semplice}
-Una \br semplice \`e costituita da un singolo confronto. Ad esempio: ``prezzo\textgreater0;'' . La regola appena scritta serve a verificare che ogni oggetto abbia un prezzo maggiore di zero. Nella regola ``prezzo'' \`e il nome di un campo dati dell'oggetto. Una regola minimale \`e quindi definita dal comfronto tra un campo dati dell'oggetto e un valore. \\
+Una \br\ semplice \`e costituita da un singolo confronto. Ad esempio: ``prezzo\textgreater0;'' . La regola appena scritta serve a verificare che ogni oggetto abbia un prezzo maggiore di zero. Nella regola ``prezzo'' \`e il nome di un campo dati dell'oggetto. Una regola minimale \`e quindi definita dal comfronto tra un campo dati dell'oggetto e un valore. \\
 Ogni confronto va terminato da un ``;''. \\
 Gli operatori di confronto ammessi dal linguaggio sono : = (uguale), != (diverso), \textless\ (strettamente minore), \textgreater\ (strettamente maggiore),  \textless= (minore o uguale), \textgreater= (maggiore o uguale).
 
@@ -476,7 +475,7 @@ Le \br\ (e di conseguenza i \bo) possono contenere campi dati e valori di tre ti
 Una \br\ in genere non si limita a confrontare un campo dati con un valore, ma il pi\`u delle volte confronta un campo dati con un ``valore derivato''. Per valore derivato si intende un valore ottenuto algebricamente da altri valori. Ad esempio ``totale=prezzoBase*pezziVenduti;'' . Le operazioni algebriche consentite sono quelle base: + (somma), - (sottrazione), / (divisione), * (moltiplicazione).
 
 \section{Funzioni algebriche}
-Per rendere pi\`u semplice il linguaggio, pi\`u espressivo e chiaro, sono state introdotte alcune funzioni elementari, come la somma di un gruppo di valori, la media aritmetica e il conteggio di un gruppo di valori. Ad esempio \`e possibile scrivere regole come ``totale=SUM(listaPrezzi);'' \textit{SUM()} \`e la funzione e \textit{listaPrezzi} \`e un array di prezzi. Si pu\`o poi scrivere ``prezzoMedio=AVG(listaPrezzi);'' per la media aritmetica   o ancora ``totale=prezzoBase* COUNT(listaPrezzi);'' per il cnteggio degli elementi.\\
+Per rendere pi\`u semplice il linguaggio, pi\`u espressivo e chiaro, sono state introdotte alcune funzioni elementari, come la somma di un gruppo di valori, la media aritmetica e il conteggio di un gruppo di valori. Ad esempio \`e possibile scrivere regole come ``totale=SUM(listaPrezzi);'' \textit{SUM()} \`e la funzione e \textit{listaPrezzi} \`e un array di prezzi. Si pu\`o poi scrivere ``prezzoMedio=AVG(listaPrezzi);'' per la media aritmetica   o ancora ``totale=prezzoBase* COUNT(listaPrezzi);'' per il conteggio degli elementi.\\
 Le espressioni algebriche ammettono parentesizzazioni, \`e quindi possibile scrivere ``prezzo=costo*(ore/(produzione+3));'' .
 \`E possibile introdurre nuove funzioni nel linguaggio a patto che queste siano supportate e riconosciute come tali dall'interprete del linguaggio. Nulla vieta infatti di introdurre funzioni come \textit{RADQ()} e introdurre una funzione per la radice quadrata nel linguaggio.
 
@@ -488,12 +487,12 @@ Il linguaggio ammette operazioni tra vettori matrici e scalari. Tali operazioni 
 \section{Confronti tra booleani}
 Una \br\ pu\`o contenere confronti tra booleani. Ad esempio ``difettoso=false;''. Il campo dati deve essere un booleano e pu\`o essere confrontato solo con altri campi dati booleani o con valori come `true' e `false'. 
 \subsection{La funzione NOT()}
-La funzione NOT() \`e una funzione propria dei booleani e serve a permettere la negazione di un valore booleano o di un espressione booleana. Per cui \`e possibile scrivere ``NOT(difettoso)=true;''. Non \`e invece possibile scrivere ``NOT(totale=prezzo*numero);''. a funzione not si applica solo a un valore o espressione booleana non a un confronto.
+La funzione NOT() \`e una funzione propria dei booleani e serve a permettere la negazione di un valore booleano o di un espressione booleana. Per cui \`e possibile scrivere ``NOT(difettoso)=true;''. Non \`e invece possibile scrivere ``NOT(totale=prezzo*numero);''. La funzione not si applica solo a un valore o espressione booleana non a un confronto.
 \section{Operatori logici}
 Il pi\`u delle volte una regola non \`e costituita da un singolo valore booleano ma da pi\`u valori concatenati da \textit{and} e \textit{or}. Il linguaggio permette di congiungere o disgiungere valori booleani in modo da ottenere espressioni booleane. Ad esempio \`e possibile scrivere ``difettoso \textbar \textbar\ (scontato \&\& venduto)=false;'' . Gli operatori logici tra booleani sono solo due: \&\& (congiunzione, \textit{and}) e \textbar \textbar\ (disgiunzione , \textit{or}).
 
 \section{Confronti tra stringhe}
-Nel linguaggio \`e possibile inserire stringhe ma le operazioni tra stringhe sono limitate ai solo confronti semplici. \`E quindi possibile scrivere ``nome=``prodotto'';'' oppure ``nomeAzienda!=``IBM'';'' . I confronti ammessi sono = (uguale) e != (diverso).
+Nel linguaggio \`e possibile inserire stringhe ma le operazioni tra stringhe sono limitate ai soli confronti semplici. \`E quindi possibile scrivere ``nome=``prodotto'';'' oppure ``nomeAzienda!=``IBM'';'' . I confronti ammessi sono = (uguale) e != (diverso).
 
 \section{Connettori logici}
 Il linguaggio fin qui descritto non garantisce una buona espressivit\`a, risulta difficile esprimere concetti complessi con un singolo confronto. Per questo \`e possibile nel linguaggio connettere pi\`u confronti con dei connettori logici \textit{AND} e \textit{OR}. I connettori logici permettono di collegare pi\`u confronti fra loro.\\
@@ -615,8 +614,8 @@ true & \textless BOOL \textgreater true\textless /BOOL\textgreater \\ \hline
 
 \chapter{Disinstallazione}
 \section{Sistemi Linux}
-Per rimuovere in modo completo il sistema BR-jsys in sistemi Linux basta rimuovere la cartella `br-jsys' e l'eventuale collegamento creato durante l'installazione. La catella `br-jsys' \`e posizionata nella stessa directory
-che contene `eXist' (generalmente \textasciitilde/).
+Per rimuovere in modo completo il sistema BR-jsys in sistemi Linux basta rimuovere la cartella `br-jsys' e l'eventuale collegamento creato durante l'installazione. La cartella `br-jsys' \`e posizionata nella stessa directory
+che contiene `eXist' (generalmente \textasciitilde/).
 
 \section{Sistemi Windows}
 Per rimuovere il programma sar\`a sufficiente cliccare su ``Uninstall BR-jsys'' nella directory del BR-jsys o su uno degli \textit{shortcuts} creati al momento dell'installazione. Alla seguente schermata premere su ``Avanti'' per far partire la rimozione.
@@ -631,7 +630,7 @@ Al completamento cliccare su ``Fine''.
 \end{center}
 
 \section{Disinstallazione Manuale}
-Per la rimozione completa del prodotto in sistemi operativi non descritti nelle precedenti sezioni, o in caso la disinstallazione (in forma di wizard ) non sia andata a buon fine, \`e possibile rimuovere il prodotto manualmente seguendo le seguenti istruzioni:
+Per la rimozione completa del prodotto in sistemi operativi non descritti nelle precedenti sezioni, o in caso la disinstallazione ( in forma di wizard ) non sia andata a buon fine, \`e possibile rimuovere il prodotto manualmente seguendo le seguenti istruzioni:
 \begin{enumerate}
 \item Individuate la cartella ``brjsys'' nel vostro filesystem;
 \item Rimuovete la cartella ``brjsys'' ed eventualmente altri collegamenti creati nell'installazione del prodotto;
@@ -654,7 +653,7 @@ ERR02 & query errata & \`E stata inserita una query errata. \\ \hline
 ERR03 & Campo dati regola non trovato. validazione interrotta! & Riferimento ad un campo dati sbagliato. La validazione viene interrotta. \\ \hline
 ERR04 & Operazione non consentita: \textless tipo 1\textgreater\ != \textless tipo 2\textgreater\ : validazione interrotta & Errore tra tipi. Esecuzione di un'operazione di confronto tra due tipi diversi. La validazione viene interrotta. \\ \hline
 ERR05 & Errore sintattico \textless tutta la business rule scritta fino all'errore\textgreater\ : validazione interrotta! & Errore di scrittura nella business rule. La validazione viene interrotta. \\ \hline
-ERR06 & Nome regola inaccettabile & La business. \\ \hline
+ERR06 & Nome regola inaccettabile & La business rule non pu\`o avere campo name vuoto. \\ \hline
 ERR07 & Testo regola gi\`a presente & La regola ha un nome gi\`a presente nel repository. Non verr\`a quindi inserita. \\ \hline
 ERR10 & business rule gi\`a presente &  La business rule inserita \`e gi\`a presente nel \rp.\\ \hline
 ERR11 & business rule non trovata! & La business rule cercata non \`e stata trovata nel \rp. \\ \hline
