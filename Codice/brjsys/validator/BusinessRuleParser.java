@@ -1,21 +1,18 @@
-// $ANTLR 3.0.1 /../../media/sda1/ids/src/compiler/BusinessRule.g 2008-03-12 11:59:08
+// $ANTLR 3.0.1 /media/DISK_IMG/br-jsys/Codice/BusinessRule.g 2008-03-20 20:24:08
 package brjsys.validator;
 
 
 import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+
 
 import org.antlr.runtime.tree.*;
 
-
-/**
- *  Parser per il linguaggio di business rule.
- * @author Michele  Bortolato
- * @version 1.2 14 Mar 2008
- * 
- */
 public class BusinessRuleParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "OpRule", "Conf", "Bconf", "Msg", "STRING", "OpA", "OpM", "OpBool", "FIELD", "FLOAT", "BOOL", "BoFun", "FlFun", "Count", "CHAR", "OTHERCHAR", "NUMBER", "UNFLOAT", "SUBFIELD", "WHITESPACE", "';'", "'('", "')'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "OpRule", "Conf", "Bconf", "Msg", "STRING", "OpA", "OpM", "OpBool", "FIELD", "FLOAT", "BOOL", "BoFun", "FlFun", "Count", "CHAR", "OTHERCHAR", "NUMBER", "UNFLOAT", "SUBFIELD", "WHITESPACE", "'#'", "'('", "')'"
     };
     public static final int Count=17;
     public static final int OpRule=4;
@@ -53,7 +50,7 @@ public class BusinessRuleParser extends Parser {
     }
 
     public String[] getTokenNames() { return tokenNames; }
-    public String getGrammarFileName() { return "/../../media/sda1/ids/src/compiler/BusinessRule.g"; }
+    public String getGrammarFileName() { return "/media/DISK_IMG/br-jsys/Codice/BusinessRule.g"; }
 
 
     static private Class env=null;
@@ -90,13 +87,13 @@ public class BusinessRuleParser extends Parser {
     			try {
     				return getType(coda,tipotesta);
     			} catch (TypeCollisionException e) {
-    				throw new TypeCollisionException("ERR03: Campo dati "
+    				throw new TypeCollisionException("Campo dati "
     						+nome+" non trovato.");
     			} 
     		} catch (SecurityException e) {
     			throw new TypeCollisionException("Security Exception");
     		} catch (NoSuchFieldException e) {
-    			throw new TypeCollisionException("ERR03: Campo dati "
+    			throw new TypeCollisionException("Campo dati "
     					+nome+" non trovato.");
     		}
     	}
@@ -167,7 +164,7 @@ public class BusinessRuleParser extends Parser {
     			}
     			//tutte e due matrici di dimensioni diverse
     		}
-    		throw new TypeCollisionException("ERR04: Operazione non consentita:\n"+input+
+    		throw new TypeCollisionException("Operazione non consentita:\n"+input+
     				" != "+confronto+":\n "+printTSNew(stream, 0, stream.index()-1)+
     				"\nValidazione interrotta");
     	}
@@ -230,7 +227,7 @@ public class BusinessRuleParser extends Parser {
     };
 
     // $ANTLR start start
-    // /../../media/sda1/ids/src/compiler/BusinessRule.g:189:1: start : rule ( OpRule rule )* ;
+    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:189:1: start : rule ( OpRule rule )* '#' ;
     public final start_return start() throws RecognitionException {
         start_return retval = new start_return();
         retval.start = input.LT(1);
@@ -238,16 +235,18 @@ public class BusinessRuleParser extends Parser {
         CommonTree root_0 = null;
 
         Token OpRule2=null;
+        Token char_literal4=null;
         rule_return rule1 = null;
 
         rule_return rule3 = null;
 
 
         CommonTree OpRule2_tree=null;
+        CommonTree char_literal4_tree=null;
 
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:189:7: ( rule ( OpRule rule )* )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:190:2: rule ( OpRule rule )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:189:7: ( rule ( OpRule rule )* '#' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:190:2: rule ( OpRule rule )* '#'
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -256,7 +255,7 @@ public class BusinessRuleParser extends Parser {
             _fsp--;
 
             adaptor.addChild(root_0, rule1.getTree());
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:191:2: ( OpRule rule )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:191:2: ( OpRule rule )*
             loop1:
             do {
                 int alt1=2;
@@ -269,7 +268,7 @@ public class BusinessRuleParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:191:3: OpRule rule
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:191:3: OpRule rule
             	    {
             	    OpRule2=(Token)input.LT(1);
             	    match(input,OpRule,FOLLOW_OpRule_in_start55); 
@@ -290,6 +289,8 @@ public class BusinessRuleParser extends Parser {
                 }
             } while (true);
 
+            char_literal4=(Token)input.LT(1);
+            match(input,24,FOLLOW_24_in_start64); 
 
             }
 
@@ -302,7 +303,7 @@ public class BusinessRuleParser extends Parser {
         catch (RecognitionException error) {
         		error.printStackTrace();
         		if(error instanceof TypeCollisionException){}
-        		else{throw new TypeCollisionException("ERR05: Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+        		else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
         		}
         		throw error;}    finally {
         }
@@ -317,57 +318,54 @@ public class BusinessRuleParser extends Parser {
     };
 
     // $ANTLR start rule
-    // /../../media/sda1/ids/src/compiler/BusinessRule.g:195:1: rule returns [Class value] : e= exp ( conf e2= exp ) ( message )? ';' -> ^( conf $e $e2 ( message )? ) ;
+    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:195:1: rule returns [Class value] : e= exp ( conf e2= exp ) ( message )? -> ^( conf $e $e2 ( message )? ) ;
     public final rule_return rule() throws RecognitionException {
         rule_return retval = new rule_return();
         retval.start = input.LT(1);
 
         CommonTree root_0 = null;
 
-        Token char_literal6=null;
         exp_return e = null;
 
         exp_return e2 = null;
 
-        conf_return conf4 = null;
+        conf_return conf5 = null;
 
-        message_return message5 = null;
+        message_return message6 = null;
 
 
-        CommonTree char_literal6_tree=null;
-        RewriteRuleTokenStream stream_24=new RewriteRuleTokenStream(adaptor,"token 24");
         RewriteRuleSubtreeStream stream_message=new RewriteRuleSubtreeStream(adaptor,"rule message");
         RewriteRuleSubtreeStream stream_exp=new RewriteRuleSubtreeStream(adaptor,"rule exp");
         RewriteRuleSubtreeStream stream_conf=new RewriteRuleSubtreeStream(adaptor,"rule conf");
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:195:26: (e= exp ( conf e2= exp ) ( message )? ';' -> ^( conf $e $e2 ( message )? ) )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:196:2: e= exp ( conf e2= exp ) ( message )? ';'
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:195:26: (e= exp ( conf e2= exp ) ( message )? -> ^( conf $e $e2 ( message )? ) )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:196:2: e= exp ( conf e2= exp ) ( message )?
             {
-            pushFollow(FOLLOW_exp_in_rule78);
+            pushFollow(FOLLOW_exp_in_rule80);
             e=exp();
             _fsp--;
 
             stream_exp.add(e.getTree());
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:197:2: ( conf e2= exp )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:197:3: conf e2= exp
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:197:2: ( conf e2= exp )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:197:3: conf e2= exp
             {
-            pushFollow(FOLLOW_conf_in_rule83);
-            conf4=conf();
+            pushFollow(FOLLOW_conf_in_rule85);
+            conf5=conf();
             _fsp--;
 
-            stream_conf.add(conf4.getTree());
-            pushFollow(FOLLOW_exp_in_rule87);
+            stream_conf.add(conf5.getTree());
+            pushFollow(FOLLOW_exp_in_rule89);
             e2=exp();
             _fsp--;
 
             stream_exp.add(e2.getTree());
-            if(!input.toString(conf4.start,conf4.stop).equals("=") && !input.toString(conf4.start,conf4.stop).equals("!=")){//devono essere Float
+            if(!input.toString(conf5.start,conf5.stop).equals("=") && !input.toString(conf5.start,conf5.stop).equals("!=")){//devono essere Float
             				retval.value =compare(input,e.value,compare(input,e2.value,new Float(0).getClass(),false),false);
             			}else {retval.value =compare(input,e.value,e2.value,false);}
 
             }
 
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:200:3: ( message )?
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:200:3: ( message )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -376,26 +374,22 @@ public class BusinessRuleParser extends Parser {
             }
             switch (alt2) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:200:3: message
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:200:3: message
                     {
-                    pushFollow(FOLLOW_message_in_rule95);
-                    message5=message();
+                    pushFollow(FOLLOW_message_in_rule97);
+                    message6=message();
                     _fsp--;
 
-                    stream_message.add(message5.getTree());
+                    stream_message.add(message6.getTree());
 
                     }
                     break;
 
             }
 
-            char_literal6=(Token)input.LT(1);
-            match(input,24,FOLLOW_24_in_rule98); 
-            stream_24.add(char_literal6);
-
 
             // AST REWRITE
-            // elements: message, e, conf, e2
+            // elements: message, conf, e, e2
             // token labels: 
             // rule labels: retval, e2, e
             // token list labels: 
@@ -406,16 +400,16 @@ public class BusinessRuleParser extends Parser {
             RewriteRuleSubtreeStream stream_e=new RewriteRuleSubtreeStream(adaptor,"token e",e!=null?e.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 200:16: -> ^( conf $e $e2 ( message )? )
+            // 200:13: -> ^( conf $e $e2 ( message )? )
             {
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:200:18: ^( conf $e $e2 ( message )? )
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:200:15: ^( conf $e $e2 ( message )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_conf.nextNode(), root_1);
 
                 adaptor.addChild(root_1, stream_e.next());
                 adaptor.addChild(root_1, stream_e2.next());
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:200:32: ( message )?
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:200:29: ( message )?
                 if ( stream_message.hasNext() ) {
                     adaptor.addChild(root_1, stream_message.next());
 
@@ -440,7 +434,7 @@ public class BusinessRuleParser extends Parser {
         catch (RecognitionException error) {
         		error.printStackTrace();
         		if(error instanceof TypeCollisionException){}
-        		else{throw new TypeCollisionException("ERR05: Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+        		else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
         		}
         		throw error;}    finally {
         }
@@ -454,7 +448,7 @@ public class BusinessRuleParser extends Parser {
     };
 
     // $ANTLR start conf
-    // /../../media/sda1/ids/src/compiler/BusinessRule.g:203:1: conf : ( Conf | Bconf );
+    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:203:1: conf : ( Conf | Bconf );
     public final conf_return conf() throws RecognitionException {
         conf_return retval = new conf_return();
         retval.start = input.LT(1);
@@ -466,8 +460,8 @@ public class BusinessRuleParser extends Parser {
         CommonTree set7_tree=null;
 
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:203:6: ( Conf | Bconf )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:203:6: ( Conf | Bconf )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -495,7 +489,7 @@ public class BusinessRuleParser extends Parser {
         catch (RecognitionException error) {
         		error.printStackTrace();
         		if(error instanceof TypeCollisionException){}
-        		else{throw new TypeCollisionException("ERR05: Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+        		else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
         		}
         		throw error;}    finally {
         }
@@ -509,7 +503,7 @@ public class BusinessRuleParser extends Parser {
     };
 
     // $ANTLR start message
-    // /../../media/sda1/ids/src/compiler/BusinessRule.g:205:1: message : Msg '(' STRING ')' ;
+    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:205:1: message : Msg '(' STRING ')' ;
     public final message_return message() throws RecognitionException {
         message_return retval = new message_return();
         retval.start = input.LT(1);
@@ -527,25 +521,25 @@ public class BusinessRuleParser extends Parser {
         CommonTree char_literal11_tree=null;
 
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:205:9: ( Msg '(' STRING ')' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:205:11: Msg '(' STRING ')'
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:205:9: ( Msg '(' STRING ')' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:205:11: Msg '(' STRING ')'
             {
             root_0 = (CommonTree)adaptor.nil();
 
             Msg8=(Token)input.LT(1);
-            match(input,Msg,FOLLOW_Msg_in_message132); 
+            match(input,Msg,FOLLOW_Msg_in_message133); 
             Msg8_tree = (CommonTree)adaptor.create(Msg8);
             root_0 = (CommonTree)adaptor.becomeRoot(Msg8_tree, root_0);
 
             char_literal9=(Token)input.LT(1);
-            match(input,25,FOLLOW_25_in_message134); 
+            match(input,25,FOLLOW_25_in_message135); 
             STRING10=(Token)input.LT(1);
-            match(input,STRING,FOLLOW_STRING_in_message136); 
+            match(input,STRING,FOLLOW_STRING_in_message137); 
             STRING10_tree = (CommonTree)adaptor.create(STRING10);
             adaptor.addChild(root_0, STRING10_tree);
 
             char_literal11=(Token)input.LT(1);
-            match(input,26,FOLLOW_26_in_message137); 
+            match(input,26,FOLLOW_26_in_message138); 
 
             }
 
@@ -558,7 +552,7 @@ public class BusinessRuleParser extends Parser {
         catch (RecognitionException error) {
         		error.printStackTrace();
         		if(error instanceof TypeCollisionException){}
-        		else{throw new TypeCollisionException("ERR05: Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+        		else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
         		}
         		throw error;}    finally {
         }
@@ -573,7 +567,7 @@ public class BusinessRuleParser extends Parser {
     };
 
     // $ANTLR start exp
-    // /../../media/sda1/ids/src/compiler/BusinessRule.g:207:1: exp returns [Class value] : e= opA ( OpA e= opA )* ;
+    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:207:1: exp returns [Class value] : e= opA ( OpA e= opA )* ;
     public final exp_return exp() throws RecognitionException {
         exp_return retval = new exp_return();
         retval.start = input.LT(1);
@@ -587,18 +581,18 @@ public class BusinessRuleParser extends Parser {
         CommonTree OpA12_tree=null;
 
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:207:27: (e= opA ( OpA e= opA )* )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:208:2: e= opA ( OpA e= opA )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:207:27: (e= opA ( OpA e= opA )* )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:208:2: e= opA ( OpA e= opA )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_opA_in_exp154);
+            pushFollow(FOLLOW_opA_in_exp155);
             e=opA();
             _fsp--;
 
             adaptor.addChild(root_0, e.getTree());
             retval.value =e.value;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:209:2: ( OpA e= opA )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:209:2: ( OpA e= opA )*
             loop3:
             do {
                 int alt3=2;
@@ -611,14 +605,14 @@ public class BusinessRuleParser extends Parser {
 
                 switch (alt3) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:209:3: OpA e= opA
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:209:3: OpA e= opA
             	    {
             	    OpA12=(Token)input.LT(1);
-            	    match(input,OpA,FOLLOW_OpA_in_exp162); 
+            	    match(input,OpA,FOLLOW_OpA_in_exp163); 
             	    OpA12_tree = (CommonTree)adaptor.create(OpA12);
             	    root_0 = (CommonTree)adaptor.becomeRoot(OpA12_tree, root_0);
 
-            	    pushFollow(FOLLOW_opA_in_exp167);
+            	    pushFollow(FOLLOW_opA_in_exp168);
             	    e=opA();
             	    _fsp--;
 
@@ -645,7 +639,7 @@ public class BusinessRuleParser extends Parser {
         catch (RecognitionException error) {
         		error.printStackTrace();
         		if(error instanceof TypeCollisionException){}
-        		else{throw new TypeCollisionException("ERR05: Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+        		else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
         		}
         		throw error;}    finally {
         }
@@ -660,7 +654,7 @@ public class BusinessRuleParser extends Parser {
     };
 
     // $ANTLR start opA
-    // /../../media/sda1/ids/src/compiler/BusinessRule.g:213:1: opA returns [Class value] : e= opB ( OpM e= opB )* ;
+    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:213:1: opA returns [Class value] : e= opB ( OpM e= opB )* ;
     public final opA_return opA() throws RecognitionException {
         opA_return retval = new opA_return();
         retval.start = input.LT(1);
@@ -674,18 +668,18 @@ public class BusinessRuleParser extends Parser {
         CommonTree OpM13_tree=null;
 
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:213:25: (e= opB ( OpM e= opB )* )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:214:2: e= opB ( OpM e= opB )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:213:25: (e= opB ( OpM e= opB )* )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:214:2: e= opB ( OpM e= opB )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_opB_in_opA187);
+            pushFollow(FOLLOW_opB_in_opA188);
             e=opB();
             _fsp--;
 
             adaptor.addChild(root_0, e.getTree());
             retval.value =e.value;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:215:2: ( OpM e= opB )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:215:2: ( OpM e= opB )*
             loop4:
             do {
                 int alt4=2;
@@ -698,14 +692,14 @@ public class BusinessRuleParser extends Parser {
 
                 switch (alt4) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:215:3: OpM e= opB
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:215:3: OpM e= opB
             	    {
             	    OpM13=(Token)input.LT(1);
-            	    match(input,OpM,FOLLOW_OpM_in_opA194); 
+            	    match(input,OpM,FOLLOW_OpM_in_opA195); 
             	    OpM13_tree = (CommonTree)adaptor.create(OpM13);
             	    root_0 = (CommonTree)adaptor.becomeRoot(OpM13_tree, root_0);
 
-            	    pushFollow(FOLLOW_opB_in_opA199);
+            	    pushFollow(FOLLOW_opB_in_opA200);
             	    e=opB();
             	    _fsp--;
 
@@ -732,7 +726,7 @@ public class BusinessRuleParser extends Parser {
         catch (RecognitionException error) {
         		error.printStackTrace();
         		if(error instanceof TypeCollisionException){}
-        		else{throw new TypeCollisionException("ERR05: Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+        		else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
         		}
         		throw error;}    finally {
         }
@@ -747,7 +741,7 @@ public class BusinessRuleParser extends Parser {
     };
 
     // $ANTLR start opB
-    // /../../media/sda1/ids/src/compiler/BusinessRule.g:219:1: opB returns [Class value] : e= atom ( OpBool e= atom )* ;
+    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:219:1: opB returns [Class value] : e= atom ( OpBool e= atom )* ;
     public final opB_return opB() throws RecognitionException {
         opB_return retval = new opB_return();
         retval.start = input.LT(1);
@@ -761,18 +755,18 @@ public class BusinessRuleParser extends Parser {
         CommonTree OpBool14_tree=null;
 
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:219:27: (e= atom ( OpBool e= atom )* )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:220:2: e= atom ( OpBool e= atom )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:219:27: (e= atom ( OpBool e= atom )* )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:220:2: e= atom ( OpBool e= atom )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_atom_in_opB223);
+            pushFollow(FOLLOW_atom_in_opB224);
             e=atom();
             _fsp--;
 
             adaptor.addChild(root_0, e.getTree());
             retval.value =e.value;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:221:2: ( OpBool e= atom )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:221:2: ( OpBool e= atom )*
             loop5:
             do {
                 int alt5=2;
@@ -785,14 +779,14 @@ public class BusinessRuleParser extends Parser {
 
                 switch (alt5) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:221:3: OpBool e= atom
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:221:3: OpBool e= atom
             	    {
             	    OpBool14=(Token)input.LT(1);
-            	    match(input,OpBool,FOLLOW_OpBool_in_opB230); 
+            	    match(input,OpBool,FOLLOW_OpBool_in_opB231); 
             	    OpBool14_tree = (CommonTree)adaptor.create(OpBool14);
             	    root_0 = (CommonTree)adaptor.becomeRoot(OpBool14_tree, root_0);
 
-            	    pushFollow(FOLLOW_atom_in_opB235);
+            	    pushFollow(FOLLOW_atom_in_opB236);
             	    e=atom();
             	    _fsp--;
 
@@ -819,7 +813,7 @@ public class BusinessRuleParser extends Parser {
         catch (RecognitionException error) {
         		error.printStackTrace();
         		if(error instanceof TypeCollisionException){}
-        		else{throw new TypeCollisionException("ERR05: Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+        		else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
         		}
         		throw error;}    finally {
         }
@@ -834,7 +828,7 @@ public class BusinessRuleParser extends Parser {
     };
 
     // $ANTLR start atom
-    // /../../media/sda1/ids/src/compiler/BusinessRule.g:224:1: atom returns [Class value] : ( FIELD | FLOAT | BOOL | STRING | '(' e= exp ')' -> exp | z= fun -> fun );
+    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:224:1: atom returns [Class value] : ( FIELD | FLOAT | BOOL | STRING | '(' e= exp ')' -> exp | z= fun -> fun );
     public final atom_return atom() throws RecognitionException {
         atom_return retval = new atom_return();
         retval.start = input.LT(1);
@@ -863,7 +857,7 @@ public class BusinessRuleParser extends Parser {
         RewriteRuleSubtreeStream stream_exp=new RewriteRuleSubtreeStream(adaptor,"rule exp");
         RewriteRuleSubtreeStream stream_fun=new RewriteRuleSubtreeStream(adaptor,"rule fun");
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:224:28: ( FIELD | FLOAT | BOOL | STRING | '(' e= exp ')' -> exp | z= fun -> fun )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:224:28: ( FIELD | FLOAT | BOOL | STRING | '(' e= exp ')' -> exp | z= fun -> fun )
             int alt6=6;
             switch ( input.LA(1) ) {
             case FIELD:
@@ -907,12 +901,12 @@ public class BusinessRuleParser extends Parser {
 
             switch (alt6) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:225:2: FIELD
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:225:2: FIELD
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     FIELD15=(Token)input.LT(1);
-                    match(input,FIELD,FOLLOW_FIELD_in_atom254); 
+                    match(input,FIELD,FOLLOW_FIELD_in_atom255); 
                     FIELD15_tree = (CommonTree)adaptor.create(FIELD15);
                     adaptor.addChild(root_0, FIELD15_tree);
 
@@ -921,12 +915,12 @@ public class BusinessRuleParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:226:3: FLOAT
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:226:3: FLOAT
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     FLOAT16=(Token)input.LT(1);
-                    match(input,FLOAT,FOLLOW_FLOAT_in_atom262); 
+                    match(input,FLOAT,FOLLOW_FLOAT_in_atom263); 
                     FLOAT16_tree = (CommonTree)adaptor.create(FLOAT16);
                     adaptor.addChild(root_0, FLOAT16_tree);
 
@@ -935,12 +929,12 @@ public class BusinessRuleParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:227:3: BOOL
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:227:3: BOOL
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     BOOL17=(Token)input.LT(1);
-                    match(input,BOOL,FOLLOW_BOOL_in_atom270); 
+                    match(input,BOOL,FOLLOW_BOOL_in_atom271); 
                     BOOL17_tree = (CommonTree)adaptor.create(BOOL17);
                     adaptor.addChild(root_0, BOOL17_tree);
 
@@ -949,12 +943,12 @@ public class BusinessRuleParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:228:3: STRING
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:228:3: STRING
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     STRING18=(Token)input.LT(1);
-                    match(input,STRING,FOLLOW_STRING_in_atom278); 
+                    match(input,STRING,FOLLOW_STRING_in_atom279); 
                     STRING18_tree = (CommonTree)adaptor.create(STRING18);
                     adaptor.addChild(root_0, STRING18_tree);
 
@@ -963,19 +957,19 @@ public class BusinessRuleParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:229:3: '(' e= exp ')'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:229:3: '(' e= exp ')'
                     {
                     char_literal19=(Token)input.LT(1);
-                    match(input,25,FOLLOW_25_in_atom285); 
+                    match(input,25,FOLLOW_25_in_atom286); 
                     stream_25.add(char_literal19);
 
-                    pushFollow(FOLLOW_exp_in_atom288);
+                    pushFollow(FOLLOW_exp_in_atom289);
                     e=exp();
                     _fsp--;
 
                     stream_exp.add(e.getTree());
                     char_literal20=(Token)input.LT(1);
-                    match(input,26,FOLLOW_26_in_atom289); 
+                    match(input,26,FOLLOW_26_in_atom290); 
                     stream_26.add(char_literal20);
 
                     retval.value =e.value;
@@ -1001,9 +995,9 @@ public class BusinessRuleParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:230:3: z= fun
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:230:3: z= fun
                     {
-                    pushFollow(FOLLOW_fun_in_atom299);
+                    pushFollow(FOLLOW_fun_in_atom300);
                     z=fun();
                     _fsp--;
 
@@ -1041,7 +1035,7 @@ public class BusinessRuleParser extends Parser {
         catch (RecognitionException error) {
         		error.printStackTrace();
         		if(error instanceof TypeCollisionException){}
-        		else{throw new TypeCollisionException("ERR05: Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+        		else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
         		}
         		throw error;}    finally {
         }
@@ -1056,7 +1050,7 @@ public class BusinessRuleParser extends Parser {
     };
 
     // $ANTLR start fun
-    // /../../media/sda1/ids/src/compiler/BusinessRule.g:234:1: fun returns [Class value] : ( BoFun '(' e= exp ')' | FlFun '(' e= exp ')' | Count '(' e= exp ')' );
+    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:234:1: fun returns [Class value] : ( BoFun '(' e= exp ')' | FlFun '(' e= exp ')' | Count '(' e= exp ')' );
     public final fun_return fun() throws RecognitionException {
         fun_return retval = new fun_return();
         retval.start = input.LT(1);
@@ -1086,7 +1080,7 @@ public class BusinessRuleParser extends Parser {
         CommonTree char_literal29_tree=null;
 
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:234:26: ( BoFun '(' e= exp ')' | FlFun '(' e= exp ')' | Count '(' e= exp ')' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:234:26: ( BoFun '(' e= exp ')' | FlFun '(' e= exp ')' | Count '(' e= exp ')' )
             int alt7=3;
             switch ( input.LA(1) ) {
             case BoFun:
@@ -1113,70 +1107,70 @@ public class BusinessRuleParser extends Parser {
 
             switch (alt7) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:235:2: BoFun '(' e= exp ')'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:235:2: BoFun '(' e= exp ')'
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     BoFun21=(Token)input.LT(1);
-                    match(input,BoFun,FOLLOW_BoFun_in_fun323); 
+                    match(input,BoFun,FOLLOW_BoFun_in_fun324); 
                     BoFun21_tree = (CommonTree)adaptor.create(BoFun21);
                     root_0 = (CommonTree)adaptor.becomeRoot(BoFun21_tree, root_0);
 
                     char_literal22=(Token)input.LT(1);
-                    match(input,25,FOLLOW_25_in_fun326); 
-                    pushFollow(FOLLOW_exp_in_fun331);
+                    match(input,25,FOLLOW_25_in_fun327); 
+                    pushFollow(FOLLOW_exp_in_fun332);
                     e=exp();
                     _fsp--;
 
                     adaptor.addChild(root_0, e.getTree());
                     char_literal23=(Token)input.LT(1);
-                    match(input,26,FOLLOW_26_in_fun333); 
+                    match(input,26,FOLLOW_26_in_fun334); 
                     retval.value =compare(input,e.value,new Boolean(true).getClass(),false);
 
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:236:3: FlFun '(' e= exp ')'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:236:3: FlFun '(' e= exp ')'
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     FlFun24=(Token)input.LT(1);
-                    match(input,FlFun,FOLLOW_FlFun_in_fun341); 
+                    match(input,FlFun,FOLLOW_FlFun_in_fun342); 
                     FlFun24_tree = (CommonTree)adaptor.create(FlFun24);
                     root_0 = (CommonTree)adaptor.becomeRoot(FlFun24_tree, root_0);
 
                     char_literal25=(Token)input.LT(1);
-                    match(input,25,FOLLOW_25_in_fun344); 
-                    pushFollow(FOLLOW_exp_in_fun349);
+                    match(input,25,FOLLOW_25_in_fun345); 
+                    pushFollow(FOLLOW_exp_in_fun350);
                     e=exp();
                     _fsp--;
 
                     adaptor.addChild(root_0, e.getTree());
                     char_literal26=(Token)input.LT(1);
-                    match(input,26,FOLLOW_26_in_fun351); 
+                    match(input,26,FOLLOW_26_in_fun352); 
                     retval.value =compare(input,e.value,new Float(0).getClass(),true);
 
                     }
                     break;
                 case 3 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:237:3: Count '(' e= exp ')'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:237:3: Count '(' e= exp ')'
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
                     Count27=(Token)input.LT(1);
-                    match(input,Count,FOLLOW_Count_in_fun359); 
+                    match(input,Count,FOLLOW_Count_in_fun360); 
                     Count27_tree = (CommonTree)adaptor.create(Count27);
                     root_0 = (CommonTree)adaptor.becomeRoot(Count27_tree, root_0);
 
                     char_literal28=(Token)input.LT(1);
-                    match(input,25,FOLLOW_25_in_fun362); 
-                    pushFollow(FOLLOW_exp_in_fun367);
+                    match(input,25,FOLLOW_25_in_fun363); 
+                    pushFollow(FOLLOW_exp_in_fun368);
                     e=exp();
                     _fsp--;
 
                     adaptor.addChild(root_0, e.getTree());
                     char_literal29=(Token)input.LT(1);
-                    match(input,26,FOLLOW_26_in_fun370); 
+                    match(input,26,FOLLOW_26_in_fun371); 
                     retval.value =new Float(0).getClass();
 
                     }
@@ -1192,7 +1186,7 @@ public class BusinessRuleParser extends Parser {
         catch (RecognitionException error) {
         		error.printStackTrace();
         		if(error instanceof TypeCollisionException){}
-        		else{throw new TypeCollisionException("ERR05: Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
+        		else{throw new TypeCollisionException("Errore sintattico:\n"+printTSNew(input,0,input.index()-1)+"\nValidazione interrotta");
         		}
         		throw error;}    finally {
         }
@@ -1203,47 +1197,47 @@ public class BusinessRuleParser extends Parser {
 
  
 
-    public static final BitSet FOLLOW_rule_in_start51 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_rule_in_start51 = new BitSet(new long[]{0x0000000001000010L});
     public static final BitSet FOLLOW_OpRule_in_start55 = new BitSet(new long[]{0x000000000203F100L});
-    public static final BitSet FOLLOW_rule_in_start58 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_exp_in_rule78 = new BitSet(new long[]{0x0000000000000060L});
-    public static final BitSet FOLLOW_conf_in_rule83 = new BitSet(new long[]{0x000000000203F100L});
-    public static final BitSet FOLLOW_exp_in_rule87 = new BitSet(new long[]{0x0000000001000080L});
-    public static final BitSet FOLLOW_message_in_rule95 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_rule98 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule_in_start58 = new BitSet(new long[]{0x0000000001000010L});
+    public static final BitSet FOLLOW_24_in_start64 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_exp_in_rule80 = new BitSet(new long[]{0x0000000000000060L});
+    public static final BitSet FOLLOW_conf_in_rule85 = new BitSet(new long[]{0x000000000203F100L});
+    public static final BitSet FOLLOW_exp_in_rule89 = new BitSet(new long[]{0x0000000000000082L});
+    public static final BitSet FOLLOW_message_in_rule97 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_conf0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Msg_in_message132 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_message134 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_STRING_in_message136 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_message137 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_opA_in_exp154 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_OpA_in_exp162 = new BitSet(new long[]{0x000000000203F100L});
-    public static final BitSet FOLLOW_opA_in_exp167 = new BitSet(new long[]{0x0000000000000202L});
-    public static final BitSet FOLLOW_opB_in_opA187 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_OpM_in_opA194 = new BitSet(new long[]{0x000000000203F100L});
-    public static final BitSet FOLLOW_opB_in_opA199 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_atom_in_opB223 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_OpBool_in_opB230 = new BitSet(new long[]{0x000000000203F100L});
-    public static final BitSet FOLLOW_atom_in_opB235 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_FIELD_in_atom254 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOAT_in_atom262 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BOOL_in_atom270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_atom278 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_atom285 = new BitSet(new long[]{0x000000000203F100L});
-    public static final BitSet FOLLOW_exp_in_atom288 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_atom289 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_fun_in_atom299 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BoFun_in_fun323 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_fun326 = new BitSet(new long[]{0x000000000203F100L});
-    public static final BitSet FOLLOW_exp_in_fun331 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_fun333 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FlFun_in_fun341 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_fun344 = new BitSet(new long[]{0x000000000203F100L});
-    public static final BitSet FOLLOW_exp_in_fun349 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_fun351 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Count_in_fun359 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_fun362 = new BitSet(new long[]{0x000000000203F100L});
-    public static final BitSet FOLLOW_exp_in_fun367 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_fun370 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Msg_in_message133 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_message135 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_STRING_in_message137 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_message138 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_opA_in_exp155 = new BitSet(new long[]{0x0000000000000202L});
+    public static final BitSet FOLLOW_OpA_in_exp163 = new BitSet(new long[]{0x000000000203F100L});
+    public static final BitSet FOLLOW_opA_in_exp168 = new BitSet(new long[]{0x0000000000000202L});
+    public static final BitSet FOLLOW_opB_in_opA188 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_OpM_in_opA195 = new BitSet(new long[]{0x000000000203F100L});
+    public static final BitSet FOLLOW_opB_in_opA200 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_atom_in_opB224 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_OpBool_in_opB231 = new BitSet(new long[]{0x000000000203F100L});
+    public static final BitSet FOLLOW_atom_in_opB236 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_FIELD_in_atom255 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOAT_in_atom263 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BOOL_in_atom271 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_atom279 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_atom286 = new BitSet(new long[]{0x000000000203F100L});
+    public static final BitSet FOLLOW_exp_in_atom289 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_atom290 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_fun_in_atom300 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BoFun_in_fun324 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_fun327 = new BitSet(new long[]{0x000000000203F100L});
+    public static final BitSet FOLLOW_exp_in_fun332 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_fun334 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FlFun_in_fun342 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_fun345 = new BitSet(new long[]{0x000000000203F100L});
+    public static final BitSet FOLLOW_exp_in_fun350 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_fun352 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Count_in_fun360 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_fun363 = new BitSet(new long[]{0x000000000203F100L});
+    public static final BitSet FOLLOW_exp_in_fun368 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_fun371 = new BitSet(new long[]{0x0000000000000002L});
 
 }

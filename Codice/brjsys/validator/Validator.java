@@ -48,6 +48,16 @@ public class Validator {
 		ANTLRStringStream input;
 		CommonTokenStream tokens=null;
 
+		//Controllo che la regola non contenga il simbolo #
+		//Se lo contiene la regola e' sbagliata!
+		
+		int sharp=bRule.rule.indexOf('#');
+		
+		if (sharp!=-1) {
+			throw new Exception("Errore sintattico:\n"+ 
+					bRule.rule.substring(0, sharp)+"\nValidazione interrotta");
+		}
+		
 		try {
 
 			if (bRule.name.equals("")) {
@@ -58,7 +68,7 @@ public class Validator {
 				throw new Exception("ERR07: Testo regola gia' presente.");
 			}
 
-			input = new ANTLRStringStream(bRule.rule);
+			input = new ANTLRStringStream(bRule.rule+'#');
 
 			BusinessRuleLexer lexer = new BusinessRuleLexer(input);
 
@@ -76,17 +86,6 @@ public class Validator {
 
 			String result=tree2XML.parse(tree, bRule);
 			//controllo di fine stringa
-
-			int position=bRule.rule.lastIndexOf(";");
-
-			String rest=bRule.rule.substring(position+1);
-			if (rest!="") {
-				//almeno non ci siano caratteri
-				if (!rest.matches("^\\s*$")) {
-					throw new Exception("Fine regola non valido");
-				}
-			}
-			//test su stringa XML per il controllo di regole analoghe
 
 			return repository.insertRule(result, bRule.name);
 
