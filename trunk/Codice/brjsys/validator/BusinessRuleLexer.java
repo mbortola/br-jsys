@@ -1,14 +1,11 @@
-// $ANTLR 3.0.1 /../../media/sda1/ids/src/compiler/BusinessRule.g 2008-03-12 11:59:08
+// $ANTLR 3.0.1 /media/DISK_IMG/br-jsys/Codice/BusinessRule.g 2008-03-20 20:24:09
 package brjsys.validator;
 
 import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
-/**
- * Lexer per il linguaggio di business rule.
- * @author Michele  Bortolato
- * @version 1.2 14 Mar 2008
- * 
- */
 public class BusinessRuleLexer extends Lexer {
     public static final int Count=17;
     public static final int OpRule=4;
@@ -39,16 +36,16 @@ public class BusinessRuleLexer extends Lexer {
     public BusinessRuleLexer(CharStream input) {
         super(input);
     }
-    public String getGrammarFileName() { return "/../../media/sda1/ids/src/compiler/BusinessRule.g"; }
+    public String getGrammarFileName() { return "/media/DISK_IMG/br-jsys/Codice/BusinessRule.g"; }
 
     // $ANTLR start T24
     public final void mT24() throws RecognitionException {
         try {
             int _type = T24;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:4:5: ( ';' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:4:7: ';'
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:4:5: ( '#' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:4:7: '#'
             {
-            match(';'); 
+            match('#'); 
 
             }
 
@@ -63,8 +60,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mT25() throws RecognitionException {
         try {
             int _type = T25;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:5:5: ( '(' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:5:7: '('
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:5:5: ( '(' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:5:7: '('
             {
             match('('); 
 
@@ -81,8 +78,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mT26() throws RecognitionException {
         try {
             int _type = T26;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:6:5: ( ')' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:6:7: ')'
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:6:5: ( ')' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:6:7: ')'
             {
             match(')'); 
 
@@ -99,7 +96,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mFlFun() throws RecognitionException {
         try {
             int _type = FlFun;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:240:7: ( 'SUM' | 'AVG' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:240:7: ( 'SUM' | 'AVG' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -117,7 +114,7 @@ public class BusinessRuleLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:240:9: 'SUM'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:240:9: 'SUM'
                     {
                     match("SUM"); 
 
@@ -125,7 +122,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:240:15: 'AVG'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:240:15: 'AVG'
                     {
                     match("AVG"); 
 
@@ -145,8 +142,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mBoFun() throws RecognitionException {
         try {
             int _type = BoFun;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:242:7: ( 'NOT' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:242:9: 'NOT'
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:242:7: ( 'NOT' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:242:9: 'NOT'
             {
             match("NOT"); 
 
@@ -164,8 +161,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mCount() throws RecognitionException {
         try {
             int _type = Count;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:244:7: ( 'COUNT' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:244:9: 'COUNT'
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:244:7: ( 'COUNT' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:244:9: 'COUNT'
             {
             match("COUNT"); 
 
@@ -183,8 +180,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mMsg() throws RecognitionException {
         try {
             int _type = Msg;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:246:5: ( 'message' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:246:7: 'message'
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:246:5: ( 'message' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:246:7: 'message'
             {
             match("message"); 
 
@@ -202,7 +199,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mOpRule() throws RecognitionException {
         try {
             int _type = OpRule;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:248:8: ( 'AND' | 'OR' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:248:8: ( 'AND' | 'OR' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -220,7 +217,7 @@ public class BusinessRuleLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:248:10: 'AND'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:248:10: 'AND'
                     {
                     match("AND"); 
 
@@ -228,7 +225,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:248:16: 'OR'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:248:16: 'OR'
                     {
                     match("OR"); 
 
@@ -248,7 +245,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mOpBool() throws RecognitionException {
         try {
             int _type = OpBool;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:250:8: ( '||' | '&&' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:250:8: ( '||' | '&&' )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -266,7 +263,7 @@ public class BusinessRuleLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:250:10: '||'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:250:10: '||'
                     {
                     match("||"); 
 
@@ -274,7 +271,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:250:15: '&&'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:250:15: '&&'
                     {
                     match("&&"); 
 
@@ -294,8 +291,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mOpA() throws RecognitionException {
         try {
             int _type = OpA;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:252:5: ( '+' | '-' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:252:5: ( '+' | '-' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:
             {
             if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                 input.consume();
@@ -321,8 +318,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mOpM() throws RecognitionException {
         try {
             int _type = OpM;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:254:5: ( '*' | '/' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:254:5: ( '*' | '/' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:
             {
             if ( input.LA(1)=='*'||input.LA(1)=='/' ) {
                 input.consume();
@@ -348,7 +345,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mConf() throws RecognitionException {
         try {
             int _type = Conf;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:256:6: ( '<' | '>' | '<=' | '>=' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:256:6: ( '<' | '>' | '<=' | '>=' )
             int alt4=4;
             int LA4_0 = input.LA(1);
 
@@ -378,21 +375,21 @@ public class BusinessRuleLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:256:8: '<'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:256:8: '<'
                     {
                     match('<'); 
 
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:256:12: '>'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:256:12: '>'
                     {
                     match('>'); 
 
                     }
                     break;
                 case 3 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:256:16: '<='
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:256:16: '<='
                     {
                     match("<="); 
 
@@ -400,7 +397,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:256:21: '>='
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:256:21: '>='
                     {
                     match(">="); 
 
@@ -420,7 +417,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mBconf() throws RecognitionException {
         try {
             int _type = Bconf;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:258:7: ( '=' | '!=' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:258:7: ( '=' | '!=' )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -438,14 +435,14 @@ public class BusinessRuleLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:258:9: '='
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:258:9: '='
                     {
                     match('='); 
 
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:258:13: '!='
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:258:13: '!='
                     {
                     match("!="); 
 
@@ -465,11 +462,11 @@ public class BusinessRuleLexer extends Lexer {
     public final void mSTRING() throws RecognitionException {
         try {
             int _type = STRING;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:260:8: ( '\"' ( CHAR | ' ' | OTHERCHAR | NUMBER )* '\"' )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:260:10: '\"' ( CHAR | ' ' | OTHERCHAR | NUMBER )* '\"'
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:260:8: ( '\"' ( CHAR | ' ' | OTHERCHAR | NUMBER )* '\"' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:260:10: '\"' ( CHAR | ' ' | OTHERCHAR | NUMBER )* '\"'
             {
             match('\"'); 
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:260:13: ( CHAR | ' ' | OTHERCHAR | NUMBER )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:260:13: ( CHAR | ' ' | OTHERCHAR | NUMBER )*
             loop6:
             do {
                 int alt6=5;
@@ -574,28 +571,28 @@ public class BusinessRuleLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:260:14: CHAR
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:260:14: CHAR
             	    {
             	    mCHAR(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:260:19: ' '
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:260:19: ' '
             	    {
             	    match(' '); 
 
             	    }
             	    break;
             	case 3 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:260:23: OTHERCHAR
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:260:23: OTHERCHAR
             	    {
             	    mOTHERCHAR(); 
 
             	    }
             	    break;
             	case 4 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:260:33: NUMBER
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:260:33: NUMBER
             	    {
             	    mNUMBER(); 
 
@@ -622,7 +619,7 @@ public class BusinessRuleLexer extends Lexer {
     public final void mBOOL() throws RecognitionException {
         try {
             int _type = BOOL;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:262:6: ( 'true' | 'false' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:262:6: ( 'true' | 'false' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -640,7 +637,7 @@ public class BusinessRuleLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:262:8: 'true'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:262:8: 'true'
                     {
                     match("true"); 
 
@@ -648,7 +645,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:262:15: 'false'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:262:15: 'false'
                     {
                     match("false"); 
 
@@ -668,10 +665,10 @@ public class BusinessRuleLexer extends Lexer {
     public final void mFLOAT() throws RecognitionException {
         try {
             int _type = FLOAT;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:264:7: ( ( '~' )? UNFLOAT )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:264:9: ( '~' )? UNFLOAT
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:264:7: ( ( '~' )? UNFLOAT )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:264:9: ( '~' )? UNFLOAT
             {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:264:9: ( '~' )?
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:264:9: ( '~' )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -680,7 +677,7 @@ public class BusinessRuleLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:264:10: '~'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:264:10: '~'
                     {
                     match('~'); 
 
@@ -704,11 +701,11 @@ public class BusinessRuleLexer extends Lexer {
     public final void mFIELD() throws RecognitionException {
         try {
             int _type = FIELD;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:266:7: ( SUBFIELD ( '.' SUBFIELD )* )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:266:9: SUBFIELD ( '.' SUBFIELD )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:266:7: ( SUBFIELD ( '.' SUBFIELD )* )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:266:9: SUBFIELD ( '.' SUBFIELD )*
             {
             mSUBFIELD(); 
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:266:17: ( '.' SUBFIELD )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:266:17: ( '.' SUBFIELD )*
             loop9:
             do {
                 int alt9=2;
@@ -721,7 +718,7 @@ public class BusinessRuleLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:266:18: '.' SUBFIELD
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:266:18: '.' SUBFIELD
             	    {
             	    match('.'); 
             	    mSUBFIELD(); 
@@ -748,10 +745,10 @@ public class BusinessRuleLexer extends Lexer {
     public final void mWHITESPACE() throws RecognitionException {
         try {
             int _type = WHITESPACE;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:268:12: ( ( ' ' | '\\n' | '\\t' | '\\r' )+ )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:268:14: ( ' ' | '\\n' | '\\t' | '\\r' )+
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:268:12: ( ( ' ' | '\\n' | '\\t' | '\\r' )+ )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:268:14: ( ' ' | '\\n' | '\\t' | '\\r' )+
             {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:268:14: ( ' ' | '\\n' | '\\t' | '\\r' )+
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:268:14: ( ' ' | '\\n' | '\\t' | '\\r' )+
             int cnt10=0;
             loop10:
             do {
@@ -765,7 +762,7 @@ public class BusinessRuleLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:
             	    {
             	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
             	        input.consume();
@@ -805,8 +802,8 @@ public class BusinessRuleLexer extends Lexer {
     public final void mOTHERCHAR() throws RecognitionException {
         try {
             int _type = OTHERCHAR;
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:270:11: ( ( '~' | '?' | '!' | '-' | '.' | ',' | '^' | 'à' | 'è' | 'ì' | 'ò' | 'ù' | '\\'' | ';' | ':' ) )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:270:13: ( '~' | '?' | '!' | '-' | '.' | ',' | '^' | 'à' | 'è' | 'ì' | 'ò' | 'ù' | '\\'' | ';' | ':' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:270:11: ( ( '~' | '?' | '!' | '-' | '.' | ',' | '^' | 'à' | 'è' | 'ì' | 'ò' | 'ù' | '\\'' | ';' | ':' ) )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:270:13: ( '~' | '?' | '!' | '-' | '.' | ',' | '^' | 'à' | 'è' | 'ì' | 'ò' | 'ù' | '\\'' | ';' | ':' )
             {
             if ( input.LA(1)=='!'||input.LA(1)=='\''||(input.LA(1)>=',' && input.LA(1)<='.')||(input.LA(1)>=':' && input.LA(1)<=';')||input.LA(1)=='?'||input.LA(1)=='^'||input.LA(1)=='~'||input.LA(1)=='\u00E0'||input.LA(1)=='\u00E8'||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
                 input.consume();
@@ -831,11 +828,11 @@ public class BusinessRuleLexer extends Lexer {
     // $ANTLR start SUBFIELD
     public final void mSUBFIELD() throws RecognitionException {
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:272:19: ( CHAR ( CHAR | ( '0' .. '9' ) )* )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:272:21: CHAR ( CHAR | ( '0' .. '9' ) )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:272:19: ( CHAR ( CHAR | ( '0' .. '9' ) )* )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:272:21: CHAR ( CHAR | ( '0' .. '9' ) )*
             {
             mCHAR(); 
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:272:25: ( CHAR | ( '0' .. '9' ) )*
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:272:25: ( CHAR | ( '0' .. '9' ) )*
             loop11:
             do {
                 int alt11=3;
@@ -851,17 +848,17 @@ public class BusinessRuleLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:272:26: CHAR
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:272:26: CHAR
             	    {
             	    mCHAR(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:272:31: ( '0' .. '9' )
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:272:31: ( '0' .. '9' )
             	    {
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:272:31: ( '0' .. '9' )
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:272:32: '0' .. '9'
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:272:31: ( '0' .. '9' )
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:272:32: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -888,7 +885,7 @@ public class BusinessRuleLexer extends Lexer {
     // $ANTLR start CHAR
     public final void mCHAR() throws RecognitionException {
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:274:15: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | '_' )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:274:15: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) | '_' )
             int alt12=3;
             switch ( input.LA(1) ) {
             case 'a':
@@ -965,10 +962,10 @@ public class BusinessRuleLexer extends Lexer {
 
             switch (alt12) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:274:17: ( 'a' .. 'z' )
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:274:17: ( 'a' .. 'z' )
                     {
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:274:17: ( 'a' .. 'z' )
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:274:18: 'a' .. 'z'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:274:17: ( 'a' .. 'z' )
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:274:18: 'a' .. 'z'
                     {
                     matchRange('a','z'); 
 
@@ -978,10 +975,10 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:274:28: ( 'A' .. 'Z' )
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:274:28: ( 'A' .. 'Z' )
                     {
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:274:28: ( 'A' .. 'Z' )
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:274:29: 'A' .. 'Z'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:274:28: ( 'A' .. 'Z' )
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:274:29: 'A' .. 'Z'
                     {
                     matchRange('A','Z'); 
 
@@ -991,7 +988,7 @@ public class BusinessRuleLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:274:39: '_'
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:274:39: '_'
                     {
                     match('_'); 
 
@@ -1008,10 +1005,10 @@ public class BusinessRuleLexer extends Lexer {
     // $ANTLR start UNFLOAT
     public final void mUNFLOAT() throws RecognitionException {
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:276:18: ( ( NUMBER )+ ( '.' NUMBER )? )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:276:19: ( NUMBER )+ ( '.' NUMBER )?
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:276:18: ( ( NUMBER )+ ( '.' NUMBER )? )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:276:19: ( NUMBER )+ ( '.' NUMBER )?
             {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:276:19: ( NUMBER )+
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:276:19: ( NUMBER )+
             int cnt13=0;
             loop13:
             do {
@@ -1025,7 +1022,7 @@ public class BusinessRuleLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:276:19: NUMBER
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:276:19: NUMBER
             	    {
             	    mNUMBER(); 
 
@@ -1041,7 +1038,7 @@ public class BusinessRuleLexer extends Lexer {
                 cnt13++;
             } while (true);
 
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:276:26: ( '.' NUMBER )?
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:276:26: ( '.' NUMBER )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1050,7 +1047,7 @@ public class BusinessRuleLexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // /../../media/sda1/ids/src/compiler/BusinessRule.g:276:27: '.' NUMBER
+                    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:276:27: '.' NUMBER
                     {
                     match('.'); 
                     mNUMBER(); 
@@ -1072,10 +1069,10 @@ public class BusinessRuleLexer extends Lexer {
     // $ANTLR start NUMBER
     public final void mNUMBER() throws RecognitionException {
         try {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:278:18: ( ( '0' .. '9' )+ )
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:278:19: ( '0' .. '9' )+
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:278:18: ( ( '0' .. '9' )+ )
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:278:19: ( '0' .. '9' )+
             {
-            // /../../media/sda1/ids/src/compiler/BusinessRule.g:278:19: ( '0' .. '9' )+
+            // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:278:19: ( '0' .. '9' )+
             int cnt15=0;
             loop15:
             do {
@@ -1089,7 +1086,7 @@ public class BusinessRuleLexer extends Lexer {
 
                 switch (alt15) {
             	case 1 :
-            	    // /../../media/sda1/ids/src/compiler/BusinessRule.g:278:20: '0' .. '9'
+            	    // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:278:20: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1115,10 +1112,10 @@ public class BusinessRuleLexer extends Lexer {
     // $ANTLR end NUMBER
 
     public void mTokens() throws RecognitionException {
-        // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:8: ( T24 | T25 | T26 | FlFun | BoFun | Count | Msg | OpRule | OpBool | OpA | OpM | Conf | Bconf | STRING | BOOL | FLOAT | FIELD | WHITESPACE | OTHERCHAR )
+        // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:8: ( T24 | T25 | T26 | FlFun | BoFun | Count | Msg | OpRule | OpBool | OpA | OpM | Conf | Bconf | STRING | BOOL | FLOAT | FIELD | WHITESPACE | OTHERCHAR )
         int alt16=19;
         switch ( input.LA(1) ) {
-        case ';':
+        case '#':
             {
             alt16=1;
             }
@@ -1138,12 +1135,12 @@ public class BusinessRuleLexer extends Lexer {
             int LA16_4 = input.LA(2);
 
             if ( (LA16_4=='U') ) {
-                int LA16_26 = input.LA(3);
+                int LA16_25 = input.LA(3);
 
-                if ( (LA16_26=='M') ) {
-                    int LA16_35 = input.LA(4);
+                if ( (LA16_25=='M') ) {
+                    int LA16_34 = input.LA(4);
 
-                    if ( (LA16_35=='.'||(LA16_35>='0' && LA16_35<='9')||(LA16_35>='A' && LA16_35<='Z')||LA16_35=='_'||(LA16_35>='a' && LA16_35<='z')) ) {
+                    if ( (LA16_34=='.'||(LA16_34>='0' && LA16_34<='9')||(LA16_34>='A' && LA16_34<='Z')||LA16_34=='_'||(LA16_34>='a' && LA16_34<='z')) ) {
                         alt16=17;
                     }
                     else {
@@ -1161,12 +1158,12 @@ public class BusinessRuleLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'V':
                 {
-                int LA16_27 = input.LA(3);
+                int LA16_26 = input.LA(3);
 
-                if ( (LA16_27=='G') ) {
-                    int LA16_36 = input.LA(4);
+                if ( (LA16_26=='G') ) {
+                    int LA16_35 = input.LA(4);
 
-                    if ( (LA16_36=='.'||(LA16_36>='0' && LA16_36<='9')||(LA16_36>='A' && LA16_36<='Z')||LA16_36=='_'||(LA16_36>='a' && LA16_36<='z')) ) {
+                    if ( (LA16_35=='.'||(LA16_35>='0' && LA16_35<='9')||(LA16_35>='A' && LA16_35<='Z')||LA16_35=='_'||(LA16_35>='a' && LA16_35<='z')) ) {
                         alt16=17;
                     }
                     else {
@@ -1178,12 +1175,12 @@ public class BusinessRuleLexer extends Lexer {
                 break;
             case 'N':
                 {
-                int LA16_28 = input.LA(3);
+                int LA16_27 = input.LA(3);
 
-                if ( (LA16_28=='D') ) {
-                    int LA16_37 = input.LA(4);
+                if ( (LA16_27=='D') ) {
+                    int LA16_36 = input.LA(4);
 
-                    if ( (LA16_37=='.'||(LA16_37>='0' && LA16_37<='9')||(LA16_37>='A' && LA16_37<='Z')||LA16_37=='_'||(LA16_37>='a' && LA16_37<='z')) ) {
+                    if ( (LA16_36=='.'||(LA16_36>='0' && LA16_36<='9')||(LA16_36>='A' && LA16_36<='Z')||LA16_36=='_'||(LA16_36>='a' && LA16_36<='z')) ) {
                         alt16=17;
                     }
                     else {
@@ -1203,12 +1200,12 @@ public class BusinessRuleLexer extends Lexer {
             int LA16_6 = input.LA(2);
 
             if ( (LA16_6=='O') ) {
-                int LA16_29 = input.LA(3);
+                int LA16_28 = input.LA(3);
 
-                if ( (LA16_29=='T') ) {
-                    int LA16_38 = input.LA(4);
+                if ( (LA16_28=='T') ) {
+                    int LA16_37 = input.LA(4);
 
-                    if ( (LA16_38=='.'||(LA16_38>='0' && LA16_38<='9')||(LA16_38>='A' && LA16_38<='Z')||LA16_38=='_'||(LA16_38>='a' && LA16_38<='z')) ) {
+                    if ( (LA16_37=='.'||(LA16_37>='0' && LA16_37<='9')||(LA16_37>='A' && LA16_37<='Z')||LA16_37=='_'||(LA16_37>='a' && LA16_37<='z')) ) {
                         alt16=17;
                     }
                     else {
@@ -1226,18 +1223,18 @@ public class BusinessRuleLexer extends Lexer {
             int LA16_7 = input.LA(2);
 
             if ( (LA16_7=='O') ) {
-                int LA16_30 = input.LA(3);
+                int LA16_29 = input.LA(3);
 
-                if ( (LA16_30=='U') ) {
-                    int LA16_39 = input.LA(4);
+                if ( (LA16_29=='U') ) {
+                    int LA16_38 = input.LA(4);
 
-                    if ( (LA16_39=='N') ) {
-                        int LA16_46 = input.LA(5);
+                    if ( (LA16_38=='N') ) {
+                        int LA16_45 = input.LA(5);
 
-                        if ( (LA16_46=='T') ) {
-                            int LA16_50 = input.LA(6);
+                        if ( (LA16_45=='T') ) {
+                            int LA16_49 = input.LA(6);
 
-                            if ( (LA16_50=='.'||(LA16_50>='0' && LA16_50<='9')||(LA16_50>='A' && LA16_50<='Z')||LA16_50=='_'||(LA16_50>='a' && LA16_50<='z')) ) {
+                            if ( (LA16_49=='.'||(LA16_49>='0' && LA16_49<='9')||(LA16_49>='A' && LA16_49<='Z')||LA16_49=='_'||(LA16_49>='a' && LA16_49<='z')) ) {
                                 alt16=17;
                             }
                             else {
@@ -1261,24 +1258,24 @@ public class BusinessRuleLexer extends Lexer {
             int LA16_8 = input.LA(2);
 
             if ( (LA16_8=='e') ) {
-                int LA16_31 = input.LA(3);
+                int LA16_30 = input.LA(3);
 
-                if ( (LA16_31=='s') ) {
-                    int LA16_40 = input.LA(4);
+                if ( (LA16_30=='s') ) {
+                    int LA16_39 = input.LA(4);
 
-                    if ( (LA16_40=='s') ) {
-                        int LA16_47 = input.LA(5);
+                    if ( (LA16_39=='s') ) {
+                        int LA16_46 = input.LA(5);
 
-                        if ( (LA16_47=='a') ) {
-                            int LA16_51 = input.LA(6);
+                        if ( (LA16_46=='a') ) {
+                            int LA16_50 = input.LA(6);
 
-                            if ( (LA16_51=='g') ) {
-                                int LA16_55 = input.LA(7);
+                            if ( (LA16_50=='g') ) {
+                                int LA16_54 = input.LA(7);
 
-                                if ( (LA16_55=='e') ) {
-                                    int LA16_56 = input.LA(8);
+                                if ( (LA16_54=='e') ) {
+                                    int LA16_55 = input.LA(8);
 
-                                    if ( (LA16_56=='.'||(LA16_56>='0' && LA16_56<='9')||(LA16_56>='A' && LA16_56<='Z')||LA16_56=='_'||(LA16_56>='a' && LA16_56<='z')) ) {
+                                    if ( (LA16_55=='.'||(LA16_55>='0' && LA16_55<='9')||(LA16_55>='A' && LA16_55<='Z')||LA16_55=='_'||(LA16_55>='a' && LA16_55<='z')) ) {
                                         alt16=17;
                                     }
                                     else {
@@ -1308,9 +1305,9 @@ public class BusinessRuleLexer extends Lexer {
             int LA16_9 = input.LA(2);
 
             if ( (LA16_9=='R') ) {
-                int LA16_32 = input.LA(3);
+                int LA16_31 = input.LA(3);
 
-                if ( (LA16_32=='.'||(LA16_32>='0' && LA16_32<='9')||(LA16_32>='A' && LA16_32<='Z')||LA16_32=='_'||(LA16_32>='a' && LA16_32<='z')) ) {
+                if ( (LA16_31=='.'||(LA16_31>='0' && LA16_31<='9')||(LA16_31>='A' && LA16_31<='Z')||LA16_31=='_'||(LA16_31>='a' && LA16_31<='z')) ) {
                     alt16=17;
                 }
                 else {
@@ -1369,15 +1366,15 @@ public class BusinessRuleLexer extends Lexer {
             int LA16_17 = input.LA(2);
 
             if ( (LA16_17=='r') ) {
-                int LA16_33 = input.LA(3);
+                int LA16_32 = input.LA(3);
 
-                if ( (LA16_33=='u') ) {
-                    int LA16_42 = input.LA(4);
+                if ( (LA16_32=='u') ) {
+                    int LA16_41 = input.LA(4);
 
-                    if ( (LA16_42=='e') ) {
-                        int LA16_48 = input.LA(5);
+                    if ( (LA16_41=='e') ) {
+                        int LA16_47 = input.LA(5);
 
-                        if ( (LA16_48=='.'||(LA16_48>='0' && LA16_48<='9')||(LA16_48>='A' && LA16_48<='Z')||LA16_48=='_'||(LA16_48>='a' && LA16_48<='z')) ) {
+                        if ( (LA16_47=='.'||(LA16_47>='0' && LA16_47<='9')||(LA16_47>='A' && LA16_47<='Z')||LA16_47=='_'||(LA16_47>='a' && LA16_47<='z')) ) {
                             alt16=17;
                         }
                         else {
@@ -1398,18 +1395,18 @@ public class BusinessRuleLexer extends Lexer {
             int LA16_18 = input.LA(2);
 
             if ( (LA16_18=='a') ) {
-                int LA16_34 = input.LA(3);
+                int LA16_33 = input.LA(3);
 
-                if ( (LA16_34=='l') ) {
-                    int LA16_43 = input.LA(4);
+                if ( (LA16_33=='l') ) {
+                    int LA16_42 = input.LA(4);
 
-                    if ( (LA16_43=='s') ) {
-                        int LA16_49 = input.LA(5);
+                    if ( (LA16_42=='s') ) {
+                        int LA16_48 = input.LA(5);
 
-                        if ( (LA16_49=='e') ) {
-                            int LA16_53 = input.LA(6);
+                        if ( (LA16_48=='e') ) {
+                            int LA16_52 = input.LA(6);
 
-                            if ( (LA16_53=='.'||(LA16_53>='0' && LA16_53<='9')||(LA16_53>='A' && LA16_53<='Z')||LA16_53=='_'||(LA16_53>='a' && LA16_53<='z')) ) {
+                            if ( (LA16_52=='.'||(LA16_52>='0' && LA16_52<='9')||(LA16_52>='A' && LA16_52<='Z')||LA16_52=='_'||(LA16_52>='a' && LA16_52<='z')) ) {
                                 alt16=17;
                             }
                             else {
@@ -1519,6 +1516,7 @@ public class BusinessRuleLexer extends Lexer {
         case ',':
         case '.':
         case ':':
+        case ';':
         case '?':
         case '^':
         case '\u00E0':
@@ -1539,133 +1537,133 @@ public class BusinessRuleLexer extends Lexer {
 
         switch (alt16) {
             case 1 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:10: T24
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:10: T24
                 {
                 mT24(); 
 
                 }
                 break;
             case 2 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:14: T25
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:14: T25
                 {
                 mT25(); 
 
                 }
                 break;
             case 3 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:18: T26
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:18: T26
                 {
                 mT26(); 
 
                 }
                 break;
             case 4 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:22: FlFun
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:22: FlFun
                 {
                 mFlFun(); 
 
                 }
                 break;
             case 5 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:28: BoFun
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:28: BoFun
                 {
                 mBoFun(); 
 
                 }
                 break;
             case 6 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:34: Count
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:34: Count
                 {
                 mCount(); 
 
                 }
                 break;
             case 7 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:40: Msg
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:40: Msg
                 {
                 mMsg(); 
 
                 }
                 break;
             case 8 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:44: OpRule
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:44: OpRule
                 {
                 mOpRule(); 
 
                 }
                 break;
             case 9 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:51: OpBool
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:51: OpBool
                 {
                 mOpBool(); 
 
                 }
                 break;
             case 10 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:58: OpA
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:58: OpA
                 {
                 mOpA(); 
 
                 }
                 break;
             case 11 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:62: OpM
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:62: OpM
                 {
                 mOpM(); 
 
                 }
                 break;
             case 12 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:66: Conf
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:66: Conf
                 {
                 mConf(); 
 
                 }
                 break;
             case 13 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:71: Bconf
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:71: Bconf
                 {
                 mBconf(); 
 
                 }
                 break;
             case 14 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:77: STRING
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:77: STRING
                 {
                 mSTRING(); 
 
                 }
                 break;
             case 15 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:84: BOOL
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:84: BOOL
                 {
                 mBOOL(); 
 
                 }
                 break;
             case 16 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:89: FLOAT
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:89: FLOAT
                 {
                 mFLOAT(); 
 
                 }
                 break;
             case 17 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:95: FIELD
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:95: FIELD
                 {
                 mFIELD(); 
 
                 }
                 break;
             case 18 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:101: WHITESPACE
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:101: WHITESPACE
                 {
                 mWHITESPACE(); 
 
                 }
                 break;
             case 19 :
-                // /../../media/sda1/ids/src/compiler/BusinessRule.g:1:112: OTHERCHAR
+                // /media/DISK_IMG/br-jsys/Codice/BusinessRule.g:1:112: OTHERCHAR
                 {
                 mOTHERCHAR(); 
 
