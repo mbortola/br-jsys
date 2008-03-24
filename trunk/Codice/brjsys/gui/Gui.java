@@ -10,7 +10,7 @@ import java.util.Arrays;
 //import per usare le espressioni regolari nella ricerca
 import java.util.regex.Pattern;
 
-//import per l'uso delle funzionalità del prodotto
+//import per l'uso delle funzionalita' del prodotto
 import brjsys.businessrules.BusinessRule;
 import brjsys.communicator.GUICommunicator;
 import brjsys.validator.Validator;
@@ -1074,7 +1074,7 @@ public class Gui extends JFrame {
 		});
 		//------------------------------------------------------
 		
-		//La lista list_BR2 è a seleziona multipla
+		//La lista list_BR2 ï¿½ a seleziona multipla
 		list_BR2.setMultipleMode(true);		
 		
 		pack();
@@ -1284,7 +1284,7 @@ public class Gui extends JFrame {
 			}
 		}
 		catch (Exception ecc) {
-			//la regola ha un nome diverso,ma la regola stessa è gia presente 
+			//la regola ha un nome diverso,ma la regola stessa ï¿½ gia presente 
 			//nel repository.
 			BusinessRule x=getBusinessRuleAss(Reg,false);
 			cercaSelez(list_RegIns,x.name,true);
