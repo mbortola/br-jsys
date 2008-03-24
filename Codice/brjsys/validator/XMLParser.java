@@ -117,7 +117,6 @@ public class XMLParser {
 		//Controllo se la regola ha un commento
 		
 		if(!rule.comment.equals("")){
-			System.out.println("UFF:"+rule.comment+"<");
 			base.setAttribute("comment",rule.comment);
 		}
 		doc.appendChild(base);
