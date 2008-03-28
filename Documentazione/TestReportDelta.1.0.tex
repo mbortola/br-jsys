@@ -60,7 +60,7 @@ Versione & Data & Autore & Descrizione \\ \hline
 0.6 & 14/03/2008 & \ET & Aggiunta degli esiti di JUnit. \\ \hline
 0.5 & 14/03/2008 & \MT & Esiti dei test di regressione. \\ \hline
 0.4 & 13/03/2008 & \MT & Correzione dei test errati. Aggiunta del test CVT1c \\ \hline
-0.3 & 12/03/2008 & \AT & Modifiche ai test case dopo l'introduzione del ';' nella nuova grammatica. \\ \hline
+0.3 & 12/03/2008 & \AT & Correzione test case. \\ \hline
 0.2 & 12/03/2008 & \ET & Aggiunta sezione ``Analisi statica'' e tabelle errori. \\ \hline
 0.1 & 11/03/2008 & \ET & Stesura preliminare del documento. \\ \hline
 \end{tabular} \\
@@ -365,10 +365,8 @@ VT14 & negativo & \\ \hline
 \textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
 VT15a & negativo & \\ \hline
 VT15b & negativo & \\ \hline
-VT15c & \textcolor{err}{positivo} &  \\ \cline{2-3}
-& \textcolor{rt}{negativo} & RT Introduzione dei ';' nella grammatica del linguaggio \\ \hline
-VT15d & \textcolor{err}{positivo} & \\ \cline{2-3}
-& \textcolor{rt}{negativo} & RT Introduzione dei ';' nella grammatica del linguaggio \\ \hline
+VT15c & negativo & \\ \hline
+VT15d & negativo & \\ \hline
 VT15e & negativo & \\ \hline
 VT15f & negativo & \\ \hline
 VT16 & negativo & \\ \hline
@@ -412,7 +410,7 @@ GT3 & negativo & \\ \hline
 CVT1a & negativo & \\ \hline
 CVT1b & negativo & \\ \hline
 CVT1c & \textcolor{err}{positivo} & Possono essere inserite \br\ identiche ma con nome differente e vengono accettate.\\ \cline{2-3}
-& \textcolor{rt}{negativo} & RT Viene efffettuato un controllo sulla regola prima dell'inserimento. \\ \hline
+& \textcolor{rt}{negativo} & RT Viene effettuato un controllo sulla regola prima dell'inserimento. \\ \hline
 \end{tabular} \\
 \end{center}
 
@@ -429,8 +427,8 @@ GVT1 & negativo & \\ \hline
 \begin{tabular}{|p{1cm}|p{1.6cm}|p{8.4cm}|} \hline
 \textbf{Id} & \textbf{Esito} & \textbf{Note} \\ \hline
 S1 & negativo & \\ \hline
-S2 & \textcolor{err}{positivo} & In sitemi unix permette di accedere al \rp\ anche inserendo username e password errati.\\ \cline{2-3}
-& \textcolor{rt}{negativo} & RT Esito errato del pprecedente test. I dati di autenticazione accettati sono sempre quelli inseriti durante l'installazione di \underline{eXist} \\ \hline
+S2 & \textcolor{err}{positivo} & In sistemi unix permette di accedere al \rp\ anche inserendo username e password errati.\\ \cline{2-3}
+& \textcolor{rt}{negativo} & RT Esito errato del precedente test. I dati di autenticazione accettati sono sempre quelli inseriti durante l'installazione di \underline{eXist} \\ \hline
 \end{tabular} \\
 \end{center}
 
