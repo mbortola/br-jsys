@@ -1,0 +1,78 @@
+\documentclass[11pt,titlepage,a4paper]{report}
+
+\usepackage[italian]{babel}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{lastpage}
+\usepackage{color}
+
+\pagestyle{fancy}
+
+\begin{document}  % required; doc starts here
+\begin{titlepage}
+\begin{center}
+\textbf{
+\Huge Universita degli studi di Padova\\
+\Large Facolta' di scienze MM. FF. NN.\\ 
+Laurea triennale in informatica.\\
+ Anno Accademico 2007-2008. \\
+\Large Tesi di Laurea:\\ 
+Utilizzo di XML ed eXist per la gestione di file di configurazione in ambito aziendale.}
+
+
+\end{titlepage}
+\tableofcontents
+\chapter{Sommario}
+Lo scopo dello stage e' quello di utilizzare XML per rappresentare i file di configurazione utilizzati nel Software Portal Zoom.
+Questi file attualmente vengono rappresentati tramite file di testo difficili da interpretare e sopratutto poco manipolabili, dato che la loro lettura e la loro modifica deve per forza avvenire in maniera sequenziale.
+Convertendo questi file in formato XML si avra il vantaggio di poterli gestire molto piu facilmente.
+Durante lo sviluppo di Portal Zoom questi file di configurazione hanno subito varie modifiche alla struttura e ai contenuti, tramite trasformate XSL e' possibilie aggiornare file di vecchia versione in maniera molto piu efficiente.
+Successivamente associeremo a questi file un XML Schema per descriverne la struttura e per validare l'output prodotto, probabilmente affiancheremo alla validazione tramite Schema alcune semplici interrogazioni XPath.
+Successivamente proveremo a far gestire questi file da un DBMS XML (nel nostro caso eXist)per avere un incremento nelle operazioni di recupero e manipolazione.
+\chapter{Strumenti e tecnologie utilizzate}
+\section{Sitepainter}
+i-CASE(Internet Computer Aided Software Engineering) Software prodotta dalla Zucchetti che consente lo sviluppo di applicazioni business transazionali in ambiente web, fortemente interattive, con interfaccia browser.
+
+\section{XML}
+XML (eXtensible Markup Language) e' un metalinguaggio creato e gestito dalla w3c per la rappresentazione di informazione. e' derivato da una semplificazione di SGML.
+\section{XML Schema}
+Strunmento per la validazione di un documento XML, alternativa al DTD.
+\section{XSL}
+XSL (eXstensible Stylesheet Language) e' il linguaggio per la descrizione dei fogli di stile in XML, un documento XSL associato ad un documento XML puo produrre in output qualsiasi tipo di file testuale (HTML, XML, solo testo...).
+E' abbastanza semplice da usare in quanto dispone di funzioni basilari per la trasformazione (tutte espresse tramite la sintassi XML).
+\section{DOM}
+DOM (Document Object Model) è una forma di rappresentazione dei documenti strutturati come modello orientato agli oggetti. Fa parte dello standar w3c per accedere a documenti XML e HTML.In DOM tutto e' trattato come un nodo, in particolare:
+\begin{itemize}
+\item L'intero documento e' un nodo \textit{Document};
+\item Un elemento e' un nodo \textit{Element};
+\item Il testo nel elemento XML e' un nodo \textit{Text};
+\item Un attributo di un elemento XML e' un nodo \textit{Attribute};
+\item Un commento e' un nodo \textit{Comment}.
+\end{itemize}
+Tramite vista ricorsiva riusciamo a creare e a leggere file XML, DOM viene supportato da diversi linguaggi di programmazione come JAVA, C++, Lisp, PHP, Python, Ruby ecc..
+
+\section{SAX}
+
+SAX offre un modo diverso rispetto al DOM di leggere un documento XML, permette soltanto di leggere XML ma non di creare o modificare.
+La lettura di un documento XML da parte di SAX avviene in modo sequenziale, legge carattere per carattere come fosse un semplice file testuale, alla fase di lettura, o meglio di parsing, viene associato un parser che puo' sollevare eventi ogniqualvolta trova :
+\begin{itemize}
+\item Un tag d'apertura o chiusura;
+\item Un tag di inizio o fine documento;
+\item Una Processing Instruction;
+\item Un errore.
+\end{itemize}
+Uno dei vantaggi che possiede SAX e' quello di non necessitare di tenere in memoria tutto il documento XML, dunque sarebbe preferibile utilizzarlo per la lettura di grossi file.
+
+
+\section{JSON}
+Acronimo di JavaScript Object Notation, il JSON è un formato adatto per lo scambio dei dati in applicazioni client-server.
+Spesso viene usato in AJAXcome alternatica a XML.
+E' un formato molto semplice da imparare e da utilizzare, e' supportato praticamente da tutti i linguaggi ciononostante e' indipendente da essi e dalla piattaforma utilizzata.
+Supporta i tipi di dato basilari (integer, double, char, string, array, null) e consente l'annidamento di JSON tra di loro, consentando la rappresentazione anche di strutture dati complesse.
+La struttura base di un oggetto JSON e' composta da una sequenza non ordinata di coppie nome-valore, nal caso di rappresentazione di un array invece abbiamo soltanto una sequenza ordinata di soli valori.
+\section{Xalan}
+Xalan e' uno strumento che consente di effettuare trasformate XSL in ambiente JAVA appoggiandosi a SAX e a DOM, e' un servizio fornito da Apache.
+\chapter{Riferimenti}
+\end{document}

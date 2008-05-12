@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/xalan-j_2_7_1-bin/xalan-j_2_7_1/xml-apis.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/xalan-j_2_7_1-bin/xalan-j_2_7_1/serializer.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/xalan-j_2_7_1-bin/xalan-j_2_7_1/xalan.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/xalan-j_2_7_1-bin/xalan-j_2_7_1/xercesImpl.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

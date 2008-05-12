@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><VZM>
+  <Cols elements="4" type="JSONArray">
+    <JSONObject position="0" type="JSONObject">
+      <field type="String" value="id_fattura"/>
+      <id type="String" value="ojxbjhoamx"/>
+      <enable_HTML type="Integer" value="0"/>
+      <title type="String" value="id_fattura"/>
+      <isImage type="Integer" value="0"/>
+      <inExtGrid type="Integer" value="0"/>
+    </JSONObject>
+    <JSONObject position="1" type="JSONObject">
+      <field type="String" value="fk_cliente"/>
+      <id type="String" value="qgxyvexcrs"/>
+      <enable_HTML type="Integer" value="0"/>
+      <title type="String" value="fk_cliente"/>
+      <isImage type="Integer" value="0"/>
+      <inExtGrid type="Integer" value="0"/>
+    </JSONObject>
+    <JSONObject position="2" type="JSONObject">
+      <Layer elements="2" type="JSONArray">
+        <JSONObject position="0" type="JSONObject">
+          <enable_HTML type="Integer" value="0"/>
+          <isImage type="Integer" value="0"/>
+          <inExtGrid type="Integer" value="0"/>
+          <id type="String" value="bqquxvdabx"/>
+          <field type="String" value="data_ora"/>
+          <picture type="String" value="DD-MM-YYYY hh:mm:ss"/>
+          <exp type="String" value="undefined"/>
+          <title type="String" value="data_fattura"/>
+          <groupby type="String" value="undefined"/>
+          <descr type="String" value="undefined"/>
+        </JSONObject>
+        <JSONObject position="1" type="JSONObject">
+          <enable_HTML type="Integer" value="0"/>
+          <isImage type="Integer" value="0"/>
+          <inExtGrid type="Integer" value="0"/>
+          <id type="String" value="mjqnrygopd"/>
+          <field type="String" value="data"/>
+          <picture type="String" value="DD-MM-YYYY"/>
+          <exp type="String" value="undefined"/>
+          <title type="String" value="data_fatt"/>
+          <groupby type="String" value="undefined"/>
+          <descr type="String" value="undefined"/>
+        </JSONObject>
+      </Layer>
+      <field type="String" value="fk_articolo"/>
+      <id type="String" value="crlmeuvucr"/>
+      <enable_HTML type="Integer" value="0"/>
+      <title type="String" value="fk_articolo"/>
+      <isImage type="Integer" value="0"/>
+      <inExtGrid type="Integer" value="0"/>
+    </JSONObject>
+    <JSONObject position="3" type="JSONObject">
+      <Layer elements="1" type="JSONArray">
+        <JSONObject position="0" type="JSONObject">
+          <enable_HTML type="Integer" value="0"/>
+          <isImage type="Integer" value="0"/>
+          <inExtGrid type="Integer" value="0"/>
+          <id type="String" value="sqoowybbni"/>
+          <field type="String" value="totale_fattura"/>
+          <exp type="String" value="undefined"/>
+          <title type="String" value="totale_fattura"/>
+          <groupby type="String" value="undefined"/>
+          <descr type="String" value="undefined"/>
+        </JSONObject>
+      </Layer>
+      <field type="String" value="prezzo"/>
+      <id type="String" value="bxegknlxmd"/>
+      <enable_HTML type="Integer" value="0"/>
+      <title type="String" value="prezzo"/>
+      <isImage type="Integer" value="0"/>
+      <inExtGrid type="Integer" value="0"/>
+    </JSONObject>
+  </Cols>
+  <Fields elements="9" type="JSONArray">
+    <element position="0" type="String" value="id_fattura"/>
+    <element position="1" type="String" value="fk_cliente"/>
+    <element position="2" type="String" value="fk_articolo"/>
+    <element position="3" type="String" value="data_ora"/>
+    <element position="4" type="String" value="data"/>
+    <element position="5" type="String" value="prezzo"/>
+    <element position="6" type="String" value="totale_fattura"/>
+    <element position="7" type="String" value="quantita"/>
+    <element position="8" type="String" value="tot_parziale"/>
+  </Fields>
+  <RowLayer elements="2" type="JSONArray">
+    <JSONObject position="0" type="JSONObject">
+      <field type="String" value="quantita"/>
+      <id type="String" value="rvmwtsmdos"/>
+      <title type="String" value="quantita"/>
+      <isImage type="Integer" value="0"/>
+      <inExtGrid type="Integer" value="0"/>
+    </JSONObject>
+    <JSONObject position="1" type="JSONObject">
+      <field type="String" value="tot_parziale"/>
+      <id type="String" value="fvqwuujlhi"/>
+      <title type="String" value="totale_parziale"/>
+      <isImage type="Integer" value="0"/>
+      <inExtGrid type="Integer" value="0"/>
+    </JSONObject>
+  </RowLayer>
+  <Configuration type="JSONObject">
+    <OrderBy type="Boolean" value="false"/>
+    <GridRows type="Integer" value="15"/>
+    <VQRName type="String" value="BO:gs_fattura"/>
+  </Configuration>
+  <Table type="String" value="tab_fattura_m"/>
+</VZM>
