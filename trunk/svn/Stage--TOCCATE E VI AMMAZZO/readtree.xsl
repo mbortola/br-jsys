@@ -2,8 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
 	<xsl:output method='xml' indent="yes"/>
 	
-	<!-- sembra che in presenza di 00000820 non abbia ricorrenze.......per 
-	questo mancano valori nel output prodotto-->
+	<!-- Mi mancano dei valori per esempio perche' manca la radice 00000067 -->
 	<xsl:variable name="release" select="distinct-values(//Release/@name)"/>
 	<!-- tutte le feature radici -->
 	<xsl:variable name="RootFeat" select="/root/Feature/@name"/>
