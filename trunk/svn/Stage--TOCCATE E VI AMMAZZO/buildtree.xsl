@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
 	<xsl:output method="xml" indent="yes"/>
-	
+	<!-- A quanto pare funziona con Saxon9B-->
 	<!-- lista delle radici e lista delle releases -->
 	<xsl:variable name="FeatRoot" select="distinct-values(//RECORD[not(string(FIELD[@NAME='padre']))]/FIELD[@NAME='Features di riferimento'])"/>
 	<xsl:variable name="release" select="distinct-values(//FIELD[@NAME='Release'])"/>
@@ -52,6 +52,17 @@
 			,$release[$index]))))">
 			<xsl:element name="Release">
 				<xsl:attribute name="name" select="$release[$index]"/>
+				<xsl:attribute name="completi" select="count(
+					//RECORD[
+					FIELD[@NAME='Features di riferimento']=$feature and 
+					FIELD[@NAME='Release']=$release[$index] and 
+					FIELD[@NAME='Stato della lavorazione']='CO'])"/>
+				<xsl:attribute name="aperti" select="count(
+					//RECORD[
+					FIELD[@NAME='Features di riferimento']=$feature and 
+					FIELD[@NAME='Release']=$release[$index] and 
+					FIELD[@NAME='Stato della lavorazione']=('NU','IN','WL','LA','TE')])"/>
+				
 				<xsl:for-each select="//RECORD[FIELD[@NAME='Features di riferimento']=$feature and FIELD[@NAME='Release']=$release[$index]]">
 					<xsl:call-template name="printIntervento"/>	
 				</xsl:for-each>
