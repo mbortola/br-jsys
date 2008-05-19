@@ -51,7 +51,7 @@
 				<Codice>0000000180</Codice>
 			</Intervento>
 		</Release>
-		<Release name="Austria" completi="11" aperti="3">
+		<Release name="Austria" completi="11" aperti="4">
 			<Intervento>
 				<padre/>
 				<Oggetto>Code for failed nelle INSERT/WRITE</Oggetto>
@@ -60,25 +60,33 @@
 			</Intervento>
 			<Intervento>
 				<padre/>
-				<Oggetto>Tabindex del bottone per aprire e chiudere il box collassabile</Oggetto>
+				<Oggetto>
+					Tabindex del bottone per aprire e chiudere il box collassabile
+				</Oggetto>
 				<Stato>CO</Stato>
 				<Codice>0000000413</Codice>
 			</Intervento>
 			<Intervento>
 				<padre/>
-				<Oggetto>Generazione elementi nascosti con zone collassabili</Oggetto>
+				<Oggetto>
+					Generazione elementi nascosti con zone collassabili
+				</Oggetto>
 				<Stato>CO</Stato>
 				<Codice>0000000498</Codice>
 			</Intervento>
 			<Intervento>
 				<padre/>
-				<Oggetto>Box di tipo Layer tagliati fuori dall'area della maschera</Oggetto>
+				<Oggetto>
+					Box di tipo Layer tagliati fuori dall'area della maschera
+				</Oggetto>
 				<Stato>CO</Stato>
 				<Codice>0000000504</Codice>
 			</Intervento>
 			<Intervento>
 				<padre/>
-				<Oggetto>Aggiungere opzione per compilare senza deploy contestuale</Oggetto>
+				<Oggetto>
+					Aggiungere opzione per compilare senza deploy contestuale
+				</Oggetto>
 				<Stato>CO</Stato>
 				<Codice>0000000509</Codice>
 			</Intervento>
@@ -87,12 +95,6 @@
 				<Oggetto>Apertura di uno Zoom da un ZoomOnZoom</Oggetto>
 				<Stato>CO</Stato>
 				<Codice>0000000515</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
-				<Oggetto>ZoomOnZoom calcolato nei Linked Fields</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000530</Codice>
 			</Intervento>
 			<Intervento>
 				<padre/>
@@ -136,73 +138,17 @@
 				<Stato>IN</Stato>
 				<Codice>0000000590</Codice>
 			</Intervento>
-		</Release>
-		<Release name="Andorra" completi="11" aperti="0">
 			<Intervento>
 				<padre/>
-				<Oggetto>Focus durante la generazione</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000095</Codice>
+				<Oggetto>Tabindex dei Input nei figli integrati</Oggetto>
+				<Stato>TE</Stato>
+				<Codice>0000000593</Codice>
 			</Intervento>
 			<Intervento>
 				<padre/>
-				<Oggetto>Resize dei conteiner se chiusi per default</Oggetto>
+				<Oggetto>ZoomOnZoom calcolato nei Linked Fields</Oggetto>
 				<Stato>CO</Stato>
-				<Codice>0000000287</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
-				<Oggetto>Diminuzione codice nei porlet</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000305</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
-				<Oggetto>Visualizzazione errori di compilazione Business Rules in frontend</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000378</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
-				<Oggetto>Copia e Incolla nel disegnatore, di blocchi da routine a routine</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000384</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
-				<Oggetto>Lanciare URL esterni dal menu</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000411</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
-				<Oggetto>Inserimento nel menu di dati da una query</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000436</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
-				<Oggetto>Bottone "Always Enabled" nei detail con Firefox</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000449</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
-				<Oggetto>Bottoni con immagini "Always Enabled" in detail</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000477</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
-				<Oggetto>Div dei submenu del MenuView con firefox</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000480</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
-				<Oggetto>Inserimento data errata in un campo DateTime</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000483</Codice>
+				<Codice>0000000530</Codice>
 			</Intervento>
 		</Release>
 		<Release name="Azerbaijan" completi="0" aperti="4">
@@ -231,10 +177,84 @@
 				<Codice>0000000569</Codice>
 			</Intervento>
 		</Release>
-		<Release name="Z_WISH_RELEASE" completi="0" aperti="2">
+		<Release name="Andorra" completi="11" aperti="0">
 			<Intervento>
 				<padre/>
-				<Oggetto>Inserimento date in formatto DDMMYY e completamento anno</Oggetto>
+				<Oggetto>Resize dei conteiner se chiusi per default</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000287</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>Diminuzione codice nei porlet</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000305</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>
+					Visualizzazione errori di compilazione Business Rules in frontend
+				</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000378</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>
+					Copia e Incolla nel disegnatore, di blocchi da routine a routine
+				</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000384</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>Lanciare URL esterni dal menu</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000411</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>Focus durante la generazione</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000095</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>Bottone "Always Enabled" nei detail con Firefox</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000449</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>Bottoni con immagini "Always Enabled" in detail</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000477</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>Div dei submenu del MenuView con firefox</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000480</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>Inserimento data errata in un campo DateTime</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000483</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>Inserimento nel menu di dati da una query</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000436</Codice>
+			</Intervento>
+		</Release>
+		<Release name="Z_WISH_RELEASE" completi="0" aperti="3">
+			<Intervento>
+				<padre/>
+				<Oggetto>
+					Inserimento date in formatto DDMMYY e completamento anno
+				</Oggetto>
 				<Stato>NU</Stato>
 				<Codice>0000000481</Codice>
 			</Intervento>
@@ -244,22 +264,16 @@
 				<Stato>NU</Stato>
 				<Codice>0000000486</Codice>
 			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>Esecuzione query eccessiva nei Menu da VQR</Oggetto>
+				<Stato>IN</Stato>
+				<Codice>0000000598</Codice>
+			</Intervento>
 		</Release>
 		<Chids>
 			<Feature name="00000015">
 				<Release name="Allouin" completi="7" aperti="0">
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Errata gestione di parametri date e datetime</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000199</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Problemi nel formato Xml del web report</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000131</Codice>
-					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
 						<Oggetto>Stringa in spazio limitato</Oggetto>
@@ -290,25 +304,33 @@
 						<Stato>CO</Stato>
 						<Codice>0000000069</Codice>
 					</Intervento>
-				</Release>
-				<Release name="Austria" completi="4" aperti="4">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Display expr nella definizione delle Alternative Query</Oggetto>
+						<Oggetto>Problemi nel formato Xml del web report</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000131</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Errata gestione di parametri date e datetime</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000199</Codice>
+					</Intervento>
+				</Release>
+				<Release name="Austria" completi="4" aperti="6">
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Scelta colore del font per label e expression</Oggetto>
+						<Stato>LA</Stato>
+						<Codice>0000000299</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Display expr nella definizione delle Alternative Query
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000388</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Posizionamento dei box</Oggetto>
-						<Stato>TE</Stato>
-						<Codice>0000000505</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Campi d'intestazione non stampati nella stampa CSV</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000506</Codice>
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
@@ -324,7 +346,21 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Limite di nove record nella stessa pagina nel merge con un modulo</Oggetto>
+						<Oggetto>Posizionamento dei box</Oggetto>
+						<Stato>TE</Stato>
+						<Codice>0000000505</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Campi d'intestazione non stampati nella stampa CSV</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000506</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Limite di nove record nella stessa pagina nel merge con un modulo
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000538</Codice>
 					</Intervento>
@@ -336,12 +372,100 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Scelta colore del font per label e expression</Oggetto>
+						<Oggetto>Stampa di variabili con condizione di hide a true</Oggetto>
+						<Stato>TE</Stato>
+						<Codice>0000000597</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Aggiunta la possibilità di associare un link a un'immagine.
+						</Oggetto>
 						<Stato>LA</Stato>
-						<Codice>0000000299</Codice>
+						<Codice>0000000606</Codice>
+					</Intervento>
+				</Release>
+				<Release name="Azerbaijan" completi="0" aperti="5">
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Ambienti headless java 1.5 o superiori</Oggetto>
+						<Stato>WL</Stato>
+						<Codice>0000000132</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Modifica al runtime della maschera dei parametri</Oggetto>
+						<Stato>IN</Stato>
+						<Codice>0000000363</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Maschera delle opzioni per page header e page footer
+						</Oggetto>
+						<Stato>IN</Stato>
+						<Codice>0000000491</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Picture di maiuscolo o minuscolo nel report</Oggetto>
+						<Stato>NU</Stato>
+						<Codice>0000000582</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Inserimento dell'opzione 'Scale image retain shape'
+						</Oggetto>
+						<Stato>LA</Stato>
+						<Codice>0000000587</Codice>
 					</Intervento>
 				</Release>
 				<Release name="Andorra" completi="11" aperti="0">
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Opzione 'Stretch to right border' delle linee</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000203</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Errore nella rappresentazione dei Box e delle Section
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000247</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Opzioni di stampa del group header non sempre funzionanti
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000279</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Funzione Format(paramentro, picture) applicato ad un campo data
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000330</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Sovrapposizione di group header all'inizio della nuova pagina
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000344</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Stampa del page header sulla prima pagina</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000376</Codice>
+					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
 						<Oggetto>Variabile nTotalPages posizionata erroneamente</Oggetto>
@@ -368,71 +492,11 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Link ad un report costruito con nome report restituito da query</Oggetto>
+						<Oggetto>
+							Link ad un report costruito con nome report restituito da query
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000426</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Funzione Format(paramentro, picture) applicato ad un campo data</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000330</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Sovrapposizione di group header all'inizio della nuova pagina</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000344</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Stampa del page header sulla prima pagina</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000376</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Opzioni di stampa del group header non sempre funzionanti</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000279</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Errore nella rappresentazione dei Box e delle Section</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000247</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Opzione 'Stretch to right border' delle linee</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000203</Codice>
-					</Intervento>
-				</Release>
-				<Release name="Azerbaijan" completi="0" aperti="4">
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Modifica al runtime della maschera dei parametri</Oggetto>
-						<Stato>IN</Stato>
-						<Codice>0000000363</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Maschera delle opzioni per page header e page footer</Oggetto>
-						<Stato>IN</Stato>
-						<Codice>0000000491</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Picture di maiuscolo o minuscolo nel report</Oggetto>
-						<Stato>NU</Stato>
-						<Codice>0000000582</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Ambienti headless java 1.5 o superiori</Oggetto>
-						<Stato>WL</Stato>
-						<Codice>0000000132</Codice>
 					</Intervento>
 				</Release>
 				<Release name="Z_WISH_RELEASE" completi="0" aperti="1">
@@ -444,30 +508,6 @@
 					</Intervento>
 				</Release>
 				<Release name="Allouin_SP1" completi="11" aperti="0">
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>'Hide under condition' dei box ad altezza uno non funziona</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000284</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Errato comportamento di 'Clip image to frame size' nel pdf</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000276</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Errore nella gestione degli arrotondamenti nella somma</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000274</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Riga bianca nelle label del report</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000278</Codice>
-					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
 						<Oggetto>Passaggio dei parametri di stampa al report</Oggetto>
@@ -510,14 +550,38 @@
 						<Stato>CO</Stato>
 						<Codice>0000000243</Codice>
 					</Intervento>
-				</Release>
-				<Release name="" completi="0" aperti="4">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Barcode</Oggetto>
-						<Stato>NU</Stato>
-						<Codice>0000000443</Codice>
+						<Oggetto>
+							Errore nella gestione degli arrotondamenti nella somma
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000274</Codice>
 					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Errato comportamento di 'Clip image to frame size' nel pdf
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000276</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Riga bianca nelle label del report</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000278</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							'Hide under condition' dei box ad altezza uno non funziona
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000284</Codice>
+					</Intervento>
+				</Release>
+				<Release name="" completi="0" aperti="2">
 					<Intervento>
 						<padre>00000001</padre>
 						<Oggetto>Margine destro nella stampa del report</Oggetto>
@@ -526,15 +590,19 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Merge in un unico pdf dello stesso report con N parametri diversi</Oggetto>
+						<Oggetto>
+							Merge in un unico pdf dello stesso report con N parametri diversi
+						</Oggetto>
 						<Stato>NU</Stato>
 						<Codice>0000000535</Codice>
 					</Intervento>
+				</Release>
+				<Release name="Belgio" completi="0" aperti="1">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Inserimento dell'opzione 'Scale image retain shape'</Oggetto>
-						<Stato>NU</Stato>
-						<Codice>0000000587</Codice>
+						<Oggetto>Barcode</Oggetto>
+						<Stato>LA</Stato>
+						<Codice>0000000443</Codice>
 					</Intervento>
 				</Release>
 				<Chids>
@@ -550,7 +618,9 @@
 						<Release name="Andorra" completi="1" aperti="0">
 							<Intervento>
 								<padre>00000015</padre>
-								<Oggetto>Errore nel cambio di tipologia di Name nell'hyperlink</Oggetto>
+								<Oggetto>
+									Errore nel cambio di tipologia di Name nell'hyperlink
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000324</Codice>
 							</Intervento>
@@ -594,7 +664,9 @@
 						<Release name="Andorra" completi="3" aperti="0">
 							<Intervento>
 								<padre>00000015</padre>
-								<Oggetto>Inserito spazio quando si verifica la condizione di hide section</Oggetto>
+								<Oggetto>
+									Inserito spazio quando si verifica la condizione di hide section
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000280</Codice>
 							</Intervento>
@@ -606,7 +678,9 @@
 							</Intervento>
 							<Intervento>
 								<padre>00000015</padre>
-								<Oggetto>Sostituzione dell'immagine di espansione del gruppo</Oggetto>
+								<Oggetto>
+									Sostituzione dell'immagine di espansione del gruppo
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000492</Codice>
 							</Intervento>
@@ -614,7 +688,9 @@
 						<Release name="Allouin_SP1" completi="2" aperti="0">
 							<Intervento>
 								<padre>00000015</padre>
-								<Oggetto>Costuzione errata dei raggruppamenti delle query alternative</Oggetto>
+								<Oggetto>
+									Costuzione errata dei raggruppamenti delle query alternative
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000221</Codice>
 							</Intervento>
@@ -626,6 +702,9 @@
 							</Intervento>
 						</Release>
 						<Chids>
+							<Feature name="00000019">
+								<Release name="" completi="0" aperti="0"/>
+							</Feature>
 							<Feature name="00000140">
 								<Release name="Allouin" completi="1" aperti="0">
 									<Intervento>
@@ -661,6 +740,14 @@
 						</Chids>
 					</Feature>
 					<Feature name="00000054">
+						<Release name="Azerbaijan" completi="0" aperti="1">
+							<Intervento>
+								<padre>00000015</padre>
+								<Oggetto>Ricaricare i vrp modificati</Oggetto>
+								<Stato>IN</Stato>
+								<Codice>0000000236</Codice>
+							</Intervento>
+						</Release>
 						<Release name="Andorra" completi="3" aperti="0">
 							<Intervento>
 								<padre>00000015</padre>
@@ -676,17 +763,11 @@
 							</Intervento>
 							<Intervento>
 								<padre>00000015</padre>
-								<Oggetto>I caratteri = e &amp; non sono supportati nei parametri</Oggetto>
+								<Oggetto>
+									I caratteri = e &amp; non sono supportati nei parametri
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000235</Codice>
-							</Intervento>
-						</Release>
-						<Release name="Azerbaijan" completi="0" aperti="1">
-							<Intervento>
-								<padre>00000015</padre>
-								<Oggetto>Ricaricare i vrp modificati</Oggetto>
-								<Stato>IN</Stato>
-								<Codice>0000000236</Codice>
 							</Intervento>
 						</Release>
 					</Feature>
@@ -778,7 +859,9 @@
 						<Release name="Azerbaijan" completi="0" aperti="1">
 							<Intervento>
 								<padre>00000015</padre>
-								<Oggetto>Miglioramento dell'aspetto della copertina del report.</Oggetto>
+								<Oggetto>
+									Miglioramento dell'aspetto della copertina del report.
+								</Oggetto>
 								<Stato>NU</Stato>
 								<Codice>0000000526</Codice>
 							</Intervento>
@@ -800,12 +883,6 @@
 				<Release name="Allouin" completi="4" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Figlio a bottone in zona collassabile</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000212</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
 						<Oggetto>Anomalia save when su BO</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000060</Codice>
@@ -818,12 +895,20 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Expanding/collapsing condition per i box nei Detail/Master Detail</Oggetto>
+						<Oggetto>
+							Expanding/collapsing condition per i box nei Detail/Master Detail
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000114</Codice>
 					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Figlio a bottone in zona collassabile</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000212</Codice>
+					</Intervento>
 				</Release>
-				<Release name="Austria" completi="6" aperti="1">
+				<Release name="Austria" completi="7" aperti="1">
 					<Intervento>
 						<padre>00000001</padre>
 						<Oggetto>Impostazione del CSS per i campi DISABLED</Oggetto>
@@ -844,6 +929,20 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
+						<Oggetto>
+							Accesso a figli di righe cancellate attraverso righe nuove
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000521</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Combo Action delle Dialog Window</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000544</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
 						<Oggetto>Disabilitare da stato o BPM una sezione o un layer</Oggetto>
 						<Stato>IN</Stato>
 						<Codice>0000000558</Codice>
@@ -856,62 +955,30 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Combo Action delle Dialog Window</Oggetto>
+						<Oggetto>Nuova area manuale associata agli autonumber</Oggetto>
 						<Stato>CO</Stato>
-						<Codice>0000000544</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Accesso a figli di righe cancellate attraverso righe nuove</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000521</Codice>
-					</Intervento>
-				</Release>
-				<Release name="Andorra" completi="7" aperti="0">
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Posizionamento del pulsante + nel SPVisualZoom</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000451</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Cancellazione righe del detail aventi figli di riga</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000469</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Eccezione contenente informazioni private del DB</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000461</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Bottone con immagine per aprire layer in detail</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000172</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Oggettino check e %ERROR_MESSAGE%</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000219</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Apertura Layer da bottone nelle righe del detail</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000201</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Operazione associata la tasto Lente negli zoom</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000289</Codice>
+						<Codice>0000000602</Codice>
 					</Intervento>
 				</Release>
 				<Release name="Azerbaijan" completi="0" aperti="5">
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Spazio bottoni nei decoratori di toolbar e titolo</Oggetto>
+						<Stato>IN</Stato>
+						<Codice>0000000046</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Interfacce alternative</Oggetto>
+						<Stato>WL</Stato>
+						<Codice>0000000047</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Libreria di memorizzazione temporanea BO</Oggetto>
+						<Stato>IN</Stato>
+						<Codice>0000000190</Codice>
+					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
 						<Oggetto>Attività al termine della transazione</Oggetto>
@@ -924,23 +991,51 @@
 						<Stato>NU</Stato>
 						<Codice>0000000438</Codice>
 					</Intervento>
+				</Release>
+				<Release name="Andorra" completi="7" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Libreria di memorizzazione temporanea BO</Oggetto>
-						<Stato>IN</Stato>
-						<Codice>0000000190</Codice>
+						<Oggetto>Apertura Layer da bottone nelle righe del detail</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000201</Codice>
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Spazio bottoni nei decoratori di toolbar e titolo</Oggetto>
-						<Stato>IN</Stato>
-						<Codice>0000000046</Codice>
+						<Oggetto>Oggettino check e %ERROR_MESSAGE%</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000219</Codice>
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Interfacce alternative</Oggetto>
-						<Stato>WL</Stato>
-						<Codice>0000000047</Codice>
+						<Oggetto>Operazione associata la tasto Lente negli zoom</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000289</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Bottone con immagine per aprire layer in detail</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000172</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Posizionamento del pulsante + nel SPVisualZoom</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000451</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Eccezione contenente informazioni private del DB</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000461</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Cancellazione righe del detail aventi figli di riga
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000469</Codice>
 					</Intervento>
 				</Release>
 				<Release name="Z_WISH_RELEASE" completi="0" aperti="1">
@@ -954,6 +1049,12 @@
 				<Release name="Allouin_SP1" completi="3" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
+						<Oggetto>Messaggio di errore della edit when ignorato</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000254</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
 						<Oggetto>Lancio zoom di tipo User e parametri</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000283</Codice>
@@ -964,14 +1065,11 @@
 						<Stato>CO</Stato>
 						<Codice>0000000249</Codice>
 					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Messaggio di errore della edit when ignorato</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000254</Codice>
-					</Intervento>
 				</Release>
 				<Chids>
+					<Feature name="00000055">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
 					<Feature name="00000063">
 						<Release name="Austria" completi="1" aperti="0">
 							<Intervento>
@@ -1006,7 +1104,9 @@
 						<Release name="Andorra" completi="1" aperti="0">
 							<Intervento>
 								<padre>00000023</padre>
-								<Oggetto>Errore sintassi WITH (NOLOCK) quando si usa BO:entita</Oggetto>
+								<Oggetto>
+									Errore sintassi WITH (NOLOCK) quando si usa BO:entita
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000365</Codice>
 							</Intervento>
@@ -1020,6 +1120,9 @@
 							</Intervento>
 						</Release>
 					</Feature>
+					<Feature name="00000306">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
 					<Feature name="00000317">
 						<Release name="Allouin" completi="1" aperti="0">
 							<Intervento>
@@ -1032,7 +1135,9 @@
 						<Release name="Z_WISH_RELEASE" completi="0" aperti="1">
 							<Intervento>
 								<padre>00000023</padre>
-								<Oggetto>Far comparire i warning anche dalla chiamata da autozoom</Oggetto>
+								<Oggetto>
+									Far comparire i warning anche dalla chiamata da autozoom
+								</Oggetto>
 								<Stato>IN</Stato>
 								<Codice>0000000255</Codice>
 							</Intervento>
@@ -1058,15 +1163,15 @@
 						<Release name="Andorra" completi="3" aperti="0">
 							<Intervento>
 								<padre>00000023</padre>
-								<Oggetto>Autonumber ignorato quando si lanciano routine</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000383</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000023</padre>
 								<Oggetto>Blank in parte fissa autonumber</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000364</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000023</padre>
+								<Oggetto>Autonumber ignorato quando si lanciano routine</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000383</Codice>
 							</Intervento>
 							<Intervento>
 								<padre>00000023</padre>
@@ -1084,39 +1189,58 @@
 							</Intervento>
 						</Release>
 					</Feature>
+					<Feature name="00001473">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
 					<Feature name="00001480">
 						<Release name="Austria" completi="2" aperti="0">
 							<Intervento>
 								<padre>00000023</padre>
-								<Oggetto>Disabilitare una pagina a seconda dello stato non è implementato</Oggetto>
+								<Oggetto>
+									Disabilitare una pagina a seconda dello stato non è implementato
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000405</Codice>
 							</Intervento>
 							<Intervento>
 								<padre>00000023</padre>
-								<Oggetto>Label item tipo check non viene nascosta dallo stato</Oggetto>
+								<Oggetto>
+									Label item tipo check non viene nascosta dallo stato
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000408</Codice>
-							</Intervento>
-						</Release>
-						<Release name="Andorra" completi="1" aperti="0">
-							<Intervento>
-								<padre>00000023</padre>
-								<Oggetto>Nascondere una pagina a seconda dello stato non funziona</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000404</Codice>
 							</Intervento>
 						</Release>
 						<Release name="Azerbaijan" completi="0" aperti="1">
 							<Intervento>
 								<padre>00000023</padre>
-								<Oggetto>Rimane visibile la label di un campo nascosto dallo stato</Oggetto>
+								<Oggetto>
+									Rimane visibile la label di un campo nascosto dallo stato
+								</Oggetto>
 								<Stato>LA</Stato>
 								<Codice>0000000410</Codice>
 							</Intervento>
 						</Release>
+						<Release name="Andorra" completi="1" aperti="0">
+							<Intervento>
+								<padre>00000023</padre>
+								<Oggetto>
+									Nascondere una pagina a seconda dello stato non funziona
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000404</Codice>
+							</Intervento>
+						</Release>
 					</Feature>
 					<Feature name="00001483">
+						<Release name="Austria" completi="1" aperti="0">
+							<Intervento>
+								<padre>00000023</padre>
+								<Oggetto>Nuovi eventi</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000599</Codice>
+							</Intervento>
+						</Release>
 						<Release name="Andorra" completi="1" aperti="0">
 							<Intervento>
 								<padre>00000023</padre>
@@ -1155,21 +1279,7 @@
 						<Codice>0000000027</Codice>
 					</Intervento>
 				</Release>
-				<Release name="Andorra" completi="1" aperti="0">
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Ottimizzata generazione degli import js</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000313</Codice>
-					</Intervento>
-				</Release>
 				<Release name="Azerbaijan" completi="0" aperti="3">
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Supportare in Oracle Memo di più di 2000 caratteri</Oggetto>
-						<Stato>NU</Stato>
-						<Codice>0000000458</Codice>
-					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
 						<Oggetto>Controllo lato server sui dati in uscita</Oggetto>
@@ -1178,34 +1288,42 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
+						<Oggetto>Supportare in Oracle Memo di più di 2000 caratteri</Oggetto>
+						<Stato>NU</Stato>
+						<Codice>0000000458</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
 						<Oggetto>Password ulteriore per operazioni sensibili</Oggetto>
 						<Stato>NU</Stato>
 						<Codice>0000000517</Codice>
 					</Intervento>
 				</Release>
-				<Release name="Z_WISH_RELEASE" completi="0" aperti="2">
+				<Release name="Andorra" completi="1" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Controllo sulla validità delle date per il DB</Oggetto>
-						<Stato>NU</Stato>
-						<Codice>0000000389</Codice>
+						<Oggetto>Ottimizzata generazione degli import js</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000313</Codice>
 					</Intervento>
+				</Release>
+				<Release name="Z_WISH_RELEASE" completi="0" aperti="2">
 					<Intervento>
 						<padre>00000001</padre>
 						<Oggetto>JSURL (alias XMLHttpRequest wrapper)</Oggetto>
 						<Stato>WL</Stato>
 						<Codice>0000000232</Codice>
 					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Controllo sulla validità delle date per il DB</Oggetto>
+						<Stato>NU</Stato>
+						<Codice>0000000389</Codice>
+					</Intervento>
 				</Release>
 				<Chids>
 					<Feature name="00000004">
 						<Release name="Allouin" completi="4" aperti="0">
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Autozoom gestioni assente</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000215</Codice>
-							</Intervento>
 							<Intervento>
 								<padre>00000029</padre>
 								<Oggetto>Autozoom 100% CPU + loop query figli</Oggetto>
@@ -1224,6 +1342,12 @@
 								<Stato>CO</Stato>
 								<Codice>0000000084</Codice>
 							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>Autozoom gestioni assente</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000215</Codice>
+							</Intervento>
 						</Release>
 						<Release name="Austria" completi="2" aperti="1">
 							<Intervento>
@@ -1234,36 +1358,36 @@
 							</Intervento>
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Campo immagine nel Superzoom viene mostrato come testo</Oggetto>
+								<Oggetto>Refresh griglia dopo una modifica</Oggetto>
 								<Stato>CO</Stato>
-								<Codice>0000000543</Codice>
+								<Codice>0000000440</Codice>
 							</Intervento>
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Poter definire configurazioni zoom specifiche per utente</Oggetto>
+								<Oggetto>
+									Poter definire configurazioni zoom specifiche per utente
+								</Oggetto>
 								<Stato>DU</Stato>
 								<Codice>0000000475</Codice>
 							</Intervento>
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Refresh griglia dopo una modifica</Oggetto>
+								<Oggetto>
+									Campo immagine nel Superzoom viene mostrato come testo
+								</Oggetto>
 								<Stato>CO</Stato>
-								<Codice>0000000440</Codice>
+								<Codice>0000000543</Codice>
+							</Intervento>
+						</Release>
+						<Release name="Azerbaijan" completi="0" aperti="1">
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>Tabelle multilingua su superzoom</Oggetto>
+								<Stato>NU</Stato>
+								<Codice>0000000546</Codice>
 							</Intervento>
 						</Release>
 						<Release name="Andorra" completi="4" aperti="0">
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Con il parametro waitforfilter=true viene mostrata la navbar</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000467</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Resize SuperZoom</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000320</Codice>
-							</Intervento>
 							<Intervento>
 								<padre>00000029</padre>
 								<Oggetto>Refresh griglia dopo una modifica</Oggetto>
@@ -1276,13 +1400,19 @@
 								<Stato>CO</Stato>
 								<Codice>0000000258</Codice>
 							</Intervento>
-						</Release>
-						<Release name="Azerbaijan" completi="0" aperti="1">
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Tabelle multilingua su superzoom</Oggetto>
-								<Stato>NU</Stato>
-								<Codice>0000000546</Codice>
+								<Oggetto>Resize SuperZoom</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000320</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>
+									Con il parametro waitforfilter=true viene mostrata la navbar
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000467</Codice>
 							</Intervento>
 						</Release>
 						<Chids>
@@ -1325,7 +1455,7 @@
 										<Codice>0000000204</Codice>
 									</Intervento>
 								</Release>
-								<Release name="Austria" completi="9" aperti="3">
+								<Release name="Austria" completi="9" aperti="4">
 									<Intervento>
 										<padre>00000004</padre>
 										<Oggetto>Campi nascosti in griglia</Oggetto>
@@ -1334,13 +1464,9 @@
 									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
-										<Oggetto>Errore javascript con parametro contenente CRLF</Oggetto>
-										<Stato>CO</Stato>
-										<Codice>0000000293</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>FireFox - Dimensione del campo per il valore del filtro</Oggetto>
+										<Oggetto>
+											FireFox - Dimensione del campo per il valore del filtro
+										</Oggetto>
 										<Stato>LA</Stato>
 										<Codice>0000000327</Codice>
 									</Intervento>
@@ -1352,33 +1478,9 @@
 									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
-										<Oggetto>Possibilità di nascondere i pulsanti di configurazione</Oggetto>
+										<Oggetto>Errore javascript con parametro contenente CRLF</Oggetto>
 										<Stato>CO</Stato>
-										<Codice>0000000528</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>Traduzioni nel PortalZoom</Oggetto>
-										<Stato>CO</Stato>
-										<Codice>0000000529</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>Errore nel salvataggio della conf. con query con parametri</Oggetto>
-										<Stato>TE</Stato>
-										<Codice>0000000573</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>SPPortalZoom nei link e chiave con apice</Oggetto>
-										<Stato>CO</Stato>
-										<Codice>0000000571</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>SPPortalZoom nei link e chiave numerica</Oggetto>
-										<Stato>CO</Stato>
-										<Codice>0000000579</Codice>
+										<Codice>0000000293</Codice>
 									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
@@ -1394,9 +1496,61 @@
 									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
-										<Oggetto>Passaggio valori per inizializzare campi nel autozoom</Oggetto>
+										<Oggetto>SPPortalZoom nei link e chiave con apice</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000571</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>
+											Errore nel salvataggio della conf. con query con parametri
+										</Oggetto>
+										<Stato>TE</Stato>
+										<Codice>0000000573</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>SPPortalZoom nei link e chiave numerica</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000579</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>
+											Passaggio valori per inizializzare campi nel autozoom
+										</Oggetto>
 										<Stato>IN</Stato>
 										<Codice>0000000591</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>SPPortalZoom nei link e Send key to zoom on zoom</Oggetto>
+										<Stato>TE</Stato>
+										<Codice>0000000603</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>
+											Possibilità di nascondere i pulsanti di configurazione
+										</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000528</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>Traduzioni nel PortalZoom</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000529</Codice>
+									</Intervento>
+								</Release>
+								<Release name="Azerbaijan" completi="0" aperti="1">
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>
+											Pilotare attraverso l'interfaccia dello zoom la query da BO
+										</Oggetto>
+										<Stato>NU</Stato>
+										<Codice>0000000549</Codice>
 									</Intervento>
 								</Release>
 								<Release name="Andorra" completi="8" aperti="0">
@@ -1408,9 +1562,33 @@
 									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
-										<Oggetto>Collegare la gestione della colonna alla "moschina"</Oggetto>
+										<Oggetto>
+											Collegare la gestione della colonna alla "moschina"
+										</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000397</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>Finestra aperta da un link nel PortalZoom</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000420</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>
+											Contenuto RowLayer e ColumnLayer letto dal vecchio formatto
+										</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000463</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>
+											L'uso di "javascript:" nel hyperlink del PortalZoom
+										</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000464</Codice>
 									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
@@ -1420,41 +1598,15 @@
 									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
-										<Oggetto>Contenuto RowLayer e ColumnLayer letto dal vecchio formatto</Oggetto>
-										<Stato>CO</Stato>
-										<Codice>0000000463</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>L'uso di "javascript:" nel hyperlink del PortalZoom</Oggetto>
-										<Stato>CO</Stato>
-										<Codice>0000000464</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>ConfigGridElements con opzioni -t non funziona</Oggetto>
-										<Stato>CO</Stato>
-										<Codice>0000000446</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
 										<Oggetto>Ordine colonne letto dalla configurazione VZM</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000430</Codice>
 									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
-										<Oggetto>Finestra aperta da un link nel PortalZoom</Oggetto>
+										<Oggetto>ConfigGridElements con opzioni -t non funziona</Oggetto>
 										<Stato>CO</Stato>
-										<Codice>0000000420</Codice>
-									</Intervento>
-								</Release>
-								<Release name="Azerbaijan" completi="0" aperti="1">
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>Pilotare attraverso l'interfaccia dello zoom la query da BO</Oggetto>
-										<Stato>NU</Stato>
-										<Codice>0000000549</Codice>
+										<Codice>0000000446</Codice>
 									</Intervento>
 								</Release>
 								<Chids>
@@ -1467,6 +1619,15 @@
 												<Codice>0000000328</Codice>
 											</Intervento>
 										</Release>
+									</Feature>
+									<Feature name="00000041">
+										<Release name="" completi="0" aperti="0"/>
+									</Feature>
+									<Feature name="00000042">
+										<Release name="" completi="0" aperti="0"/>
+									</Feature>
+									<Feature name="00000313">
+										<Release name="" completi="0" aperti="0"/>
 									</Feature>
 								</Chids>
 							</Feature>
@@ -1512,6 +1673,9 @@
 											</Intervento>
 										</Release>
 										<Chids>
+											<Feature name="00000298">
+												<Release name="" completi="0" aperti="0"/>
+											</Feature>
 											<Feature name="00000647">
 												<Release name="Allouin" completi="1" aperti="0">
 													<Intervento>
@@ -1528,30 +1692,6 @@
 										<Release name="Allouin" completi="6" aperti="0">
 											<Intervento>
 												<padre>00000020</padre>
-												<Oggetto>Filtri non visibili in IE</Oggetto>
-												<Stato>CO</Stato>
-												<Codice>0000000223</Codice>
-											</Intervento>
-											<Intervento>
-												<padre>00000020</padre>
-												<Oggetto>Errore durante la visualizzazione del portlet</Oggetto>
-												<Stato>CO</Stato>
-												<Codice>0000000248</Codice>
-											</Intervento>
-											<Intervento>
-												<padre>00000020</padre>
-												<Oggetto>Esecuzione query eccessiva</Oggetto>
-												<Stato>CO</Stato>
-												<Codice>0000000120</Codice>
-											</Intervento>
-											<Intervento>
-												<padre>00000020</padre>
-												<Oggetto>READ FIELD nei link</Oggetto>
-												<Stato>CO</Stato>
-												<Codice>0000000088</Codice>
-											</Intervento>
-											<Intervento>
-												<padre>00000020</padre>
 												<Oggetto>Modello e tipo di report predefinito</Oggetto>
 												<Stato>CO</Stato>
 												<Codice>0000000044</Codice>
@@ -1562,6 +1702,30 @@
 												<Stato>CO</Stato>
 												<Codice>0000000085</Codice>
 											</Intervento>
+											<Intervento>
+												<padre>00000020</padre>
+												<Oggetto>READ FIELD nei link</Oggetto>
+												<Stato>CO</Stato>
+												<Codice>0000000088</Codice>
+											</Intervento>
+											<Intervento>
+												<padre>00000020</padre>
+												<Oggetto>Esecuzione query eccessiva</Oggetto>
+												<Stato>CO</Stato>
+												<Codice>0000000120</Codice>
+											</Intervento>
+											<Intervento>
+												<padre>00000020</padre>
+												<Oggetto>Filtri non visibili in IE</Oggetto>
+												<Stato>CO</Stato>
+												<Codice>0000000223</Codice>
+											</Intervento>
+											<Intervento>
+												<padre>00000020</padre>
+												<Oggetto>Errore durante la visualizzazione del portlet</Oggetto>
+												<Stato>CO</Stato>
+												<Codice>0000000248</Codice>
+											</Intervento>
 										</Release>
 										<Release name="Austria" completi="1" aperti="0">
 											<Intervento>
@@ -1569,6 +1733,28 @@
 												<Oggetto>Mancanza impostazione nome receiver</Oggetto>
 												<Stato>CO</Stato>
 												<Codice>0000000113</Codice>
+											</Intervento>
+										</Release>
+										<Release name="Azerbaijan" completi="0" aperti="3">
+											<Intervento>
+												<padre>00000020</padre>
+												<Oggetto>Filtro alfabetico su campo numerico</Oggetto>
+												<Stato>NU</Stato>
+												<Codice>0000000188</Codice>
+											</Intervento>
+											<Intervento>
+												<padre>00000020</padre>
+												<Oggetto>Passaggio di parametri alla query del PortalZoom</Oggetto>
+												<Stato>NU</Stato>
+												<Codice>0000000434</Codice>
+											</Intervento>
+											<Intervento>
+												<padre>00000020</padre>
+												<Oggetto>
+													Inizializzazione filtri da variabile globale o da parametro
+												</Oggetto>
+												<Stato>NU</Stato>
+												<Codice>0000000439</Codice>
 											</Intervento>
 										</Release>
 										<Release name="Andorra" completi="2" aperti="0">
@@ -1585,26 +1771,6 @@
 												<Codice>0000000396</Codice>
 											</Intervento>
 										</Release>
-										<Release name="Azerbaijan" completi="0" aperti="3">
-											<Intervento>
-												<padre>00000020</padre>
-												<Oggetto>Inizializzazione filtri da variabile globale o da parametro</Oggetto>
-												<Stato>NU</Stato>
-												<Codice>0000000439</Codice>
-											</Intervento>
-											<Intervento>
-												<padre>00000020</padre>
-												<Oggetto>Passaggio di parametri alla query del PortalZoom</Oggetto>
-												<Stato>NU</Stato>
-												<Codice>0000000434</Codice>
-											</Intervento>
-											<Intervento>
-												<padre>00000020</padre>
-												<Oggetto>Filtro alfabetico su campo numerico</Oggetto>
-												<Stato>NU</Stato>
-												<Codice>0000000188</Codice>
-											</Intervento>
-										</Release>
 										<Release name="Allouin_SP1" completi="1" aperti="0">
 											<Intervento>
 												<padre>00000020</padre>
@@ -1617,15 +1783,49 @@
 								</Chids>
 							</Feature>
 							<Feature name="00000026">
-								<Release name="Austria" completi="1" aperti="0">
+								<Release name="Austria" completi="1" aperti="2">
 									<Intervento>
 										<padre>00000004</padre>
 										<Oggetto>Perdita dei filtri</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000512</Codice>
 									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>Salvando non mantiene i field nascosti</Oggetto>
+										<Stato>TE</Stato>
+										<Codice>0000000595</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>Salvando ci sono problemi con l'orderby</Oggetto>
+										<Stato>TE</Stato>
+										<Codice>0000000604</Codice>
+									</Intervento>
+								</Release>
+								<Release name="Azerbaijan" completi="0" aperti="2">
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>
+											Profilo aggiuntivo che può modificare le configurazioni
+										</Oggetto>
+										<Stato>IN</Stato>
+										<Codice>0000000233</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>Configurazioni VZM per utente/gruppo</Oggetto>
+										<Stato>LA</Stato>
+										<Codice>0000000479</Codice>
+									</Intervento>
 								</Release>
 								<Release name="Andorra" completi="7" aperti="0">
+									<Intervento>
+										<padre>00000004</padre>
+										<Oggetto>Impostazione di un column layer</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000192</Codice>
+									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
 										<Oggetto>Duplicazione involontaria campo</Oggetto>
@@ -1637,12 +1837,6 @@
 										<Oggetto>Errore nella configurazione della colonna</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000307</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>Impostazione di un column layer</Oggetto>
-										<Stato>CO</Stato>
-										<Codice>0000000192</Codice>
 									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
@@ -1658,29 +1852,17 @@
 									</Intervento>
 									<Intervento>
 										<padre>00000004</padre>
-										<Oggetto>Ordinamento predefinito sulle colonne</Oggetto>
-										<Stato>CO</Stato>
-										<Codice>0000000437</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>Manca la navbar dopo il salvataggio della configurazione</Oggetto>
+										<Oggetto>
+											Manca la navbar dopo il salvataggio della configurazione
+										</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000435</Codice>
 									</Intervento>
-								</Release>
-								<Release name="Azerbaijan" completi="0" aperti="2">
 									<Intervento>
 										<padre>00000004</padre>
-										<Oggetto>Profilo aggiuntivo che può modificare le configurazioni</Oggetto>
-										<Stato>IN</Stato>
-										<Codice>0000000233</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000004</padre>
-										<Oggetto>Configurazioni VZM per utente/gruppo</Oggetto>
-										<Stato>LA</Stato>
-										<Codice>0000000479</Codice>
+										<Oggetto>Ordinamento predefinito sulle colonne</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000437</Codice>
 									</Intervento>
 								</Release>
 								<Chids>
@@ -1696,15 +1878,17 @@
 										<Release name="Andorra" completi="2" aperti="0">
 											<Intervento>
 												<padre>00000026</padre>
-												<Oggetto>Salvataggio del file di configurazione senza chiudere le opzioni</Oggetto>
-												<Stato>CO</Stato>
-												<Codice>0000000444</Codice>
-											</Intervento>
-											<Intervento>
-												<padre>00000026</padre>
 												<Oggetto>Salvataggio nuovo vzm non di default con query</Oggetto>
 												<Stato>CO</Stato>
 												<Codice>0000000407</Codice>
+											</Intervento>
+											<Intervento>
+												<padre>00000026</padre>
+												<Oggetto>
+													Salvataggio del file di configurazione senza chiudere le opzioni
+												</Oggetto>
+												<Stato>CO</Stato>
+												<Codice>0000000444</Codice>
 											</Intervento>
 										</Release>
 										<Chids>
@@ -1729,6 +1913,16 @@
 														<Codice>0000000125</Codice>
 													</Intervento>
 												</Release>
+												<Release name="Austria" completi="0" aperti="1">
+													<Intervento>
+														<padre>00000046</padre>
+														<Oggetto>
+															Selezionare solo la parte HEAD in un'entità di tipo master/detail
+														</Oggetto>
+														<Stato>TE</Stato>
+														<Codice>0000000607</Codice>
+													</Intervento>
+												</Release>
 												<Release name="Allouin_SP1" completi="1" aperti="0">
 													<Intervento>
 														<padre>00000046</padre>
@@ -1742,15 +1936,15 @@
 												<Release name="Allouin" completi="2" aperti="0">
 													<Intervento>
 														<padre>00000046</padre>
-														<Oggetto>Cambio nome configurazione =&gt; cfg di default</Oggetto>
-														<Stato>CO</Stato>
-														<Codice>0000000210</Codice>
-													</Intervento>
-													<Intervento>
-														<padre>00000046</padre>
 														<Oggetto>Cambio nome configurazione</Oggetto>
 														<Stato>CO</Stato>
 														<Codice>0000000126</Codice>
+													</Intervento>
+													<Intervento>
+														<padre>00000046</padre>
+														<Oggetto>Cambio nome configurazione =&gt; cfg di default</Oggetto>
+														<Stato>CO</Stato>
+														<Codice>0000000210</Codice>
 													</Intervento>
 												</Release>
 											</Feature>
@@ -1800,15 +1994,25 @@
 						<Release name="Allouin" completi="2" aperti="0">
 							<Intervento>
 								<padre>00000029</padre>
+								<Oggetto>Cancellazione tabelle temporanee</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000073</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
 								<Oggetto>Lentezza avvio applicazione</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000130</Codice>
 							</Intervento>
+						</Release>
+						<Release name="Austria" completi="1" aperti="0">
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Cancellazione tabelle temporanee</Oggetto>
+								<Oggetto>
+									Utilities.DefineConnection può provocare degradamento prestazioni
+								</Oggetto>
 								<Stato>CO</Stato>
-								<Codice>0000000073</Codice>
+								<Codice>0000000605</Codice>
 							</Intervento>
 						</Release>
 						<Chids>
@@ -1843,20 +2047,24 @@
 								<Codice>0000000144</Codice>
 							</Intervento>
 						</Release>
-						<Release name="Andorra" completi="1" aperti="0">
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>La cancellazione di un post-it chiede conferma due volte</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000488</Codice>
-							</Intervento>
-						</Release>
 						<Release name="Azerbaijan" completi="0" aperti="1">
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>I messaggi dei postit non rispettano la lingua degli utenti</Oggetto>
+								<Oggetto>
+									I messaggi dei postit non rispettano la lingua degli utenti
+								</Oggetto>
 								<Stato>NU</Stato>
 								<Codice>0000000489</Codice>
+							</Intervento>
+						</Release>
+						<Release name="Andorra" completi="1" aperti="0">
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>
+									La cancellazione di un post-it chiede conferma due volte
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000488</Codice>
 							</Intervento>
 						</Release>
 						<Chids>
@@ -1871,6 +2079,9 @@
 								</Release>
 							</Feature>
 						</Chids>
+					</Feature>
+					<Feature name="00000037">
+						<Release name="" completi="0" aperti="0"/>
 					</Feature>
 					<Feature name="00000061">
 						<Release name="Allouin" completi="1" aperti="0">
@@ -1894,7 +2105,9 @@
 								<Release name="Austria" completi="1" aperti="0">
 									<Intervento>
 										<padre>00000061</padre>
-										<Oggetto>Aumentato sicurezza delle password memorizzate nel database</Oggetto>
+										<Oggetto>
+											Aumentato sicurezza delle password memorizzate nel database
+										</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000534</Codice>
 									</Intervento>
@@ -1912,7 +2125,21 @@
 							</Feature>
 						</Chids>
 					</Feature>
+					<Feature name="00000065">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
+					<Feature name="00000066">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
 					<Feature name="00000084">
+						<Release name="Austria" completi="0" aperti="1">
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>UNION in MYSQL</Oggetto>
+								<Stato>TE</Stato>
+								<Codice>0000000596</Codice>
+							</Intervento>
+						</Release>
 						<Release name="Allouin_SP1" completi="1" aperti="0">
 							<Intervento>
 								<padre>00000029</padre>
@@ -1951,18 +2178,12 @@
 								<Codice>0000000191</Codice>
 							</Intervento>
 						</Release>
-						<Release name="Austria" completi="4" aperti="2">
+						<Release name="Austria" completi="5" aperti="1">
 							<Intervento>
 								<padre>00000029</padre>
 								<Oggetto>F6 nei detail</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000167</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Errore assegnazione tabindex in m/d</Oggetto>
-								<Stato>TE</Stato>
-								<Codice>0000000370</Codice>
 							</Intervento>
 							<Intervento>
 								<padre>00000029</padre>
@@ -1972,9 +2193,11 @@
 							</Intervento>
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Layer rimane aperto al cambio riga</Oggetto>
-								<Stato>IN</Stato>
-								<Codice>0000000513</Codice>
+								<Oggetto>
+									I check di link vengono applicati al salvataggio su valori blank
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000501</Codice>
 							</Intervento>
 							<Intervento>
 								<padre>00000029</padre>
@@ -1984,74 +2207,18 @@
 							</Intervento>
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>I check di link vengono applicati al salvataggio su valori blank</Oggetto>
+								<Oggetto>Errore javascript su item show</Oggetto>
 								<Stato>CO</Stato>
-								<Codice>0000000501</Codice>
+								<Codice>0000000601</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>Errore assegnazione tabindex in m/d</Oggetto>
+								<Stato>TE</Stato>
+								<Codice>0000000370</Codice>
 							</Intervento>
 						</Release>
-						<Release name="Andorra" completi="9" aperti="0">
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Campi in show editabili</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000196</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Calcolo altezza entità alla presenza di zone collassate</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000460</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Errore 'm_cRegionalSettings non è definito' nel browser</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000453</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Errore javascript nel browser tentando di aprire un calendario</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000373</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Control figli integrati erroneamente nascosti in IE</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000346</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Servlet che imposta header per pilotare la cache dei proxy</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000323</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Classi CSS di default per i box di tipo layer e collapsable</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000485</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Errore javascript dopo doppia segnalazione violazione check</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000487</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Mancata richiesta conferma cancellazione</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000476</Codice>
-							</Intervento>
-						</Release>
-						<Release name="Azerbaijan" completi="0" aperti="3">
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Chiedere conferma perdita modifiche</Oggetto>
-								<Stato>LA</Stato>
-								<Codice>0000000226</Codice>
-							</Intervento>
+						<Release name="Azerbaijan" completi="0" aperti="4">
 							<Intervento>
 								<padre>00000029</padre>
 								<Oggetto>Gestione transitorio</Oggetto>
@@ -2063,6 +2230,88 @@
 								<Oggetto>Figli inseriti in box collassabili</Oggetto>
 								<Stato>NU</Stato>
 								<Codice>0000000270</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>Chiedere conferma perdita modifiche</Oggetto>
+								<Stato>LA</Stato>
+								<Codice>0000000226</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>Layer rimane aperto al cambio riga</Oggetto>
+								<Stato>IN</Stato>
+								<Codice>0000000513</Codice>
+							</Intervento>
+						</Release>
+						<Release name="Andorra" completi="9" aperti="0">
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>Campi in show editabili</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000196</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>
+									Servlet che imposta header per pilotare la cache dei proxy
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000323</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>
+									Control figli integrati erroneamente nascosti in IE
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000346</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>
+									Errore javascript nel browser tentando di aprire un calendario
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000373</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>
+									Errore 'm_cRegionalSettings non è definito' nel browser
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000453</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>
+									Calcolo altezza entità alla presenza di zone collassate
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000460</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>Mancata richiesta conferma cancellazione</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000476</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>
+									Classi CSS di default per i box di tipo layer e collapsable
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000485</Codice>
+							</Intervento>
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>
+									Errore javascript dopo doppia segnalazione violazione check
+								</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000487</Codice>
 							</Intervento>
 						</Release>
 						<Release name="Z_WISH_RELEASE" completi="0" aperti="1">
@@ -2076,7 +2325,9 @@
 						<Release name="Allouin_SP1" completi="1" aperti="0">
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Apertura Calendar in posizione errata per maschere lunghe</Oggetto>
+								<Oggetto>
+									Apertura Calendar in posizione errata per maschere lunghe
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000237</Codice>
 							</Intervento>
@@ -2094,19 +2345,25 @@
 								<Release name="Andorra" completi="3" aperti="0">
 									<Intervento>
 										<padre>00000299</padre>
-										<Oggetto>Figli di riga in layer presentano dati di altre righe</Oggetto>
+										<Oggetto>
+											Figli di riga in layer presentano dati di altre righe
+										</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000368</Codice>
 									</Intervento>
 									<Intervento>
 										<padre>00000299</padre>
-										<Oggetto>Errore javascript all'apertura di un layer da label</Oggetto>
+										<Oggetto>
+											Errore javascript all'apertura di un layer da label
+										</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000422</Codice>
 									</Intervento>
 									<Intervento>
 										<padre>00000299</padre>
-										<Oggetto>Posizione errata del layer aperto da una label in un detail</Oggetto>
+										<Oggetto>
+											Posizione errata del layer aperto da una label in un detail
+										</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000423</Codice>
 									</Intervento>
@@ -2116,7 +2373,9 @@
 								<Release name="Andorra" completi="1" aperti="0">
 									<Intervento>
 										<padre>00000299</padre>
-										<Oggetto>Autonumber erroneamente ricalcolato quando si lanciano routine</Oggetto>
+										<Oggetto>
+											Autonumber erroneamente ricalcolato quando si lanciano routine
+										</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000478</Codice>
 									</Intervento>
@@ -2126,7 +2385,9 @@
 								<Release name="Allouin_SP1" completi="1" aperti="0">
 									<Intervento>
 										<padre>00000299</padre>
-										<Oggetto>Novità nelle picture per il minuscolo ed il maiuscolo</Oggetto>
+										<Oggetto>
+											Novità nelle picture per il minuscolo ed il maiuscolo
+										</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000161</Codice>
 									</Intervento>
@@ -2136,7 +2397,9 @@
 								<Release name="Allouin_SP1" completi="1" aperti="0">
 									<Intervento>
 										<padre>00000299</padre>
-										<Oggetto>m_cDetailBehavior=select(block) non viene rispettato</Oggetto>
+										<Oggetto>
+											m_cDetailBehavior=select(block) non viene rispettato
+										</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000200</Codice>
 									</Intervento>
@@ -2146,21 +2409,23 @@
 								<Release name="Austria" completi="2" aperti="0">
 									<Intervento>
 										<padre>00000299</padre>
-										<Oggetto>Malfunzionamentio searching function</Oggetto>
-										<Stato>CO</Stato>
-										<Codice>0000000442</Codice>
-									</Intervento>
-									<Intervento>
-										<padre>00000299</padre>
 										<Oggetto>Sostituire lo zoom standard con SPPortalZoom</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000017</Codice>
+									</Intervento>
+									<Intervento>
+										<padre>00000299</padre>
+										<Oggetto>Malfunzionamentio searching function</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000442</Codice>
 									</Intervento>
 								</Release>
 								<Release name="Andorra" completi="1" aperti="0">
 									<Intervento>
 										<padre>00000299</padre>
-										<Oggetto>I link non rispettano le specifiche della searching function</Oggetto>
+										<Oggetto>
+											I link non rispettano le specifiche della searching function
+										</Oggetto>
 										<Stato>CO</Stato>
 										<Codice>0000000441</Codice>
 									</Intervento>
@@ -2172,7 +2437,9 @@
 						<Release name="" completi="0" aperti="1">
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Uso del contesto utente in routines che usano le librerie</Oggetto>
+								<Oggetto>
+									Uso del contesto utente in routines che usano le librerie
+								</Oggetto>
 								<Stato>NU</Stato>
 								<Codice>0000000390</Codice>
 							</Intervento>
@@ -2199,20 +2466,20 @@
 								<Codice>0000000557</Codice>
 							</Intervento>
 						</Release>
-						<Release name="Andorra" completi="1" aperti="0">
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Campo CPCCCHK nella tabelle di sistema cpXXXX</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000406</Codice>
-							</Intervento>
-						</Release>
 						<Release name="Azerbaijan" completi="0" aperti="1">
 							<Intervento>
 								<padre>00000029</padre>
 								<Oggetto>Sintassi creazione colonna sotto oracle</Oggetto>
 								<Stato>LA</Stato>
 								<Codice>0000000326</Codice>
+							</Intervento>
+						</Release>
+						<Release name="Andorra" completi="1" aperti="0">
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>Campo CPCCCHK nella tabelle di sistema cpXXXX</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000406</Codice>
 							</Intervento>
 						</Release>
 						<Release name="Z_WISH_RELEASE" completi="0" aperti="1">
@@ -2228,29 +2495,27 @@
 						<Release name="Austria" completi="2" aperti="0">
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Pilotaggio uscita dalla cancellazione da parte del workflow</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000585</Codice>
-							</Intervento>
-							<Intervento>
-								<padre>00000029</padre>
-								<Oggetto>Obbligatorietà workflow non applicata ad item senza cond. check</Oggetto>
+								<Oggetto>
+									Obbligatorietà workflow non applicata ad item senza cond. check
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000583</Codice>
 							</Intervento>
-						</Release>
-						<Release name="Andorra" completi="1" aperti="0">
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Nascondere - abilitare pagine e item da workflow</Oggetto>
+								<Oggetto>
+									Pilotaggio uscita dalla cancellazione da parte del workflow
+								</Oggetto>
 								<Stato>CO</Stato>
-								<Codice>0000000272</Codice>
+								<Codice>0000000585</Codice>
 							</Intervento>
 						</Release>
 						<Release name="Azerbaijan" completi="0" aperti="2">
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Pilotare dal workflow di un padre item e page dei figli</Oggetto>
+								<Oggetto>
+									Pilotare dal workflow di un padre item e page dei figli
+								</Oggetto>
 								<Stato>LA</Stato>
 								<Codice>0000000540</Codice>
 							</Intervento>
@@ -2259,6 +2524,14 @@
 								<Oggetto>Sicurezza nei passi di Workflow</Oggetto>
 								<Stato>IN</Stato>
 								<Codice>0000000559</Codice>
+							</Intervento>
+						</Release>
+						<Release name="Andorra" completi="1" aperti="0">
+							<Intervento>
+								<padre>00000029</padre>
+								<Oggetto>Nascondere - abilitare pagine e item da workflow</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000272</Codice>
 							</Intervento>
 						</Release>
 					</Feature>
@@ -2306,7 +2579,9 @@
 							</Intervento>
 							<Intervento>
 								<padre>00000029</padre>
-								<Oggetto>Tool di conversione da attuale a configurazione XML</Oggetto>
+								<Oggetto>
+									Tool di conversione da attuale a configurazione XML
+								</Oggetto>
 								<Stato>IN</Stato>
 								<Codice>0000000581</Codice>
 							</Intervento>
@@ -2340,47 +2615,31 @@
 				<Release name="Austria" completi="4" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
+						<Oggetto>
+							Errore nella generazione files java se c'è concatenazione di dati
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000454</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Valore vecchio nelle caller di  afterlogin</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000500</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
 						<Oggetto>"Code for failed" non eseguito</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000511</Codice>
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Valore vecchio nelle caller di afterlogin</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000500</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Errore in compilazione usando select in routine del tier UI</Oggetto>
+						<Oggetto>
+							Errore in compilazione usando select in routine del tier UI
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000567</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Errore nella generazione files java se c'è concatenazione di dati</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000454</Codice>
-					</Intervento>
-				</Release>
-				<Release name="Andorra" completi="2" aperti="0">
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Implementare l'item Msg per le routine client side</Oggetto>
-						<Stato>DU</Stato>
-						<Codice>0000000318</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Item Msg - LOG nelle routine client side</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000321</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Usare un item msg nelle routine client side provoca errori</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000329</Codice>
 					</Intervento>
 				</Release>
 				<Release name="Azerbaijan" completi="0" aperti="3">
@@ -2392,27 +2651,46 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
+						<Oggetto>
+							Apertura dialog da item exec di routine client side.
+						</Oggetto>
+						<Stato>WL</Stato>
+						<Codice>0000000317</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
 						<Oggetto>Esecuzione routine solo nell'interfaccia utente</Oggetto>
 						<Stato>NU</Stato>
 						<Codice>0000000574</Codice>
 					</Intervento>
+				</Release>
+				<Release name="Andorra" completi="2" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Apertura dialog da item exec di routine client side.</Oggetto>
-						<Stato>WL</Stato>
-						<Codice>0000000317</Codice>
+						<Oggetto>Implementare l'item Msg per le routine client side</Oggetto>
+						<Stato>DU</Stato>
+						<Codice>0000000318</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Item Msg - LOG  nelle routine client side</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000321</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Usare un item msg nelle routine client side provoca errori
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000329</Codice>
 					</Intervento>
 				</Release>
 				<Chids>
+					<Feature name="00000051">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
 					<Feature name="00001468">
-						<Release name="Andorra" completi="1" aperti="0">
-							<Intervento>
-								<padre>00000038</padre>
-								<Oggetto>La funzione Eof() non è true su cursori vuoti</Oggetto>
-								<Stato>CO</Stato>
-								<Codice>0000000319</Codice>
-							</Intervento>
-						</Release>
 						<Release name="Azerbaijan" completi="0" aperti="1">
 							<Intervento>
 								<padre>00000038</padre>
@@ -2421,6 +2699,17 @@
 								<Codice>0000000316</Codice>
 							</Intervento>
 						</Release>
+						<Release name="Andorra" completi="1" aperti="0">
+							<Intervento>
+								<padre>00000038</padre>
+								<Oggetto>La funzione Eof() non è true su cursori vuoti</Oggetto>
+								<Stato>CO</Stato>
+								<Codice>0000000319</Codice>
+							</Intervento>
+						</Release>
+					</Feature>
+					<Feature name="00001472">
+						<Release name="" completi="0" aperti="0"/>
 					</Feature>
 				</Chids>
 			</Feature>
@@ -2488,7 +2777,9 @@
 						<Release name="Allouin_SP1" completi="1" aperti="0">
 							<Intervento>
 								<padre>00000049</padre>
-								<Oggetto>Dimensione dell'iframe dopo messaggio di accesso negato</Oggetto>
+								<Oggetto>
+									Dimensione dell'iframe dopo messaggio di accesso negato
+								</Oggetto>
 								<Stato>CO</Stato>
 								<Codice>0000000250</Codice>
 							</Intervento>
@@ -2513,6 +2804,9 @@
 										<Codice>0000000002</Codice>
 									</Intervento>
 								</Release>
+							</Feature>
+							<Feature name="00000166">
+								<Release name="" completi="0" aperti="0"/>
 							</Feature>
 							<Feature name="00000305">
 								<Release name="Azerbaijan" completi="0" aperti="1">
@@ -2542,12 +2836,6 @@
 				<Release name="Allouin" completi="3" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Esecuzione di funzione definita in analisi esterna</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000182</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
 						<Oggetto>Esecuzione di routine definita in analisi esterna</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000079</Codice>
@@ -2557,6 +2845,12 @@
 						<Oggetto>Write nelle routine e analisi esterne</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000080</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Esecuzione di funzione definita in analisi esterna</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000182</Codice>
 					</Intervento>
 				</Release>
 				<Release name="Azerbaijan" completi="0" aperti="1">
@@ -2568,6 +2862,9 @@
 					</Intervento>
 				</Release>
 				<Chids>
+					<Feature name="00000059">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
 					<Feature name="00000060">
 						<Release name="Austria" completi="1" aperti="0">
 							<Intervento>
@@ -2577,6 +2874,23 @@
 								<Codice>0000000042</Codice>
 							</Intervento>
 						</Release>
+					</Feature>
+					<Feature name="00001452">
+						<Release name="" completi="0" aperti="0"/>
+						<Chids>
+							<Feature name="00001453">
+								<Release name="Allouin_SP1" completi="1" aperti="0">
+									<Intervento>
+										<padre>00001452</padre>
+										<Oggetto>
+											Anomalia inizializzazione variabili globali nel PLAN
+										</Oggetto>
+										<Stato>CO</Stato>
+										<Codice>0000000256</Codice>
+									</Intervento>
+								</Release>
+							</Feature>
+						</Chids>
 					</Feature>
 				</Chids>
 			</Feature>
@@ -2608,12 +2922,26 @@
 				<Release name="Allouin_SP1" completi="1" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Copia dei file VRP al cambio di tipo applicazione in Large</Oggetto>
+						<Oggetto>
+							Copia dei file VRP al cambio di tipo applicazione in Large
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000251</Codice>
 					</Intervento>
 				</Release>
 				<Chids>
+					<Feature name="00000161">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
+					<Feature name="00000162">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
+					<Feature name="00000163">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
+					<Feature name="00000165">
+						<Release name="" completi="0" aperti="0"/>
+					</Feature>
 					<Feature name="00001464">
 						<Release name="Allouin_SP1" completi="1" aperti="0">
 							<Intervento>
@@ -2636,7 +2964,9 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>La page non rispetta l'indicazione di close(&amp;reload)</Oggetto>
+						<Oggetto>
+							La page non rispetta l'indicazione di close(&amp;reload)
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000524</Codice>
 					</Intervento>
@@ -2668,47 +2998,27 @@
 				<Release name="Austria" completi="3" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Visualizzazione delle apici codificati nelle VQR nei routine</Oggetto>
+						<Oggetto>
+							Visualizzazione delle apici codificati nelle VQR nei routine
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000391</Codice>
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Item-&gt;Find non cerca all'interno degli oggetti check</Oggetto>
+						<Oggetto>
+							Item-&gt;Find non cerca all'interno degli oggetti check
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000456</Codice>
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Punti di ricerca della funzionalità FIND nei disegnatori</Oggetto>
+						<Oggetto>
+							Punti di ricerca della funzionalità FIND nei disegnatori
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000519</Codice>
-					</Intervento>
-				</Release>
-				<Release name="Andorra" completi="4" aperti="0">
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Select All nei detail causa errore</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000385</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Problema in generazione BR nel caso di paths contenente spazi</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000419</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Path Run Server Configuration non riconosciuto</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000415</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Visualizzazione dei box</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000065</Codice>
 					</Intervento>
 				</Release>
 				<Release name="Azerbaijan" completi="0" aperti="2">
@@ -2725,23 +3035,51 @@
 						<Codice>0000000537</Codice>
 					</Intervento>
 				</Release>
-				<Release name="Z_WISH_RELEASE" completi="0" aperti="2">
+				<Release name="Andorra" completi="4" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Espressioni padre.figlio... nelle routine</Oggetto>
-						<Stato>NU</Stato>
-						<Codice>0000000343</Codice>
+						<Oggetto>Visualizzazione dei box</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000065</Codice>
 					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Select All nei detail causa errore</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000385</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Path Run Server Configuration non riconosciuto</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000415</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Problema in generazione BR nel caso di paths contenente spazi
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000419</Codice>
+					</Intervento>
+				</Release>
+				<Release name="Z_WISH_RELEASE" completi="0" aperti="2">
 					<Intervento>
 						<padre>00000001</padre>
 						<Oggetto>Caption nei box</Oggetto>
 						<Stato>NU</Stato>
 						<Codice>0000000064</Codice>
 					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Espressioni padre.figlio... nelle routine</Oggetto>
+						<Stato>NU</Stato>
+						<Codice>0000000343</Codice>
+					</Intervento>
 				</Release>
 			</Feature>
 			<Feature name="00001466">
-				<Release name="Austria" completi="3" aperti="3">
+				<Release name="Austria" completi="5" aperti="1">
 					<Intervento>
 						<padre>00000001</padre>
 						<Oggetto>Picklist assente con percorso con carattere '/'</Oggetto>
@@ -2750,20 +3088,8 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Nuovo decoratore toolbar</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000586</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Riga selezionata nella Grid</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000562</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
 						<Oggetto>Classi CSS predefinite per Memo e Bottoni</Oggetto>
-						<Stato>TE</Stato>
+						<Stato>CO</Stato>
 						<Codice>0000000554</Codice>
 					</Intervento>
 					<Intervento>
@@ -2774,17 +3100,21 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Skin di default in una nuova applicazione</Oggetto>
-						<Stato>IN</Stato>
-						<Codice>0000000592</Codice>
+						<Oggetto>Riga selezionata nella Grid</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000562</Codice>
 					</Intervento>
-				</Release>
-				<Release name="Andorra" completi="1" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Percorso immagini sbagliato nel CSS dello skin</Oggetto>
+						<Oggetto>Nuovo decoratore toolbar</Oggetto>
 						<Stato>CO</Stato>
-						<Codice>0000000409</Codice>
+						<Codice>0000000586</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Skin di default in una nuova applicazione</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000592</Codice>
 					</Intervento>
 				</Release>
 				<Release name="Azerbaijan" completi="0" aperti="1">
@@ -2793,6 +3123,14 @@
 						<Oggetto>Dimensione per i font nelle griglie del skin</Oggetto>
 						<Stato>IN</Stato>
 						<Codice>0000000050</Codice>
+					</Intervento>
+				</Release>
+				<Release name="Andorra" completi="1" aperti="0">
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>Percorso immagini sbagliato nel CSS dello skin</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000409</Codice>
 					</Intervento>
 				</Release>
 				<Release name="Allouin_SP1" completi="2" aperti="0">
@@ -2804,7 +3142,9 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Creazione dei CSS per proprietà riguardanti immagini</Oggetto>
+						<Oggetto>
+							Creazione dei CSS per proprietà riguardanti immagini
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000296</Codice>
 					</Intervento>
@@ -2814,7 +3154,9 @@
 				<Release name="Austria" completi="3" aperti="0">
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>La traduzione non tiene conto delle tabelle aziendali</Oggetto>
+						<Oggetto>
+							La traduzione non tiene conto delle tabelle aziendali
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000353</Codice>
 					</Intervento>
@@ -2850,21 +3192,27 @@
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Caller/globali in page/dialog inizializzate a blank</Oggetto>
+						<Oggetto>
+							Variabili locali di dialog e page valorizzate dopo l'OK
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000497</Codice>
+					</Intervento>
+					<Intervento>
+						<padre>00000001</padre>
+						<Oggetto>
+							Caller/globali in page/dialog inizializzate a blank
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000561</Codice>
 					</Intervento>
 					<Intervento>
 						<padre>00000001</padre>
-						<Oggetto>Variabili locali di dialog e page non valorizzabili da bottone</Oggetto>
+						<Oggetto>
+							Variabili locali di dialog e page non valorizzabili da bottone
+						</Oggetto>
 						<Stato>CO</Stato>
 						<Codice>0000000564</Codice>
-					</Intervento>
-					<Intervento>
-						<padre>00000001</padre>
-						<Oggetto>Variabili locali di dialog e page valorizzate dopo l'OK</Oggetto>
-						<Stato>CO</Stato>
-						<Codice>0000000497</Codice>
 					</Intervento>
 				</Release>
 			</Feature>
@@ -2874,9 +3222,9 @@
 		<Release name="Allouin" completi="3" aperti="0">
 			<Intervento>
 				<padre/>
-				<Oggetto>Iframe e superzoom in firefox scroll infinito</Oggetto>
+				<Oggetto>JSPReader.java -&gt; Errore in apertura file</Oggetto>
 				<Stato>CO</Stato>
-				<Codice>0000000089</Codice>
+				<Codice>0000000007</Codice>
 			</Intervento>
 			<Intervento>
 				<padre/>
@@ -2886,23 +3234,23 @@
 			</Intervento>
 			<Intervento>
 				<padre/>
-				<Oggetto>JSPReader.java -&gt; Errore in apertura file</Oggetto>
+				<Oggetto>Iframe e superzoom in firefox scroll infinito</Oggetto>
 				<Stato>CO</Stato>
-				<Codice>0000000007</Codice>
+				<Codice>0000000089</Codice>
 			</Intervento>
 		</Release>
 		<Release name="Andorra" completi="2" aperti="0">
 			<Intervento>
 				<padre/>
-				<Oggetto>Chiusura di un editor</Oggetto>
-				<Stato>CO</Stato>
-				<Codice>0000000134</Codice>
-			</Intervento>
-			<Intervento>
-				<padre/>
 				<Oggetto>Parametri server side a risorsa incl. client side</Oggetto>
 				<Stato>CO</Stato>
 				<Codice>0000000045</Codice>
+			</Intervento>
+			<Intervento>
+				<padre/>
+				<Oggetto>Chiusura di un editor</Oggetto>
+				<Stato>CO</Stato>
+				<Codice>0000000134</Codice>
 			</Intervento>
 		</Release>
 		<Release name="" completi="0" aperti="0">
@@ -2956,6 +3304,9 @@
 			</Intervento>
 		</Release>
 	</Feature>
+	<Feature name="00000013">
+		<Release name="" completi="0" aperti="0"/>
+	</Feature>
 	<Feature name="00000014">
 		<Release name="Andorra" completi="1" aperti="0">
 			<Intervento>
@@ -2968,10 +3319,92 @@
 		<Release name="Allouin_SP1" completi="1" aperti="0">
 			<Intervento>
 				<padre/>
-				<Oggetto>Non analizza i programmi con il nome più lungo di 50 caratteri</Oggetto>
+				<Oggetto>
+					Non analizza i programmi con il nome più lungo di 50 caratteri
+				</Oggetto>
 				<Stato>CO</Stato>
 				<Codice>0000000298</Codice>
 			</Intervento>
 		</Release>
+	</Feature>
+	<Feature name="00000089">
+		<Release name="" completi="0" aperti="0"/>
+		<Chids>
+			<Feature name="00000090">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000091">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000092">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000094">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000095">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000096">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000097">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000098">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000099">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000100">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000101">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000102">
+				<Release name="Allouin_SP1" completi="1" aperti="0">
+					<Intervento>
+						<padre>00000089</padre>
+						<Oggetto>
+							Area man. "UI - OnLoad End" non era l'ultima dell'evento onload
+						</Oggetto>
+						<Stato>CO</Stato>
+						<Codice>0000000292</Codice>
+					</Intervento>
+				</Release>
+			</Feature>
+			<Feature name="00000103">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000104">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000105">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000107">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000148">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000149">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000150">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000151">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000152">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+			<Feature name="00000158">
+				<Release name="" completi="0" aperti="0"/>
+			</Feature>
+		</Chids>
 	</Feature>
 </root>
