@@ -18,20 +18,20 @@
 	<xsl:template name="recursive">
 		<xsl:param name="index"/>
 		<xsl:param name="list"/>
+		<xsl:variable name="padre" select="$list[$index]"/>
 		<xsl:element name="Feature">
-			<xsl:attribute name="name" select="$list[$index]"/>
+			<xsl:attribute name="name" select="$padre"/>
 			<xsl:call-template name="IntRelease">
 				<xsl:with-param name="index" select="1"/>
-				<xsl:with-param name="feature" select="$list[$index]"/>
+				<xsl:with-param name="feature" select="$padre"/>
 			</xsl:call-template>
-			<xsl:if test="not(empty(//RECORD[FIELD[@NAME='Codice padre']=$list[$index] and
-				string(FIELD[@NAME='Codice'])]))">
+			<xsl:if test="not(empty(//RECORD[FIELD[@NAME='Codice padre']=$padre]))">
 				<xsl:element name="Chids">
 					<xsl:call-template name="recursive">
 						<xsl:with-param name="index" select="1"/>
 						<!-- list deve essere la lista delle features con padre $FeatRoot[$index]-->
 						<xsl:with-param name="list" select="distinct-values(//RECORD[
-							FIELD[@NAME='Codice padre']=$list[$index]]/FIELD[@NAME='Feature'])"/>
+							FIELD[@NAME='Codice padre']=$padre]/FIELD[@NAME='Feature'])"/>
 					</xsl:call-template>
 				</xsl:element>
 			</xsl:if>
@@ -51,25 +51,16 @@
 		<!-- scorri gli interventi stampandoli per release -->
 		<xsl:if test="not(empty((index-of(
 			//RECORD[FIELD[@NAME='Feature']=$feature]/FIELD[@NAME='Release'],$release[$index]))))">
+			<xsl:variable name="Interventi" select="//RECORD[
+				FIELD[@NAME='Feature']=$feature and 
+				FIELD[@NAME='Release']=$release[$index] and
+				string(FIELD[@NAME='Oggetto'])]"/>
 			<xsl:element name="Release">
 				<xsl:attribute name="name" select="$release[$index]"/>
-				<xsl:attribute name="completi" select="count(
-					//RECORD[
-					FIELD[@NAME='Feature']=$feature and 
-					FIELD[@NAME='Release']=$release[$index] and
-					string(FIELD[@NAME='Oggetto']) and
-					FIELD[@NAME='Stato della lavorazione']='CO'])"/>
-				<xsl:attribute name="aperti" select="count(
-					//RECORD[
-					FIELD[@NAME='Feature']=$feature and 
-					FIELD[@NAME='Release']=$release[$index] and
-					string(FIELD[@NAME='Oggetto']) and
-					FIELD[@NAME='Stato della lavorazione']=('NU','IN','WL','LA','TE')])"/>
+				<xsl:attribute name="completi" select="count($Interventi[FIELD[@NAME='Stato della lavorazione']=('CO')])"/>
+				<xsl:attribute name="aperti" select="count($Interventi[FIELD[@NAME='Stato della lavorazione']=('NU','IN','WL','LA','TE')])"/>
 				
-				<xsl:for-each select="//RECORD[
-						FIELD[@NAME='Feature']=$feature and 
-						FIELD[@NAME='Release']=$release[$index] 
-						and string(FIELD[@NAME='Codice'])]">
+				<xsl:for-each select="$Interventi">
 					<xsl:call-template name="printIntervento"/>	
 				</xsl:for-each>
 			</xsl:element>

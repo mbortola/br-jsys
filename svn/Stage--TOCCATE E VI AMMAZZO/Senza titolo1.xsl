@@ -35,6 +35,7 @@
         <xsl:param name="val"/>
                     <xsl:if test="empty(//RECORD[FIELD[@NAME='Features di riferimento']=$val])">
                         <xsl:element name="NO">
+                            <xsl:attribute name="quanti" select="count(//RECORD[FIELD[@NAME='padre']=$val])"/>
                             <xsl:value-of select="$val"/>
                         </xsl:element>
                     </xsl:if>
