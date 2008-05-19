@@ -17,7 +17,8 @@
 			<FIELD NAME="Release" SIZE="15" TYPE="C">Allouin</FIELD>
 			<FIELD NAME="Stato della lavorazione" SIZE="2" TYPE="C">CO</FIELD>
 			<FIELD NAME="Oggetto" SIZE="65" TYPE="C">Warning di compilazione</FIELD>
-		</RECORD><RECORD>
+		</RECORD>
+		<RECORD>
 			<FIELD NAME="Feature" SIZE="8" TYPE="C">00000001</FIELD>
 			<FIELD NAME="Titolo" SIZE="65" TYPE="C">SitePainter</FIELD>
 			<FIELD NAME="Codice padre" SIZE="8" TYPE="C"/>
