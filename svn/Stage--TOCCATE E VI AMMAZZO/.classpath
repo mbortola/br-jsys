@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path=""/>
+	<classpathentry kind="src" output="bin" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/xalan-j_2_7_1-bin/xalan-j_2_7_1/xml-apis.jar"/>
 	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/xalan-j_2_7_1-bin/xalan-j_2_7_1/serializer.jar"/>
 	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/xalan-j_2_7_1-bin/xalan-j_2_7_1/xalan.jar"/>
 	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/xalan-j_2_7_1-bin/xalan-j_2_7_1/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/saxonb9-0-0-4j/saxon9.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/saxonb9-0-0-4j/saxon9-ant.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/saxonb9-0-0-4j/saxon9-dom4j.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/saxonb9-0-0-4j/saxon9-dom.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/saxonb9-0-0-4j/saxon9-jdom.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/saxonb9-0-0-4j/saxon9-s9api.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/saxonb9-0-0-4j/saxon9-sql.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/saxonb9-0-0-4j/saxon9-xom.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/saxonb9-0-0-4j/saxon9-xpath.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/saxonb9-0-0-4j/saxon9-xqj.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/jaxp-1_4_2-20070530/lib/jaxp-api.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/Desktop/jaxp-1_4_2-20070530/lib/jaxp-ri.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

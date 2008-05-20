@@ -25,13 +25,14 @@
 				<xsl:with-param name="index" select="1"/>
 				<xsl:with-param name="feature" select="$padre"/>
 			</xsl:call-template>
-			<xsl:if test="not(empty(//RECORD[FIELD[@NAME='Codice padre']=$padre]))">
+			<xsl:variable name="subFeatures" select="//RECORD[FIELD[@NAME='Codice padre']=$padre]"/>
+			<!-- test per vedere se ho sottorecord, evita la ricorsione infinita -->
+			<xsl:if test="not(empty($subFeatures))">
 				<xsl:element name="Chids">
 					<xsl:call-template name="recursive">
 						<xsl:with-param name="index" select="1"/>
 						<!-- list deve essere la lista delle features con padre $FeatRoot[$index]-->
-						<xsl:with-param name="list" select="distinct-values(//RECORD[
-							FIELD[@NAME='Codice padre']=$padre]/FIELD[@NAME='Feature'])"/>
+						<xsl:with-param name="list" select="distinct-values($subFeatures/FIELD[@NAME='Feature'])"/>
 					</xsl:call-template>
 				</xsl:element>
 			</xsl:if>
@@ -43,14 +44,14 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
-
+	
 	<xsl:template name="IntRelease">
 		<!-- index e' l'indice della release e feature l'indice della feature -->
 		<xsl:param name="index"/>
 		<xsl:param name="feature"/>
 		<!-- scorri gli interventi stampandoli per release -->
-		<xsl:if test="not(empty((index-of(
-			//RECORD[FIELD[@NAME='Feature']=$feature]/FIELD[@NAME='Release'],$release[$index]))))">
+		<!-- test per vedere se per questa release esistono feature -->
+		<xsl:if test="some $i in //RECORD satisfies $i[FIELD[@NAME='Feature']=$feature]/FIELD[@NAME='Release']=$release[$index] ">
 			<xsl:variable name="Interventi" select="//RECORD[
 				FIELD[@NAME='Feature']=$feature and 
 				FIELD[@NAME='Release']=$release[$index] and
@@ -60,9 +61,9 @@
 				<xsl:attribute name="completi" select="count($Interventi[FIELD[@NAME='Stato della lavorazione']=('CO')])"/>
 				<xsl:attribute name="aperti" select="count($Interventi[FIELD[@NAME='Stato della lavorazione']=('NU','IN','WL','LA','TE')])"/>
 				
-				<xsl:for-each select="$Interventi">
+				<!--<xsl:for-each select="$Interventi">
 					<xsl:call-template name="printIntervento"/>	
-				</xsl:for-each>
+					</xsl:for-each>-->
 			</xsl:element>
 		</xsl:if>
 		<xsl:if test="not(empty($release[$index+1]))">
@@ -73,7 +74,7 @@
 		</xsl:if>
 	</xsl:template>
 	
-	
+	<!-- stampa gli interventi.....non so se serva -->
 	<xsl:template name="printIntervento" match="RECORD">
 		<xsl:element name="Intervento">
 			<xsl:element name="padre">
