@@ -3,7 +3,7 @@
 	<xsl:output method='xml' indent="yes"/>
 	
 	<!-- Mi mancano dei valori per esempio perche' manca la radice 00000067 -->
-	<xsl:variable name="release" select="distinct-values(//Release/@name)"/>
+	<xsl:variable name="release" select="(//Release/@name)"/>
 	<!-- tutte le feature radici -->
 	<xsl:variable name="RootFeat" select="/root/Feature/@name"/>
 	
@@ -24,7 +24,9 @@
 	<xsl:template name="root">
 		<xsl:param name="index"/>
 		<xsl:element name="Release">
-			<xsl:attribute name="name" select="$release[$index]"/>
+			<xsl:attribute name="name">
+				<xsl:value-of select="$release[$index]"/>
+			</xsl:attribute>
 			<xsl:call-template name="base">
 				<xsl:with-param name="rel" select="$release[$index]"/>
 				<xsl:with-param name="node" select="root/Feature"/>

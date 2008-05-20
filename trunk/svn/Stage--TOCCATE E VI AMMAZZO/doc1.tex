@@ -74,5 +74,16 @@ Supporta i tipi di dato basilari (integer, double, char, string, array, null) e 
 La struttura base di un oggetto JSON e' composta da una sequenza non ordinata di coppie nome-valore, nal caso di rappresentazione di un array invece abbiamo soltanto una sequenza ordinata di soli valori.
 \section{Xalan}
 Xalan e' uno strumento che consente di effettuare trasformate XSL in ambiente JAVA appoggiandosi a SAX e a DOM, e' un servizio fornito da Apache.
+
+\chapter{Lavorare con XSL}
+Realizzare XSL e' un operazione che puo' far storcere il naso ad alcuni programmatori.
+La verbosita' tipica di XML nonche' il rigore nella definizione dei vari elementi puo' renedere di difficile comprensione il foglio di stile prodotto.
+Molto spesso il file XML da trasformare puo' avere una struttura che difficilmente si presta ad una elaborazione tramite le funzioni XPATH.
+Puo' risultare difficile riuscire a completare il foglio di stile dovendo sempre considerare il contesto nel quale si opera, per esempio, iterare tramite un for-each su una semplice lista di item ti fa uscire dal contesto del XML di input, ossia se dentro il ciclo for-each volessi fare una qualche espressione riguerdante il mio documento XML non ci riuscirei dato che nel ciclo il contensto e' cambiato, dunque molto spesso per iterare si devono utilizzare altre strade, come la chiamata di template con parametri indice.
+E' inoltre da considerare il fatto che e' possibile definire funzioni vere e proprie, ossia che siano anche in grado di ritornare qualche parametro, solo a partire da XSL 2.0, non implementata da molti formnitori di motori XSL. attualmente l'unico processore gratuito che lo supporta e che consente di sviluppare applicazioni java e' Saxon9B.
+Quest'ultimo supporta appunto XSLT 2.0, nonche' Xpath 2.0 e XQuery 1.0, non supporta pero' XML Schema, dunque tutte le funzionalita' sul type checking non sono applicabili, per avere il supporto ad XML Schema 1.0 si deve possedere il processore Saxon SA 9 , ma e' a pagamento. 
+
+Cio' che servirebbe sarebbe un modo per evitare di scrivere direttamente il foglio di stile definendo un metalinguaggio che una volta compilato costruisse in automatico l'XSL voluto.
+Per fare questo 
 \chapter{Riferimenti}
 \end{document}
