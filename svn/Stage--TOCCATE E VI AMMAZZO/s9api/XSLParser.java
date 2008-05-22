@@ -8,6 +8,7 @@ import net.sf.saxon.s9api.*;
 
 public class XSLParser {
 
+	/**Applica una doppia trasformazione XSL ad un XML usando le librerie s9api di saxon*/
 	public void run() throws SaxonApiException {
 		Processor proc = new Processor(false);
 		XsltCompiler comp = proc.newXsltCompiler();
@@ -19,7 +20,7 @@ public class XSLParser {
 		Serializer out = new Serializer();
 		
         out.setOutputProperty(Serializer.Property.METHOD, "xml");
-        out.setOutputProperty(Serializer.Property.INDENT, "yes");
+       // out.setOutputProperty(Serializer.Property.INDENT, "yes");
         out.setOutputFile(new File("result.xml"));
 						        
 		XsltTransformer trans = first.load(),trans2=last.load();

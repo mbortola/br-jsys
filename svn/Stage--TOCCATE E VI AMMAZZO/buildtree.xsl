@@ -63,7 +63,7 @@
 				
 				<!--<xsl:for-each select="$Interventi">
 					<xsl:call-template name="printIntervento"/>	
-					</xsl:for-each>-->
+				</xsl:for-each>-->
 			</xsl:element>
 		</xsl:if>
 		<xsl:if test="not(empty($release[$index+1]))">
