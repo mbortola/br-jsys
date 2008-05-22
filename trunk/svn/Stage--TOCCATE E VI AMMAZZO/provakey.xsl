@@ -9,17 +9,21 @@
 	
 	<xsl:template match="/">
 		<root>
-			<xsl:apply-templates select="root/Features/key('padre','')"/>
+			<xsl:apply-templates select="key('padre','')"/>
 		</root>
 	</xsl:template>
 	
 	<xsl:template match="Feature">
-		<Feature name='{@name}'>
-			<xsl:for-each select="(1,2,3)">
-				<Childs>
-					<xsl:apply-templates select="key('padre',@name)"/>				
-				</Childs>
-			</xsl:for-each>
+		<xsl:variable name="name" select="@name"/>
+		<Feature name='{$name}'>
+			<xsl:for-each-group select="//Intervento[Feature=$name]" group-by="Release">
+				<Release name='{current-grouping-key()}' 
+					completi='{count(current-group()[Stato="CO"])}'
+					aperti="{count(current-group()[Stato=('NU','IN','WL','LA','TE')])}"/>
+			</xsl:for-each-group>
+			<Childs>
+				<xsl:apply-templates select="key('padre',@name)"/>
+			</Childs>
 		</Feature>
 	</xsl:template>
 	
