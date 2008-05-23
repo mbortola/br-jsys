@@ -28,7 +28,7 @@ public class SimpleJaxp {
 
 //		Following is needed to ensure Saxon recognizes the JAXP-defined processing instructions
 		tf.setAttribute(FeatureKeys.USE_PI_DISABLE_OUTPUT_ESCAPING, Boolean.TRUE);
-		tf.setAttribute(FeatureKeys., "2");
+
 		
 	}
 	/**
