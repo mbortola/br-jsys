@@ -22,11 +22,11 @@ public class XSLParser {
             Source source = new DOMSource(doc);
     
             // Prepare the output file
-            File file = new File(filename);
+            //File file = new File(filename);
             
-            file.createNewFile();
+            //file.createNewFile();
             
-            Result result = new StreamResult(file);
+            Result result = new StreamResult(System.out);
     
             // Write the DOM document to the file
             Transformer xformer = TransformerFactory.newInstance().newTransformer();
@@ -35,10 +35,7 @@ public class XSLParser {
         	e.printStackTrace();
         } catch (TransformerException e) {
         	e.printStackTrace();
-        } catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        }
     }
     
 	/**Applica una doppia trasformazione XSL ad un XML usando le librerie s9api di saxon*/
@@ -55,7 +52,7 @@ public class XSLParser {
 		
         out.setOutputProperty(Serializer.Property.METHOD, "xml");
         out.setOutputProperty(Serializer.Property.INDENT, "yes");
-        out.setOutputFile(new File("result.xml"));
+        out.setOutputFile(new File("data.xml"));
 						        
 		XsltTransformer trans = first.load(),trans2=last.load();
 		trans.setInitialContextNode(source);
@@ -67,8 +64,7 @@ public class XSLParser {
 		long inizio=System.currentTimeMillis();
 		trans.transform();
 		Long fine=System.currentTimeMillis()-inizio;
-		
-		
+				
 		System.err.println("finito! Tempo="+fine+" millisecondi");
 	}
 
