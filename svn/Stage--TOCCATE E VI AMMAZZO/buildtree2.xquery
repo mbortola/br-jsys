@@ -2,10 +2,11 @@
 
 declare variable $doc:=doc("1file.xml");
 
+
 declare variable $release:= distinct-values(doc("1file.xml")//Release);
 
 declare function local:interventi($int as element()+)as element()+{
-    for $i in $release
+    for $i in distinct-values($int/Release)
     let $rel := $int[Release=$i]
     return 
         if($rel)
@@ -21,7 +22,6 @@ declare function local:root($root as xs:string) as element(){
 	if($int) 
 		then(local:interventi($int)) 
 		else(),
-
         let $childs := $doc//Feature[@padre=$root]
         return 
 	if($childs)
