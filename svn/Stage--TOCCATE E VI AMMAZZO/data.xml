@@ -1,11 +1,568 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<cars>
-	<car manufacturer="Mazda" owner="Jason" />
-	<car manufacturer="Opel" owner="Teemu" />
-	<car manufacturer="Toyota" owner="Thomas" />
-	<car manufacturer="Opel" owner="Henry" />
-	<car manufacturer="Daimler" owner="Mika" />
-	<car manufacturer="Toyota" owner="Colt" />
-	<car manufacturer="Toyota" owner="Teemu" />
-	<car manufacturer="Daimler" owner="Jason" />
-</cars>
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <Release name="Allouin">
+      <Feature name="00000001" completi="80" aperti="0">
+         <Feature name="00000015" completi="13" aperti="0">
+            <Feature name="00000016" completi="1" aperti="0"/>
+            <Feature name="00000018" completi="5" aperti="0">
+               <Feature name="00000140" completi="1" aperti="0"/>
+               <Feature name="00000157" completi="3" aperti="0"/>
+            </Feature>
+         </Feature>
+         <Feature name="00000023" completi="9" aperti="0">
+            <Feature name="00000064" completi="3" aperti="0"/>
+            <Feature name="00000317" completi="1" aperti="0"/>
+            <Feature name="00000319" completi="1" aperti="0"/>
+         </Feature>
+         <Feature name="00000029" completi="37" aperti="0">
+            <Feature name="00000004" completi="27" aperti="0">
+               <Feature name="00000006" completi="6" aperti="0"/>
+               <Feature name="00000020" completi="9" aperti="0">
+                  <Feature name="00000021" completi="2" aperti="0">
+                     <Feature name="00000647" completi="1" aperti="0"/>
+                  </Feature>
+                  <Feature name="00000068" completi="6" aperti="0"/>
+               </Feature>
+               <Feature name="00000026" completi="6" aperti="0">
+                  <Feature name="00000046" completi="6" aperti="0">
+                     <Feature name="00000294" completi="3" aperti="0"/>
+                     <Feature name="00000295" completi="2" aperti="0"/>
+                  </Feature>
+               </Feature>
+               <Feature name="00000047" completi="2" aperti="0"/>
+            </Feature>
+            <Feature name="00000024" completi="3" aperti="0">
+               <Feature name="00000159" completi="1" aperti="0"/>
+            </Feature>
+            <Feature name="00000033" completi="1" aperti="0"/>
+            <Feature name="00000061" completi="2" aperti="0">
+               <Feature name="00000164" completi="1" aperti="0"/>
+            </Feature>
+            <Feature name="00000084" completi="1" aperti="0">
+               <Feature name="00000085" completi="1" aperti="0"/>
+            </Feature>
+            <Feature name="00000299" completi="2" aperti="0">
+               <Feature name="00000300" completi="1" aperti="0"/>
+            </Feature>
+         </Feature>
+         <Feature name="00000038" completi="2" aperti="0"/>
+         <Feature name="00000049" completi="6" aperti="0">
+            <Feature name="00000003" completi="6" aperti="0">
+               <Feature name="00000002" completi="1" aperti="0"/>
+               <Feature name="00000005" completi="1" aperti="0"/>
+            </Feature>
+         </Feature>
+         <Feature name="00000058" completi="3" aperti="0"/>
+         <Feature name="00000160" completi="1" aperti="0"/>
+         <Feature name="00000475" completi="1" aperti="0"/>
+      </Feature>
+      <Feature name="00000007" completi="57" aperti="0">
+         <Feature name="00000067" completi="54" aperti="0">
+            <Feature name="00000034" completi="5" aperti="0">
+               <Feature name="00001122" completi="5" aperti="0">
+                  <Feature name="00001123" completi="1" aperti="0">
+                     <Feature name="00001128" completi="1" aperti="0"/>
+                  </Feature>
+                  <Feature name="00001136" completi="2" aperti="0">
+                     <Feature name="00001146" completi="1" aperti="0">
+                        <Feature name="00001153" completi="1" aperti="0"/>
+                     </Feature>
+                     <Feature name="00001158" completi="1" aperti="0"/>
+                  </Feature>
+               </Feature>
+            </Feature>
+            <Feature name="00000053" completi="2" aperti="0">
+               <Feature name="00001288" completi="1" aperti="0">
+                  <Feature name="00001313" completi="1" aperti="0"/>
+               </Feature>
+            </Feature>
+            <Feature name="00000071" completi="2" aperti="0"/>
+            <Feature name="00000180" completi="44" aperti="0">
+               <Feature name="00000181" completi="1" aperti="0">
+                  <Feature name="00000182" completi="1" aperti="0"/>
+               </Feature>
+               <Feature name="00000216" completi="35" aperti="0">
+                  <Feature name="00000008" completi="20" aperti="0">
+                     <Feature name="00000030" completi="1" aperti="0"/>
+                     <Feature name="00000036" completi="1" aperti="0"/>
+                     <Feature name="00000521" completi="11" aperti="0">
+                        <Feature name="00000009" completi="6" aperti="0"/>
+                        <Feature name="00000572" completi="3" aperti="0">
+                           <Feature name="00000048" completi="2" aperti="0"/>
+                        </Feature>
+                        <Feature name="00000576" completi="1" aperti="0"/>
+                        <Feature name="00000588" completi="1" aperti="0"/>
+                     </Feature>
+                     <Feature name="00000589" completi="2" aperti="0">
+                        <Feature name="00000623" completi="1" aperti="0"/>
+                        <Feature name="00000624" completi="1" aperti="0"/>
+                     </Feature>
+                     <Feature name="00000590" completi="1" aperti="0">
+                        <Feature name="00000303" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000219" completi="1" aperti="0"/>
+                  <Feature name="00000260" completi="3" aperti="0">
+                     <Feature name="00000261" completi="3" aperti="0">
+                        <Feature name="00000277" completi="1" aperti="0"/>
+                        <Feature name="00000279" completi="1" aperti="0"/>
+                        <Feature name="00000440" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000348" completi="2" aperti="0">
+                     <Feature name="00000349" completi="2" aperti="0">
+                        <Feature name="00000360" completi="1" aperti="0"/>
+                        <Feature name="00000493" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000441" completi="1" aperti="0">
+                     <Feature name="00000442" completi="1" aperti="0">
+                        <Feature name="00000477" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000704" completi="4" aperti="0">
+                     <Feature name="00000705" completi="2" aperti="0">
+                        <Feature name="00000714" completi="1" aperti="0"/>
+                        <Feature name="00000719" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+               </Feature>
+               <Feature name="00000820" completi="8" aperti="0">
+                  <Feature name="00000472" completi="3" aperti="0"/>
+                  <Feature name="00000906" completi="5" aperti="0">
+                     <Feature name="00000907" completi="2" aperti="0">
+                        <Feature name="00000924" completi="1" aperti="0"/>
+                        <Feature name="00000928" completi="1" aperti="0"/>
+                     </Feature>
+                     <Feature name="00000931" completi="1" aperti="0">
+                        <Feature name="00000318" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+               </Feature>
+            </Feature>
+            <Feature name="00001076" completi="1" aperti="0">
+               <Feature name="00001107" completi="1" aperti="0">
+                  <Feature name="00001120" completi="1" aperti="0"/>
+               </Feature>
+            </Feature>
+         </Feature>
+      </Feature>
+      <Feature name="00000012" completi="1" aperti="0"/>
+   </Release>
+   <Release name="Austria">
+      <Feature name="00000001" completi="83" aperti="27">
+         <Feature name="00000015" completi="8" aperti="9">
+            <Feature name="00000018" completi="1" aperti="1"/>
+            <Feature name="00000156" completi="1" aperti="2"/>
+            <Feature name="00000625" completi="2" aperti="0"/>
+         </Feature>
+         <Feature name="00000023" completi="12" aperti="1">
+            <Feature name="00000063" completi="1" aperti="0"/>
+            <Feature name="00001480" completi="2" aperti="0"/>
+            <Feature name="00001483" completi="1" aperti="0"/>
+            <Feature name="00001502" completi="1" aperti="0"/>
+         </Feature>
+         <Feature name="00000029" completi="27" aperti="12">
+            <Feature name="00000004" completi="13" aperti="9">
+               <Feature name="00000006" completi="9" aperti="4"/>
+               <Feature name="00000020" completi="1" aperti="1">
+                  <Feature name="00000021" completi="0" aperti="1"/>
+                  <Feature name="00000068" completi="1" aperti="0"/>
+               </Feature>
+               <Feature name="00000026" completi="1" aperti="3">
+                  <Feature name="00000046" completi="0" aperti="1">
+                     <Feature name="00000294" completi="0" aperti="1"/>
+                  </Feature>
+               </Feature>
+            </Feature>
+            <Feature name="00000024" completi="1" aperti="0"/>
+            <Feature name="00000033" completi="0" aperti="1">
+               <Feature name="00000043" completi="0" aperti="1"/>
+            </Feature>
+            <Feature name="00000061" completi="1" aperti="0">
+               <Feature name="00000062" completi="1" aperti="0"/>
+            </Feature>
+            <Feature name="00000084" completi="0" aperti="1"/>
+            <Feature name="00000299" completi="7" aperti="1">
+               <Feature name="00001482" completi="2" aperti="0"/>
+            </Feature>
+            <Feature name="00000509" completi="3" aperti="0"/>
+            <Feature name="00001455" completi="2" aperti="0"/>
+         </Feature>
+         <Feature name="00000038" completi="4" aperti="0"/>
+         <Feature name="00000049" completi="2" aperti="0">
+            <Feature name="00000003" completi="1" aperti="0"/>
+         </Feature>
+         <Feature name="00000058" completi="1" aperti="0">
+            <Feature name="00000060" completi="1" aperti="0"/>
+         </Feature>
+         <Feature name="00000160" completi="1" aperti="0"/>
+         <Feature name="00000311" completi="2" aperti="0"/>
+         <Feature name="00000475" completi="3" aperti="0"/>
+         <Feature name="00001466" completi="5" aperti="1"/>
+         <Feature name="00001469" completi="3" aperti="0"/>
+         <Feature name="00001471" completi="4" aperti="0"/>
+      </Feature>
+      <Feature name="00000007" completi="10" aperti="8">
+         <Feature name="00000067" completi="10" aperti="8">
+            <Feature name="00000034" completi="1" aperti="0"/>
+            <Feature name="00000180" completi="6" aperti="8">
+               <Feature name="00000216" completi="6" aperti="5">
+                  <Feature name="00000008" completi="4" aperti="3">
+                     <Feature name="00000036" completi="1" aperti="0">
+                        <Feature name="00000052" completi="1" aperti="0"/>
+                     </Feature>
+                     <Feature name="00000521" completi="1" aperti="0">
+                        <Feature name="00001488" completi="1" aperti="0"/>
+                     </Feature>
+                     <Feature name="00000589" completi="1" aperti="0">
+                        <Feature name="00001486" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000219" completi="1" aperti="0">
+                     <Feature name="00000220" completi="1" aperti="0"/>
+                  </Feature>
+                  <Feature name="00000704" completi="1" aperti="2">
+                     <Feature name="00000705" completi="1" aperti="0">
+                        <Feature name="00000716" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+               </Feature>
+               <Feature name="00000820" completi="0" aperti="3">
+                  <Feature name="00000906" completi="0" aperti="3"/>
+               </Feature>
+            </Feature>
+            <Feature name="00000308" completi="1" aperti="0"/>
+            <Feature name="00001076" completi="2" aperti="0">
+               <Feature name="00001078" completi="1" aperti="0">
+                  <Feature name="00001089" completi="1" aperti="0"/>
+               </Feature>
+            </Feature>
+         </Feature>
+      </Feature>
+   </Release>
+   <Release name="Azerbaijan">
+      <Feature name="00000001" completi="0" aperti="60">
+         <Feature name="00000015" completi="0" aperti="11">
+            <Feature name="00000016" completi="0" aperti="1">
+               <Feature name="00000017" completi="0" aperti="1"/>
+            </Feature>
+            <Feature name="00000054" completi="0" aperti="1"/>
+            <Feature name="00000304" completi="0" aperti="2"/>
+            <Feature name="00000625" completi="0" aperti="1"/>
+            <Feature name="00001487" completi="0" aperti="1"/>
+         </Feature>
+         <Feature name="00000023" completi="0" aperti="7">
+            <Feature name="00001480" completi="0" aperti="1"/>
+            <Feature name="00001502" completi="0" aperti="1"/>
+         </Feature>
+         <Feature name="00000029" completi="0" aperti="25">
+            <Feature name="00000004" completi="0" aperti="9">
+               <Feature name="00000006" completi="0" aperti="1"/>
+               <Feature name="00000020" completi="0" aperti="3">
+                  <Feature name="00000068" completi="0" aperti="3"/>
+               </Feature>
+               <Feature name="00000026" completi="0" aperti="2"/>
+               <Feature name="00000039" completi="0" aperti="1"/>
+               <Feature name="00000307" completi="0" aperti="1"/>
+            </Feature>
+            <Feature name="00000033" completi="0" aperti="1"/>
+            <Feature name="00000061" completi="0" aperti="1"/>
+            <Feature name="00000299" completi="0" aperti="4"/>
+            <Feature name="00000509" completi="0" aperti="1"/>
+            <Feature name="00001455" completi="0" aperti="2"/>
+            <Feature name="00001503" completi="0" aperti="4"/>
+         </Feature>
+         <Feature name="00000038" completi="0" aperti="4">
+            <Feature name="00001468" completi="0" aperti="1"/>
+         </Feature>
+         <Feature name="00000049" completi="0" aperti="3">
+            <Feature name="00000003" completi="0" aperti="2">
+               <Feature name="00000305" completi="0" aperti="1"/>
+            </Feature>
+         </Feature>
+         <Feature name="00000058" completi="0" aperti="1"/>
+         <Feature name="00000311" completi="0" aperti="2"/>
+         <Feature name="00000475" completi="0" aperti="2"/>
+         <Feature name="00001466" completi="0" aperti="1"/>
+      </Feature>
+      <Feature name="00000007" completi="0" aperti="9">
+         <Feature name="00000067" completi="0" aperti="9">
+            <Feature name="00000123" completi="0" aperti="1"/>
+            <Feature name="00000180" completi="0" aperti="7">
+               <Feature name="00000216" completi="0" aperti="5">
+                  <Feature name="00000008" completi="0" aperti="5">
+                     <Feature name="00000036" completi="0" aperti="1"/>
+                     <Feature name="00000521" completi="0" aperti="3">
+                        <Feature name="00000011" completi="0" aperti="2"/>
+                        <Feature name="00000581" completi="0" aperti="1"/>
+                     </Feature>
+                  </Feature>
+               </Feature>
+               <Feature name="00000820" completi="0" aperti="2">
+                  <Feature name="00000906" completi="0" aperti="1"/>
+               </Feature>
+            </Feature>
+            <Feature name="00001076" completi="0" aperti="1">
+               <Feature name="00001107" completi="0" aperti="1">
+                  <Feature name="00001113" completi="0" aperti="1"/>
+               </Feature>
+            </Feature>
+         </Feature>
+      </Feature>
+      <Feature name="00000012" completi="0" aperti="5"/>
+   </Release>
+   <Release name="Andorra">
+      <Feature name="00000001" completi="102" aperti="0">
+         <Feature name="00000015" completi="23" aperti="0">
+            <Feature name="00000016" completi="1" aperti="0"/>
+            <Feature name="00000018" completi="3" aperti="0"/>
+            <Feature name="00000054" completi="3" aperti="0"/>
+            <Feature name="00000156" completi="5" aperti="0"/>
+         </Feature>
+         <Feature name="00000023" completi="13" aperti="0">
+            <Feature name="00000064" completi="1" aperti="0"/>
+            <Feature name="00000319" completi="3" aperti="0"/>
+            <Feature name="00001480" completi="1" aperti="0"/>
+            <Feature name="00001483" completi="1" aperti="0"/>
+         </Feature>
+         <Feature name="00000029" completi="46" aperti="0">
+            <Feature name="00000004" completi="25" aperti="0">
+               <Feature name="00000006" completi="8" aperti="0"/>
+               <Feature name="00000020" completi="4" aperti="0">
+                  <Feature name="00000021" completi="2" aperti="0"/>
+                  <Feature name="00000068" completi="2" aperti="0"/>
+               </Feature>
+               <Feature name="00000026" completi="9" aperti="0">
+                  <Feature name="00000046" completi="2" aperti="0"/>
+               </Feature>
+            </Feature>
+            <Feature name="00000024" completi="1" aperti="0">
+               <Feature name="00000025" completi="1" aperti="0"/>
+            </Feature>
+            <Feature name="00000033" completi="1" aperti="0"/>
+            <Feature name="00000299" completi="14" aperti="0">
+               <Feature name="00000300" completi="3" aperti="0"/>
+               <Feature name="00000314" completi="1" aperti="0"/>
+               <Feature name="00001482" completi="1" aperti="0"/>
+            </Feature>
+            <Feature name="00000509" completi="1" aperti="0"/>
+            <Feature name="00001455" completi="1" aperti="0"/>
+            <Feature name="00001457" completi="2" aperti="0">
+               <Feature name="00001458" completi="1" aperti="0"/>
+            </Feature>
+         </Feature>
+         <Feature name="00000038" completi="3" aperti="0">
+            <Feature name="00001468" completi="1" aperti="0"/>
+         </Feature>
+         <Feature name="00000475" completi="4" aperti="0"/>
+         <Feature name="00001466" completi="1" aperti="0"/>
+         <Feature name="00001469" completi="1" aperti="0"/>
+      </Feature>
+      <Feature name="00000007" completi="36" aperti="0">
+         <Feature name="00000067" completi="34" aperti="0">
+            <Feature name="00000034" completi="2" aperti="0">
+               <Feature name="00001122" completi="1" aperti="0">
+                  <Feature name="00001123" completi="1" aperti="0">
+                     <Feature name="00001128" completi="1" aperti="0"/>
+                  </Feature>
+               </Feature>
+            </Feature>
+            <Feature name="00000180" completi="30" aperti="0">
+               <Feature name="00000216" completi="25" aperti="0">
+                  <Feature name="00000008" completi="20" aperti="0">
+                     <Feature name="00000036" completi="1" aperti="0"/>
+                     <Feature name="00000155" completi="1" aperti="0"/>
+                     <Feature name="00000521" completi="5" aperti="0">
+                        <Feature name="00000009" completi="2" aperti="0"/>
+                        <Feature name="00000011" completi="1" aperti="0"/>
+                        <Feature name="00000585" completi="1" aperti="0"/>
+                        <Feature name="00001476" completi="1" aperti="0"/>
+                     </Feature>
+                     <Feature name="00000589" completi="4" aperti="0">
+                        <Feature name="00001454" completi="1" aperti="0"/>
+                        <Feature name="00001474" completi="1" aperti="0"/>
+                        <Feature name="00001475" completi="1" aperti="0"/>
+                     </Feature>
+                     <Feature name="00000590" completi="1" aperti="0">
+                        <Feature name="00000622" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000260" completi="1" aperti="0">
+                     <Feature name="00000282" completi="1" aperti="0">
+                        <Feature name="00001470" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000348" completi="2" aperti="0">
+                     <Feature name="00000349" completi="1" aperti="0"/>
+                     <Feature name="00000365" completi="1" aperti="0"/>
+                  </Feature>
+               </Feature>
+               <Feature name="00000820" completi="4" aperti="0">
+                  <Feature name="00000472" completi="1" aperti="0"/>
+                  <Feature name="00000839" completi="1" aperti="0"/>
+                  <Feature name="00000906" completi="2" aperti="0">
+                     <Feature name="00000907" completi="1" aperti="0">
+                        <Feature name="00000918" completi="1" aperti="0">
+                           <Feature name="00001484" completi="1" aperti="0"/>
+                        </Feature>
+                     </Feature>
+                  </Feature>
+               </Feature>
+            </Feature>
+            <Feature name="00001076" completi="2" aperti="0">
+               <Feature name="00001107" completi="1" aperti="0">
+                  <Feature name="00001120" completi="1" aperti="0"/>
+               </Feature>
+            </Feature>
+         </Feature>
+      </Feature>
+      <Feature name="00000014" completi="1" aperti="0"/>
+   </Release>
+   <Release name="Z_WISH_RELEASE">
+      <Feature name="00000001" completi="0" aperti="14">
+         <Feature name="00000015" completi="0" aperti="1"/>
+         <Feature name="00000023" completi="0" aperti="2">
+            <Feature name="00000317" completi="0" aperti="1"/>
+         </Feature>
+         <Feature name="00000029" completi="0" aperti="4">
+            <Feature name="00000299" completi="0" aperti="1"/>
+            <Feature name="00000509" completi="0" aperti="1"/>
+         </Feature>
+         <Feature name="00000050" completi="0" aperti="1"/>
+         <Feature name="00000160" completi="0" aperti="1"/>
+         <Feature name="00000475" completi="0" aperti="2"/>
+      </Feature>
+      <Feature name="00000007" completi="0" aperti="11">
+         <Feature name="00000067" completi="0" aperti="11">
+            <Feature name="00000071" completi="0" aperti="2"/>
+            <Feature name="00000123" completi="0" aperti="1"/>
+            <Feature name="00000180" completi="0" aperti="8">
+               <Feature name="00000181" completi="0" aperti="1">
+                  <Feature name="00000182" completi="0" aperti="1"/>
+               </Feature>
+               <Feature name="00000216" completi="0" aperti="6">
+                  <Feature name="00000008" completi="0" aperti="2">
+                     <Feature name="00000521" completi="0" aperti="1">
+                        <Feature name="00000011" completi="0" aperti="1"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000260" completi="0" aperti="1"/>
+                  <Feature name="00000383" completi="0" aperti="1">
+                     <Feature name="00000384" completi="0" aperti="1">
+                        <Feature name="00000388" completi="0" aperti="1"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000734" completi="0" aperti="1"/>
+               </Feature>
+               <Feature name="00000820" completi="0" aperti="1">
+                  <Feature name="00000839" completi="0" aperti="1"/>
+               </Feature>
+            </Feature>
+         </Feature>
+      </Feature>
+   </Release>
+   <Release name="Allouin_SP1">
+      <Feature name="00000001" completi="33" aperti="0">
+         <Feature name="00000015" completi="13" aperti="0">
+            <Feature name="00000018" completi="2" aperti="0"/>
+         </Feature>
+         <Feature name="00000023" completi="6" aperti="0">
+            <Feature name="00000064" completi="1" aperti="0"/>
+            <Feature name="00000317" completi="1" aperti="0"/>
+            <Feature name="00000319" completi="1" aperti="0"/>
+         </Feature>
+         <Feature name="00000029" completi="8" aperti="0">
+            <Feature name="00000004" completi="3" aperti="0">
+               <Feature name="00000006" completi="1" aperti="0">
+                  <Feature name="00000040" completi="1" aperti="0"/>
+               </Feature>
+               <Feature name="00000020" completi="1" aperti="0">
+                  <Feature name="00000068" completi="1" aperti="0"/>
+               </Feature>
+               <Feature name="00000026" completi="1" aperti="0">
+                  <Feature name="00000046" completi="1" aperti="0">
+                     <Feature name="00000294" completi="1" aperti="0"/>
+                  </Feature>
+               </Feature>
+            </Feature>
+            <Feature name="00000084" completi="2" aperti="0">
+               <Feature name="00000085" completi="1" aperti="0"/>
+            </Feature>
+            <Feature name="00000299" completi="3" aperti="0">
+               <Feature name="00001465" completi="1" aperti="0"/>
+               <Feature name="00001467" completi="1" aperti="0"/>
+            </Feature>
+         </Feature>
+         <Feature name="00000049" completi="1" aperti="0">
+            <Feature name="00000003" completi="1" aperti="0"/>
+         </Feature>
+         <Feature name="00000058" completi="1" aperti="0">
+            <Feature name="00001452" completi="1" aperti="0">
+               <Feature name="00001453" completi="1" aperti="0"/>
+            </Feature>
+         </Feature>
+         <Feature name="00000160" completi="2" aperti="0">
+            <Feature name="00001464" completi="1" aperti="0"/>
+         </Feature>
+         <Feature name="00001466" completi="2" aperti="0"/>
+      </Feature>
+      <Feature name="00000007" completi="18" aperti="0">
+         <Feature name="00000067" completi="18" aperti="0">
+            <Feature name="00000034" completi="1" aperti="0"/>
+            <Feature name="00000123" completi="2" aperti="0">
+               <Feature name="00000130" completi="1" aperti="0">
+                  <Feature name="00000131" completi="1" aperti="0"/>
+               </Feature>
+            </Feature>
+            <Feature name="00000180" completi="14" aperti="0">
+               <Feature name="00000216" completi="9" aperti="0">
+                  <Feature name="00000008" completi="6" aperti="0">
+                     <Feature name="00000521" completi="1" aperti="0">
+                        <Feature name="00000009" completi="1" aperti="0"/>
+                     </Feature>
+                     <Feature name="00000589" completi="3" aperti="0">
+                        <Feature name="00000624" completi="2" aperti="0"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000247" completi="2" aperti="0">
+                     <Feature name="00000248" completi="1" aperti="0">
+                        <Feature name="00000257" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+                  <Feature name="00000383" completi="1" aperti="0"/>
+               </Feature>
+               <Feature name="00000820" completi="4" aperti="0">
+                  <Feature name="00000839" completi="4" aperti="0">
+                     <Feature name="00000840" completi="1" aperti="0">
+                        <Feature name="00000857" completi="1" aperti="0"/>
+                     </Feature>
+                  </Feature>
+               </Feature>
+            </Feature>
+            <Feature name="00001076" completi="1" aperti="0">
+               <Feature name="00001107" completi="1" aperti="0">
+                  <Feature name="00001114" completi="1" aperti="0"/>
+               </Feature>
+            </Feature>
+         </Feature>
+      </Feature>
+      <Feature name="00000014" completi="1" aperti="0"/>
+      <Feature name="00000089" completi="1" aperti="0">
+         <Feature name="00000102" completi="1" aperti="0"/>
+      </Feature>
+   </Release>
+   <Release name="">
+      <Feature name="00000001" completi="0" aperti="3">
+         <Feature name="00000015" completi="0" aperti="2"/>
+         <Feature name="00000029" completi="0" aperti="1">
+            <Feature name="00000316" completi="0" aperti="1"/>
+         </Feature>
+      </Feature>
+   </Release>
+   <Release name="Belgio">
+      <Feature name="00000001" completi="0" aperti="1">
+         <Feature name="00000015" completi="0" aperti="1"/>
+      </Feature>
+   </Release>
+</root>
