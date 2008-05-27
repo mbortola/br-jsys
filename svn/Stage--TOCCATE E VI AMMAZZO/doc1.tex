@@ -41,7 +41,6 @@ XML (eXtensible Markup Language) e' un metalinguaggio creato e gestito dalla w3c
 Strunmento per la validazione di un documento XML, alternativa al DTD.
 \section{XSL}
 XSL (eXstensible Stylesheet Language) e' il linguaggio per la descrizione dei fogli di stile in XML, un documento XSL associato ad un documento XML puo produrre in output qualsiasi tipo di file testuale (HTML, XML, solo testo...).
-E' abbastanza semplice da usare in quanto dispone di funzioni basilari per la trasformazione (tutte espresse tramite la sintassi XML).
 \section{DOM}
 DOM (Document Object Model) è una forma di rappresentazione dei documenti strutturati come modello orientato agli oggetti. Fa parte dello standar w3c per accedere a documenti XML e HTML.In DOM tutto e' trattato come un nodo, in particolare:
 \begin{itemize}
@@ -77,13 +76,13 @@ Xalan e' uno strumento che consente di effettuare trasformate XSL in ambiente JA
 
 \chapter{Lavorare con XSL}
 Realizzare XSL e' un operazione che puo' far storcere il naso ad alcuni programmatori.
-La verbosita' tipica di XML nonche' il rigore nella definizione dei vari elementi puo' renedere di difficile comprensione il foglio di stile prodotto.
-Molto spesso il file XML da trasformare puo' avere una struttura che difficilmente si presta ad una elaborazione tramite le funzioni XPATH.
-Puo' risultare difficile riuscire a completare il foglio di stile dovendo sempre considerare il contesto nel quale si opera, per esempio, iterare tramite un for-each su una semplice lista di item ti fa uscire dal contesto del XML di input, ossia se dentro il ciclo for-each volessi fare una qualche espressione riguerdante il mio documento XML non ci riuscirei dato che nel ciclo il contensto e' cambiato, dunque molto spesso per iterare si devono utilizzare altre strade, come la chiamata di template con parametri indice.
-E' inoltre da considerare il fatto che e' possibile definire funzioni vere e proprie, ossia che siano anche in grado di ritornare qualche parametro, solo a partire da XSL 2.0, non implementata da molti formnitori di motori XSL. attualmente l'unico processore gratuito che lo supporta e che consente di sviluppare applicazioni java e' Saxon9B.
-Quest'ultimo supporta appunto XSLT 2.0, nonche' Xpath 2.0 e XQuery 1.0, non supporta pero' XML Schema, dunque tutte le funzionalita' sul type checking non sono applicabili, per avere il supporto ad XML Schema 1.0 si deve possedere il processore Saxon SA 9 , ma e' a pagamento. 
+La verbosita' tipica di XML nonche' il rigore nella definizione dei vari elementi puo' rendere di difficile comprensione il foglio di stile prodotto.
+In particolare bisogna assumenre un approccio fortemente ricorsivo e basato su query XPath opportune per la definizione di elementi da elaborare.
 
-Cio' che servirebbe sarebbe un modo per evitare di scrivere direttamente il foglio di stile definendo un metalinguaggio che una volta compilato costruisse in automatico l'XSL voluto.
-Per fare questo 
+\subsection{xsl:key}
+\section{XSLT 2.0}
+\subsection{xsl:for-each-group}
+
+\chapter{Lavorare con XQuery}
 \chapter{Riferimenti}
 \end{document}

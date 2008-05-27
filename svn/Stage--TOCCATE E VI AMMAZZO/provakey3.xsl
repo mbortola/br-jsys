@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
+	
 	<xsl:output method="xml" indent="yes"/>
 	
-	<xsl:key name="krel" match="Intervento" use='Release'/>
-	
-	<xsl:variable name="release" select="/root/Interventi/Intervento[generate-id(.)=
-		generate-id(key('krel',Release)[1])]/Release"/>
-	
+	<!-- Raggruppo le feature a seconda del loro elemento padre -->
 	<xsl:key name="padre" match="Feature" use="@padre"/>
 	
-	<xsl:key name="interv" match="Intervento" use="concat(generate-id(Feature),generate-id(Release))"/>
+	<!-- Raggruppo gli interventi a seconda della loro release -->
+	<xsl:key name="release" match="Interventi" use="Release"/>
 	
+	<!-- Raggruppo gli interventi a seconda del loro elemento Feature -->
+	<xsl:key name="interv" match="Intervento" use="Feature"/>
+	
+	<!-- Creo la radice e istanzio gli alberi di features -->
 	<xsl:template match="/">
 		<root>
-			<xx><xsl:value-of select="$release"/></xx>
 			<xsl:apply-templates select="key('padre','')"/>
 		</root>
 	</xsl:template>
 	
+	<!-- Ogni feature viene posizionata , nonchè vengono elencati tutti gli interventi  completi e aperti associati a lei-->
 	<xsl:template match="Feature">
-		<xsl:variable name="name" select="@name"/>
-		<!-- Recupero tutti gli interventi per questa feature --><!--raggruppo per release-->
 		<Feature name='{@name}'>
-			<xsl:for-each select="$release">
-				<xsl:variable name="int" select="key('interv',concat(generate-id($name),generate-id(current())))"/>
-				<Release name='{current()}'
-					completi='{count($int[Stato="CO"])}'
-					aperti="{count($int[Stato=('NU','IN','WL','LA','TE')])} "/>				
-			</xsl:for-each>
+			<!-- Recupero tutti gli interventi per questa feature -->
+			<xsl:variable name="int" select="key('interv',@name)"/>
+			
+			<xsl:for-each select="$int"></xsl:for-each>
 			<Childs>
 				<xsl:apply-templates select="key('padre',@name)"/>
 			</Childs>
