@@ -3,11 +3,12 @@
 	
 	<xsl:output method="xml" indent="yes"/>
 	
+	<xsl:key name="rel" match="Release" use="Release"/>
+	
+	<xsl:variable name="release" select=""></xsl:variable>
+	
 	<!-- Raggruppo le feature a seconda del loro elemento padre -->
 	<xsl:key name="padre" match="Feature" use="@padre"/>
-	
-	<!-- Raggruppo gli interventi a seconda della loro release -->
-	<xsl:key name="release" match="Interventi" use="Release"/>
 	
 	<!-- Raggruppo gli interventi a seconda del loro elemento Feature -->
 	<xsl:key name="interv" match="Intervento" use="Feature"/>
@@ -21,11 +22,15 @@
 	
 	<!-- Ogni feature viene posizionata , nonchè vengono elencati tutti gli interventi  completi e aperti associati a lei-->
 	<xsl:template match="Feature">
+		<xsl:variable name="interventi" select="key('interv',@name)"/>
 		<Feature name='{@name}'>
 			<!-- Recupero tutti gli interventi per questa feature -->
-			<xsl:variable name="int" select="key('interv',@name)"/>
-			
-			<xsl:for-each select="$int"></xsl:for-each>
+			<!--raggruppo per release-->
+			<xsl:for-each-group select="key('interv', @name)" group-by="Release">
+				<Release name='{current-grouping-key()}'
+					completi='{count(current-group()[Stato="CO"])}'
+					aperti="{count(current-group()[Stato!='CO'])}"/>
+			</xsl:for-each-group>
 			<Childs>
 				<xsl:apply-templates select="key('padre',@name)"/>
 			</Childs>
