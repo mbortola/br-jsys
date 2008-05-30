@@ -1,0 +1,4 @@
+<newsfeeds>
+	<newsfeed title="Slashdot" src="http://rss.slashdot.org/Slashdot/slashdot"/>
+	<newsfeed title="ScienceDaily" src="http://www.sciencedaily.com/newsfeed.xml"/>
+</newsfeeds> 
