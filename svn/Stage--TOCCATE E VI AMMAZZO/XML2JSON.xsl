@@ -4,22 +4,22 @@
 	
 	<xsl:template match="/">
 		<xsl:text>{</xsl:text>
-		<xsl:apply-templates select="VZM/*"/>
+		<xsl:apply-templates select="VZM/*" mode="data"/>
 		<xsl:text>}</xsl:text>
 	</xsl:template>
 	
-	<xsl:template match="*">
+	<xsl:template match="*" mode="data">
 		<xsl:value-of select="name()"/>
 		<xsl:text>:</xsl:text>
 		<xsl:choose>
 			<xsl:when test="@type='JSONObject'">
 				<xsl:text>{</xsl:text>
-				<xsl:apply-templates select="./*"/>
+				<xsl:apply-templates select="*" mode="data"/>
 				<xsl:text>}</xsl:text>
 			</xsl:when>
 			<xsl:when test="@type='JSONArray'">
 				<xsl:text>[</xsl:text>
-				<xsl:apply-templates select="element|JSONObject"/>
+				<xsl:apply-templates select="element|JSONObject" mode="array"/>
 				<xsl:text>]</xsl:text>
 			</xsl:when>
 			<xsl:otherwise>
@@ -29,18 +29,22 @@
 		<xsl:text>, </xsl:text>
 	</xsl:template>
 	
-	<xsl:template match="element|JSONObject">
+<xsl:template match="*" mode="array">	
 		<xsl:choose>
 			<xsl:when test="name()='element'">
 				<xsl:value-of select="@value"/>
 			</xsl:when>
+			<xsl:when test="@type='JSONArray'">
+				<xsl:text>[</xsl:text>
+				<xsl:apply-templates select="element|JSONObject" mode="array"/>
+				<xsl:text>]</xsl:text>
+			</xsl:when>
 			<xsl:otherwise>
 				<xsl:text>{</xsl:text>
-				<xsl:apply-templates select="./*"/>
+				<xsl:apply-templates select="*" mode="data"/>
 				<xsl:text>}</xsl:text>
 			</xsl:otherwise>
 		</xsl:choose>
 		<xsl:text>, </xsl:text>
-		
 	</xsl:template>
 </xsl:stylesheet>
