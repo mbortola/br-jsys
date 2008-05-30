@@ -1,18 +1,13 @@
 package jaxp;
+
 import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Result;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.sax.TransformerHandler;
-import javax.xml.transform.stream.StreamResult;
-
-import net.sf.saxon.FeatureKeys;
-import net.sf.saxon.TransformerFactoryImpl;
-import net.sf.saxon.event.SaxonOutputKeys;
+import javax.xml.transform.TransformerFactory;
 
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.AttributesImpl;
+
 
 /**
  * A simple demo of JAXP 1.1
@@ -24,12 +19,15 @@ public class SimpleJaxp {
 	throws TransformerException,
 	SAXException, IOException, ParserConfigurationException {
 
-		TransformerFactoryImpl tf = new TransformerFactoryImpl();
 
-//		Following is needed to ensure Saxon recognizes the JAXP-defined processing instructions
-		tf.setAttribute(FeatureKeys.USE_PI_DISABLE_OUTPUT_ESCAPING, Boolean.TRUE);
+		System.setProperty("Djavax.xml.transform.TransformerFactory","net.sf.saxon.TransformerFactoryImpl");
 
-		
+		//activate in JAXP: XPath2.0 from Saxon9 (standard XPath of JAXP is XPath1.0)
+		System.setProperty("Djavax.xml.xpath.XPathFactory","net.sf.saxon.xpath.XPathFactoryImpl");
+
+		//test XSL-Transformer
+		TransformerFactory instance = TransformerFactory.newInstance();
+		System.out.println("\n>>>activ XSLT-Transformer: " + instance.getClass().getName());
 	}
 	/**
 	 * Accept two command line arguments: the name of
