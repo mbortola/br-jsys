@@ -84,5 +84,22 @@ In particolare bisogna assumenre un approccio fortemente ricorsivo e basato su q
 \subsection{xsl:for-each-group}
 
 \chapter{Lavorare con XQuery}
+
+\chapter{Exist}
+Exist è un DBMS open source interamente basato su XML, su occupa dunque di gestire grosse moli di documenti XML (ma al suo interno può contenere qualsiasi tipo di file) per ottimizzare le interrogazioni, gestire i permessi di accesso e automatizzare molte delle operazioni effettuabili su file XML.
+Per esempio lo sviluppo di un sito WEB basato su una base di dati in XML potrebbe venir gestito da eXist immagazzinando in esso la base dati (solitamente composta da più file), le varie immagini e applet, nonche i fogli di stile necessari per sviluppare la pagina HTML.
+Exist è sviluppato interamente in JAVA, risulta dunque abbastanza semplice la creazione di applicazioni JAVA che si interfacciano con esso.
+
+\section{Gestire le risorse con eXist}
+La maggior parte delle operazioni per la gestione dei file può essere fatta direttamente tramite XQuery, eXist infatti fornisce alcune funzioni per rendere immediate operazioni che altrimenti richiederebbero una apposita sequenza di chiamante a metodi JAVA.
+La funzione store per esempio permette di creare una nuova risorsae e posizionarla dove si vuole col contenuto che si vuole. si possono inoltre gestire le collezioni di risorse creando una struttura ramificata, inserendo , modificando ed eliminando a piacimento.
+Inoltre è possibile applicare una trasformata XSLT da XQuery tramite la funzione trasform().
+Altri metodi per una gestione specifica del testo, per le funzioni matematiche o per altro vengono definiti nel package util
+
+\section{Altre funzionalità di eXist}
+eXist adotta gran parte delle 
+\subsection{XUpdate}
+\subsection{Personalizzare Trigger}
+\subsection{Personalizzare gli indici}
 \chapter{Riferimenti}
 \end{document}
