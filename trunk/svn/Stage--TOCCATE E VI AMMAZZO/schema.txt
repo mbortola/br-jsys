@@ -1,0 +1,67 @@
+zoom:(
+ Fields:(field+),
+ Cols:(col*)?,
+ RowLayer:(col*)?,
+ Configuration:(
+  PKFields:str,
+  VQRName:str,
+  TabName:str,
+  OrderBy:bool,
+  GridRows:int,
+  Table:str,
+  ConfigName:str
+ )?,
+ HideFields:(field*)?,
+ Filters:(Filter:(filter*))?,
+ Data:str*
+)
+
+filter:(
+ field:str,
+ desc:str:="",
+ operation:str:="=",
+ init:str:="",
+ type:str,
+ length:int,
+ decimal:int:=0,
+ format:str:="",
+ linkTable:str:=""?,
+ keyField:str:=""?,
+ FilterFix1:str:=""?,
+ FilterValue1:str:=""?,
+ FilterFix2:str:=""?,
+ FilterValue2:str:=""?,
+ FilterFix3:str:=""?,
+ FilterValue3:str:=""?,
+ ReadField:str:=""?,
+ ComboVal:str:=""?,
+ Advanced:bool:=false,
+ HiddenGroup:bool:=false,
+ Keep:bool:=false,
+ Group:str:=""?,
+ Tooltip:str:=""?,
+ DisplayLen:int:=0?,
+ QueryPar:str:=""?
+)
+
+field:str
+
+col:(
+  id:str,
+  field:str,
+  title:str,
+  link:str,
+  target:str,
+  tooltip:str,
+  picture:str,
+  isImage:bool,
+  inExtGrid:bool,
+  exp:str?,
+  descr:str?,
+  groupby:bool?,
+  pict_total:str?,
+  enable_HTML:bool,
+  orderbyidx:int?,
+  orderbystatus:str?,
+Layer:(col*)
+)
