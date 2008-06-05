@@ -3,18 +3,24 @@ grammar descrittore;
 options{
 	output=AST;
 	ASTLabelType=CommonTree;
+	filter=WHITEPASPACE;
 }
 
-//se il tipo e' composto i suoi fiogli sono tra parentesi 
+//se il tipo e' composto i suoi figli sono tra parentesi 
 //tonde, altrimenti no
 
-start	:	base (';'base+);
+//Un tipo in questo caso e' dato da una 'lista di assegnazioni'
+start	:	type+;
 
-base 	:	STRING':' (atom|list) Card?;
+type 	:	STRING (':'(atom| list)) Card?;
 
-atom	:	Atom (KeyWord (STRING|FLOAT))?;
+ref	:	STRING Card?;
 
-list	:	'(' base (',' base)* ')';
+atom	:	Atom ((':='|'=') (Def|FLOAT|BOOL))?;
+
+list	:	'(' (type|ref) (',' (type|ref))* ')';
+
+Def	:	'"'STRING*'"';
 
 Atom	:	('str'|'bool'|'int');
 
@@ -22,10 +28,10 @@ Card	:	('?'|'*'|'+');
 
 FLOAT	:	('-')?('0'..'9')+;
 
-BOOL	:	'TRUE'|'FALSE';
-
-KeyWord	:	':='|'=';
+BOOL	:	'true'|'false';
 
 STRING	:	(CHAR|FLOAT)+;
 
-fragment CHAR	:	('a'..'z')|('A'..'Z')|'_';
+fragment CHAR	:	('a'..'z')|('A'..'Z')|'_'|'<'|'=';
+
+WHITESPACE : ( '\t' | ' ' | '\r' | '\n'| '\u000C' )+  { $channel=HIDDEN;} ;
