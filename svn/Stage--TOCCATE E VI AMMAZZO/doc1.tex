@@ -1,9 +1,13 @@
 \documentclass[11pt,titlepage,a4paper]{report}
 
 \usepackage[italian]{babel}
+%inputenc per win,Latin 1 o 9 per linux
+\usepackage[ansinew]{inputenc}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{hyperref}
+
+\usepackage{listings}
 
 \usepackage{lastpage}
 \usepackage{color}
@@ -20,7 +24,7 @@ Laurea triennale in informatica.\\
  Anno Accademico 2007-2008. \\
 \Large Tesi di Laurea:\\ 
 Utilizzo di XML ed eXist per la gestione di file di configurazione in ambito aziendale.}
-
+\end{center}
 
 \end{titlepage}
 \tableofcontents
@@ -67,19 +71,82 @@ Uno dei vantaggi che possiede SAX e' quello di non necessitare di tenere in memo
 
 \section{JSON}
 Acronimo di JavaScript Object Notation, il JSON è un formato adatto per lo scambio dei dati in applicazioni client-server.
-Spesso viene usato in AJAXcome alternatica a XML.
+Spesso viene usato in AJAX come alternatica a XML.
 E' un formato molto semplice da imparare e da utilizzare, e' supportato praticamente da tutti i linguaggi ciononostante e' indipendente da essi e dalla piattaforma utilizzata.
 Supporta i tipi di dato basilari (integer, double, char, string, array, null) e consente l'annidamento di JSON tra di loro, consentando la rappresentazione anche di strutture dati complesse.
 La struttura base di un oggetto JSON e' composta da una sequenza non ordinata di coppie nome-valore, nal caso di rappresentazione di un array invece abbiamo soltanto una sequenza ordinata di soli valori.
+\\
+Per esempio il seguente elemento scritto in XML:
+\begin{lstlisting}
+
+<element>
+	<a>Testo</a>
+	<b>123</b>
+	<array>
+		<e>primo</e>
+		<e>secondo</e>
+		<e>terzo</e>
+		<e>quarto</e>
+	</array>
+</element>
+
+\end{lstlisting}
+
+Può trovare una analoga rappresentazione come elemento JSON:
+
+\begin{lstlisting}
+{a:'Testo', b:123, array:['primo', 'secondo', 'terzo', 'quarto' ]}
+\end{lstlisting}
+
 \section{Xalan}
 Xalan e' uno strumento che consente di effettuare trasformate XSL in ambiente JAVA appoggiandosi a SAX e a DOM, e' un servizio fornito da Apache.
 
-\chapter{Lavorare con XSL}
+\chapter{Lavorare con XSLT}
 Realizzare XSL e' un operazione che puo' far storcere il naso ad alcuni programmatori.
 La verbosita' tipica di XML nonche' il rigore nella definizione dei vari elementi puo' rendere di difficile comprensione il foglio di stile prodotto.
-In particolare bisogna assumenre un approccio fortemente ricorsivo e basato su query XPath opportune per la definizione di elementi da elaborare.
+E' consigliabile appoggiarsi fortemente alla risorsione e basato su query XPath opportune per la selezione degli elementi da elaborare.
 
-\subsection{xsl:key}
+Questo non vuole essere un tutorial su come funziona XSLT o una carrellata sui metodi che offre ma vuole semplicemente elencare cosa rende XSLT un interessante od ostile che dir si voglia.
+
+\section{Punti di forza di XSLT}
+Adottando una opportuna metodologia di programmazione, si riescono ad avere prestazioni di elaborazione eccezzionali. E' dunque necessario prender confidenza con gli strumenti offerti.
+Ovviamente e' necessario avere dimestichezza con XPath, sopratutto bisogna aver fatto abbastanza pratica da capire il modo migliore per muoversi nel documento XML con esso.
+
+\subsection{L'elemento xsl:apply-templates}
+In XSLT esiste il concetto di template, esso prende in ingresso un nodo (sia esso elemento, attributo o testo) e lo elabora, la trasformazione essenzialmente e' composta di varie elaborazioni di template.
+
+Solitamente la trasformazione inizia con l'elaborazione del template associato al nodo radice e da esso, in base all'occorrenza, vengono richiamati altri template. Un template puo' essere chiamato per nome tramite l'elemento xsl:call-template al quale va aggiunto il nome del template da chiamare. In alternativa si usa apply-templates con l'attributo select che specifica quali nodi sono coinvolti nella chiamata ricorsiva, cio rentd la trasformazione molto rapida in quanto permette una gestione parallela delle varie chiamate, personalemtne ho notato che la struttura del foglio stile usando questo elemento risulta molto più comprensibile e il testo piu leggibile, ovviamente bisogna fare un po di pratica.
+
+\subsection{L'elemento xsl:key}
+xsl:key permette di raggruppare un insieme di nodi definiti dall'utente in base a qualche espressione solitamente ricavabile dall'elaborazione ddel valore del nodo stesso o di sotto nodo nel caso di elementi. In definitiva funziona come un metodo Hash che dato in ingresso valore mi ritorna tutti i nodi ai quali xsl:key e' associata.
+La sintassi di xsl:key e' la seguente:
+<xsl:key name='nome' match='nodo match' use='pattern'/>
+\begin{itemize}
+\item L'attributo name da un nome alla chiave, necassario dato che in un foglio stile possono esserci piu' chiavi.
+\item L'attributo match specifica il pattern che identifica un nodo contenente la chiave.
+\item L'attributo use specifica quale espressione utilizzare per raggruppare i nodi, solitamente e' un valore di un elemento o di un attributo ma nulla vieta di farlo corrispondere alla concatenazione di piu valori o altro.
+\end{itemize}
+
+Per utilizzarla ci si serve della funzione key('nome chiave', parametro) che ritornerà tutti i nodi che hanno il valore corrispondente al parametro, ovviamente 'nome chiave' serve in quanto, come detto prima, posso definire più chiavi nello stesso foglio stile.
+xsl:key e' un elemento che va inserito solo come figlio diretto dell'elemento xsl:stylesheet, ossia dell'elemento radice di ogni foglio stile.
+
+\section{Il raggruppamento in XSLT}
+Uno dei punti più ostici che si possono incontrare nella realizzazione di fogli stile e' quello relativo al raggruppamento, se io ho un insieme di nodi che voglio gestire raggrupandoli per valore ho bisogno innanzi tutto di procurarmi tutti i valori distinti dei valori che uso per il raggruppamento e solo dopo cio' faro una serie di espressioni selettive per recuperarmi tutti i valori che mi servono, ricordo che la funzione distinct-values('set di nodi') che ritorna una lista di valori distinti dato l'input è disponibile solo da XSLT 2.0 dunque per raggruppare devo fare molta più fatica di quanto non si possa pensare.
+C'e' da dire inoltre che avendo a che fare con basi di dati molto grandi l'utilizzo di metodologie sbagliate porta inevitabilmente a drastici rallentamenti nell'elaborazione.
+
+Un primo approccio al problema del raggruppamento puo' essere il quello di considerare i nodi che hanno il valore di raggruppamenmto diverso da tuttu i suoi fratelli a destra(o a sinistra), implementando ciò in una for-each avrei una espressione del genere:
+
+<xsl:for-each select='elemento[not(grouping = preceding-sibling::elemento/grouping)]'>
+...
+</xsl:for-each>
+
+In questo caso il for-each fara' tante iterazioni quanti sono i valori distinti del valore grouping ma si puo facilmente vedere che il il tempo speso per analizzare tutti i fratelli a destra cresce in maniera esponenziale, nonche' salta subito all'occhio che facendo cosi si ripete la stessa operazione numerose volte.
+
+\subsection{Muenchian Method}
+Attualmente il metodo migliore per effettuare il raggrupamento in XSLT 1.0 prende il nome di metodo Muenchian, dal nome del creatore (Steve Muench) ed utilizza xsl:key accoppiata alla funzione XPath generate-id() la quale identifica in modo univoco il nodo dato come parametro di ingresso.
+Raggruppare col metodo Muenchian puo incrementare di molto le prestazioni di elaborazione 
+
+
 \section{XSLT 2.0}
 \subsection{xsl:for-each-group}
 
@@ -101,5 +168,8 @@ eXist adotta gran parte delle
 \subsection{XUpdate}
 \subsection{Personalizzare Trigger}
 \subsection{Personalizzare gli indici}
+
+
+
 \chapter{Riferimenti}
 \end{document}
