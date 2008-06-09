@@ -43,8 +43,8 @@ i-CASE(Internet Computer Aided Software Engineering) Software prodotta dalla Zuc
 XML (eXtensible Markup Language) e' un metalinguaggio creato e gestito dalla w3c per la rappresentazione di informazione. e' derivato da una semplificazione di SGML.
 \section{XML Schema}
 Strunmento per la validazione di un documento XML, alternativa al DTD.
-\section{XSL}
-XSL (eXstensible Stylesheet Language) e' il linguaggio per la descrizione dei fogli di stile in XML, un documento XSL associato ad un documento XML puo produrre in output qualsiasi tipo di file testuale (HTML, XML, solo testo...).
+\section{XSLT}
+XSLT (eXstensible Stylesheet Language Transformations) e' il linguaggio per la descrizione dei fogli di stile in XML, un documento XSL associato ad un documento XML puo produrre in output qualsiasi tipo di file testuale (HTML, XML, solo testo...).
 \section{DOM}
 DOM (Document Object Model) è una forma di rappresentazione dei documenti strutturati come modello orientato agli oggetti. Fa parte dello standar w3c per accedere a documenti XML e HTML.In DOM tutto e' trattato come un nodo, in particolare:
 \begin{itemize}
@@ -144,13 +144,31 @@ In questo caso il for-each fara' tante iterazioni quanti sono i valori distinti 
 
 \subsection{Muenchian Method}
 Attualmente il metodo migliore per effettuare il raggrupamento in XSLT 1.0 prende il nome di metodo Muenchian, dal nome del creatore (Steve Muench) ed utilizza xsl:key accoppiata alla funzione XPath generate-id() la quale identifica in modo univoco il nodo dato come parametro di ingresso.
-Raggruppare col metodo Muenchian puo incrementare di molto le prestazioni di elaborazione 
+Innanzi tutto creo un elemento chiave che identifica l'insieme dei nodi di ritorno in base al nodo o alla combinazione di essi per i quali voglio effettuare il raggruppamento, l'elemento for usato come esempio sopra può dunque essere riscrittob in questo modo:
+
+<xsl:for-each select='elemento[generate-id(.)=generate-id(key('nome chiave',grouping)[1])]'>
+...
+</xsl:for-each>
+
+L'espressione condizionale sarà vera solo per quegli elementi con id uguale al id del primo elemento del insieme ritornato dalla funzione key.
+Raggruppare col metodo Muenchian puo incrementare di molto le prestazioni di elaborazione, in particolare mentre il metodo tradizionale operava con complessità esponenziale col metodo muench si opera con complessità quasi lineare.
+
+Nel caso in cui volessi effettuare il raggruppamento basandomi su più nodi non devo fare altro che sviluppare una xsl:key che indicizza in base alla concatenazione dei vari nodi di ragguppamento e comportarmi in maniera opportuna nell'espressione condizionale del metodo Muench.
 
 
 \section{XSLT 2.0}
+XSLT 2.0 sta pian piano sostituendo XSLT 1, ad essa vengono aggiunte alcune funzionalita con lo scopo di facilitare la stesura di fogli stile, eaumantare la potenza computazionale.
 \subsection{xsl:for-each-group}
+E' stato aggiunto l'elemento xsl:for-each-group che estende il for-each consentendo il ragguppamento, possiede infatti l'attributo group-by (o anche delle varianti) per definire le opzioni di raggruppamento.
+\subsection{Funzioni definite dall'utente}
+Sebbene l'elemento xsl:template assomigli nel funzionamento ad un funzione, essa non consente di ritornare valori, cosa alquanto scomda sopratutto pwer chi e' abituato a lavorare coi comuni linguaggi di programmazione, l'elemento xsl:function permentte adesso di ritornare un valore in uscita, sia esso un valore atomico on un nodo(anche complesso).
+\subsection{Altre funzionalità nuove in XSLT 2.0}
+Oltre a quanto detto sopra è necessario sottolineare che la nuova versione di XSLT permette la generazione di output multipli, inoltre consente lo strong typing permettendo una gestione avanzata dei documenti XML evitando errori nella programmazione. Per una descrizione completa delle funzionalità di XSLT 2.0 si rimanda a [link!!!!!!!!!!]
 
 \chapter{Lavorare con XQuery}
+Allo stato attuale con XQuery si possono fare le stesse cose cha si fanno con XSLT, chi sceglie di utilizzare il primo lo fa probabilmente perchè è scritto in un linguaggio più vicino ai comuni linguaggi di programmazione, il fatto che non sia XML però non consente di trattarlo come tale (validazione, parsing con DOM o SAX ecc...) c'e' inoltre da ricordare che le tecniche di elaborazione dei due linguaggi sono per certi aspetti differenti, basti pensare che XQuery manca di un analogo alla xsl:key.
+Difatti si è notato che effettuare un raggruppamento su un file di medie dimensioni comporta tempi di elaborazione piu' lunghi che non farlo con XSLT, anche se la stesura del programma con XQuery risulta molto più semplice.
+
 
 \chapter{Exist}
 Exist è un DBMS open source interamente basato su XML, su occupa dunque di gestire grosse moli di documenti XML (ma al suo interno può contenere qualsiasi tipo di file) per ottimizzare le interrogazioni, gestire i permessi di accesso e automatizzare molte delle operazioni effettuabili su file XML.
@@ -164,12 +182,14 @@ Inoltre è possibile applicare una trasformata XSLT da XQuery tramite la funzione
 Altri metodi per una gestione specifica del testo, per le funzioni matematiche o per altro vengono definiti nel package util
 
 \section{Altre funzionalità di eXist}
-eXist adotta gran parte delle 
 \subsection{XUpdate}
+Tramite XUpdate e' possibile modificare un file XML inserendo, cancellando, sostituendo o rinominando nodi, La gestiobe dei comandi XUpdate può avvenire anch'essa tramite XQuery.
 \subsection{Personalizzare Trigger}
+E' possibile definire dei trigger personalizzati in grado di essere lanciati in automatico secondo direttive espresse dall'utente, possono essere creati o gestiti tramite linguaggio java oppure tramite apposite query.
 \subsection{Personalizzare gli indici}
-
+Per ottimizzare ulteriormente il movimento all'interno di un documento XML e' possibile definire degli indici personalizzati. Essi sono tutt'ora in fase di sviluppo e nei rilasci successivi probabilmente verrano aggiunte funzionalità, sono scritti in XML e gestibili tramite Java o XQuery.
 
 
 \chapter{Riferimenti}
+
 \end{document}
