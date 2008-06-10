@@ -3,8 +3,10 @@ grammar descrittore2;
 options{
 	output=AST;
 	ASTLabelType=CommonTree;
-	filter=WHITESPACE;
 }
+
+
+@lexer::header{package grammar;}
 
 @header{package grammar;}
 
@@ -17,19 +19,19 @@ options{
 //radice che si sviluppa secondo un schema ad albero
 
 
-start	:	typedef+;
+start	:	typedef+;//Nessuno di questi e' un array!
 
-typedef	:	STRING ':' type;
+typedef	:	STRING^ ':'! (array|obj);//type puo' essere un array o un oggetto non banale...non avrebbe senso
 
-type 	:	(atom| list) Card?;
+array	:	'['! (Atom|STRING) Card']'!;//un tipo solo
 
-atom	:	Atom ((':='|'=') (Def|FLOAT|BOOL))?;
+obj	:	'('! type (','! type)* ')'! Card?;
 
-list	:	'(' el (','el)*  ')';
+type	:	STRING^ ':'! (array|atom|STRING|obj) Card?;
 
-el	:	STRING (Card?|':' type);
+atom	:	Atom ((':='!|'='!) Def)?;
 
-Def	:	'"'STRING*'"';
+Def	:	'"'STRING*'"'|FLOAT|BOOL;
 
 Atom	:	('str'|'bool'|'int');
 
