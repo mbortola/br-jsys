@@ -23,9 +23,9 @@ start	:	typedef+;//Nessuno di questi e' un array!
 
 typedef	:	STRING^ ':'! (array|obj);//type puo' essere un array o un oggetto non banale...non avrebbe senso
 
-array	:	'['! (Atom|STRING) Card']'!;//un tipo solo
+array	:	'[' (Atom|STRING) Card']'!;//un tipo solo
 
-obj	:	'('! type (','! type)* ')'! Card?;
+obj	:	'(' type (','! type)* ')'!;
 
 type	:	STRING^ ':'! (array|atom|STRING|obj) Card?;
 

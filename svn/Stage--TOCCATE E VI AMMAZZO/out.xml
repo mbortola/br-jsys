@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VZM>
-	<d type="JSONObject">
-		<y type="Double" value="1.23"/>
-		<x type="String" value="a"/>
-	</d>
-	<a type="Integer" value="3"/>
-	<c type="String" value="stringa"/>
-	<b elements="6" type="JSONArray">
-		<element position="0" type="Integer" value="1"/>
-		<JSONObject position="1" type="JSONObject">
-			<aa type="Integer" value="1"/>
-			<bb type="String" value="hello"/>
-		</JSONObject>
-		<element position="2" type="Integer" value="3"/>
-		<element position="3" type="Integer" value="4"/>
-		<element position="4" type="Integer" value="5"/>
-		<element position="5" type="Integer" value="6"/>
+	<a type="String" value="s3"/>
+	<b elements="3" type="list">
+		<Item position="0">
+			<ca elements="3" type="list">
+				<Item position="0" type="String" value="a"/>
+				<Item position="1" type="String" value="b"/>
+				<Item position="2" type="String" value="c"/>
+			</ca>
+		</Item>
+		<Item position="1">
+			<ca elements="3" type="list">
+				<Item position="0" type="String" value="x"/>
+				<Item position="1" type="String" value="y"/>
+				<Item position="2" type="String" value="z"/>
+			</ca>
+		</Item>
+		<Item position="2">
+			<q type="String" value="ciao"/>
+		</Item>
 	</b>
 </VZM>
