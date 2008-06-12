@@ -1,7 +1,7 @@
 zoom:(
- Fields:(field+),
- Cols:(col*)?,
- RowLayer:(col*)?,
+ Fields:[str+],
+ Cols:[col*]?,
+ RowLayer:[col*]?,
  Configuration:(
   PKFields:str,
   VQRName:str,
@@ -11,8 +11,8 @@ zoom:(
   Table:str,
   ConfigName:str
  )?,
- HideFields:(field*)?,
- Filters:(Filter:(filter*))?,
+ HideFields:[str*]?,
+ Filters:[filter*]?,
  Data:str*
 )
 
@@ -44,8 +44,6 @@ filter:(
  QueryPar:str:=""?
 )
 
-field:str
-
 col:(
   id:str,
   field:str,
@@ -63,5 +61,5 @@ col:(
   enable_HTML:bool,
   orderbyidx:int?,
   orderbystatus:str?,
-Layer:(col*)
+Layer:[col*]
 )
