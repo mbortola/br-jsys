@@ -25,18 +25,12 @@ import org.w3c.dom.Element;
 
 public class Writer {
 
+	String path;
+	
+	public Document doc;
 
-	PrintWriter output;
-
-	Document doc;
-
-	public Writer() {
-		try {
-			output=new PrintWriter(new File("out.xml"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public Writer(String p) {
+		path=p;
 	}
 
 	public void run() {
@@ -57,12 +51,12 @@ public class Writer {
 
 		doc.appendChild(base);
 
-		String x="{\"Table\":\"tab_fattura_m\",\"Cols\":[{\"id\":\"ojxbjhoamx\",\"field\":\"id_fattura\",\"title\":\"id_fattura\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"enable_HTML\":0},{\"id\":\"qgxyvexcrs\",\"field\":\"fk_cliente\",\"title\":\"fk_cliente\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"enable_HTML\":0},{\"id\":\"crlmeuvucr\",\"field\":\"fk_articolo\",\"title\":\"fk_articolo\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[{\"id\":\"bqquxvdabx\",\"field\":\"data_ora\",\"title\":\"data_fattura\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"DD-MM-YYYY hh:mm:ss\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"exp\":undefined,\"descr\":undefined,\"groupby\":undefined,\"enable_HTML\":0},{\"id\":\"mjqnrygopd\",\"field\":\"data\",\"title\":\"data_fatt\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"DD-MM-YYYY\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"exp\":undefined,\"descr\":undefined,\"groupby\":undefined,\"enable_HTML\":0}],\"enable_HTML\":0},{\"id\":\"bxegknlxmd\",\"field\":\"prezzo\",\"title\":\"prezzo\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[{\"id\":\"sqoowybbni\",\"field\":\"totale_fattura\",\"title\":\"totale_fattura\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"exp\":undefined,\"descr\":undefined,\"groupby\":undefined,\"enable_HTML\":0}],\"enable_HTML\":0}],\"RowLayer\":[{\"id\":\"rvmwtsmdos\",\"field\":\"quantita\",\"title\":\"quantita\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0},{\"id\":\"fvqwuujlhi\",\"field\":\"tot_parziale\",\"title\":\"totale_parziale\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0}],\"Fields\":[\"id_fattura\",\"fk_cliente\",\"fk_articolo\",\"data_ora\",\"data\",\"prezzo\",\"totale_fattura\",\"quantita\",\"tot_parziale\"],\"HideFields\":{},\"Configuration\":{\"VQRName\":\"BO:gs_fattura\",\"GridRows\":15,\"OrderBy\":false}}";
+		//String x="{\"Table\":\"tab_fattura_m\",\"Cols\":[{\"id\":\"ojxbjhoamx\",\"field\":\"id_fattura\",\"title\":\"id_fattura\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"enable_HTML\":0},{\"id\":\"qgxyvexcrs\",\"field\":\"fk_cliente\",\"title\":\"fk_cliente\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"enable_HTML\":0},{\"id\":\"crlmeuvucr\",\"field\":\"fk_articolo\",\"title\":\"fk_articolo\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[{\"id\":\"bqquxvdabx\",\"field\":\"data_ora\",\"title\":\"data_fattura\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"DD-MM-YYYY hh:mm:ss\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"exp\":undefined,\"descr\":undefined,\"groupby\":undefined,\"enable_HTML\":0},{\"id\":\"mjqnrygopd\",\"field\":\"data\",\"title\":\"data_fatt\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"DD-MM-YYYY\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"exp\":undefined,\"descr\":undefined,\"groupby\":undefined,\"enable_HTML\":0}],\"enable_HTML\":0},{\"id\":\"bxegknlxmd\",\"field\":\"prezzo\",\"title\":\"prezzo\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[{\"id\":\"sqoowybbni\",\"field\":\"totale_fattura\",\"title\":\"totale_fattura\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"exp\":undefined,\"descr\":undefined,\"groupby\":undefined,\"enable_HTML\":0}],\"enable_HTML\":0}],\"RowLayer\":[{\"id\":\"rvmwtsmdos\",\"field\":\"quantita\",\"title\":\"quantita\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0},{\"id\":\"fvqwuujlhi\",\"field\":\"tot_parziale\",\"title\":\"totale_parziale\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0}],\"Fields\":[\"id_fattura\",\"fk_cliente\",\"fk_articolo\",\"data_ora\",\"data\",\"prezzo\",\"totale_fattura\",\"quantita\",\"tot_parziale\"],\"HideFields\":{},\"Configuration\":{\"VQRName\":\"BO:gs_fattura\",\"GridRows\":15,\"OrderBy\":false}}";
 
-		String y="{\"a\":{\"b\":12}}";
+		//String y="{\"a\":{\"b\":12}}";
 		
 		try {
-			writeJSONObj(new JSONObject(x), base, null, -1);
+			writeJSONObj(new JSONObject(path), base, null, -1);
 		} catch (JSONException e2) {
 			e2.printStackTrace();
 		}
@@ -221,7 +215,7 @@ public class Writer {
 	}
 
 	public static void main(String[]args) {
-		Writer w=new Writer();
+		Writer w=new Writer("{\"a\": \"s3\",\"b\": [{\"ca\": [\"a\",\"b\",\"c\"]}, {\"ca\": [\"x\",\"y\",\"z\"	]},	{\"ca\": [],\"q\": \"ciao\"}]}");
 		w.run();
 	}
 }
