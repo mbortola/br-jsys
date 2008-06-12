@@ -68,8 +68,8 @@ public class XMLReader {
 			if (x.getNodeType()==Node.ELEMENT_NODE) {
 				Element y=(Element)x;
 				String type=y.getAttribute("type");
-				if (type.equals("JSONObject")) result.put(y.getTagName(), putObj(y));
-				else if (type.equals("JSONArray")) result.put(y.getTagName(), putArray(y));
+				if (type.equals("")) result.put(y.getTagName(), putObj(y));
+				else if (type.equals("list")) result.put(y.getTagName(), putArray(y));
 				else result.put(y.getTagName(), putValue(y));
 			}
 
@@ -93,11 +93,11 @@ public class XMLReader {
 				Element el = (Element)list.item(i);
 				String type=el.getAttribute("type");
 				//JSONObject
-				if (type.equals("JSONObject")) {
+				if (type.equals("")) {
 					result.put(el.getTagName(),putObj(el));
 				}
 				//JSONArray
-				else if (type.equals("JSONArray")) {
+				else if (type.equals("list")) {
 					result.put(el.getTagName(),putArray(el));
 				}
 				//valore
@@ -124,11 +124,11 @@ public class XMLReader {
 				String type=el.getAttribute("type");
 
 				//JSONObject
-				if (type.equals("JSONObject")) {
+				if (type.equals("")) {
 					arr.put(element, putObj(el));
 				}
 				//JSONArray
-				else if (type.equals("JSONArray")) {
+				else if (type.equals("list")) {
 					arr.put(element,putArray(el));
 				}
 				//valore
