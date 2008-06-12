@@ -1,4 +1,4 @@
-package grammar;
+package grammatiche;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Hashtable;
