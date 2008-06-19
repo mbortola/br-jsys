@@ -6,9 +6,9 @@ options{
 }
 
 
-@lexer::header{package grammar;}
+@lexer::header{package grammatiche;}
 
-@header{package grammar;}
+@header{package grammatiche;}
 
 //La struttura del descrittore di un file di configurazione consente varie rappresentazioni, 
 //e' tuttavia consigliata la rappresentazione a 'tende alla veneziana' tipica di xml Schema
@@ -21,7 +21,7 @@ options{
 
 start	:	base+;
 
-base	:	STRING^ ':'!(list|'('! atom Card? ')'!);
+base	:	STRING^ ':'!(list|'('! (atom|STRING) Card? ')'!);
 
 list	:	'('! typedef (','! typedef)* ')'!;
 
