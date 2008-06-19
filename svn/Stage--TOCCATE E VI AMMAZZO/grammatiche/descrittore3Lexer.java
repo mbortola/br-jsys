@@ -1,14 +1,10 @@
-// $ANTLR 3.0.1 C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g 2008-06-12 16:01:09
+// $ANTLR 3.0.1 C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g 2008-06-19 12:43:11
 package grammatiche;
 
-import org.antlr.runtime.BaseRecognizer;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.DFA;
-import org.antlr.runtime.EarlyExitException;
-import org.antlr.runtime.Lexer;
-import org.antlr.runtime.MismatchedSetException;
-import org.antlr.runtime.NoViableAltException;
-import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 public class descrittore3Lexer extends Lexer {
     public static final int T14=14;
@@ -31,14 +27,14 @@ public class descrittore3Lexer extends Lexer {
     public descrittore3Lexer(CharStream input) {
         super(input);
     }
-    public String getGrammarFileName() { return "C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g"; }
+    public String getGrammarFileName() { return "C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g"; }
 
     // $ANTLR start T12
     public final void mT12() throws RecognitionException {
         try {
             int _type = T12;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:4:5: ( ':' )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:4:7: ':'
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:4:5: ( ':' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:4:7: ':'
             {
             match(':'); 
 
@@ -55,8 +51,8 @@ public class descrittore3Lexer extends Lexer {
     public final void mT13() throws RecognitionException {
         try {
             int _type = T13;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:5:5: ( '(' )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:5:7: '('
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:5:5: ( '(' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:5:7: '('
             {
             match('('); 
 
@@ -73,8 +69,8 @@ public class descrittore3Lexer extends Lexer {
     public final void mT14() throws RecognitionException {
         try {
             int _type = T14;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:6:5: ( ')' )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:6:7: ')'
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:6:5: ( ')' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:6:7: ')'
             {
             match(')'); 
 
@@ -91,8 +87,8 @@ public class descrittore3Lexer extends Lexer {
     public final void mT15() throws RecognitionException {
         try {
             int _type = T15;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:7:5: ( ',' )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:7:7: ','
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:7:5: ( ',' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:7:7: ','
             {
             match(','); 
 
@@ -109,8 +105,8 @@ public class descrittore3Lexer extends Lexer {
     public final void mT16() throws RecognitionException {
         try {
             int _type = T16;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:8:5: ( ':=' )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:8:7: ':='
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:8:5: ( ':=' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:8:7: ':='
             {
             match(":="); 
 
@@ -128,8 +124,8 @@ public class descrittore3Lexer extends Lexer {
     public final void mT17() throws RecognitionException {
         try {
             int _type = T17;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:9:5: ( '=' )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:9:7: '='
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:9:5: ( '=' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:9:7: '='
             {
             match('='); 
 
@@ -146,10 +142,10 @@ public class descrittore3Lexer extends Lexer {
     public final void mAtom() throws RecognitionException {
         try {
             int _type = Atom;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:32:6: ( ( 'str' | 'bool' | 'int' ) )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:32:8: ( 'str' | 'bool' | 'int' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:32:6: ( ( 'str' | 'bool' | 'int' ) )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:32:8: ( 'str' | 'bool' | 'int' )
             {
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:32:8: ( 'str' | 'bool' | 'int' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:32:8: ( 'str' | 'bool' | 'int' )
             int alt1=3;
             switch ( input.LA(1) ) {
             case 's':
@@ -176,7 +172,7 @@ public class descrittore3Lexer extends Lexer {
 
             switch (alt1) {
                 case 1 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:32:9: 'str'
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:32:9: 'str'
                     {
                     match("str"); 
 
@@ -184,7 +180,7 @@ public class descrittore3Lexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:32:15: 'bool'
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:32:15: 'bool'
                     {
                     match("bool"); 
 
@@ -192,7 +188,7 @@ public class descrittore3Lexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:32:22: 'int'
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:32:22: 'int'
                     {
                     match("int"); 
 
@@ -216,10 +212,10 @@ public class descrittore3Lexer extends Lexer {
     public final void mDef() throws RecognitionException {
         try {
             int _type = Def;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:34:5: ( ( ( '\"' ( STRING )* '\"' ) | FLOAT | BOOL ) )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:34:8: ( ( '\"' ( STRING )* '\"' ) | FLOAT | BOOL )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:34:5: ( ( ( '\"' ( STRING )* '\"' ) | FLOAT | BOOL ) )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:34:8: ( ( '\"' ( STRING )* '\"' ) | FLOAT | BOOL )
             {
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:34:8: ( ( '\"' ( STRING )* '\"' ) | FLOAT | BOOL )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:34:8: ( ( '\"' ( STRING )* '\"' ) | FLOAT | BOOL )
             int alt3=3;
             switch ( input.LA(1) ) {
             case '\"':
@@ -257,13 +253,13 @@ public class descrittore3Lexer extends Lexer {
 
             switch (alt3) {
                 case 1 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:34:9: ( '\"' ( STRING )* '\"' )
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:34:9: ( '\"' ( STRING )* '\"' )
                     {
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:34:9: ( '\"' ( STRING )* '\"' )
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:34:10: '\"' ( STRING )* '\"'
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:34:9: ( '\"' ( STRING )* '\"' )
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:34:10: '\"' ( STRING )* '\"'
                     {
                     match('\"'); 
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:34:13: ( STRING )*
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:34:13: ( STRING )*
                     loop2:
                     do {
                         int alt2=2;
@@ -276,7 +272,7 @@ public class descrittore3Lexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:34:13: STRING
+                    	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:34:13: STRING
                     	    {
                     	    mSTRING(); 
 
@@ -296,14 +292,14 @@ public class descrittore3Lexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:34:25: FLOAT
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:34:25: FLOAT
                     {
                     mFLOAT(); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:34:31: BOOL
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:34:31: BOOL
                     {
                     mBOOL(); 
 
@@ -326,8 +322,8 @@ public class descrittore3Lexer extends Lexer {
     public final void mCard() throws RecognitionException {
         try {
             int _type = Card;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:36:6: ( ( '?' | '*' | '+' ) )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:36:8: ( '?' | '*' | '+' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:36:6: ( ( '?' | '*' | '+' ) )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:36:8: ( '?' | '*' | '+' )
             {
             if ( (input.LA(1)>='*' && input.LA(1)<='+')||input.LA(1)=='?' ) {
                 input.consume();
@@ -353,10 +349,10 @@ public class descrittore3Lexer extends Lexer {
     public final void mSTRING() throws RecognitionException {
         try {
             int _type = STRING;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:38:8: ( ( CHAR | FLOAT )+ )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:38:10: ( CHAR | FLOAT )+
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:38:8: ( ( CHAR | FLOAT )+ )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:38:10: ( CHAR | FLOAT )+
             {
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:38:10: ( CHAR | FLOAT )+
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:38:10: ( CHAR | FLOAT )+
             int cnt4=0;
             loop4:
             do {
@@ -373,14 +369,14 @@ public class descrittore3Lexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:38:11: CHAR
+            	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:38:11: CHAR
             	    {
             	    mCHAR(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:38:16: FLOAT
+            	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:38:16: FLOAT
             	    {
             	    mFLOAT(); 
 
@@ -409,10 +405,10 @@ public class descrittore3Lexer extends Lexer {
     // $ANTLR start FLOAT
     public final void mFLOAT() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:40:16: ( ( '-' )? ( '0' .. '9' )+ )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:40:18: ( '-' )? ( '0' .. '9' )+
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:40:16: ( ( '-' )? ( '0' .. '9' )+ )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:40:18: ( '-' )? ( '0' .. '9' )+
             {
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:40:18: ( '-' )?
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:40:18: ( '-' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -421,7 +417,7 @@ public class descrittore3Lexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:40:19: '-'
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:40:19: '-'
                     {
                     match('-'); 
 
@@ -430,7 +426,7 @@ public class descrittore3Lexer extends Lexer {
 
             }
 
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:40:24: ( '0' .. '9' )+
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:40:24: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -444,7 +440,7 @@ public class descrittore3Lexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:40:25: '0' .. '9'
+            	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:40:25: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -472,7 +468,7 @@ public class descrittore3Lexer extends Lexer {
     // $ANTLR start BOOL
     public final void mBOOL() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:42:15: ( 'true' | 'false' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:42:15: ( 'true' | 'false' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -490,7 +486,7 @@ public class descrittore3Lexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:42:17: 'true'
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:42:17: 'true'
                     {
                     match("true"); 
 
@@ -498,7 +494,7 @@ public class descrittore3Lexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:42:24: 'false'
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:42:24: 'false'
                     {
                     match("false"); 
 
@@ -516,7 +512,7 @@ public class descrittore3Lexer extends Lexer {
     // $ANTLR start CHAR
     public final void mCHAR() throws RecognitionException {
         try {
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:44:15: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:44:15: ( ( 'a' .. 'z' ) | ( 'A' .. 'Z' ) )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -534,10 +530,10 @@ public class descrittore3Lexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:44:17: ( 'a' .. 'z' )
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:44:17: ( 'a' .. 'z' )
                     {
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:44:17: ( 'a' .. 'z' )
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:44:18: 'a' .. 'z'
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:44:17: ( 'a' .. 'z' )
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:44:18: 'a' .. 'z'
                     {
                     matchRange('a','z'); 
 
@@ -547,10 +543,10 @@ public class descrittore3Lexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:44:28: ( 'A' .. 'Z' )
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:44:28: ( 'A' .. 'Z' )
                     {
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:44:28: ( 'A' .. 'Z' )
-                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:44:29: 'A' .. 'Z'
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:44:28: ( 'A' .. 'Z' )
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:44:29: 'A' .. 'Z'
                     {
                     matchRange('A','Z'); 
 
@@ -571,10 +567,10 @@ public class descrittore3Lexer extends Lexer {
     public final void mWHITESPACE() throws RecognitionException {
         try {
             int _type = WHITESPACE;
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:46:12: ( ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+ )
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:46:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:46:12: ( ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+ )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:46:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
             {
-            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:46:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:46:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
             int cnt9=0;
             loop9:
             do {
@@ -588,7 +584,7 @@ public class descrittore3Lexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:
+            	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:
             	    {
             	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
             	        input.consume();
@@ -625,82 +621,82 @@ public class descrittore3Lexer extends Lexer {
     // $ANTLR end WHITESPACE
 
     public void mTokens() throws RecognitionException {
-        // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:8: ( T12 | T13 | T14 | T15 | T16 | T17 | Atom | Def | Card | STRING | WHITESPACE )
+        // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:8: ( T12 | T13 | T14 | T15 | T16 | T17 | Atom | Def | Card | STRING | WHITESPACE )
         int alt10=11;
         alt10 = dfa10.predict(input);
         switch (alt10) {
             case 1 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:10: T12
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:10: T12
                 {
                 mT12(); 
 
                 }
                 break;
             case 2 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:14: T13
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:14: T13
                 {
                 mT13(); 
 
                 }
                 break;
             case 3 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:18: T14
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:18: T14
                 {
                 mT14(); 
 
                 }
                 break;
             case 4 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:22: T15
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:22: T15
                 {
                 mT15(); 
 
                 }
                 break;
             case 5 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:26: T16
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:26: T16
                 {
                 mT16(); 
 
                 }
                 break;
             case 6 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:30: T17
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:30: T17
                 {
                 mT17(); 
 
                 }
                 break;
             case 7 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:34: Atom
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:34: Atom
                 {
                 mAtom(); 
 
                 }
                 break;
             case 8 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:39: Def
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:39: Def
                 {
                 mDef(); 
 
                 }
                 break;
             case 9 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:43: Card
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:43: Card
                 {
                 mCard(); 
 
                 }
                 break;
             case 10 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:48: STRING
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:48: STRING
                 {
                 mSTRING(); 
 
                 }
                 break;
             case 11 :
-                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\descrittore3.g:1:55: WHITESPACE
+                // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:1:55: WHITESPACE
                 {
                 mWHITESPACE(); 
 

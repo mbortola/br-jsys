@@ -62,7 +62,7 @@ public class ConfigurationManager {
 			parsetree(tree);
 
 			//Lo parserizzo 
-
+			
 			return read(root, tree.getChild(0));
 
 
@@ -75,53 +75,6 @@ public class ConfigurationManager {
 		}
 		return null;
 
-	}
-
-	private Element read2(Element root, Tree tree) throws Exception {
-
-		//scorro tutti i primi figli di tree
-
-		for (int i=0;i<tree.getChildCount(); i++) {
-			//controllo del tipo
-			Tree tmp=tree.getChild(i);
-
-			if (tokenNames[tmp.getChild(0).getType()].equals("Atom")) {
-				//Valore Atomico
-			} else {
-				//Array o oggetto
-
-				//Recupero il nome dell'oggetto
-				String nameObj=tmp.getChild(1).getText();
-
-				if (tmp.getChild(0).getText().equals("(")) {
-					//Oggetto
-					//Cambio di contesto
-					Tree subTree=null;
-					if (tmp.getChild(1).getChildCount()==0) {
-						subTree=oggettiBase.get(nameObj);
-						if (subTree==null) throw new Exception("Hash Sbagliata");
-					}
-					else {
-						subTree=tmp.getChild(1);
-					}
-
-					//Cambio contesto nel XML
-
-					Element subEl=findElement(nameObj, root);
-
-					if (subEl==null) {
-						//Non c'e'
-					} else {
-						read2(subEl, subTree);
-					}
-
-				} else {
-					//Array
-				}
-			}
-		}
-
-		return root;
 	}
 
 	private Element findElement(String nameObj, Element root) {
@@ -137,6 +90,11 @@ public class ConfigurationManager {
 		return null;
 	}
 
+	/**Scorre un nodo di parsing alla ricerca di incongruenze.
+	 * 
+	 * @param root Elemento DOM da analizzare.
+	 * @param tree Il nodo dell'albero di parsing 
+	 * */
 	private Element read(Element root, Tree tree) throws Exception {
 		//scorro tutti i figli dell'albero, e ogni volta guardo se sono presenti anche nel XML
 		//se non ci sono e non anno default, posso andare oltre, altrimenti devo creare un nuovo 
@@ -145,139 +103,162 @@ public class ConfigurationManager {
 		Tree tmp=null;
 		String name=null;
 
+		boolean tmpIsArray=false;
+
 		for (int i=0;i<tree.getChildCount(); i++) {
-
-			tmp=tree.getChild(i);
-			name=tmp.getText();
-
-			//e' di valore atomico?
-			if (tokenNames[tmp.getChild(0).getType()].equals("Atom")) {
-				//Valore Atomico
-				String def=this.obbligatorio(tmp);
-				if (def!=null) {
-					//Deve Esserci
-					Element item=this.findElement(name, root);
-					if (item==null) {
-						//Non c'e'
-						//Insert
-						Element el=doc.createElement(tmp.getText());
-
-						String type=def.getClass().toString();
-						type=type.substring(type.lastIndexOf(".")+1, type.length());
-
-						el.setAttribute("type", type);
-
-						el.setAttribute("value", def.toString());
-
-						root.appendChild(el);
-					}
-				}
-			} else {
-				/*Obj*/
-				//Aggiorno tree, hash o sottotipo
-				
-				
-				if (true/*!Array*/) {
-					if (false/*!Presente*/) {
-						//ERRORE!?
+			//Analizzo il figlio i
+			tmp = tree.getChild(i);
+			name = tmp.getText();
+			String type=tokenNames[tmp.getType()];
+			System.out.println("Analisi:" + tmp.getText());
+			if (!type.equals("Card")) {
+				tmpIsArray = isArray(tree, i);
+				if (tmp.getChildCount() == 0) {
+					//riferimento esterno o array base
+					if (tokenNames[tmp.getType()].equals("Atom")) {
+						//array Atom
 					} else {
-						//Trovo elemento in XML
-						//Ricorsione
+						//riferimento esterno
+						//Controllo se presente
+
+						Element e = findElement(name, root);
+
+						if (e == null) {
+							//l'elemento non c'e'
+							System.out.println("ERR0:" + name);
+						} else {
+							//Cambio contesto
+							Tree newTree = oggettiBase.get(name);
+							if (newTree == null) {
+								System.out.println("Err");
+								System.exit(1);
+							} else {
+								//devo scorrere tutti gli elementi e parsarli
+								NodeList items = root
+								.getElementsByTagName("Item");
+
+								for (int x = 0; x < items.getLength(); x++) {
+									System.out.println("item");
+									read((Element) items.item(x), newTree);
+								}
+							}
+						}
 					}
+					//+1 contatore 
+					//se sono qui e' perche ho un solo elemento , ma anche se sforo non importa
+					//i++;
 				} else {
-					//Array
-					//Trovo elemento in XML
-					for (;;/*ogni elemento in XML di tipo opportuno*/) {
-						//Ricorsione
+					//tmp ha dei figli 
+					name = tmp.getText();
+
+					if (tokenNames[tmp.getChild(0).getType()].equals("Atom")) {
+						//valori atomici
+						//guardo se e' opzionale
+						System.out.println("test");
+						if (!opzionale(tmp)) {
+							System.out.println("obb");
+							//E' obbligatorio, controllo se e' presente
+							if (findElement(name, root) == null) {
+								Object value = findDefault(tmp);
+								//System.out.println(value);
+								//aggiungo elemento
+								System.out.println("ADD");
+								Element el = doc.createElement(tmp.getText());
+
+								String val = value.getClass().toString();
+								val = val.substring(
+										val.lastIndexOf(".") + 1, val
+										.length());
+
+								el.setAttribute("type", val);
+
+								el.setAttribute("value", value.toString());
+
+								root.appendChild(el);
+
+							}
+
+						} //altrimenti neanche guardo
+					} else {
+						//sotto elementi 
+						//Guardo se e' presente
+						Element e = this.findElement(name, root);
+						if (e == null) {
+							//Non c'e'
+							//Guardo se e' obbligatorio
+							if (!this.opzionale(tmp)) {
+								//ERRORE
+								System.out.println("ERRORE");
+							}
+						} else {
+							//E' presente
+							//Guardo se e' un array
+							System.out.println("AY");
+							if (isArray(tree,i)) {
+								System.out.println("ARRAY");
+								//scorro tutti i figli
+								NodeList items=e.getElementsByTagName("Item");
+
+								for (int x = 0; x < items.getLength(); x++) {
+									System.out.println("item");
+									read((Element) items.item(x), tmp);
+								}
+							} else {
+								//Cambio contesto
+								System.out.println("ricorsione:" + name);
+								read(e, tmp);
+								System.out.println("fine ricorsione");
+							}
+						}
 					}
 				}
 			}
 
-			System.out.println(tokenNames[tmp.getChild(0).getType()]+"---"+tmp.getChild(0).getText());
-
-			/**if (tokenNames[tmp.getChild(0).getType()].equals("Atom")) {
-				//e' presente?
-				if(list.getLength()==0) {
-					//System.out.println(tmp.getText());
-					//Non e' presente
-					//!!!DA CHIARIRE
-					//Controllo se richiede valore di default
-					Object value=findDefault(tmp);
-					System.out.println(value);
-					if (value!=null) {
-						System.out.println("ADD");
-						Element el=doc.createElement(tmp.getText());
-
-						String type=value.getClass().toString();
-						type=type.substring(type.lastIndexOf(".")+1, type.length());
-
-						el.setAttribute("type", type);
-
-						el.setAttribute("value", value.toString());
-
-						root.appendChild(el);
-					}
-				}
-
-			} else {
-				System.out.println("ELSE");
-				//e' un sottotipo. il fatto che sia un array o un oggetto non mi importa nulla, penso
-				//E' presente?
-				if(list.getLength()==0) { 
-					//Da chiarire
-				} else {
-					System.out.println("ELSEELSE");
-					//E' definito sotto oppure riferito nella Hash table?
-					//se e' definito altrove non ha figli!
-					//Dunque devo guardare i figli del primo figlio, se sono 0 devo cercarlo nell'hash
-					if(tmp.getChild(0).getChildCount()==0) {
-						System.out.println("ELSEELSEIF");
-						//Se non trovo la definizione nell'hash sono problemi
-						Tree newType=oggettiBase.get(tmp.getChild(0).getText());
-						if (newType==null) {throw new Exception("Problema");}
-						System.out.println(tmp.getChild(0).getText());
-						parsetree(newType);
-						read((Element)list.item(0), newType);
-					} else {
-						//e' definito sotto
-						read((Element)list.item(0),tmp.getChild(0));
-					}
-				}
-				//Chiamata ricorsiva
-			}**/
+			/*if (tmpIsArray) {
+				i++;
+				tmpIsArray=false;
+			}*/
 
 		}
-
-
 		return root;
 	}
 
-	private String obbligatorio(Tree tmp) {
-		//La cardinalita' e' definita sull'ultimo figlio
-		//Per convenzione se e' presente l'attibuto default l'elemento
-		//deve esserci
-		int childs=tmp.getChildCount();
-		//Comunque se ha un figlio solo non ho un valore di default da 
-		//inserire...
-		if (childs==1){
-			//Obbligatorio ma non ho default
-			return new String("");
+	private boolean isArray(Tree tree, int i) {
+
+		try {
+			String val=tree.getChild(i+1).getText();
+
+			System.out.println("val:"+val);
+			
+			if (val.equals("*")||val.equals("+")) return true;
+		} catch (NullPointerException e) {return false;}
+		return false;
+
+	}
+
+	private boolean opzionale(Tree tree) {
+		for (int i=0;i<tree.getChildCount();i++) {
+			String val=tree.getChild(i).getText();
+			if(tokenNames[tree.getChild(i).getType()].equals("Def")) return false;
+			if(val.equals("*")||val.equals("?")) return true;
 		}
 
-		if (childs==3) {
-			//Estrapolo il default
-			return tmp.getChild(1).getText().substring(1, tmp.getChild(1).getText().length()-1);
+		return false;
+	}
+
+	private Object findDefault(Tree tmp) {
+		for (int i=0;i<tmp.getChildCount();i++) {
+			if (tokenNames[tmp.getChild(i).getType()].equals("Def")) {
+				String val=tmp.getChild(i).getText();
+				String type=tmp.getChild(i-1).getText();
+				if (type.equals("str")) {
+					return val.substring(1, val.length()-1);
+				}
+				if (type.equals("int")) {return new Integer(val);}
+				if (type.equals("bool")) {return new Boolean(val);}
+			}
 		}
-		//Ho 2 figli
-		Tree second=tmp.getChild(1);
-		if (tokenNames[second.getType()].equals("Card"))	{
-			if (second.getText().equals("+")) return new String("");
-			else return null;
-		} else {
-			//Ho il default
-			
-			return second.getText().substring(1,second.getText().length()-1);
-		}
+		return new String("");
 	}
 
 	private void parsetree(Tree tree) {
@@ -300,7 +281,12 @@ public class ConfigurationManager {
 
 		//Writer Z=new Writer("{a:{b:8}}");
 
-		Writer2 w=new Writer2("{\"a\": \"s3\",\"b\": [{\"ca\": [\"a\",\"b\",\"c\"]}, {\"ca\": [\"x\",\"y\",\"z\"	]},	{\"ca\": [],\"q\": \"ciao\"}]}");
+		String v1="{a:2, b:\"ciao\", c:{x:1, y:[1,2,3,4]},k:{w:3}}";
+
+		String v2="{\"a\": \"s3\",\"b\": [{\"ca\": [\"a\",\"b\",\"c\"]}, {\"ca\": [\"x\",\"y\",\"z\"]}]}";
+
+		String v3="{k:[{a:3},{a:5}]}";
+		Writer2 w=new Writer2(v3);
 
 		w.run();
 
