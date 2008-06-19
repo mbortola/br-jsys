@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VZM>
-	<a type="String" value="s3"/>
-	<b elements="3" type="list">
+	<k elements="2" type="list">
 		<Item position="0">
-			<ca elements="3" type="list">
-				<Item position="0" type="String" value="a"/>
-				<Item position="1" type="String" value="b"/>
-				<Item position="2" type="String" value="c"/>
-			</ca>
+			<a type="Integer" value="3"/>
 		</Item>
 		<Item position="1">
-			<ca elements="3" type="list">
-				<Item position="0" type="String" value="x"/>
-				<Item position="1" type="String" value="y"/>
-				<Item position="2" type="String" value="z"/>
-			</ca>
+			<a type="Integer" value="5"/>
 		</Item>
-		<Item position="2">
-			<q type="String" value="ciao"/>
-		</Item>
-	</b>
+	</k>
 </VZM>
