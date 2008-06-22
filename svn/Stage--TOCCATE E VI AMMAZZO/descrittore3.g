@@ -21,7 +21,7 @@ options{
 
 start	:	base+;
 
-base	:	STRING^ ':'!(list|'('! (atom|STRING) Card? ')'!);
+base	:	STRING^ ':'!(list|'('! (atom) Card? ')'!);
 
 list	:	'('! typedef (','! typedef)* ')'!;
 
