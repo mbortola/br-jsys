@@ -92,7 +92,7 @@ public class Writer {
 		}
 	}
 
-	private String prettyPrint(String st) {
+	public String prettyPrint(String st) {
 		//un tag per riga
 		st=st.replace("<", "%<");
 
