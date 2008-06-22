@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VZM>
-	<k elements="2" type="list">
+	<x2>
+		<f type="Integer" value="9"/>
+	</x2>
+	<w elements="2" type="list">
 		<Item position="0">
-			<a type="Integer" value="3"/>
+			<r type="Integer" value="3"/>
 		</Item>
 		<Item position="1">
-			<a type="Integer" value="5"/>
+			<r type="Integer" value="90"/>
 		</Item>
-	</k>
+	</w>
+	<k1 type="Integer" value="6"/>
+	<q>
+		<p type="Integer" value="8"/>
+	</q>
 </VZM>

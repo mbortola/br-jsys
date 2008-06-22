@@ -1,8 +1,20 @@
 VZM:(
-k:(
-a:int,
-b:str:="def"
-)+
-
+k1:int:=3,
+z9:str:="def",
+w:col+,
+q:(p:int,e:int:=3)+,
+x2:(
+f:int,
+k:bool:=true),
+q:z
 )
 
+col:(
+r:int,
+m:str:="abc"
+)
+
+z:(
+n:str:="a",
+p:int
+)
