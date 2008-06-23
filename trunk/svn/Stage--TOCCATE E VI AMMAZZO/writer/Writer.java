@@ -23,16 +23,25 @@ import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+/**Effettua il parsing di un oggetto JSON in un elemento XML.
+ * @author Michele
+ */
 public class Writer {
 
-	String path;
-	
-	public Document doc;
+	/**Indirizzo del file di input*/
+	String obj;
 
+	/**Il DOM risultato*/
+	private Document doc;
+
+	/**Costruttore
+	 * @param p Oggetto JSON da convertire.
+	 */
 	public Writer(String p) {
-		path=p;
+		obj=p;
 	}
 
+	/** Avvia la conversione*/
 	public void run() {
 		DocumentBuilderFactory factory =
 			DocumentBuilderFactory.newInstance();
@@ -46,17 +55,9 @@ public class Writer {
 		}
 		//Inuizializzo un Document
 		doc = docBuilder.newDocument();
-		//Crea l'elemento radice
-		Element base = doc.createElement("VZM");
 
-		doc.appendChild(base);
-
-		//String x="{\"Table\":\"tab_fattura_m\",\"Cols\":[{\"id\":\"ojxbjhoamx\",\"field\":\"id_fattura\",\"title\":\"id_fattura\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"enable_HTML\":0},{\"id\":\"qgxyvexcrs\",\"field\":\"fk_cliente\",\"title\":\"fk_cliente\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"enable_HTML\":0},{\"id\":\"crlmeuvucr\",\"field\":\"fk_articolo\",\"title\":\"fk_articolo\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[{\"id\":\"bqquxvdabx\",\"field\":\"data_ora\",\"title\":\"data_fattura\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"DD-MM-YYYY hh:mm:ss\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"exp\":undefined,\"descr\":undefined,\"groupby\":undefined,\"enable_HTML\":0},{\"id\":\"mjqnrygopd\",\"field\":\"data\",\"title\":\"data_fatt\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"DD-MM-YYYY\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"exp\":undefined,\"descr\":undefined,\"groupby\":undefined,\"enable_HTML\":0}],\"enable_HTML\":0},{\"id\":\"bxegknlxmd\",\"field\":\"prezzo\",\"title\":\"prezzo\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[{\"id\":\"sqoowybbni\",\"field\":\"totale_fattura\",\"title\":\"totale_fattura\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0,\"Layer\":[],\"exp\":undefined,\"descr\":undefined,\"groupby\":undefined,\"enable_HTML\":0}],\"enable_HTML\":0}],\"RowLayer\":[{\"id\":\"rvmwtsmdos\",\"field\":\"quantita\",\"title\":\"quantita\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0},{\"id\":\"fvqwuujlhi\",\"field\":\"tot_parziale\",\"title\":\"totale_parziale\",\"link\":\"\",\"target\":\"\",\"tooltip\":\"\",\"picture\":\"\",\"isImage\":0,\"inExtGrid\":0}],\"Fields\":[\"id_fattura\",\"fk_cliente\",\"fk_articolo\",\"data_ora\",\"data\",\"prezzo\",\"totale_fattura\",\"quantita\",\"tot_parziale\"],\"HideFields\":{},\"Configuration\":{\"VQRName\":\"BO:gs_fattura\",\"GridRows\":15,\"OrderBy\":false}}";
-
-		//String y="{\"a\":{\"b\":12}}";
-		
 		try {
-			writeJSONObj(new JSONObject(path), base, null, -1);
+			writeJSONObj(new JSONObject(obj), null, "VZM", -1);
 		} catch (JSONException e2) {
 			e2.printStackTrace();
 		}
@@ -70,7 +71,7 @@ public class Writer {
 			e1.printStackTrace();
 		}
 		Source src = new DOMSource(doc);
-		//Result dest = new StreamResult(new File("out.xml"));
+
 		StringWriter st=new StringWriter();
 		Result dest=new StreamResult(st);
 		try {
@@ -87,11 +88,14 @@ public class Writer {
 			w.write(pp);
 			w.flush();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	/** Effettua l'identazione di una stringa che rappresenta un elemento XML
+	 * @param st La stringa da elaborare.
+	 * @return La stringa identata.
+	 */
 	public String prettyPrint(String st) {
 		//un tag per riga
 		st=st.replace("<", "%<");
@@ -116,25 +120,27 @@ public class Writer {
 		return result;
 	}
 
+	/**Scrive un oggetto JSON.
+	 * @param o l'oggetto da scrivere.
+	 * @param root L'elemento radice.
+	 * @param name il Nome del nuovo oggetto.
+	 * @param position Qualora o fosse un elemento di un array indica la sua posizione. 
+	 * Il valore -1 non viene considerato.
+	 * @return <p>true</p> L'oggetto non era vuoto ed e' stato scritto.
+	 * <p>false</p> L'oggetto era vuoto e non e' stato scritto.
+	 * @throws JSONException
+	 */
 	protected boolean writeJSONObj(JSONObject o, Element root, String name, int position) throws JSONException{
 		JSONArray list=o.names();
-
-		//intanto creo un elemento che casomai aggiungero' al XML
-
-		Element el=null;// doc.createElement("VZM");
-
-		if (name!=null) {el=doc.createElement(name);}
-		else el=root;
-
-		//l'oggetto non ha campi, non scrivo niente e ritorno false.
 		if (list==null)return false;
-
-		//FORSE non e' vuoto
 
 		//Var temporanee
 		Object value=null;
 		String tagName=null;
 		boolean notEmpty=false;
+
+		//intanto creo un elemento che casomai aggiungero' al XML
+		Element start=doc.createElement(name);
 
 		for (int i=0;i<list.length();i++) {
 			tagName=list.getString(i);
@@ -142,13 +148,13 @@ public class Writer {
 
 			//controllo sul tipo
 			if (value instanceof JSONObject) {
-				if (writeJSONObj((JSONObject)value, el, tagName, -1)) {
+				if (writeJSONObj((JSONObject)value, start, tagName, -1)) {
 					//Ho almeno un elemento non vuoto, posso scrivere.
 					notEmpty=true;
 				}
 			} else if (value instanceof JSONArray) {
 				//E' un JSONArray
-				if (writeJSONArray((JSONArray)value, el, tagName)) {
+				if (writeJSONArray((JSONArray)value, start, tagName)) {
 					//Ho almeno un elemento non vuoto.
 					notEmpty=true;
 				}
@@ -160,21 +166,31 @@ public class Writer {
 					type=type.substring(type.lastIndexOf(".")+1, type.length());
 					el2.setAttribute("value", value.toString());
 					el2.setAttribute("type", type);
-					el.appendChild(el2);
+					start.appendChild(el2);
 					notEmpty = true;
 				}
-
 		}
 
-		if (notEmpty&&(name!=null)) {
+		/***/
+		if (notEmpty) {
 			//Almeno un elemento
-			if (position>-1) el.setAttribute("position", new Integer(position).toString());
-			el.setAttribute("type", "JSONObject");
-			root.appendChild(el);
+			if (position>-1) start.setAttribute("position", new Integer(position).toString());
+
+			if (name.equals("VZM"))doc.appendChild(start);
+			else root.appendChild(start);
+
 			return true;				
 		} else return false;
 	}
 
+	/**Scrive un JSONArray
+	 * @param a Array da scrivere.
+	 * @param root Elemento radice.
+	 * @param name Nome del nuovo elemento.
+	 * @return <p>true</p> L'array non era vuoto ed e' stato scritto.
+	 * <p>false</p> L'Array era vuoto e non e' stato scritto.
+	 * @throws JSONException
+	 */
 	private boolean writeJSONArray(JSONArray a, Element root, String name) throws JSONException {
 		//L'array puo contenere oggetti di tipo valore o di tipo JSONObject
 		if (a.length()==0) return false;
@@ -186,7 +202,7 @@ public class Writer {
 			value=a.get(i);
 
 			if (value instanceof JSONObject) {
-				if (writeJSONObj((JSONObject)value, el, "JSONObject", elements)) {
+				if (writeJSONObj((JSONObject)value, el, "Item", elements)) {
 					//Ho almeno un elemento non vuoto, posso scrivere.
 					elements++;
 					notEmpty=true;
@@ -194,7 +210,7 @@ public class Writer {
 			} else 
 				if (!value.equals("")) {
 					//
-					Element el2 = doc.createElement("element");
+					Element el2 = doc.createElement("Item");
 					el2.setAttribute("position", new Integer(i).toString());
 					String type=value.getClass().toString();
 					type=type.substring(type.lastIndexOf(".")+1, type.length());
@@ -207,15 +223,21 @@ public class Writer {
 		}
 
 		if (notEmpty&&(name!=null)) {
-			el.setAttribute("type", "JSONArray");
+			el.setAttribute("type", "list");
 			el.setAttribute("elements", elements.toString());
 			root.appendChild(el);
 			return true;
 		} else return false;
 	}
 
+	/**Ritorna il DOM;
+	 * @return Il DOM.
+	 */
+	public Document getDoc(){return doc;}
+	
 	public static void main(String[]args) {
-		Writer w=new Writer("{\"a\": \"s3\",\"b\": [{\"ca\": [\"a\",\"b\",\"c\"]}, {\"ca\": [\"x\",\"y\",\"z\"	]},	{\"ca\": [],\"q\": \"ciao\"}]}");
+		Writer w=new Writer("{\"a\": \"s3\",\"b\": [{\"ca\": [\"a\",\"b\",\"c\"]}, {\"ca\": [\"x\",\"y\",\"z\"	]},	{\"ca\": [],\"q\": \"ciao\"}],k:{x:9}}");
 		w.run();
 	}
 }
+
