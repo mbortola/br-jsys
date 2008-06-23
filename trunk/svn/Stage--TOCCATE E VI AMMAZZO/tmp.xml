@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VZM>
+	<Filters elements="2" type="list">
+		<Item position="0">
+			<field type="String" value="field"/>
+			<desc type="String" value="default"/>
+			<operation type="String" value="="/>
+			<init type="String" value="default"/>
+			<type type="String" value=""/>
+			<length type="String" value=""/>
+			<decimal type="Integer" value="0"/>
+			<format type="String" value="default"/>
+			<linkTable type="String" value="default"/>
+			<keyField type="String" value="default"/>
+			<FilterFix1 type="String" value="default"/>
+			<FilterValue1 type="String" value="default"/>
+			<FilterFix2 type="String" value="default"/>
+			<FilterValue2 type="String" value="default"/>
+			<FilterFix3 type="String" value="default"/>
+			<FilterValue3 type="String" value="default"/>
+			<ReadField type="String" value="default"/>
+			<ComboVal type="String" value="default"/>
+			<Advanced type="Boolean" value="false"/>
+			<HiddenGroup type="Boolean" value="false"/>
+			<Keep type="Boolean" value="false"/>
+			<Group type="String" value="default"/>
+			<Tooltip type="String" value="default"/>
+			<DisplayLen type="Integer" value="0"/>
+			<QueryPar type="String" value="default"/>
+		</Item>
+		<Item position="1">
+			<decimal type="Integer" value="2"/>
+			<field type="String" value=""/>
+			<desc type="String" value="default"/>
+			<operation type="String" value="="/>
+			<init type="String" value="default"/>
+			<type type="String" value=""/>
+			<length type="String" value=""/>
+			<format type="String" value="default"/>
+			<linkTable type="String" value="default"/>
+			<keyField type="String" value="default"/>
+			<FilterFix1 type="String" value="default"/>
+			<FilterValue1 type="String" value="default"/>
+			<FilterFix2 type="String" value="default"/>
+			<FilterValue2 type="String" value="default"/>
+			<FilterFix3 type="String" value="default"/>
+			<FilterValue3 type="String" value="default"/>
+			<ReadField type="String" value="default"/>
+			<ComboVal type="String" value="default"/>
+			<Advanced type="Boolean" value="false"/>
+			<HiddenGroup type="Boolean" value="false"/>
+			<Keep type="Boolean" value="false"/>
+			<Group type="String" value="default"/>
+			<Tooltip type="String" value="default"/>
+			<DisplayLen type="Integer" value="0"/>
+			<QueryPar type="String" value="default"/>
+		</Item>
+	</Filters>
+	<RowLayer elements="2" type="list">
+		<Item position="0">
+			<exp type="String" value="exp"/>
+			<id type="String" value=""/>
+			<field type="String" value=""/>
+			<title type="String" value=""/>
+			<link type="String" value=""/>
+			<target type="String" value=""/>
+			<tooltip type="String" value=""/>
+			<picture type="String" value=""/>
+			<IsImage type="String" value=""/>
+			<inExtGrid type="String" value=""/>
+			<enable_HTML type="String" value=""/>
+		</Item>
+		<Item position="1">
+			<Layer elements="1" type="list">
+				<Item position="0">
+					<enable_HTML type="Boolean" value="true"/>
+					<id type="String" value=""/>
+					<field type="String" value=""/>
+					<title type="String" value=""/>
+					<link type="String" value=""/>
+					<target type="String" value=""/>
+					<tooltip type="String" value=""/>
+					<picture type="String" value=""/>
+					<IsImage type="String" value=""/>
+					<inExtGrid type="String" value=""/>
+				</Item>
+			</Layer>
+			<id type="String" value=""/>
+			<field type="String" value=""/>
+			<title type="String" value=""/>
+			<link type="String" value=""/>
+			<target type="String" value=""/>
+			<tooltip type="String" value=""/>
+			<picture type="String" value=""/>
+			<IsImage type="String" value=""/>
+			<inExtGrid type="String" value=""/>
+			<enable_HTML type="String" value=""/>
+		</Item>
+	</RowLayer>
+	<Fields elements="1" type="list">
+		<Item position="0" type="String" value="a"/>
+	</Fields>
+	<Configuration>
+		<VQRName type="String" value="vqr"/>
+		<PKFields type="String" value=""/>
+		<TabName type="String" value=""/>
+		<OrderBy type="String" value=""/>
+		<GridRows type="String" value=""/>
+		<Table type="String" value=""/>
+		<ConfigName type="String" value=""/>
+	</Configuration>
+</VZM>
