@@ -77,6 +77,7 @@ Supporta i tipi di dato basilari (integer, double, char, string, array, null) e 
 La struttura base di un oggetto JSON e' composta da una sequenza non ordinata di coppie nome-valore, nal caso di rappresentazione di un array invece abbiamo soltanto una sequenza ordinata di soli valori.
 \\
 Per esempio il seguente elemento scritto in XML:
+\lstset{language=HTML}
 \begin{lstlisting}
 
 <element>
@@ -100,6 +101,19 @@ Può trovare una analoga rappresentazione come elemento JSON:
 
 \section{Xalan}
 Xalan e' uno strumento che consente di effettuare trasformate XSL in ambiente JAVA appoggiandosi a SAX e a DOM, e' un servizio fornito da Apache.
+
+\chapter{Descrizione dell'attivita' di stage}
+L'attivita' di stage consiste nello studio di varie metodologie basate su XML per la trattazione di file di configurazione, in particolare si faranno alcuni esperimenti per vedere come con XML si possono aumentare le prestazioni nella trattazione di dati.
+\begin{itemize}
+	\item Si costruiranno delle applicazioni per la conversione in XML di oggetti JSON e viceversa.
+	\item Si valuteranno i tempi di esecuzione di alcune elaborazioni XSLT con l'obbiettivo di rappresentare come struttura nidificata un XML piatto.
+	\item Si valuteranno i servizi offerti da un DBMS XML (eXist) valutando se può convenire sfruttarlo per l'immagazzinamento dei dati.
+	\item Si costruirà un applicazione per la conversione di file di configurazione rappresentati tramite oggetti DOM, aggiungendo dove opportuno elementi precedentemente non presenti, le specifiche sulla struttura di un file di configurazione verranno rappresentata tramite la creazione di un linguaggio ad-hoc con relativo parser per la generazione di un albero necessario per un confronto parallelo. Per la generazione del parse ci si appoggiera' ad un generatore di parser(ANTLR)
+\end{itemize}
+
+L'obiettivo finale dello stage sara dunque quello di vedere come il trattamento dei dati con XML può in certi casi facilitare l'esecuzione di alcune applicazioni.
+
+
 
 \chapter{Lavorare con XSLT}
 Realizzare XSL e' un operazione che puo' far storcere il naso ad alcuni programmatori.
