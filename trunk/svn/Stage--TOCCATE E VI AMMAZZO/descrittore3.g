@@ -10,6 +10,9 @@ options{
 
 @header{package grammatiche;}
 
+@rulecatch{	catch (RecognitionException error) {
+			throw error;}}
+
 //La struttura del descrittore di un file di configurazione consente varie rappresentazioni, 
 //e' tuttavia consigliata la rappresentazione a 'tende alla veneziana' tipica di xml Schema
 //Dove inizialmente di descrive l'elemento radice e via via si descrivono tutti i suoi elementi
@@ -41,6 +44,6 @@ fragment FLOAT	:	('-')?('0'..'9')+;
 
 fragment BOOL	:	'true'|'false';
 
-fragment CHAR	:	('a'..'z')|('A'..'Z');
+fragment CHAR	:	('a'..'z')|('A'..'Z')|'='|'_';
 
 WHITESPACE : ( '\t' | ' ' | '\r' | '\n'| '\u000C' )+  { $channel=HIDDEN;} ;

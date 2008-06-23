@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VZM>
-	<x2>
-		<f type="Integer" value="9"/>
-	</x2>
-	<w elements="2" type="list">
+	<Filters elements="2" type="list">
 		<Item position="0">
-			<r type="Integer" value="3"/>
+			<field type="String" value="field"/>
 		</Item>
 		<Item position="1">
-			<r type="Integer" value="90"/>
+			<decimal type="Integer" value="2"/>
 		</Item>
-	</w>
-	<k1 type="Integer" value="6"/>
-	<q>
-		<p type="Integer" value="8"/>
-	</q>
+	</Filters>
+	<RowLayer elements="2" type="list">
+		<Item position="0">
+			<exp type="String" value="exp"/>
+		</Item>
+		<Item position="1">
+			<Layer elements="1" type="list">
+				<Item position="0">
+					<enable_HTML type="Boolean" value="true"/>
+				</Item>
+			</Layer>
+		</Item>
+	</RowLayer>
+	<Fields elements="1" type="list">
+		<Item position="0" type="String" value="a"/>
+	</Fields>
+	<Configuration>
+		<VQRName type="String" value="vqr"/>
+	</Configuration>
 </VZM>
