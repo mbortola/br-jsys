@@ -15,12 +15,19 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+/**Converte un DOM in un Oggetto JSON
+ * @author Michele
+ *
+ */
 public class XMLReader {
 
 	Document doc;
 
+	/**Costruttore
+	 * @param path Path del file di input.
+	 */
 	public XMLReader(String path) {
-		File file = new File("out.xml");
+		File file = new File(path);
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db;
 
@@ -54,6 +61,10 @@ public class XMLReader {
 
 	}
 
+	/**Effettua il parsing.
+	 * @return Oggetto JSON.
+	 * @throws JSONException 
+	 */
 	public JSONObject parse() throws JSONException {
 
 		Element root=doc.getDocumentElement();
@@ -74,11 +85,14 @@ public class XMLReader {
 			}
 
 		}
-
 		return result;
-
 	}
 
+	/**Effettua il parsing di un elemento DOM in un oggetto JSON.
+	 * @param root Elemento DOM nel quale si trova l'oggetto. 
+	 * @return Oggetto JSON.
+	 * @throws JSONException
+	 */
 	private static JSONObject putObj(Element root) throws JSONException {
 		//NON AVRO' MAI ELEMENTI VUOTI!!!!!
 		System.out.println(root.getTagName());
@@ -108,6 +122,11 @@ public class XMLReader {
 		return result;
 	}
 
+	/** Effettua la conversione di un elemento DOM in un Array JSON.
+	 * @param root Elemento da leggere.
+	 * @return l'array JSON convertito.
+	 * @throws JSONException
+	 */
 	private static JSONArray putArray(Element root) throws JSONException {
 		System.out.println("A"+root.getTagName());
 		JSONArray arr=new JSONArray();
@@ -139,6 +158,11 @@ public class XMLReader {
 		return arr;
 	}
 
+	/**Costruisce un ogetto da un elemento DOM 
+	 * @param el Elemento da analizzare.
+	 * @return Object risultato.
+	 * @throws JSONException
+	 */
 	private static Object putValue(Element el)throws JSONException {
 		// 
 		String type=el.getAttribute("type");
