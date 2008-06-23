@@ -1,4 +1,4 @@
-// $ANTLR 3.0.1 /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g 2008-06-21 20:55:08
+// $ANTLR 3.0.1 C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g 2008-06-23 17:09:05
 package grammatiche;
 
 import org.antlr.runtime.*;
@@ -14,14 +14,14 @@ public class descrittore3Parser extends Parser {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "STRING", "Card", "Atom", "Def", "FLOAT", "BOOL", "CHAR", "WHITESPACE", "':'", "'('", "')'", "','", "':='", "'='"
     };
     public static final int BOOL=9;
-    public static final int Def=7;
-    public static final int EOF=-1;
     public static final int CHAR=10;
-    public static final int STRING=4;
-    public static final int FLOAT=8;
-    public static final int Card=5;
     public static final int WHITESPACE=11;
+    public static final int FLOAT=8;
     public static final int Atom=6;
+    public static final int EOF=-1;
+    public static final int Def=7;
+    public static final int STRING=4;
+    public static final int Card=5;
 
         public descrittore3Parser(TokenStream input) {
             super(input);
@@ -37,7 +37,7 @@ public class descrittore3Parser extends Parser {
     }
 
     public String[] getTokenNames() { return tokenNames; }
-    public String getGrammarFileName() { return "/home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g"; }
+    public String getGrammarFileName() { return "C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g"; }
 
 
     public static class start_return extends ParserRuleReturnScope {
@@ -46,7 +46,7 @@ public class descrittore3Parser extends Parser {
     };
 
     // $ANTLR start start
-    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:22:1: start : ( base )+ ;
+    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:25:1: start : ( base )+ ;
     public final start_return start() throws RecognitionException {
         start_return retval = new start_return();
         retval.start = input.LT(1);
@@ -58,12 +58,12 @@ public class descrittore3Parser extends Parser {
 
 
         try {
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:22:7: ( ( base )+ )
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:22:9: ( base )+
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:25:7: ( ( base )+ )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:25:9: ( base )+
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:22:9: ( base )+
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:25:9: ( base )+
             int cnt1=0;
             loop1:
             do {
@@ -77,9 +77,9 @@ public class descrittore3Parser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:22:9: base
+            	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:25:9: base
             	    {
-            	    pushFollow(FOLLOW_base_in_start50);
+            	    pushFollow(FOLLOW_base_in_start55);
             	    base1=base();
             	    _fsp--;
 
@@ -106,11 +106,8 @@ public class descrittore3Parser extends Parser {
                 adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
+        	catch (RecognitionException error) {
+        			throw error;}    finally {
         }
         return retval;
     }
@@ -122,7 +119,7 @@ public class descrittore3Parser extends Parser {
     };
 
     // $ANTLR start base
-    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:24:1: base : STRING ':' ( list | '(' ( atom ) ( Card )? ')' ) ;
+    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:27:1: base : STRING ':' ( list | '(' ( atom ) ( Card )? ')' ) ;
     public final base_return base() throws RecognitionException {
         base_return retval = new base_return();
         retval.start = input.LT(1);
@@ -146,49 +143,49 @@ public class descrittore3Parser extends Parser {
         CommonTree char_literal8_tree=null;
 
         try {
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:24:6: ( STRING ':' ( list | '(' ( atom ) ( Card )? ')' ) )
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:24:8: STRING ':' ( list | '(' ( atom ) ( Card )? ')' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:27:6: ( STRING ':' ( list | '(' ( atom ) ( Card )? ')' ) )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:27:8: STRING ':' ( list | '(' ( atom ) ( Card )? ')' )
             {
             root_0 = (CommonTree)adaptor.nil();
 
             STRING2=(Token)input.LT(1);
-            match(input,STRING,FOLLOW_STRING_in_base59); 
+            match(input,STRING,FOLLOW_STRING_in_base64); 
             STRING2_tree = (CommonTree)adaptor.create(STRING2);
             root_0 = (CommonTree)adaptor.becomeRoot(STRING2_tree, root_0);
 
             char_literal3=(Token)input.LT(1);
-            match(input,12,FOLLOW_12_in_base62); 
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:24:20: ( list | '(' ( atom ) ( Card )? ')' )
+            match(input,12,FOLLOW_12_in_base67); 
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:27:20: ( list | '(' ( atom ) ( Card )? ')' )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
             if ( (LA3_0==13) ) {
                 int LA3_1 = input.LA(2);
 
-                if ( (LA3_1==STRING) ) {
-                    alt3=1;
-                }
-                else if ( (LA3_1==Atom) ) {
+                if ( (LA3_1==Atom) ) {
                     alt3=2;
+                }
+                else if ( (LA3_1==STRING) ) {
+                    alt3=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("24:20: ( list | '(' ( atom ) ( Card )? ')' )", 3, 1, input);
+                        new NoViableAltException("27:20: ( list | '(' ( atom ) ( Card )? ')' )", 3, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("24:20: ( list | '(' ( atom ) ( Card )? ')' )", 3, 0, input);
+                    new NoViableAltException("27:20: ( list | '(' ( atom ) ( Card )? ')' )", 3, 0, input);
 
                 throw nvae;
             }
             switch (alt3) {
                 case 1 :
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:24:21: list
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:27:21: list
                     {
-                    pushFollow(FOLLOW_list_in_base65);
+                    pushFollow(FOLLOW_list_in_base70);
                     list4=list();
                     _fsp--;
 
@@ -197,14 +194,14 @@ public class descrittore3Parser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:24:26: '(' ( atom ) ( Card )? ')'
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:27:26: '(' ( atom ) ( Card )? ')'
                     {
                     char_literal5=(Token)input.LT(1);
-                    match(input,13,FOLLOW_13_in_base67); 
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:24:31: ( atom )
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:24:32: atom
+                    match(input,13,FOLLOW_13_in_base72); 
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:27:31: ( atom )
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:27:32: atom
                     {
-                    pushFollow(FOLLOW_atom_in_base71);
+                    pushFollow(FOLLOW_atom_in_base76);
                     atom6=atom();
                     _fsp--;
 
@@ -212,7 +209,7 @@ public class descrittore3Parser extends Parser {
 
                     }
 
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:24:38: ( Card )?
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:27:38: ( Card )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -221,10 +218,10 @@ public class descrittore3Parser extends Parser {
                     }
                     switch (alt2) {
                         case 1 :
-                            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:24:38: Card
+                            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:27:38: Card
                             {
                             Card7=(Token)input.LT(1);
-                            match(input,Card,FOLLOW_Card_in_base74); 
+                            match(input,Card,FOLLOW_Card_in_base79); 
                             Card7_tree = (CommonTree)adaptor.create(Card7);
                             adaptor.addChild(root_0, Card7_tree);
 
@@ -235,7 +232,7 @@ public class descrittore3Parser extends Parser {
                     }
 
                     char_literal8=(Token)input.LT(1);
-                    match(input,14,FOLLOW_14_in_base77); 
+                    match(input,14,FOLLOW_14_in_base82); 
 
                     }
                     break;
@@ -251,11 +248,8 @@ public class descrittore3Parser extends Parser {
                 adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
+        	catch (RecognitionException error) {
+        			throw error;}    finally {
         }
         return retval;
     }
@@ -267,7 +261,7 @@ public class descrittore3Parser extends Parser {
     };
 
     // $ANTLR start list
-    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:26:1: list : '(' typedef ( ',' typedef )* ')' ;
+    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:29:1: list : '(' typedef ( ',' typedef )* ')' ;
     public final list_return list() throws RecognitionException {
         list_return retval = new list_return();
         retval.start = input.LT(1);
@@ -287,19 +281,19 @@ public class descrittore3Parser extends Parser {
         CommonTree char_literal13_tree=null;
 
         try {
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:26:6: ( '(' typedef ( ',' typedef )* ')' )
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:26:8: '(' typedef ( ',' typedef )* ')'
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:29:6: ( '(' typedef ( ',' typedef )* ')' )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:29:8: '(' typedef ( ',' typedef )* ')'
             {
             root_0 = (CommonTree)adaptor.nil();
 
             char_literal9=(Token)input.LT(1);
-            match(input,13,FOLLOW_13_in_list87); 
-            pushFollow(FOLLOW_typedef_in_list90);
+            match(input,13,FOLLOW_13_in_list92); 
+            pushFollow(FOLLOW_typedef_in_list95);
             typedef10=typedef();
             _fsp--;
 
             adaptor.addChild(root_0, typedef10.getTree());
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:26:21: ( ',' typedef )*
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:29:21: ( ',' typedef )*
             loop4:
             do {
                 int alt4=2;
@@ -312,11 +306,11 @@ public class descrittore3Parser extends Parser {
 
                 switch (alt4) {
             	case 1 :
-            	    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:26:22: ',' typedef
+            	    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:29:22: ',' typedef
             	    {
             	    char_literal11=(Token)input.LT(1);
-            	    match(input,15,FOLLOW_15_in_list93); 
-            	    pushFollow(FOLLOW_typedef_in_list96);
+            	    match(input,15,FOLLOW_15_in_list98); 
+            	    pushFollow(FOLLOW_typedef_in_list101);
             	    typedef12=typedef();
             	    _fsp--;
 
@@ -331,7 +325,7 @@ public class descrittore3Parser extends Parser {
             } while (true);
 
             char_literal13=(Token)input.LT(1);
-            match(input,14,FOLLOW_14_in_list100); 
+            match(input,14,FOLLOW_14_in_list105); 
 
             }
 
@@ -341,11 +335,8 @@ public class descrittore3Parser extends Parser {
                 adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
+        	catch (RecognitionException error) {
+        			throw error;}    finally {
         }
         return retval;
     }
@@ -357,7 +348,7 @@ public class descrittore3Parser extends Parser {
     };
 
     // $ANTLR start typedef
-    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:1: typedef : STRING ':' ( atom | ( list ) | STRING ) ( Card )? ;
+    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:1: typedef : STRING ':' ( atom | ( list ) | STRING ) ( Card )? ;
     public final typedef_return typedef() throws RecognitionException {
         typedef_return retval = new typedef_return();
         retval.start = input.LT(1);
@@ -379,19 +370,19 @@ public class descrittore3Parser extends Parser {
         CommonTree Card19_tree=null;
 
         try {
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:9: ( STRING ':' ( atom | ( list ) | STRING ) ( Card )? )
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:11: STRING ':' ( atom | ( list ) | STRING ) ( Card )?
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:9: ( STRING ':' ( atom | ( list ) | STRING ) ( Card )? )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:11: STRING ':' ( atom | ( list ) | STRING ) ( Card )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
             STRING14=(Token)input.LT(1);
-            match(input,STRING,FOLLOW_STRING_in_typedef109); 
+            match(input,STRING,FOLLOW_STRING_in_typedef114); 
             STRING14_tree = (CommonTree)adaptor.create(STRING14);
             root_0 = (CommonTree)adaptor.becomeRoot(STRING14_tree, root_0);
 
             char_literal15=(Token)input.LT(1);
-            match(input,12,FOLLOW_12_in_typedef112); 
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:24: ( atom | ( list ) | STRING )
+            match(input,12,FOLLOW_12_in_typedef117); 
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:24: ( atom | ( list ) | STRING )
             int alt5=3;
             switch ( input.LA(1) ) {
             case Atom:
@@ -411,16 +402,16 @@ public class descrittore3Parser extends Parser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("28:24: ( atom | ( list ) | STRING )", 5, 0, input);
+                    new NoViableAltException("31:24: ( atom | ( list ) | STRING )", 5, 0, input);
 
                 throw nvae;
             }
 
             switch (alt5) {
                 case 1 :
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:25: atom
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:25: atom
                     {
-                    pushFollow(FOLLOW_atom_in_typedef116);
+                    pushFollow(FOLLOW_atom_in_typedef121);
                     atom16=atom();
                     _fsp--;
 
@@ -429,12 +420,12 @@ public class descrittore3Parser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:30: ( list )
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:30: ( list )
                     {
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:30: ( list )
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:31: list
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:30: ( list )
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:31: list
                     {
-                    pushFollow(FOLLOW_list_in_typedef119);
+                    pushFollow(FOLLOW_list_in_typedef124);
                     list17=list();
                     _fsp--;
 
@@ -446,10 +437,10 @@ public class descrittore3Parser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:37: STRING
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:37: STRING
                     {
                     STRING18=(Token)input.LT(1);
-                    match(input,STRING,FOLLOW_STRING_in_typedef122); 
+                    match(input,STRING,FOLLOW_STRING_in_typedef127); 
                     STRING18_tree = (CommonTree)adaptor.create(STRING18);
                     adaptor.addChild(root_0, STRING18_tree);
 
@@ -459,7 +450,7 @@ public class descrittore3Parser extends Parser {
 
             }
 
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:44: ( Card )?
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:44: ( Card )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -468,10 +459,10 @@ public class descrittore3Parser extends Parser {
             }
             switch (alt6) {
                 case 1 :
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:28:44: Card
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:31:44: Card
                     {
                     Card19=(Token)input.LT(1);
-                    match(input,Card,FOLLOW_Card_in_typedef124); 
+                    match(input,Card,FOLLOW_Card_in_typedef129); 
                     Card19_tree = (CommonTree)adaptor.create(Card19);
                     adaptor.addChild(root_0, Card19_tree);
 
@@ -490,11 +481,8 @@ public class descrittore3Parser extends Parser {
                 adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
+        	catch (RecognitionException error) {
+        			throw error;}    finally {
         }
         return retval;
     }
@@ -506,7 +494,7 @@ public class descrittore3Parser extends Parser {
     };
 
     // $ANTLR start atom
-    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:30:1: atom : Atom ( ( ':=' | '=' ) Def )? ;
+    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:33:1: atom : Atom ( ( ':=' | '=' ) Def )? ;
     public final atom_return atom() throws RecognitionException {
         atom_return retval = new atom_return();
         retval.start = input.LT(1);
@@ -524,17 +512,17 @@ public class descrittore3Parser extends Parser {
         CommonTree Def23_tree=null;
 
         try {
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:30:6: ( Atom ( ( ':=' | '=' ) Def )? )
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:30:8: Atom ( ( ':=' | '=' ) Def )?
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:33:6: ( Atom ( ( ':=' | '=' ) Def )? )
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:33:8: Atom ( ( ':=' | '=' ) Def )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
             Atom20=(Token)input.LT(1);
-            match(input,Atom,FOLLOW_Atom_in_atom133); 
+            match(input,Atom,FOLLOW_Atom_in_atom138); 
             Atom20_tree = (CommonTree)adaptor.create(Atom20);
             adaptor.addChild(root_0, Atom20_tree);
 
-            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:30:13: ( ( ':=' | '=' ) Def )?
+            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:33:13: ( ( ':=' | '=' ) Def )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -543,9 +531,9 @@ public class descrittore3Parser extends Parser {
             }
             switch (alt8) {
                 case 1 :
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:30:14: ( ':=' | '=' ) Def
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:33:14: ( ':=' | '=' ) Def
                     {
-                    // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:30:14: ( ':=' | '=' )
+                    // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:33:14: ( ':=' | '=' )
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -557,24 +545,24 @@ public class descrittore3Parser extends Parser {
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("30:14: ( ':=' | '=' )", 7, 0, input);
+                            new NoViableAltException("33:14: ( ':=' | '=' )", 7, 0, input);
 
                         throw nvae;
                     }
                     switch (alt7) {
                         case 1 :
-                            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:30:15: ':='
+                            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:33:15: ':='
                             {
                             string_literal21=(Token)input.LT(1);
-                            match(input,16,FOLLOW_16_in_atom137); 
+                            match(input,16,FOLLOW_16_in_atom142); 
 
                             }
                             break;
                         case 2 :
-                            // /home/zuper/svn/Stage--TOCCATE E VI AMMAZZO/descrittore3.g:30:21: '='
+                            // C:\\Documents and Settings\\Administrator\\Desktop\\Stage\\br-jsys\\svn\\Stage--TOCCATE E VI AMMAZZO\\descrittore3.g:33:21: '='
                             {
                             char_literal22=(Token)input.LT(1);
-                            match(input,17,FOLLOW_17_in_atom140); 
+                            match(input,17,FOLLOW_17_in_atom145); 
 
                             }
                             break;
@@ -582,7 +570,7 @@ public class descrittore3Parser extends Parser {
                     }
 
                     Def23=(Token)input.LT(1);
-                    match(input,Def,FOLLOW_Def_in_atom143); 
+                    match(input,Def,FOLLOW_Def_in_atom148); 
                     Def23_tree = (CommonTree)adaptor.create(Def23);
                     adaptor.addChild(root_0, Def23_tree);
 
@@ -601,11 +589,8 @@ public class descrittore3Parser extends Parser {
                 adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
+        	catch (RecognitionException error) {
+        			throw error;}    finally {
         }
         return retval;
     }
@@ -614,28 +599,28 @@ public class descrittore3Parser extends Parser {
 
  
 
-    public static final BitSet FOLLOW_base_in_start50 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_STRING_in_base59 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_base62 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_list_in_base65 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_base67 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_atom_in_base71 = new BitSet(new long[]{0x0000000000004020L});
-    public static final BitSet FOLLOW_Card_in_base74 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_base77 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_list87 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_typedef_in_list90 = new BitSet(new long[]{0x000000000000C000L});
-    public static final BitSet FOLLOW_15_in_list93 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_typedef_in_list96 = new BitSet(new long[]{0x000000000000C000L});
-    public static final BitSet FOLLOW_14_in_list100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_typedef109 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_typedef112 = new BitSet(new long[]{0x0000000000002050L});
-    public static final BitSet FOLLOW_atom_in_typedef116 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_list_in_typedef119 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_STRING_in_typedef122 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_Card_in_typedef124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_Atom_in_atom133 = new BitSet(new long[]{0x0000000000030002L});
-    public static final BitSet FOLLOW_16_in_atom137 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_17_in_atom140 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_Def_in_atom143 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_base_in_start55 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_STRING_in_base64 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_base67 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_list_in_base70 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_base72 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_atom_in_base76 = new BitSet(new long[]{0x0000000000004020L});
+    public static final BitSet FOLLOW_Card_in_base79 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_base82 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_list92 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_typedef_in_list95 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_15_in_list98 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_typedef_in_list101 = new BitSet(new long[]{0x000000000000C000L});
+    public static final BitSet FOLLOW_14_in_list105 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_typedef114 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12_in_typedef117 = new BitSet(new long[]{0x0000000000002050L});
+    public static final BitSet FOLLOW_atom_in_typedef121 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_list_in_typedef124 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_STRING_in_typedef127 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_Card_in_typedef129 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_Atom_in_atom138 = new BitSet(new long[]{0x0000000000030002L});
+    public static final BitSet FOLLOW_16_in_atom142 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_17_in_atom145 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_Def_in_atom148 = new BitSet(new long[]{0x0000000000000002L});
 
 }
