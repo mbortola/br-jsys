@@ -8,6 +8,9 @@
 			<decimal type="Integer" value="2"/>
 		</Item>
 	</Filters>
+	<Fields elements="1" type="list">
+		<Item position="0" type="String" value="a"/>
+	</Fields>
 	<RowLayer elements="2" type="list">
 		<Item position="0">
 			<exp type="String" value="exp"/>
@@ -20,9 +23,6 @@
 			</Layer>
 		</Item>
 	</RowLayer>
-	<Fields elements="1" type="list">
-		<Item position="0" type="String" value="a"/>
-	</Fields>
 	<Configuration>
 		<VQRName type="String" value="vqr"/>
 	</Configuration>
