@@ -7,7 +7,7 @@
 			<operation type="String" value="="/>
 			<init type="String" value="default"/>
 			<type type="String" value=""/>
-			<length type="String" value=""/>
+			<length type="Integer" value="0"/>
 			<decimal type="Integer" value="0"/>
 			<format type="String" value="default"/>
 			<linkTable type="String" value="default"/>
@@ -35,7 +35,7 @@
 			<operation type="String" value="="/>
 			<init type="String" value="default"/>
 			<type type="String" value=""/>
-			<length type="String" value=""/>
+			<length type="Integer" value="0"/>
 			<format type="String" value="default"/>
 			<linkTable type="String" value="default"/>
 			<keyField type="String" value="default"/>
@@ -66,9 +66,9 @@
 			<target type="String" value=""/>
 			<tooltip type="String" value=""/>
 			<picture type="String" value=""/>
-			<IsImage type="String" value=""/>
-			<inExtGrid type="String" value=""/>
-			<enable_HTML type="String" value=""/>
+			<IsImage type="Boolean" value="true"/>
+			<inExtGrid type="Boolean" value="true"/>
+			<enable_HTML type="Boolean" value="true"/>
 		</Item>
 		<Item position="1">
 			<Layer elements="1" type="list">
@@ -81,8 +81,8 @@
 					<target type="String" value=""/>
 					<tooltip type="String" value=""/>
 					<picture type="String" value=""/>
-					<IsImage type="String" value=""/>
-					<inExtGrid type="String" value=""/>
+					<IsImage type="Boolean" value="true"/>
+					<inExtGrid type="Boolean" value="true"/>
 				</Item>
 			</Layer>
 			<id type="String" value=""/>
@@ -92,9 +92,9 @@
 			<target type="String" value=""/>
 			<tooltip type="String" value=""/>
 			<picture type="String" value=""/>
-			<IsImage type="String" value=""/>
-			<inExtGrid type="String" value=""/>
-			<enable_HTML type="String" value=""/>
+			<IsImage type="Boolean" value="true"/>
+			<inExtGrid type="Boolean" value="true"/>
+			<enable_HTML type="Boolean" value="true"/>
 		</Item>
 	</RowLayer>
 	<Fields elements="1" type="list">
@@ -104,8 +104,8 @@
 		<VQRName type="String" value="vqr"/>
 		<PKFields type="String" value=""/>
 		<TabName type="String" value=""/>
-		<OrderBy type="String" value=""/>
-		<GridRows type="String" value=""/>
+		<OrderBy type="Boolean" value="true"/>
+		<GridRows type="Integer" value="0"/>
 		<Table type="String" value=""/>
 		<ConfigName type="String" value=""/>
 	</Configuration>

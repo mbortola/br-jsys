@@ -1,37 +1,44 @@
 grammar descrittore;
-
 options{
 	output=AST;
 	ASTLabelType=CommonTree;
-	filter=WHITEPASPACE;
 }
 
-//se il tipo e' composto i suoi figli sono tra parentesi 
-//tonde, altrimenti no
+@lexer::header{package grammatiche;}
 
-//Un tipo in questo caso e' dato da una 'lista di assegnazioni'
-start	:	type+;
+@header{package grammatiche;}
 
-type 	:	STRING (':'(atom| list)) Card?;
+@rulecatch{catch (RecognitionException error) {throw error;}}
 
-ref	:	STRING Card?;
+//La struttura del descrittore di un file di configurazione consente varie rappresentazioni, 
+//e' tuttavia consigliata la rappresentazione a 'tende alla veneziana' tipica di xml Schema
+//Dove inizialmente di descrive l'elemento radice e via via si descrivono tutti i suoi elementi
+//Cio e' molto pratico in ottica del riuso degli elementi, ed e' sintatticamente meglio leggibile
+//Cio non toglie il poter fare una rappresentazione totalmente innestata, con un unico elemento
+//radice che si sviluppa secondo un schema ad albero
 
-atom	:	Atom ((':='|'=') (Def|FLOAT|BOOL))?;
+start	:	base+;
 
-list	:	'(' (type|ref) (',' (type|ref))* ')';
+base	:	STRING^ ':'!(list|'('! (atom) Card? ')'!);
 
-Def	:	'"'STRING*'"';
+list	:	'('! typedef (','! typedef)* ')'!;
+
+typedef	:	STRING^ ':'! (atom|(list)|STRING)Card?;
+
+atom	:	Atom ((':='!|'='!)Def)?;
 
 Atom	:	('str'|'bool'|'int');
 
+Def	:	 (('"'STRING*'"')|FLOAT|BOOL);
+
 Card	:	('?'|'*'|'+');
-
-FLOAT	:	('-')?('0'..'9')+;
-
-BOOL	:	'true'|'false';
 
 STRING	:	(CHAR|FLOAT)+;
 
-fragment CHAR	:	('a'..'z')|('A'..'Z')|'_'|'<'|'=';
+fragment FLOAT	:	('-')?('0'..'9')+;
+
+fragment BOOL	:	'true'|'false';
+
+fragment CHAR	:	('a'..'z')|('A'..'Z')|'='|'_';
 
 WHITESPACE : ( '\t' | ' ' | '\r' | '\n'| '\u000C' )+  { $channel=HIDDEN;} ;
