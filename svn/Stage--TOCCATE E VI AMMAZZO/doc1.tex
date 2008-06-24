@@ -102,6 +102,13 @@ Può trovare una analoga rappresentazione come elemento JSON:
 \section{Xalan}
 Xalan e' uno strumento che consente di effettuare trasformate XSL in ambiente JAVA appoggiandosi a SAX e a DOM, e' un servizio fornito da Apache.
 
+\section{ANTLR}
+ANTLR (ANother Tool for Language Recognition) e' un generatore di parser che consente, una volta generato un file che descrive la grammatica, un parser e un lexer. Fornisce parser in linguaggio Java, C++, Python ma il programma evolvendosi continuamente, non esculde in futuro il supporto per molti altri linguaggi.
+Cio che rende ANTLR un ottimo strumento per la creazione di linguaggi e' anche la possibilita' di utilizzare un tool grafico (AntlrWorks) che consente una visione immediata di cio che si sta effettuando, nonche consente un rapido ed efficace debugging.
+
+\section{Eclipse}
+Eclipse e' un software open source per la realizzazione di applicazioni java, consente un rapido contollo degli errori tramite una continua compilazione del codice prodotto, nonche consente la correzzione automatica, che evita di dover ogni volta scrivere per esempio i vari blocchi try-catch. Possiede un potente debugger, automatizza la generazione di javadoc, ed ha la possibilita' di installare numerosi plugins per fare svariate cose(diagrammi uml, sviluppare in c, editor latex, debuggin di grammatiche antlr...).
+
 \chapter{Descrizione dell'attivita' di stage}
 L'attivita' di stage consiste nello studio di varie metodologie basate su XML per la trattazione di file di configurazione, in particolare si faranno alcuni esperimenti per vedere come con XML si possono aumentare le prestazioni nella trattazione di dati.
 \begin{itemize}
@@ -148,7 +155,7 @@ xsl:key e' un elemento che va inserito solo come figlio diretto dell'elemento xs
 Uno dei punti più ostici che si possono incontrare nella realizzazione di fogli stile e' quello relativo al raggruppamento, se io ho un insieme di nodi che voglio gestire raggrupandoli per valore ho bisogno innanzi tutto di procurarmi tutti i valori distinti dei valori che uso per il raggruppamento e solo dopo cio' faro una serie di espressioni selettive per recuperarmi tutti i valori che mi servono, ricordo che la funzione distinct-values('set di nodi') che ritorna una lista di valori distinti dato l'input è disponibile solo da XSLT 2.0 dunque per raggruppare devo fare molta più fatica di quanto non si possa pensare.
 C'e' da dire inoltre che avendo a che fare con basi di dati molto grandi l'utilizzo di metodologie sbagliate porta inevitabilmente a drastici rallentamenti nell'elaborazione.
 
-Un primo approccio al problema del raggruppamento puo' essere il quello di considerare i nodi che hanno il valore di raggruppamenmto diverso da tuttu i suoi fratelli a destra(o a sinistra), implementando ciò in una for-each avrei una espressione del genere:
+Un primo approccio al problema del raggruppamento puo' essere il quello di considerare i nodi che hanno il valore di raggruppamenmto diverso da tutti i suoi fratelli a destra(o a sinistra), implementando ciò in una for-each avrei una espressione del genere:
 
 <xsl:for-each select='elemento[not(grouping = preceding-sibling::elemento/grouping)]'>
 ...
@@ -203,6 +210,55 @@ E' possibile definire dei trigger personalizzati in grado di essere lanciati in 
 \subsection{Personalizzare gli indici}
 Per ottimizzare ulteriormente il movimento all'interno di un documento XML e' possibile definire degli indici personalizzati. Essi sono tutt'ora in fase di sviluppo e nei rilasci successivi probabilmente verrano aggiunte funzionalità, sono scritti in XML e gestibili tramite Java o XQuery.
 
+\chapter{Definizione del linguaggio per la descrizione dei file di configurazione}
+Come detto precedentemente serve la definizione di un linguaggio per descrivere i file di configurazione, un istanza di un file di configurazione risulta di immediata comprensione se rappresentata tramite un oggetto JSON o un elemento XML, ma per una descrizione della sua struttura queste rappresentazioni non servono.
+Inizialmente si era pensato di utilizzare per la rappresentazione un XML Schema, dato che abbiamo comunque a che faer con XML, ma quest'ultimo risulta troppo complesso per i noastri scopi, nonche' si sarebbe dovuto obbligare chiunque avesse a che fare coi file di configurazione ad imparare la sintassi XML-Schema.
+Dopodichè si era pensato di ripiegare nei DTD, più semplici e facili da capire. Ma il fatto che il DTD sia stato fatto per descrivere XML grava non di poco sul suo utilizzo in ambiti non XML.
+In definitiva dobbiamo tener conto non solo di dover trovare un formalismo per descrivere i file di configurazione, ma dobbiamo anche dalla descrizione del file ricavare una sorta di struttura dati per fare l'analisi dell'oggetto istanza del file stesso(ghghghg!!!!!).
+Si e' infine deciso di creare un linguaggio ad-hoc, completo di parser e di generatore di albero sintattico da appoggiare all'applicazione di controllo per fare confronto parallelo con l'istanza, rappresentate per l'occasione da un elemento DOM, l'applicazione al termine della lettura restituira' lo stesso DML corretto dove serve aggiungendogli opportuni elementi di default.
+Ovviamente la realizzazione di un parser sarebbe un operazione estremamente onerosa nel caso in cui non si utilizzasse uno strumento che automatizzasse la stesura del codice, per questo ci siamo affidati ad ANTLR, probabilmente senza uno strumento apposito avremmo impiegato quasi tutto il periodo di stage a realizzare il parser, tenuto conto anche del fatto che la grammatica ha subito varie modifiche nel corso della sua stesura.
+\section{Struttura del linguaggio}
+Per la definizione del linguaggio si sono stabiliti alcuni vincoli iniziali:
+\begin{itemize}
+\item Si deve permettere la definizione di tre tipi atomici ossia intero, booleano e stringa;
+\item Si deve permettere la definizione di sotto oggetti;
+\item Si deve permettere la definzione di array, nel nostro caso gli array conterranno elementi analoghi, dunque o tutti interi, booleani, stringa ,oggetti(dello stesso tipo), o sottoarray;
+\item L'ordine dei campi dato di un oggetto e' irrilevante, mentre l'ordine degli elementi in un array e' fondamentale dato che l'unico modo per distinguerli e' la loro posizione.
+\item Un campo dati puo essere opzionale o obbligatorio, nel secondo caso se si tratta di un elemento atomico e' possibile definire un valore di default da inserire nel caso manchi nel DOM in ingresso. 
+\item La grammatica deve essere il più semplice possibile e deve essere fatta in modo da rendere praticamente immadiata la stesura di un descrittore di file di configurazione.
+\end{itemize}
+
+Si e' successivamente notato che la definizione di sotto oggetti e sotto array rischiava di generare strutture ad albero eccessivamente innestate, molto spesso ripetute. Come soluzione a questo problema si e' deciso di fare in modo che la grammatica permettesse di definire dei riferimenti ed associarli ad un tipo definito separatamente.
+
+Un esempio di descrittore di file di configurazione e' il seguente:
+\lstset{language=make}
+\begin{lstlisting}
+VZM:(
+	f:col+,
+	z:int?,
+	t:str*,
+	m:(m1:int,m2:bool)?,
+)
+
+col:(
+	k:int:=14,
+	k1:bool:=true,
+	k2:str:="null"
+)
+\end{lstlisting}
+
+\begin{itemize}
+\item VZM e'l'oggetto radice.
+\item f e' un array di tipo col obbligatorio, in quanto ce ne deve essere almeno uno dato il simbolo +;
+\item z e' di tipo intero opzionale;
+\item t e' un array di stringhe opzionale come si vede dal simbolo *;
+\item m e' un sotto oggetto definito inline composto da 2 elementi atomici m1 e m2;
+\item col viene definito separatamente ed si nota essere un oggetto;
+\item k e' un intero obbligatorio che possiede un valore di default nel caso non venga trovato durante la lettura, lo stesso vale per k1 e k2 rispettivamente elementi stringa e bool.
+\item Un file di configurazione aderente a questo descrittore possiedera' dunque questa struttura, da notare che col non e' il nome di un campo dati come gli altri ma il nome di un riferimento, nel file di configurazione non esistera' dunque un campo dati chiamato col.
+\end{itemize}
+
+\section[Esempio]{Esempio di elagorazione file di configurazione}
 
 \chapter{Riferimenti}
 
