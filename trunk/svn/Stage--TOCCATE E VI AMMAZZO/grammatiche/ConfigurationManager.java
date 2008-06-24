@@ -1,5 +1,5 @@
 package grammatiche;
-import java.io.IOException;
+
 import java.io.StringWriter;
 import java.util.Hashtable;
 
@@ -14,7 +14,6 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.Tree;
 import org.w3c.dom.Document;
@@ -52,15 +51,15 @@ public class ConfigurationManager {
 
 		Element root=source.getDocumentElement();
 
-		descrittore3Lexer lex;
+		descrittoreLexer lex;
 		try {
-			lex = new descrittore3Lexer(new ANTLRFileStream(configFilePath));
+			lex = new descrittoreLexer(new ANTLRFileStream(configFilePath));
 			
 			CommonTokenStream tokens = new CommonTokenStream(lex);
 
-			descrittore3Parser g = new descrittore3Parser(tokens);
+			descrittoreParser g = new descrittoreParser(tokens);
 
-			descrittore3Parser.start_return ret=g.start();
+			descrittoreParser.start_return ret=g.start();
 
 			CommonTree tree= (CommonTree)ret.getTree();
 
@@ -70,7 +69,7 @@ public class ConfigurationManager {
 				oggettiBase.put(tree.getChild(i).getText(), tree.getChild(i));
 			}
 
-			tokenNames=descrittore3Parser.tokenNames;
+			tokenNames=descrittoreParser.tokenNames;
 
 			parsetree(tree);
 
@@ -97,7 +96,8 @@ public class ConfigurationManager {
 
 		for (int i=0;i<childs.getLength();i++) {
 			Node tmp=childs.item(i);
-			if (tmp.getNodeType()==Node.ELEMENT_NODE &&	tmp.getNodeName().equals(nameObj)) {
+			if (tmp.getNodeType()==Node.ELEMENT_NODE &&	
+					tmp.getNodeName().equals(nameObj)) {
 				return (Element)tmp;
 			}
 		}
@@ -113,9 +113,10 @@ public class ConfigurationManager {
 	 * @throws Exception Errore nella lettura.
 	 * */
 	private Element read(Element root, Tree tree) throws Exception {
-		//scorro tutti i figli dell'albero, e ogni volta guardo se sono presenti anche nel XML
-		//se non ci sono e non hanno default, posso andare oltre, altrimenti devo creare un nuovo 
-		//elemento col valore di default, la funzione e' ricorsiva
+		//scorro tutti i figli dell'albero, e ogni volta guardo se sono presenti
+		//anche nel XML se non ci sono e non hanno default, posso andare oltre,
+		//altrimenti devo creare un nuovo elemento col valore di default,
+		//la funzione e' ricorsiva
 
 		Tree tmp=null;
 		String name=null;
