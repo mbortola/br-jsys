@@ -23,24 +23,57 @@ import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import stage.util.XSLTransform;
+
 /**Effettua il parsing di un oggetto JSON in un elemento XML.
  * @author Michele
  */
 public class Writer {
 
 	/**Indirizzo del file di input*/
-	String obj;
+	JSONObject obj;
 
 	/**Il DOM risultato*/
 	private Document doc;
 
+	
+	
 	/**Costruttore
-	 * @param p Oggetto JSON da convertire.
+	 * @param o Oggetto da trasformare.
 	 */
-	public Writer(String p) {
-		obj=p;
+	public Writer(JSONObject o) {
+		o= obj;
 	}
 
+	/**Costruttore
+	 * @param p Oggetto JSON da convertire in formato stringa.
+	 */
+	public Writer(String p) {
+		try {
+			obj=new JSONObject(p);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
+
+	/**Scrive dom su un file di testo.
+	 * @param outPath Path del file di output.
+	 */
+	public void writeDocOnFile(String outPath) {
+		if (doc==null) return;
+		try {
+			XSLTransform.parseFromDOM(doc, outPath, "prettyprint.xsl");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TransformerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	/** Avvia la conversione*/
 	public void run() {
 		DocumentBuilderFactory factory =
@@ -57,7 +90,7 @@ public class Writer {
 		doc = docBuilder.newDocument();
 
 		try {
-			writeJSONObj(new JSONObject(obj), null, "VZM", -1);
+			writeJSONObj(obj, null, "VZM", -1);
 		} catch (JSONException e2) {
 			e2.printStackTrace();
 		}
@@ -81,15 +114,9 @@ public class Writer {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		String pp=prettyPrint(st.toString());
-
-		try {
-			PrintWriter w=new PrintWriter(new File("out.xml"));
-			w.write(pp);
-			w.flush();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		//String pp=prettyPrint(st.toString());
+		
+		//attributo doc aggiornato
 	}
 
 	/** Effettua l'identazione di una stringa che rappresenta un elemento XML
@@ -126,8 +153,8 @@ public class Writer {
 	 * @param name il Nome del nuovo oggetto.
 	 * @param position Qualora o fosse un elemento di un array indica la sua posizione. 
 	 * Il valore -1 non viene considerato.
-	 * @return <p>true</p> L'oggetto non era vuoto ed e' stato scritto.
-	 * <p>false</p> L'oggetto era vuoto e non e' stato scritto.
+	 * @return <code>true</code> L'oggetto non era vuoto ed e' stato scritto.
+	 * <code>false</code> L'oggetto era vuoto e non e' stato scritto.
 	 * @throws JSONException
 	 */
 	protected boolean writeJSONObj(JSONObject o, Element root, String name, int position) throws JSONException{
@@ -187,8 +214,8 @@ public class Writer {
 	 * @param a Array da scrivere.
 	 * @param root Elemento radice.
 	 * @param name Nome del nuovo elemento.
-	 * @return <p>true</p> L'array non era vuoto ed e' stato scritto.
-	 * <p>false</p> L'Array era vuoto e non e' stato scritto.
+	 * @return <code>true</code> L'array non era vuoto ed e' stato scritto.
+	 * <code>false</code> L'Array era vuoto e non e' stato scritto.
 	 * @throws JSONException
 	 */
 	private boolean writeJSONArray(JSONArray a, Element root, String name) throws JSONException {
@@ -236,8 +263,12 @@ public class Writer {
 	public Document getDoc(){return doc;}
 	
 	public static void main(String[]args) {
-		Writer w=new Writer("{\"a\": \"s3\",\"b\": [{\"ca\": [\"a\",\"b\",\"c\"]}, {\"ca\": [\"x\",\"y\",\"z\"	]},	{\"ca\": [],\"q\": \"ciao\"}],k:{x:9}}");
+		Writer w=new Writer("{name:\"editor\", records:[" +
+				"{val1:3, val2:\"Kg\"},{val2:\"sec\",val3:[" +
+				"{id:9},{value:\"valore\"}]},{" +
+				"val3:[{id:12,value:\"pz\"},{id:9}]}]}");
 		w.run();
+		w.writeDocOnFile("test.txt");
 	}
 }
 
