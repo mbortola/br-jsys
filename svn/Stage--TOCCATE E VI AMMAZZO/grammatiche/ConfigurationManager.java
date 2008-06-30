@@ -1,26 +1,21 @@
 package grammatiche;
 
-import java.io.StringWriter;
+import java.io.IOException;
 import java.util.Hashtable;
-
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.Tree;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import stage.util.XSLTransform;
 import writer.Writer;
 
 
@@ -39,51 +34,33 @@ public class ConfigurationManager {
 	/**Lista dei nomi dei token usata dal parser.*/
 	private String[] tokenNames;
 
+	/**AST*/
+	private CommonTree tree;
 
-	/** Avvia la lettura del file di configurazione e il controllo per i rimpiazzamenti.
-	 * @param source DOM sorgente.
-	 * @param configFilePath Path del file che descrive la configurazione.
-	 * @return L'elemento aggiornato.
+	/**Costruttore
+	 * @param cfgFilePath Path del descrittore del file di configurazione.
+	 * @throws IOException 
+	 * @throws RecognitionException
 	 */
-	private Element reader(Document source, String configFilePath) {
+	public ConfigurationManager(String cfgFilePath) 
+	throws IOException, RecognitionException {
 
-		doc=source;
+		descrittoreLexer lex =
+			new descrittoreLexer(new ANTLRFileStream(cfgFilePath));
 
-		Element root=source.getDocumentElement();
+		CommonTokenStream tokens = new CommonTokenStream(lex);
+		descrittoreParser g = new descrittoreParser(tokens);
+		descrittoreParser.start_return ret=g.start();
+		tree= (CommonTree)ret.getTree();
 
-		descrittoreLexer lex;
-		try {
-			lex = new descrittoreLexer(new ANTLRFileStream(configFilePath));
-			
-			CommonTokenStream tokens = new CommonTokenStream(lex);
-
-			descrittoreParser g = new descrittoreParser(tokens);
-
-			descrittoreParser.start_return ret=g.start();
-
-			CommonTree tree= (CommonTree)ret.getTree();
-
-			//figli al primo livello nella hash
-
-			for(int i=0;i<tree.getChildCount();i++) {
-				oggettiBase.put(tree.getChild(i).getText(), tree.getChild(i));
-			}
-
-			tokenNames=descrittoreParser.tokenNames;
-
-			parsetree(tree);
-
-			//Lo parserizzo 
-			if (tree.getText()==null)return read(root, tree.getChild(0));
-
-			else return read(root,tree);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.exit(1);
+		//figli al primo livello nella hash
+		for(int i=0;i<tree.getChildCount();i++) {
+			oggettiBase.put(tree.getChild(i).getText(), tree.getChild(i));
 		}
-		return null;
+		tokenNames=descrittoreParser.tokenNames;
 
 	}
+
 
 	/** Ricerca di un elemento nel sottoalbero di un nodo elemento.
 	 * @param nameObj Nome dell'elemento da cercare.
@@ -104,6 +81,21 @@ public class ConfigurationManager {
 		return null;
 	}
 
+
+	/** Dice se l'albero rappresenta un Array
+	 * @param tree L'albero da analizzare
+	 * @return Risultato se test.
+	 */
+	private boolean isArray(Tree tree) {
+		try {
+			String val=tree.getChild(tree.getChildCount()-1).getText();
+
+			if (val.equals("*")||val.equals("+")) return true;
+		} catch (NullPointerException e) {return false;}
+		return false;
+
+	}
+
 	/**Scorre un nodo di parsing alla ricerca di incongruenze.
 	 * 
 	 * @param root Elemento DOM da analizzare.
@@ -113,24 +105,23 @@ public class ConfigurationManager {
 	 * @throws Exception Errore nella lettura.
 	 * */
 	private Element read(Element root, Tree tree) throws Exception {
-		//scorro tutti i figli dell'albero, e ogni volta guardo se sono presenti
-		//anche nel XML se non ci sono e non hanno default, posso andare oltre,
-		//altrimenti devo creare un nuovo elemento col valore di default,
-		//la funzione e' ricorsiva
+		for (int i=0;i<tree.getChildCount();i++) {
+			//scorro tutti i figli dell'albero, e ogni volta guardo se sono presenti
+			//anche nel XML se non ci sono e non hanno default, posso andare oltre,
+			//altrimenti devo creare un nuovo elemento col valore di default,
+			//la funzione e' ricorsiva
 
-		Tree tmp=null;
-		String name=null;
+			Tree tmp=null;
+			String name=null;
 
-		boolean tmpIsArray=false,tmpIsOpz=false;
+			boolean tmpIsArray=false,tmpIsOpz=false;
 
-		int cc=tree.getChildCount();
-		
-		for (int i=0;i<cc; i++) {
+
 			//Analizzo il figlio i
 			tmp = tree.getChild(i);
 			name = tmp.getText();
 			String type=tokenNames[tmp.getType()];
-			
+
 			if (!type.equals("Card")) {
 
 				tmpIsArray = isArray(tmp);
@@ -166,7 +157,7 @@ public class ConfigurationManager {
 							}
 							if (e!=null) {
 								NodeList items = e.getElementsByTagName("Item");
-								
+
 								for (int x = 0; x < items.getLength(); x++) {
 									read((Element) items.item(x), newTree);
 								}
@@ -214,7 +205,7 @@ public class ConfigurationManager {
 									//Se sono qui e' perche' ho a che fare con un
 									//oggetto non presente ma che dovrebbe esserci.
 									throw new Exception(name+":Oggetto obbligatorio " +
-											"non presente.");
+									"non presente.");
 								}
 								//.equals("STRING")
 								if (c0.getChildCount()==0) {
@@ -234,19 +225,8 @@ public class ConfigurationManager {
 		return root;
 	}
 
-	/** Dice se l'albero rappresenta un Array
-	 * @param tree L'albero da analizzare
-	 * @return Risultato se test.
-	 */
-	private boolean isArray(Tree tree) {
-		try {
-			String val=tree.getChild(tree.getChildCount()-1).getText();
 
-			if (val.equals("*")||val.equals("+")) return true;
-		} catch (NullPointerException e) {return false;}
-		return false;
 
-	}
 
 	/**Dice se l'albero rappresenta un element opzionale
 	 * @param tree L'albero da analizzare.
@@ -254,21 +234,24 @@ public class ConfigurationManager {
 	 * <p>false</p> altrimenti.
 	 */
 	private boolean opzionale(Tree tree) {
-		for (int i=0;i<tree.getChildCount();i++) {
+
+		//Recupero i figli
+		int cc=tree.getChildCount();
+		for (int i=0;i<cc; i++) {
 			String val=tree.getChild(i).getText();
 			if(tokenNames[tree.getChild(i).getType()].equals("Def")) return false;
 			if(val.equals("*")||val.equals("?")) return true;
 		}
-
 		return false;
 	}
+	public Document getDoc(){return doc;}
 
 	/** Trova l'elemento di default.
 	 * @param tree L'albero da controllare  
 	 * @return L'oggetto di default.
 	 */
 	private Object findDefault(Tree tree) {
-		
+
 		String t="";
 		for (int i=0;i<tree.getChildCount();i++) {
 			if (tokenNames[tree.getChild(i).getType()].equals("Atom")) {
@@ -305,16 +288,57 @@ public class ConfigurationManager {
 		}
 	}
 
-
 	/**
-	 * @param args
-	 * @throws Exception
+	 * @param pathConfigFile
+	 * @param input
+	 * @return
 	 */
+	public Document readJSON(String pathConfigFile, JSONObject input){
+
+		return null;
+	} 
+
+	/** Avvia la lettura del file di configurazione e il controllo per i rimpiazzamenti.
+	 * @param source DOM sorgente.
+	 * 
+	 * @return L'elemento aggiornato.
+	 * @throws Exception 
+	 */
+	public void reader(Document source) 
+	throws Exception {
+		doc=source;
+		Element root=source.getDocumentElement();
+		//parsetree(tree);
+		//Lo parserizzo 
+		if (tree.getText()==null)read(root, tree.getChild(0));
+		else read(root,tree);
+	}
+
+	/**Analizza il DOM e pone il risultato in un file.
+	 * @param doc DOM da analizzare.
+	 * @param outPath File di output.
+	 * @throws Exception 
+	 */
+	public void reader(Document input, String outPath) throws Exception {
+		reader(input);
+		XSLTransform.prettyPrintDOM(doc, outPath);	
+	}
+
+	/**Analizza una Stringa JSON e pone il risultato in un file
+	 * @param json Stringa JSON.
+	 * @param outPath Path del file di output.
+	 * @throws Exception 
+	 */
+	public void reader(String json, String outPath) throws Exception {
+
+		Writer w=new Writer(json);
+		w.run();
+		reader(w.getDoc(), outPath);
+	}
+
 	public static void main(String args[]) throws Exception {
 
-		ConfigurationManager cm=new ConfigurationManager();
-
-		//Writer Z=new Writer("{a:{b:8}}");
+		ConfigurationManager cm=new ConfigurationManager("Simple2.out");
 
 		String v1="{f:[{q:{p1:2},b:[{z1:12},{z2:false}]},{b:[{z1:6}]}]}";
 
@@ -323,36 +347,18 @@ public class ConfigurationManager {
 		String v3="{z:[{x:3},{y:\"str\"},{x:5,y:\"aaa\"}]}";
 
 		String v4="{Fields:[\"a\"],Configuration:{VQRName:\"vqr\"},Filters:[" +
-				"{field:\"field\"}, {decimal:2}], RowLayer:[" +
-				"{exp:\"exp\"},{Layer:[{enable_HTML:true}]}]}";
+		"{field:\"field\"}, {decimal:2}], RowLayer:[" +
+		"{exp:\"exp\"},{Layer:[{enable_HTML:true}]}]}";
 		String v5="{k1:6,w:[{r:3},{r:90}],q:[{p:3},{p:45}]" +
 		",x2:{f:9},q:{p:8}}";
 
-		Writer w=new Writer(v4);
-
+		Writer w=new Writer("{name:\"editor\", records:[" +
+				"{val1:3, val2:\"Kg\"},{val2:\"sec\",val3:[" +
+				"{id:9},{value:\"valore\"}]},{" +
+				"val3:[{id:12,value:\"pz\"},{id:9}]}]}");
 		w.run();
-
-		Element result =cm.reader(w.getDoc(),"schema.txt");
-
-		TransformerFactory tranFactory = TransformerFactory.newInstance();
-		Transformer aTransformer=null;
-		try {
-			aTransformer = tranFactory.newTransformer();
-		} catch (TransformerConfigurationException e1) {
-			//In teoria non dovrebbe mai accadere
-			e1.printStackTrace();
-		}
-		Source src = new DOMSource(cm.doc);
-		//Result dest = new StreamResult(new File("out2.xml"));
-		StringWriter st=new StringWriter();
-		Result dest=new StreamResult(st);
-		try {
-			aTransformer.transform(src, dest);
-			System.out.print(w.prettyPrint(st.toString()));
-		} catch (TransformerException e) {
-			//In teoria non dovrebbe mai accadere
-			e.printStackTrace();
-			System.exit(1);
-		}
+		
+		cm.reader(w.getDoc(), "result.xml");
 	}
+
 }
