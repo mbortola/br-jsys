@@ -1,4 +1,5 @@
 grammar descrittore;
+
 options{
 	output=AST;
 	ASTLabelType=CommonTree;

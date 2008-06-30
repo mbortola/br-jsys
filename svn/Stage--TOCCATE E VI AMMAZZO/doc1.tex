@@ -210,6 +210,8 @@ E' possibile definire dei trigger personalizzati in grado di essere lanciati in 
 \subsection{Personalizzare gli indici}
 Per ottimizzare ulteriormente il movimento all'interno di un documento XML e' possibile definire degli indici personalizzati. Essi sono tutt'ora in fase di sviluppo e nei rilasci successivi probabilmente verrano aggiunte funzionalità, sono scritti in XML e gestibili tramite Java o XQuery.
 
+\chapter{Lavorare con ANTLR}
+
 \chapter{Definizione del linguaggio per la descrizione dei file di configurazione}
 Come detto precedentemente serve la definizione di un linguaggio per descrivere i file di configurazione, un istanza di un file di configurazione risulta di immediata comprensione se rappresentata tramite un oggetto JSON o un elemento XML, ma per una descrizione della sua struttura queste rappresentazioni non servono.
 Inizialmente si era pensato di utilizzare per la rappresentazione un XML Schema, dato che abbiamo comunque a che faer con XML, ma quest'ultimo risulta troppo complesso per i noastri scopi, nonche' si sarebbe dovuto obbligare chiunque avesse a che fare coi file di configurazione ad imparare la sintassi XML-Schema.
@@ -258,8 +260,121 @@ col:(
 \item Un file di configurazione aderente a questo descrittore possiedera' dunque questa struttura, da notare che col non e' il nome di un campo dati come gli altri ma il nome di un riferimento, nel file di configurazione non esistera' dunque un campo dati chiamato col.
 \end{itemize}
 
-\section[Esempio]{Esempio di elagorazione file di configurazione}
+\section[Esempio]{Esempio di elaborazione file di configurazione}
 
+Sia data la seguente struttura di file di configurazione:
+\lstset{language=make}
+\begin{lstlisting}
+VZM:(
+name:str,
+version:=1,
+records:record*,
+)
+
+record:(
+val1:int:=4,
+val2:str:="null",
+val3:m?
+)
+
+m:(
+id:int:=0,
+value:str:"null")
+
+\end{lstlisting}
+
+E il seguente DOM da analizzare:
+\lstset{language=HTML}
+\begin{lstlisting}
+<VZM>
+   <name type="String" value="editor"/>
+   <records elements="3" type="list">
+      <Item position="0">
+         <val1 type="Integer" value="3"/>
+         <val2 type="String" value="Kg"/>
+      </Item>
+      <Item position="1">
+         <val3 elements="2" type="list">
+            <Item position="0">
+               <id type="Integer" value="9"/>
+            </Item>
+            <Item position="1">
+               <value type="String" value="valore"/>
+            </Item>
+         </val3>
+         <val2 type="String" value="sec"/>
+      </Item>
+      <Item position="2">
+         <val3 elements="2" type="list">
+            <Item position="0">
+               <id type="Integer" value="12"/>
+               <value type="String" value="pz"/>
+            </Item>
+            <Item position="1">
+               <id type="Integer" value="9"/>
+            </Item>
+         </val3>
+      </Item>
+   </records>
+</VZM>
+\end{lstlisting}
+
+Come si può notare il DOM da analizzare necessita di alcuni elementi aggiuntivi perche'corrisponda alla descrizione del file.
+L'applicazione modifichera di conseguenza il DOM trasformandolo nel seguente:
+
+\lstset{language=HTML}
+\begin{lstlisting}
+<VZM>
+   <name type="String" value="editor"/>
+   <records elements="3" type="list">
+      <Item position="0">
+         <val1 type="Integer" value="3"/>
+         <val2 type="String" value="Kg"/>
+      </Item>
+      <Item position="1">
+         <val3 elements="2" type="list">
+            <Item position="0">
+               <id type="Integer" value="9"/>
+               <val1 type="Integer" value="4"/>
+               <val2 type="String" value="null"/>
+            </Item>
+            <Item position="1">
+               <value type="String" value="valore"/>
+               <val1 type="Integer" value="4"/>
+               <val2 type="String" value="null"/>
+            </Item>
+            <id type="Integer" value="0"/>
+            <value type="String" value="null"/>
+         </val3>
+         <val2 type="String" value="sec"/>
+         <val1 type="Integer" value="4"/>
+      </Item>
+      <Item position="2">
+         <val3 elements="2" type="list">
+            <Item position="0">
+               <id type="Integer" value="12"/>
+               <value type="String" value="pz"/>
+               <val1 type="Integer" value="4"/>
+               <val2 type="String" value="null"/>
+            </Item>
+            <Item position="1">
+               <id type="Integer" value="9"/>
+               <val1 type="Integer" value="4"/>
+               <val2 type="String" value="null"/>
+            </Item>
+            <id type="Integer" value="0"/>
+            <value type="String" value="null"/>
+         </val3>
+         <val1 type="Integer" value="4"/>
+         <val2 type="String" value="null"/>
+      </Item>
+   </records>
+   <version type="Integer" value="1"/>
+</VZM>
+\end{lstlisting}
+\chapter{Conclusioni}
+\chapter{Appendici}
+\chapter{Glossario}
 \chapter{Riferimenti}
 
 \end{document}
