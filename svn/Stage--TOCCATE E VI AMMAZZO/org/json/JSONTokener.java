@@ -160,6 +160,7 @@ public class JSONTokener {
     public char nextClean() throws JSONException {
         for (;;) {
             char c = next();
+            //System.err.print(c);
             if (c == '/') {
                 switch (next()) {
                 case '/':
