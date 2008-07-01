@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VZM>
-	<Filters elements="2" type="list">
-		<Item position="0">
-			<field type="String" value="field"/>
-		</Item>
-		<Item position="1">
-			<decimal type="Integer" value="2"/>
-		</Item>
-	</Filters>
-	<Fields elements="1" type="list">
-		<Item position="0" type="String" value="a"/>
-	</Fields>
-	<RowLayer elements="2" type="list">
-		<Item position="0">
-			<exp type="String" value="exp"/>
-		</Item>
-		<Item position="1">
-			<Layer elements="1" type="list">
-				<Item position="0">
-					<enable_HTML type="Boolean" value="true"/>
-				</Item>
-			</Layer>
-		</Item>
-	</RowLayer>
-	<Configuration>
-		<VQRName type="String" value="vqr"/>
-	</Configuration>
+  <name type="String" value="editor"/>
+  <records elements="3" type="list">
+    <Item position="0">
+      <val1 type="Integer" value="3"/>
+      <val2 type="String" value="Kg"/>
+    </Item>
+    <Item position="1">
+      <val3 elements="2" type="list">
+        <Item position="0">
+          <id type="Integer" value="9"/>
+        </Item>
+        <Item position="1">
+          <value type="String" value="valore"/>
+        </Item>
+      </val3>
+      <val2 type="String" value="sec"/>
+    </Item>
+    <Item position="2">
+      <val3 elements="2" type="list">
+        <Item position="0">
+          <id type="Integer" value="12"/>
+          <value type="String" value="pz"/>
+        </Item>
+        <Item position="1">
+          <id type="Integer" value="9"/>
+        </Item>
+      </val3>
+    </Item>
+  </records>
 </VZM>
