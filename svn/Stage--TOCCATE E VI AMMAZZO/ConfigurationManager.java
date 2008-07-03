@@ -9,6 +9,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Hashtable;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.antlr.runtime.ANTLRFileStream;
@@ -20,6 +23,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import stage.util.XSLTransform;
 import writer.Writer;
@@ -39,9 +43,9 @@ class MyError extends Exception {
  */
 public class ConfigurationManager {
 
-	/**Tabella che associa al tipo radice di un elemento nel file di configurazione
-	 * il suo relativo albero di parsing.*/
-	private Hashtable<String, Tree> oggettiBase=new Hashtable<String, Tree>();
+	/**Tabella che associa al tipo radice di un elemento nel file di 
+	 * configurazione il suo relativo albero di parsing.*/
+	private Hashtable<String, Tree> BaseElements=new Hashtable<String, Tree>();
 
 	/**DOM da elaborare.*/
 	private Document doc;
@@ -70,7 +74,7 @@ public class ConfigurationManager {
 
 		//figli al primo livello nella hash
 		for(int i=0;i<tree.getChildCount();i++) {
-			oggettiBase.put(tree.getChild(i).getText(), tree.getChild(i));
+			BaseElements.put(tree.getChild(i).getText(), tree.getChild(i));
 		}
 		tokenNames=descrittoreParser.tokenNames;
 	}
@@ -122,10 +126,10 @@ public class ConfigurationManager {
 		int cc=tree.getChildCount();
 
 		for (int i=0;i<cc;i++) {
-			//scorro tutti i figli dell'albero, e ogni volta guardo se sono presenti
-			//anche nel XML se non ci sono e non hanno default, posso andare oltre,
-			//altrimenti devo creare un nuovo elemento col valore di default,
-			//la funzione e' ricorsiva
+			//scorro tutti i figli dell'albero, e ogni volta guardo se sono 
+			//presenti anche nel XML se non ci sono e non hanno default, posso 
+			//andare oltre, altrimenti devo creare un nuovo elemento col valore 
+			//di default, la funzione e' ricorsiva
 
 			Tree tmp=null;
 			String name=null;
@@ -155,6 +159,7 @@ public class ConfigurationManager {
 						//Secondo le specifiche del linguaggio non posso mai 
 						//capitare in questa sezione di codice.
 						System.out.println("??");
+						System.exit(1);
 					}
 				} else {
 					//tmp ha dei figli
@@ -166,10 +171,10 @@ public class ConfigurationManager {
 						if (tokenNames[c0.getType()].equals("STRING") && 
 								c0.getChildCount()==0) {
 							//Riferimento
-							Tree newTree=oggettiBase.get(c0.getText());
+							Tree newTree=BaseElements.get(c0.getText());
 							if (e==null && !tmpIsOpz) {
-								throw new MyError(name+":Oggetto obbligatorio " +
-								"non presente.");
+								throw new MyError(name+":Oggetto obbligatorio" +
+								" non presente.");
 							}
 							if (e!=null) {
 								NodeList items = e.getElementsByTagName("Item");
@@ -186,8 +191,8 @@ public class ConfigurationManager {
 						} else {
 							//Definito sotto
 							if (e==null && !tmpIsOpz) {
-								throw new MyError(name+":Oggetto obbligatorio " +
-								"non presente.");
+								throw new MyError(name+":Oggetto obbligatorio"+
+								" non presente.");
 							}
 							if (e!=null) {
 								//E' opzionale ma c'e lo stesso
@@ -214,7 +219,8 @@ public class ConfigurationManager {
 								if (e==null) {
 									//Aggiungo
 									Object value = findDefault(tmp);
-									Element el = doc.createElement(tmp.getText());
+									Element el = 
+										doc.createElement(tmp.getText());
 
 									String val = value.getClass().toString();
 									val = val.substring(val.lastIndexOf(".") + 1,
@@ -230,15 +236,17 @@ public class ConfigurationManager {
 							} else {
 								//Sotto oggetto
 								if (e==null) {
-									//Se sono qui e' perche' ho a che fare con un
-									//oggetto non presente ma che dovrebbe esserci.
-									throw new MyError(name+":Oggetto obbligatorio " +
-									"non presente.");
+									//Se sono qui e' perche' ho a che fare con 
+									//un oggetto non presente ma che dovrebbe 
+									//esserci.
+									throw new MyError(name + 
+											":Oggetto obbligatorio " +
+											"non presente.");
 								}
 								//.equals("STRING")
 								if (c0.getChildCount()==0) {
 									//Riferimento
-									Tree newTree=oggettiBase.get(c0.getText());
+									Tree newTree=BaseElements.get(c0.getText());
 									read(e,newTree);
 								} else {
 									//definito sotto   
@@ -264,7 +272,7 @@ public class ConfigurationManager {
 		int cc=tree.getChildCount();
 		for (int i=0;i<cc; i++) {
 			String val=tree.getChild(i).getText();
-			if(tokenNames[tree.getChild(i).getType()].equals("Def")) return false;
+			if(tokenNames[tree.getChild(i).getType()].equals("Def"))return false;
 			if(val.equals("*")||val.equals("?")) return true;
 		}
 		return false;
@@ -317,10 +325,10 @@ public class ConfigurationManager {
 		}
 	}
 
-	/** Avvia la lettura del file di configurazione e il controllo per i rimpiazzamenti.
+	/** Avvia la lettura del file di configurazione e il controllo per i 
+	 * rimpiazzamenti.
 	 * @param source DOM sorgente.
-	 * 
-	 * @return L'elemento aggiornato.
+
 	 * @throws MyError 
 	 */
 	public void reader(Document source) throws MyError{
@@ -342,11 +350,13 @@ public class ConfigurationManager {
 			reader(input);
 			XSLTransform.prettyPrintDOM(doc, outPath);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			// File prettyprint non trovato
 			e.printStackTrace();
+			System.exit(1);
 		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
+			// Errore nella trasformazione
 			e.printStackTrace();
+			System.exit(1);
 		}	
 	}
 
@@ -360,6 +370,27 @@ public class ConfigurationManager {
 		Writer w=new Writer(json);
 		w.run();
 		reader(w.getDoc(), outPath);
+	}
+	
+	/**Legge una configurazione gia' parsata in XML da un file di testo e pone 
+	 * il risultato in un altro flie. 
+	 * @param input File di input.
+	 * @param output File di output.
+	 * @throws IOException 
+	 * @throws SAXException 
+	 * @throws ParserConfigurationException 
+	 * @throws MyError Errore irreversibile nel file di configurazione.
+	 * 
+	 */
+	public void readXML(String input, String output) 
+	throws SAXException, IOException, ParserConfigurationException, MyError {
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		DocumentBuilder db;
+		
+		db=dbf.newDocumentBuilder();
+		Document d=db.parse(new File(input));
+		
+		reader(d, output);
 	}
 
 	public static void main(String args[]) throws Exception {
@@ -403,6 +434,8 @@ public class ConfigurationManager {
 				e.printStackTrace();
 			}
 		}
+		cmain=new ConfigurationManager("Simple2.out");
+		cmain.readXML("test.xml", "out3.xml");
 	}
 
 }
