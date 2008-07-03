@@ -149,13 +149,14 @@ public class Writer {
 	 * @param o l'oggetto da scrivere.
 	 * @param root L'elemento radice.
 	 * @param name il Nome del nuovo oggetto.
-	 * @param position Qualora o fosse un elemento di un array indica la sua posizione. 
-	 * Il valore -1 non viene considerato.
+	 * @param position Qualora o fosse un elemento di un array indica la sua
+	 *  posizione.v Il valore -1 non viene considerato.
 	 * @return <code>true</code> L'oggetto non era vuoto ed e' stato scritto.
 	 * <code>false</code> L'oggetto era vuoto e non e' stato scritto.
 	 * @throws JSONException
 	 */
-	protected boolean writeJSONObj(JSONObject o, Element root, String name, int position) throws JSONException{
+	protected boolean writeJSONObj(JSONObject o, Element root, String name, int position)
+	throws JSONException{
 		JSONArray list=o.names();
 		if (list==null)return false;
 
@@ -261,12 +262,11 @@ public class Writer {
 	public Document getDoc(){return doc;}
 	
 	public static void main(String[]args) {
-		Writer w=new Writer("{name:\"editor\", records:[" +
-				"{val1:3, val2:\"Kg\"},{val2:\"sec\",val3:[" +
-				"{id:9},{value:\"valore\"}]},{" +
-				"val3:[{id:12,value:\"pz\"},{id:9}]}]}");
+		Writer w=new Writer("{name:\"editor\", records:[{val1:3, val2:\"Kg\"},"+
+				"{val2:\"sec\",val3:[{id:9},{value:\"valore\"}]}," +
+				"{val3:[{id:12,value:\"pz\"},{id:9}]}]}");
 		w.run();
-		w.writeDocOnFile("test.txt");
+		w.writeDocOnFile("test.xml");
 	}
 }
 
