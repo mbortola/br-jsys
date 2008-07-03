@@ -372,6 +372,35 @@ L'applicazione modifichera di conseguenza il DOM trasformandolo nel seguente:
    <version type="Integer" value="1"/>
 </VZM>
 \end{lstlisting}
+\section{Funzionamento}
+Il funzionamento dad alto livello dell'applicazione e' illustrato nel seguente diagramma di sequenza:
+%Diagramma di sequenza
+Il chiamante crea l'oggetto ConfigurationManager passandogli il file contenente la descrizione del file di configurazione, dunque il costruttore si occupa di effettuare il parsing della stringa passatagli.
+Se il parsing e' andato a buon fine l'oggetto configurationManager conterra' un campo dati che rappresenta l'AST che descrive il stringa èparsata, nonche' una tabella Hash che associa ad ogni nome di elemento radice il suo rispettivo sotto-AST.
+Qualora necessitassi di analizzare un DOM per aggiornarlo secondo le specifiche del descrittore mi appoggiero' al metodo reader che prende in ingresso l'elemento da elaborare in formato JSON, lo elabora e pone il risultato in un file specificato.
+A dire il vero esistono vari metodi reader, ciascuno con lo stesso scopo ma che accettano vari tipi di input, un elemento da analizzare puo' trovarsi in un file, o essere semplicemente una stringa, inoltre e possibile passare direttamente un oggetto DOM senza dover passare attraverso JSON. 
+Infine e' presente anche il metodo reader che accetta soltanto un nodo Document DOM che effettua la lettura e pone il risultato nel campo dati privato di COnfgurationManager doc, qualora dovessi reperire questo risultato utilizzero il metodo getDoc.
+
+In ogni caso indipendentemente dal modo in cui viene rappresentato il file di configurazione in ingresso la sua fase di analisi viene sempre fatta accostando l'AST alla sua rappresentazione in un nodo Document DOM.
+
+\subsection{Come viene effettuata la lettura del file di configurazione}
+In effetti cio che viene letto durante la fase di controllo del file di configurazione e' l'AST, il DOM-file di configurazione viene affiancato parallelamente ad esso in cerca di analogie.
+La fase di lettura vera e propria viene effettuata dal metodo ricorsivo read che prende due parametri:
+\begin{itemize}
+\item [tree:Tree] Ossia un nodo dell'AST del quale si analizzeranno i figli;
+\item [root:Element] Ossia un Elemento DOM che teoricamente dovrebbe essere descritto da tree.
+\end{itemize}
+Inizialmente mandero' al metodo read la radice dell'AST e l'elemento radice del DOM.
+Dovrò scandire tutti i figli diretti di tree, per ogni figlio ricavo informazioni sulle sue caratteristiche tramite metodi ad hoc, ossia guardo se e' un array, o se e' opzionale.
+Il primo controllo che faccio e' quello per vedere se e' un array di elementi atomici (interi, stringa o bool), non sono tenuto a rimpiazzare l'eventuale mancanza di questo elemento, ne sono tenuto a lanciare una eccezzione, dunque lascio stare.
+
+Se questo test fallisce controllo se mi trovo di fronte ad un array, in caso affermativo vado piu in dettaglio con l'analisi.
+%Diagramma attivita per array
+
+Qualora non fosse un array allora e' un oggetto oppure un elemento atomico:
+%Diagramma attivita' non-array
+
+
 \chapter{Conclusioni}
 \chapter{Appendici}
 \chapter{Glossario}
