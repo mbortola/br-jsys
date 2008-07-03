@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VZM>
+  <name type="String" value="editor"/>
+  <records elements="3" type="list">
+    <Item position="0">
+      <val1 type="Integer" value="3"/>
+      <val2 type="String" value="Kg"/>
+    </Item>
+    <Item position="1">
+      <val3 elements="2" type="list">
+        <Item position="0">
+          <id type="Integer" value="9"/>
+          <value type="String" value="null"/>
+        </Item>
+        <Item position="1">
+          <value type="String" value="valore"/>
+          <id type="Integer" value="0"/>
+        </Item>
+      </val3>
+      <val2 type="String" value="sec"/>
+      <val1 type="Integer" value="4"/>
+    </Item>
+    <Item position="2">
+      <val3 elements="2" type="list">
+        <Item position="0">
+          <id type="Integer" value="12"/>
+          <value type="String" value="pz"/>
+        </Item>
+        <Item position="1">
+          <id type="Integer" value="9"/>
+          <value type="String" value="null"/>
+        </Item>
+      </val3>
+      <val1 type="Integer" value="4"/>
+      <val2 type="String" value="null"/>
+    </Item>
+  </records>
+  <version type="Integer" value="1"/>
+</VZM>
