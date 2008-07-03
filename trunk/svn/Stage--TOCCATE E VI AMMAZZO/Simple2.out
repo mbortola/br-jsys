@@ -1,0 +1,13 @@
+VZM:(
+name:str,
+version:int:=1,
+records:record*
+)
+record:(
+val1:int:=4,
+val2:str:="null",
+val3:m*
+)
+m:(
+id:int:=0,
+value:str:="null")
