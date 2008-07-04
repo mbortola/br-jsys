@@ -17,7 +17,6 @@ import javax.xml.transform.TransformerException;
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.Tree;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -45,7 +44,7 @@ public class ConfigurationManager {
 
 	/**Tabella che associa al tipo radice di un elemento nel file di 
 	 * configurazione il suo relativo albero di parsing.*/
-	private Hashtable<String, Tree> BaseElements=new Hashtable<String, Tree>();
+	private Hashtable<String, Tree> baseElements=new Hashtable<String, Tree>();
 
 	/**DOM da elaborare.*/
 	private Document doc;
@@ -54,7 +53,7 @@ public class ConfigurationManager {
 	private String[] tokenNames;
 
 	/**AST*/
-	private CommonTree tree;
+	private Tree parsedTree;
 
 	/**Costruttore
 	 * @param cfgFilePath Path del descrittore del file di configurazione.
@@ -70,11 +69,11 @@ public class ConfigurationManager {
 		CommonTokenStream tokens = new CommonTokenStream(lex);
 		descrittoreParser g = new descrittoreParser(tokens);
 		descrittoreParser.start_return ret=g.start();
-		tree= (CommonTree)ret.getTree();
+		parsedTree= (Tree)ret.getTree();
 
 		//figli al primo livello nella hash
-		for(int i=0;i<tree.getChildCount();i++) {
-			BaseElements.put(tree.getChild(i).getText(), tree.getChild(i));
+		for(int i=0;i<parsedTree.getChildCount();i++) {
+			baseElements.put(parsedTree.getChild(i).getText(), parsedTree.getChild(i));
 		}
 		tokenNames=descrittoreParser.tokenNames;
 	}
@@ -121,7 +120,7 @@ public class ConfigurationManager {
 	 * @return l'Elemento aggiornato.
 	 * @throws MyError Errore nella lettura.
 	 * */
-	private Element read(Element root, Tree tree) throws MyError {
+	private void read(Element root, Tree tree) throws MyError {
 
 		int cc=tree.getChildCount();
 
@@ -131,25 +130,26 @@ public class ConfigurationManager {
 			//andare oltre, altrimenti devo creare un nuovo elemento col valore 
 			//di default, la funzione e' ricorsiva
 
-			Tree tmp=null;
+			Tree child=null;
 			String name=null;
 
-			boolean tmpIsArray=false,tmpIsOpz=false;
+			boolean isArray=false,isOpz=false;
 
 
 			//Analizzo il figlio i
-			tmp = tree.getChild(i);
-			name = tmp.getText();
-			String type=tokenNames[tmp.getType()];
+			child = tree.getChild(i);
+			name = child.getText();
+			String type=tokenNames[child.getType()];
 
+			//Il token Card indica un simbolo (*|+|?) dunque lo salto
 			if (!type.equals("Card")) {
 
-				tmpIsArray = isArray(tmp);
-				tmpIsOpz=this.opzionale(tmp);
+				isArray = isArray(child);
+				isOpz=this.isOptional(child);
 
-				if (tmp.getChildCount() == 0) {
+				if (child.getChildCount() == 0) {
 					//array base
-					if (tokenNames[tmp.getType()].equals("Atom")) {
+					if (tokenNames[child.getType()].equals("Atom")) {
 						//array Atom
 						//Tecnicamente se capito qui non devo fare niente, 
 						//non sono tenuto a generare elementi di default 
@@ -164,63 +164,46 @@ public class ConfigurationManager {
 				} else {
 					//tmp ha dei figli
 					Element e=this.findElement(name, root);
-					if (tmpIsArray) {
+					if (isArray) {
 						//Test per vedere se e' un riferimento
-						Tree c0=tmp.getChild(0);
-
-						if (tokenNames[c0.getType()].equals("STRING") && 
-								c0.getChildCount()==0) {
-							//Riferimento
-							Tree newTree=BaseElements.get(c0.getText());
-							if (e==null && !tmpIsOpz) {
-								throw new MyError(name+":Oggetto obbligatorio" +
-								" non presente.");
+						Tree c0=child.getChild(0);
+						if (e==null && !isOpz) {
+							throw new MyError(name+":Oggetto obbligatorio" +
+							" non presente.");
+						}
+						if (e!=null){
+							Tree newTree=null;
+							if (tokenNames[c0.getType()].equals("STRING") && 
+									c0.getChildCount()==0) {
+								//Riferimento
+								newTree=baseElements.get(c0.getText());
+							} else {
+								//Definito sotto
+								newTree=child;
 							}
-							if (e!=null) {
-								NodeList items = e.getElementsByTagName("Item");
-
-								int len=items.getLength();
-
-								for (int x = 0; x <len; x++) {
-									Element itemx=(Element)items.item(x);
-									if (itemx.getParentNode().equals(e)) {
-										read(itemx, newTree);
-									}
-								}
-							}
-						} else {
-							//Definito sotto
-							if (e==null && !tmpIsOpz) {
-								throw new MyError(name+":Oggetto obbligatorio"+
-								" non presente.");
-							}
-							if (e!=null) {
-								//E' opzionale ma c'e lo stesso
-								NodeList items = e.getElementsByTagName("Item");
-
-								int len=items.getLength();
-
-								for (int x = 0; x <len; x++) {
-									Element itemx=(Element)items.item(x);
-									if (itemx.getParentNode().equals(e)) {
-										read(itemx, tmp);
-									}
+							NodeList items = e.getElementsByTagName("Item");
+							int len=items.getLength();
+							for (int x = 0; x <len; x++) {
+								Element itemx=(Element)items.item(x);
+								if (itemx.getParentNode().equals(e)) {
+									read(itemx, newTree);
 								}
 							}
 						}
+						//altrimenti e==null ma essendo child opzionale mi fermo
 					}
 					else {
 						//Non e' un array
-						if (!(e==null && tmpIsOpz)) {
+						if (!(e==null && isOpz)) {
 							//Gurdo se e' un oggetto o un valore atomico
-							Tree c0=tmp.getChild(0);
+							Tree c0=child.getChild(0);
 							if (tokenNames[c0.getType()].equals("Atom")) {
 								//Valore atomico
 								if (e==null) {
 									//Aggiungo
-									Object value = findDefault(tmp);
+									Object value = findDefault(child);
 									Element el = 
-										doc.createElement(tmp.getText());
+										doc.createElement(child.getText());
 
 									String val = value.getClass().toString();
 									val = val.substring(val.lastIndexOf(".") + 1,
@@ -241,16 +224,16 @@ public class ConfigurationManager {
 									//esserci.
 									throw new MyError(name + 
 											":Oggetto obbligatorio " +
-											"non presente.");
+									"non presente.");
 								}
 								//.equals("STRING")
 								if (c0.getChildCount()==0) {
 									//Riferimento
-									Tree newTree=BaseElements.get(c0.getText());
+									Tree newTree=baseElements.get(c0.getText());
 									read(e,newTree);
 								} else {
 									//definito sotto   
-									read(e,tmp);
+									read(e,child);
 								}
 							}
 						}
@@ -258,7 +241,6 @@ public class ConfigurationManager {
 				}
 			}
 		}
-		return root;
 	}
 
 	/**Dice se l'albero rappresenta un element opzionale
@@ -266,7 +248,7 @@ public class ConfigurationManager {
 	 * @return <p>true</p> se l'elemento e' opzionale.
 	 * <p>false</p> altrimenti.
 	 */
-	private boolean opzionale(Tree tree) {
+	private boolean isOptional(Tree tree) {
 
 		//Recupero i figli
 		int cc=tree.getChildCount();
@@ -277,7 +259,7 @@ public class ConfigurationManager {
 		}
 		return false;
 	}
-	
+
 	/**Ritorna il DOM.
 	 * @return Document.
 	 */
@@ -336,8 +318,8 @@ public class ConfigurationManager {
 		Element root=source.getDocumentElement();
 		//parsetree(tree);
 		//Lo parserizzo 
-		if (tree.getText()==null)read(root, tree.getChild(0));
-		else read(root,tree);
+		if (parsedTree.getText()==null)read(root, parsedTree.getChild(0));
+		else read(root,parsedTree);
 	}
 
 	/**Analizza il DOM e pone il risultato in un file.
@@ -371,7 +353,7 @@ public class ConfigurationManager {
 		w.run();
 		reader(w.getDoc(), outPath);
 	}
-	
+
 	/**Legge una configurazione gia' parsata in XML da un file di testo e pone 
 	 * il risultato in un altro flie. 
 	 * @param input File di input.
@@ -386,10 +368,10 @@ public class ConfigurationManager {
 	throws SAXException, IOException, ParserConfigurationException, MyError {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db;
-		
+
 		db=dbf.newDocumentBuilder();
 		Document d=db.parse(new File(input));
-		
+
 		reader(d, output);
 	}
 
