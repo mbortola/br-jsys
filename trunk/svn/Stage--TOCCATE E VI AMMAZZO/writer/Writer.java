@@ -29,7 +29,7 @@ import stage.util.XSLTransform;
 public class Writer {
 
 	/**Indirizzo del file di input*/
-	JSONObject obj;
+	private JSONObject obj;
 
 	/**Il DOM risultato*/
 	private Document doc;
