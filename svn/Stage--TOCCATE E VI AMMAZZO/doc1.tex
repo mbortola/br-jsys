@@ -6,7 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{hyperref}
-
+\usepackage{footmisc}
 \usepackage{listings}
 
 \usepackage{lastpage}
@@ -23,7 +23,7 @@
 Laurea triennale in informatica.\\
  Anno Accademico 2007-2008. \\
 \Large Tesi di Laurea:\\ 
-Utilizzo di XML ed eXist per la gestione di file di configurazione in ambito aziendale.}
+Utilizzo di XML per la gestione di file di configurazione in ambito aziendale.}
 \end{center}
 
 \end{titlepage}
@@ -34,7 +34,7 @@ Questi file attualmente vengono rappresentati tramite file di testo difficili da
 Convertendo questi file in formato XML si avra il vantaggio di poterli gestire molto piu facilmente.
 Durante lo sviluppo di Portal Zoom questi file di configurazione hanno subito varie modifiche alla struttura e ai contenuti, tramite trasformate XSL e' possibilie aggiornare file di vecchia versione in maniera molto piu efficiente.
 Successivamente associeremo a questi file un XML Schema per descriverne la struttura e per validare l'output prodotto, probabilmente affiancheremo alla validazione tramite Schema alcune semplici interrogazioni XPath.
-Successivamente proveremo a far gestire questi file da un DBMS XML (nel nostro caso eXist)per avere un incremento nelle operazioni di recupero e manipolazione.
+
 \chapter{Strumenti e tecnologie utilizzate}
 \section{Sitepainter}
 i-CASE(Internet Computer Aided Software Engineering) Software prodotta dalla Zucchetti che consente lo sviluppo di applicazioni business transazionali in ambiente web, fortemente interattive, con interfaccia browser.
@@ -219,6 +219,7 @@ Dopodichè si era pensato di ripiegare nei DTD, più semplici e facili da capire. 
 In definitiva dobbiamo tener conto non solo di dover trovare un formalismo per descrivere i file di configurazione, ma dobbiamo anche dalla descrizione del file ricavare una sorta di struttura dati per fare l'analisi dell'oggetto istanza del file stesso(ghghghg!!!!!).
 Si e' infine deciso di creare un linguaggio ad-hoc, completo di parser e di generatore di albero sintattico da appoggiare all'applicazione di controllo per fare confronto parallelo con l'istanza, rappresentate per l'occasione da un elemento DOM, l'applicazione al termine della lettura restituira' lo stesso DML corretto dove serve aggiungendogli opportuni elementi di default.
 Ovviamente la realizzazione di un parser sarebbe un operazione estremamente onerosa nel caso in cui non si utilizzasse uno strumento che automatizzasse la stesura del codice, per questo ci siamo affidati ad ANTLR, probabilmente senza uno strumento apposito avremmo impiegato quasi tutto il periodo di stage a realizzare il parser, tenuto conto anche del fatto che la grammatica ha subito varie modifiche nel corso della sua stesura.
+
 \section{Struttura del linguaggio}
 Per la definizione del linguaggio si sono stabiliti alcuni vincoli iniziali:
 \begin{itemize}
@@ -379,27 +380,41 @@ Il chiamante crea l'oggetto ConfigurationManager passandogli il file contenente 
 Se il parsing e' andato a buon fine l'oggetto configurationManager conterra' un campo dati che rappresenta l'AST che descrive il stringa èparsata, nonche' una tabella Hash che associa ad ogni nome di elemento radice il suo rispettivo sotto-AST.
 Qualora necessitassi di analizzare un DOM per aggiornarlo secondo le specifiche del descrittore mi appoggiero' al metodo reader che prende in ingresso l'elemento da elaborare in formato JSON, lo elabora e pone il risultato in un file specificato.
 A dire il vero esistono vari metodi reader, ciascuno con lo stesso scopo ma che accettano vari tipi di input, un elemento da analizzare puo' trovarsi in un file, o essere semplicemente una stringa, inoltre e possibile passare direttamente un oggetto DOM senza dover passare attraverso JSON. 
-Infine e' presente anche il metodo reader che accetta soltanto un nodo Document DOM che effettua la lettura e pone il risultato nel campo dati privato di COnfgurationManager doc, qualora dovessi reperire questo risultato utilizzero il metodo getDoc.
+Infine e' presente anche il metodo reader che accetta soltanto un nodo Document DOM che effettua la lettura e pone il risultato nel campo dati privato di ConfgurationManager doc, qualora dovessi reperire questo risultato utilizzero il metodo getDoc.
 
 In ogni caso indipendentemente dal modo in cui viene rappresentato il file di configurazione in ingresso la sua fase di analisi viene sempre fatta accostando l'AST alla sua rappresentazione in un nodo Document DOM.
 
 \subsection{Come viene effettuata la lettura del file di configurazione}
 In effetti cio che viene letto durante la fase di controllo del file di configurazione e' l'AST, il DOM-file di configurazione viene affiancato parallelamente ad esso in cerca di analogie.
-La fase di lettura vera e propria viene effettuata dal metodo ricorsivo read che prende due parametri:
+La fase di lettura vera e propria viene effettuata dal metodo ricorsivo \textit{read} che prende due parametri:
 \begin{itemize}
-\item [tree:Tree] Ossia un nodo dell'AST del quale si analizzeranno i figli;
-\item [root:Element] Ossia un Elemento DOM che teoricamente dovrebbe essere descritto da tree.
+\item \textit{tree:Tree} Ossia un nodo dell'AST del quale si analizzeranno i figli;
+\item \textit{root:Element} Ossia un elemento DOM che teoricamente dovrebbe essere descritto da \textit{tree}.
 \end{itemize}
+Il seguente diagramma di attività illustra la struttura del metodo \textit{read}:
+%diagramma attivita read
+
 Inizialmente mandero' al metodo read la radice dell'AST e l'elemento radice del DOM.
 Dovrò scandire tutti i figli diretti di tree, per ogni figlio ricavo informazioni sulle sue caratteristiche tramite metodi ad hoc, ossia guardo se e' un array, o se e' opzionale.
 Il primo controllo che faccio e' quello per vedere se e' un array di elementi atomici (interi, stringa o bool), non sono tenuto a rimpiazzare l'eventuale mancanza di questo elemento, ne sono tenuto a lanciare una eccezzione, dunque lascio stare.
 
 Se questo test fallisce controllo se mi trovo di fronte ad un array, in caso affermativo vado piu in dettaglio con l'analisi.
+\subsubsection{Gestione Array}
+Il seguente diagramma delle attivita' mostra la sotto attivita' siguardante le varie fasi di analisi di un array:
 %Diagramma attivita per array
-
-Qualora non fosse un array allora e' un oggetto oppure un elemento atomico:
+Abbiamo precedentemente ricavato i sotto elemento nel DOM riferito da child (se presente) e dobbiamo ora passatre attraverso vari rami condizionali per fare le operazioni opportune.
+Inizialmente faccio il test per vedere se nel DOM manca un array obbligatorio, in questo caso ci troviamo di fronte ad un DOM non valido e fermiamo l'esecuzione del preogramma tramite il sollevamento di una eccezzione creata appositamente (MyError).
+Altrimenti vedo se nel DOM e' presente l'occorrenza di child, se non e' presente allora l'array rappresentato da child e' opzionale e posso uscire dalla sotto attivita'.
+Se invece nel DOM abbiamo una occorrenza ci troviamo di fronte ad un array (non vuoto) per il quale devo effettuare la chiamata ricorsive read per ogni elemento.
+Resta da vedere se la definizione della struttura degli elementi dell'array e' descritta innestata su child o se deve essere ricavata dalla tabella hash.
+Trovata la giusta posizione del sotto albero, lancio ricorsivamente read ai figli di primo grado di \textit{e}\footnote[1]{Per esaminare i sotto figli di un elemento uso il metodo di Element \textit{getElementsByTagName}. 
+Purtroppo questo metodo ritorna un \textit{NodeList} contentente tutti i nodi figli dell'elemento oggetto di invocazione e non solo quelli al primo livello dunque nel caso di array innestati il programma non eseguirebbe correttamente.
+Dunque prima di lanciare ricorsivamente la read su tutti gli elementi della lista devo prima vedere se sono figli diretti dell'oggetto di invocazione, per fare ciò controllo che l'elemento che voglio analizzare abbia come padre la redice \textit{e}.}.
+\subsection{Gestione sotto oggetti o campi valore atomici}
+Qualora non fosse un array allora e' un oggetto oppure un elemento atomico il diagramma di attivita seguente mostra nel dettaglio le varie fasi:
 %Diagramma attivita' non-array
-
+Il test iniziale controlla se child e' opzionale e se non e' presente nel DOM, in questo caso non devo ovviamente fare niente, in caso contrario vedo se child descrive un valore atomico o un sotto oggetto.
+Nel caso child sia un elemento atomico e non sia presente nel DOM lo si inserirà, prima pero si invocherà il metodo per cercare in child il valore di default (\textit{findDefault()})\footnote[2]{E' consentito secondo le specifiche del linguaggio per descrivere i file di configurazione assegnare un default ad un elemento, ma qualora non fosse specificato nessun valore di default si creera' un elemento con un valore prefissato: 0 nel caso di interi, \textit{true} nel caso di booleani e la stringa vuota nel caso di stringhe.}
 
 \chapter{Conclusioni}
 \chapter{Appendici}
