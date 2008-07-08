@@ -310,7 +310,6 @@ public class ConfigurationManager {
 	/** Avvia la lettura del file di configurazione e il controllo per i 
 	 * rimpiazzamenti.
 	 * @param source DOM sorgente.
-
 	 * @throws MyError 
 	 */
 	public void reader(Document source) throws MyError{
@@ -346,7 +345,6 @@ public class ConfigurationManager {
 	 * @param json Stringa JSON.
 	 * @param outPath Path del file di output.
 	 * @throws MyError 
-	 * @throws Exception 
 	 */
 	public void reader(String json, String outPath) throws MyError {
 		Writer w=new Writer(json);
