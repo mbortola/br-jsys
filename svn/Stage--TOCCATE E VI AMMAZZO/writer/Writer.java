@@ -50,7 +50,6 @@ public class Writer {
 		try {
 			obj=new JSONObject(p);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.exit(1);
 		}

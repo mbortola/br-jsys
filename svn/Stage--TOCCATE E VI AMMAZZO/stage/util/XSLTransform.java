@@ -13,6 +13,10 @@ import javax.xml.transform.stream.StreamSource;
 import org.w3c.dom.Document;
 
 /**Classe che offre soltanto il metodo statico per effettuare trasformate XSL.*/
+/**
+ * @author Administrator
+ *
+ */
 public class XSLTransform {
 
 	/**Metodo statico per la trasformazione con XSL.
@@ -47,6 +51,12 @@ public class XSLTransform {
 		parse(input, output, "prettyprint.xsl");
 	}
 	
+	/**Converte il file XML di input in un XML correttamente identato.
+	 * @param input Path di input.
+	 * @param output Path di output.
+	 * @throws FileNotFoundException
+	 * @throws TransformerException
+	 */
 	public static void prettyPrintDOM(Document input, String output) 
 	throws FileNotFoundException, TransformerException {
 		parseFromDOM(input, output, "prettyprint.xsl");

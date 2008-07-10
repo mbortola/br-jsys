@@ -5,6 +5,9 @@ import org.xmldb.api.base.Collection;
 import org.xmldb.api.base.Database;
 import org.exist.xmldb.DatabaseInstanceManager;
 
+/**Avvia eXist attivando e spegnendo automaticamte il server
+ * Procedure che precedentemente si faceva manualmente.
+ * Esempio preso totalmente dal sito di eXist.*/
 public class TestDB {		
 	public static void main(String args[]) throws Exception {
 		// initialize driver
