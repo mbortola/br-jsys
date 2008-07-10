@@ -1,7 +1,8 @@
-(::)
+(:Gestire l'albero in XQuery e' decisamente piu semplice ragionando da programmatore, 
+purtroppo i tempi di esecuzione nel nostro caso non sono paragonabili a quelli 
+ottenuti facendo la stessa con XSLT:)
 
 declare variable $doc:=doc("1file.xml");
-
 
 declare variable $release:= distinct-values(doc("1file.xml")//Release);
 

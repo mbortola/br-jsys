@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Genera un stringa JSON da un XML di ingresso, alternativa alla conversione fatta tramite soli metodi JAVA -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
 	<xsl:output method="text"/>
 	

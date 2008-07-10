@@ -1,5 +1,6 @@
 (:Progressi:)
 
+(:Creo risorse direttamente da XQuery:)
 declare namespace  xdb="http://exist-db.org/xquery/xmldb";
 
 xdb:register-database('org.exist.xmldb.DatabaseImpl', true()),

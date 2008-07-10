@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Prova della funzionalita di XSLT 2.0 che permette la generazione di funzioni, consentendo di avere parametri di ritorno da esse(cosa che i template non fanno) -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
 	xmlns:str="http://example.com/namespace" exclude-result-prefixes="str">
 	<xsl:output method="xml" indent="yes"/>
