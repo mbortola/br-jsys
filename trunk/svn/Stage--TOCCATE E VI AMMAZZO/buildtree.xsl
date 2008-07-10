@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
 	<xsl:output method="xml" indent="yes"/>
-	<!-- A quanto pare funziona con Saxon9B-->
+
 	<!-- lista delle releases -->
 	<xsl:variable name="release" select="distinct-values(//FIELD[@NAME='Release'])"/>
 	
