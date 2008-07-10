@@ -17,7 +17,6 @@ import org.xml.sax.SAXException;
 
 /**Converte un DOM in un Oggetto JSON
  * @author Michele
- *
  */
 public class XMLReader {
 
@@ -30,7 +29,6 @@ public class XMLReader {
 		File file = new File(path);
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db;
-
 		try {
 			db = dbf.newDocumentBuilder();
 			doc = db.parse(file);
@@ -44,21 +42,6 @@ public class XMLReader {
 			// 
 			e.printStackTrace();
 		}
-
-	}
-
-	public static void main(String argv[]) {
-
-		XMLReader r=new XMLReader("out.xml");
-
-		try {
-			System.out.println(r.parse());
-		} catch (JSONException e) {
-			// 
-			e.printStackTrace();
-			System.exit(1);
-		}
-
 	}
 
 	/**Effettua il parsing.
@@ -83,7 +66,6 @@ public class XMLReader {
 				else if (type.equals("list")) result.put(y.getTagName(), putArray(y));
 				else result.put(y.getTagName(), putValue(y));
 			}
-
 		}
 		return result;
 	}
@@ -100,7 +82,6 @@ public class XMLReader {
 
 		NodeList list = root.getChildNodes();
 		//oggetto vuoto.
-
 		for (int i = 0; i < list.getLength(); i++) {
 			//Solo elementi
 			if (list.item(i).getNodeType()==Node.ELEMENT_NODE) {
@@ -118,7 +99,6 @@ public class XMLReader {
 				else  {result.put(el.getTagName(), putValue(el));}
 			}
 		}
-
 		return result;
 	}
 
@@ -177,5 +157,14 @@ public class XMLReader {
 		return JSONObject.NULL;
 	}
 
+	public static void main(String argv[]) {
+		XMLReader r=new XMLReader("out.xml");
+		try {
+			System.out.println(r.parse());
+		} catch (JSONException e) { 
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
 
 }

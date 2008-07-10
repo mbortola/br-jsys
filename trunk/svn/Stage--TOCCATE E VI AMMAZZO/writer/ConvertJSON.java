@@ -44,20 +44,10 @@ public class ConvertJSON {
 		}
 	}
 
-	/* public ConvertJSON() {
-  ConvertJSON("");
- }*/
 	public ConvertJSON(String cod) {
 		code = cod;
 	}
-	/* public String convert(){
-  JSONObject js= new JSONObject(code);
-//  Iterator i = js.keys();
-  /*while (i.hasNext()){
-   String k = (String)i.next();
-   JSONObject jo = (JSONObject)o;
-  }
- }*/
+
 	public String convertML() {
 		try{
 			JSONObject js= new JSONObject(code);
